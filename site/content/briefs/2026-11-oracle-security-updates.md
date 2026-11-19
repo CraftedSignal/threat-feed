@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-oracle-security-updates
 event_id: brief-2026-11-oracle-security-updates
-revision: 13
-activity_at: "2026-11-19T16:01:37Z"
+revision: 14
+activity_at: "2026-11-19T16:06:14Z"
 revision_history:
   - revision: 2
     at: "2026-11-17T23:49:55Z"
@@ -160,11 +160,25 @@ revision_history:
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-91585
       - https://nvd.nist.gov/vuln/detail/CVE-2026-91618
+  - revision: 14
+    at: "2026-11-19T16:06:14Z"
+    checksum: sha256:a7f0f0f713a046c6fbe369f173af69743da0b9a1dd0cddc9f5cf46b35eda4d78
+    summary: added CVE-2026-114940, CVE-2026-114941
+    changed_fields:
+      - content
+      - cve_verification
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-114940
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-114941
 title: Oracle Security Updates - November 2026
 slug: 2026-11-oracle-security-updates
 description: Roundup of Oracle security advisories published in November 2026.
 date: "2026-11-16T21:54:15Z"
-lastmod: "2026-11-19T15:58:05Z"
+lastmod: "2026-11-19T16:05:57Z"
 type: threat
 types:
   - threat
@@ -431,6 +445,14 @@ cve_verification:
     status: verified
     source: cve_program
     checked_at: 2026-11-19T15:48:49.488250277Z
+  CVE-2026-114940:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T16:05:53.840560224Z
+  CVE-2026-114941:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T16:05:57.615009639Z
   CVE-2026-114952:
     status: verified
     source: cve_program
@@ -836,20 +858,28 @@ cves:
     epss: 0.00288
     kev_status: "false"
   - id: CVE-2026-91618
+    product: Application Development Framework (12.2.1.4.0)
     cvss: 9.1
     epss: 0.00249
     kev_status: "false"
+  - id: CVE-2026-114940
+    product: Java SE (8u511b33, 8u511b33-perf, 11.0.33.0.3, 17.0.21.0.3, 21.0.13.0.3, 25.0.5.0.3, 27.0.1.0.3)
+    cvss: 7.4
+    epss: 0.00318
+    kev_status: "false"
+  - id: CVE-2026-114941
+    cvss: 7
+    epss: 0.00214
+    kev_status: "false"
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-91618
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-114941
 updates:
-  - at: "2026-11-19T15:57:51Z"
+  - at: "2026-11-19T15:57:58Z"
     level: L2
-    summary: added CVE-2026-91569, CVE-2026-91570, CVE-2026-91583
+    summary: added CVE-2026-91583
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-91569
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-91570
       - https://nvd.nist.gov/vuln/detail/CVE-2026-91583
   - at: "2026-11-19T15:58:02Z"
     level: L2
@@ -859,11 +889,19 @@ updates:
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-91585
       - https://nvd.nist.gov/vuln/detail/CVE-2026-91618
+  - at: "2026-11-19T16:05:54Z"
+    level: L2
+    summary: added CVE-2026-114940, CVE-2026-114941
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-114940
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-114941
 ---
 
 ## Overview
 
-This roundup covers 77 Oracle security vulnerabilities. CVSS base scores range from 7.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect APEX, Application Testing Suite, AutoVue, Business Intelligence Enterprise Edition, E-Business Suite, E-Business Suite Integrated SOA Gateway, Fusion Middleware, Hyperion Financial Close Management, Hyperion Financial Data Quality Management, Enterprise Edition, Hyperion Planning, Java SE, MySQL Server, Oracle Access Manager, Oracle Business Intelligence Enterprise Edition, Oracle E-Business Suite, Oracle E-Business Suite Secure Enterprise Search, Oracle E-Business Suite iProcurement, Oracle Financial Services Customer Screening, Oracle Hyperion Infrastructure Technology, Oracle Mobile Field Service, Oracle REST Data Services, PeopleSoft Enterprise PeopleTools, Service Delivery Platform, WebLogic Server, iProcurement.
+This roundup covers 79 Oracle security vulnerabilities. CVSS base scores range from 7.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect APEX, Application Development Framework, Application Testing Suite, AutoVue, Business Intelligence Enterprise Edition, E-Business Suite, E-Business Suite Integrated SOA Gateway, Fusion Middleware, Hyperion Financial Close Management, Hyperion Financial Data Quality Management, Enterprise Edition, Hyperion Planning, Java SE, MySQL Server, Oracle Access Manager, Oracle Business Intelligence Enterprise Edition, Oracle E-Business Suite, Oracle E-Business Suite Secure Enterprise Search, Oracle E-Business Suite iProcurement, Oracle Financial Services Customer Screening, Oracle Hyperion Infrastructure Technology, Oracle Mobile Field Service, Oracle REST Data Services, PeopleSoft Enterprise PeopleTools, Service Delivery Platform, WebLogic Server, iProcurement.
 
 ## Summary
 
@@ -946,6 +984,8 @@ This roundup covers 77 Oracle security vulnerabilities. CVSS base scores range f
 | [CVE-2026-91570](#cve-2026-91570) | WebLogic Server | Critical | 9.8 | 0.29% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91570) (authoritative) |
 | [CVE-2026-91583](#cve-2026-91583) | WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0) | Critical | 9.8 | 0.29% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91583) (authoritative) |
 | [CVE-2026-91585](#cve-2026-91585) | WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0) | Critical | 9.8 | 0.29% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91585) (authoritative) |
+| [CVE-2026-91618](#cve-2026-91618) | Application Development Framework (12.2.1.4.0) | Critical | 9.1 | 0.25% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91618) (authoritative) |
+| [CVE-2026-114940](#cve-2026-114940) | Java SE (8u511b33, 8u511b33-perf, 11.0.33.0.3, 17.0.21.0.3, 21.0.13.0.3, 25.0.5.0.3, 27.0.1.0.3) | High | 7.4 | 0.32% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-114940) (authoritative) |
 
 
 ## By product
@@ -956,6 +996,7 @@ This roundup covers 77 Oracle security vulnerabilities. CVSS base scores range f
 - **Hyperion Financial Close Management**: [CVE-2026-127362](#cve-2026-127362), [CVE-2026-127369](#cve-2026-127369)
 - **Hyperion Financial Data Quality Management, Enterprise Edition**: [CVE-2026-101693](#cve-2026-101693), [CVE-2026-101848](#cve-2026-101848)
 - **Hyperion Planning**: [CVE-2026-114799](#cve-2026-114799), [CVE-2026-114809](#cve-2026-114809), [CVE-2026-115086](#cve-2026-115086), [CVE-2026-115089](#cve-2026-115089)
+- **Java SE**: [CVE-2026-114939](#cve-2026-114939), [CVE-2026-114940](#cve-2026-114940)
 - **Oracle Access Manager**: [CVE-2026-91516](#cve-2026-91516), [CVE-2026-91507](#cve-2026-91507), [CVE-2026-114835](#cve-2026-114835), [CVE-2026-91500](#cve-2026-91500), [CVE-2026-91510](#cve-2026-91510)
 - **Oracle Business Intelligence Enterprise Edition**: [CVE-2026-114813](#cve-2026-114813), [CVE-2026-114784](#cve-2026-114784)
 - **Oracle E-Business Suite**: [CVE-2026-114887](#cve-2026-114887), [CVE-2026-101652](#cve-2026-101652), [CVE-2026-114865](#cve-2026-114865), [CVE-2026-114866](#cve-2026-114866), [CVE-2026-114867](#cve-2026-114867), [CVE-2026-114871](#cve-2026-114871), [CVE-2026-114876](#cve-2026-114876), [CVE-2026-114877](#cve-2026-114877), [CVE-2026-114878](#cve-2026-114878), [CVE-2026-114885](#cve-2026-114885), [CVE-2026-114888](#cve-2026-114888), [CVE-2026-114894](#cve-2026-114894), [CVE-2026-114909](#cve-2026-114909), [CVE-2026-114914](#cve-2026-114914), [CVE-2026-114916](#cve-2026-114916), [CVE-2026-114918](#cve-2026-114918), [CVE-2026-114863](#cve-2026-114863), [CVE-2026-114924](#cve-2026-114924), [CVE-2026-114925](#cve-2026-114925)
@@ -1658,3 +1699,23 @@ Affected products:
 - WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91585
+
+## CVE-2026-91618
+
+Oracle Application Development Framework (ADF) component of Fusion Middleware is vulnerable to an unauthenticated, remote exploit via HTTP. An attacker can achieve unauthorized creation, deletion, or modification of critical data, as well as unauthorized access to all data accessible to the ADF, resulting in a CVSS score of 9.1.
+
+Affected products:
+- Application Development Framework (12.2.1.4.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91618
+
+## CVE-2026-114940
+
+A vulnerability in the Java Secure Socket Extension (JSSE) component of Oracle Java SE and GraalVM allows an unauthenticated, network-adjacent attacker to compromise the integrity and confidentiality of sensitive data. The flaw is exploitable via TLS through APIs or sandboxed Java applications (such as Web Start or Applets) that execute untrusted code. Successful exploitation results in unauthorized creation, deletion, or modification of data.
+
+Affected products:
+- Java SE (8u511b33, 8u511b33-perf, 11.0.33.0.3, 17.0.21.0.3, 21.0.13.0.3, 25.0.5.0.3, 27.0.1.0.3)
+- GraalVM for JDK (17.0.21.0.3, 21.0.13.0.3)
+- GraalVM Enterprise Edition (21.3.20.0.3)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-114940
