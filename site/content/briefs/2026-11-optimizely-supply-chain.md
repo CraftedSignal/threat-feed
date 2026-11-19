@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-17-optimizely-supply-chain
 event_id: brief-2026-11-17-optimizely-supply-chain
-revision: 3
-activity_at: "2026-11-18T17:15:07Z"
+revision: 4
+activity_at: "2026-11-19T16:34:37Z"
 revision_history:
   - revision: 2
     at: "2026-11-18T07:01:58Z"
@@ -41,11 +41,28 @@ revision_history:
       - updates
     source_urls:
       - https://therecord.media/optimizely-malicious-code-customer-sites
-title: 'Optimizely: Malicious JavaScript injection via Web Experimentation platform'
+  - revision: 4
+    at: "2026-11-19T16:34:37Z"
+    checksum: sha256:738a017353bf50268af606546d20c3b82ee1ba4d0f78317310bb754bd472f85b
+    summary: poc_available
+    changed_fields:
+      - affected_products
+      - content
+      - has_poc
+      - iocs
+      - lastmod
+      - references
+      - summary
+      - tags
+      - title
+      - updates
+    source_urls:
+      - https://krebsonsecurity.com/2026/11/attackers-used-optimizely-to-a-b-test-malware-on-top-websites/
+title: 'Optimizely: Malicious JavaScript injection via supply chain attack'
 slug: 2026-11-optimizely-supply-chain
-description: Threat actors exploited a vulnerability in the Optimizely Web Experimentation platform to inject malicious JavaScript into customer-managed websites for payment skimming, credential theft, and delivery of exploit kits.
+description: An unauthorized party exploited a vulnerability in the Optimizely Experimentation platform to inject malicious JavaScript into 178 customer websites, enabling the distribution of a multi-purpose malware kit to visitors.
 date: "2026-11-17T20:54:45Z"
-lastmod: "2026-11-18T17:14:47Z"
+lastmod: "2026-11-19T16:32:42Z"
 type: threat
 types:
   - threat
@@ -64,6 +81,7 @@ source_assessment:
 qa_status:
   verdict: pass
   validation_status: Verified against Sophos X-Ops advisory.
+has_poc: true
 tags:
   - supply-chain
   - web-application
@@ -73,9 +91,12 @@ tags:
   - web
   - web-skimming
   - exploit-kit
+  - web-exploitation
+  - javascript
 vendors:
   - Optimizely
 products:
+  - Optimizely Experimentation
   - Optimizely Web Experimentation
   - Optimizely website personalization platform
   - Web Experimentation
@@ -107,6 +128,10 @@ references:
   - https://arstechnica.com/security/2026/11/malicious-code-delivered-through-optimizely-hits-visitors-to-hundreds-of-sites/
   - https://blog.report-uri.com/worlds-largest-brands-infected-with-malware-via-optimizely/
   - https://therecord.media/optimizely-malicious-code-customer-sites
+  - https://www.sonatype.com/blog/optimizely-attack-shows-why-supply-chain-ownership-matters
+  - https://unit42.paloaltonetworks.com/optimjack-supply-chain-attack/
+  - https://krebsonsecurity.com/2026/11/attackers-used-optimizely-to-a-b-test-malware-on-top-websites/
+  - https://pages.optimizely.com/rs/947-RKE-048/images/Security%20Incident%20Report%20-%20Optimizely%20Web%20Experimentation%20-%20Nov%2017%202026.pdf
 iocs:
   - type: url
     value: https://1688360.cc/card.php
@@ -184,19 +209,25 @@ updates:
       - therecord
     source_urls:
       - https://therecord.media/optimizely-malicious-code-customer-sites
+  - at: "2026-11-19T16:32:42Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - krebs-breaches
+    source_urls:
+      - https://krebsonsecurity.com/2026/11/attackers-used-optimizely-to-a-b-test-malware-on-top-websites/
 ---
 
 ## Overview
-Optimizely confirmed that a vulnerability in its Web Experimentation platform allowed threat actors to inject malicious JavaScript code into customer-managed websites. The injected code was hosted in 'Project JavaScript', a feature where customers add custom code to Optimizely for website personalization. Optimizely stated that the vulnerable path has been blocked, the injected code was removed, and affected customers have been contacted.
+On November 16, 2026, an unauthorized party exploited a vulnerability in the Optimizely Experimentation platform to inject malicious JavaScript into client projects. This supply chain compromise resulted in 178 web destinations inadvertently serving malicious code to visitors. Report URI researcher Scott Helme noted the malicious payload was rebuilt 26 times on November 16, delivering a multi-purpose malware kit capable of stealing payment card data, cookies, screenshots, and swapping cryptocurrency payment addresses. The affected websites also served exploit code targeting known vulnerabilities in older Apple iPhone and iPad devices. 
 
 ## Attack Chain
-1. A vulnerability in the Optimizely Web Experimentation platform enabled the injection of malicious JavaScript into customer sites.
-2. Malicious code was executed in the browsers of users visiting the impacted websites.
-3. The script performed multi-purpose activities, including swapping cryptocurrency wallet addresses, skimming payment card data from forms, and stealing cookies and screenshots.
-4. iOS users were redirected to infrastructure delivering the Coruna and DarkSword exploit kits, which utilize WebKit and kernel vulnerabilities.
+1. An unauthorized party exploited a vulnerability in Optimizely Experimentation to add malicious JavaScript to customer projects.
+2. Impacted websites served the malicious JavaScript to visitors upon page load without requiring user interaction.
+3. The malicious script executed in the browsers of visitors, delivering a multi-purpose malware kit or mobile-specific exploits.
 
 ## Impact
-Researchers identified malicious JavaScript on 178 widely visited websites, including finance, banking, technology, news, airline, and retail sectors. Documented impact includes theft of cryptocurrency, exfiltration of payment card data, and potential compromise of iOS devices. The full scale of stolen credit card numbers, cookies, and screenshots remains unknown.
+At least 178 organizations were affected. Reported impact included the theft of approximately $7,500 in virtual currency and an unknown number of payment card records. 
 
 ## Recommendation
-Optimizely customers are advised to audit their Optimizely 'Project JavaScript' configurations to ensure no unauthorized code persists. Organizations that processed payments via forms during the incident period should initiate forensic investigations to assess potential exposure of payment card data and satisfy compliance requirements.
+Optimizely stated they have fully remediated the vulnerability, including blocking the vulnerable path, deploying a fix, removing injected code, ending active sessions, revoking tokens, and resetting access for affected user accounts. Additional protections were implemented to prevent malicious code delivery in Cloudflare. Websites utilizing third-party JavaScript are encouraged to implement Content Security Policies (CSP) to restrict allowed domains and mitigate the risk of third-party supply chain compromises.

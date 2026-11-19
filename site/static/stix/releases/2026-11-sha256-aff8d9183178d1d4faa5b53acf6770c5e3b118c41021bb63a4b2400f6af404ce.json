@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--670907bf-9bad-5be5-a7b0-fcad94d7827f",
+  "id": "bundle--a12062b0-342c-5c9b-b641-cb76b3bd8a82",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3290,7 +3290,7 @@
       "id": "indicator--0cd79ec2-131c-5623-a8b2-3e6d69b89685",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:54:45.000Z",
-      "modified": "2026-11-18T17:15:07.000Z",
+      "modified": "2026-11-19T16:34:37.000Z",
       "name": "url: https://1688360.cc/hit.php",
       "description": "Exfiltration endpoint for cookies, wallet addresses, and screenshots",
       "pattern": "[url:value = 'https://1688360.cc/hit.php']",
@@ -4583,7 +4583,7 @@
       "id": "indicator--5afb9be1-14c7-5833-b96b-43d770cd7feb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:54:45.000Z",
-      "modified": "2026-11-18T17:15:07.000Z",
+      "modified": "2026-11-19T16:34:37.000Z",
       "name": "domain: 5vobauua3ojpklx.icu",
       "description": "Infrastructure for delivering iOS exploit kit (boot.js)",
       "pattern": "[domain-name:value = '5vobauua3ojpklx.icu']",
@@ -4622,7 +4622,7 @@
       "id": "indicator--5d4168a2-abd1-560d-ba9a-c65922d58f7d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:54:45.000Z",
-      "modified": "2026-11-18T17:15:07.000Z",
+      "modified": "2026-11-19T16:34:37.000Z",
       "name": "domain: eil786npto9u5bq.icu",
       "description": "Infrastructure for delivering iOS exploit kit (boot.js)",
       "pattern": "[domain-name:value = 'eil786npto9u5bq.icu']",
@@ -6046,7 +6046,7 @@
       "id": "indicator--af782061-44f1-573b-bfaa-c103ec98b634",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T23:29:44.000Z",
-      "modified": "2026-11-19T16:30:23.000Z",
+      "modified": "2026-11-19T16:34:37.000Z",
       "name": "url: https://files.xint.io/java4shell",
       "description": "Installer script endpoint for patching JVMs",
       "pattern": "[url:value = 'https://files.xint.io/java4shell']",
@@ -7094,7 +7094,7 @@
       "id": "indicator--f1df6683-9f07-5732-a623-4aecfb18422a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:54:45.000Z",
-      "modified": "2026-11-18T17:15:07.000Z",
+      "modified": "2026-11-19T16:34:37.000Z",
       "name": "url: https://1688360.cc/card.php",
       "description": "Payment card skimming exfiltration endpoint",
       "pattern": "[url:value = 'https://1688360.cc/card.php']",
@@ -7901,7 +7901,7 @@
       "id": "relationship--02608da1-0611-5d64-bdb8-2d87d4bd3881",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T23:29:44.000Z",
-      "modified": "2026-11-19T16:30:23.000Z",
+      "modified": "2026-11-19T16:34:37.000Z",
       "relationship_type": "uses",
       "source_ref": "report--e9ef7bc2-d921-5a0b-b155-6068e2643f92",
       "target_ref": "indicator--af782061-44f1-573b-bfaa-c103ec98b634"
@@ -18450,7 +18450,7 @@
       "id": "relationship--298beede-a9ae-5c6b-9cb7-d663539a00f3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:54:45.000Z",
-      "modified": "2026-11-18T17:15:07.000Z",
+      "modified": "2026-11-19T16:34:37.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c316fb55-0f80-557a-bae0-77046b415d62",
       "target_ref": "indicator--5d4168a2-abd1-560d-ba9a-c65922d58f7d"
@@ -20401,6 +20401,17 @@
       "relationship_type": "uses",
       "source_ref": "report--f86d993c-4996-5338-8a82-2c720d476fb2",
       "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--30eaa204-5847-59ce-812a-c7077a6bb04a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d63a4596-483c-50a3-af0c-5b6d68c9dc8b",
+      "target_ref": "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
     },
     {
       "type": "relationship",
@@ -27415,7 +27426,7 @@
       "id": "relationship--4dac0888-9806-5038-817d-f92215ce443f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:54:45.000Z",
-      "modified": "2026-11-18T17:15:07.000Z",
+      "modified": "2026-11-19T16:34:37.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c316fb55-0f80-557a-bae0-77046b415d62",
       "target_ref": "indicator--f1df6683-9f07-5732-a623-4aecfb18422a"
@@ -31309,7 +31320,7 @@
       "id": "relationship--5cf1b403-3630-544a-b0fa-b0a9b1863411",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:54:45.000Z",
-      "modified": "2026-11-18T17:15:07.000Z",
+      "modified": "2026-11-19T16:34:37.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c316fb55-0f80-557a-bae0-77046b415d62",
       "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
@@ -33091,7 +33102,7 @@
       "id": "relationship--642331ef-94b6-5336-9b9a-4e7139a7d502",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:54:45.000Z",
-      "modified": "2026-11-18T17:15:07.000Z",
+      "modified": "2026-11-19T16:34:37.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c316fb55-0f80-557a-bae0-77046b415d62",
       "target_ref": "indicator--5afb9be1-14c7-5833-b96b-43d770cd7feb"
@@ -47424,7 +47435,7 @@
       "id": "relationship--9d48a699-a303-53c6-9905-6e0c4430f377",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:54:45.000Z",
-      "modified": "2026-11-18T17:15:07.000Z",
+      "modified": "2026-11-19T16:34:37.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c316fb55-0f80-557a-bae0-77046b415d62",
       "target_ref": "indicator--0cd79ec2-131c-5623-a8b2-3e6d69b89685"
@@ -57885,7 +57896,7 @@
       "id": "relationship--c41f02cc-eb2d-50fd-a0b0-9e3891113c64",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:54:45.000Z",
-      "modified": "2026-11-18T17:15:07.000Z",
+      "modified": "2026-11-19T16:34:37.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c316fb55-0f80-557a-bae0-77046b415d62",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -59755,7 +59766,7 @@
       "id": "relationship--cb69cb5a-90c4-5df8-ba9d-f2945e993e4f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:54:45.000Z",
-      "modified": "2026-11-18T17:15:07.000Z",
+      "modified": "2026-11-19T16:34:37.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c316fb55-0f80-557a-bae0-77046b415d62",
       "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
@@ -60672,6 +60683,17 @@
       "relationship_type": "uses",
       "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
       "target_ref": "indicator--bb42b5d6-b16e-5347-a108-f676dbfeff60"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cef8ede4-73a5-5803-8ab0-de9f1c3b6a2a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6c566ee4-ddc7-5935-953a-f8e30bab0450",
+      "target_ref": "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
     },
     {
       "type": "relationship",
@@ -69138,7 +69160,7 @@
       "id": "relationship--f1212aa7-4f02-54d5-8b84-59d8eb6f9b34",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T23:29:44.000Z",
-      "modified": "2026-11-19T16:30:23.000Z",
+      "modified": "2026-11-19T16:34:37.000Z",
       "relationship_type": "uses",
       "source_ref": "report--e9ef7bc2-d921-5a0b-b155-6068e2643f92",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
@@ -105421,7 +105443,7 @@
       "id": "report--41208b2e-d110-5765-be89-d09b8f4e1ec8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T18:11:17.000Z",
-      "modified": "2026-11-19T01:00:23.000Z",
+      "modified": "2026-11-19T16:34:37.000Z",
       "name": "NGINX: HTTP/2 flow-control memory corruption (CVE-2026-123007)",
       "description": "## Overview\nCVE-2026-123007 is an integer underflow vulnerability in the HTTP/2 flow-control mechanism of the ngx_http_v2_module. When NGINX processes specific traffic, the flow control window can exceed the allowed threshold, resulting in a heap out-of-bounds write (CWE-191, CWE-787).\n\n## Impact\nThis is a data plane issue with no control plane exposure. Successful exploitation leads to an NGINX worker segmentation fault (DoS). Code execution is possible if the attacker can bypass or the system has disabled ASLR.\n\n## Affected Products\n- NGINX Plus: Affected versions include 37.1.0 (less than 37.3.0.1), 37.0.0 (less than 37.0.8.1), and R33 (all versions).\n- NGINX Open Source: Affected versions include 1.31.0 (less than 1.31.9), 1.30.0 (less than 1.30.7), and 1.9.5 (all versions).\n\n## Recommendation\nThere is no configuration workaround for the module itself. The only complete remediation is to disable HTTP/2 (e.g., 'http2 off') or to upgrade to fixed releases: 1.30.7 or 1.31.9 for NGINX Open Source. Consult F5 advisory K000163926 for NGINX Plus patching.",
       "published": "2026-11-18T18:11:17.000Z",
@@ -105461,14 +105483,26 @@
         {
           "source_name": "reference",
           "url": "https://sploitus.com/exploit?id=8E76E0E9-3DAA-55DF-B8F7-B419C5240FCE\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/10-year-old-nginx-http2-flaw-lets.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://watchtowr.com/intelligence/nginx-nginx2root-cve-2026-123633-faq/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-18-nginx-http2-memory-corruption-cve-2026-123007",
       "x_craftedsignal_event_id": "brief-2026-11-18-nginx-http2-memory-corruption-cve-2026-123007",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nginx-http2-memory-corruption-cve-2026-123007/",
-      "x_craftedsignal_activity_at": "2026-11-19T01:00:23.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T16:34:37.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -168734,18 +168768,20 @@
       "id": "report--c316fb55-0f80-557a-bae0-77046b415d62",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:54:45.000Z",
-      "modified": "2026-11-18T17:15:07.000Z",
-      "name": "Optimizely: Malicious JavaScript injection via Web Experimentation platform",
-      "description": "## Overview\nOptimizely confirmed that a vulnerability in its Web Experimentation platform allowed threat actors to inject malicious JavaScript code into customer-managed websites. The injected code was hosted in 'Project JavaScript', a feature where customers add custom code to Optimizely for website personalization. Optimizely stated that the vulnerable path has been blocked, the injected code was removed, and affected customers have been contacted.\n\n## Attack Chain\n1. A vulnerability in the Optimizely Web Experimentation platform enabled the injection of malicious JavaScript into customer sites.\n2. Malicious code was executed in the browsers of users visiting the impacted websites.\n3. The script performed multi-purpose activities, including swapping cryptocurrency wallet addresses, skimming payment card data from forms, and stealing cookies and screenshots.\n4. iOS users were redirected to infrastructure delivering the Coruna and DarkSword exploit kits, which utilize WebKit and kernel vulnerabilities.\n\n## Impact\nResearchers identified malicious JavaScript on 178 widely visited websites, including finance, banking, technology, news, airline, and retail sectors. Documented impact includes theft of cryptocurrency, exfiltration of payment card data, and potential compromise of iOS devices. The full scale of stolen credit card numbers, cookies, and screenshots remains unknown.\n\n## Recommendation\nOptimizely customers are advised to audit their Optimizely 'Project JavaScript' configurations to ensure no unauthorized code persists. Organizations that processed payments via forms during the incident period should initiate forensic investigations to assess potential exposure of payment card data and satisfy compliance requirements.",
+      "modified": "2026-11-19T16:34:37.000Z",
+      "name": "Optimizely: Malicious JavaScript injection via supply chain attack",
+      "description": "## Overview\nOn November 16, 2026, an unauthorized party exploited a vulnerability in the Optimizely Experimentation platform to inject malicious JavaScript into client projects. This supply chain compromise resulted in 178 web destinations inadvertently serving malicious code to visitors. Report URI researcher Scott Helme noted the malicious payload was rebuilt 26 times on November 16, delivering a multi-purpose malware kit capable of stealing payment card data, cookies, screenshots, and swapping cryptocurrency payment addresses. The affected websites also served exploit code targeting known vulnerabilities in older Apple iPhone and iPad devices. \n\n## Attack Chain\n1. An unauthorized party exploited a vulnerability in Optimizely Experimentation to add malicious JavaScript to customer projects.\n2. Impacted websites served the malicious JavaScript to visitors upon page load without requiring user interaction.\n3. The malicious script executed in the browsers of visitors, delivering a multi-purpose malware kit or mobile-specific exploits.\n\n## Impact\nAt least 178 organizations were affected. Reported impact included the theft of approximately $7,500 in virtual currency and an unknown number of payment card records. \n\n## Recommendation\nOptimizely stated they have fully remediated the vulnerability, including blocking the vulnerable path, deploying a fix, removing injected code, ending active sessions, revoking tokens, and resetting access for affected user accounts. Additional protections were implemented to prevent malicious code delivery in Cloudflare. Websites utilizing third-party JavaScript are encouraged to implement Content Security Policies (CSP) to restrict allowed domains and mitigate the risk of third-party supply chain compromises.",
       "published": "2026-11-17T20:54:45.000Z",
       "labels": [
         "exploit-kit",
+        "javascript",
         "javascript-injection",
         "js-injection",
         "malware",
         "supply-chain",
         "web",
         "web-application",
+        "web-exploitation",
         "web-skimming"
       ],
       "object_refs": [
@@ -168757,6 +168793,7 @@
         "indicator--5afb9be1-14c7-5833-b96b-43d770cd7feb",
         "indicator--5d4168a2-abd1-560d-ba9a-c65922d58f7d",
         "indicator--f1df6683-9f07-5732-a623-4aecfb18422a",
+        "software--30823a76-eb8a-51c9-9c25-0ccc1aaec5cb",
         "software--5e413d59-1a65-50d0-8b53-2647d8ab4ec7",
         "software--8d2e0a4f-2b23-5c4c-bfe1-0636892c54d4",
         "software--f24246bd-fa03-5280-85b5-76287b4685f7"
@@ -168777,7 +168814,23 @@
         },
         {
           "source_name": "reference",
+          "url": "https://krebsonsecurity.com/2026/11/attackers-used-optimizely-to-a-b-test-malware-on-top-websites/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://pages.optimizely.com/rs/947-RKE-048/images/Security%20Incident%20Report%20-%20Optimizely%20Web%20Experimentation%20-%20Nov%2017%202026.pdf"
+        },
+        {
+          "source_name": "reference",
           "url": "https://therecord.media/optimizely-malicious-code-customer-sites"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://unit42.paloaltonetworks.com/optimjack-supply-chain-attack/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.sonatype.com/blog/optimizely-attack-shows-why-supply-chain-ownership-matters"
         },
         {
           "source_name": "reference",
@@ -168787,9 +168840,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-17-optimizely-supply-chain",
       "x_craftedsignal_event_id": "brief-2026-11-17-optimizely-supply-chain",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-optimizely-supply-chain/",
-      "x_craftedsignal_activity_at": "2026-11-18T17:15:07.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T16:34:37.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -188408,7 +188461,7 @@
       "id": "report--e9ef7bc2-d921-5a0b-b155-6068e2643f92",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T23:29:44.000Z",
-      "modified": "2026-11-19T16:30:23.000Z",
+      "modified": "2026-11-19T16:34:37.000Z",
       "name": "Oracle Java SE: Out-of-Bounds Write via AVX-512 VBMI Base64 Intrinsic (CVE-2026-114938)",
       "description": "## Overview\nCVE-2026-114938 is an out-of-bounds write vulnerability in the Java Virtual Machine (JVM). The flaw specifically impacts the x86_64 AVX-512 VBMI implementation of the Base64 decode intrinsic. When the JIT compiler (C2) optimizes code using this intrinsic, it can trigger memory corruption, potentially leading to arbitrary code execution or service instability. The vulnerability affects multiple Oracle Java distributions, including Java SE and GraalVM. \n\n## Impact\nSuccessful exploitation can result in heap corruption and potentially arbitrary code execution. Because the vulnerability manifests within the JVM runtime, it is independent of the application logic and can be triggered by any remote input processed by affected Base64 decode methods.\n\n## Recommendation\nPrioritize updating affected JDK and JRE installations as soon as official vendor patches are available. For immediate protection, add the JVM startup flag `-XX:-UseBASE64Intrinsics` to your configurations, which disables the vulnerable intrinsic. Alternatively, runtime patching agents may be used to temporarily exclude the vulnerable `java/util/Base64$Decoder.decode0` method from C2 compilation in environments where immediate restarts are not feasible.",
       "published": "2026-11-17T23:29:44.000Z",
@@ -188424,7 +188477,9 @@
         "indicator--af782061-44f1-573b-bfaa-c103ec98b634",
         "software--305d6fab-4974-52df-b7a0-935f47cb1bf1",
         "software--4342a32a-c134-502a-a2aa-113143d5d779",
+        "software--6c566ee4-ddc7-5935-953a-f8e30bab0450",
         "software--715e793d-2f54-5a3a-9ba7-a4bdabbd9875",
+        "software--d63a4596-483c-50a3-af0c-5b6d68c9dc8b",
         "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
       ],
       "external_references": [
@@ -188451,15 +188506,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://www.rapid7.com/blog/post/etr-cve-2026-114938-reported-critical-pre-authentication-remote-code-execution-java-17"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.sonatype.com/blog/critical-openjdk-rce-cve-2026-114938-what-to-know"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-17-cve-2026-114938",
       "x_craftedsignal_event_id": "brief-2026-11-17-cve-2026-114938",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-114938/",
-      "x_craftedsignal_activity_at": "2026-11-19T16:30:23.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T16:34:37.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -202743,6 +202802,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--30823a76-eb8a-51c9-9c25-0ccc1aaec5cb",
+      "name": "Optimizely Experimentation",
+      "vendor": "Optimizely"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--30bf68f5-7d93-5f8a-a856-5404b27b53fa",
       "name": "iOS (16.7)"
     },
@@ -206811,6 +206877,13 @@
       "id": "software--6c3618f4-8edb-5fe6-b29a-accbb38f0953",
       "name": "Linux kernel (all versions prior to fix)",
       "vendor": "Linux"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6c566ee4-ddc7-5935-953a-f8e30bab0450",
+      "name": "Java SE",
+      "vendor": "Oracle"
     },
     {
       "type": "software",
@@ -213962,6 +214035,13 @@
       "id": "software--d6176af5-2b30-5423-af1f-a2620ad687a3",
       "name": "Dinky (\u003c= 1.2.5)",
       "vendor": "DataLinkDC"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d63a4596-483c-50a3-af0c-5b6d68c9dc8b",
+      "name": "GraalVM",
+      "vendor": "Oracle"
     },
     {
       "type": "software",
