@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--23e67185-76ef-54df-8c7b-55d5bbfa3056",
+  "id": "bundle--b2207a78-ccd3-5a4e-8662-56cc8c55571c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11986,6 +11986,17 @@
       "relationship_type": "has",
       "source_ref": "software--da317d7c-c174-5eb0-b9af-4d3c4ba1ae59",
       "target_ref": "vulnerability--93ebbcb4-ae9d-5dfc-97f5-64a78bb3d062"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--106e77da-d43e-5ce5-8ffe-7bf598b27eb3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T22:13:37.000Z",
+      "modified": "2026-11-18T22:13:37.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d8ec8c66-91a4-525e-a14e-a16fd4334347",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -24563,6 +24574,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--44382321-9e4e-5efd-a177-8a9f65505aec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--86209379-cf3e-5de0-9627-bc5d16ad39fc",
+      "target_ref": "vulnerability--f004e9a3-7a2e-531c-bb9e-6ab3fe42423c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--44414e2d-c359-5661-a37c-b1ae021f2556",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T15:51:29.000Z",
@@ -26374,6 +26396,17 @@
       "relationship_type": "has",
       "source_ref": "software--8064d553-fdd8-52f8-8b7b-d47528df8089",
       "target_ref": "vulnerability--363331f9-6312-5d11-b3cb-e06432446a35"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4b285ddf-3feb-5dea-8a24-8b238dc47dae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T22:13:37.000Z",
+      "modified": "2026-11-18T22:13:37.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d8ec8c66-91a4-525e-a14e-a16fd4334347",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -57240,6 +57273,17 @@
       "relationship_type": "uses",
       "source_ref": "report--58fffddf-6bfc-5af6-9931-1297738459f2",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c57110b4-0208-5f80-9542-92c84fb024ed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T22:13:37.000Z",
+      "modified": "2026-11-18T22:13:37.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d8ec8c66-91a4-525e-a14e-a16fd4334347",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -176258,6 +176302,62 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d8ec8c66-91a4-525e-a14e-a16fd4334347",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T22:13:37.000Z",
+      "modified": "2026-11-18T22:13:37.000Z",
+      "name": "Netgate pfSense CE XMLRPC Incorrect Authorization Vulnerability (CVE-2026-92182)",
+      "description": "### Overview\nNetgate pfSense CE versions up to and including 2.8.1 are affected by an incorrect authorization vulnerability (CWE-863) within the XMLRPC endpoint (/xmlrpc.php). The vulnerability exists because the method dispatcher fails to enforce the admin role for sensitive methods, such as 'pfsense.exec_php' and 'pfsense.exec_shell', prior to execution. As the web UI process runs with root privileges, this flaw allows authenticated, low-privileged users to achieve remote code execution (RCE) on the firewall host.\n\n### Attack Chain\nAn attacker requires valid credentials for a local account on the target pfSense CE system to exploit this vulnerability. The attacker authenticates to the XMLRPC endpoint and invokes administrative methods. Because the dispatcher does not verify the admin role, these methods are executed under the context of the root user.\n\n### Impact\nSuccessful exploitation results in root-level code execution on the firewall. This allows an attacker to bypass security controls, intercept network traffic, modify configurations, or maintain persistence on the device.\n\n### Recommendation\nUsers should upgrade to pfSense CE 2.8.2 or apply the patch provided in pfSense-SA-26_22. Interim mitigations include blocking access to /xmlrpc.php from untrusted network segments, restricting XMLRPC access to a management-only VLAN, and rotating credentials for all pfSense accounts.",
+      "published": "2026-11-18T22:13:37.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--86209379-cf3e-5de0-9627-bc5d16ad39fc",
+        "vulnerability--f004e9a3-7a2e-531c-bb9e-6ab3fe42423c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-pfsense-xmlrpc-rce-cve-2026-92182",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-pfsense-xmlrpc-rce-cve-2026-92182/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-92182"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.netgate.com/pfsense/en/latest/security/advisories/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=5650D393-808C-50F7-9273-7E01B2539DDC\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.zerodayinitiative.com/advisories/ZDI-26-960/"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-pfsense-xmlrpc-rce-cve-2026-92182",
+      "x_craftedsignal_event_id": "brief-2026-11-18-pfsense-xmlrpc-rce-cve-2026-92182",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-pfsense-xmlrpc-rce-cve-2026-92182/",
+      "x_craftedsignal_activity_at": "2026-11-18T22:13:37.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.03272,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d8efb87f-f3a5-5c38-bd83-63d33848593c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T07:56:31.000Z",
@@ -267991,6 +268091,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116530",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116530"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f004e9a3-7a2e-531c-bb9e-6ab3fe42423c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-92182",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-92182",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92182"
         }
       ]
     },
