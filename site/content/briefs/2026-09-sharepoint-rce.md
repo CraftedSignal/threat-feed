@@ -1,20 +1,53 @@
 ---
+brief_id: brief-2026-09-sharepoint-rce
+event_id: brief-2026-09-sharepoint-rce
+revision: 2
+activity_at: "2026-11-19T18:13:06Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T18:13:06Z"
+    checksum: sha256:52cf73264f5adaf2d94b7036adda468b2fb5ac766d1bb2b5395efd66fb928443
+    summary: exploited:true; KEV CVE-2026-65660
+    changed_fields:
+      - cpes
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Active Exploitation of Code Injection Vulnerability in Microsoft SharePoint Server
 slug: 2026-09-sharepoint-rce
 description: Authenticated attackers are actively exploiting CVE-2026-65660, a code injection vulnerability in Microsoft SharePoint Server, to execute arbitrary code, with potential for pre-authentication RCE when chained with other flaws.
 date: "2026-09-24T19:51:47Z"
+lastmod: "2026-11-19T18:12:21Z"
 type: threat
 types:
   - threat
 severities:
   - critical
 exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-09-25T00:00:00Z"
+  confidence: high
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: very likely
+qa_status:
+  verdict: pass
 cpes:
+  - cpe:2.3:a:microsoft:sharepoint_server:*:*:*:*:subscription:*:*:*
   - cpe:2.3:a:microsoft:sharepoint_server:2016:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:sharepoint_server:2016:*:*:*:enterprise:*:*:*
   - cpe:2.3:a:microsoft:sharepoint_server:2019:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:sharepoint_server:subscription:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:sharepoint_server:*:*:*:*:subscription:*:*:*
-  - cpe:2.3:a:microsoft:sharepoint_server:2016:*:*:*:enterprise:*:*:*
 tags:
   - vulnerability
   - rce
@@ -23,9 +56,16 @@ tags:
 vendors:
   - Microsoft
 products:
-  - SharePoint Enterprise Server 2016 (< 16.0.5565.1001)
-  - SharePoint Server 2019 (< 16.0.10417.20198)
-  - SharePoint Server Subscription Edition (< 16.0.19725.20522)
+  - SharePoint Enterprise Server 2016
+  - SharePoint Server 2019
+  - SharePoint Server Subscription Edition
+product_versions:
+  - product: SharePoint Enterprise Server 2016
+    range: < 16.0.5565.1001
+  - product: SharePoint Server 2019
+    range: < 16.0.10417.20198
+  - product: SharePoint Server Subscription Edition
+    range: < 16.0.19725.20522
 affected_os:
   - Windows Server
 mitre_ttps:
@@ -38,13 +78,15 @@ mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1505.003
-    technique_name: 'Server Software Component: Web Shell'
+    technique_name: Web Shell
     evidence: Monitor for indicators of compromise and exploitation activity, including... evidence of deserialization attacks, web shell deployment, or malicious process execution
     confidence_band: high
 cves:
   - id: CVE-2026-65660
     cvss: 8.8
     epss: 0.00807
+    kev: true
+    kev_status: "true"
 references:
   - https://cyber.gc.ca/en/alerts-advisories/al26-023-vulnerability-impacting-microsoft-sharepoint-server-cve-2026-65660
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-65660
@@ -79,7 +121,17 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-65660
       evidence: Harden SharePoint deployments by enabling Antimalware Scan Interface (AMSI) integration
+updates:
+  - at: "2026-11-19T18:12:21Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-65660
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 The Canadian Centre for Cyber Security has confirmed active exploitation of CVE-2026-65660, a code injection vulnerability (CWE-94) affecting Microsoft SharePoint Server. The flaw permits an authenticated attacker to achieve arbitrary code execution on vulnerable instances. Crucially, when chained with other SharePoint vulnerabilities, attackers can reach pre-authentication remote code execution (RCE) on servers that allow anonymous access. This poses a severe risk to organizations running legacy or unpatched SharePoint deployments. Microsoft SharePoint Enterprise Server 2016 and Server 2019 reached end-of-life on July 15, 2026, and remain highly susceptible. Defenders must prioritize upgrading to the specified fixed versions to remediate the vulnerability and mitigate the risk of ongoing exploitation.
 

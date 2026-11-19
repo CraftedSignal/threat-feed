@@ -1,14 +1,48 @@
 ---
+brief_id: brief-2026-09-screenconnect-worm
+event_id: brief-2026-09-screenconnect-worm
+revision: 2
+activity_at: "2026-11-19T18:13:06Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T18:13:06Z"
+    checksum: sha256:7106c61374ae33d10a5a4408e3a33a0eef7f603eb7e5d6328592bdd8e2f911a3
+    summary: exploited:true; KEV CVE-2026-84869
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - rules
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Worm-like Campaign Leveraging Modified ScreenConnect Clients
 slug: 2026-09-screenconnect-worm
 description: Threat actors are using social engineering to deploy modified, backdoored ScreenConnect clients that automate multi-stage payload execution and self-propagation across connected remote hosts.
 date: "2026-09-07T11:55:13Z"
-lastmod: "2026-09-12T00:50:00Z"
-type: advisory
+lastmod: "2026-11-19T18:12:21Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-09-11T00:00:00Z"
+  confidence: high
+source_assessment:
+  reliability: B
+  credibility: "2"
+  rating: B2
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Verified against SecurityWeek and ConnectWise reporting.
 cpes:
   - cpe:2.3:a:connectwise:screenconnect:*:*:*:*:*:*:*:*
 tags:
@@ -50,22 +84,11 @@ cves:
   - id: CVE-2026-84869
     cvss: 9.9
     epss: 0.00382
+    kev: true
+    kev_status: "true"
 references:
   - https://www.securityweek.com/modified-screenconnect-clients-used-in-worm-like-campaign/
   - https://www.cve.org/CVERecord?id=CVE-2026-84869
-rules:
-  - title: Detect Suspicious wscript.exe Activity from ScreenConnect
-    description: Detects wscript.exe spawning from ScreenConnect temporary directories, a behavior associated with the reported worm-like campaign.
-    platform: sigma
-    severity: high
-    tactics:
-      - execution
-    techniques:
-      - T1059.005
-    data_sources:
-      - process_creation
-      - windows
-rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
@@ -99,7 +122,16 @@ updates:
       - cisa-kev
     source_urls:
       - https://www.cve.org/CVERecord?id=CVE-2026-84869
+  - at: "2026-11-19T18:12:21Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-84869
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 Since late August 2026, threat actors have been executing a worm-like campaign involving rogue, backdoored ScreenConnect client instances. The attack typically begins with social engineering, where victims are tricked into installing malicious software under the guise of technical support. Once the rogue ScreenConnect instance is active, it immediately initiates a multi-stage execution chain using Windows Script Host to launch VBScript files from the ScreenConnect temporary directory. 
 

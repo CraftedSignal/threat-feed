@@ -1,21 +1,41 @@
 ---
 brief_id: brief-2026-08-suspicious-consent-exe
 event_id: brief-2026-08-suspicious-consent-exe
-revision: 1
-activity_at: "2026-08-07T15:15:10Z"
+revision: 2
+activity_at: "2026-11-19T18:13:06Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T18:13:06Z"
+    checksum: sha256:7c3772b713a9c78b8deafe107440fe406009fbea24aad4ce9f79890cfe5a5565
+    summary: exploited:true; KEV CVE-2024-30051
+    changed_fields:
+      - claim_state
+      - cpes
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Suspicious Child Processes of consent.exe
 slug: 2026-08-suspicious-consent-exe
 description: Detection of unauthorized child process creation by the Windows UAC consent.exe binary, a common indicator of UAC bypass and privilege escalation activity.
 date: "2026-08-07T15:15:10Z"
-lastmod: "2026-10-29T04:52:08Z"
-type: advisory
-claim_state: <nil>
+lastmod: "2026-11-19T18:12:21Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - medium
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2024-05-14T00:00:00Z"
+  confidence: high
 source_assessment:
   reliability: A
   credibility: "5"
@@ -26,7 +46,11 @@ qa_status:
   validation_status: Needs environment validation for false positive tuning.
 cpes:
   - cpe:2.3:o:microsoft:windows_10_1507:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_10_1507:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_1507:*:*:*:*:*:*:x86:*
   - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x86:*
   - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:*:*
@@ -70,7 +94,8 @@ cves:
   - id: CVE-2024-30051
     cvss: 7.8
     epss: 0.05687
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://securelist.com/cve-2024-30051/112618/
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_suspicious_child_process_of_consent_exe.yml
@@ -115,7 +140,16 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DEVIANNTSEC-CVE-2024-30051&utm_source=rss&utm_medium=rss
+  - at: "2026-11-19T18:12:21Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2024-30051
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 The Windows binary consent.exe is responsible for rendering the User Account Control (UAC) elevation dialog. Under normal operating conditions, this process should not spawn any child processes, with the exception of WerFault.exe during rare system crash scenarios. Security researchers and incident responders have identified that the spawning of arbitrary child processes by consent.exe is a reliable indicator of UAC bypass exploits and privilege escalation. Attackers utilize these techniques to achieve elevated privileges without triggering a visible user prompt, effectively bypassing standard Windows security boundaries. This behavior is frequently associated with post-exploitation frameworks targeting Windows environments, particularly in the context of CVE-2024-30051. Detection of this activity is critical for identifying local privilege escalation attempts where attackers attempt to maintain stealth during the elevation phase.
 

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e0611802-1d57-5746-9a67-782869c98cc5",
+  "id": "bundle--d3e734b4-1bad-58bc-ad4c-8dce83207900",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1788,7 +1788,7 @@
       "id": "indicator--5c5f7b70-f0cc-5ae6-ad71-e583da4ecb7e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T14:28:32.000Z",
-      "modified": "2026-09-05T07:52:06.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "name": "ip: 45.142.193.132",
       "description": "C2 server used for data exfiltration and delivery of credential harvesting tools.",
       "pattern": "[ipv4-addr:value = '45.142.193.132']",
@@ -1970,7 +1970,7 @@
       "id": "indicator--eb430418-9631-57a0-8194-775b35aae13a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T14:28:32.000Z",
-      "modified": "2026-09-05T07:52:06.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "name": "ip: 194.180.48.134",
       "description": "C2 server used to deliver Meterpreter Java payloads and establish sessions.",
       "pattern": "[ipv4-addr:value = '194.180.48.134']",
@@ -3138,7 +3138,7 @@
       "id": "relationship--11fb4688-00d9-504a-8ca8-2681fabc6138",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T14:28:32.000Z",
-      "modified": "2026-09-05T07:52:06.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c20fff9c-3341-582c-a47f-5ed42e10db3c",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -4711,7 +4711,7 @@
       "id": "relationship--2f32ec98-3cac-529e-938a-851daf53b635",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T14:28:32.000Z",
-      "modified": "2026-09-05T07:52:06.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c20fff9c-3341-582c-a47f-5ed42e10db3c",
       "target_ref": "indicator--5c5f7b70-f0cc-5ae6-ad71-e583da4ecb7e"
@@ -4825,6 +4825,17 @@
       "relationship_type": "has",
       "source_ref": "software--260de8b8-975f-5366-b2f7-2f4104770620",
       "target_ref": "vulnerability--e9c67438-6396-5ce6-be72-c637fb98b7b3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--317ccd45-94b6-5545-a0a4-8cccfcf12232",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d3e5534f-8165-5476-8206-39159087a214",
+      "target_ref": "vulnerability--2e1d56b1-04f2-5566-ab1e-fd1f06310537"
     },
     {
       "type": "relationship",
@@ -7373,7 +7384,7 @@
       "id": "relationship--606d3fa1-e07f-5ffc-9d27-d56d7f08d78a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T14:28:32.000Z",
-      "modified": "2026-09-05T07:52:06.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c20fff9c-3341-582c-a47f-5ed42e10db3c",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -7549,7 +7560,7 @@
       "id": "relationship--632cccb6-e814-5c97-a180-f97e58d765a9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T18:47:14.000Z",
-      "modified": "2026-08-29T18:47:14.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5e6cf66a-4e49-5607-b639-396ae5328a3f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -7857,7 +7868,7 @@
       "id": "relationship--66fb335a-41a4-5439-9b49-ed94dd0f713d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T12:44:16.000Z",
-      "modified": "2026-08-29T12:44:16.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--68ca1d6d-8016-5c7c-8ceb-7ee4cb7470e1",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
@@ -12312,7 +12323,7 @@
       "id": "relationship--b84eb4f0-1814-57ba-aa4a-b8642f023958",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T14:28:32.000Z",
-      "modified": "2026-09-05T07:52:06.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c20fff9c-3341-582c-a47f-5ed42e10db3c",
       "target_ref": "indicator--eb430418-9631-57a0-8194-775b35aae13a"
@@ -14303,7 +14314,7 @@
       "id": "relationship--dc331dac-696e-5fab-9b07-c040234612a5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T12:44:16.000Z",
-      "modified": "2026-08-29T12:44:16.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--68ca1d6d-8016-5c7c-8ceb-7ee4cb7470e1",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -14468,7 +14479,7 @@
       "id": "relationship--e006704b-f168-528a-9697-cd290c3f563e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T18:47:14.000Z",
-      "modified": "2026-08-29T18:47:14.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5e6cf66a-4e49-5607-b639-396ae5328a3f",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
@@ -24363,7 +24374,7 @@
       "id": "report--5e6cf66a-4e49-5607-b639-396ae5328a3f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T18:47:14.000Z",
-      "modified": "2026-08-29T18:47:14.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "name": "Exploitation of CVE-2018-14847 in MikroTik RouterOS",
       "description": "## Overview\n\nCVE-2018-14847 is a critical vulnerability affecting the Winbox service in MikroTik RouterOS, enabling unauthenticated attackers to perform arbitrary file reads. The vulnerability resides in how the service handles file requests, specifically allowing unauthorized access to the 'user.dat' file, which contains device account credentials. The passwords stored within this file are protected by a weak XOR-based obfuscation using a static key derived from a hardcoded salt. Publicly available exploit scripts automate the entire attack chain, from establishing the Winbox session to extracting and decrypting credentials. This vulnerability impacts MikroTik RouterOS versions up to 6.42. Defenders should prioritize patching, as the presence of functional exploit code significantly lowers the barrier for attackers to gain full administrative control over exposed routing infrastructure.\n\n## Attack Chain\n\n1. The attacker performs network scanning to identify reachable Winbox services on TCP port 8291.\n2. The attacker establishes an initial session with the Winbox service by sending a crafted 'FIRST_PAYLOAD'.\n3. The service responds, and the attacker extracts the session ID from the 38th byte of the response.\n4. The attacker injects the extracted session ID into a 'SECOND_PAYLOAD' at the 19th byte position.\n5. The attacker sends this second payload to request the sensitive file '/flash/rw/store/user.dat'.\n6. The service returns the file content to the attacker, including encrypted user credentials.\n7. The attacker parses the data for 'M2' entries and applies XOR decryption using the MD5 hash of the username concatenated with a hardcoded salt.\n8. The attacker obtains plain-text administrative credentials and gains full access to the router.\n\n## Impact\n\nSuccessful exploitation results in the immediate exposure of all local administrative credentials stored on the router. Given the high-privilege nature of these accounts, attackers can gain complete control of the network device, leading to traffic interception, modification of network configuration, deployment of backdoors, or the utilization of the compromised router as an entry point for further lateral movement within the organization.\n\n## Recommendation\n\nPrioritize patching all internet-facing or internal MikroTik RouterOS devices to the current long-term or stable release versions, specifically ensuring the system is at or above version 6.42.1 (for stable) or 6.40.8 (for long-term). Block external access to TCP port 8291 via perimeter firewalls if Winbox management is not strictly required from remote locations. Use the Sigma rule below to monitor for mass scanning or exploitation attempts targeting the Winbox service.\n",
       "published": "2026-08-29T18:47:14.000Z",
@@ -24394,16 +24405,19 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-08-cve-2018-14847",
       "x_craftedsignal_event_id": "brief-2026-08-cve-2018-14847",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2018-14847/",
-      "x_craftedsignal_activity_at": "2026-08-29T18:47:14.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T18:13:06.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2021-12-01T00:00:00.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9.1,
-      "x_craftedsignal_epss_max": 0.95981,
+      "x_craftedsignal_epss_max": 0.96087,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -25252,7 +25266,7 @@
       "id": "report--68ca1d6d-8016-5c7c-8ceb-7ee4cb7470e1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T12:44:16.000Z",
-      "modified": "2026-08-29T12:44:16.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "name": "Unauthenticated RCE via Server-Side Template Injection in Atlassian Jira",
       "description": "## Overview\n\nCVE-2019-11581 is a critical Server-Side Template Injection (SSTI) vulnerability affecting multiple versions of Atlassian Jira Server. The flaw resides within the `ContactAdministrators.jspa` functionality, which allows unauthenticated users to submit a contact form to administrators. The application insecurely processes the `subject` parameter by passing it to the Velocity templating engine for rendering. An attacker can supply a malicious Velocity template string as the subject, which is then executed by the server, leading to full Remote Code Execution (RCE) with the privileges of the Jira service process. The vulnerability was confirmed via public proof-of-concept exploits that utilize Velocity engine introspection to call `java.lang.Runtime.exec()`. Defenders should prioritize patching, as the vulnerability requires no authentication and provides trivial access to the underlying host.\n\n## Attack Chain\n\n1. Attacker navigates to the public-facing endpoint `/secure/ContactAdministrators.jspa` on a vulnerable Jira Server instance.\n2. Attacker crafts a malicious HTTP POST request targeting the `ContactAdministrators` form.\n3. The `subject` parameter in the request body is populated with a Velocity template payload (e.g., `$i18n.getClass().forName('java.lang.Runtime')...`).\n4. The request is processed by the `JiraWebworkActionDispatcher` and routed to the `ContactAdministrators.doExecute()` method.\n5. The application triggers `EmailBuilder.renderLater()`, which eventually calls `DefaultVelocityTemplatingEngine.render()`.\n6. The Velocity engine parses the malicious `subject` string as a template, invoking the injected Java reflection code.\n7. The system executes the arbitrary command, granting the attacker RCE on the server.\n\n## Impact\n\nSuccessful exploitation results in full server compromise, allowing attackers to execute arbitrary system commands, exfiltrate sensitive Jira data, or use the compromised host as a pivot point in the internal network. The vulnerability impacts Atlassian Jira Server versions below 7.6.14, 7.13.5, 8.0.3, 8.1.2, and 8.2.3.\n\n## Recommendation\n\n1. Immediately upgrade all Atlassian Jira Server instances to the patched versions specified by Atlassian (7.6.14, 7.13.5, 8.0.3, 8.1.2, 8.2.3 or higher).\n2. If immediate patching is not possible, disable the `Contact Administrators Form` functionality via the application properties administration panel.\n3. Deploy the Sigma rules below to monitor web logs for suspicious POST requests containing Velocity template syntax.\n4. Review access logs for non-standard or unexpected POST requests to `/secure/ContactAdministrators.jspa`.\n",
       "published": "2026-08-29T12:44:16.000Z",
@@ -25283,13 +25297,16 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-08-cve-2019-11581-jira-ssti",
       "x_craftedsignal_event_id": "brief-2026-08-cve-2019-11581-jira-ssti",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2019-11581-jira-ssti/",
-      "x_craftedsignal_activity_at": "2026-08-29T12:44:16.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T18:13:06.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2022-03-07T00:00:00.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.84621,
@@ -30595,7 +30612,7 @@
       "id": "report--a24a80a5-e06c-5df6-b584-4ee3ce582c5b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T19:53:12.000Z",
-      "modified": "2026-08-24T21:46:32.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "name": "Active Exploitation of Oracle HTTP Server and WebLogic Server Proxy Plug-in",
       "description": "## Overview\n\nCISA has formally added CVE-2026-21962 to its Known Exploited Vulnerabilities (KEV) Catalog, citing active exploitation. The vulnerability affects Oracle HTTP Server and the Oracle WebLogic Server Proxy Plug-in. It is classified as an improper access control vulnerability. Successful exploitation of this vulnerability in proxy components can allow attackers to bypass security restrictions, potentially leading to unauthorized access to downstream application resources or total control of the affected asset. Given the critical position of proxy and load-balancing components in enterprise architectures, this vulnerability represents a significant risk for lateral movement and unauthorized information disclosure. Organizations are advised to prioritize patching according to Binding Operational Directive (BOD) 26-04 requirements.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated or unauthorized attackers to manipulate requests passing through the Oracle HTTP Server or WebLogic Proxy Plug-in. This can lead to the exposure of sensitive back-end application data, session hijacking, or full remote code execution if combined with other backend weaknesses. The vulnerability is confirmed to be under active exploitation in the wild, necessitating immediate remediation on all internet-facing Oracle infrastructure.\n\n## Recommendation\n\n* Prioritize the application of security patches for CVE-2026-21962 on all internet-facing Oracle HTTP Server and Oracle WebLogic Server instances.\n* Audit web access logs for anomalous request patterns targeting the WebLogic Proxy Plug-in (e.g., suspicious URI manipulation or unexpected headers).\n* Enforce strict access control policies for the management interfaces of Oracle WebLogic environments.\n* Conduct a review of system logs to determine if unauthorized access occurred prior to patch implementation, as outlined in the requirements of BOD 26-04.\n",
       "published": "2026-08-24T19:53:12.000Z",
@@ -30604,6 +30621,7 @@
         "software--3232a370-fc3c-533e-9319-03728d3c7ff1",
         "software--34bde0cf-9af1-519f-85a8-fb376c2cb123",
         "software--4557cdda-ce9d-5361-93f9-44224cbc2c00",
+        "software--d3e5534f-8165-5476-8206-39159087a214",
         "software--f6864e9c-c64f-5ff9-b3d6-7051346fca0f",
         "vulnerability--2e1d56b1-04f2-5566-ab1e-fd1f06310537"
       ],
@@ -30612,6 +30630,10 @@
           "source_name": "craftedsignal",
           "external_id": "brief-2026-08-24-oracle-kev-addition",
           "url": "https://feed.craftedsignal.io/briefs/2026-08-oracle-kev-addition/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/oracle-security-advisory-january-2026-quarterly-rollup-av26-042"
         },
         {
           "source_name": "reference",
@@ -30624,21 +30646,28 @@
         {
           "source_name": "reference",
           "url": "https://www.cve.org/CVERecord?id=CVE-2026-21962"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/cisa-warns-of-exploited-oracle-weblogic-vulnerability/"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-08-24-oracle-kev-addition",
       "x_craftedsignal_event_id": "brief-2026-08-24-oracle-kev-addition",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-oracle-kev-addition/",
-      "x_craftedsignal_activity_at": "2026-08-24T21:46:32.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T18:13:06.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-08-24T00:00:00.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 10,
-      "x_craftedsignal_epss_max": 0.73192,
+      "x_craftedsignal_epss_max": 0.4323,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -33644,7 +33673,7 @@
       "id": "report--c20fff9c-3341-582c-a47f-5ed42e10db3c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T14:28:32.000Z",
-      "modified": "2026-09-05T07:52:06.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "name": "Active Exploitation of PaperCut MF and NG",
       "description": "## Overview\n\nThe Netherlands National Cyber Security Centre (NCSC-NL) has issued an urgent alert regarding the active exploitation of two critical vulnerabilities within PaperCut MF and PaperCut NG print management software. Identified as CVE-2026-82078 and CVE-2026-81578, these flaws enable unauthenticated remote attackers to compromise the print management environment. By bypassing authentication mechanisms, adversaries can gain full control over the application, leading to arbitrary code execution. This level of access provides a significant foothold within an organization's network, increasing the risk of lateral movement, data theft, and operational disruption. Given that exploitation is currently observed in the wild, the NCSC strongly advises organizations to verify their version status against the vendor's security bulletin and apply the provided patches immediately.\n\n## Impact\n\nSuccessful exploitation of these vulnerabilities allows attackers to seize control of the PaperCut environment without valid credentials. This results in the potential for complete system compromise, enabling further unauthorized access to sensitive internal systems and data. The risk of lateral movement from the compromised print server to other network segments represents a high-impact threat to organizational security and business continuity.\n\n## Recommendation\n\n- Identify all instances of PaperCut MF and PaperCut NG within the network and verify if they are running vulnerable versions.\n- Apply the vendor-provided security updates for CVE-2026-82078 and CVE-2026-81578 as a matter of urgency.\n- Perform log analysis on the PaperCut server for anomalous activity, such as unexpected process spawning or unauthorized access attempts, as documented in the official PaperCut security bulletin.\n- If the environment status is unknown, contact IT service providers immediately to facilitate an audit and patching effort.\n",
       "published": "2026-08-28T14:28:32.000Z",
@@ -33685,6 +33714,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://thehackernews.com/2026/09/papercut-attacker-uses-hundreds-of-ai.html"
+        },
+        {
+          "source_name": "reference",
           "url": "https://therecord.media/papercut-warns-of-hackers-using-printer-management-vulnerabilities"
         },
         {
@@ -33715,16 +33748,19 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-08-papercut-vulnerabilities",
       "x_craftedsignal_event_id": "brief-2026-08-papercut-vulnerabilities",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-papercut-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-09-05T07:52:06.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T18:13:06.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-08-31T00:00:00.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.84734,
+      "x_craftedsignal_epss_max": 0.01691,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -42071,6 +42107,13 @@
       "id": "software--d3d83259-673d-54e2-be0b-e8d674c36c01",
       "name": "Archer C20 v6",
       "vendor": "TP-Link"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d3e5534f-8165-5476-8206-39159087a214",
+      "name": "Oracle Weblogic Server Proxy Plug-in",
+      "vendor": "Oracle"
     },
     {
       "type": "software",

@@ -1,20 +1,51 @@
 ---
+brief_id: brief-2026-07-cisco-security-updates
+event_id: brief-2026-07-cisco-security-updates
+revision: 2
+activity_at: "2026-11-19T18:13:06Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T18:13:06Z"
+    checksum: sha256:d75fb98a43b7d8594f538b74a9ba3731899522c7c4c0ea60094f4aea4231aecb
+    summary: exploited:true; KEV CVE-2026-20079; KEV CVE-2026-20316
+    changed_fields:
+      - affected_os
+      - affected_products
+      - affected_vendors
+      - cpes
+      - cves
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Cisco Security Updates — July 2026
 slug: 2026-07-cisco-security-updates
 description: Roundup of Cisco security advisories published in July 2026.
 date: "2026-07-03T13:36:20Z"
-lastmod: "2026-07-30T07:16:28Z"
-type: advisory
+lastmod: "2026-11-19T18:12:21Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-07-29T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:a:cisco:identity_services_engine_passive_identity_connector:*:*:*:*:*:*:*:*
   - cpe:2.3:a:cisco:identity_services_engine_passive_identity_connector:3.3.0:-:*:*:*:*:*:*
-  - cpe:2.3:a:cisco:identity_services_engine_passive_identity_connector:3.3.0:patch1:*:*:*:*:*:*
   - cpe:2.3:a:cisco:identity_services_engine_passive_identity_connector:3.3.0:patch10:*:*:*:*:*:*
   - cpe:2.3:a:cisco:identity_services_engine_passive_identity_connector:3.3.0:patch11:*:*:*:*:*:*
+  - cpe:2.3:a:cisco:identity_services_engine_passive_identity_connector:3.3.0:patch1:*:*:*:*:*:*
   - cpe:2.3:a:cisco:identity_services_engine_passive_identity_connector:3.3.0:patch2:*:*:*:*:*:*
   - cpe:2.3:a:cisco:identity_services_engine_passive_identity_connector:3.3.0:patch3:*:*:*:*:*:*
   - cpe:2.3:a:cisco:identity_services_engine_passive_identity_connector:3.3.0:patch4:*:*:*:*:*:*
@@ -31,226 +62,45 @@ cpes:
   - cpe:2.3:a:cisco:identity_services_engine_passive_identity_connector:3.4.0:patch5:*:*:*:*:*:*
   - cpe:2.3:a:cisco:identity_services_engine_passive_identity_connector:3.4.0:patch6:*:*:*:*:*:*
   - cpe:2.3:a:cisco:secure_firewall_management_center:*:*:*:*:*:*:*:*
-has_poc: true
 tags:
   - roundup
 vendors:
   - Cisco
-  - Splunk
-  - Microsoft
-products:
-  - Cisco devices
-  - Cisco’s Smart Install (SMI) feature
-  - Cisco Smart Install
-  - Cisco Identity Services Engine
-  - Cisco ISE Passive Identity Connector
-  - Cisco RoomOS
-  - RoomOS
-  - Cisco RoomOS Software (RoomOS 10.11.2.2)
-  - Cisco RoomOS Software (RoomOS 10.15.2.2)
-  - Cisco RoomOS Software (RoomOS 11.5.4.6)
-  - Cisco RoomOS Software (RoomOS 11.5.2.4)
-  - Cisco RoomOS Software (RoomOS 10.8.2.5)
-  - Cisco RoomOS Software (RoomOS 10.11.5.2)
-  - Cisco RoomOS Software (RoomOS 10.11.3.0)
-  - Cisco RoomOS Software (RoomOS 10.15.5.3)
-  - Cisco RoomOS Software (RoomOS 10.19.2.2)
-  - Cisco RoomOS Software (RoomOS 11.1.3.1)
-  - Cisco RoomOS Software (RoomOS 10.11.6.0)
-  - Cisco RoomOS Software (RoomOS 10.19.3.0)
-  - Cisco RoomOS Software (RoomOS 10.19.4.2)
-  - Cisco RoomOS Software (RoomOS 10.3.2.4)
-  - Cisco RoomOS Software (RoomOS 10.3.4.0)
-  - Cisco RoomOS Software (RoomOS 10.15.3.0)
-  - Cisco RoomOS Software (RoomOS 11.1.4.1)
-  - Cisco RoomOS Software (RoomOS 11.14.2.3)
-  - Cisco RoomOS Software (RoomOS 11.1.2.4)
-  - Cisco RoomOS Software (RoomOS 10.8.3.1)
-  - Cisco RoomOS Software (RoomOS 11.14.2.1)
-  - Cisco RoomOS Software (RoomOS 10.3.3.0)
-  - Cisco RoomOS Software (RoomOS 10.8.4.0)
-  - Cisco RoomOS Software (RoomOS 10.15.4.1)
-  - Cisco RoomOS Software (RoomOS 10.19.5.6)
-  - Cisco RoomOS Software (RoomOS 10.11.4.1)
-  - Cisco RoomOS Software (RoomOS 11.9.3.1)
-  - Cisco RoomOS Software (RoomOS 11.5.3.3)
-  - Cisco RoomOS Software (RoomOS 10.3.2.0)
-  - Cisco RoomOS Software (RoomOS 11.9.2.4)
-  - Cisco RoomOS Software (RoomOS 11.14.3.0)
-  - Cisco RoomOS Software (RoomOS 11.17.2.2)
-  - Cisco RoomOS Software (RoomOS 11.14.4.0)
-  - Cisco RoomOS Software (RoomOS 10.19 StepUpg)
-  - Cisco RoomOS Software (RoomOS 11.17.3.0)
-  - Cisco RoomOS Software (RoomOS 11.20.2.3)
-  - Cisco RoomOS Software (RoomOS 11.14.5.0)
-  - Cisco RoomOS Software (RoomOS 11.17.4.0)
-  - Cisco RoomOS Software (RoomOS 11.20.3.0
-  - Identity Services Engine (ISE)
-  - Cisco Network Visibility Module
-  - Splunk Enterprise
-  - Splunk Enterprise Security
-  - Splunk Cloud
-  - Windows
-  - Secure Firewall Management Center
-  - Secure Firewall Management Center (FMC)
-  - Secure Firewall Management Center (FMC) Software
-affected_os:
-  - Windows
 cves:
   - id: CVE-2026-20146
     cvss: 5.5
     epss: 0.0034
+    kev_status: unknown
   - id: CVE-2026-20150
     cvss: 8.8
     epss: 0.00222
+    kev_status: unknown
   - id: CVE-2026-20079
     cvss: 10
     epss: 0.387
+    kev: true
+    kev_status: "true"
   - id: CVE-2026-20187
     cvss: 7.5
     epss: 0.00252
+    kev_status: unknown
   - id: CVE-2026-20316
     cvss: 5.3
+    kev: true
+    kev_status: "true"
+  - id: CVE-2026-20156
+    kev_status: unknown
+  - id: CVE-2026-20157
+    kev_status: unknown
 references:
-  - https://www.ncsc.gov.uk/news/uk-and-allies-urge-critical-sectors-to-improve-defences-against-russian-intelligence-targeting
-  - https://www.darkreading.com/endpoint-security/weak-security-fuel-russian-cyberattacks
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-traversal-xNt7wb2Y?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Identity%20Services%20Engine%20Path%20Traversal%20Vulnerability%26vs_k=1
   - https://nvd.nist.gov/vuln/detail/CVE-2026-20150
   - https://nvd.nist.gov/vuln/detail/CVE-2026-20156
   - https://nvd.nist.gov/vuln/detail/CVE-2026-20157
   - https://nvd.nist.gov/vuln/detail/CVE-2026-20187
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2374
-  - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___outbound_connection_to_suspicious_port.yml
-  - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___suspicious_network_connection_from_process_with_no_args.yml
-  - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___suspicious_network_connection_to_ip_lookup_service_api.yml
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-onprem-fmc-authbypass-5JPp45V2?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Management%20Center%20Software%20Authentication%20Bypass%20%20Vulnerability%26vs_k=1
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-fmc-static-cred-BET3Cjh?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Management%20Center%20Software%20Static%20Credential%20Vulnerability%26vs_k=1
-  - https://www.cve.org/CVERecord?id=CVE-2026-20316
-  - https://thehackernews.com/2026/07/cisco-fmc-zero-day-actively-exploited.html
-iocs:
-  - type: url
-    value: https://media.defense.gov/2026/Jul/09/2003959498/-1/-1/1/CSA_IMPROVE_ROUTER_HYGIENE.PDF
-  - type: domain
-    value: nvd.nist.gov
-  - type: url
-    value: https://nvd.nist.gov
-  - type: email
-    value: cve@mitre.org
-  - type: email
-    value: us-cert@us-cert.gov
-  - type: url
-    value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-hardening-roomos-AqNMbEq
-  - type: port
-    value: "4444"
-  - type: port
-    value: "2222"
-  - type: port
-    value: "51820"
-  - type: domain
-    value: api.2ip.ua
-  - type: domain
-    value: api.bigdatacloud.net
-  - type: domain
-    value: api.ipify.org
-  - type: domain
-    value: whatismyipaddress.com
-  - type: domain
-    value: canireachthe.net
-  - type: domain
-    value: checkip.amazonaws.com
-  - type: domain
-    value: checkip.dyndns.org
-  - type: domain
-    value: curlmyip.com
-  - type: domain
-    value: db-ip.com
-  - type: domain
-    value: edns.ip-api.com
-  - type: domain
-    value: eth0.me
-  - type: domain
-    value: freegeoip.app
-  - type: domain
-    value: geoipy.com
-  - type: domain
-    value: getip.pro
-  - type: domain
-    value: icanhazip.com
-  - type: domain
-    value: ident.me
-  - type: domain
-    value: ifconfig.io
-  - type: domain
-    value: ifconfig.me
-  - type: domain
-    value: ip-api.com
-  - type: domain
-    value: ip.360.cn
-  - type: domain
-    value: ip.anysrc.net
-  - type: domain
-    value: ip.taobao.com
-  - type: domain
-    value: ip.tyk.nu
-  - type: domain
-    value: ipaddressworld.com
-  - type: domain
-    value: ipapi.co
-  - type: domain
-    value: ipconfig.io
-  - type: domain
-    value: ipecho.net
-  - type: domain
-    value: ipinfo.io
-  - type: domain
-    value: ipip.net
-  - type: domain
-    value: iplocation.net
-  - type: domain
-    value: ipof.in
-  - type: domain
-    value: ipv6-test.com
-  - type: domain
-    value: ipwho.is
-  - type: domain
-    value: trackip.net
-  - type: domain
-    value: inet-ip.info
-  - type: domain
-    value: jsonip.com
-  - type: domain
-    value: myexternalip.com
-  - type: domain
-    value: seeip.org
-  - type: domain
-    value: wgetip.com
-  - type: domain
-    value: whatismyip.akamai.com
-  - type: domain
-    value: whois.pconline.com.cn
-  - type: domain
-    value: wtfismyip.com
-  - type: domain
-    value: ip.cn
-  - type: url
-    value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-onprem-fmc-authbypass-5JPp45V2
-  - type: url
-    value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-fmc-static-cred-BET3Cjh
-  - type: domain
-    value: /var/tmp/license.tmp
-ioc_counts:
-  domain: 45
-  email: 2
-  port: 3
-  url: 5
 updates:
-  - at: "2026-07-27T18:12:05Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - splunk-escu
-    source_urls:
-      - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___suspicious_network_connection_to_ip_lookup_service_api.yml
   - at: "2026-07-29T15:57:45Z"
     level: L2
     summary: added CVE-2026-20079
@@ -279,7 +129,16 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/07/cisco-fmc-zero-day-actively-exploited.html
+  - at: "2026-11-19T18:12:21Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-20079; KEV CVE-2026-20316
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 Aggregated Cisco security advisories for July 2026. CVEs from this cycle are folded
 into the list below as they are published.

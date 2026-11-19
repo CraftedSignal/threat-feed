@@ -1,13 +1,31 @@
 ---
+brief_id: brief-2026-08-suspicious-redis-activity
+event_id: brief-2026-08-suspicious-redis-activity
+revision: 1
+activity_at: "2026-08-07T15:17:09Z"
 title: Suspicious Redis Server Process Execution
 slug: 2026-08-suspicious-redis-activity
 description: Detection of unauthorized system shell and utility execution originating from Redis server processes indicative of post-exploitation activity or sandbox escapes like CVE-2022-0543.
 date: "2026-08-07T15:17:09Z"
-type: advisory
+lastmod: "2026-11-19T18:12:21Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2022-03-28T00:00:00Z"
+  confidence: high
+source_assessment:
+  reliability: B
+  credibility: "2"
+  rating: B2
+  likelihood: likely
+qa_status:
+  verdict: pass
 cpes:
   - cpe:2.3:a:redis:redis:-:*:*:*:*:*:*:*
 tags:
@@ -18,8 +36,8 @@ tags:
 vendors:
   - Redis
 products:
-  - redis-server
   - redis-sentinel
+  - redis-server
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -31,6 +49,8 @@ cves:
   - id: CVE-2022-0543
     cvss: 10
     epss: 0.99277
+    kev: true
+    kev_status: "true"
 references:
   - https://thesecmaster.com/how-to-fix-cve-2022-0543-a-critical-lua-sandbox-escape-vulnerability-in-redis/
   - https://www.bleepingcomputer.com/news/security/new-p2pinfect-worm-malware-targets-linux-and-windows-redis-servers/
@@ -64,7 +84,17 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2022-0543
       evidence: Source documentation identifies CVE-2022-0543 as a primary exploitation vector for Redis.
+updates:
+  - at: "2026-11-19T18:12:21Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2022-0543
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 This threat brief focuses on the detection of malicious activity involving Redis server and sentinel processes. Attackers target Redis to gain remote code execution, often leveraging vulnerabilities such as the Lua sandbox escape identified in CVE-2022-0543 or through misconfigured instances. Once initial access is achieved, attackers use the Redis process to spawn shell environments or external utility binaries to facilitate further post-exploitation actions. These actions include persistence, privilege escalation, and establishing command-and-control communication. This behavior is highly irregular for legitimate Redis operations and indicates a compromised Linux host requiring immediate investigation.
 

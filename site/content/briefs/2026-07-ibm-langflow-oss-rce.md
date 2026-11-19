@@ -1,14 +1,41 @@
 ---
+brief_id: brief-2026-07-ibm-langflow-oss-rce
+event_id: brief-2026-07-ibm-langflow-oss-rce
+revision: 2
+activity_at: "2026-11-19T18:13:06Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T18:13:06Z"
+    checksum: sha256:af14b1b2bbf45c48a4969ade80ace10677201240b3b0b5a6120315d69123643c
+    summary: exploited:true; KEV CVE-2026-9198
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - ttps
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: IBM Langflow OSS Unauthenticated Remote Code Execution via Chained API Endpoints (CVE-2026-9198)
 slug: 2026-07-ibm-langflow-oss-rce
 description: Unauthenticated attackers can achieve Remote Code Execution (RCE) on default IBM Langflow OSS deployments, versions 1.0.0 through 1.10.0, by chaining access to the `/api/v1/auto_login` endpoint, which mints SUPERUSER tokens, with the `/api/v1/validate/code` endpoint, which executes user-supplied code via `exec()`.
 date: "2026-07-17T18:18:35Z"
-lastmod: "2026-08-06T21:30:11Z"
-type: advisory
+lastmod: "2026-11-19T18:12:21Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-08-04T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:a:langflow:langflow:*:*:*:*:*:*:*:*
 tags:
@@ -19,21 +46,26 @@ tags:
   - web-vulnerability
   - ai-llm
 vendors:
+  - Apache
   - IBM
   - N-able
-  - Apache
 products:
-  - Langflow OSS (1.0.0 - 1.10.0)
-  - Langflow OSS <= 1.10.0
-  - Langflow OSS (1.0.0 – 1.10.0)
   - Langflow
-  - Langflow OSS (< 1.10.1)
+  - Langflow OSS
+  - Langflow OSS (1.0.0 - 1.10.0)
+  - Langflow OSS (1.0.0 - 1.10.3)
+  - Langflow OSS (1.0.0 <= 1.10.3)
+  - Langflow OSS (1.0.0 – 1.10.0)
+  - Langflow OSS <= 1.10.0
   - N-central
   - Tomcat
-  - Langflow OSS (1.0.0 <= 1.10.3)
-  - Langflow OSS (1.0.0 through 1.10.3)
-  - Langflow OSS (1.0.0 - 1.10.3)
-  - Langflow OSS (<= 1.10.3)
+product_versions:
+  - product: Langflow OSS
+    range: 1.0.0 through 1.10.3
+  - product: Langflow OSS
+    range: < 1.10.1
+  - product: Langflow OSS
+    range: <= 1.10.3
 affected_os:
   - Linux
 mitre_ttps:
@@ -47,6 +79,8 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+    subtechnique_id: T1059.006
+    subtechnique_name: Python
     evidence: /api/v1/validate/code (executes user code via exec()) to achieve full RCE
     confidence_band: high
   - tactic_id: TA0004
@@ -59,27 +93,57 @@ cves:
   - id: CVE-2026-9198
     cvss: 9.8
     epss: 0.01886
+    kev: true
+    kev_status: "true"
   - id: CVE-2026-9202
     cvss: 9.8
     epss: 0.00279
+    kev_status: unknown
   - id: CVE-2026-17623
     cvss: 8.8
+    kev_status: unknown
   - id: CVE-2026-17626
     cvss: 8.8
+    kev_status: unknown
   - id: CVE-2026-17630
     cvss: 7.2
+    kev_status: unknown
   - id: CVE-2026-8446
     cvss: 7.5
+    kev_status: unknown
   - id: CVE-2026-9077
     cvss: 8.5
+    kev_status: unknown
   - id: CVE-2026-17632
     cvss: 8.8
+    kev_status: unknown
   - id: CVE-2026-17625
     cvss: 7.2
+    kev_status: unknown
   - id: CVE-2026-17633
     cvss: 8.5
+    kev_status: unknown
   - id: CVE-2026-8182
     cvss: 8.8
+    kev_status: unknown
+  - id: CVE-2026-17624
+    kev_status: unknown
+  - id: CVE-2026-8183
+    kev_status: unknown
+  - id: CVE-2026-8470
+    kev_status: unknown
+  - id: CVE-2026-8478
+    kev_status: unknown
+  - id: CVE-2026-9130
+    kev_status: unknown
+  - id: CVE-2026-9196
+    kev_status: unknown
+  - id: CVE-2026-9201
+    kev_status: unknown
+  - id: CVE-2026-9205
+    kev_status: unknown
+  - id: CVE-2026-10547
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-9198
   - https://www.ibm.com/support/pages/node/7278927
@@ -125,13 +189,6 @@ rules:
       - webserver
 rules_count: 1
 updates:
-  - at: "2026-08-05T19:20:36Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-9130
   - at: "2026-08-05T19:20:38Z"
     level: L2
     summary: added CVE-2026-17623 +7
@@ -160,7 +217,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-10547
+  - at: "2026-11-19T18:12:21Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-9198
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 IBM Langflow OSS, an open-source framework for building and deploying AI/LLM applications, contains a critical vulnerability (CVE-2026-9198) affecting versions 1.0.0 through 1.10.0. This flaw allows unauthenticated attackers to achieve full Remote Code Execution (RCE) on default installations. The exploitation involves a two-step chaining process: first, an attacker leverages the `/api/v1/auto_login` endpoint to obtain SUPERUSER tokens without authentication; second, these tokens are then used to invoke the `/api/v1/validate/code` endpoint, which insecurely executes arbitrary user-provided code using Python's `exec()` function. This vulnerability bypasses authentication, granting an attacker complete control over the compromised Langflow instance and its underlying system, posing a severe risk to data integrity, confidentiality, and system availability.
 

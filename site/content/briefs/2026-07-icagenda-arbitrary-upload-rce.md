@@ -1,15 +1,40 @@
 ---
+brief_id: brief-2026-07-icagenda-arbitrary-upload-rce
+event_id: brief-2026-07-icagenda-arbitrary-upload-rce
+revision: 2
+activity_at: "2026-11-19T18:13:06Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T18:13:06Z"
+    checksum: sha256:e8e0df856ad85737ec40f681db592ab9ec3f49f928fdeeb17270dc8e53cb3d61
+    summary: exploited:true; KEV CVE-2025-32432
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - priority_score
+      - priority_signals
+      - ttps
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: iCagenda Unrestricted File Upload Vulnerability Leading to RCE (CVE-2026-48939)
 slug: 2026-07-icagenda-arbitrary-upload-rce
 description: Attackers are actively exploiting CVE-2026-48939, an unrestricted file upload vulnerability in iCagenda, to upload malicious PHP code and achieve remote code execution on affected web servers.
 date: "2026-07-10T17:16:18Z"
-lastmod: "2026-07-21T18:04:09Z"
+lastmod: "2026-11-19T18:12:21Z"
 type: threat
 types:
   - threat
 severities:
   - critical
 exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-03-20T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:a:craftcms:craft_cms:*:*:*:*:*:*:*:*
 has_poc: true
@@ -21,43 +46,47 @@ tags:
   - file-upload
   - cve
 vendors:
-  - iCagenda
   - Balbooa
-  - JoomliC
-  - Joomla
-  - Sneeit
-  - WPBookit
-  - Gravity Forms
-  - Craft CMS
-  - Ninja Forms
-  - MaxSite
   - Breeze Cache
-  - WavePlayer
-  - MetInfo
-  - JCE
-  - WordPress
+  - Craft CMS
   - Craftcms
-products:
-  - iCagenda
-  - Balbooa Forms
-  - iCagenda < 4.0.8
-  - iCagenda < 3.9.15
-  - Balbooa Forms <= 2.4.0
-  - Joomla
-  - Sneeit Framework
-  - WPBookit
   - Gravity Forms
-  - Craft CMS
+  - iCagenda
+  - JCE
+  - Joomla
+  - JoomliC
+  - MaxSite
+  - MetInfo
   - Ninja Forms
-  - MaxSite CMS
-  - Breeze Cache
+  - Sneeit
   - WavePlayer
-  - MetInfo CMS
-  - Joomla JCE
   - WordPress
-  - Craft CMS (< 3.9.15)
-  - Craft CMS (< 4.14.15)
-  - Craft CMS (< 5.6.17)
+  - WPBookit
+products:
+  - Balbooa Forms
+  - Balbooa Forms <= 2.4.0
+  - Breeze Cache
+  - Craft CMS
+  - Gravity Forms
+  - iCagenda
+  - iCagenda < 3.9.15
+  - iCagenda < 4.0.8
+  - Joomla
+  - Joomla JCE
+  - MaxSite CMS
+  - MetInfo CMS
+  - Ninja Forms
+  - Sneeit Framework
+  - WavePlayer
+  - WordPress
+  - WPBookit
+product_versions:
+  - product: Craft CMS
+    range: < 3.9.15
+  - product: Craft CMS
+    range: < 4.14.15
+  - product: Craft CMS
+    range: < 5.6.17
 affected_os:
   - Linux
 mitre_ttps:
@@ -71,24 +100,36 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+    subtechnique_id: T1059.006
+    subtechnique_name: Python
     evidence: ultimately resulting in PHP code upload and execution.
     confidence_band: high
 cves:
   - id: CVE-2025-7852
     cvss: 9.8
     epss: 0.01217
+    kev_status: unknown
   - id: CVE-2025-32432
     cvss: 10
     epss: 0.99829
+    kev: true
+    kev_status: "true"
   - id: CVE-2026-0740
     cvss: 9.8
     epss: 0.54254
+    kev_status: unknown
   - id: CVE-2026-3844
     cvss: 9.8
     epss: 0.36512
+    kev_status: unknown
   - id: CVE-2025-12057
     cvss: 9.8
     epss: 0.00448
+    kev_status: unknown
+  - id: CVE-2026-48939
+    kev_status: unknown
+  - id: CVE-2026-56291
+    kev_status: unknown
 references:
   - https://www.cve.org/CVERecord?id=CVE-2026-48939
   - https://www.icagenda.com/#download
@@ -153,7 +194,16 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=D24236F7-331C-5472-8852-CB4854D642E5&utm_source=rss&utm_medium=rss
+  - at: "2026-11-19T18:12:21Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2025-32432
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 CVE-2026-48939, an unrestricted upload of file with dangerous type vulnerability in the iCagenda component for Joomla, is being actively exploited in the wild. This critical vulnerability allows remote, unauthenticated attackers to upload arbitrary files, including malicious PHP web shells, through the file attachment feature of the application. Upon successful upload, the attacker can execute the planted PHP code, leading to full remote code execution on the compromised web server. CISA has added CVE-2026-48939 to its Known Exploited Vulnerabilities Catalog, requiring federal agencies to apply mitigations by July 13, 2026. This vulnerability poses a significant risk as it can lead to complete system compromise, data exfiltration, or further network penetration.
 

@@ -1,16 +1,43 @@
 ---
+brief_id: brief-2026-07-siemens-rox-ii-zero-days
+event_id: brief-2026-07-siemens-rox-ii-zero-days
+revision: 2
+activity_at: "2026-11-19T18:13:06Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T18:13:06Z"
+    checksum: sha256:925b44bf9eba9906dc5732d0a5f2d974e3e1c46e3c03916579c145408fb4cb95
+    summary: exploited:true; KEV CVE-2025-14847
+    changed_fields:
+      - cpes
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - ttps
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Three Chained Zero-Days in Siemens ROX II OT Switches Lead to Root Access
 slug: 2026-07-siemens-rox-ii-zero-days
 description: Unit 42 and Siemens collaborated to disclose three critical chained zero-day vulnerabilities (CVE-2025-40948, CVE-2025-40947, CVE-2025-40949) in Siemens ROX II operational technology switches, allowing an attacker to achieve arbitrary file disclosure, privilege escalation to root, and persistent root-level code execution.
 date: "2026-07-17T10:06:00Z"
-lastmod: "2026-08-06T17:31:33Z"
+lastmod: "2026-11-19T18:12:21Z"
 type: threat
 types:
   - threat
 severities:
   - critical
 exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2025-12-29T00:00:00Z"
+  confidence: high
 cpes:
+  - cpe:2.3:a:mongodb:mongodb:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:mongodb:mongodb:*:*:*:*:-:*:*:*
   - cpe:2.3:o:siemens:ruggedcom_rox_mx5000_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:siemens:ruggedcom_rox_mx5000re_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:siemens:ruggedcom_rox_rx1400_firmware:*:*:*:*:*:*:*:*
@@ -22,8 +49,6 @@ cpes:
   - cpe:2.3:o:siemens:ruggedcom_rox_rx1524_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:siemens:ruggedcom_rox_rx1536_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:siemens:ruggedcom_rox_rx5000_firmware:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:mongodb:mongodb:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:mongodb:mongodb:*:*:*:*:-:*:*:*
 has_poc: true
 tags:
   - industrial-control-systems
@@ -35,13 +60,13 @@ tags:
   - siemens
   - vulnerability-exploit
 vendors:
-  - Siemens
   - ABB
   - MongoDB
+  - Siemens
 products:
-  - ROX II OT switches
   - ABB Ability Zenon
   - MongoDB Server
+  - ROX II OT switches
 affected_os:
   - ROX II OS
   - Linux
@@ -50,6 +75,8 @@ mitre_ttps:
     tactic_name: Collection
     technique_id: T1592
     technique_name: Gather Victim Host Information
+    subtechnique_id: T1592.004
+    subtechnique_name: Client Configurations
     evidence: An attacker leverages an insecure configuration of the xz utility, which executes with root privileges, to read any file on the switch’s file system. This vulnerability enables initial reconnaissance that could reveal critical information such as sensitive configuration files, password hashes and private cryptographic keys.
     confidence_band: high
   - tactic_id: TA0004
@@ -62,30 +89,42 @@ mitre_ttps:
     tactic_name: Persistence
     technique_id: T1053
     technique_name: Scheduled Task/Job
+    subtechnique_id: T1053.003
+    subtechnique_name: Cron
     evidence: 'Persistent root code execution (CVE-2025-40949): Following privilege escalation, the final vulnerability is exploited in the switch’s web management task scheduler. Improper input sanitization allows an authenticated attacker to inject malicious commands into the system’s root cron table. This establishes persistent code execution, surviving system reboots and maintaining full control.'
     confidence_band: high
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+    subtechnique_id: T1059.004
+    subtechnique_name: Unix Shell
     evidence: The function fails to sanitize an attacker-controlled payload before inserting it directly into a command executed with root privileges. Exploiting this allows for direct command injection and full root access.
     confidence_band: high
 cves:
   - id: CVE-2025-40948
     cvss: 6.8
     epss: 0.00397
+    kev_status: unknown
   - id: CVE-2025-40947
     cvss: 7.5
     epss: 0.0054
+    kev_status: unknown
   - id: CVE-2025-14847
     cvss: 7.5
     epss: 0.83007
+    kev: true
+    kev_status: "true"
   - id: CVE-2020-7928
     cvss: 6.5
     epss: 0.01412
+    kev_status: unknown
   - id: CVE-2020-7921
     cvss: 4.6
     epss: 0.0066
+    kev_status: unknown
+  - id: CVE-2025-40949
+    kev_status: unknown
 references:
   - https://unit42.paloaltonetworks.com/siemens-rox-ii-zero-day-vulnerabilities/
   - SSA-973901
@@ -140,7 +179,16 @@ updates:
       - cisa
     source_urls:
       - https://www.cisa.gov/news-events/ics-advisories/icsa-26-218-01
+  - at: "2026-11-19T18:12:21Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2025-14847
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 A critical chain of three zero-day vulnerabilities (CVE-2025-40948, CVE-2025-40947, and CVE-2025-40949) has been discovered and detailed by Unit 42 in partnership with Siemens, affecting Siemens ROX II operational technology (OT) switches. Successful exploitation of this chain grants an attacker full privilege escalation and persistent root access on these devices, which are integral components of industrial control networks. The vulnerabilities range from Medium to Critical severity, with CVSS 3.1 scores of 6.8, 7.5, and 9.1 respectively. The attack vector progresses through arbitrary file disclosure via insecure `xz` utility configuration, privilege escalation through command injection in the feature key validation function, and persistent root code execution by injecting malicious commands into the web management task scheduler's cron table. Siemens has released advisories SSA-973901, SSA-078743, and SSA-081142, recommending customers update affected ROX II devices to firmware version V2.17.1.
 

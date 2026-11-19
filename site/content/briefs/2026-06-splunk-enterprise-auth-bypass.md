@@ -1,21 +1,40 @@
 ---
 brief_id: brief-2026-06-splunk-enterprise-auth-bypass
 event_id: brief-2026-06-splunk-enterprise-auth-bypass
-revision: 1
-activity_at: "2026-06-18T16:48:23Z"
+revision: 2
+activity_at: "2026-11-19T18:13:06Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T18:13:06Z"
+    checksum: sha256:a27973825c4288d08e3cbeb5e8634add4942834359f08ba57abd701b352b29b5
+    summary: exploited:true; KEV CVE-2026-20253
+    changed_fields:
+      - claim_state
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: 'CISA KEV: Splunk Enterprise Missing Authentication (CVE-2026-20253)'
 slug: 2026-06-splunk-enterprise-auth-bypass
 description: An unauthenticated attacker can exploit CVE-2026-20253, a missing authentication vulnerability in Splunk Enterprise's PostgreSQL sidecar service, to create or truncate arbitrary files, leading to denial of service or potentially further system compromise.
 date: "2026-06-18T16:48:23Z"
-lastmod: "2026-11-05T22:47:12Z"
-type: advisory
-claim_state: <nil>
+lastmod: "2026-11-19T18:12:21Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-06-18T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:a:splunk:splunk:*:*:*:*:enterprise:*:*:*
 has_poc: true
@@ -32,9 +51,12 @@ tags:
 vendors:
   - Splunk
 products:
-  - Splunk Enterprise (<= 9.4)
-  - Splunk Enterprise (10.2 before 10.2.4)
+  - Splunk Enterprise
   - Splunk Enterprise (10.0 before 10.0.7)
+  - Splunk Enterprise (10.2 before 10.2.4)
+product_versions:
+  - product: Splunk Enterprise
+    range: <= 9.4
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -50,7 +72,8 @@ cves:
   - id: CVE-2026-20253
     cvss: 9.8
     epss: 0.96939
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://www.cve.org/CVERecord?id=CVE-2026-20253
   - https://advisory.splunk.com/advisories/SVD-2026-0603
@@ -103,7 +126,16 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XBLACKASH-CVE-2026-20253&utm_source=rss&utm_medium=rss
+  - at: "2026-11-19T18:12:21Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-20253
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 Splunk Enterprise is affected by CVE-2026-20253, a critical missing authentication vulnerability in its PostgreSQL sidecar service endpoint. This flaw allows an unauthenticated attacker to create or truncate arbitrary files on the underlying system. Published on June 18, 2026, and added to CISA's Known Exploited Vulnerabilities Catalog, this vulnerability poses a significant risk to organizations running vulnerable Splunk Enterprise instances. Exploitation can lead to severe denial of service, data integrity issues, and potentially serve as a stepping stone for further system compromise if critical configuration files or executables are targeted. Defenders must prioritize immediate mitigation to prevent unauthorized file manipulation and potential system instability.
 

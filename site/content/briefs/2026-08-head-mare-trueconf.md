@@ -1,9 +1,28 @@
 ---
+brief_id: brief-2026-08-head-mare-trueconf
+event_id: brief-2026-08-head-mare-trueconf
+revision: 2
+activity_at: "2026-11-19T18:13:06Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T18:13:06Z"
+    checksum: sha256:a1256b1ceb9aaa21c11f60e73ae5349350de975f8a06439bf4f2377701e560c4
+    summary: exploited:true; KEV CVE-2026-72530; KEV CVE-2026-72529
+    changed_fields:
+      - cpes
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - references
+      - rules
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Head Mare APT Exploiting TrueConf Server Vulnerabilities to Deploy PhantomCore and PhantomGraph
 slug: 2026-08-head-mare-trueconf
 description: The Head Mare APT group is exploiting a chain of vulnerabilities in TrueConf Server to achieve remote code execution as SYSTEM and distribute backdoored installer packages to victims.
 date: "2026-08-11T17:45:55Z"
-lastmod: "2026-08-20T19:12:07Z"
+lastmod: "2026-11-19T18:12:21Z"
 type: threat
 types:
   - threat
@@ -11,9 +30,22 @@ severities:
   - high
 actors:
   - Head Mare
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-08-20T00:00:00Z"
+  confidence: high
+source_assessment:
+  reliability: A
+  credibility: "2"
+  rating: A2
+  likelihood: very likely
+qa_status:
+  verdict: pass
 cpes:
-  - cpe:2.3:a:trueconf:trueconf_server:*:*:*:*:*:windows:*:*
   - cpe:2.3:a:trueconf:trueconf_server:*:*:*:*:*:linux_kernel:*:*
+  - cpe:2.3:a:trueconf:trueconf_server:*:*:*:*:*:windows:*:*
 vendors:
   - TrueConf
 products:
@@ -42,25 +74,16 @@ mitre_ttps:
 cves:
   - id: CVE-2026-72529
     cvss: 9.8
+    kev: true
+    kev_status: "true"
   - id: CVE-2026-72530
     cvss: 9
+    kev: true
+    kev_status: "true"
 references:
   - https://securelist.com/tr/head-mare-targets-trueconf-server-with-phantomcore/120988/
   - https://trueconf.com/blog/update/trueconf-server-security-updates-june-2026
   - https://www.cisa.gov/news-events/alerts/2026/08/20/cisa-adds-two-known-exploited-vulnerabilities-catalog
-rules:
-  - title: Detect Suspicious PHP Web Shell Creation in TrueConf
-    description: Detects the creation or modification of the 'locale.php' file within the TrueConf web directory, indicative of web shell placement.
-    platform: sigma
-    severity: high
-    tactics:
-      - persistence
-    techniques:
-      - T1505.003
-    data_sources:
-      - file_event
-      - windows
-rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
@@ -94,7 +117,16 @@ updates:
       - cisa
     source_urls:
       - https://www.cisa.gov/news-events/alerts/2026/08/20/cisa-adds-two-known-exploited-vulnerabilities-catalog
+  - at: "2026-11-19T18:12:21Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-72530; KEV CVE-2026-72529
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 Since July 2026, the Head Mare APT group has been observed exploiting a chain of vulnerabilities in TrueConf Server (versions 5.3.x, 5.4.x, and 5.5.x) to compromise enterprise conferencing infrastructure. The attackers leverage unauthorized access via TCP port 4307 to trigger remote code execution within an isolated environment, subsequently escalating privileges to NT AUTHORITY\SYSTEM. Once local system access is achieved, the threat actors deploy a PHP web shell ('locale.php') to maintain persistence, conduct infrastructure reconnaissance, and perform supply chain attacks by replacing legitimate TrueConf client installers with versions containing the PhantomCore backdoor. The group further deploys a modular backdoor, PhantomGraph, which uses Microsoft OneDrive for command-and-control communications and establishes persistence through malicious Windows services and registry modifications. This campaign targets critical infrastructure sectors, including energy, manufacturing, and IT, across Russia.
 

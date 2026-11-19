@@ -1,13 +1,24 @@
 ---
+brief_id: brief-2026-07-smb-from-internet
+event_id: brief-2026-07-smb-from-internet
+revision: 1
+activity_at: "2026-07-03T15:45:05Z"
 title: SMB (Windows File Sharing) Activity from the Internet
 slug: 2026-07-smb-from-internet
 description: Detection rule identifies inbound Windows file sharing (SMB/CIFS) traffic originating from the Internet to internal hosts, posing a critical initial access risk due to potential exploitation of vulnerabilities like CVE-2017-0144 (EternalBlue).
 date: "2026-07-03T15:45:05Z"
-type: advisory
+lastmod: "2026-11-19T18:12:21Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2022-02-10T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:a:microsoft:server_message_block:1.0:*:*:*:*:*:*:*
   - cpe:2.3:o:siemens:acuson_p300_firmware:13.02:*:*:*:*:*:*:*
@@ -61,12 +72,16 @@ mitre_ttps:
     tactic_name: Persistence
     technique_id: T1547
     technique_name: Boot or Logon Autostart Execution
+    subtechnique_id: T1547.001
+    subtechnique_name: Registry Run Keys / Startup Folder
     evidence: 'Correlate with endpoint telemetry on the destination host: look for process creation events, new services, or lateral movement activity that might indicate exploitation succeeded.'
     confidence_band: med
 cves:
   - id: CVE-2017-0144
     cvss: 8.8
     epss: 0.9923
+    kev: true
+    kev_status: "true"
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2017-0144
   - https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml
@@ -83,7 +98,17 @@ rules:
     data_sources:
       - network_connection
 rules_count: 1
+updates:
+  - at: "2026-11-19T18:12:21Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2017-0144
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 This brief addresses the critical security risk of Windows Server Message Block (SMB) file sharing services being directly exposed to the internet. SMB (operating on TCP ports 139 and 445) is a fundamental component of Windows networking, designed for local network communication. Its direct exposure to the public internet is a severe misconfiguration, creating a primary target for threat actors seeking initial access. This exposure is a direct precondition for exploitation of well-known vulnerabilities, such as MS17-010 (EternalBlue, CVE-2017-0144), which has been leveraged in widespread attacks like WannaCry and NotPetya. The detection focuses on network events where inbound SMB traffic originates from a public IP address destined for a private internal IP, signifying a direct internet connection to an internal SMB service. Organizations must actively prevent this exposure to mitigate significant attack vectors.
 

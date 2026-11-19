@@ -1,9 +1,30 @@
 ---
+brief_id: brief-2026-07-uat-7810-orb-networks
+event_id: brief-2026-07-uat-7810-orb-networks
+revision: 2
+activity_at: "2026-11-19T18:13:06Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T18:13:06Z"
+    checksum: sha256:c04fc36cbabe737974650dadbeacc18204e1ad3a44d7023540d701999517dbb9
+    summary: exploited:true; KEV CVE-2023-25717
+    changed_fields:
+      - cpes
+      - cves
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - priority_score
+      - priority_signals
+      - ttps
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: 'UAT-7810 Expands ORB Networks with New Custom Malware: LONGLEASH, DOGLEASH, and JARLEASH'
 slug: 2026-07-uat-7810-orb-networks
 description: China-nexus APT actor UAT-7810 is actively expanding its LapDogs Operational Relay Box (ORB) network by exploiting N-day vulnerabilities in Ruckus and ASUS routers to deploy new custom malware families including LONGLEASH, DOGLEASH, and JARLEASH, enabling advanced command and control capabilities for secondary threat actors.
 date: "2026-07-07T10:03:15Z"
-lastmod: "2026-07-08T09:32:50Z"
+lastmod: "2026-11-19T18:12:21Z"
 type: threat
 types:
   - threat
@@ -12,25 +33,30 @@ severities:
 actors:
   - UAT-7810
 exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2023-05-12T00:00:00Z"
+  confidence: high
 cpes:
+  - cpe:2.3:a:ruckuswireless:ruckus_wireless_admin:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:commscope:ruckus_smartzone_firmware:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:commscope:ruckus_smartzone_firmware:6.1.0.0.935:*:*:*:*:*:*:*
   - cpe:2.3:o:ruckuswireless:r310_firmware:10.5.1.0.199:*:*:*:*:*:*:*
   - cpe:2.3:o:ruckuswireless:r500_firmware:10.5.1.0.199:*:*:*:*:*:*:*
   - cpe:2.3:o:ruckuswireless:r600_firmware:10.5.1.0.199:*:*:*:*:*:*:*
+  - cpe:2.3:o:ruckuswireless:scg200_firmware:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:ruckuswireless:smartzone_ap:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:ruckuswireless:sz-100_firmware:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:ruckuswireless:sz-300_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:ruckuswireless:t300_firmware:10.5.1.0.199:*:*:*:*:*:*:*
   - cpe:2.3:o:ruckuswireless:t301n_firmware:10.5.1.0.199:*:*:*:*:*:*:*
   - cpe:2.3:o:ruckuswireless:t301s_firmware:10.5.1.0.199:*:*:*:*:*:*:*
-  - cpe:2.3:o:ruckuswireless:scg200_firmware:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:ruckuswireless:sz-100_firmware:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:ruckuswireless:sz-300_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:ruckuswireless:vsz_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:ruckuswireless:zonedirector_1100_firmware:9.10.2.0.130:*:*:*:*:*:*:*
   - cpe:2.3:o:ruckuswireless:zonedirector_1200_firmware:10.2.1.0.218:*:*:*:*:*:*:*
   - cpe:2.3:o:ruckuswireless:zonedirector_3000_firmware:10.2.1.0.218:*:*:*:*:*:*:*
   - cpe:2.3:o:ruckuswireless:zonedirector_5000_firmware:10.0.1.0.151:*:*:*:*:*:*:*
-  - cpe:2.3:a:ruckuswireless:ruckus_wireless_admin:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:ruckuswireless:smartzone_ap:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:commscope:ruckus_smartzone_firmware:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:commscope:ruckus_smartzone_firmware:6.1.0.0.935:*:*:*:*:*:*:*
 has_poc: true
 tags:
   - apt
@@ -42,11 +68,11 @@ tags:
   - linux
   - embedded
 vendors:
-  - Ruckus
   - ASUS
+  - Ruckus
 products:
-  - Ruckus Wireless Routers
   - ASUS AiCloud Routers
+  - Ruckus Wireless Routers
 affected_os:
   - Linux
 mitre_ttps:
@@ -60,6 +86,8 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+    subtechnique_id: T1059.004
+    subtechnique_name: Unix Shell
     evidence: After compromising a networking device, UAT-7810 deploys a shell script
     confidence_band: high
   - tactic_id: TA0011
@@ -72,38 +100,51 @@ mitre_ttps:
     tactic_name: Persistence
     technique_id: T1562
     technique_name: Impair Defenses
+    subtechnique_id: T1562.004
+    subtechnique_name: Disable or Modify System Firewall
     evidence: Adds iptables rules to allow TCP traffic to a specific port, on which DOGLEASH binds and listens.
     confidence_band: high
   - tactic_id: TA0011
     tactic_name: Command and Control
     technique_id: T1071
     technique_name: Application Layer Protocol
+    subtechnique_id: T1071.001
+    subtechnique_name: Web Protocols
     evidence: 'LONGLEASH... setting up the following channels: Reverse shell to C2, Proxy servers for HTTP, DNS, SOCKS, TCP, ICMP, and UDP'
     confidence_band: high
   - tactic_id: TA0011
     tactic_name: Command and Control
     technique_id: T1102
     technique_name: Web Service
+    subtechnique_id: T1102.002
+    subtechnique_name: Bidirectional Communication
     evidence: LONGLEASH also has the capability to act as an intermediate C2 server. It can obtain commands and data from the original C2 and forward to its peers.
     confidence_band: high
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1027
     technique_name: Obfuscated Files or Information
+    subtechnique_id: T1027.002
+    subtechnique_name: Software Packing
     evidence: Any TCP data received is then decoded using a hardcoded password string.
     confidence_band: high
 cves:
   - id: CVE-2020-22653
     cvss: 9.8
     epss: 0.00436
+    kev_status: unknown
   - id: CVE-2020-22658
     cvss: 9.8
     epss: 0.00341
+    kev_status: unknown
   - id: CVE-2023-25717
     cvss: 9.8
     epss: 0.95107
+    kev: true
+    kev_status: "true"
   - id: CVE-2025-2492
     epss: 0.00968
+    kev_status: unknown
 references:
   - https://blog.talosintelligence.com/uat-7810/
   - https://nvd.nist.gov/vuln/detail/CVE-2020-22653
@@ -145,7 +186,16 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/07/china-linked-uat-7810-expands-orb.html
+  - at: "2026-11-19T18:12:21Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2023-25717
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 Cisco Talos has identified that the China-nexus APT actor UAT-7810 continues to evolve its custom malware arsenal and expand its LapDogs Operational Relay Box (ORB) network. Since 2025, UAT-7810 has been observed exploiting N-day vulnerabilities in unpatched Ruckus wireless routers and, more recently in early 2026, ASUS AiCloud routers, to establish persistent footholds. The group has developed new malware families, including LONGLEASH (an advanced version of SHORTLEASH), DOGLEASH (a C-based backdoor for Linux devices), and JARLEASH (a JAVA-based backdoor). These tools enable UAT-7810 to establish robust command and control, proxy traffic, and create a resilient ORB network. This network is then leveraged by secondary China-nexus APT actors, such as UAT-5918, to conduct their own malicious operations against high-value targets, making the affected devices critical infrastructure for broader APT campaigns.
 

@@ -1,13 +1,47 @@
 ---
+brief_id: brief-2026-08-13-fortimanager-bypass
+event_id: brief-2026-08-13-fortimanager-bypass
+revision: 2
+activity_at: "2026-11-19T18:13:06Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T18:13:06Z"
+    checksum: sha256:18e440736f85157dd02d7f0ec7d978cf0e471fb9d93853294a6b50f74379c3cf
+    summary: exploited:true; KEV CVE-2024-47575
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Fortinet FortiManager Security Feature Bypass Vulnerability
 slug: 2026-08-fortimanager-bypass
 description: A remote, unauthenticated attacker can exploit a vulnerability in Fortinet FortiManager to bypass security controls, necessitating immediate monitoring of management interface traffic.
 date: "2026-08-13T12:42:13Z"
-type: advisory
+lastmod: "2026-11-19T18:12:21Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - medium
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2024-10-23T00:00:00Z"
+  confidence: high
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Validated against public BSI advisory
 cpes:
   - cpe:2.3:a:fortinet:fortimanager:*:*:*:*:*:*:*:*
   - cpe:2.3:a:fortinet:fortimanager:7.6.0:*:*:*:*:*:*:*
@@ -19,10 +53,14 @@ products:
 cves:
   - id: CVE-2024-47575
     cvss: 9.8
-    epss: 0.9495
+    epss: 0.94766
+    kev: true
+    kev_status: "true"
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2814
   - https://nvd.nist.gov/vuln/detail/CVE-2024-47575
+  - https://thehackernews.com/2026/10/attackers-exploit-fortios-flaw-to.html
+  - https://www.securityweek.com/exploited-fortinet-bug-linked-to-stealthy-fortigate-implant-in-telecom-hack/
 action_plan:
   priority: immediate_escalation
   owners:
@@ -39,7 +77,17 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2024-47575
       evidence: Public security advisory recommendation
+updates:
+  - at: "2026-11-19T18:12:21Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2024-47575
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 The German Federal Office for Information Security (BSI) has released a security advisory regarding a vulnerability in Fortinet FortiManager. This security feature bypass flaw allows a remote, unauthenticated attacker to circumvent established security measures. Given that FortiManager acts as a centralized management plane for Fortinet environments, this vulnerability carries significant risk for enterprise infrastructure. Defenders should monitor for unauthorized access attempts or anomalous behavior originating from network segments with access to the FortiManager management interface. Organizations using affected versions are urged to consult the official Fortinet PSIRT advisories to identify vulnerable firmware releases and implement necessary updates immediately.
 

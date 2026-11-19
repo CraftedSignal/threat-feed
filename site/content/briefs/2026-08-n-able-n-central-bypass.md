@@ -1,14 +1,48 @@
 ---
+brief_id: brief-2026-08-n-able-n-central-bypass
+event_id: brief-2026-08-n-able-n-central-bypass
+revision: 2
+activity_at: "2026-11-19T18:13:06Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T18:13:06Z"
+    checksum: sha256:eb5dd09ed3ca9459672bbd363755d405f2c59f544a79ceb4aa710cefa5938b23
+    summary: exploited:true; KEV CVE-2026-18577; KEV CVE-2026-18556
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: N-able N-central Authentication Bypass Exploitation
 slug: 2026-08-n-able-n-central-bypass
 description: Threat actors are actively exploiting a patch bypass vulnerability (CVE-2026-18577) in N-able N-central to gain administrative control and establish persistent remote access via Cloudflare tunnels.
 date: "2026-08-03T13:04:50Z"
-lastmod: "2026-08-04T13:43:02Z"
-type: advisory
+lastmod: "2026-11-19T18:12:21Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-08-03T00:00:00Z"
+  confidence: high
+source_assessment:
+  reliability: B
+  credibility: "2"
+  rating: B2
+  likelihood: very likely
+qa_status:
+  verdict: pass
+  validation_status: Source corroborated by vendor and security firm reports.
 has_poc: true
 tags:
   - supply-chain
@@ -16,13 +50,17 @@ tags:
   - cve-2026-18577
   - exploitation
 vendors:
-  - N-able
   - Cloudflare
+  - N-able
 products:
-  - N-central (< 2026.3.1.7)
-  - N-central (< 2026.3 HF1)
-  - N-central (<= 2026.3.1)
   - cloudflared
+  - N-central
+  - N-central (< 2026.3 HF1)
+product_versions:
+  - product: N-central
+    range: < 2026.3.1.7
+  - product: N-central
+    range: <= 2026.3.1
 affected_os:
   - Windows
 mitre_ttps:
@@ -47,8 +85,12 @@ mitre_ttps:
 cves:
   - id: CVE-2026-18577
     epss: 0.01477
+    kev: true
+    kev_status: "true"
   - id: CVE-2026-18556
     epss: 0.0027
+    kev: true
+    kev_status: "true"
 references:
   - https://www.securityweek.com/n-able-patches-vulnerability-exploited-to-hack-n-central-servers/
   - https://thehackernews.com/2026/08/cisa-adds-exploited-n-able-n-central.html
@@ -116,7 +158,16 @@ updates:
       - socprime
     source_urls:
       - https://socprime.com/blog/cve-2026-18577-analysis/
+  - at: "2026-11-19T18:12:21Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-18577; KEV CVE-2026-18556
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 N-able has identified and released patches for CVE-2026-18577, an authentication bypass vulnerability affecting N-central remote monitoring and management (RMM) software versions prior to 2026.3.1.7. This vulnerability functions as a patch bypass for the previously disclosed CVE-2026-18556. Attackers are actively exploiting this flaw in the wild to achieve full administrative access to on-premises and cloud-hosted N-central consoles. Once inside, attackers leverage the platform's legitimate 'Take Control' feature to pivot into managed environments. To maintain persistence after the initial server-level vulnerability is mitigated, actors have been observed registering new services for Cloudflare tunnels on compromised endpoints. This activity presents a critical risk to Managed Service Providers (MSPs) and their downstream clients, as attackers gain the ability to deploy scripts, run discovery utilities, and initiate remote sessions into sensitive internal systems such as domain controllers.
 

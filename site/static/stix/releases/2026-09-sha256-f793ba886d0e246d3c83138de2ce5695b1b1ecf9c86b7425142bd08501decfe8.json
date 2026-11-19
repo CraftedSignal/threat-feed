@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c3917d78-b409-5cb8-8af5-6f84db8e6271",
+  "id": "bundle--caf756fa-a92a-514a-9573-52c39880c850",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1839,6 +1839,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1212",
           "url": "https://attack.mitre.org/techniques/T1212"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--8fc56897-9604-585d-b9ba-92e6c29d47c9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "DNS",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1071.004",
+          "url": "https://attack.mitre.org/techniques/T1071/004"
         }
       ]
     },
@@ -5521,7 +5537,7 @@
       "id": "indicator--ff233359-989e-537e-82d6-f3e4466bea30",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-09T18:47:44.000Z",
-      "modified": "2026-09-10T12:55:02.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "name": "ip: 208.123.119.215",
       "description": "C2 server used for Netcat-based reverse shell by UAT-11823",
       "pattern": "[ipv4-addr:value = '208.123.119.215']",
@@ -5912,7 +5928,7 @@
       "id": "relationship--0207413f-b0c8-57b2-ad9e-45255dae3b04",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-24T19:51:47.000Z",
-      "modified": "2026-09-24T19:51:47.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--6d3ac991-8ebf-5899-a351-b7661a81a467",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -6715,7 +6731,7 @@
       "id": "relationship--066acc01-38c3-597f-946e-36709c248d50",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-17T13:13:30.000Z",
-      "modified": "2026-11-15T17:16:48.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--e118c61c-adb5-5402-aebc-284dce2f95dc",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -6950,6 +6966,17 @@
       "relationship_type": "has",
       "source_ref": "software--d6e3ebd0-1d9c-5a6b-879d-f6e45b8dce7d",
       "target_ref": "vulnerability--f40a73b6-a95a-5cc0-a253-a851f67ab0e9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--07f79a6e-61bd-53e1-aed4-c14df6168812",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8b2acbb5-1982-5b7f-af08-d0fef9475292",
+      "target_ref": "vulnerability--988c025d-e1c8-5d9c-b677-e8a6e06967b6"
     },
     {
       "type": "relationship",
@@ -7929,17 +7956,6 @@
       "relationship_type": "uses",
       "source_ref": "report--0be5cac4-bf63-5250-84c2-ebb8e9a3c6a7",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--0e255b03-c9eb-55c8-a330-a522def92a54",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-09T18:47:44.000Z",
-      "modified": "2026-09-10T12:55:02.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--819f0644-eb21-5a9f-89de-e891d3571317",
-      "target_ref": "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473"
     },
     {
       "type": "relationship",
@@ -9231,6 +9247,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--153e1d1b-af3e-5c00-9bcc-1ff38138154f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-09T18:47:44.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--819f0644-eb21-5a9f-89de-e891d3571317",
+      "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1548c4dd-f0cb-5f02-a98d-93e3230d5910",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-16T21:58:20.000Z",
@@ -9520,7 +9547,7 @@
       "id": "relationship--16a5670f-0e3c-58db-95d5-a078ed317857",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-09T18:47:44.000Z",
-      "modified": "2026-09-10T12:55:02.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--819f0644-eb21-5a9f-89de-e891d3571317",
       "target_ref": "attack-pattern--af8a173c-24c5-549d-93d6-e942357a5af7"
@@ -9938,7 +9965,7 @@
       "id": "relationship--19299405-f855-5bfa-aa33-3a1f13dad3ef",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-07T11:55:13.000Z",
-      "modified": "2026-09-12T00:50:00.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--75c83a9b-572b-5b0b-b82a-a19487835797",
       "target_ref": "attack-pattern--3f9163d1-482c-5aeb-b396-d70a5cf9d27b"
@@ -10686,7 +10713,7 @@
       "id": "relationship--1d0afc57-eccb-5f4d-9ab3-aaa388c6612c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-03T01:48:00.000Z",
-      "modified": "2026-09-03T01:48:00.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--79eede4e-d66a-5d02-b0b4-81b66256b226",
       "target_ref": "attack-pattern--33c66a5c-8ecd-580a-924f-8d2319cde466"
@@ -11981,6 +12008,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--23703f94-d7d9-5c76-9d2c-d618b5a2b03a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--caecc20c-f671-5516-b522-c570e947b6d0",
+      "target_ref": "vulnerability--988c025d-e1c8-5d9c-b677-e8a6e06967b6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--23721663-15e5-582b-927c-7e0fbda961cd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-22T08:34:12.000Z",
@@ -12963,7 +13001,7 @@
       "id": "relationship--2823ea81-1997-52c3-95ba-1d3fb689fb6b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-03T14:54:16.000Z",
-      "modified": "2026-09-03T14:54:16.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--ef21b2a2-b44c-5770-81bc-69096a06d968",
       "target_ref": "attack-pattern--a5bc0f33-ef58-5323-a61c-2016fbebf975"
@@ -13568,7 +13606,7 @@
       "id": "relationship--2b109852-369f-5301-900e-4794b10717b8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-02T12:42:52.000Z",
-      "modified": "2026-09-02T12:42:52.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--088eafce-6cf9-546f-a2db-fdfc099e10b7",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
@@ -13909,7 +13947,7 @@
       "id": "relationship--2c9d2ac6-3ac9-51e0-8f6f-d38bc5a9bce8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-17T13:13:30.000Z",
-      "modified": "2026-11-15T17:16:48.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--e118c61c-adb5-5402-aebc-284dce2f95dc",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -14679,7 +14717,7 @@
       "id": "relationship--2feca8d6-7586-547d-a601-a44dd09418e1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-07T11:55:13.000Z",
-      "modified": "2026-09-12T00:50:00.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--75c83a9b-572b-5b0b-b82a-a19487835797",
       "target_ref": "attack-pattern--9745c399-5419-5ac8-bc8b-7626b3c97937"
@@ -14980,6 +15018,17 @@
       "relationship_type": "uses",
       "source_ref": "report--816d93eb-b395-5062-8c6f-fa51ec3d524b",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--317ee783-e92e-590a-b25c-d10d658eda6f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-09T18:47:44.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--819f0644-eb21-5a9f-89de-e891d3571317",
+      "target_ref": "attack-pattern--de70c912-f2cd-5897-a69b-bd02a5e9fb39"
     },
     {
       "type": "relationship",
@@ -15721,17 +15770,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--354b77aa-4844-57ca-975c-e101880ea542",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-09T18:47:44.000Z",
-      "modified": "2026-09-10T12:55:02.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--819f0644-eb21-5a9f-89de-e891d3571317",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--355104f0-f7d9-5803-b9d4-405cb467edf8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -15823,7 +15861,7 @@
       "id": "relationship--360b0f95-58d6-509b-baf1-6c72a88d92ae",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-07T11:55:13.000Z",
-      "modified": "2026-09-12T00:50:00.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--75c83a9b-572b-5b0b-b82a-a19487835797",
       "target_ref": "attack-pattern--87359d00-b027-5304-90b1-8daf8ca531ed"
@@ -16098,7 +16136,7 @@
       "id": "relationship--37699182-32a7-5cbb-b001-c9fea76f8e28",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-24T19:51:47.000Z",
-      "modified": "2026-09-24T19:51:47.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--6d3ac991-8ebf-5899-a351-b7661a81a467",
       "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
@@ -19043,6 +19081,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--47a253da-e1f9-5dd3-ac17-a7fe237233c2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-09T18:47:44.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--819f0644-eb21-5a9f-89de-e891d3571317",
+      "target_ref": "attack-pattern--8fc56897-9604-585d-b9ba-92e6c29d47c9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--47b42d17-0aaf-5fde-9085-992b2e6b5224",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-07T13:29:32.000Z",
@@ -20762,7 +20811,7 @@
       "id": "relationship--51e96486-38b9-5e42-930d-899b7c2153ef",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-03T14:54:16.000Z",
-      "modified": "2026-09-03T14:54:16.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--ef21b2a2-b44c-5770-81bc-69096a06d968",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -23278,6 +23327,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5f33236f-3ef6-5a2f-8c32-77322efa809c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-09T18:47:44.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--819f0644-eb21-5a9f-89de-e891d3571317",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5f6c7ba4-5523-5cb1-962f-b4932fa3b80d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -24040,7 +24100,7 @@
       "id": "relationship--64476307-56d1-5139-a605-64dbcb101a91",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-21T19:13:25.000Z",
-      "modified": "2026-10-13T06:40:50.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--0fb919ee-c691-570a-b7a0-d57f577d83ad",
       "target_ref": "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876"
@@ -25492,7 +25552,7 @@
       "id": "relationship--6ccebe29-d369-53be-b9ef-cb15a04b56ef",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-03T14:54:16.000Z",
-      "modified": "2026-09-03T14:54:16.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--ef21b2a2-b44c-5770-81bc-69096a06d968",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
@@ -27538,7 +27598,7 @@
       "id": "relationship--780772de-342e-5f00-b103-420044a38d85",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-09T18:47:44.000Z",
-      "modified": "2026-09-10T12:55:02.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--819f0644-eb21-5a9f-89de-e891d3571317",
       "target_ref": "indicator--ff233359-989e-537e-82d6-f3e4466bea30"
@@ -27560,7 +27620,7 @@
       "id": "relationship--782e33d4-6fdf-5042-a82d-323788dba029",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-07T11:55:13.000Z",
-      "modified": "2026-09-12T00:50:00.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--75c83a9b-572b-5b0b-b82a-a19487835797",
       "target_ref": "attack-pattern--a03365ac-fb7d-5f47-ba26-05523ae6a75a"
@@ -30028,6 +30088,17 @@
       "relationship_type": "uses",
       "source_ref": "report--dbb7a85e-7f83-5815-8695-d2fd7e9a05ee",
       "target_ref": "attack-pattern--050d5077-442b-5efa-b26f-551a73b52fb2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--84c10435-8e35-5acf-8cb3-41fbd91218be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--23a35049-6791-5b6e-8a10-d5588716fddf",
+      "target_ref": "vulnerability--f8b060f5-5fd4-57b9-820c-cc5fdc796ccc"
     },
     {
       "type": "relationship",
@@ -33486,6 +33557,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9847e87e-08f8-56e2-994f-b116ee6b0d71",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2033ff4a-f229-502b-b1af-da374abb2be3",
+      "target_ref": "vulnerability--988c025d-e1c8-5d9c-b677-e8a6e06967b6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9852539f-2cc0-5549-ab54-4b5a6d51a89f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-03T13:35:55.000Z",
@@ -34505,17 +34587,6 @@
       "relationship_type": "uses",
       "source_ref": "report--b624d633-8d77-5487-8738-718d3d5339c1",
       "target_ref": "attack-pattern--df700e48-7d2c-59e3-b11f-85d870ac4a51"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--9dfc15ca-0ff2-579f-9919-3d39d85bd2b7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-09T18:47:44.000Z",
-      "modified": "2026-09-10T12:55:02.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--819f0644-eb21-5a9f-89de-e891d3571317",
-      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
     },
     {
       "type": "relationship",
@@ -38806,6 +38877,17 @@
       "relationship_type": "uses",
       "source_ref": "report--3b0e25ff-b721-5fc9-8f32-6f6e72503db0",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b4c63e52-61ec-5c65-8c4d-2e5569366b8d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--23a35049-6791-5b6e-8a10-d5588716fddf",
+      "target_ref": "vulnerability--c501159e-15a7-5363-abec-f6ba179a9378"
     },
     {
       "type": "relationship",
@@ -43642,7 +43724,7 @@
       "id": "relationship--d0143322-fd74-518b-a6f5-7807ab28626c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-21T19:13:25.000Z",
-      "modified": "2026-10-13T06:40:50.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--0fb919ee-c691-570a-b7a0-d57f577d83ad",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -45831,7 +45913,7 @@
       "id": "relationship--da1216b5-c204-562b-a799-58a487156c76",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-13T18:04:26.000Z",
-      "modified": "2026-09-13T18:04:26.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--559aaaa9-d124-5d73-8653-7914da8dfcd8",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -46117,7 +46199,7 @@
       "id": "relationship--db9b44f3-bc96-5483-a936-59fd22d88359",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-02T12:42:52.000Z",
-      "modified": "2026-09-02T12:42:52.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--088eafce-6cf9-546f-a2db-fdfc099e10b7",
       "target_ref": "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839"
@@ -48182,17 +48264,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e6244436-c9f1-5ae7-af4b-81035db0eed8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-09T18:47:44.000Z",
-      "modified": "2026-09-10T12:55:02.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--819f0644-eb21-5a9f-89de-e891d3571317",
-      "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e637fef8-c762-55f6-819f-7d20b8dab4d3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -49065,7 +49136,7 @@
       "id": "relationship--e9c6c6f5-4aa3-59af-926b-239966e02186",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-21T19:13:25.000Z",
-      "modified": "2026-10-13T06:40:50.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--0fb919ee-c691-570a-b7a0-d57f577d83ad",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
@@ -53047,7 +53118,7 @@
       "id": "relationship--ff5c7ed9-ef69-58cf-b30b-d20e662c482c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-03T01:48:00.000Z",
-      "modified": "2026-09-03T01:48:00.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--79eede4e-d66a-5d02-b0b4-81b66256b226",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -53135,7 +53206,7 @@
       "id": "relationship--ffdf30c3-cc1a-56a1-9ed4-a2c11aca53b2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-13T18:04:26.000Z",
-      "modified": "2026-09-13T18:04:26.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "relationship_type": "uses",
       "source_ref": "report--559aaaa9-d124-5d73-8653-7914da8dfcd8",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
@@ -55530,7 +55601,7 @@
       "id": "report--088eafce-6cf9-546f-a2db-fdfc099e10b7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-02T12:42:52.000Z",
-      "modified": "2026-09-02T12:42:52.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "name": "Authentication Bypass in GNU Inetutils Telnet Daemon (CVE-2026-24061)",
       "description": "## Overview\n\nCVE-2026-24061 is a critical authentication bypass vulnerability affecting the Telnet daemon (telnetd) included in GNU Inetutils versions 2.7 and earlier. An attacker can exploit this flaw by supplying a specially crafted command-line argument, specifically providing a malicious string such as \"-f root\" within the USER parameter during the connection initiation process. This vulnerability is particularly impactful on systems like Ubuntu 24.04, where the telnetd process improperly handles user-provided arguments, leading to an unauthenticated session being upgraded to root privileges. Given the ease of exploitation, which requires no authentication and minimal complexity, this vulnerability poses a high risk to any exposed legacy Telnet services. Defenders should treat this as a priority, given that functional proof-of-concept code is publicly available, enabling trivial remote code execution with administrative authority on affected Linux systems.\n\n## Attack Chain\n\n1. Attacker identifies a network-accessible host running a vulnerable version of the GNU Inetutils Telnet daemon.\n2. Attacker prepares the exploit by formatting the client-side connection request with a malicious USER parameter.\n3. Attacker executes the connection request: `USER=\"-f root\" telnet -a \u0026lt;target_ip\u003e`.\n4. The remote telnetd service accepts the connection and processes the crafted USER parameter during the authentication handshake.\n5. The service fails to validate the parameter, inadvertently executing the login process as the 'root' user.\n6. The session is established, providing the attacker with an interactive terminal with root-level permissions.\n7. Attacker proceeds to execute arbitrary commands, exfiltrate data, or install persistent backdoors on the compromised host.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-24061 results in full system compromise. An unauthenticated remote attacker gains administrative control over the affected machine. This can lead to total loss of confidentiality, integrity, and availability, including data theft, malware deployment, and service disruption. The risk is significant for any environment utilizing Telnet for legacy management, as documented exploitation has been observed against Ubuntu 24.04 environments.\n\n## Recommendation\n\n* Immediately audit network perimeter and internal infrastructure to identify and decommission any active Telnet services.\n* If Telnet is strictly required, ensure the Telnet daemon is updated to a patched version beyond GNU Inetutils 2.7.\n* Deploy network-based intrusion detection signatures to monitor for connection attempts containing the string \"-f\" or similar patterns in the initial telnet handshake parameters.\n* Implement strict firewall rules to restrict access to TCP port 23 to only authorized management workstations.\n* Use the Sigma rule provided below to monitor for suspicious process execution patterns related to telnet clients being used for exploitation.\n",
       "published": "2026-09-02T12:42:52.000Z",
@@ -55562,16 +55633,19 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-09-cve-2026-24061-telnetd-auth-bypass",
       "x_craftedsignal_event_id": "brief-2026-09-cve-2026-24061-telnetd-auth-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-cve-2026-24061-telnetd-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-09-02T12:42:52.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T18:13:06.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-01-26T00:00:00.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.98984,
+      "x_craftedsignal_epss_max": 0.97878,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -55839,7 +55913,7 @@
         "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.05305,
+      "x_craftedsignal_epss_max": 0.81894,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -58310,7 +58384,7 @@
       "id": "report--0fb919ee-c691-570a-b7a0-d57f577d83ad",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-21T19:13:25.000Z",
-      "modified": "2026-10-13T06:40:50.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "name": "CrushFTP Authentication Bypass Exploitation",
       "description": "## Overview\n\nCVE-2025-31161 is a critical authentication bypass vulnerability in CrushFTP that allows unauthenticated remote attackers to gain unauthorized access to the application. Once the authentication mechanism is bypassed, attackers perform post-exploitation activities by executing system-level commands through the application's interface. Observed malicious activity includes the invocation of binaries like 'mesch.exe' or specific command arguments such as 'b64exec', 'fullinstall', or 'run'. This vulnerability has been actively exploited in the wild and linked to the Hellcat ransomware campaign. Defenders should monitor CrushFTP server logs for evidence of these specific command patterns, as they signify successful unauthorized access and subsequent execution of attacker-controlled code on the underlying host.\n\n## Attack Chain\n\n1. Attacker sends a specially crafted HTTP request to the CrushFTP server to bypass authentication (CVE-2025-31161).\n2. The application processes the request, allowing the attacker to reach restricted administrative or system-level endpoints.\n3. Attacker uses the established session to execute arbitrary commands through the CrushFTP command interface.\n4. Command execution triggers the launch of 'mesch.exe' or executes arguments like 'b64exec' or 'fullinstall'.\n5. The server process spawns the requested commands, which may include further script execution or malware deployment.\n6. Attacker gains persistence or performs reconnaissance on the system.\n7. Attacker proceeds to stage and execute the final payload, such as Hellcat ransomware, for exfiltration and extortion.\n\n## Impact\n\nSuccessful exploitation allows remote attackers to bypass authentication and execute code with the privileges of the CrushFTP service. This can lead to total system compromise, data theft, and the deployment of ransomware. The vulnerability has been explicitly linked to Hellcat ransomware campaigns, which target organizations using CrushFTP for file transfer services.\n\n## Recommendation\n\n1. Patch CrushFTP immediately by upgrading to the version that remediates CVE-2025-31161.\n2. Enable ingestion of CrushFTP logs into your SIEM and deploy the detection rules below to identify exploitation attempts.\n3. Review all CrushFTP server activity for the command patterns 'mesch.exe', 'b64exec', 'fullinstall', or 'run' in process or execution logs.\n4. Isolate internet-facing CrushFTP servers or apply strict access controls to limit exposure to these services.\n5. Investigate any instances where unauthorized users or suspicious IPs are observed executing system commands via the CrushFTP interface.\n",
       "published": "2026-09-21T19:13:25.000Z",
@@ -58354,16 +58428,19 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-09-crushftp-auth-bypass",
       "x_craftedsignal_event_id": "brief-2026-09-crushftp-auth-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-crushftp-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-10-13T06:40:50.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T18:13:06.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2025-04-07T00:00:00.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.99969,
+      "x_craftedsignal_epss_max": 0.99966,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -77743,7 +77820,7 @@
       "id": "report--559aaaa9-d124-5d73-8653-7914da8dfcd8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-13T18:04:26.000Z",
-      "modified": "2026-09-13T18:04:26.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "name": "Exploitation of CVE-2021-38647 (OMIGOD) in Open Management Infrastructure",
       "description": "## Overview\n\nCVE-2021-38647, commonly referred to as OMIGOD, is a critical authentication bypass vulnerability within the Open Management Infrastructure (OMI) framework. OMI is an open-source management interface frequently deployed across Microsoft Azure services. The vulnerability manifests due to improper validation of the Authorization header in incoming requests. Remote, unauthenticated attackers can exploit this flaw by sending specifically crafted SOAP requests to the OMI management service, which runs on ports 1270, 5985, or 5986. By omitting the Authorization header entirely, an attacker can invoke administrative methods, most notably the ExecuteScript method, to achieve remote code execution with root privileges on the target system. The recent surfacing of functional proof-of-concept code on public platforms increases the risk to unpatched infrastructure globally. Given the widespread integration of OMI in Azure management components, defenders must prioritize identifying and patching instances where this framework is active.\n\n## Attack Chain\n\n1. Attacker performs reconnaissance to identify systems running the OMI management service, typically listening on TCP ports 1270, 5985, or 5986.\n2. Attacker crafts a malicious SOAP request targeted at the /wsman endpoint, specifically designed to invoke the ExecuteScript method within the SCX_OperatingSystem namespace.\n3. Attacker omits the mandatory Authorization header from the HTTP request, exploiting the flawed logic in the OMI authentication handler.\n4. The OMI service receives the request and, due to the missing header, erroneously processes the request as if it were authenticated by a trusted user.\n5. The OMI service passes the provided Script argument, often Base64 encoded, to the underlying operating system for execution.\n6. The shell script executes with high-level privileges (root) on the target host.\n7. Attacker receives the output of the executed commands via the HTTP response body from the OMI service, confirming successful exploitation.\n\n## Impact\n\nSuccessful exploitation of CVE-2021-38647 grants an attacker full remote code execution capabilities with root privileges. This impact extends across several critical Microsoft Azure services, including Azure Automation State Configuration, Azure Automation Update Management, Azure Diagnostics, and Azure Security Center. Compromise allows for total system takeover, data exfiltration, and the ability to pivot laterally within the Azure environment.\n\n## Recommendation\n\nPrioritized, concrete actions for detection engineering teams:\n\n- Update all vulnerable instances of Open Management Infrastructure (OMI) to the latest patched version provided by Microsoft to eliminate the underlying vulnerability.\n- Deploy network-based detection to monitor for HTTP requests to ports 1270, 5985, or 5986 that lack an 'Authorization' header.\n- Implement the Zeek detection package provided by Corelight, which specifically looks for missing 'Authorization' headers in WSMAN traffic.\n- Enable detailed logging for WSMAN traffic to identify requests containing 'ExecuteScript' payloads within the SOAP body.\n- Use the provided Zeek notification logic to audit for successful 'EXPLOIT_RESPONSE' events that return command output (e.g., 'uid=0(root)').\n- Block inbound traffic to OMI management ports from untrusted networks at the perimeter firewall.\n",
       "published": "2026-09-13T18:04:26.000Z",
@@ -77787,13 +77864,16 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-09-omigod",
       "x_craftedsignal_event_id": "brief-2026-09-omigod",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-omigod/",
-      "x_craftedsignal_activity_at": "2026-09-13T18:04:26.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T18:13:06.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2021-11-03T00:00:00.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.99933,
@@ -84354,7 +84434,7 @@
       "id": "report--6d3ac991-8ebf-5899-a351-b7661a81a467",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-24T19:51:47.000Z",
-      "modified": "2026-09-24T19:51:47.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "name": "Active Exploitation of Code Injection Vulnerability in Microsoft SharePoint Server",
       "description": "## Overview\n\nThe Canadian Centre for Cyber Security has confirmed active exploitation of CVE-2026-65660, a code injection vulnerability (CWE-94) affecting Microsoft SharePoint Server. The flaw permits an authenticated attacker to achieve arbitrary code execution on vulnerable instances. Crucially, when chained with other SharePoint vulnerabilities, attackers can reach pre-authentication remote code execution (RCE) on servers that allow anonymous access. This poses a severe risk to organizations running legacy or unpatched SharePoint deployments. Microsoft SharePoint Enterprise Server 2016 and Server 2019 reached end-of-life on July 15, 2026, and remain highly susceptible. Defenders must prioritize upgrading to the specified fixed versions to remediate the vulnerability and mitigate the risk of ongoing exploitation.\n\n## Attack Chain\n\n1. Attacker performs reconnaissance to identify internet-facing Microsoft SharePoint instances.\n2. If anonymous access is enabled, the attacker chains existing auxiliary vulnerabilities to bypass initial authentication.\n3. Attacker targets the specific code injection vector defined by CVE-2026-65660.\n4. The malicious request triggers the underlying vulnerability, allowing for code execution within the SharePoint application context.\n5. Attacker executes arbitrary commands, potentially deploying a web shell to maintain persistence (e.g., via T1505.003).\n6. Attacker leverages the elevated application context to perform further privilege escalation or move laterally within the server environment.\n7. Attacker achieves the final objective, which may include data exfiltration or internal network reconnaissance.\n\n## Impact\n\nSuccessful exploitation allows attackers to gain full code execution on affected SharePoint servers. This can lead to total system compromise, unauthorized access to sensitive internal data, and the establishment of persistent backdoors within the organization's network. Given that many SharePoint instances store critical business and enterprise data, the impact of a successful breach is significant. Organizations running EOL versions (2016 and 2019) are at a particularly elevated risk, as they no longer receive standard support and may lack defense-in-depth protections.\n\n## Recommendation\n\nPrioritize the immediate upgrade of all SharePoint instances to the fixed versions listed below. Enable Antimalware Scan Interface (AMSI) integration for SharePoint web applications and set the scan mode to 'Full' to improve detection of malicious payloads. Restrict access to management interfaces like SharePoint Central Administration and ensure all internet-facing instances are shielded from unnecessary exposure. Monitor IIS and SharePoint logs for anomalous administrative behavior, unauthorized web part modifications, and unexpected deserialization activity that may signal exploitation.\n",
       "published": "2026-09-24T19:51:47.000Z",
@@ -84395,16 +84475,19 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-09-sharepoint-rce",
       "x_craftedsignal_event_id": "brief-2026-09-sharepoint-rce",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-sharepoint-rce/",
-      "x_craftedsignal_activity_at": "2026-09-24T19:51:47.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T18:13:06.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-09-25T00:00:00.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_epss_max": 0.09852,
+      "x_craftedsignal_epss_max": 0.00807,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -87269,7 +87352,7 @@
       "id": "report--75c83a9b-572b-5b0b-b82a-a19487835797",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-07T11:55:13.000Z",
-      "modified": "2026-09-12T00:50:00.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "name": "Worm-like Campaign Leveraging Modified ScreenConnect Clients",
       "description": "## Overview\n\nSince late August 2026, threat actors have been executing a worm-like campaign involving rogue, backdoored ScreenConnect client instances. The attack typically begins with social engineering, where victims are tricked into installing malicious software under the guise of technical support. Once the rogue ScreenConnect instance is active, it immediately initiates a multi-stage execution chain using Windows Script Host to launch VBScript files from the ScreenConnect temporary directory. \n\nThe malicious activity includes system reconnaissance, payload staging, and the execution of PowerShell scripts for UAC bypass and persistent concealment. Crucially, the malware is designed to propagate by continuously monitoring for new host connections and infecting them with the same four-stage VBScript chain. ConnectWise has acknowledged an issue affecting file transfer behavior in ScreenConnect and is working on a fix; they currently advise administrators to disable file transfer functionality to mitigate the risk of unauthorized payload delivery.\n\n## Attack Chain\n\n1. Initial access is gained via social engineering (e.g., tech support impersonation) leading the victim to install a rogue or backdoored ScreenConnect client.\n2. The rogue ScreenConnect client executes four VBScript files directly from its temporary directory using wscript.exe.\n3. The VBScript files perform local system reconnaissance and stage secondary payloads.\n4. The malware establishes persistence by creating a User Run Key registry entry pointing to a malicious VBScript file.\n5. A PowerShell script is executed to perform UAC bypass and finalize the installation of a concealed ScreenConnect client.\n6. The concealed ScreenConnect client continuously monitors for new remote host connections.\n7. Upon identifying new host connections, the client propagates the four-stage VBScript chain to the new endpoint, enabling worm-like lateral movement.\n\n## Impact\n\nThe campaign facilitates unauthorized access, persistent surveillance, and potential lateral movement across organizations using ConnectWise ScreenConnect. By leveraging existing remote support infrastructure to spread malicious payloads, attackers can compromise multiple endpoints within a network simultaneously. If the attack succeeds, the adversary gains full remote control over the affected machines, facilitating data exfiltration, further reconnaissance, or the deployment of additional malicious tools.\n\n## Recommendation\n\nPrioritize the following actions to protect your environment:\n- Immediately disable the file transfer functionality in all on-premises and cloud-based ScreenConnect instances as recommended by ConnectWise.\n- Implement strict endpoint monitoring for wscript.exe spawned from ScreenConnect-related directories.\n- Audit all user-level Run Key registry entries for suspicious scripts or unrecognized binaries.\n- Monitor for unauthorized ScreenConnect client installations that lack proper management approval.\n- Review network logs for unusual outbound connections originating from ScreenConnect processes.\n",
       "published": "2026-09-07T11:55:13.000Z",
@@ -87305,16 +87388,19 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-09-screenconnect-worm",
       "x_craftedsignal_event_id": "brief-2026-09-screenconnect-worm",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-screenconnect-worm/",
-      "x_craftedsignal_activity_at": "2026-09-12T00:50:00.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T18:13:06.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-09-11T00:00:00.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9.9,
-      "x_craftedsignal_epss_max": 0.00924,
+      "x_craftedsignal_epss_max": 0.00382,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -88569,7 +88655,7 @@
       "id": "report--79eede4e-d66a-5d02-b0b4-81b66256b226",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-03T01:48:00.000Z",
-      "modified": "2026-09-03T01:48:00.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "name": "Unauthenticated RCE in Ivanti Connect Secure via CVE-2025-0282",
       "description": "## Overview\n\nCVE-2025-0282 is a critical stack buffer overflow vulnerability impacting multiple Ivanti products, including Ivanti Connect Secure, Ivanti Policy Secure, and Ivanti Neurons for Zero-trust Access, specifically version 22.7. The vulnerability exists within the unauthenticated interface, allowing remote attackers to trigger the overflow without prior access credentials. Proof-of-concept exploit code is publicly available, utilizing ROP chains to achieve code execution. Research indicates that successful exploitation leads to the creation of a local administrative account with root-level privileges (UID 0), granting the attacker full control over the appliance. Defenders should prioritize patching, as the presence of public exploit scripts significantly increases the risk of targeted exploitation against internet-facing appliances.\n\n## Impact\n\nSuccessful exploitation of CVE-2025-0282 results in complete system compromise. By creating a persistent administrative account, an attacker can maintain long-term access, facilitate lateral movement within the network, and exfiltrate sensitive data managed by the Ivanti gateway. Given the criticality of these appliances as entry points for remote access, the risk to confidentiality, integrity, and availability is high.\n\n## Recommendation\n\n- Immediately identify and patch all internet-facing Ivanti Connect Secure, Policy Secure, and Neurons for Zero-trust Access appliances running version 22.7.\n- Review administrative user account logs for the creation of unexpected accounts or modifications to existing accounts.\n- Restrict access to administrative and management interfaces to trusted internal IP ranges or VPN-only access to reduce the attack surface.\n- Monitor for anomalous outbound network traffic from Ivanti appliances, which may indicate post-exploitation activity or C2 communication.\n",
       "published": "2026-09-03T01:48:00.000Z",
@@ -88601,16 +88687,19 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-09-03-cve-2025-0282",
       "x_craftedsignal_event_id": "brief-2026-09-03-cve-2025-0282",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-cve-2025-0282/",
-      "x_craftedsignal_activity_at": "2026-09-03T01:48:00.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T18:13:06.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2025-01-08T00:00:00.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9,
-      "x_craftedsignal_epss_max": 0.99981,
+      "x_craftedsignal_epss_max": 0.99979,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -90956,7 +91045,7 @@
       "id": "report--819f0644-eb21-5a9f-89de-e891d3571317",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-09T18:47:44.000Z",
-      "modified": "2026-09-10T12:55:02.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "name": "Active Exploitation of Cisco Secure Firewall Management Center",
       "description": "## Overview\n\nCisco Talos is actively tracking the exploitation of multiple vulnerabilities in Cisco Secure Firewall Management Center (FMC) software. Threat actors are chaining CVE-2026-20079, a critical (CVSS 10.0) authentication bypass vulnerability, and CVE-2026-20316, which involves static credentials, to gain initial access and perform lateral movement. Talos has identified three distinct clusters of malicious activity. Cluster UAT-12197 utilizes CVE-2026-20079 to deploy JSP web shells and custom Java-based command executors for credential exfiltration. Cluster UAT-11823, identified as an APT with ties to Sandworm, uses these vulnerabilities to deploy Cyclops Blink malware via a malicious Makeself package. Cluster UAT-11988, assessed as a Qilin ransomware operator, uses static credentials for initial access followed by living-off-the-land (LOTL) techniques to conduct reconnaissance, deploy tunneling tools, and execute ransomware. Defenders must prioritize patching these vulnerabilities, as multiple groups are currently exploiting these flaws in the wild.\n\n## Attack Chain\n\n1. Initial Access: Attackers bypass authentication via CVE-2026-20079 or utilize static credentials (CVE-2026-20316) to access the FMC appliance.\n2. Persistence: Attackers place malicious JSP web shells in the CSM Tomcat webroot directory or modify system startup scripts (e.g., /etc/init.d/) to maintain access.\n3. Execution: Attackers abuse the legitimate package_info.pl utility to execute malicious files (e.g., license.tmp) or custom JAR files (e.g., cmd.jar) with root privileges.\n4. Privilege Escalation: Exploitation of system utilities allows actors to transition from initial low-privileged access to root-level command execution on the underlying OS.\n5. Discovery: Attackers perform system and network reconnaissance, including directory listing, credential harvesting via OmniQuery.pl, and internal database queries.\n6. Command and Control: Deployment of Netcat-based reverse shells and SOCKS proxy/reverse-SSH tunneling tools to maintain communication with actor infrastructure.\n7. Impact: Final stages include exfiltration of configurations, deployment of modular implants like Cyclops Blink, or deployment of Qilin ransomware to target endpoints.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated remote attackers to gain full administrative control over the FMC appliance. Observed impacts include the exfiltration of sensitive configuration data, deployment of modular botnet malware, and large-scale ransomware encryption of downstream enterprise networks.\n\n## Recommendation\n\n1. Apply the security patches provided by Cisco for CVE-2026-20079 and CVE-2026-20316 immediately.\n2. Implement monitoring for unauthorized files in the CSM Tomcat webroot directory.\n3. Audit the use of system-level utilities like package_info.pl and OmniQuery.pl for anomalous command-line arguments.\n4. Block communication with the known C2 IP 208.123.119.215 at the network perimeter.\n5. Monitor for processes spawning unexpected shells or network utilities such as nc (Netcat).\n",
       "published": "2026-09-09T18:47:44.000Z",
@@ -90970,11 +91059,11 @@
         "ransomware"
       ],
       "object_refs": [
-        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
-        "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
+        "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150",
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "attack-pattern--8fc56897-9604-585d-b9ba-92e6c29d47c9",
         "attack-pattern--af8a173c-24c5-549d-93d6-e942357a5af7",
-        "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "attack-pattern--de70c912-f2cd-5897-a69b-bd02a5e9fb39",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "indicator--ff233359-989e-537e-82d6-f3e4466bea30",
         "software--24cfddc3-cd49-514b-982d-e3b34e4abb51",
@@ -91008,16 +91097,19 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-09-cisco-fmc-exploitation",
       "x_craftedsignal_event_id": "brief-2026-09-cisco-fmc-exploitation",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-cisco-fmc-exploitation/",
-      "x_craftedsignal_activity_at": "2026-09-10T12:55:02.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T18:13:06.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-07-29T00:00:00.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 10,
-      "x_craftedsignal_epss_max": 0.88658,
+      "x_craftedsignal_epss_max": 0.35946,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -94060,7 +94152,7 @@
       "id": "report--8d2fa5a0-1775-5121-af11-a5dfdcc75ef3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-15T13:04:36.000Z",
-      "modified": "2026-09-15T13:04:36.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "name": "Multiple Vulnerabilities in IBM MQ",
       "description": "## Overview\n\nIBM has disclosed multiple security vulnerabilities affecting the IBM MQ messaging software. These flaws, tracked as CVE-2024-49033, CVE-2024-49034, and CVE-2024-49035, present significant risks to systems running the software. Successful exploitation of these vulnerabilities may allow an unauthenticated or authenticated attacker to achieve arbitrary remote code execution (RCE) on the underlying host, trigger a Denial of Service (DoS) condition, gain access to sensitive information, or perform unauthorized data manipulation. Defenders should prioritize patching and configuration reviews for all instances of IBM MQ, as these vulnerabilities impact the integrity and availability of messaging infrastructure, which often serves as a critical backbone for enterprise applications.\n\n## Impact\n\nSuccessful exploitation could result in the total compromise of the host system, loss of message confidentiality, and disruption of critical business services that rely on IBM MQ for communication. These vulnerabilities affect all deployments of the software, and organizations should apply vendor-provided security updates to mitigate these risks.\n\n## Recommendation\n\n- Identify all IBM MQ deployments across the environment using asset inventory systems.\n- Review the IBM security advisory for the specific fixed versions associated with CVE-2024-49033, CVE-2024-49034, and CVE-2024-49035.\n- Apply the latest security patches provided by IBM to all MQ instances.\n- Implement network segmentation to limit access to MQ listener ports (typically 1414) to authorized clients only to reduce the attack surface.\n",
       "published": "2026-09-15T13:04:36.000Z",
@@ -94089,13 +94181,16 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-09-15-ibm-mq-vulnerabilities",
       "x_craftedsignal_event_id": "brief-2026-09-15-ibm-mq-vulnerabilities",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-ibm-mq-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-09-15T13:04:36.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T18:13:06.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2025-02-25T00:00:00.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 8.7,
       "x_craftedsignal_epss_max": 0.02101,
@@ -99676,7 +99771,7 @@
       "id": "report--a250da28-2385-5f09-bc63-58420138fddf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-14T21:16:01.000Z",
-      "modified": "2026-09-14T21:16:01.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "name": "Active Exploitation of Cisco Secure Email Gateway SQL Injection",
       "description": "## Overview\n\nCISA has formally added CVE-2026-76461 to its Known Exploited Vulnerabilities (KEV) Catalog, signaling confirmed active exploitation of Cisco Secure Email Gateway appliances. This vulnerability is classified as a SQL injection flaw, allowing unauthenticated attackers to execute arbitrary SQL commands against the appliance's database backend. Given the critical position of the Secure Email Gateway in an organization's perimeter, successful exploitation grants threat actors potential administrative control, the ability to intercept email communications, and a foothold for lateral movement into the internal network. Organizations utilizing Cisco Secure Email Gateway must prioritize patching immediately, as this vulnerability is currently being leveraged by malicious actors.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-76461 results in unauthorized access to the Cisco Secure Email Gateway, allowing attackers to bypass authentication controls, exfiltrate sensitive mail traffic, or modify appliance configurations. As this is a critical perimeter security component, compromise typically leads to total loss of confidentiality for organizational email and facilitates further network infiltration. The vulnerability poses a high risk to all enterprises that expose these management interfaces to the internet.\n\n## Recommendation\n\nPrioritize remediation of CVE-2026-76461 by applying the latest security patches provided by Cisco for the Secure Email Gateway. Conduct a forensic review of system logs to determine if the appliance was accessed or compromised prior to the application of security patches, as required by the guidance in BOD 26-04. Monitor the perimeter for abnormal SQL traffic patterns originating from or directed toward the email gateway management interfaces.\n",
       "published": "2026-09-14T21:16:01.000Z",
@@ -99713,16 +99808,18 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-09-14-cisco-seg-sql-injection",
       "x_craftedsignal_event_id": "brief-2026-09-14-cisco-seg-sql-injection",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-cisco-seg-sql-injection/",
-      "x_craftedsignal_activity_at": "2026-09-14T21:16:01.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T18:13:06.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-09-14T00:00:00.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.4016,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -100100,7 +100197,7 @@
       "id": "report--a380baa8-d263-5d59-b6ca-8650dc6e23d8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-18T18:33:02.000Z",
-      "modified": "2026-09-18T18:33:02.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "name": "CISA Adds Two Exploited Linux Kernel Vulnerabilities to KEV Catalog",
       "description": "## Overview\n\nOn September 18, 2026, CISA updated its Known Exploited Vulnerabilities (KEV) Catalog to include two Linux kernel vulnerabilities that are currently being leveraged in active exploitation campaigns. The vulnerabilities include CVE-2025-39964, a race condition vulnerability, and CVE-2026-53266, an out-of-bounds write vulnerability. Both flaws reside within the core Linux kernel, making them high-risk entry points or escalation vectors for attackers seeking to gain unauthorized control over affected systems. Per Binding Operational Directive (BOD) 26-04, Federal Civilian Executive Branch (FCEB) agencies are required to prioritize the remediation of these vulnerabilities on internet-facing assets. CISA strongly recommends that all organizations, regardless of sector, apply the latest security updates provided by their Linux distribution maintainers to mitigate these risks.\n\n## Impact\n\nSuccessful exploitation of these Linux kernel vulnerabilities can grant attackers total control over the compromised asset. These flaws are high-risk because they enable low-privileged users or unauthenticated attackers to potentially elevate privileges or execute arbitrary code. The inclusion in the KEV Catalog confirms that these vulnerabilities are currently used in the wild, posing a significant risk to any organization running vulnerable Linux kernel versions.\n\n## Recommendation\n\nPrioritize patching for all Linux assets in the environment to the latest kernel versions provided by your vendor. Ensure that your vulnerability management program includes automated monitoring for the presence of CVE-2025-39964 and CVE-2026-53266. Agencies under BOD 26-04 must prioritize remediation on internet-facing assets immediately and perform historical log analysis to determine if compromise occurred prior to patch application.\n",
       "published": "2026-09-18T18:33:02.000Z",
@@ -100112,6 +100209,7 @@
       ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--23a35049-6791-5b6e-8a10-d5588716fddf",
         "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
         "vulnerability--c501159e-15a7-5363-abec-f6ba179a9378",
         "vulnerability--f8b060f5-5fd4-57b9-820c-cc5fdc796ccc"
@@ -100142,16 +100240,19 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-09-18-cisa-kev-update",
       "x_craftedsignal_event_id": "brief-2026-09-18-cisa-kev-update",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-cisa-kev-update/",
-      "x_craftedsignal_activity_at": "2026-09-18T18:33:02.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T18:13:06.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-09-18T00:00:00.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_epss_max": 0.01607,
+      "x_craftedsignal_epss_max": 0.00323,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -111141,7 +111242,7 @@
       "id": "report--c4c76604-f4a3-5a4b-a617-e9c4ec2c262e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-22T19:48:05.000Z",
-      "modified": "2026-09-22T19:48:05.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "name": "Active Exploitation of Arista VeloCloud Orchestrator",
       "description": "## Overview\n\nArista Networks has released a security advisory concerning a critical vulnerability in VeloCloud Orchestrator (VCO) On-Prem identified as CVE-2026-93952. Multiple versions across the 5.2.x, 6.1.x, 6.4.x, and 7.0.x release branches are impacted. Security researchers and government reporting indicate that this vulnerability is currently being exploited in the wild, necessitating immediate attention from network administrators. Defending organizations running on-premises VeloCloud infrastructure should review the official Arista Security Advisory 0183 to identify the required patches or mitigation steps and prioritize deployment to prevent unauthorized access or compromise of the orchestrator platform.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-93952 on the VeloCloud Orchestrator allows unauthenticated attackers to gain unauthorized access or control over the target system. Given its role as a centralized management plane for SD-WAN infrastructure, a compromise could result in widespread network visibility loss, traffic interception, or the ability to reconfigure edge devices managed by the orchestrator.\n\n## Recommendation\n\n* Prioritize the immediate review and application of security patches provided in Arista Security Advisory 0183 for all affected versions of VeloCloud Orchestrator (VCO) On-Prem.\n* Audit firewall configurations to ensure that the VeloCloud Orchestrator management interface is not exposed to the public internet.\n* Monitor system logs and process activity on the VCO platform for signs of unauthorized access, particularly around the time of the advisory publication.\n",
       "published": "2026-09-22T19:48:05.000Z",
@@ -111166,22 +111267,32 @@
         },
         {
           "source_name": "reference",
+          "url": "https://isc.sans.edu/podcastdetail/10106"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.arista.com/en/support/advisories-notices/security-advisory/24765-security-advisory-0183"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/arista-urges-immediate-patching-of-exploited-vco-zero-day/"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-09-arista-vco-vulnerability",
       "x_craftedsignal_event_id": "brief-2026-09-arista-vco-vulnerability",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-arista-vco-vulnerability/",
-      "x_craftedsignal_activity_at": "2026-09-22T19:48:05.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T18:13:06.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-09-22T00:00:00.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 10,
-      "x_craftedsignal_epss_max": 0.01384,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -118099,7 +118210,7 @@
       "id": "report--db1c78cf-bfc1-50cd-99bf-2c4e79f12bc0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-16T15:55:15.000Z",
-      "modified": "2026-09-16T15:55:15.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "name": "Active Exploitation of Google Pixel Improper Authorization Vulnerability",
       "description": "## Overview\n\nOn September 16, 2026, CISA updated its Known Exploited Vulnerabilities (KEV) Catalog to include CVE-2026-58704, an improper authorization vulnerability affecting Google Pixel devices. This addition confirms that the vulnerability is currently being exploited in the wild by malicious actors. Improper authorization vulnerabilities often allow attackers to bypass security controls, potentially leading to unauthorized access, privilege escalation, or full device compromise depending on the context of the flaw. Organizations, particularly those managing mobile device fleets, are encouraged to treat this vulnerability with urgency to prevent potential device takeover or data exfiltration. Following the guidance in Binding Operational Directive (BOD) 26-04, remediation should be prioritized as part of a risk-based vulnerability management program.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-58704 can grant an attacker unauthorized access to Google Pixel devices. Given its inclusion in the CISA KEV Catalog, this vulnerability represents a significant risk to confidentiality and integrity for both consumer and enterprise users of affected hardware. Organizations relying on Pixel devices for mobile operations should assess their device population, verify current patch levels against vendor security bulletins, and prioritize the deployment of relevant firmware or security updates.\n\n## Recommendation\n\n- Identify all managed Google Pixel devices within the corporate environment and verify their current security patch levels.\n- Prioritize the application of firmware and security updates provided by Google to remediate CVE-2026-58704.\n- Implement mobile device management (MDM) policies to ensure timely patching of vulnerabilities identified in the CISA KEV Catalog.\n- Review security logs for evidence of unauthorized access or anomalous behavior originating from mobile endpoints.\n",
       "published": "2026-09-16T15:55:15.000Z",
@@ -118131,16 +118242,18 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-09-16-cisa-kev-cve-2026-58704",
       "x_craftedsignal_event_id": "brief-2026-09-16-cisa-kev-cve-2026-58704",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-cisa-kev-cve-2026-58704/",
-      "x_craftedsignal_activity_at": "2026-09-16T15:55:15.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T18:13:06.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-09-16T00:00:00.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 8,
-      "x_craftedsignal_epss_max": 0.00625,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -120159,7 +120272,7 @@
       "id": "report--e118c61c-adb5-5402-aebc-284dce2f95dc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-17T13:13:30.000Z",
-      "modified": "2026-11-15T17:16:48.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "name": "Cisco Secure Firewall Management Center: Authentication Bypass (CVE-2026-20079)",
       "description": "## Overview\nA vulnerability in the web interface of Cisco Secure Firewall Management Center (FMC) Software allows an unauthenticated, remote attacker to bypass authentication and execute script files on an affected device to obtain root access to the underlying operating system. The vulnerability is caused by an improper system process that is created at boot time.\n\n## Attack Chain\nAn attacker may exploit this vulnerability by sending crafted HTTP requests to an affected device. The exploitation path involves the use of a session token (csm_processes) created at boot time. Successful exploitation grants the attacker root access, enabling the execution of arbitrary scripts and commands.\n\n## Impact\nSuccessful exploitation results in full root-level access to the underlying operating system, with critical impact on confidentiality, integrity, and availability (CVSS 10.0).\n\n## Recommendation\nOperators should review the official Cisco security advisory for remediation and patch information. Public checkers and PoC tools exist for validation purposes in lab environments; however, they are not a substitute for authoritative vendor updates. A negative result from a validation tool does not confirm an appliance is patched.",
       "published": "2026-09-17T13:13:30.000Z",
@@ -120217,9 +120330,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-09-cisco-vulnerability-update",
       "x_craftedsignal_event_id": "brief-2026-09-cisco-vulnerability-update",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-cisco-vulnerability-update/",
-      "x_craftedsignal_activity_at": "2026-11-15T17:16:48.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T18:13:06.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -120229,7 +120342,7 @@
         "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 10,
-      "x_craftedsignal_epss_max": 0.88658,
+      "x_craftedsignal_epss_max": 0.75752,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -124653,7 +124766,7 @@
       "id": "report--ef21b2a2-b44c-5770-81bc-69096a06d968",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-03T14:54:16.000Z",
-      "modified": "2026-09-03T14:54:16.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "name": "FreePBX Endpoint Manager Unauthenticated Remote Code Execution",
       "description": "## Overview\n\nFreePBX is vulnerable to a critical unauthenticated remote code execution (RCE) vulnerability, tracked as CVE-2025-57819, affecting versions prior to 15.0.66, 16.0.89, and 17.0.3. The vulnerability resides in the Endpoint Manager module's 'brand' parameter within the '/admin/ajax.php' endpoint. Because the application fails to properly sanitize user input before incorporating it into SQL queries, an unauthenticated attacker can perform stacked SQL injection attacks. By leveraging this flaw, an attacker can insert arbitrary entries into the 'cron_jobs' table of the underlying database. These entries are periodically executed by the system's cron daemon with administrative privileges, typically as the Apache web server user, resulting in full remote code execution on the server. The availability of weaponized exploit code in the public domain necessitates immediate patching.\n\n## Attack Chain\n\n1. The attacker identifies an internet-facing FreePBX server running a vulnerable version of the Endpoint Manager module.\n2. The attacker sends a crafted GET request to '/admin/ajax.php' targeting the 'brand' parameter.\n3. The crafted input performs SQL injection to bypass authentication or validation routines using stacked queries.\n4. The attacker executes a SQL 'INSERT' statement to add a new task to the 'cron_jobs' table.\n5. The injected command is configured as a reverse shell payload encoded in base64.\n6. The system's cron daemon processes the malicious entry within approximately 60 seconds.\n7. The system executes the base64-decoded bash command with the privileges of the web server user.\n8. A reverse shell is established, granting the attacker interactive command execution on the host.\n\n## Impact\n\nSuccessful exploitation of CVE-2025-57819 leads to complete server compromise. As the malicious cron job executes with the privileges of the web server user, attackers can gain persistent access, exfiltrate sensitive configuration data, or pivot into the internal network where the FreePBX instance is hosted. This vulnerability is reported to be included in CISA's Known Exploited Vulnerabilities catalog.\n\n## Recommendation\n\nPrioritized actions for security teams:\n- Patch all affected FreePBX instances immediately: update to 15.0.66, 16.0.89, 17.0.3, or later versions.\n- Deploy the provided Sigma rule to monitor for suspicious requests to '/admin/ajax.php' containing SQL injection patterns.\n- Audit the 'cron_jobs' table in the FreePBX database for any unauthorized or suspicious command entries.\n- Restrict access to the FreePBX web management interface to trusted internal networks via firewall rules to mitigate exploitation attempts.\n",
       "published": "2026-09-03T14:54:16.000Z",
@@ -124694,16 +124807,19 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-09-freepbx-rce",
       "x_craftedsignal_event_id": "brief-2026-09-freepbx-rce",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-freepbx-rce/",
-      "x_craftedsignal_activity_at": "2026-09-03T14:54:16.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T18:13:06.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2025-08-29T00:00:00.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.95213,
+      "x_craftedsignal_epss_max": 0.88269,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -126985,6 +127101,65 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f68477cb-5b32-586a-8d3d-e818f668607e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-15T07:02:16.000Z",
+      "modified": "2026-11-19T18:12:21.000Z",
+      "name": "Active Exploitation of SQL Injection in Cisco Secure Email Gateway",
+      "description": "## Overview\n\nCisco has issued a security advisory regarding a SQL injection vulnerability identified as CVE-2026-76461, which impacts Cisco AsyncOS for Cisco Secure Email Gateway, Cisco Secure Email Gateway, and Cisco Secure Email and Web Manager. This vulnerability allows an unauthenticated, remote attacker to execute arbitrary SQL commands on the underlying database of the affected appliance, potentially leading to unauthorized data exfiltration or system compromise. Cisco reports that this vulnerability is being actively exploited in the wild, and it has been subsequently added to the CISA Known Exploited Vulnerabilities (KEV) Catalog. The flaw necessitates an immediate upgrade to the patched versions provided by the vendor to remediate the exposure.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-76461 allows unauthorized attackers to interact with the backend databases of affected Cisco Secure Email appliances. Given the sensitivity of email security gateways, successful exploitation could lead to the exposure of configuration data, message metadata, or other system information. The inclusion of this CVE in the CISA KEV catalog underscores the high risk of widespread exploitation against organizations utilizing these gateway appliances in their perimeter defenses.\n\n## Recommendation\n\n1. Patch all affected Cisco products immediately to the recommended versions listed in the vendor advisory: Upgrade Cisco AsyncOS for Cisco Secure Email Gateway to 15.5.5-014, 16.0.4-302, 16.5.0-780 or later.\n2. Upgrade Cisco Secure Email Gateway to version 15.5.5-014, 16.5.0-780 or later.\n3. Upgrade Cisco Secure Email and Web Manager to 15.5.5-006, 16.5.0-429 or later.\n4. Monitor web access logs on these appliances for anomalous HTTP requests containing SQL syntax (e.g., SELECT, UNION, SLEEP) targeting administrative or API endpoints.\n5. Review the official Cisco security advisory (cisco-sa-esa-inj-2bLVGmhX) for further technical details and guidance.\n",
+      "published": "2026-09-15T07:02:16.000Z",
+      "labels": [
+        "active-exploitation",
+        "cve",
+        "network",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2033ff4a-f229-502b-b1af-da374abb2be3",
+        "software--8b2acbb5-1982-5b7f-af08-d0fef9475292",
+        "software--caecc20c-f671-5516-b522-c570e947b6d0",
+        "vulnerability--988c025d-e1c8-5d9c-b677-e8a6e06967b6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-09-cisco-sql-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-09-cisco-sql-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/cisco-security-advisory-av26-921"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-inj-2bLVGmhX"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-76461"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-09-cisco-sql-injection",
+      "x_craftedsignal_event_id": "brief-2026-09-cisco-sql-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-cisco-sql-injection/",
+      "x_craftedsignal_activity_at": "2026-11-19T18:12:21.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-09-14T00:00:00.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "true"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f687d7d7-ff35-58c7-bc29-c88effccdda7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-25T20:06:45.000Z",
@@ -127940,7 +128115,7 @@
       "id": "report--f9ebbf1d-a3f9-5ac5-a948-e8caeec3b153",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-08T18:54:27.000Z",
-      "modified": "2026-09-08T18:54:27.000Z",
+      "modified": "2026-11-19T18:13:06.000Z",
       "name": "Apache Tomcat Remote Code Execution Vulnerability (CVE-2025-24813)",
       "description": "## Overview\n\nApache Tomcat is vulnerable to a critical remote code execution (RCE) flaw tracked as CVE-2025-24813. The vulnerability is rated at CVSS 10.0 and allows unauthenticated attackers to execute arbitrary code over the network without requiring user interaction. Impacted versions include Apache Tomcat releases prior to 9.0.99, 10.1.35, and 11.0.3, as well as specific earlier iterations in the 10.1.x and 11.0.x branches. Following the public disclosure, exploit scripts and multi-threaded scanning tools have been released on platforms like GitHub, significantly lowering the barrier for entry for malicious actors to identify and compromise exposed instances. Given the severity of the RCE and the presence of functional PoC code, organizations running affected Tomcat servers are at high risk of immediate compromise.\n\n## Impact\n\nSuccessful exploitation of CVE-2025-24813 grants attackers full control over the vulnerable Apache Tomcat instance. As the vulnerability allows unauthenticated RCE, attackers can achieve complete system compromise, data exfiltration, and lateral movement within the network. The CVSS 10.0 score indicates that the impact on confidentiality, integrity, and availability is total, potentially affecting any enterprise environment using these versions of Tomcat for application hosting.\n\n## Recommendation\n\n1. Patch Apache Tomcat to the latest versions (9.0.99, 10.1.35, or 11.0.3) immediately.\n2. Inventory internet-facing Apache Tomcat instances and move them behind WAF/authentication layers if patching cannot be performed immediately.\n3. Monitor web server logs for suspicious requests involving unexpected command injection attempts or unusual POST methods aimed at Tomcat endpoints.\n4. Deploy detection logic to monitor for unexpected child processes spawned by the Tomcat Java process (e.g., cmd.exe, sh, or powershell.exe).\n",
       "published": "2026-09-08T18:54:27.000Z",
@@ -127968,16 +128143,19 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-09-cve-2025-24813-tomcat-rce",
       "x_craftedsignal_event_id": "brief-2026-09-cve-2025-24813-tomcat-rce",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-cve-2025-24813-tomcat-rce/",
-      "x_craftedsignal_activity_at": "2026-09-08T18:54:27.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T18:13:06.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2025-04-01T00:00:00.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.99942,
+      "x_craftedsignal_epss_max": 0.99927,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -131402,6 +131580,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2033ff4a-f229-502b-b1af-da374abb2be3",
+      "name": "Cisco Secure Email Gateway (\u003c 15.5.5-014, \u003c 16.5.0-780)",
+      "vendor": "Cisco"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2057a5cb-6ec1-504f-a030-e1d8e0a09af5",
       "name": "Grav (\u003c= 2.0.17)",
       "vendor": "GetGrav"
@@ -131529,6 +131714,13 @@
       "id": "software--23a059b0-a873-57a7-85e1-291535a324cb",
       "name": "Optimizer wXa-223 (\u003c= 20260704)",
       "vendor": "RedPort"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--23a35049-6791-5b6e-8a10-d5588716fddf",
+      "name": "Kernel",
+      "vendor": "Linux"
     },
     {
       "type": "software",
@@ -136600,6 +136792,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8b2acbb5-1982-5b7f-af08-d0fef9475292",
+      "name": "Cisco AsyncOS for Cisco Secure Email Gateway (\u003c 15.5.5-014, \u003c 16.0.4-302, \u003c 16.5.0-780)",
+      "vendor": "Cisco"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8b40550f-f670-58fa-afbd-0fe1ddaba278",
       "name": "Yeti (\u003c= 2.11.0)",
       "vendor": "Yeti"
@@ -139711,6 +139910,13 @@
       "spec_version": "2.1",
       "id": "software--cacffc33-261e-5005-b2bf-49a03e0d7b71",
       "name": "BA Book Everything (\u003c= 1.8.27)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--caecc20c-f671-5516-b522-c570e947b6d0",
+      "name": "Cisco Secure Email and Web Manager (\u003c 15.5.5-006, \u003c 16.5.0-429)",
+      "vendor": "Cisco"
     },
     {
       "type": "software",

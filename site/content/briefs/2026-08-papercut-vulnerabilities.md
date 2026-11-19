@@ -1,20 +1,41 @@
 ---
 brief_id: brief-2026-08-papercut-vulnerabilities
 event_id: brief-2026-08-papercut-vulnerabilities
-revision: 1
-activity_at: "2026-08-28T14:28:32Z"
+revision: 2
+activity_at: "2026-11-19T18:13:06Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T18:13:06Z"
+    checksum: sha256:56b9c23af8327f134b4b6e1b0a25936c3a8d4327758e7408760bd7c59f97528f
+    summary: exploited:true; KEV CVE-2026-82078; KEV CVE-2026-81578
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Active Exploitation of PaperCut MF and NG
 slug: 2026-08-papercut-vulnerabilities
 description: PaperCut MF and NG are impacted by two actively exploited vulnerabilities, CVE-2026-82078 and CVE-2026-81578, which allow unauthenticated remote attackers to achieve arbitrary code execution and full system control.
 date: "2026-08-28T14:28:32Z"
-lastmod: "2026-09-05T07:52:06Z"
-type: advisory
+lastmod: "2026-11-19T18:12:21Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-08-31T00:00:00Z"
+  confidence: high
 source_assessment:
   reliability: A
   credibility: "1"
@@ -28,10 +49,10 @@ cpes:
 vendors:
   - PaperCut
 products:
+  - NG/MF
+  - PaperCut Hive
   - PaperCut MF
   - PaperCut NG
-  - PaperCut Hive
-  - NG/MF
 affected_os:
   - Windows
 mitre_ttps:
@@ -50,12 +71,14 @@ mitre_ttps:
 cves:
   - id: CVE-2026-82078
     cvss: 9.1
-    epss: 0.63532
-    kev_status: unknown
+    epss: 0.01691
+    kev: true
+    kev_status: "true"
   - id: CVE-2026-81578
     cvss: 9.8
-    epss: 0.85169
-    kev_status: unknown
+    epss: 0.01617
+    kev: true
+    kev_status: "true"
 references:
   - https://www.ncsc.nl/alerts/kwetsbaarheden-in-papercut-mf-en-ng-met-actief-misbruik-update-onmiddellijk
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1095/
@@ -68,6 +91,7 @@ references:
   - https://www.securityweek.com/papercut-exploitation-escalates-to-active-intrusions/
   - https://socprime.com/blog/cve-2026-81578-analysis/
   - https://thehackernews.com/2026/09/attackers-exploit-papercut-flaws-to.html
+  - https://thehackernews.com/2026/09/papercut-attacker-uses-hundreds-of-ai.html
 iocs:
   - type: ip
     value: 45.142.193.132
@@ -102,13 +126,6 @@ action_plan:
       addresses: CVE-2026-82078, CVE-2026-81578
       evidence: NCSC-NL advisory recommends immediate installation of updates.
 updates:
-  - at: "2026-08-28T15:10:17Z"
-    level: L2
-    summary: added CVE-2026-81578 +1
-    sources:
-      - anssi
-    source_urls:
-      - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1095/
   - at: "2026-08-29T03:07:00Z"
     level: L2
     summary: poc_available; OS windows
@@ -137,7 +154,16 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/09/attackers-exploit-papercut-flaws-to.html
+  - at: "2026-11-19T18:12:21Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-82078; KEV CVE-2026-81578
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 The Netherlands National Cyber Security Centre (NCSC-NL) has issued an urgent alert regarding the active exploitation of two critical vulnerabilities within PaperCut MF and PaperCut NG print management software. Identified as CVE-2026-82078 and CVE-2026-81578, these flaws enable unauthenticated remote attackers to compromise the print management environment. By bypassing authentication mechanisms, adversaries can gain full control over the application, leading to arbitrary code execution. This level of access provides a significant foothold within an organization's network, increasing the risk of lateral movement, data theft, and operational disruption. Given that exploitation is currently observed in the wild, the NCSC strongly advises organizations to verify their version status against the vendor's security bulletin and apply the provided patches immediately.
 

@@ -1,13 +1,45 @@
 ---
+brief_id: brief-2026-09-freepbx-rce
+event_id: brief-2026-09-freepbx-rce
+revision: 2
+activity_at: "2026-11-19T18:13:06Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T18:13:06Z"
+    checksum: sha256:fe554719685ed48d5a7ae8483052a637478bb8239adc9cfb432cdc951ddb3e3b
+    summary: exploited:true; KEV CVE-2025-57819
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: FreePBX Endpoint Manager Unauthenticated Remote Code Execution
 slug: 2026-09-freepbx-rce
 description: An unauthenticated SQL injection vulnerability (CVE-2025-57819) in the FreePBX Endpoint Manager module allows attackers to achieve remote code execution by injecting malicious cron jobs.
 date: "2026-09-03T14:54:16Z"
-type: advisory
+lastmod: "2026-11-19T18:12:21Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2025-08-29T00:00:00Z"
+  confidence: high
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: very likely
+qa_status:
+  verdict: pass
 cpes:
   - cpe:2.3:a:sangoma:freepbx:*:*:*:*:*:*:*:*
 tags:
@@ -39,13 +71,15 @@ mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1505.002
-    technique_name: 'Server Software Component: Cron Jobs'
+    technique_name: Transport Agent
     evidence: An attacker can execute an INSERT statement to add a malicious cron job to the cron_jobs table.
     confidence_band: high
 cves:
   - id: CVE-2025-57819
     cvss: 9.8
     epss: 0.88269
+    kev: true
+    kev_status: "true"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2025-57819
   - https://www.exploit-db.com/exploits/52681
@@ -87,7 +121,17 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2025-57819
       evidence: Vulnerability is unauthenticated
+updates:
+  - at: "2026-11-19T18:12:21Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2025-57819
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 FreePBX is vulnerable to a critical unauthenticated remote code execution (RCE) vulnerability, tracked as CVE-2025-57819, affecting versions prior to 15.0.66, 16.0.89, and 17.0.3. The vulnerability resides in the Endpoint Manager module's 'brand' parameter within the '/admin/ajax.php' endpoint. Because the application fails to properly sanitize user input before incorporating it into SQL queries, an unauthenticated attacker can perform stacked SQL injection attacks. By leveraging this flaw, an attacker can insert arbitrary entries into the 'cron_jobs' table of the underlying database. These entries are periodically executed by the system's cron daemon with administrative privileges, typically as the Apache web server user, resulting in full remote code execution on the server. The availability of weaponized exploit code in the public domain necessitates immediate patching.
 

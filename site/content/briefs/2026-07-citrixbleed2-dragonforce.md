@@ -1,18 +1,45 @@
 ---
+brief_id: brief-2026-07-citrixbleed2-dragonforce
+event_id: brief-2026-07-citrixbleed2-dragonforce
+revision: 2
+activity_at: "2026-11-19T18:13:06Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T18:13:06Z"
+    checksum: sha256:dca53234a9b04745d50cf85c152cce8be8847e4318a16a92f3fa19871d32190d
+    summary: exploited:true; KEV CVE-2025-5777
+    changed_fields:
+      - cpes
+      - cves
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - priority_score
+      - priority_signals
+      - ttps
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: CitrixBleed 2 (CVE-2025-5777) Exploitation Leading to Dragonforce Ransomware
 slug: 2026-07-citrixbleed2-dragonforce
 description: Initial Access Brokers are actively exploiting CitrixBleed 2 (CVE-2025-5777) on NetScaler appliances to steal session tokens, achieve local privilege escalation, establish persistence via legitimate remote access tools, and ultimately deploy Dragonforce ransomware.
 date: "2026-07-09T20:25:12Z"
+lastmod: "2026-11-19T18:12:21Z"
 type: threat
 types:
   - threat
 severities:
   - high
 exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2025-07-10T00:00:00Z"
+  confidence: high
 cpes:
+  - cpe:2.3:a:citrix:netscaler_application_delivery_controller:*:*:*:*:-:*:*:*
   - cpe:2.3:a:citrix:netscaler_application_delivery_controller:*:*:*:*:fips:*:*:*
   - cpe:2.3:a:citrix:netscaler_application_delivery_controller:*:*:*:*:ndcpp:*:*:*
-  - cpe:2.3:a:citrix:netscaler_application_delivery_controller:*:*:*:*:-:*:*:*
   - cpe:2.3:a:citrix:netscaler_gateway:*:*:*:*:*:*:*:*
 tags:
   - ransomware
@@ -39,6 +66,8 @@ mitre_ttps:
     tactic_name: Credential Access
     technique_id: T1550
     technique_name: Use Alternate Authentication Material
+    subtechnique_id: T1550.002
+    subtechnique_name: Pass the Hash
     evidence: attackers to steal and replay valid session tokens, making MFA effectively irrelevant once a live session was hijacked.
     confidence_band: high
   - tactic_id: TA0004
@@ -51,6 +80,8 @@ mitre_ttps:
     tactic_name: Persistence
     technique_id: T1136
     technique_name: Create Account
+    subtechnique_id: T1136.001
+    subtechnique_name: Local Account
     evidence: create rogue local admin accounts
     confidence_band: high
   - tactic_id: TA0003
@@ -60,7 +91,7 @@ mitre_ttps:
     evidence: establish persistence with legitimate remote access tools like ScreenConnect and Zoho Assist.
     confidence_band: high
   - tactic_id: TA0007
-    tactic_name: Defense Evasion
+    tactic_name: Discovery
     technique_id: T1078
     technique_name: Valid Accounts
     evidence: establish persistence with legitimate remote access tools like ScreenConnect and Zoho Assist.
@@ -69,12 +100,16 @@ mitre_ttps:
     tactic_name: Exfiltration
     technique_id: T1074
     technique_name: Data Staged
+    subtechnique_id: T1074.001
+    subtechnique_name: Local Data Staging
     evidence: asas.zip, ex.zip, *_update.zip Password-protected archives from temp[.]sh
     confidence_band: high
   - tactic_id: TA0011
     tactic_name: Command and Control
     technique_id: T1071
     technique_name: Application Layer Protocol
+    subtechnique_id: T1071.001
+    subtechnique_name: Web Protocols
     evidence: relay.dltsolutions[.]top ScreenConnect Relay, opa[.]tlsd[.]shop Netbird Relay
     confidence_band: high
   - tactic_id: TA0040
@@ -87,6 +122,8 @@ cves:
   - id: CVE-2025-5777
     cvss: 7.5
     epss: 0.99897
+    kev: true
+    kev_status: "true"
 references:
   - https://www.huntress.com/blog/citrixbleed-2-dragonforce-ransomware
 iocs:
@@ -157,7 +194,17 @@ rules:
       - process_creation
       - windows
 rules_count: 4
+updates:
+  - at: "2026-11-19T18:12:21Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2025-5777
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 Huntress has observed a coordinated campaign across the first half of 2026 where Initial Access Brokers (IABs) are exploiting CVE-2025-5777, dubbed "CitrixBleed 2", on Citrix NetScaler appliances. This critical vulnerability allows attackers to leak NetScaler memory via malformed pre-authentication login requests, enabling the theft and replay of valid session tokens to bypass multi-factor authentication. Once initial access is gained, the attackers employ a standardized playbook involving novel local privilege escalation techniques, such as a registry-symlink/AppMgmt trick, to obtain SYSTEM privileges. They then establish persistence by creating rogue local administrator accounts and installing legitimate remote access tools like ScreenConnect and Zoho Assist. The final stage of these intrusions is the deployment of Dragonforce ransomware, encrypting victim data for impact.
 

@@ -1,15 +1,45 @@
 ---
+brief_id: brief-2026-09-crushftp-auth-bypass
+event_id: brief-2026-09-crushftp-auth-bypass
+revision: 2
+activity_at: "2026-11-19T18:13:06Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T18:13:06Z"
+    checksum: sha256:12c284b96d8707b3516b3af5a615c4e85b1e224be56eecc3061d15673a947b78
+    summary: exploited:true; KEV CVE-2025-31161
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: CrushFTP Authentication Bypass Exploitation
 slug: 2026-09-crushftp-auth-bypass
 description: CVE-2025-31161 in CrushFTP is being exploited to gain unauthorized access and execute malicious commands, with activity linked to Hellcat ransomware operations.
 date: "2026-09-21T19:13:25Z"
-lastmod: "2026-10-13T06:40:50Z"
+lastmod: "2026-11-19T18:12:21Z"
 type: threat
 types:
   - threat
 severities:
   - high
 exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2025-04-07T00:00:00Z"
+  confidence: high
+source_assessment:
+  reliability: B
+  credibility: "2"
+  rating: B2
+  likelihood: very likely
+qa_status:
+  verdict: pass
 cpes:
   - cpe:2.3:a:crushftp:crushftp:*:*:*:*:*:*:*:*
 has_poc: true
@@ -22,8 +52,12 @@ tags:
 vendors:
   - CrushFTP
 products:
-  - CrushFTP (< 10.8.4)
-  - CrushFTP (11.3.1)
+  - CrushFTP
+product_versions:
+  - product: CrushFTP
+    range: 11.3.1
+  - product: CrushFTP
+    range: < 10.8.4
 affected_os:
   - Windows
   - Linux
@@ -50,6 +84,8 @@ cves:
   - id: CVE-2025-31161
     cvss: 9.8
     epss: 0.99966
+    kev: true
+    kev_status: "true"
 references:
   - https://www.huntress.com/blog/crushftp-cve-2025-31161-auth-bypass-and-post-exploitation
   - https://nvd.nist.gov/vuln/detail/CVE-2025-31161
@@ -102,7 +138,16 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RUFFLABS-LUDUS_CRUSHFTP_CVE-2025-31161&utm_source=rss&utm_medium=rss
+  - at: "2026-11-19T18:12:21Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2025-31161
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 CVE-2025-31161 is a critical authentication bypass vulnerability in CrushFTP that allows unauthenticated remote attackers to gain unauthorized access to the application. Once the authentication mechanism is bypassed, attackers perform post-exploitation activities by executing system-level commands through the application's interface. Observed malicious activity includes the invocation of binaries like 'mesch.exe' or specific command arguments such as 'b64exec', 'fullinstall', or 'run'. This vulnerability has been actively exploited in the wild and linked to the Hellcat ransomware campaign. Defenders should monitor CrushFTP server logs for evidence of these specific command patterns, as they signify successful unauthorized access and subsequent execution of attacker-controlled code on the underlying host.
 

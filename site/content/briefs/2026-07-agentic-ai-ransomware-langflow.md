@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-07-agentic-ai-ransomware-langflow
 event_id: brief-2026-07-agentic-ai-ransomware-langflow
-revision: 2
-activity_at: "2026-10-29T15:33:45Z"
+revision: 3
+activity_at: "2026-11-19T18:13:06Z"
 revision_history:
   - revision: 2
     at: "2026-10-29T15:33:45Z"
@@ -14,21 +14,37 @@ revision_history:
       - updates
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4226
+  - revision: 3
+    at: "2026-11-19T18:13:06Z"
+    checksum: sha256:3d59f506711d6897ae97e9d963f50d82533be99d478cfc914f4fa112753a678f
+    summary: exploited:true; KEV CVE-2025-3248
+    changed_fields:
+      - claim_state
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Agentic AI Used to Conduct Ransomware Attack via Langflow
 slug: 2026-07-agentic-ai-ransomware-langflow
 description: Threat actor JadePuffer exploited CVE-2025-3248 in Langflow instances, leveraging agentic LLM capabilities for advanced reconnaissance, lateral movement, and ultimately encrypting data on production servers with ransomware.
 date: "2026-07-03T11:19:16Z"
-lastmod: "2026-10-29T15:32:28Z"
+lastmod: "2026-11-19T18:12:21Z"
 type: threat
-claim_state: <nil>
 types:
   - threat
 severities:
   - high
 actors:
   - JadePuffer
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2025-05-05T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:a:langflow:langflow:*:*:*:*:*:*:*:*
 has_poc: true
@@ -45,7 +61,10 @@ tags:
 vendors:
   - Langflow
 products:
-  - Langflow (< 1.3.0)
+  - Langflow
+product_versions:
+  - product: Langflow
+    range: < 1.3.0
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -121,7 +140,8 @@ cves:
   - id: CVE-2025-3248
     cvss: 9.8
     epss: 0.99993
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
   - id: CVE-2021-29441
     kev_status: unknown
 references:
@@ -169,7 +189,16 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4226
+  - at: "2026-11-19T18:12:21Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2025-3248
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 The threat actor known as JadePuffer has been observed utilizing agentic AI to execute a sophisticated ransomware attack, starting with the exploitation of internet-exposed Langflow instances. This campaign, reported by cloud security firm Sysdig, highlights a critical development in cyber warfare where LLM agents automate complex, multi-stage intrusions by combining known exploitation techniques with real-time reasoning. The initial access vector was CVE-2025-3248 (CVSS 9.8), a critical missing authentication vulnerability in Langflow that was disclosed in April 2026 and flagged by CISA as actively exploited in early May 2026. After gaining arbitrary Python code execution, the LLM-driven attacker systematically conducted reconnaissance, harvested credentials, achieved persistence, and moved laterally to production environments, demonstrating an adaptive attack methodology with minimal direct human intervention.
 
