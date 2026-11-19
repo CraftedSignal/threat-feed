@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6e964afc-349d-5af8-9345-1388f0fafdd9",
+  "id": "bundle--9d81d125-c39c-5c97-ae81-3004502cd000",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5055,17 +5055,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--3543d912-4037-5a12-92e7-69e575cc4ccf",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--0ecd6d53-e8d3-5614-aca9-3e1c55400a98",
-      "target_ref": "vulnerability--005e7fc4-c95f-5ea5-b75a-2b81f1d061fa"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--3576a0a0-79c5-5420-aa12-ace5aaf48fa1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9858,17 +9847,6 @@
       "relationship_type": "has",
       "source_ref": "software--9af9ff86-9415-5783-9aac-5e5bc9379d90",
       "target_ref": "vulnerability--298a75af-b51e-529f-b37f-201272012704"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8baef315-f6de-50b5-9a15-0199610a647e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T21:26:17.000Z",
-      "modified": "2026-08-25T18:55:32.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--94b56b36-7ab4-5056-93d3-b1fa4db912f9",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -15765,17 +15743,6 @@
       "relationship_type": "uses",
       "source_ref": "report--e5e54c0a-3c81-56e8-80df-aa04ac249055",
       "target_ref": "attack-pattern--49352fa6-0e34-56e8-89b7-aa09aee8e00a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f4e932ee-5745-5858-af27-f4c1d93657c1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--fe188139-0bf2-54d7-86ea-2408e5b3c569",
-      "target_ref": "vulnerability--005e7fc4-c95f-5ea5-b75a-2b81f1d061fa"
     },
     {
       "type": "relationship",
@@ -29097,65 +29064,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--94b56b36-7ab4-5056-93d3-b1fa4db912f9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T21:26:17.000Z",
-      "modified": "2026-08-25T18:55:32.000Z",
-      "name": "Integer Overflow in GNU Emacs PBM/PPM/PGM Image Loader (CVE-2026-77219)",
-      "description": "## Overview\n\nGNU Emacs versions prior to 31.0.91 contain an integer overflow vulnerability within the PBM (Portable Bitmap), PPM (Portable Pixelmap), and PGM (Portable Graymap) image processing logic. The vulnerability arises because the image loader uses signed integer arithmetic to calculate memory allocation sizes based on image dimensions and the maximum color index. By providing a specifically crafted image file containing excessively large dimensions and a manipulated color index value, an attacker can force the multiplication result to wrap to a negative value. This arithmetic error bypasses established bounds checks, resulting in an out-of-bounds heap memory read. When the application attempts to render the pixel data, it processes unintended heap memory contents, which may then be displayed to the user. This vulnerability primarily serves as an information disclosure mechanism, allowing an attacker to leak sensitive heap memory contents if they can trick an Emacs user into opening or rendering a malicious image file.\n\n## Impact\n\nSuccessful exploitation of this vulnerability results in the unauthorized disclosure of heap memory contents, which could include sensitive data processed by the Emacs instance. While this does not provide direct remote code execution, the disclosure of memory contents could facilitate further exploitation of the application or underlying host. GNU Emacs is widely used across Linux, Windows, and macOS environments, potentially exposing a broad user base to this information leak if they process untrusted PBM/PPM/PGM files.\n\n## Recommendation\n\n1. Upgrade all instances of GNU Emacs to version 31.0.91 or higher, where the integer overflow in the image loader has been remediated.\n2. Implement local security policies or email gateway filters to restrict the opening of untrusted PBM, PPM, or PGM image files within GNU Emacs if patching cannot be performed immediately.\n3. Validate that existing endpoint detection and response (EDR) solutions are configured to monitor for unusual memory access patterns or unexpected crashes in the Emacs process (emacs.exe or emacs binary).\n",
-      "published": "2026-08-21T21:26:17.000Z",
-      "labels": [
-        "command-injection",
-        "local-exploitation",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--0ecd6d53-e8d3-5614-aca9-3e1c55400a98",
-        "software--fe188139-0bf2-54d7-86ea-2408e5b3c569",
-        "vulnerability--005e7fc4-c95f-5ea5-b75a-2b81f1d061fa"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-gnu-emacs-overflow",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-gnu-emacs-overflow/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://access.redhat.com/security/cve/CVE-2026-79992"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2523665"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77219"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79992"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-gnu-emacs-overflow",
-      "x_craftedsignal_event_id": "brief-2026-08-gnu-emacs-overflow",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-gnu-emacs-overflow/",
-      "x_craftedsignal_activity_at": "2026-08-25T18:55:32.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--96e18be2-51c5-5777-995a-15bff168c3f3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T05:41:05.000Z",
@@ -38262,12 +38170,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--0ecd6d53-e8d3-5614-aca9-3e1c55400a98",
-      "name": "Red Hat Enterprise Linux"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--0f982871-89fd-510b-9176-c02f2b20aa5a",
       "name": "AVideo (\u003c= 29.0)",
       "vendor": "AVideo"
@@ -42414,12 +42316,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--fe188139-0bf2-54d7-86ea-2408e5b3c569",
-      "name": "Emacs"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--fedd2b5c-7d45-5edb-b864-2fca77047385",
       "name": "Kamailio (\u003c= 5.5.0, 6.0.7)",
       "vendor": "Kamailio"
@@ -42496,22 +42392,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-15469",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15469"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--005e7fc4-c95f-5ea5-b75a-2b81f1d061fa",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-77219",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-77219",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77219"
         }
       ]
     },

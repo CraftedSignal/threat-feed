@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--577ff6d5-9827-5a7b-b952-ed9addb27ea1",
+  "id": "bundle--3aed6a97-0ee1-55a7-aa35-717a6675aad8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -38019,7 +38019,7 @@
       "id": "relationship--75da5f24-9266-5715-b707-678a8ee0f8de",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T13:56:42.000Z",
-      "modified": "2026-11-18T13:56:42.000Z",
+      "modified": "2026-11-19T21:27:52.000Z",
       "relationship_type": "uses",
       "source_ref": "report--35e631e2-9924-580a-ba36-7912e6449080",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
@@ -40773,6 +40773,17 @@
       "relationship_type": "has",
       "source_ref": "software--6953c7cf-cc16-589b-a935-e34667c2d54a",
       "target_ref": "vulnerability--7d2775ee-3f53-5bcd-8db1-7387f7a48c21"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7f84d0ab-13a3-5417-94da-baa5eed46178",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--85796c05-89d9-5425-8571-6e84f2ac2958",
+      "target_ref": "vulnerability--595d442d-7420-554f-ac3b-25e46114d476"
     },
     {
       "type": "relationship",
@@ -54945,6 +54956,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b57edfe4-4046-570d-880c-306381fb06f6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8cc1fabf-8fb2-54b6-aadd-359da1ca100d",
+      "target_ref": "vulnerability--5997e4e9-a3fd-5110-b2fd-09d18c7f657e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b5833b5c-37ed-5d9a-91ad-740feaeef884",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:32:57.000Z",
@@ -63085,6 +63107,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d4b07fa2-8d10-5d63-b403-f920e532da41",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c865e62a-4e51-59bd-8c88-ebfaebb14760",
+      "target_ref": "vulnerability--a88e7010-9717-5e6a-b439-c6ccf997d598"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d4b6ca0b-b076-514a-9f11-2b3fbbfa2d19",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:59:49.000Z",
@@ -67635,6 +67668,17 @@
       "relationship_type": "uses",
       "source_ref": "report--f6e768e0-eee7-572b-8926-364a38bd077d",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e77db198-5de4-5799-9e79-a5f33beea90b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T21:27:27.000Z",
+      "modified": "2026-11-19T21:27:27.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5e53659e-11eb-5230-b917-2a6f3ab6a563",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -101440,7 +101484,7 @@
       "id": "report--35e631e2-9924-580a-ba36-7912e6449080",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T13:56:42.000Z",
-      "modified": "2026-11-18T13:56:42.000Z",
+      "modified": "2026-11-19T21:27:52.000Z",
       "name": "Apache Iggy: Sensitive information exposure in server log files (CVE-2026-118493)",
       "description": "## Overview\n\nApache Iggy version 0.9.0 contains a vulnerability (CVE-2026-118493) where the server generates a default root password and writes it to the server log file if the IGGY_ROOT_USERNAME and IGGY_ROOT_PASSWORD environment variables are not set at startup. This log file is enabled by default. A separate flaw in the system snapshot command (GetSnapshot on the binary transports or POST /snapshot on HTTP) allows a user with the read_servers permission to download the server log files and read the generated root password.\n\n## Impact\n\nSuccessful exploitation allows a user with read_servers permission to obtain the server's root password, potentially resulting in administrative access to the affected Apache Iggy server.\n\n## Recommendation\n\n1. Users are recommended to upgrade to version 0.10.0, which fixes the issue. In version 0.10.0, the system does not generate a root password and the snapshot command requires the manage_servers permission.\n2. If a 0.9.0 server generated its root password, the password should be changed.",
       "published": "2026-11-18T13:56:42.000Z",
@@ -101453,6 +101497,7 @@
         "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--6ec57e8c-735c-5f8c-a967-a9fd97300908",
+        "software--8cc1fabf-8fb2-54b6-aadd-359da1ca100d",
         "vulnerability--5997e4e9-a3fd-5110-b2fd-09d18c7f657e"
       ],
       "external_references": [
@@ -101467,20 +101512,25 @@
         },
         {
           "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118493"
+        },
+        {
+          "source_name": "reference",
           "url": "https://seclists.org/oss-sec/2026/q4/767"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-18-apache-iggy-password-exposure-cve-2026-118493",
       "x_craftedsignal_event_id": "brief-2026-11-18-apache-iggy-password-exposure-cve-2026-118493",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-iggy-password-exposure-cve-2026-118493/",
-      "x_craftedsignal_activity_at": "2026-11-18T13:56:42.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T21:27:52.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.00238,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -122308,6 +122358,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5e53659e-11eb-5230-b917-2a6f3ab6a563",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T21:27:27.000Z",
+      "modified": "2026-11-19T21:27:27.000Z",
+      "name": "Trust Payments Gateway for WooCommerce: Authentication bypass (CVE-2026-110811)",
+      "description": "## Overview\nThe Trust Payments Gateway for WooCommerce (JavaScript Library) plugin for WordPress (versions 1.3.8 and earlier) contains a critical authentication bypass vulnerability (CVE-2026-110811). The vulnerability stems from the `new_customer_account()` function improperly storing the raw return value of `wp_create_user()` in the order metadata. When a username collision occurs, a `WP_Error` object is stored. A subsequent callback, `add_customer_details_to_thankyou_page()`, incorrectly casts this object to an integer, resulting in a value of `1`. This causes the application to call `wp_set_current_user(1)` and `wp_set_auth_cookie(1)`, granting the attacker administrative privileges.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to gain full administrative access to the WordPress site, including on multisite installations where they may gain network super-admin rights.\n\n## Recommendation\n- Audit WordPress site activity for unauthorized administrative session creation.\n- Immediately review and restrict access to the site's thank-you pages and checkout processes.\n- Monitor for attempts to enumerate usernames using known WordPress techniques, which may indicate pre-exploitation reconnaissance.\n- At the time of reporting, no patch information is available. Monitor the vendor advisory for the release of a fixed version.",
+      "published": "2026-11-19T21:27:27.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c865e62a-4e51-59bd-8c88-ebfaebb14760",
+        "vulnerability--a88e7010-9717-5e6a-b439-c6ccf997d598"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-trust-payments-woo-auth-bypass-cve-2026-110811",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-trust-payments-woo-auth-bypass-cve-2026-110811/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-110811"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110811"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-trust-payments-woo-auth-bypass-cve-2026-110811",
+      "x_craftedsignal_event_id": "brief-2026-11-19-trust-payments-woo-auth-bypass-cve-2026-110811",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-trust-payments-woo-auth-bypass-cve-2026-110811/",
+      "x_craftedsignal_activity_at": "2026-11-19T21:27:27.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00535,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -185984,13 +186080,14 @@
       "id": "report--df505cfc-af59-58cb-a2e3-707d717eeedc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T13:56:29.000Z",
-      "modified": "2026-11-18T13:56:29.000Z",
+      "modified": "2026-11-19T21:27:52.000Z",
       "name": "Apache Iggy Go SDK: Insufficient Session Expiration (CVE-2026-132079)",
       "description": "## Overview\n\nApache Iggy Go SDK is vulnerable to an insufficient session expiration issue due to a data handling error in the CreatePersonalAccessToken method. The Go TCP client incorrectly encodes a 32-bit expiry value into the upper half of a 64-bit field, which the server interprets as a value 2^32 times larger than intended. This results in personal access tokens that persist for an unexpectedly long duration. This issue affects versions 0.5.0 through 0.9.x.\n\n## Impact\n\nTokens created using the affected versions of the SDK remain valid on the server for much longer than the intended expiration period. These tokens do not automatically shorten their duration after the SDK is upgraded.\n\n## Recommendation\n\n- Update the Apache Iggy Go SDK to version 0.10.0 or later to address the root cause of the incorrect token expiration.\n- Manually delete all existing personal access tokens generated by versions 0.5.0 through 0.9.x of the SDK on the server, as upgrading the client will not affect tokens already issued with long expiration times.\n- Re-issue new tokens after upgrading the client and purging existing ones.",
       "published": "2026-11-18T13:56:29.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--17e8832f-1f53-5094-bdec-b9da8fbb5932",
+        "software--85796c05-89d9-5425-8571-6e84f2ac2958",
         "vulnerability--595d442d-7420-554f-ac3b-25e46114d476"
       ],
       "external_references": [
@@ -186005,20 +186102,25 @@
         },
         {
           "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132079"
+        },
+        {
+          "source_name": "reference",
           "url": "https://seclists.org/oss-sec/2026/q4/768"
         }
       ],
       "confidence": 40,
       "x_craftedsignal_brief_id": "brief-2026-11-18-apache-iggy-go-sdk-session-expiration-cve-2026-132079",
       "x_craftedsignal_event_id": "brief-2026-11-18-apache-iggy-go-sdk-session-expiration-cve-2026-132079",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-iggy-go-sdk-session-expiration-cve-2026-132079/",
-      "x_craftedsignal_activity_at": "2026-11-18T13:56:29.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T21:27:52.000Z",
       "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.00215,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -211724,6 +211826,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--85796c05-89d9-5425-8571-6e84f2ac2958",
+      "name": "Iggy Go SDK (\u003e= 0.5.0, \u003c 0.10.0)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--85842ad8-fdc0-51b0-8193-38f7ffa3ce41",
       "name": "Rancher (2.15.0 - 2.15.2)",
       "vendor": "SUSE"
@@ -212248,6 +212357,13 @@
       "id": "software--8cabc7fc-f66e-551b-a6fa-5d54f7507a96",
       "name": "cockpit-files",
       "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8cc1fabf-8fb2-54b6-aadd-359da1ca100d",
+      "name": "Iggy (0.9.0)",
+      "vendor": "Apache Software Foundation"
     },
     {
       "type": "software",
@@ -216458,6 +216574,13 @@
       "id": "software--c859ee7f-ee5b-5ada-85ab-7a50585b8bc3",
       "name": "Vvveb (\u003c 1.0.9.0)",
       "vendor": "Vvveb"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c865e62a-4e51-59bd-8c88-ebfaebb14760",
+      "name": "Trust Payments Gateway for WooCommerce (\u003c= 1.3.8)",
+      "vendor": "Trust Payments"
     },
     {
       "type": "software",
@@ -262416,6 +262539,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126180",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126180"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a88e7010-9717-5e6a-b439-c6ccf997d598",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-110811",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-110811",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110811"
         }
       ]
     },
