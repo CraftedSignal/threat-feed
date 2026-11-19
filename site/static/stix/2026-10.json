@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e8fa1e75-8321-5f21-81ea-116bc3ac741b",
+  "id": "bundle--ed7eae80-8014-584f-bac3-4aa41f0c66d4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6548,6 +6548,17 @@
       "relationship_type": "has",
       "source_ref": "software--ec6d1345-9933-5c39-b711-fe52e6db5a71",
       "target_ref": "vulnerability--d17d1399-3168-564a-9a8f-83ffbd7d3552"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0205bffe-56e4-5356-b62d-0043096c4a19",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--32ebfba3-1084-5949-839b-58212f453d8f",
+      "target_ref": "vulnerability--a2d5aa57-5a78-5410-a2bc-0de5b40433e7"
     },
     {
       "type": "relationship",
@@ -186218,12 +186229,17 @@
       "id": "report--e52b034a-5c4f-5e9a-9d8f-6776e8975abe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T18:48:33.000Z",
-      "modified": "2026-10-30T18:48:33.000Z",
-      "name": "virtualenv: Xonsh activation script command injection (CVE-2026-113718)",
-      "description": "## Mechanism\nThe generator for the xonsh activation script (`activate.xsh`) uses `repr()` to quote prompt and destination strings. When generated prompts contain specific non-ASCII bytes (e.g., UTF-8 sequences such as those ending in `0xad`), they can be misinterpreted by xonsh when sourced under legacy multibyte encodings like GBK or Big5. In these encodings, the byte `0xad` may pair with a subsequent backslash (`0x5c`) to form a single decoded character, causing the backslash to no longer escape the adjacent quote. This allows an attacker to terminate the string literal and execute arbitrary commands within the activation script.\n\n## Affected Areas\n- `virtualenv` POSIX activation scripts.\n- Specifically, `xonsh` activation via `activate.xsh`.\n- Exposure is dependent on the environment being sourced in a shell using legacy multibyte encodings (e.g., GBK or Big5).\n",
+      "modified": "2026-11-19T23:07:23.000Z",
+      "name": "virtualenv: Xonsh activation code injection (CVE-2026-113718)",
+      "description": "## Overview\nA vulnerability exists in virtualenv versions prior to 21.14.9 related to the POSIX xonsh activation script (activate.xsh). The quote() function uses repr() to write non-ASCII prompt or destination data into the script. In environments configured with legacy multibyte codecs (e.g., GBK or Big5), a UTF-8 trail byte can consume the backslash escape character preceding a quote, allowing the literal to close prematurely and enabling the execution of attacker-influenced statements when the user sources the generated activate.xsh script.\n\n## Attack Chain\n1. virtualenv generates an activate.xsh file using repr() for non-ASCII data.\n2. In environments utilizing legacy multibyte codecs, the backslash character is consumed by a UTF-8 trail byte.\n3. The quote character terminates the string literal incorrectly.\n4. Sourcing the resulting script leads to the execution of injected statements.\n\n## Impact\nSuccessful exploitation allows for arbitrary code execution with the privileges of the user who sources the generated script.\n\n## Recommendation\nUpgrade the virtualenv package to version 21.14.9 or later.",
       "published": "2026-10-30T18:48:33.000Z",
+      "labels": [
+        "attack.execution",
+        "attack.t1059"
+      ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--32ebfba3-1084-5949-839b-58212f453d8f",
         "vulnerability--a2d5aa57-5a78-5410-a2bc-0de5b40433e7"
       ],
       "external_references": [
@@ -186231,6 +186247,10 @@
           "source_name": "craftedsignal",
           "external_id": "brief-2026-10-30-virtualenv-command-injection-08b06e4e",
           "url": "https://feed.craftedsignal.io/briefs/2026-10-virtualenv-command-injection-08b06e4e/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-113718"
         },
         {
           "source_name": "reference",
@@ -186243,19 +186263,24 @@
         {
           "source_name": "reference",
           "url": "https://github.com/pypa/virtualenv/pull/3432"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113718"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-30-virtualenv-command-injection-08b06e4e",
       "x_craftedsignal_event_id": "brief-2026-10-30-virtualenv-command-injection-08b06e4e",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-virtualenv-command-injection-08b06e4e/",
-      "x_craftedsignal_activity_at": "2026-10-30T18:48:33.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T23:07:23.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "not_observed"
       },
+      "x_craftedsignal_cvss_max": 0,
       "x_craftedsignal_epss_max": 0.00242,
       "x_craftedsignal_kev_status": "false"
     },
@@ -203013,6 +203038,13 @@
       "id": "software--32d1f7e9-bada-5fc5-9103-5eb7a511566a",
       "name": "PPOM – Product Addons \u0026 Custom Fields for WooCommerce (\u003c= 34.0.10)",
       "vendor": "WordPress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--32ebfba3-1084-5949-839b-58212f453d8f",
+      "name": "virtualenv (\u003e= 21.3.0, \u003c 21.14.9)",
+      "vendor": "pypa"
     },
     {
       "type": "software",

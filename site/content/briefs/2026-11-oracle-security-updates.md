@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-oracle-security-updates
 event_id: brief-2026-11-oracle-security-updates
-revision: 33
-activity_at: "2026-11-19T22:20:45Z"
+revision: 34
+activity_at: "2026-11-19T23:07:23Z"
 revision_history:
   - revision: 2
     at: "2026-11-17T23:49:55Z"
@@ -451,11 +451,27 @@ revision_history:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-91586
       - https://nvd.nist.gov/vuln/detail/CVE-2026-91587
       - https://nvd.nist.gov/vuln/detail/CVE-2026-91671
+  - revision: 34
+    at: "2026-11-19T23:07:23Z"
+    checksum: sha256:fc6835f92166038e504fba0a4005319ed59f4a33e948dd618602e108001356f3
+    summary: added CVE-2026-101603, CVE-2026-101604, CVE-2026-101638
+    changed_fields:
+      - content
+      - cpes
+      - cve_verification
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101603
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101604
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101638
 title: Oracle Security Updates - November 2026
 slug: 2026-11-oracle-security-updates
 description: Roundup of Oracle security advisories published in November 2026.
 date: "2026-11-16T21:54:15Z"
-lastmod: "2026-11-19T21:21:36Z"
+lastmod: "2026-11-19T23:06:59Z"
 type: threat
 types:
   - threat
@@ -464,11 +480,18 @@ severities:
 exploitation_evidence:
   status: unknown
 cpes:
+  - cpe:2.3:a:oracle:applications_dba:*:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:common_applications:*:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:communications_billing_and_revenue_management:15.0.0.0.0:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:communications_billing_and_revenue_management:15.0.1.0.0:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:communications_billing_and_revenue_management:15.1.0.0.0:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:communications_billing_and_revenue_management:15.2.0.0.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:oracle:communications_unified_inventory_management:7.5.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:oracle:communications_unified_inventory_management:7.5.1:*:*:*:*:*:*:*
+  - cpe:2.3:a:oracle:communications_unified_inventory_management:7.6.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:oracle:communications_unified_inventory_management:7.7.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:oracle:communications_unified_inventory_management:7.8.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:oracle:communications_unified_inventory_management:8.0.1:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:e-business_suite:*:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:mobile_field_service:*:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:one-to-one_fulfillment:*:*:*:*:*:*:*:*
@@ -606,6 +629,18 @@ cve_verification:
     status: verified
     source: nvd
     checked_at: 2026-11-19T21:21:36.560208174Z
+  CVE-2026-101603:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T23:06:51.058897782Z
+  CVE-2026-101604:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T23:06:54.290923013Z
+  CVE-2026-101638:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T23:06:59.584867751Z
   CVE-2026-101652:
     status: verified
     source: nvd
@@ -2512,25 +2547,43 @@ cves:
     cvss: 8.5
     epss: 0.0019
     kev_status: "false"
+  - id: CVE-2026-101603
+    cvss: 7.5
+    epss: 0.00301
+    kev_status: "false"
+  - id: CVE-2026-101604
+    cvss: 7.5
+    epss: 0.00377
+    kev_status: "false"
+  - id: CVE-2026-101638
+    cvss: 7.3
+    epss: 0.00166
+    kev_status: "false"
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-91671
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-101638
 updates:
-  - at: "2026-11-19T21:21:14Z"
+  - at: "2026-11-19T21:21:31Z"
     level: L2
-    summary: added CVE-2026-91564 +4
+    summary: added CVE-2026-91587, CVE-2026-91671
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-91564
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-91566
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-91586
       - https://nvd.nist.gov/vuln/detail/CVE-2026-91587
       - https://nvd.nist.gov/vuln/detail/CVE-2026-91671
+  - at: "2026-11-19T23:06:51Z"
+    level: L2
+    summary: added CVE-2026-101603, CVE-2026-101604, CVE-2026-101638
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101603
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101604
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101638
 ---
 
 ## Overview
 
-This roundup covers 263 Oracle security vulnerabilities. CVSS base scores range from 7.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect APEX, Application Development Framework, Application Testing Suite, AutoVue, Autonomous Health Framework, Business Intelligence Enterprise Edition, Communications Billing and Revenue Management, E-Business Suite, E-Business Suite Integrated SOA Gateway, Fusion Middleware, Hyperion Financial Close Management, Hyperion Financial Data Quality Management, Enterprise Edition, Hyperion Financial Management, Hyperion Infrastructure Technology, Hyperion Planning, Java SE, Mobile Field Service, MySQL Server, Oracle Access Manager, Oracle Business Intelligence Enterprise Edition, Oracle Collaborative Planning, Oracle Database Server, Oracle E-Business Suite, Oracle E-Business Suite Integrated SOA Gateway, Oracle E-Business Suite Secure Enterprise Search, Oracle E-Business Suite iProcurement, Oracle Enterprise Manager Base Platform, Oracle Financial Services Customer Screening, Oracle Fusion Middleware, Oracle Hyperion Financial Close Management, Oracle Hyperion Infrastructure Technology, Oracle Hyperion Planning, Oracle Managed File Transfer, Oracle Mobile Field Service, Oracle REST Data Services, Oracle Service Bus, Oracle VM VirtualBox, Oracle WebCenter Portal, PeopleSoft Enterprise PeopleTools, Product Lifecycle Analytics, Service Delivery Platform, Siebel CRM, Siebel CRM Deployment, VM VirtualBox, WebCenter Portal, WebCenter Sites, WebLogic Server, iProcurement.
+This roundup covers 265 Oracle security vulnerabilities. CVSS base scores range from 7.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect APEX, Application Development Framework, Application Testing Suite, AutoVue, Autonomous Health Framework, Business Intelligence Enterprise Edition, Communications Billing and Revenue Management, E-Business Suite, E-Business Suite Integrated SOA Gateway, Fusion Middleware, Hyperion Financial Close Management, Hyperion Financial Data Quality Management, Enterprise Edition, Hyperion Financial Management, Hyperion Infrastructure Technology, Hyperion Planning, Java SE, Mobile Field Service, MySQL Server, Oracle Access Manager, Oracle Business Intelligence Enterprise Edition, Oracle Collaborative Planning, Oracle Database Server, Oracle E-Business Suite, Oracle E-Business Suite Integrated SOA Gateway, Oracle E-Business Suite Secure Enterprise Search, Oracle E-Business Suite iProcurement, Oracle Enterprise Manager Base Platform, Oracle Financial Services Customer Screening, Oracle Fusion Middleware, Oracle Hyperion Financial Close Management, Oracle Hyperion Infrastructure Technology, Oracle Hyperion Planning, Oracle Managed File Transfer, Oracle Mobile Field Service, Oracle REST Data Services, Oracle Service Bus, Oracle VM VirtualBox, Oracle WebCenter Portal, PeopleSoft Enterprise PeopleTools, Product Lifecycle Analytics, Service Delivery Platform, Siebel CRM, Siebel CRM Deployment, VM VirtualBox, WebCenter Portal, WebCenter Sites, WebLogic Server, iProcurement.
 
 ## Summary
 
@@ -2799,6 +2852,8 @@ This roundup covers 263 Oracle security vulnerabilities. CVSS base scores range 
 | [CVE-2026-91586](#cve-2026-91586) | Oracle WebCenter Portal (12.2.1.4.0, 14.1.2.0.0) | High | 7.4 | 0.22% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91586) (authoritative) |
 | [CVE-2026-91587](#cve-2026-91587) | WebCenter Portal (12.2.1.4.0, 14.1.2.0.0) | High | 8.6 | 0.26% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91587) (authoritative) |
 | [CVE-2026-91671](#cve-2026-91671) | Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0) | High | 8.5 | 0.19% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91671) (authoritative) |
+| [CVE-2026-101603](#cve-2026-101603) | n/a | High | 7.5 | 0.30% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101603) (authoritative) |
+| [CVE-2026-101604](#cve-2026-101604) | n/a | High | 7.5 | 0.38% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101604) (authoritative) |
 
 
 ## By product
@@ -5206,3 +5261,15 @@ Affected products:
 - Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91671
+
+## CVE-2026-101603
+
+Oracle Communications Unified Inventory Management is vulnerable to a security flaw that allows a low-privileged attacker with network access via HTTP to fully compromise the application. The vulnerability is rated with a CVSS 3.1 base score of 7.5, reflecting significant impacts on confidentiality, integrity, and availability.
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101603
+
+## CVE-2026-101604
+
+Oracle Communications Unified Inventory Management contains a vulnerability in its security component that allows an unauthenticated, network-adjacent attacker to perform unauthorized access to critical data via HTTP. The vulnerability is characterized by a high confidentiality impact (CVSS 7.5), as attackers can potentially access all data within the affected system without requiring authentication.
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101604
