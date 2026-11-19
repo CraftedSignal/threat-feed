@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--90423ef3-7986-5130-ad2a-3aafe4c9d3e5",
+  "id": "bundle--86ca43e4-f6d6-525e-b83b-df172b43ff80",
   "objects": [
     {
       "type": "attack-pattern",
@@ -53715,6 +53715,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6673cda1-59b9-5e69-8ef9-5d21fcd7f828",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T17:25:45.000Z",
+      "modified": "2026-11-19T17:25:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5f0a5868-342e-5154-8ade-b6311fe4760e",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--667e089b-4218-5d9a-8618-54c341233c4e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T11:28:47.000Z",
@@ -84163,6 +84174,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--abe9f18f-310b-5050-9000-f6fe6fa73c34",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--823c804c-f203-5f13-9851-e02614420b4a",
+      "target_ref": "vulnerability--09f23620-963a-532c-9a58-e30d8bdd4221"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--abf4be47-4cf0-5cb2-9c0a-a627cccb688f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -108095,6 +108117,17 @@
       "relationship_type": "has",
       "source_ref": "software--7407fab8-197b-51ec-9871-b8b2fbd0df60",
       "target_ref": "vulnerability--c084b9e7-19fc-5370-b22d-eccd3662fa3a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e2c611c3-5665-562b-9ab5-54a0b90886a8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T17:25:45.000Z",
+      "modified": "2026-11-19T17:25:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5f0a5868-342e-5154-8ade-b6311fe4760e",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -188266,6 +188299,53 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5f0a5868-342e-5154-8ade-b6311fe4760e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T17:25:45.000Z",
+      "modified": "2026-11-19T17:25:45.000Z",
+      "name": "Fleet: User administration API incorrect authorization (CVE-2026-126402)",
+      "description": "## Overview\nFleet versions prior to 4.89.0 contain an incorrect authorization flaw in the user administration API. The vulnerability allows an authenticated user with existing team administrator privileges to successfully invoke user creation or modification requests for teams outside of their authorized scope. By granting themselves or others administrator roles on these additional teams, attackers can perform unauthorized administrative actions.\n\n## Impact\nSuccessful exploitation allows an authenticated team administrator to escalate their privileges to administrator status on other teams within the Fleet instance. Once elevated, the attacker can deploy arbitrary software and execute scripts on hosts managed by the compromised teams.\n\n## Recommendation\nUpgrade all instances of Fleet to version 4.89.0 or later to address the authorization flaw in the user administration API.",
+      "published": "2026-11-19T17:25:45.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--823c804c-f203-5f13-9851-e02614420b4a",
+        "vulnerability--09f23620-963a-532c-9a58-e30d8bdd4221"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-fleet-auth-flaw-cve-2026-126402",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fleet-auth-flaw-cve-2026-126402/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126402"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126402"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-fleet-auth-flaw-cve-2026-126402",
+      "x_craftedsignal_event_id": "brief-2026-11-19-fleet-auth-flaw-cve-2026-126402",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fleet-auth-flaw-cve-2026-126402/",
+      "x_craftedsignal_activity_at": "2026-11-19T17:25:45.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.00335,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -315918,6 +315998,13 @@
       "id": "software--8224b0ca-b482-586a-add6-9c80487efbd7",
       "name": "Xen Orchestra Appliance",
       "vendor": "Vates"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--823c804c-f203-5f13-9851-e02614420b4a",
+      "name": "Fleet (\u003c 4.89.0)",
+      "vendor": "Fleet"
     },
     {
       "type": "software",

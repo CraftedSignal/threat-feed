@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2dd620b8-7b91-504c-b926-0b80086c7116",
+  "id": "bundle--e0611802-1d57-5746-9a67-782869c98cc5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4081,17 +4081,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--24c725c8-59fe-572c-acfb-ce936050c9d3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T17:25:19.000Z",
-      "modified": "2026-08-21T17:25:19.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--40c077d3-3f36-5bfa-a113-0056beb76108",
-      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--24f635d1-6c57-5c29-b38c-1ad498db307e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T21:15:37.000Z",
@@ -6255,17 +6244,6 @@
       "relationship_type": "uses",
       "source_ref": "report--6e743765-f373-5d97-83fd-9bd91833c1d0",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--49db9991-c288-53db-95e8-34127f854f69",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--782cc290-374a-5c66-9529-2ce533347d37",
-      "target_ref": "vulnerability--145c7186-3676-5587-8f66-3756ca45031c"
     },
     {
       "type": "relationship",
@@ -21702,47 +21680,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--40c077d3-3f36-5bfa-a113-0056beb76108",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T17:25:19.000Z",
-      "modified": "2026-08-21T17:25:19.000Z",
-      "name": "Use-After-Free Vulnerability in llama.cpp RPC Server",
-      "description": "## Overview\n\nThe llama.cpp RPC server, used for distributed model inference, contains a critical use-after-free vulnerability (CVE-2026-39909) affecting all versions prior to b8585. An unauthenticated remote attacker can exploit this vulnerability by interacting with the RPC interface specifically via the GRAPH_RECOMPUTE handler. The flaw arises from improper memory management during the handling of computation graphs. By storing a specific graph structure, forcing the server to free associated buffers, and subsequently reclaiming that freed memory with attacker-supplied content, an attacker can leave the server with dangling pointers. Subsequent requests to re-execute the graph trigger these pointers, leading to arbitrary memory read and write operations. This capability provides a pathway for remote code execution, posing a significant risk to systems exposing the llama.cpp RPC server to untrusted networks.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated remote attacker to gain arbitrary read and write access to the memory space of the llama.cpp process. This effectively results in remote code execution on the underlying host. The impact is significant for organizations deploying large language model inference clusters where the RPC server is reachable from broader network segments, as it provides a direct entry point for system compromise without requiring user interaction or authentication.\n\n## Recommendation\n\n1. Upgrade all instances of llama.cpp to version b8585 or later immediately to patch CVE-2026-39909.\n2. Restrict network access to the llama.cpp RPC server interface via firewall or network segmentation to ensure it is not reachable from untrusted or public networks.\n3. Implement egress filtering for servers running llama.cpp to limit the potential for post-exploitation data exfiltration or secondary payload delivery if an initial compromise occurs.\n",
-      "published": "2026-08-21T17:25:19.000Z",
-      "object_refs": [
-        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--782cc290-374a-5c66-9529-2ce533347d37",
-        "vulnerability--145c7186-3676-5587-8f66-3756ca45031c"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-21-llama-cpp-uaf",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-llama-cpp-uaf/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39909"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-21-llama-cpp-uaf",
-      "x_craftedsignal_event_id": "brief-2026-08-21-llama-cpp-uaf",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-llama-cpp-uaf/",
-      "x_craftedsignal_activity_at": "2026-08-21T17:25:19.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -40518,13 +40455,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--782cc290-374a-5c66-9529-2ce533347d37",
-      "name": "llama.cpp",
-      "vendor": "ggerganov"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--783af223-f518-5a1f-8a96-cd725e106092",
       "name": "Android Automotive"
     },
@@ -43337,22 +43267,6 @@
           "source_name": "cve",
           "external_id": "CVE-2025-6019",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-6019"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--145c7186-3676-5587-8f66-3756ca45031c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-39909",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-39909",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39909"
         }
       ]
     },
