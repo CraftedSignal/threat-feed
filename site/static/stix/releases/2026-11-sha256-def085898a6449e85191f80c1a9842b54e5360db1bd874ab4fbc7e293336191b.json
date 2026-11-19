@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2003af6d-627f-55cd-acb7-af211fb5f280",
+  "id": "bundle--0340f851-ea6f-5231-ae74-48477dac7d85",
   "objects": [
     {
       "type": "attack-pattern",
@@ -116533,7 +116533,7 @@
       "id": "report--54bf7fde-451c-5db9-bae6-0be23e7e790b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T17:51:42.000Z",
-      "modified": "2026-11-13T17:51:42.000Z",
+      "modified": "2026-11-19T17:02:22.000Z",
       "name": "Fleet: Multiple vulnerabilities",
       "description": "## Overview\n\nFleet contains multiple vulnerabilities that can be exploited by a remote, authenticated attacker. Successful exploitation allows the attacker to elevate their privileges to administrator or trigger a denial-of-service condition within the application. \n\n## Impact\n\nAttackers can achieve unauthorized administrative access to the Fleet environment or disrupt service availability through a denial-of-service attack.\n\n## Recommendation\n\nInventory all deployments of Fleet and monitor the official vendor advisories for specific patch releases and remediation guidance. Once patches are available, prioritize upgrading all Fleet instances to the versions containing the fixes.",
       "published": "2026-11-13T17:51:42.000Z",
@@ -116550,15 +116550,19 @@
         {
           "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4559"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4666"
         }
       ],
-      "confidence": 60,
+      "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-13-fleet-vulnerabilities",
       "x_craftedsignal_event_id": "brief-2026-11-13-fleet-vulnerabilities",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fleet-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-11-13T17:51:42.000Z",
-      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_activity_at": "2026-11-19T17:02:22.000Z",
+      "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -126057,6 +126061,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--68b9b0af-48de-5311-9735-1ba392836f16",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T17:01:34.000Z",
+      "modified": "2026-11-19T17:01:34.000Z",
+      "name": "Oracle Java and GraalVM: Multiple Vulnerabilities",
+      "description": "## Overview\n\nOracle has issued security updates for Java and GraalVM to address multiple vulnerabilities. A remote, unauthenticated attacker can exploit these flaws to compromise system confidentiality, integrity, and availability. Under certain conditions, these vulnerabilities may also allow for arbitrary code execution. Specific CVE identifiers were not disclosed in the provided source material.\n\n## Recommendation\n\n- Identify all instances of Oracle Java and GraalVM within your environment, including those bundled with third-party software.\n- Review the official Oracle advisory at the provided reference URL to determine affected version ranges and the corresponding security updates.\n- Prioritize patching systems exposed to the public internet, particularly those running services that utilize the affected Java or GraalVM components.\n- Consult the vendor documentation for specific version upgrade paths.",
+      "published": "2026-11-19T17:01:34.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--14ebe255-fa43-5685-81ee-aa675a5f0dc2",
+        "software--d63a4596-483c-50a3-af0c-5b6d68c9dc8b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-oracle-java-graalvm-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-oracle-java-graalvm-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4624"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-oracle-java-graalvm-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-19-oracle-java-graalvm-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-oracle-java-graalvm-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-19T17:01:34.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -201230,6 +201273,13 @@
       "spec_version": "2.1",
       "id": "software--14eb439c-5918-5527-be0c-f870e2ad00d1",
       "name": "CGI (\u003c 5.00)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--14ebe255-fa43-5685-81ee-aa675a5f0dc2",
+      "name": "Java",
+      "vendor": "Oracle"
     },
     {
       "type": "software",
