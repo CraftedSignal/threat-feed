@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b00beebf-ad05-5ec5-adae-4294cee0667e",
+  "id": "bundle--08da8c06-7ea9-535f-9dde-59de9ee106b2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -47846,6 +47846,17 @@
       "relationship_type": "has",
       "source_ref": "software--1088b0f6-432a-5391-a3f0-41f5cf85a15f",
       "target_ref": "vulnerability--9678bda1-b477-5343-bba6-3139b113adce"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9cc7b179-7969-5f12-abc3-cbcfc6aeb2d0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--422799b3-bb86-53fa-a3fb-df9e9021e141",
+      "target_ref": "vulnerability--b8558969-2beb-522e-a178-c89bc0f93da7"
     },
     {
       "type": "relationship",
@@ -190290,6 +190301,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e893435c-5c7c-5954-adc1-eac6deb0ae18",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T20:54:39.000Z",
+      "modified": "2026-11-19T20:54:39.000Z",
+      "name": "Autodesk AutoCAD: Integer overflow in RLE bitmap decompression (CVE-2026-104868)",
+      "description": "## Overview\nA vulnerability exists in Autodesk AutoCAD related to the parsing of DWG files. Specifically, an integer overflow during RLE bitmap decompression results in an undersized heap allocation and subsequent heap buffer overflow.\n\n## Attack Chain\nExploitation requires a user to open a maliciously crafted DWG file. Successful exploitation may result in an application crash or allow an attacker to execute arbitrary code within the context of the current user process.\n\n## Impact\nSuccessful exploitation can result in a crash or potential arbitrary code execution with the privileges of the user running the software.\n\n## Recommendation\nUsers should avoid opening DWG files from untrusted sources. At this time, no specific patched version has been confirmed by the provided CNA evidence, although product records indicate version 2027.1.0 is affected.",
+      "published": "2026-11-19T20:54:39.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--422799b3-bb86-53fa-a3fb-df9e9021e141",
+        "vulnerability--b8558969-2beb-522e-a178-c89bc0f93da7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-autocad-integer-overflow-cve-2026-104868",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-autocad-integer-overflow-cve-2026-104868/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-104868"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104868"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-autocad-integer-overflow-cve-2026-104868",
+      "x_craftedsignal_event_id": "brief-2026-11-19-autocad-integer-overflow-cve-2026-104868",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-autocad-integer-overflow-cve-2026-104868/",
+      "x_craftedsignal_activity_at": "2026-11-19T20:54:39.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00179,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e89ee42d-7a17-5795-a340-de76167f502b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T20:36:48.000Z",
@@ -206765,6 +206821,13 @@
       "id": "software--4206db63-b2f7-58ca-9a00-107a2c3508ac",
       "name": "E5600 (1.1.0.26)",
       "vendor": "Linksys"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--422799b3-bb86-53fa-a3fb-df9e9021e141",
+      "name": "AutoCAD (\u003e= 2027.1.0, \u003c 2027.1.1)",
+      "vendor": "Autodesk"
     },
     {
       "type": "software",
@@ -264927,6 +264990,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-127077",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127077"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b8558969-2beb-522e-a178-c89bc0f93da7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-104868",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-104868",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104868"
         }
       ]
     },
