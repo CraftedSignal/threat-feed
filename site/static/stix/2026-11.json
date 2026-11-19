@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--61648b06-63f7-5eab-9cf4-5dbc8ec1c516",
+  "id": "bundle--682730b8-dfb8-5f7d-8349-47f02afbb272",
   "objects": [
     {
       "type": "attack-pattern",
@@ -30070,6 +30070,17 @@
       "relationship_type": "has",
       "source_ref": "software--c7bdb138-58fc-5de2-98ff-a5052a1d12fa",
       "target_ref": "vulnerability--2263ab24-2377-5b62-8d3c-8dc8a4bc3cf2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5921834f-d480-5f5b-857c-85fc9a9261f4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2a073519-80e9-528e-9abd-36791f0e940a",
+      "target_ref": "vulnerability--408d1600-2ea5-55d9-ad9e-d1c36bb245d1"
     },
     {
       "type": "relationship",
@@ -92545,6 +92556,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2e87044f-c10b-5fe0-85d1-ab79c2e4ee28",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T11:36:43.000Z",
+      "modified": "2026-11-19T11:36:43.000Z",
+      "name": "Arcane: Remote code execution via lifecycle label command injection (CVE-2026-23520)",
+      "description": "## Overview\nArcane, a web-based Docker management platform, contains an OS command injection vulnerability in its updater service (CVE-2026-23520). The application supported container labels `com.getarcaneapp.arcane.lifecycle.pre-update` and `com.getarcaneapp.arcane.lifecycle.post-update` to define commands to run during lifecycle events. These values are passed directly to `/bin/sh -c` without sanitization. An authenticated user can create projects through the API containing these lifecycle labels with a malicious command, which executes when an administrator triggers a container update.\n\n## Attack Chain\n1. Attacker authenticates to the Arcane application.\n2. Attacker creates a project via the API including a poisoned `com.getarcaneapp.arcane.lifecycle.pre-update` or `com.getarcaneapp.arcane.lifecycle.post-update` label.\n3. Administrator triggers a container update.\n4. Arcane updater service reads the label and executes the value as a shell command.\n\n## Impact\nSuccessful exploitation results in arbitrary command execution within the container, with potential for host-level compromise.\n\n## Recommendation\nUpgrade to version 1.13.0 or later. The fix in 1.13.0 removes the lifecycle label feature entirely.",
+      "published": "2026-11-19T11:36:43.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2a073519-80e9-528e-9abd-36791f0e940a",
+        "vulnerability--408d1600-2ea5-55d9-ad9e-d1c36bb245d1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-arcane-rce-cve-2026-23520",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-arcane-rce-cve-2026-23520/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-23520"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/getarcaneapp/arcane/security/advisories/GHSA-gjqq-6r35-w3r8"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-AUGMASTER-POC-CVE-2026-23520\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-arcane-rce-cve-2026-23520",
+      "x_craftedsignal_event_id": "brief-2026-11-19-arcane-rce-cve-2026-23520",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-arcane-rce-cve-2026-23520/",
+      "x_craftedsignal_activity_at": "2026-11-19T11:36:43.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9,
+      "x_craftedsignal_epss_max": 0.01846,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -199445,6 +199505,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2a073519-80e9-528e-9abd-36791f0e940a",
+      "name": "arcane",
+      "vendor": "getarcaneapp"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2a204c4b-6f8e-5866-b3a9-35a5fd3a4676",
       "name": "DIR-110",
       "vendor": "D-Link"
@@ -228791,6 +228858,22 @@
           "source_name": "cve",
           "external_id": "CVE-2022-23862",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-23862"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--408d1600-2ea5-55d9-ad9e-d1c36bb245d1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-23520",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-23520",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23520"
         }
       ]
     },

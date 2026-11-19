@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4aa8465f-d98a-5023-ba2c-3439ae341dd6",
+  "id": "bundle--364e0363-dae9-5d16-bb17-2de2ff3b46b6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -35596,17 +35596,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--3ca59b3b-d14d-50ce-b88b-cbd13444ef8e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--0aaa10b5-cca1-58e4-a096-f6698af1df32",
-      "target_ref": "vulnerability--f3c60c66-32f2-5b31-8849-7150ce299fb6"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--3cb0b630-5033-5d50-9d7f-d86d16b81ec3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -47993,6 +47982,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5921834f-d480-5f5b-857c-85fc9a9261f4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2a073519-80e9-528e-9abd-36791f0e940a",
+      "target_ref": "vulnerability--408d1600-2ea5-55d9-ad9e-d1c36bb245d1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--592a7397-7dac-525e-bc30-0b241a02e906",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -49122,17 +49122,6 @@
       "relationship_type": "has",
       "source_ref": "software--513d6b8a-53aa-5cf3-a433-bd1d9def4007",
       "target_ref": "vulnerability--0961aa23-9a59-511c-a625-03a4afe644c9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5bd48e1d-1ea1-5a94-9fce-6d34932c2ebe",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--45fbe5c3-b21d-5f4f-bc32-dbd3b2da7451",
-      "target_ref": "vulnerability--f3c60c66-32f2-5b31-8849-7150ce299fb6"
     },
     {
       "type": "relationship",
@@ -95590,17 +95579,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--c5bab3b0-2d6a-5999-b3f9-43754adc0737",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--8c68e928-c6b5-5ac5-bfed-2c4388bed6b1",
-      "target_ref": "vulnerability--f3c60c66-32f2-5b31-8849-7150ce299fb6"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--c5c600b4-2c34-5a7e-915e-a23667fea585",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -129444,62 +129422,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--0e32ba12-83e6-5eef-83d2-733bf00f7945",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-20T11:33:10.000Z",
-      "modified": "2026-10-20T11:33:10.000Z",
-      "name": "Apache Camel: AS2 MDN signing key confusion (CVE-2026-85296)",
-      "description": "## Overview\n\nCVE-2026-85296 is a vulnerability within the `camel-as2` component of Apache Camel (versions 4.0.0 to 4.18.4 and 4.19.0 to 4.22.0) that permits cross-partner signing key confusion during the processing of AS2 (Applicability Statement 2) messages. The vulnerability stems from the `ResponseMDN` class, which incorrectly stores per-request signing material in a shared instance field. In multi-partner AS2 deployments, where a single `ResponseMDN` instance serves concurrent requests, the private key resolved for one trading partner can be overwritten or accessed by a subsequent or concurrent request from a different partner. Consequently, an AS2 Message Disposition Notification (MDN) may be signed using the private key of the incorrect trading partner. This vulnerability is triggered by legitimate concurrent AS2 traffic and does not require complex delivery mechanisms.\n\n## Attack Chain\n\n1. The target deploys a multi-partner AS2 interface using the affected `camel-as2` component.\n2. The application registers a single shared `ResponseMDN` instance on the `HttpProcessor` to handle incoming AS2 requests.\n3. Partner A initiates an AS2 request, and the system resolves Partner A's signing material into the `ResponseMDN` instance.\n4. The `camel-as2` component writes this per-request private key into an instance field of the shared `ResponseMDN` object.\n5. Partner B initiates a concurrent or subsequent AS2 request before the previous operation concludes or cleans up.\n6. The `ResponseMDN` instance processes the request for Partner B, potentially reading the signing key stored in the instance field that still holds Partner A's material.\n7. The application generates an MDN for Partner B that is cryptographically signed using the private key belonging to Partner A.\n\n## Impact\n\nSuccessful exploitation results in the signing of MDN responses with the incorrect trading partner's private key. This compromise of cryptographic integrity impacts non-repudiation and authentication within AS2 communication, potentially allowing misrouting of signed receipts or business logic disruption between trading partners. The vulnerability affects multi-partner AS2 environments, including those utilizing Camel Spring Boot and Camel Quarkus implementations.\n\n## Recommendation\n\n1. Upgrade to Apache Camel 4.18.5, 4.22.1, or 4.23.0 to resolve the state management flaw in `ResponseMDN`.\n2. If an immediate upgrade is not feasible, re-architect the Camel deployment to utilize a separate Camel context for each trading partner to ensure isolation of signing material.\n3. Verify the fix by monitoring application logs for signing key resolution behavior; the fixed version resolves material into local variables rather than shared instance fields.\n",
-      "published": "2026-10-20T11:33:10.000Z",
-      "labels": [
-        "as2",
-        "camel-as2",
-        "cve-2026-85296",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--0aaa10b5-cca1-58e4-a096-f6698af1df32",
-        "software--45fbe5c3-b21d-5f4f-bc32-dbd3b2da7451",
-        "software--8c68e928-c6b5-5ac5-bfed-2c4388bed6b1",
-        "vulnerability--f3c60c66-32f2-5b31-8849-7150ce299fb6"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-camel-as2-signing-confusion",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-camel-as2-signing-confusion/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://camel.apache.org/security/CVE-2026-85296.html"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://issues.apache.org/jira/browse/CAMEL-24429"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=EBF6D562-387E-5E90-A216-E528CD447577"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-camel-as2-signing-confusion",
-      "x_craftedsignal_event_id": "brief-2026-10-camel-as2-signing-confusion",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-camel-as2-signing-confusion/",
-      "x_craftedsignal_activity_at": "2026-10-20T11:33:10.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 6.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--0e46e1da-9da7-5608-9c08-bd479f21f032",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T02:26:50.000Z",
@@ -150423,6 +150345,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2e87044f-c10b-5fe0-85d1-ab79c2e4ee28",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T11:36:43.000Z",
+      "modified": "2026-11-19T11:36:43.000Z",
+      "name": "Arcane: Remote code execution via lifecycle label command injection (CVE-2026-23520)",
+      "description": "## Overview\nArcane, a web-based Docker management platform, contains an OS command injection vulnerability in its updater service (CVE-2026-23520). The application supported container labels `com.getarcaneapp.arcane.lifecycle.pre-update` and `com.getarcaneapp.arcane.lifecycle.post-update` to define commands to run during lifecycle events. These values are passed directly to `/bin/sh -c` without sanitization. An authenticated user can create projects through the API containing these lifecycle labels with a malicious command, which executes when an administrator triggers a container update.\n\n## Attack Chain\n1. Attacker authenticates to the Arcane application.\n2. Attacker creates a project via the API including a poisoned `com.getarcaneapp.arcane.lifecycle.pre-update` or `com.getarcaneapp.arcane.lifecycle.post-update` label.\n3. Administrator triggers a container update.\n4. Arcane updater service reads the label and executes the value as a shell command.\n\n## Impact\nSuccessful exploitation results in arbitrary command execution within the container, with potential for host-level compromise.\n\n## Recommendation\nUpgrade to version 1.13.0 or later. The fix in 1.13.0 removes the lifecycle label feature entirely.",
+      "published": "2026-11-19T11:36:43.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2a073519-80e9-528e-9abd-36791f0e940a",
+        "vulnerability--408d1600-2ea5-55d9-ad9e-d1c36bb245d1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-arcane-rce-cve-2026-23520",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-arcane-rce-cve-2026-23520/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-23520"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/getarcaneapp/arcane/security/advisories/GHSA-gjqq-6r35-w3r8"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-AUGMASTER-POC-CVE-2026-23520\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-arcane-rce-cve-2026-23520",
+      "x_craftedsignal_event_id": "brief-2026-11-19-arcane-rce-cve-2026-23520",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-arcane-rce-cve-2026-23520/",
+      "x_craftedsignal_activity_at": "2026-11-19T11:36:43.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9,
+      "x_craftedsignal_epss_max": 0.01846,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -300738,13 +300709,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--0aaa10b5-cca1-58e4-a096-f6698af1df32",
-      "name": "camel-as2 (4.0.0-4.18.4, 4.19.0-4.22.0)",
-      "vendor": "Apache"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--0aade3c4-b658-59af-b21f-1179d02e6abb",
       "name": "Chatterbug Forms – Fast, Flexible WordPress Form Builder",
       "vendor": "Chatterbug"
@@ -304403,6 +304367,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2a073519-80e9-528e-9abd-36791f0e940a",
+      "name": "arcane",
+      "vendor": "getarcaneapp"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2a1bb3b0-24c6-5b58-bb32-bee199efc4e0",
       "name": "ThemeHunk Customizer (n/a through 2.8.7)",
       "vendor": "ThemeHunk"
@@ -307475,13 +307446,6 @@
       "id": "software--45f94eba-282d-5afb-b8af-824b8de0b61e",
       "name": "MongoDB Node.js driver",
       "vendor": "MongoDB"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--45fbe5c3-b21d-5f4f-bc32-dbd3b2da7451",
-      "name": "camel-spring-boot (3.5.13)",
-      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -315291,13 +315255,6 @@
       "id": "software--8c57a52e-8833-5c55-9e9a-4a95f719bf02",
       "name": "Ruby on Rails (\u003c 8.1.4.1)",
       "vendor": "Ruby on Rails"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--8c68e928-c6b5-5ac5-bfed-2c4388bed6b1",
-      "name": "camel-quarkus-as2",
-      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -348315,6 +348272,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-87347",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87347"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--408d1600-2ea5-55d9-ad9e-d1c36bb245d1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-23520",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-23520",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23520"
         }
       ]
     },
@@ -404955,22 +404928,6 @@
           "source_name": "cve",
           "external_id": "CVE-2024-35584",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-35584"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--f3c60c66-32f2-5b31-8849-7150ce299fb6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-85296",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-85296",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85296"
         }
       ]
     },
