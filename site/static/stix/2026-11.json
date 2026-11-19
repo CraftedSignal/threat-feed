@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--adc557c2-77a7-59ff-a3da-f1867dc4e904",
+  "id": "bundle--abc3bbef-b76e-5bb6-943c-dbe939dfc019",
   "objects": [
     {
       "type": "attack-pattern",
@@ -14102,6 +14102,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--18b979c0-55a0-5423-bd66-2a0c572f755d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--674df1c5-822b-56d9-8e94-40e5e7d726cc",
+      "target_ref": "vulnerability--07345298-29fd-50e6-9f99-850ccc78c5ad"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--18dfef33-34eb-5578-af5e-957148607498",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -14395,6 +14406,17 @@
       "relationship_type": "has",
       "source_ref": "software--1260da76-35f0-5887-85b2-1f18e9e9228d",
       "target_ref": "vulnerability--43317198-39e9-5604-862f-9399fba681fc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1a40af23-4cf1-50c1-b158-cf5f9d3dee96",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5d387aee-3d7b-517d-b769-353303596f64",
+      "target_ref": "vulnerability--63c4213b-ffbb-5b7b-a808-08f5f94b37c1"
     },
     {
       "type": "relationship",
@@ -15132,6 +15154,17 @@
       "relationship_type": "uses",
       "source_ref": "report--79931576-459c-5fde-9434-4ed2ec050616",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1ccb10a9-0e90-53a5-939d-3fc2af8208bd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ef0cec23-12ad-5af6-9bd4-3c3b5f9a443d",
+      "target_ref": "vulnerability--00e9f002-09af-5d23-9dce-97753878807b"
     },
     {
       "type": "relationship",
@@ -17728,6 +17761,17 @@
       "relationship_type": "has",
       "source_ref": "software--d858a369-c65d-5807-9345-b54249ff7721",
       "target_ref": "vulnerability--9271d207-c3fb-52c4-b314-e316514f368e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--275879d9-9f2c-514d-ae7a-0787fbface04",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T09:54:12.000Z",
+      "modified": "2026-11-19T09:54:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0139197c-a5e1-56df-9523-2a0b073089d7",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -25912,6 +25956,17 @@
       "relationship_type": "uses",
       "source_ref": "report--8088e035-e883-57c3-b098-f7d42a7817f8",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--494bedca-95ae-5597-9a6f-92297465a552",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--248ab71f-0ae8-5618-aa1a-fc77489a0451",
+      "target_ref": "vulnerability--bdf81db5-535b-50c1-af4c-d38c1e6100b0"
     },
     {
       "type": "relationship",
@@ -72006,6 +72061,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--0139197c-a5e1-56df-9523-2a0b073089d7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T09:54:12.000Z",
+      "modified": "2026-11-19T09:54:12.000Z",
+      "name": "Jacob N. Breetvelt WP Photo Album Plus: Code Injection (CVE-2026-129048)",
+      "description": "## Overview\nJacob N. Breetvelt WP Photo Album Plus plugin contains a code injection vulnerability (CVE-2026-129048) that allows remote code inclusion. The vulnerability affects all versions from n/a through 9.3.06.003.\n\n## Impact\nSuccessful exploitation allows an attacker with low-level privileges to achieve remote code execution, resulting in full compromise of the WordPress environment, including potential loss of confidentiality, integrity, and availability. The issue carries a CVSS v3.1 base score of 9.9.\n\n## Recommendation\nUpgrade the WP Photo Album Plus plugin to version 9.3.07.001 or later immediately.",
+      "published": "2026-11-19T09:54:12.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--248ab71f-0ae8-5618-aa1a-fc77489a0451",
+        "vulnerability--bdf81db5-535b-50c1-af4c-d38c1e6100b0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-cve-2026-129048",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-129048/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129048"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129048"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-cve-2026-129048",
+      "x_craftedsignal_event_id": "brief-2026-11-19-cve-2026-129048",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-129048/",
+      "x_craftedsignal_activity_at": "2026-11-19T09:54:12.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--0158c852-eb41-523c-84c9-0ceb46632a8c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T01:07:07.000Z",
@@ -117165,6 +117265,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5ac41239-d6e6-574b-b11d-d6640bc29024",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T09:54:05.000Z",
+      "modified": "2026-11-19T09:54:05.000Z",
+      "name": "Mamunur Rashid ShopBuilder: Information disclosure vulnerability (CVE-2026-129030)",
+      "description": "## Overview\n\nMamunur Rashid ShopBuilder - Elementor WooCommerce Builder Addons for WordPress contains a vulnerability related to the exposure of sensitive system information to an unauthorized control sphere. An unauthenticated attacker can leverage this flaw to retrieve embedded sensitive data. This issue affects all versions from n/a through 3.4.3.\n\n## Impact\n\nThe vulnerability is classified with a CVSS v3.1 base score of 7.5 (High). Successful exploitation allows an unauthenticated, remote attacker to gain access to sensitive information without requiring prior user interaction or elevated privileges.\n\n## Recommendation\n\nUpgrade the ShopBuilder - Elementor WooCommerce Builder Addons plugin to version 3.4.4 or later immediately. Users should audit any exposed system configuration data that may have been accessible during the period the vulnerable plugin was active.",
+      "published": "2026-11-19T09:54:05.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5d387aee-3d7b-517d-b769-353303596f64",
+        "vulnerability--63c4213b-ffbb-5b7b-a808-08f5f94b37c1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-shopbuilder-disclosure-cve-2026-129030",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-shopbuilder-disclosure-cve-2026-129030/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129030"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129030"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-shopbuilder-disclosure-cve-2026-129030",
+      "x_craftedsignal_event_id": "brief-2026-11-19-shopbuilder-disclosure-cve-2026-129030",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-shopbuilder-disclosure-cve-2026-129030/",
+      "x_craftedsignal_activity_at": "2026-11-19T09:54:05.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5ad55f7b-51f4-58eb-8e7c-ce704c597c70",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T02:07:29.000Z",
@@ -127666,6 +127810,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--726be9f9-1e76-5ee0-b78d-35931e5a1293",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T09:53:36.000Z",
+      "modified": "2026-11-19T09:53:36.000Z",
+      "name": "Saphali Woocommerce Lite: Stored Cross-Site Scripting (CVE-2026-128999)",
+      "description": "## Overview\n\nThe Saphali Woocommerce Lite plugin for WordPress (saphali-woocommerce-lite) contains a Stored Cross-Site Scripting (XSS) vulnerability caused by improper input neutralization during web page generation. This issue affects versions from n/a through 2.0.2.\n\n## Impact\n\nThe vulnerability is rated with a CVSS v3.1 base score of 7.1. According to the CVSS vector (CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:L), successful exploitation involves an attacker on the network, low attack complexity, no required privileges, and required user interaction. The impact on confidentiality, integrity, and availability is rated as low, with a changed scope.\n\n## Recommendation\n\nUsers should update the Saphali Woocommerce Lite plugin to version 2.0.3 or later to remediate this vulnerability.",
+      "published": "2026-11-19T09:53:36.000Z",
+      "labels": [
+        "cve",
+        "plugin",
+        "wordpress",
+        "xss"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ef0cec23-12ad-5af6-9bd4-3c3b5f9a443d",
+        "vulnerability--00e9f002-09af-5d23-9dce-97753878807b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-saphali-xss-cve-2026-128999",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-saphali-xss-cve-2026-128999/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-128999"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128999"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-saphali-xss-cve-2026-128999",
+      "x_craftedsignal_event_id": "brief-2026-11-19-saphali-xss-cve-2026-128999",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-saphali-xss-cve-2026-128999/",
+      "x_craftedsignal_activity_at": "2026-11-19T09:53:36.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--729f60ae-c3f1-58cb-96bb-fae4a18a1740",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T00:05:48.000Z",
@@ -135868,6 +136062,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--82be2eb7-94b8-5d41-864d-7b8fbf1ef9f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T09:53:55.000Z",
+      "modified": "2026-11-19T09:53:55.000Z",
+      "name": "Deepen Bajracharya Video Conferencing with Zoom missing authorization (CVE-2026-129013)",
+      "description": "## Overview\nA missing authorization vulnerability exists in the Deepen Bajracharya Video Conferencing with Zoom WordPress plugin (video-conferencing-with-zoom-api). This flaw originates from incorrectly configured access control security levels, which may allow unauthenticated, remote attackers to exploit the system. The vulnerability impacts all versions from n/a through 4.6.12.\n\n## Attack Chain\nThe vulnerability is exploitable over the network without requiring user interaction or specific privileges (CVSS 3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N).\n\n## Impact\nSuccessful exploitation allows for unauthorized access to sensitive information with high confidentiality impact, though integrity and availability are not impacted.\n\n## Recommendation\nUpdate the WordPress Video Conferencing with Zoom plugin to the latest available version (at least 4.7.0).",
+      "published": "2026-11-19T09:53:55.000Z",
+      "labels": [
+        "cve",
+        "plugin",
+        "wordpress"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--674df1c5-822b-56d9-8e94-40e5e7d726cc",
+        "vulnerability--07345298-29fd-50e6-9f99-850ccc78c5ad"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-video-conferencing-zoom-auth-cve-2026-129013",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-video-conferencing-zoom-auth-cve-2026-129013/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129013"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129013"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-video-conferencing-zoom-auth-cve-2026-129013",
+      "x_craftedsignal_event_id": "brief-2026-11-19-video-conferencing-zoom-auth-cve-2026-129013",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-video-conferencing-zoom-auth-cve-2026-129013/",
+      "x_craftedsignal_activity_at": "2026-11-19T09:53:55.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -198535,6 +198778,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--248ab71f-0ae8-5618-aa1a-fc77489a0451",
+      "name": "WP Photo Album Plus (\u003c= 9.3.06.003)",
+      "vendor": "Jacob N. Breetvelt"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--24901fed-8966-5a3b-a5e2-9d4998d13107",
       "name": "library_manager_system (rolling release)",
       "vendor": "zhangbw409"
@@ -202278,6 +202528,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5d387aee-3d7b-517d-b769-353303596f64",
+      "name": "ShopBuilder – Elementor WooCommerce Builder Addons (\u003c= 3.4.3)",
+      "vendor": "Mamunur Rashid"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5d3adf32-7033-5b26-ad15-5022d6ee1a57",
       "name": "WRT54GL (4.30.18)",
       "vendor": "Linksys"
@@ -203049,6 +203306,13 @@
       "id": "software--674a3c47-881e-50a5-b4bf-0360f712871c",
       "name": "V programming language standard library (\u003c= 0.5.2)",
       "vendor": "V Programming Language"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--674df1c5-822b-56d9-8e94-40e5e7d726cc",
+      "name": "Video Conferencing with Zoom",
+      "vendor": "Deepen Bajracharya"
     },
     {
       "type": "software",
@@ -212088,6 +212352,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ef0cec23-12ad-5af6-9bd4-3c3b5f9a443d",
+      "name": "Saphali Woocommerce Lite",
+      "vendor": "Saphali"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ef176275-d935-5115-b1e7-8c75e6e7f777",
       "name": "aiohttp",
       "vendor": "aio-libs"
@@ -213786,6 +214057,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96453",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96453"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--00e9f002-09af-5d23-9dce-97753878807b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-128999",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-128999",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128999"
         }
       ]
     },
@@ -215578,6 +215865,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-47217",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47217"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--07345298-29fd-50e6-9f99-850ccc78c5ad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129013",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129013",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129013"
         }
       ]
     },
@@ -235626,6 +235929,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-127084",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127084"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--63c4213b-ffbb-5b7b-a808-08f5f94b37c1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129030",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129030",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129030"
         }
       ]
     },
@@ -256890,6 +257209,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-130753",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130753"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--bdf81db5-535b-50c1-af4c-d38c1e6100b0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129048",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129048",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129048"
         }
       ]
     },
