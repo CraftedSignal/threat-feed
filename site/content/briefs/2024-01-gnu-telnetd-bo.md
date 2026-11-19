@@ -1,16 +1,44 @@
 ---
+brief_id: brief-2024-01-03-gnu-telnetd-bo
+event_id: brief-2024-01-03-gnu-telnetd-bo
+revision: 2
+activity_at: "2026-11-19T18:02:15Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-19T18:02:15Z"
+    checksum: sha256:66df97fe927fc81d63ea75ba24a003e976d26ebf17a447ce4c57c26a15441822
+    summary: poc_available
+    changed_fields:
+      - cve_verification
+      - cves
+      - has_poc
+      - lastmod
+      - poc_references
+      - priority
+      - priority_score
+      - priority_signals
+      - references
+      - ttps
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-WATCHTOWRLABS-WATCHTOWR-VS-TELNETD-CVE-2026-32746&utm_source=rss&utm_medium=rss
 title: GNU telnetd Buffer Overflow Vulnerability (CVE-2026-32746)
 slug: 2024-01-gnu-telnetd-bo
 description: A critical buffer overflow vulnerability exists in GNU telnetd (CVE-2026-32746), potentially allowing remote code execution on affected Linux systems.
 date: "2024-01-03T12:00:00Z"
-lastmod: "2026-09-17T15:40:41Z"
+lastmod: "2026-11-19T17:59:32Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 cpes:
   - cpe:2.3:a:gnu:inetutils:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-WATCHTOWRLABS-WATCHTOWR-VS-TELNETD-CVE-2026-32746&utm_source=rss&utm_medium=rss
 tags:
   - cve-2026-32746
   - telnetd
@@ -25,18 +53,29 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1021
     technique_name: Remote Services
+    subtechnique_id: T1021.001
+    subtechnique_name: Remote Desktop Protocol
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+    subtechnique_id: T1059.004
+    subtechnique_name: Unix Shell
+cve_verification:
+  CVE-2026-32746:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-19T17:59:32.115264937Z
 cves:
   - id: CVE-2026-32746
     cvss: 9.8
-    epss: 0.23674
+    epss: 0.45296
+    kev_status: "false"
 references:
   - https://www.reddit.com/r/netsec/comments/1rxl75t/cve202632746_gnu_telnetd_buffer_overflow_poc/
   - https://pwn.guide/free/other/cve-2026-32746
   - https://www.reddit.com/r/blueteamsec/comments/1wiv0ec/a_32yearold_bug_walks_into_a_telnet_server_gnu/
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-WATCHTOWRLABS-WATCHTOWR-VS-TELNETD-CVE-2026-32746&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect Telnetd Process Creation
     description: Detects the creation of the telnetd process on Linux systems, which is often an indicator of a server running
@@ -80,7 +119,16 @@ updates:
       - reddit-blueteamsec
     source_urls:
       - https://www.reddit.com/r/blueteamsec/comments/1wiv0ec/a_32yearold_bug_walks_into_a_telnet_server_gnu/
+  - at: "2026-11-19T17:59:32Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-WATCHTOWRLABS-WATCHTOWR-VS-TELNETD-CVE-2026-32746&utm_source=rss&utm_medium=rss
 ---
+
+## Overview
 
 A critical buffer overflow vulnerability, tracked as CVE-2026-32746, has been identified in GNU telnetd. This vulnerability, if exploited, could allow an unauthenticated attacker to execute arbitrary code on a vulnerable system. A proof-of-concept (PoC) exploit is publicly available, increasing the risk of exploitation. The vulnerability affects Linux systems running vulnerable versions of GNU telnetd. Defenders should prioritize patching and implementing detection measures to mitigate potential exploitation. This vulnerability poses a significant threat to system integrity and confidentiality.
 

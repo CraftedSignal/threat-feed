@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--571dbf68-ee29-522b-b6f8-a53fd384272b",
+  "id": "bundle--6b097762-22c9-5b6e-b133-f33e8d99b28b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20773,7 +20773,7 @@
       "id": "relationship--199b3061-ed95-5a99-9134-69adadeb11d3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T23:13:36.000Z",
-      "modified": "2026-11-17T23:13:36.000Z",
+      "modified": "2026-11-19T18:02:15.000Z",
       "relationship_type": "uses",
       "source_ref": "report--635368be-2b5b-5c6d-b6ea-84e6a135944b",
       "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
@@ -27076,7 +27076,7 @@
       "id": "relationship--27accc20-d024-51e2-a5f9-630f3de0ba78",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T23:13:36.000Z",
-      "modified": "2026-11-17T23:13:36.000Z",
+      "modified": "2026-11-19T18:02:15.000Z",
       "relationship_type": "uses",
       "source_ref": "report--635368be-2b5b-5c6d-b6ea-84e6a135944b",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
@@ -117606,7 +117606,7 @@
       "id": "relationship--f8cebb1f-d643-52d8-81d6-e524f582edc8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T21:52:52.000Z",
-      "modified": "2026-11-18T21:52:52.000Z",
+      "modified": "2026-11-19T18:02:15.000Z",
       "relationship_type": "uses",
       "source_ref": "report--ceaf291c-1c89-5263-908b-14b886c19feb",
       "target_ref": "attack-pattern--26ef37e6-18b0-51e5-b888-57037be44a7c"
@@ -191208,7 +191208,7 @@
       "id": "report--635368be-2b5b-5c6d-b6ea-84e6a135944b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T23:13:36.000Z",
-      "modified": "2026-11-17T23:13:36.000Z",
+      "modified": "2026-11-19T18:02:15.000Z",
       "name": "Atomic Server: Path traversal and information disclosure (CVE-2026-69156)",
       "description": "## Overview\nAtomic Server is an open source headless CMS and real-time database. A vulnerability exists in the /download handler (server/src/handlers/download.rs) and the Commit application path (lib/src/commit.rs) where an authenticated Agent can assign a server-managed internalId property without validation. This value is subsequently used in file operations without sanitization or containment checks, allowing path traversal. This allows attackers to read arbitrary files accessible to the server process, including the root Agent private key, which can lead to full server compromise.\n\n## Impact\nSuccessful exploitation allows an authenticated attacker to read sensitive files on the host filesystem. Specifically, the disclosure of the root Agent private key grants the attacker root-level impersonation, providing full read, write, and delete access to all server data.\n\n## Recommendation\n- Upgrade to Atomic Server version 0.40.3 or later immediately to incorporate the required sanitization and validation logic.",
       "published": "2026-11-17T23:13:36.000Z",
@@ -191232,20 +191232,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69156"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=7749BC0B-C86D-51FE-B9ED-90374AFCFC0A\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-17-atomic-server-traversal-cve-2026-69156",
       "x_craftedsignal_event_id": "brief-2026-11-17-atomic-server-traversal-cve-2026-69156",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-atomic-server-traversal-cve-2026-69156/",
-      "x_craftedsignal_activity_at": "2026-11-17T23:13:36.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T18:02:15.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.00349,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -264981,7 +264986,7 @@
       "id": "report--ceaf291c-1c89-5263-908b-14b886c19feb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T21:52:52.000Z",
-      "modified": "2026-11-18T21:52:52.000Z",
+      "modified": "2026-11-19T18:02:15.000Z",
       "name": "ALTCHA PHP Authentication Bypass (CVE-2026-71481)",
       "description": "## Overview\nALTCHA PHP is a lightweight library for creating and verifying ALTCHA challenges. Versions 2.0.0 through 2.0.2 are vulnerable to an authentication bypass. When the hmacSignatureSecret is configured, the library's verifySolution method erroneously skips signature verification if the signature field is missing from the submitted challenge payload. This allows an attacker to remove the signature, manipulate challenge parameters to set a low difficulty, and successfully verify unauthorized payloads, bypassing the intended CAPTCHA protection.\n\n## Impact\nSuccessful exploitation allows an attacker to bypass CAPTCHA controls, potentially enabling automated abuse or unauthorized interactions on services protected by the library.\n\n## Recommendation\nUpgrade ALTCHA PHP to version 2.0.3 or later. Developers should verify their implementation environment to ensure that the updated library is properly integrated and that signature verification is strictly enforced by the backend validation logic.",
       "published": "2026-11-18T21:52:52.000Z",
@@ -265004,20 +265009,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71481"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=B2812546-6AD2-5B4F-9235-143A621C7ED9\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-18-altcha-php-authentication-bypass-cve-2026-71481",
       "x_craftedsignal_event_id": "brief-2026-11-18-altcha-php-authentication-bypass-cve-2026-71481",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-altcha-php-authentication-bypass-cve-2026-71481/",
-      "x_craftedsignal_activity_at": "2026-11-18T21:52:52.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T18:02:15.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00262,
       "x_craftedsignal_kev_status": "false"
     },
     {
