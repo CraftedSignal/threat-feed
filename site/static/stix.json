@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d6090aef-0837-5139-ac64-884c485e1e46",
+  "id": "bundle--f4943bba-c139-5cce-892b-cdde67bdb41e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -138910,21 +138910,38 @@
       "id": "report--1a32ed7e-249b-5615-bee6-502a29eb1eb0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T21:54:15.000Z",
-      "modified": "2026-11-18T03:14:28.000Z",
+      "modified": "2026-11-19T15:45:15.000Z",
       "name": "Oracle Security Updates - November 2026",
-      "description": "## Overview\n\nThis roundup covers 6 Oracle security vulnerabilities. CVSS base scores range from 7.4 to 8.8. None are reported as actively exploited at the time of release. The issues affect AutoVue, Oracle Access Manager, Oracle E-Business Suite, Oracle Mobile Field Service.\n\n## Summary\n\n| CVE | Product | Severity | CVSS | EPSS | KEV | Source |\n|-----|---------|----------|------|------|-----|--------|\n| [CVE-2026-101653](#cve-2026-101653) | n/a | High | 8.8 | 0.43% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101653) (authoritative) |\n| [CVE-2026-101663](#cve-2026-101663) | Oracle Mobile Field Service (12.2.3-12.2.15) | High | 7.4 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101663) (authoritative) |\n| [CVE-2026-127308](#cve-2026-127308) | AutoVue (21.1.0) | High | 8.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127308) (authoritative) |\n| [CVE-2026-91516](#cve-2026-91516) | Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0) | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91516) (authoritative) |\n| [CVE-2026-127331](#cve-2026-127331) | AutoVue (21.1.0) | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127331) (authoritative) |\n| [CVE-2026-114887](#cve-2026-114887) | Oracle E-Business Suite (12.2.3-12.2.15) | High | 8.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-114887) (authoritative) |\n\n\n## By product\n\n- **AutoVue**: [CVE-2026-127308](#cve-2026-127308), [CVE-2026-127331](#cve-2026-127331)\n\n## Recommendation\n\nReview affected products and apply Oracle's November 2026 security updates.\n\n## CVE-2026-101653\n\nOracle Mobile Field Service, a component of Oracle E-Business Suite, contains a vulnerability in its Internal Operations module. The flaw allows a low-privileged, network-adjacent attacker using HTTPS to achieve a full takeover of the application. The vulnerability carries a CVSS 3.1 base score of 8.8, indicating high impact on confidentiality, integrity, and availability.\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-101653\n\n## CVE-2026-101663\n\nOracle Mobile Field Service within Oracle E-Business Suite (versions 12.2.3 through 12.2.15) contains a vulnerability in the Admin UI component. The vulnerability is remotely exploitable by an unauthenticated attacker via HTTP, potentially leading to unauthorized access, modification, or deletion of critical data.\n\nAffected products:\n- Oracle Mobile Field Service (12.2.3-12.2.15)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-101663\n\n## CVE-2026-127308\n\nCVE-2026-127308 is a vulnerability in the Security component of Oracle AutoVue version 21.1.0. An unauthenticated attacker can leverage this network-accessible flaw via HTTP to gain unauthorized access to or modify critical data. The attack requires human interaction, and the vulnerability carries a CVSS 3.1 base score of 8.1.\n\nAffected products:\n- AutoVue (21.1.0)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-127308\n\n## CVE-2026-91516\n\nCVE-2026-91516 is a high-severity denial-of-service vulnerability in the Authentication Engine of Oracle Access Manager versions 12.2.1.4.0 and 14.1.2.1.0. An unauthenticated remote attacker can exploit this flaw over TCP to cause the application to hang or crash, resulting in a complete loss of availability. The vulnerability is network-accessible and does not require user interaction or high privileges.\n\nAffected products:\n- Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-91516\n\n## CVE-2026-127331\n\nCVE-2026-127331 is a vulnerability in the Security component of Oracle AutoVue version 21.1.0. It allows an unauthenticated remote attacker to cause a denial-of-service (hang or crash) via HTTP network access. The vulnerability is characterized by a CVSS 3.1 base score of 7.5, indicating a high impact on system availability.\n\nAffected products:\n- AutoVue (21.1.0)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-127331\n\n## CVE-2026-114887\n\nCVE-2026-114887 is an easily exploitable vulnerability in the Oracle Mobile Field Service component of Oracle E-Business Suite (versions 12.2.3 through 12.2.15). The flaw allows a low-privileged attacker with network access via HTTP to perform unauthorized creation, deletion, modification, or access to critical data within the application. The vulnerability carries a CVSS 3.1 base score of 8.1, indicating high impacts on confidentiality and integrity.\n\nAffected products:\n- Oracle E-Business Suite (12.2.3-12.2.15)\n- Oracle Mobile Field Service\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-114887",
+      "description": "## Overview\n\nThis roundup covers 22 Oracle security vulnerabilities. CVSS base scores range from 7.1 to 9.3. None are reported as actively exploited at the time of release. The issues affect Application Testing Suite, AutoVue, Business Intelligence Enterprise Edition, E-Business Suite, Hyperion Financial Data Quality Management, Enterprise Edition, Hyperion Planning, Oracle Access Manager, Oracle Business Intelligence Enterprise Edition, Oracle E-Business Suite, Oracle Financial Services Customer Screening, Oracle Mobile Field Service, Oracle REST Data Services.\n\n## Summary\n\n| CVE | Product | Severity | CVSS | EPSS | KEV | Source |\n|-----|---------|----------|------|------|-----|--------|\n| [CVE-2026-101653](#cve-2026-101653) | n/a | High | 8.8 | 0.45% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101653) (authoritative) |\n| [CVE-2026-101663](#cve-2026-101663) | Oracle Mobile Field Service (12.2.3-12.2.15) | High | 7.4 | 0.34% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101663) (authoritative) |\n| [CVE-2026-127308](#cve-2026-127308) | AutoVue (21.1.0) | High | 8.1 | 0.38% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127308) (authoritative) |\n| [CVE-2026-91516](#cve-2026-91516) | Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0) | High | 7.5 | 0.34% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91516) (authoritative) |\n| [CVE-2026-127331](#cve-2026-127331) | AutoVue (21.1.0) | High | 7.5 | 0.44% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-127331) (authoritative) |\n| [CVE-2026-114887](#cve-2026-114887) | Oracle E-Business Suite (12.2.3-12.2.15) | High | 8.1 | 0.30% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-114887) (authoritative) |\n| [CVE-2026-91507](#cve-2026-91507) | Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0) | Critical | 9.3 | 0.23% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91507) (authoritative) |\n| [CVE-2026-101652](#cve-2026-101652) | Oracle E-Business Suite (12.2.3-12.2.15) | High | 8.1 | 0.30% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101652) (authoritative) |\n| [CVE-2026-101659](#cve-2026-101659) | E-Business Suite (12.2.3-12.2.15) | High | 8.2 | 0.25% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101659) (authoritative) |\n| [CVE-2026-101693](#cve-2026-101693) | Hyperion Financial Data Quality Management, Enterprise Edition (11.2.26.0.000) | High | 7.5 | 0.37% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101693) (authoritative) |\n| [CVE-2026-101848](#cve-2026-101848) | Hyperion Financial Data Quality Management, Enterprise Edition (11.2.26.0.000) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101848) (authoritative) |\n| [CVE-2026-114783](#cve-2026-114783) | Business Intelligence Enterprise Edition (8.2.0.0.0, 12.2.1.4.0, 26.01.0.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-114783) (authoritative) |\n| [CVE-2026-114792](#cve-2026-114792) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-114792) (authoritative) |\n| [CVE-2026-114799](#cve-2026-114799) | Hyperion Planning (11.2.26.0.000) | High | 7.5 | 0.42% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-114799) (authoritative) |\n| [CVE-2026-114809](#cve-2026-114809) | Hyperion Planning (11.2.26.0.000) | High | 7.7 | 0.37% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-114809) (authoritative) |\n| [CVE-2026-114813](#cve-2026-114813) | Oracle Business Intelligence Enterprise Edition (8.2.0.0.0, 26.01.0.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-114813) (authoritative) |\n| [CVE-2026-114846](#cve-2026-114846) | Oracle Financial Services Customer Screening (8.1.2.10) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-114846) (authoritative) |\n| [CVE-2026-114852](#cve-2026-114852) | Oracle REST Data Services (24.2.0-26.3.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-114852) (authoritative) |\n| [CVE-2026-114860](#cve-2026-114860) | Application Testing Suite (13.3.0.1) | High | 8.7 | 0.34% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-114860) (authoritative) |\n| [CVE-2026-114865](#cve-2026-114865) | Oracle E-Business Suite (12.2.3-12.2.15) | High | 7.6 | 0.22% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-114865) (authoritative) |\n| [CVE-2026-114866](#cve-2026-114866) | Oracle E-Business Suite (12.2.3-12.2.15) | High | 7.6 | 0.22% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-114866) (authoritative) |\n| [CVE-2026-114867](#cve-2026-114867) | Oracle E-Business Suite (12.2.3-12.2.15) | High | 7.1 | 0.24% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-114867) (authoritative) |\n\n\n## By product\n\n- **AutoVue**: [CVE-2026-127308](#cve-2026-127308), [CVE-2026-127331](#cve-2026-127331)\n- **Hyperion Financial Data Quality Management, Enterprise Edition**: [CVE-2026-101693](#cve-2026-101693), [CVE-2026-101848](#cve-2026-101848)\n- **Hyperion Planning**: [CVE-2026-114799](#cve-2026-114799), [CVE-2026-114809](#cve-2026-114809)\n- **Oracle Access Manager**: [CVE-2026-91516](#cve-2026-91516), [CVE-2026-91507](#cve-2026-91507)\n- **Oracle E-Business Suite**: [CVE-2026-114887](#cve-2026-114887), [CVE-2026-101652](#cve-2026-101652), [CVE-2026-114865](#cve-2026-114865), [CVE-2026-114866](#cve-2026-114866), [CVE-2026-114867](#cve-2026-114867)\n\n## Recommendation\n\nReview affected products and apply Oracle's November 2026 security updates.\n\n## CVE-2026-101653\n\nOracle Mobile Field Service, a component of Oracle E-Business Suite, contains a vulnerability in its Internal Operations module. The flaw allows a low-privileged, network-adjacent attacker using HTTPS to achieve a full takeover of the application. The vulnerability carries a CVSS 3.1 base score of 8.8, indicating high impact on confidentiality, integrity, and availability.\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-101653\n\n## CVE-2026-101663\n\nOracle Mobile Field Service within Oracle E-Business Suite (versions 12.2.3 through 12.2.15) contains a vulnerability in the Admin UI component. The vulnerability is remotely exploitable by an unauthenticated attacker via HTTP, potentially leading to unauthorized access, modification, or deletion of critical data.\n\nAffected products:\n- Oracle Mobile Field Service (12.2.3-12.2.15)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-101663\n\n## CVE-2026-127308\n\nCVE-2026-127308 is a vulnerability in the Security component of Oracle AutoVue version 21.1.0. An unauthenticated attacker can leverage this network-accessible flaw via HTTP to gain unauthorized access to or modify critical data. The attack requires human interaction, and the vulnerability carries a CVSS 3.1 base score of 8.1.\n\nAffected products:\n- AutoVue (21.1.0)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-127308\n\n## CVE-2026-91516\n\nCVE-2026-91516 is a high-severity denial-of-service vulnerability in the Authentication Engine of Oracle Access Manager versions 12.2.1.4.0 and 14.1.2.1.0. An unauthenticated remote attacker can exploit this flaw over TCP to cause the application to hang or crash, resulting in a complete loss of availability. The vulnerability is network-accessible and does not require user interaction or high privileges.\n\nAffected products:\n- Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-91516\n\n## CVE-2026-127331\n\nCVE-2026-127331 is a vulnerability in the Security component of Oracle AutoVue version 21.1.0. It allows an unauthenticated remote attacker to cause a denial-of-service (hang or crash) via HTTP network access. The vulnerability is characterized by a CVSS 3.1 base score of 7.5, indicating a high impact on system availability.\n\nAffected products:\n- AutoVue (21.1.0)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-127331\n\n## CVE-2026-114887\n\nCVE-2026-114887 is an easily exploitable vulnerability in the Oracle Mobile Field Service component of Oracle E-Business Suite (versions 12.2.3 through 12.2.15). The flaw allows a low-privileged attacker with network access via HTTP to perform unauthorized creation, deletion, modification, or access to critical data within the application. The vulnerability carries a CVSS 3.1 base score of 8.1, indicating high impacts on confidentiality and integrity.\n\nAffected products:\n- Oracle E-Business Suite (12.2.3-12.2.15)\n- Oracle Mobile Field Service\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-114887\n\n## CVE-2026-91507\n\nCVE-2026-91507 is a high-severity vulnerability in the Authentication Engine of Oracle Access Manager, allowing an unauthenticated, network-adjacent attacker to perform unauthorized data modification, deletion, or access. The vulnerability supports scope change, potentially impacting other integrated products, and carries a CVSS base score of 9.3.\n\nAffected products:\n- Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-91507\n\n## CVE-2026-101652\n\nOracle Mobile Field Service, a component of Oracle E-Business Suite versions 12.2.3 through 12.2.15, contains a vulnerability in its Internal Operations module. An attacker with low privileges and network access via HTTP can exploit this vulnerability to perform unauthorized creation, deletion, or modification of critical data within the application, impacting both data confidentiality and integrity.\n\nAffected products:\n- Oracle E-Business Suite (12.2.3-12.2.15)\n- Oracle Mobile Field Service\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-101652\n\n## CVE-2026-101659\n\nOracle E-Business Suite's Mobile Field Service component (Admin UI) contains a vulnerability affecting versions 12.2.3 through 12.2.15. A low-privileged attacker with network access via HTTP can achieve unauthorized creation, deletion, or modification of critical data. The vulnerability has a CVSS 3.1 score of 8.2 and allows for scope change, potentially impacting other integrated products.\n\nAffected products:\n- E-Business Suite (12.2.3-12.2.15)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-101659\n\n## CVE-2026-101693\n\nA vulnerability in the Security component of Oracle Hyperion Financial Data Quality Management, Enterprise Edition version 11.2.26.0.000 allows a low-privileged attacker with network access via HTTP to potentially take over the application. The vulnerability is characterized by a CVSS 3.1 base score of 7.5, indicating high impact on confidentiality, integrity, and availability.\n\nAffected products:\n- Hyperion Financial Data Quality Management, Enterprise Edition (11.2.26.0.000)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-101693\n\n## CVE-2026-101848\n\nOracle Hyperion Financial Data Quality Management, Enterprise Edition version 11.2.26.0.000 contains a security vulnerability that allows an unauthenticated, network-based attacker to gain unauthorized access to, or modify, critical data. The vulnerability is difficult to exploit and is reachable via HTTPS.\n\nAffected products:\n- Hyperion Financial Data Quality Management, Enterprise Edition (11.2.26.0.000)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-101848\n\n## CVE-2026-114783\n\nCVE-2026-114783 is an unauthenticated, remotely exploitable vulnerability in the BI Platform Security component of Oracle Business Intelligence Enterprise Edition. The vulnerability allows an attacker to compromise the application and gain unauthorized access to critical or all accessible data, with potential for cross-component impact due to a scope change.\n\nAffected products:\n- Business Intelligence Enterprise Edition (8.2.0.0.0, 12.2.1.4.0, 26.01.0.0.0)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-114783\n\n## CVE-2026-114792\n\nCVE-2026-114792 is a vulnerability within the Installation component of Oracle Business Intelligence Enterprise Edition that allows an unauthenticated, local attacker to potentially achieve full system compromise. The attack vector requires the victim to perform a human action, and the attacker must have local access to the infrastructure where the software is executed.\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-114792\n\n## CVE-2026-114799\n\nOracle Hyperion Planning version 11.2.26.0.000 contains a security vulnerability in its Security component. An unauthenticated attacker with network access can exploit this via HTTP to gain unauthorized access to critical or full data within the application. The vulnerability has a CVSS 3.1 base score of 7.5, reflecting a significant risk to data confidentiality.\n\nAffected products:\n- Hyperion Planning (11.2.26.0.000)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-114799\n\n## CVE-2026-114809\n\nOracle Hyperion Planning version 11.2.26.0.000 contains a security vulnerability that can be exploited by a low-privileged attacker with network access via HTTP. The vulnerability allows for unauthorized access to critical data and has the potential to affect other products via scope change, resulting in a high impact on confidentiality.\n\nAffected products:\n- Hyperion Planning (11.2.26.0.000)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-114809\n\n## CVE-2026-114813\n\nA vulnerability in the Platform Security component of Oracle Business Intelligence Enterprise Edition allows an authenticated, low-privileged attacker to perform unauthorized data modification, creation, or deletion, as well as trigger a denial-of-service condition via repeatable crashes over HTTP.\n\nAffected products:\n- Oracle Business Intelligence Enterprise Edition (8.2.0.0.0, 26.01.0.0.0)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-114813\n\n## CVE-2026-114846\n\nOracle Financial Services Customer Screening version 8.1.2.10 contains a vulnerability in the User Interface component that allows an unauthenticated, network-adjacent attacker to perform unauthorized access to critical data via HTTP. The vulnerability is characterized by a CVSS 3.1 base score of 7.5, primarily impacting data confidentiality.\n\nAffected products:\n- Oracle Financial Services Customer Screening (8.1.2.10)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-114846\n\n## CVE-2026-114852\n\nOracle REST Data Services (ORDS) contains a vulnerability in its Core component affecting versions 24.2.0 through 26.3.0. The vulnerability is network-exploitable by a low-privileged attacker via HTTP, allowing for unauthorized read, write, or deletion of critical data managed by the service. The CVSS vector (AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N) indicates high impact on confidentiality and integrity without requiring user interaction.\n\nAffected products:\n- Oracle REST Data Services (24.2.0-26.3.0)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-114852\n\n## CVE-2026-114860\n\nOracle Application Testing Suite version 13.3.0.1 is vulnerable to an unauthenticated, remote attack via TLS. The vulnerability, residing in the 'Test Manager for Web Apps' component, allows for a scope change and unauthorized access to, modification, or deletion of critical data. Due to the high confidentiality and integrity impact, defenders should monitor for anomalous network traffic directed at this component.\n\nAffected products:\n- Application Testing Suite (13.3.0.1)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-114860\n\n## CVE-2026-114865\n\nA vulnerability in the Oracle Sales Online component of Oracle E-Business Suite (versions 12.2.3 through 12.2.15) allows a low-privileged attacker with network access to compromise the application. The vulnerability requires human interaction to trigger and can result in unauthorized access to critical data and the ability to modify or delete data within the system. Due to the scope change (S:C), the impact can extend to additional integrated products.\n\nAffected products:\n- Oracle E-Business Suite (12.2.3-12.2.15)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-114865\n\n## CVE-2026-114866\n\nOracle E-Business Suite's Oracle Sales Online component is vulnerable to a cross-site scripting or similar attack vector that allows a low-privileged user with network access to compromise data integrity and confidentiality. The vulnerability requires user interaction and facilitates a scope change, potentially impacting other products within the suite.\n\nAffected products:\n- Oracle E-Business Suite (12.2.3-12.2.15)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-114866\n\n## CVE-2026-114867\n\nCVE-2026-114867 is a vulnerability within the Oracle Sales Online component of Oracle E-Business Suite, affecting versions 12.2.3 through 12.2.15. The vulnerability is network-exploitable via HTTP by a low-privileged attacker, potentially resulting in unauthorized modification, deletion, or creation of critical data, as well as unauthorized read access to subset data within the application.\n\nAffected products:\n- Oracle E-Business Suite (12.2.3-12.2.15)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-114867",
       "published": "2026-11-16T21:54:15.000Z",
       "labels": [
         "roundup"
       ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--0a0e3a3d-9570-50ad-a4d6-822d532d24a1",
         "vulnerability--0e02229b-47e5-5dce-9e9f-cde35d5d3244",
+        "vulnerability--1843f431-7510-5d3e-8d46-b979a65c4526",
+        "vulnerability--442961f4-720e-54dc-b771-1300f617b161",
+        "vulnerability--48996f30-c45e-5c08-832b-e346208b929b",
+        "vulnerability--4d9b06f2-9cf1-5eda-8739-30dac86a3eb0",
         "vulnerability--6789a0f8-ceaa-5b05-a00c-5cc670046e5e",
+        "vulnerability--68773abf-c8bd-51df-9d9c-77e4f62f259a",
         "vulnerability--69486730-31dc-5dae-a65f-0df084ad4ea6",
+        "vulnerability--76bd02bc-a4fb-57c1-9db0-d7577700f358",
+        "vulnerability--8d99c44c-9b86-5666-84e1-618588b07571",
         "vulnerability--9487ee90-1b97-5721-80ee-5631f6f6278a",
+        "vulnerability--b5e1b321-532e-58d4-b7a2-7ffea1c5cf3e",
+        "vulnerability--b913cf33-951a-506e-b913-26f73facb42e",
+        "vulnerability--c0ff2931-9e57-58df-a840-2a49ac56c83b",
+        "vulnerability--e042db27-9702-5750-944b-dbca39c02eda",
         "vulnerability--e163ddfd-8416-50ce-823d-44308b01db47",
-        "vulnerability--e75e6c55-483f-57de-814b-d39851edad4a"
+        "vulnerability--e2657267-81df-527d-b82a-b9a705a71304",
+        "vulnerability--e3845195-7bb8-5c3e-9a7b-b670f2869729",
+        "vulnerability--e75e6c55-483f-57de-814b-d39851edad4a",
+        "vulnerability--f2515e7e-8257-56e7-a501-dd5e48c2228f",
+        "vulnerability--f99a9690-68b2-524d-bc8c-6995a7f4bdf1",
+        "vulnerability--fc381d3f-2b1f-5496-8afa-20afc7b35edd"
       ],
       "external_references": [
         {
@@ -138934,22 +138951,22 @@
         },
         {
           "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114887"
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114869"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-oracle-security-updates",
       "x_craftedsignal_event_id": "brief-2026-11-oracle-security-updates",
-      "x_craftedsignal_revision": 9,
+      "x_craftedsignal_revision": 10,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-oracle-security-updates/",
-      "x_craftedsignal_activity_at": "2026-11-18T03:14:28.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T15:45:15.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_epss_max": 0.00433,
+      "x_craftedsignal_cvss_max": 9.3,
+      "x_craftedsignal_epss_max": 0.00448,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -332649,6 +332666,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--0a0e3a3d-9570-50ad-a4d6-822d532d24a1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114813",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114813",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114813"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--0a11ae0c-55d5-5da6-a8db-a88ad27300b7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -337395,6 +337428,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116328",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116328"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--1843f431-7510-5d3e-8d46-b979a65c4526",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114860",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114860",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114860"
         }
       ]
     },
@@ -350809,6 +350858,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--442961f4-720e-54dc-b771-1300f617b161",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114869",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114869",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114869"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--444528bc-69f1-533f-9e86-e88d280edcb5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -351971,6 +352036,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96981",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96981"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--48996f30-c45e-5c08-832b-e346208b929b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114867",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114867",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114867"
         }
       ]
     },
@@ -353235,6 +353316,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-91007",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91007"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4d9b06f2-9cf1-5eda-8739-30dac86a3eb0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-101848",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-101848",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101848"
         }
       ]
     },
@@ -361945,6 +362042,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--68773abf-c8bd-51df-9d9c-77e4f62f259a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-101652",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-101652",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101652"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--687aee75-f6ad-58d4-8509-4cb4d7ec80dc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -366147,6 +366260,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110273",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110273"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--76bd02bc-a4fb-57c1-9db0-d7577700f358",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114865",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114865",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114865"
         }
       ]
     },
@@ -373747,6 +373876,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115995",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115995"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8d99c44c-9b86-5666-84e1-618588b07571",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-91507",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-91507",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91507"
         }
       ]
     },
@@ -386937,6 +387082,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--b5e1b321-532e-58d4-b7a2-7ffea1c5cf3e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-101659",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-101659",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101659"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--b5e2e6cd-285c-584a-8359-8aeb8b9584e0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -388003,6 +388164,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114232",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114232"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b913cf33-951a-506e-b913-26f73facb42e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114809",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114809",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114809"
         }
       ]
     },
@@ -390371,6 +390548,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119621",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119621"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c0ff2931-9e57-58df-a840-2a49ac56c83b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114792",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114792",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114792"
         }
       ]
     },
@@ -400633,6 +400826,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--e042db27-9702-5750-944b-dbca39c02eda",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114852",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114852",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114852"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--e0441455-277c-5539-8ab9-bde3d0625e0c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -401481,6 +401690,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--e2657267-81df-527d-b82a-b9a705a71304",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114799",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114799",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114799"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--e2695d1c-87a0-56fc-8ca5-5fb15476152d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -401891,6 +402116,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-128343",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128343"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e3845195-7bb8-5c3e-9a7b-b670f2869729",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-101693",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-101693",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101693"
         }
       ]
     },
@@ -406329,6 +406570,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--f2515e7e-8257-56e7-a501-dd5e48c2228f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114866",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114866",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114866"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--f27caec2-739e-517c-97c6-18aab8facf7c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -408409,6 +408666,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--f99a9690-68b2-524d-bc8c-6995a7f4bdf1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114783",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114783",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114783"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--f9adf18b-2d98-58b4-95e3-31ed949eea83",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -409347,6 +409620,22 @@
           "source_name": "cve",
           "external_id": "CVE-2024-8856",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-8856"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fc381d3f-2b1f-5496-8afa-20afc7b35edd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114846",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114846",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114846"
         }
       ]
     },
