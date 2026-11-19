@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-oracle-security-updates
 event_id: brief-2026-11-oracle-security-updates
-revision: 32
-activity_at: "2026-11-19T21:24:47Z"
+revision: 33
+activity_at: "2026-11-19T22:20:45Z"
 revision_history:
   - revision: 2
     at: "2026-11-17T23:49:55Z"
@@ -432,6 +432,19 @@ revision_history:
       - lastmod
       - references
       - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91564
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91566
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91586
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91587
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91671
+  - revision: 33
+    at: "2026-11-19T22:20:45Z"
+    checksum: sha256:a2a01e695d316d4562f8f969ca3172043a242459fb3b7f25053a5aabed18581c
+    summary: added CVE-2026-91564 +4
+    changed_fields:
+      - content
+      - cves
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-91564
       - https://nvd.nist.gov/vuln/detail/CVE-2026-91566
@@ -2495,6 +2508,7 @@ cves:
     epss: 0.00256
     kev_status: "false"
   - id: CVE-2026-91671
+    product: Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0)
     cvss: 8.5
     epss: 0.0019
     kev_status: "false"
@@ -2516,7 +2530,7 @@ updates:
 
 ## Overview
 
-This roundup covers 262 Oracle security vulnerabilities. CVSS base scores range from 7.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect APEX, Application Development Framework, Application Testing Suite, AutoVue, Autonomous Health Framework, Business Intelligence Enterprise Edition, Communications Billing and Revenue Management, E-Business Suite, E-Business Suite Integrated SOA Gateway, Fusion Middleware, Hyperion Financial Close Management, Hyperion Financial Data Quality Management, Enterprise Edition, Hyperion Financial Management, Hyperion Infrastructure Technology, Hyperion Planning, Java SE, Mobile Field Service, MySQL Server, Oracle Access Manager, Oracle Business Intelligence Enterprise Edition, Oracle Collaborative Planning, Oracle Database Server, Oracle E-Business Suite, Oracle E-Business Suite Integrated SOA Gateway, Oracle E-Business Suite Secure Enterprise Search, Oracle E-Business Suite iProcurement, Oracle Enterprise Manager Base Platform, Oracle Financial Services Customer Screening, Oracle Fusion Middleware, Oracle Hyperion Financial Close Management, Oracle Hyperion Infrastructure Technology, Oracle Hyperion Planning, Oracle Managed File Transfer, Oracle Mobile Field Service, Oracle REST Data Services, Oracle Service Bus, Oracle VM VirtualBox, Oracle WebCenter Portal, PeopleSoft Enterprise PeopleTools, Product Lifecycle Analytics, Service Delivery Platform, Siebel CRM, Siebel CRM Deployment, VM VirtualBox, WebCenter Portal, WebCenter Sites, WebLogic Server, iProcurement.
+This roundup covers 263 Oracle security vulnerabilities. CVSS base scores range from 7.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect APEX, Application Development Framework, Application Testing Suite, AutoVue, Autonomous Health Framework, Business Intelligence Enterprise Edition, Communications Billing and Revenue Management, E-Business Suite, E-Business Suite Integrated SOA Gateway, Fusion Middleware, Hyperion Financial Close Management, Hyperion Financial Data Quality Management, Enterprise Edition, Hyperion Financial Management, Hyperion Infrastructure Technology, Hyperion Planning, Java SE, Mobile Field Service, MySQL Server, Oracle Access Manager, Oracle Business Intelligence Enterprise Edition, Oracle Collaborative Planning, Oracle Database Server, Oracle E-Business Suite, Oracle E-Business Suite Integrated SOA Gateway, Oracle E-Business Suite Secure Enterprise Search, Oracle E-Business Suite iProcurement, Oracle Enterprise Manager Base Platform, Oracle Financial Services Customer Screening, Oracle Fusion Middleware, Oracle Hyperion Financial Close Management, Oracle Hyperion Infrastructure Technology, Oracle Hyperion Planning, Oracle Managed File Transfer, Oracle Mobile Field Service, Oracle REST Data Services, Oracle Service Bus, Oracle VM VirtualBox, Oracle WebCenter Portal, PeopleSoft Enterprise PeopleTools, Product Lifecycle Analytics, Service Delivery Platform, Siebel CRM, Siebel CRM Deployment, VM VirtualBox, WebCenter Portal, WebCenter Sites, WebLogic Server, iProcurement.
 
 ## Summary
 
@@ -2784,6 +2798,7 @@ This roundup covers 262 Oracle security vulnerabilities. CVSS base scores range 
 | [CVE-2026-91566](#cve-2026-91566) | Oracle Service Bus (12.2.1.4.0, 14.1.2.0.0) | High | 8.8 | 0.25% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91566) (authoritative) |
 | [CVE-2026-91586](#cve-2026-91586) | Oracle WebCenter Portal (12.2.1.4.0, 14.1.2.0.0) | High | 7.4 | 0.22% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91586) (authoritative) |
 | [CVE-2026-91587](#cve-2026-91587) | WebCenter Portal (12.2.1.4.0, 14.1.2.0.0) | High | 8.6 | 0.26% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91587) (authoritative) |
+| [CVE-2026-91671](#cve-2026-91671) | Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0) | High | 8.5 | 0.19% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91671) (authoritative) |
 
 
 ## By product
@@ -2800,7 +2815,7 @@ This roundup covers 262 Oracle security vulnerabilities. CVSS base scores range 
 - **Hyperion Planning**: [CVE-2026-114799](#cve-2026-114799), [CVE-2026-114809](#cve-2026-114809), [CVE-2026-115086](#cve-2026-115086), [CVE-2026-115089](#cve-2026-115089), [CVE-2026-115088](#cve-2026-115088), [CVE-2026-115092](#cve-2026-115092), [CVE-2026-115124](#cve-2026-115124), [CVE-2026-115129](#cve-2026-115129), [CVE-2026-115130](#cve-2026-115130), [CVE-2026-115140](#cve-2026-115140), [CVE-2026-115141](#cve-2026-115141), [CVE-2026-114956](#cve-2026-114956), [CVE-2026-115087](#cve-2026-115087), [CVE-2026-115094](#cve-2026-115094), [CVE-2026-115101](#cve-2026-115101), [CVE-2026-115128](#cve-2026-115128), [CVE-2026-115131](#cve-2026-115131)
 - **Java SE**: [CVE-2026-114939](#cve-2026-114939), [CVE-2026-114940](#cve-2026-114940), [CVE-2026-114941](#cve-2026-114941), [CVE-2026-114942](#cve-2026-114942)
 - **MySQL Server**: [CVE-2026-114952](#cve-2026-114952), [CVE-2026-127428](#cve-2026-127428), [CVE-2026-114949](#cve-2026-114949), [CVE-2026-114950](#cve-2026-114950), [CVE-2026-114951](#cve-2026-114951)
-- **Oracle Access Manager**: [CVE-2026-91516](#cve-2026-91516), [CVE-2026-91507](#cve-2026-91507), [CVE-2026-114835](#cve-2026-114835), [CVE-2026-91500](#cve-2026-91500), [CVE-2026-91510](#cve-2026-91510), [CVE-2026-91498](#cve-2026-91498), [CVE-2026-91509](#cve-2026-91509), [CVE-2026-91522](#cve-2026-91522), [CVE-2026-91531](#cve-2026-91531), [CVE-2026-91533](#cve-2026-91533), [CVE-2026-91540](#cve-2026-91540), [CVE-2026-91543](#cve-2026-91543), [CVE-2026-91564](#cve-2026-91564)
+- **Oracle Access Manager**: [CVE-2026-91516](#cve-2026-91516), [CVE-2026-91507](#cve-2026-91507), [CVE-2026-114835](#cve-2026-114835), [CVE-2026-91500](#cve-2026-91500), [CVE-2026-91510](#cve-2026-91510), [CVE-2026-91498](#cve-2026-91498), [CVE-2026-91509](#cve-2026-91509), [CVE-2026-91522](#cve-2026-91522), [CVE-2026-91531](#cve-2026-91531), [CVE-2026-91533](#cve-2026-91533), [CVE-2026-91540](#cve-2026-91540), [CVE-2026-91543](#cve-2026-91543), [CVE-2026-91564](#cve-2026-91564), [CVE-2026-91671](#cve-2026-91671)
 - **Oracle Business Intelligence Enterprise Edition**: [CVE-2026-114813](#cve-2026-114813), [CVE-2026-114784](#cve-2026-114784), [CVE-2026-114793](#cve-2026-114793), [CVE-2026-114794](#cve-2026-114794), [CVE-2026-114814](#cve-2026-114814), [CVE-2026-114815](#cve-2026-114815)
 - **Oracle Database Server**: [CVE-2026-114819](#cve-2026-114819), [CVE-2026-114848](#cve-2026-114848)
 - **Oracle E-Business Suite**: [CVE-2026-114887](#cve-2026-114887), [CVE-2026-101652](#cve-2026-101652), [CVE-2026-114865](#cve-2026-114865), [CVE-2026-114866](#cve-2026-114866), [CVE-2026-114867](#cve-2026-114867), [CVE-2026-114871](#cve-2026-114871), [CVE-2026-114876](#cve-2026-114876), [CVE-2026-114877](#cve-2026-114877), [CVE-2026-114878](#cve-2026-114878), [CVE-2026-114885](#cve-2026-114885), [CVE-2026-114888](#cve-2026-114888), [CVE-2026-114894](#cve-2026-114894), [CVE-2026-114909](#cve-2026-114909), [CVE-2026-114914](#cve-2026-114914), [CVE-2026-114916](#cve-2026-114916), [CVE-2026-114918](#cve-2026-114918), [CVE-2026-114863](#cve-2026-114863), [CVE-2026-114924](#cve-2026-114924), [CVE-2026-114925](#cve-2026-114925), [CVE-2026-101691](#cve-2026-101691), [CVE-2026-101705](#cve-2026-101705), [CVE-2026-101698](#cve-2026-101698), [CVE-2026-101657](#cve-2026-101657), [CVE-2026-101838](#cve-2026-101838), [CVE-2026-101839](#cve-2026-101839), [CVE-2026-114864](#cve-2026-114864), [CVE-2026-114872](#cve-2026-114872), [CVE-2026-114882](#cve-2026-114882), [CVE-2026-114883](#cve-2026-114883), [CVE-2026-114884](#cve-2026-114884), [CVE-2026-114902](#cve-2026-114902), [CVE-2026-114906](#cve-2026-114906), [CVE-2026-114907](#cve-2026-114907), [CVE-2026-114912](#cve-2026-114912), [CVE-2026-83362](#cve-2026-83362), [CVE-2026-83365](#cve-2026-83365)
@@ -5182,3 +5197,12 @@ Affected products:
 - WebCenter Portal (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91587
+
+## CVE-2026-91671
+
+CVE-2026-91671 is a vulnerability in the Authentication Engine component of Oracle Access Manager, affecting versions 12.2.1.4.0 and 14.1.2.1.0. An attacker with low-privileged network access via HTTP can achieve a full takeover of the Oracle Access Manager product. The vulnerability includes a scope change, meaning successful exploitation can negatively impact other connected products within the environment.
+
+Affected products:
+- Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91671
