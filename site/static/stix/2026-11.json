@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--cf09467d-93da-5852-9e81-1e5f4961331e",
+  "id": "bundle--07724758-ebe5-5536-9bc0-a682e14ef986",
   "objects": [
     {
       "type": "attack-pattern",
@@ -26337,7 +26337,7 @@
       "id": "relationship--486c48e1-2664-552e-9ec1-d1a8a9706d6e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T23:13:44.000Z",
-      "modified": "2026-11-17T23:13:44.000Z",
+      "modified": "2026-11-19T22:15:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--57c32eb6-a29c-5d3b-b9e2-605be909e1fc",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -120205,7 +120205,7 @@
       "id": "report--57c32eb6-a29c-5d3b-b9e2-605be909e1fc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T23:13:44.000Z",
-      "modified": "2026-11-17T23:13:44.000Z",
+      "modified": "2026-11-19T22:15:03.000Z",
       "name": "Atomic Server: Unauthenticated account creation and access control bypass (CVE-2026-69157)",
       "description": "## Overview\nAtomic Server (0.29.0 to 0.40.2) is vulnerable to an authentication bypass during the invite process. An unauthenticated attacker can target the /setup invite endpoint, which is enabled by default with write access to the Drive root. Due to a flaw in the construct_invite_redirect function within server/src/plugins/invite.rs, the application fails to validate the redeemer identity. An attacker can provide an arbitrary public key to register a new Agent with full read/write/administrative permissions over the entire Drive. This vulnerability is particularly critical for fresh, unclaimed deployments.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to gain full control over an Atomic Server instance. This includes the ability to read, modify, and delete all resources on the Drive, change administrative permissions, and create or alter other user agents.\n\n## Recommendation\nUntil an official security patch is released, prioritize the following actions:\n- Inventory all deployments of Atomic Server to identify instances running versions 0.29.0 through 0.40.2.\n- Restrict network access to the Atomic Server /setup endpoint to trusted management IP addresses only.\n- Monitor server access logs for unexpected requests to the /setup endpoint or creation of unauthorized Agents.",
       "published": "2026-11-17T23:13:44.000Z",
@@ -120228,20 +120228,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69157"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=4E420578-BC65-5F4A-AFE9-23331F67C1A9\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-17-atomic-server-rce-cve-2026-69157",
       "x_craftedsignal_event_id": "brief-2026-11-17-atomic-server-rce-cve-2026-69157",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-atomic-server-rce-cve-2026-69157/",
-      "x_craftedsignal_activity_at": "2026-11-17T23:13:44.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T22:15:03.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00382,
       "x_craftedsignal_kev_status": "false"
     },
     {
