@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4f9a8497-9cb2-5c3e-99fe-f6768f8b475e",
+  "id": "bundle--6285c37a-1127-59c0-844a-bc684766fb7b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -26297,6 +26297,17 @@
       "relationship_type": "has",
       "source_ref": "software--052af1ff-aeab-5fc2-a29b-6ced4d6024df",
       "target_ref": "vulnerability--1657bcf6-203f-57e3-b01b-0eee568bcdff"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4b3029b1-0948-5088-ace4-0d1a1e606374",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--afe29d0e-901e-576e-ae1f-75e61bec6940",
+      "target_ref": "vulnerability--23cf32de-ec86-5cc2-9514-2b6c06f4b0b2"
     },
     {
       "type": "relationship",
@@ -105945,6 +105956,53 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_epss_max": 0.00177,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--46117fe6-9c16-5876-bef3-4d02196c778c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-18T22:43:45.000Z",
+      "modified": "2026-11-18T22:43:45.000Z",
+      "name": "DrayTek Vigor2960 Stack-Based Buffer Overflow (CVE-2026-132141)",
+      "description": "## Overview\nA stack-based buffer overflow vulnerability exists in the Jsonstatus component of DrayTek Vigor2960 devices. The flaw affects the 'json_load_lock' function within the '/cgi-bin/mainfunction.cgi' file.\n\n## Attack Chain\nRemote attackers can trigger the vulnerability by manipulating the 'usefile' argument.\n\n## Impact\nSuccessful exploitation results in a stack-based buffer overflow. The vulnerability is assigned a CVSS v3.1 base score of 9.9.\n\n## Recommendation\nUpgrade to firmware version 1.5.1.7 to resolve this issue. The vendor advises upgrading to the latest available firmware, noting that newer versions include fixes for multiple security issues.",
+      "published": "2026-11-18T22:43:45.000Z",
+      "labels": [
+        "buffer-overflow"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--afe29d0e-901e-576e-ae1f-75e61bec6940",
+        "vulnerability--23cf32de-ec86-5cc2-9514-2b6c06f4b0b2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-18-draytek-vigor2960-buffer-overflow-cve-2026-132141",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-draytek-vigor2960-buffer-overflow-cve-2026-132141/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-132141"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132141"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-18-draytek-vigor2960-buffer-overflow-cve-2026-132141",
+      "x_craftedsignal_event_id": "brief-2026-11-18-draytek-vigor2960-buffer-overflow-cve-2026-132141",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-draytek-vigor2960-buffer-overflow-cve-2026-132141/",
+      "x_craftedsignal_activity_at": "2026-11-18T22:43:45.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -220723,6 +220781,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-129143",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129143"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--23cf32de-ec86-5cc2-9514-2b6c06f4b0b2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-132141",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-132141",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132141"
         }
       ]
     },
