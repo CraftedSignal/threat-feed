@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4d8a0d4b-fd7d-5e6b-acf3-31a0afb6f068",
+  "id": "bundle--4aff304d-099c-5847-83dc-d7b8974fda08",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10424,17 +10424,6 @@
       "relationship_type": "has",
       "source_ref": "software--796e4328-ccf6-5510-90b6-a468afb1a189",
       "target_ref": "vulnerability--6cb930a6-c5ba-5495-a3df-570194776e80"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--028b1aa8-d23c-5d89-816c-1d003a3862f9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-20T07:35:10.000Z",
-      "modified": "2026-10-20T07:35:10.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--871c0a8b-88a2-5ab7-a89e-703335caecdf",
-      "target_ref": "attack-pattern--9745c399-5419-5ac8-bc8b-7626b3c97937"
     },
     {
       "type": "relationship",
@@ -79354,17 +79343,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--a1b598e8-8d92-51ef-985f-4a71738639ef",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-20T07:35:10.000Z",
-      "modified": "2026-10-20T07:35:10.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--871c0a8b-88a2-5ab7-a89e-703335caecdf",
-      "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--a1b77f9c-c82a-598b-b43c-891730747e98",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -120186,17 +120164,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ff39123a-f2dc-5a8a-b381-22b31e69b84e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--0112775b-bc21-56ae-b62a-19d355b2a3c4",
-      "target_ref": "vulnerability--6dd132f0-8565-59b6-80f9-c8067d5de695"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ff3a4903-aa3c-599d-9698-e5b7546e55a5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -134550,7 +134517,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_epss_max": 0.00716,
+      "x_craftedsignal_epss_max": 0.0256,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -146536,6 +146503,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.01143,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -152281,7 +152249,7 @@
       "id": "report--2fee262c-da48-501a-9d3b-5156ff25e82f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T23:13:51.000Z",
-      "modified": "2026-11-17T23:13:51.000Z",
+      "modified": "2026-11-19T07:48:31.000Z",
       "name": "Ontola Atomic Server: Server-side request forgery (CVE-2026-69158)",
       "description": "## Overview\nAtomic Server, an open source headless CMS and real-time database, contains a server-side request forgery (SSRF) vulnerability in versions prior to 0.40.3. Unauthenticated requests to the /bookmark endpoint allow an attacker to supply a URL that the application fetches. Due to insufficient validation in `lib/src/client/helpers.rs` and incorrect endpoint dispatch logic in `lib/src/db.rs`, the application does not restrict requests to loopback, private, link-local, or DNS-rebinding targets.\n\n## Attack Chain\nAn unauthenticated attacker sends a malicious URL to the /bookmark endpoint. The application's internal handler fetches the requested resource without applying proper `check_read` authorization. The server reflects the fetched content in the response, enabling the retrieval of information from reachable internal services or cloud metadata endpoints. The attack is limited to plain-GET requests and constrained by a short request timeout; metadata services requiring separate token requests are not affected.\n\n## Impact\nExploitation can lead to the exposure of internal infrastructure or cloud instance metadata. The impact is limited to GET-based data retrieval.\n\n## Recommendation\nUpgrade Atomic Server to version 0.40.3 or later, which contains the fix for this issue.",
       "published": "2026-11-17T23:13:51.000Z",
@@ -152308,20 +152276,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69158"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=0E8BE56C-2F15-58C4-B6EA-D99C505BD23D\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-17-atomic-server-ssrf-cve-2026-69158",
       "x_craftedsignal_event_id": "brief-2026-11-17-atomic-server-ssrf-cve-2026-69158",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-atomic-server-ssrf-cve-2026-69158/",
-      "x_craftedsignal_activity_at": "2026-11-17T23:13:51.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T07:48:31.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.6,
+      "x_craftedsignal_epss_max": 0.00482,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -179821,6 +179794,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.01673,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -209675,7 +209649,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_epss_max": 0.01633,
+      "x_craftedsignal_epss_max": 0.03421,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -214307,63 +214281,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--871c0a8b-88a2-5ab7-a89e-703335caecdf",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-20T07:35:10.000Z",
-      "modified": "2026-10-20T07:35:10.000Z",
-      "name": "Privilege Escalation in Webkul Krayin CRM via SVG XSS",
-      "description": "## Overview\n\nWebkul Krayin CRM versions 2.0.0 and 2.1.0 contain a vulnerability (CVE-2025-3568) that enables privilege escalation via malicious SVG file uploads. The application fails to properly sanitize uploaded SVG files, allowing attackers to embed malicious JavaScript. When an administrator views or interacts with the uploaded file, the script executes in the context of the admin's session. Combined with a lack of current password verification on the user profile update API endpoint, an attacker can perform a Cross-Site Request Forgery (CSRF) attack to overwrite the administrative account password. This vulnerability enables full account takeover and unauthorized access to sensitive customer relationship management data.\n\n## Attack Chain\n\n1. Attacker (with low-privilege access) crafts a malicious SVG file containing an XSS payload designed to exfiltrate session tokens and initiate a password change request.\n2. Attacker uploads the malicious SVG file through a permitted CRM upload vector (e.g., email attachment or user profile media).\n3. Attacker triggers the administrator to open or preview the SVG file, which renders in the admin's browser session.\n4. The embedded JavaScript in the SVG executes, capturing the administrator's CSRF/XSRF tokens from the browser session.\n5. The script generates an unauthorized background request to the user management API (`/admin/settings/users/edit/[ID]`).\n6. The application processes the request, which fails to verify the current administrative password.\n7. The administrator account password is changed to a value specified by the attacker.\n8. Attacker logs into the CRM using the newly set credentials to gain full administrative control.\n\n## Impact\n\nSuccessful exploitation results in full administrative account takeover. Impacted sectors include businesses using Krayin CRM to manage customer, financial, and lead information. The attack allows for unauthorized data exfiltration, backdooring of the CRM instance, and potential lateral movement or persistence within the business environment.\n\n## Recommendation\n\n1. Patch Webkul Krayin CRM to a non-vulnerable version immediately.\n2. Disable the ability to upload or render SVG files within the CRM interface until a vendor patch is applied.\n3. Implement strict Content Security Policy (CSP) headers to prevent the execution of inline scripts and unauthorized API requests from origin domains.\n4. Enable server-side validation for all administrative user management actions, requiring current password re-authentication for all account profile changes.\n5. Deploy the provided Sigma rule to detect POST requests to administrative user management endpoints that lack necessary authentication context or originate from non-standard user agents.\n",
-      "published": "2026-10-20T07:35:10.000Z",
-      "labels": [
-        "csrf",
-        "privilege-escalation",
-        "web-application",
-        "xss"
-      ],
-      "object_refs": [
-        "attack-pattern--9745c399-5419-5ac8-bc8b-7626b3c97937",
-        "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--0112775b-bc21-56ae-b62a-19d355b2a3c4",
-        "vulnerability--6dd132f0-8565-59b6-80f9-c8067d5de695"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-krayin-crm-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-krayin-crm-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-3568"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SHELLKRAFT-CVE-2025-3568"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://vuldb.com/?id.304609"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-10-krayin-crm-xss",
-      "x_craftedsignal_event_id": "brief-2026-10-krayin-crm-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-krayin-crm-xss/",
-      "x_craftedsignal_activity_at": "2026-10-20T07:35:10.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 3.5,
-      "x_craftedsignal_epss_max": 0.0043,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--871e0105-1469-5d41-811c-cb716a9c38d4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T22:16:15.000Z",
@@ -215880,6 +215797,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.01527,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -222222,7 +222140,7 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-axis-cve-2026-90436/",
       "x_craftedsignal_activity_at": "2026-11-12T13:13:36.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "confirmed_active",
         "source_url": "https://thehackernews.com/2026/11/new-n-central-exploits-work-against.html",
@@ -222231,7 +222149,7 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.01128,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -241592,6 +241510,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.01031,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -250618,6 +250537,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.01017,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -252567,6 +252487,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.0164,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -252766,7 +252687,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00493,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -261361,7 +261283,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.3,
-      "x_craftedsignal_epss_max": 0.47472,
+      "x_craftedsignal_epss_max": 0.6639,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -275059,7 +274981,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00786,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -276517,8 +276440,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_epss_max": 0.00451,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.01252,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -296657,7 +296580,7 @@
         "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.00517,
+      "x_craftedsignal_epss_max": 0.0573,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -298080,7 +298003,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.02473,
+      "x_craftedsignal_epss_max": 0.22081,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -298918,13 +298841,6 @@
       "spec_version": "2.1",
       "id": "software--00aab0ba-4fe2-5b3b-8cd1-99a35b75f915",
       "name": "brotli4j (\u003c 1.24.0)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--0112775b-bc21-56ae-b62a-19d355b2a3c4",
-      "name": "Krayin CRM (2.0.0, 2.1.0)",
-      "vendor": "Webkul"
     },
     {
       "type": "software",
@@ -361478,22 +361394,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118804",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118804"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--6dd132f0-8565-59b6-80f9-c8067d5de695",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2025-3568",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2025-3568",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-3568"
         }
       ]
     },
