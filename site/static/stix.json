@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f21d4099-94ef-55cb-8a3e-3f3dd6e36dc5",
+  "id": "bundle--5e0ce8a7-125d-5663-8fbe-eb3e28a7501f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -76301,7 +76301,7 @@
       "id": "relationship--9b18f87e-3bf9-539a-83c7-02069d66bffe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T14:06:57.000Z",
-      "modified": "2026-11-19T14:06:57.000Z",
+      "modified": "2026-11-19T18:29:09.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a1b21b1e-14e1-57f6-bd6f-02b98522ca74",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -104263,7 +104263,7 @@
       "id": "relationship--da9970c8-ac9c-5e65-a8ff-fb69b222652d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T14:06:57.000Z",
-      "modified": "2026-11-19T14:06:57.000Z",
+      "modified": "2026-11-19T18:29:09.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a1b21b1e-14e1-57f6-bd6f-02b98522ca74",
       "target_ref": "attack-pattern--7fbd6d58-7528-54d9-a63e-ba73ac098f89"
@@ -234922,7 +234922,7 @@
       "id": "report--a1b21b1e-14e1-57f6-bd6f-02b98522ca74",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T14:06:57.000Z",
-      "modified": "2026-11-19T14:06:57.000Z",
+      "modified": "2026-11-19T18:29:09.000Z",
       "name": "WebToffee WooCommerce Product Feed: Hard-coded cryptographic key (CVE-2026-133117)",
       "description": "## Overview\nWebToffee WooCommerce Product Feeds - Google Shopping, Pinterest, TikTok Ads, \u0026 More versions before 2.4.4 contain a hard-coded cryptographic key vulnerability (CVE-2026-133117). This allows unauthenticated attackers to bypass the URL-cron signature check by computing a valid hash using a constant salt embedded in the plugin source.\n\n## Impact\nAttackers can send forged GET requests with attacker-controlled parameters to an unauthenticated init-hooked endpoint. This allows for the repeated triggering of product-feed generation, which can result in CPU and database resource exhaustion and the overwriting of generated feed files.\n\n## Recommendation\nMonitor the vulnerability for further guidance on official remediation. As of the current evidence, no patch information is explicitly confirmed beyond the identification of the affected version range.",
       "published": "2026-11-19T14:06:57.000Z",
@@ -234946,14 +234946,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133117"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CD8B7725-C7DA-5AEA-9139-94A08687AF0E\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-19-webtoffee-product-feed-cve-2026-133117",
       "x_craftedsignal_event_id": "brief-2026-11-19-webtoffee-product-feed-cve-2026-133117",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-webtoffee-product-feed-cve-2026-133117/",
-      "x_craftedsignal_activity_at": "2026-11-19T14:06:57.000Z",
+      "x_craftedsignal_activity_at": "2026-11-19T18:29:09.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
