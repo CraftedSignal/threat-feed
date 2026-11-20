@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7ec96ab8-6f75-5192-9b4a-eacb2e310b21",
+  "id": "bundle--e5a2ced4-f771-55e8-bf6e-a7889038d4db",
   "objects": [
     {
       "type": "attack-pattern",
@@ -41089,7 +41089,7 @@
       "id": "relationship--2b513f7c-db49-5e1e-b234-a610e34f6602",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T14:07:22.000Z",
-      "modified": "2026-11-16T14:07:22.000Z",
+      "modified": "2026-11-20T03:30:50.000Z",
       "relationship_type": "uses",
       "source_ref": "report--fa8b1975-a52f-5391-baa6-024e6cbaf76a",
       "target_ref": "attack-pattern--81fd65a4-87c0-58e0-918c-c27c275ab930"
@@ -85012,7 +85012,7 @@
       "id": "relationship--686ac196-ed10-5859-bc82-e60b7687a187",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T14:07:22.000Z",
-      "modified": "2026-11-16T14:07:22.000Z",
+      "modified": "2026-11-20T03:30:50.000Z",
       "relationship_type": "uses",
       "source_ref": "report--fa8b1975-a52f-5391-baa6-024e6cbaf76a",
       "target_ref": "attack-pattern--c08aa517-a62c-5afd-9c53-b3465a60a42e"
@@ -243923,7 +243923,7 @@
       "id": "report--434ad7d3-1b73-5a4b-8011-fef77a6fd317",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T05:46:15.000Z",
-      "modified": "2026-11-17T09:49:45.000Z",
+      "modified": "2026-11-20T03:30:50.000Z",
       "name": "GitLab November 2026 Security Patch Release",
       "description": "## Overview\nOn November 16, 2026, GitLab released versions 19.3.9, 19.4.8, and 19.5.6 to address multiple security vulnerabilities. Self-managed GitLab installations are urged to upgrade immediately. GitLab.com is already running the patched versions.\n\n## Vulnerabilities\n- **CVE-2026-105739**: Improper input sanitization allows an authenticated user to execute arbitrary JavaScript in the browser of users viewing a wiki page. Affects CE/EE 17.2-19.3.8, 19.4-19.4.7, 19.5-19.5.5.\n- **CVE-2026-108153**: Improper input sanitization allows an authenticated user to execute arbitrary JavaScript in the browser of users viewing Error Tracking pages. Affects CE/EE 16.1-19.3.8, 19.4-19.4.7, 19.5-19.5.5.\n- **CVE-2026-18241**: A race condition in pipeline job authorization allows an authenticated user to access protected CI/CD variables and resources. Affects CE/EE 9.3-19.3.8, 19.4-19.4.7, 19.5-19.5.5.\n- **CVE-2026-97187**: Incorrect authorization in workspaces allows an authenticated user to read Kubernetes Secrets from other namespaces in clusters connected through the GitLab agent for Kubernetes. Affects CE/EE 17.6-19.3.8, 19.4-19.4.7, 19.5-19.5.5.\n- **CVE-2026-115428**: Improper input validation allows an authenticated user with a valid agent token to cause a denial of service in the GitLab agent server (KAS). Affects CE/EE 17.2-19.3.8, 19.4-19.4.7, 19.5-19.5.5.\n- **CVE-2026-85778**: Incorrect authorization checks allow an authenticated user to run code in protected pipelines through a scheduled pipeline execution policy after the policy has been unassigned. Affects EE 19.1-19.3.8, 19.4-19.4.7, 19.5-19.5.5.\n- **CVE-2026-112203**: Improper response validation in the Maven virtual registry allows an individual controlling an upstream repository to alter cached Maven packages from other repositories. Affects EE 18.2-19.3.8, 19.4-19.4.7, 19.5-19.5.5.\n- **CVE-2026-11768**: Improper file path validation allows an authenticated user to read private CI/CD job artifacts of other projects through GitLab Pages. Affects CE/EE 12.4-19.3.8, 19.4-19.4.7, 19.5-19.5.5.\n- **CVE-2026-16609**: Improper input validation in the Confluence integration allows an authenticated owner-role user to execute arbitrary JavaScript in another user's browser. Affects CE/EE 13.2-19.3.8, 19.4-19.4.7, 19.5-19.5.5.\n- **CVE-2026-118961**: Missing authorization checks allow an unauthenticated user to read commit comments from a private source fork through a public project's merge request discussions. Affects CE/EE 17.11-19.3.8, 19.4-19.4.7, 19.5-19.5.5.\n\n## Recommendation\nUpgrade all self-managed GitLab installations to versions 19.3.9, 19.4.8, or 19.5.6 immediately.",
       "published": "2026-11-17T05:46:15.000Z",
@@ -244000,20 +244000,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18241"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-18241\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-17-gitlab-security-patches-cve-2026-18241",
       "x_craftedsignal_event_id": "brief-2026-11-17-gitlab-security-patches-cve-2026-18241",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gitlab-security-patches-cve-2026-18241/",
-      "x_craftedsignal_activity_at": "2026-11-17T09:49:45.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T03:30:50.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.7,
+      "x_craftedsignal_epss_max": 0.00296,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -376096,7 +376101,7 @@
       "id": "report--fa8b1975-a52f-5391-baa6-024e6cbaf76a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T14:07:22.000Z",
-      "modified": "2026-11-16T14:07:22.000Z",
+      "modified": "2026-11-20T03:30:50.000Z",
       "name": "Swipe WordPress Plugin Authentication Bypass (CVE-2026-119258)",
       "description": "## Overview\nThe Swipe WordPress plugin through 1.4 contains a vulnerability where it fails to properly authenticate login requests before issuing a WordPress session cookie. This issue allows unauthenticated attackers to log in as an existing user, including an administrator, specifically when that user has an active application session.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to gain unauthorized access to existing user accounts, potentially resulting in full administrative control over the WordPress instance.\n\n## Recommendation\nUsers should monitor for unauthorized authentication activity. As of the current reporting, there is no identified fixed release or official patch; users should evaluate the necessity of the plugin within their environment.",
       "published": "2026-11-16T14:07:22.000Z",
@@ -376120,21 +376125,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119258"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=3883118E-355E-5623-94D3-C0CB6407B35E\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-16-swipe-wordpress-auth-bypass-cve-2026-119258",
       "x_craftedsignal_event_id": "brief-2026-11-16-swipe-wordpress-auth-bypass-cve-2026-119258",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-swipe-wordpress-auth-bypass-cve-2026-119258/",
-      "x_craftedsignal_activity_at": "2026-11-16T14:07:22.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T03:30:50.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_epss_max": 0.00137,
+      "x_craftedsignal_epss_max": 0.00226,
       "x_craftedsignal_kev_status": "false"
     },
     {
