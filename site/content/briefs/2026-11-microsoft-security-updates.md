@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-microsoft-security-updates
 event_id: brief-2026-11-microsoft-security-updates
-revision: 3
-activity_at: "2026-11-14T13:56:38Z"
+revision: 4
+activity_at: "2026-11-20T02:26:24Z"
 revision_history:
   - revision: 2
     at: "2026-11-11T09:46:57Z"
@@ -37,13 +37,34 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-95922
-title: 'Microsoft Windows Graphics Kernel: Heap-based buffer overflow (CVE-2026-95922)'
+  - revision: 4
+    at: "2026-11-20T02:26:24Z"
+    checksum: sha256:162b08aa73d3da5d1502f4e6f53ef256f9831fc6b2a8a0bbff5f4d3beb3b003d
+    summary: OS 32-bit systems; OS x64-based systems
+    changed_fields:
+      - affected_os
+      - affected_products
+      - claim_state
+      - content
+      - cpes
+      - cves
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - references
+      - summary
+      - tags
+      - title
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-111306
+title: Microsoft Office Word heap-based buffer overflow (CVE-2026-111306)
 slug: 2026-11-microsoft-security-updates
-description: A heap-based buffer overflow vulnerability in the Windows Graphics Kernel allows a locally authenticated attacker to elevate privileges.
+description: A heap-based buffer overflow in Microsoft Office Word allows an unauthorized attacker to execute code, as indicated by a CVSS v3.1 base score of 8.8.
 date: "2026-11-02T21:54:23Z"
-lastmod: "2026-11-14T13:55:58Z"
+lastmod: "2026-11-20T02:25:54Z"
 type: advisory
-claim_state: <nil>
 types:
   - advisory
 severities:
@@ -57,12 +78,49 @@ source_assessment:
   likelihood: roughly even chance
 cpes:
   - cpe:2.3:a:microsoft:365_apps:-:*:*:*:enterprise:*:*:*
+  - cpe:2.3:a:microsoft:365_apps:-:*:*:*:enterprise:*:x64:*
+  - cpe:2.3:a:microsoft:365_apps:-:*:*:*:enterprise:*:x86:*
+  - cpe:2.3:a:microsoft:microsoft_365:-:*:*:*:*:macos:*:*
   - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:-:*:*
+  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:-:x64:*
+  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:-:x86:*
+  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:macos:-:*
   - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:-:*:*
+  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:-:x64:*
+  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:-:x86:*
+  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:macos:-:*
 tags:
   - roundup
+  - Microsoft
+  - Office
+  - Word
+  - buffer-overflow
+  - microsoft-office
 vendors:
   - Microsoft
+products:
+  - Microsoft 365 Apps for Enterprise
+  - Microsoft Office 365 for Mac
+  - Microsoft Office LTSC 2021
+  - Microsoft Office LTSC 2024
+  - Microsoft Office LTSC for Mac 2021
+  - Microsoft Office LTSC for Mac 2024
+product_versions:
+  - product: Microsoft Office 365 for Mac
+    range: '>= 1.0.0, < 16.115.26110837'
+  - product: Microsoft Office LTSC 2021
+    range: '>= 16.0.1, < 16.0.14334.21048'
+  - product: Microsoft Office LTSC 2024
+    range: '>= 16.0.0, < 16.0.17932.21140'
+  - product: Microsoft Office LTSC for Mac 2021
+    range: '>= 16.0.1, < 16.115.26110837'
+  - product: Microsoft Office LTSC for Mac 2024
+    range: '>= 16.0.0, < 16.115.26110837'
+affected_os:
+  - Windows
+  - macOS
+  - 32-bit Systems
+  - x64-based Systems
 cves:
   - id: CVE-2026-109469
     kev_status: "false"
@@ -2412,16 +2470,12 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-94513
   - https://nvd.nist.gov/vuln/detail/CVE-2026-95922
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-95922
+  - https://cveawg.mitre.org/api/cve/CVE-2026-111299
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-111299
+  - https://cveawg.mitre.org/api/cve/CVE-2026-111306
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-111306
+  - https://aka.ms/OfficeSecurityReleases
 updates:
-  - at: "2026-11-11T02:26:04Z"
-    level: L2
-    summary: added CVE-2026-109500,
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-119995
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-119996
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-120000
   - at: "2026-11-11T05:56:44Z"
     level: L2
     summary: added CVE-2026-120000
@@ -2443,14 +2497,34 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-95922
+  - at: "2026-11-20T02:25:46Z"
+    level: L1
+    summary: OS windows; OS macos
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-111299
+  - at: "2026-11-20T02:25:54Z"
+    level: L1
+    summary: OS 32-bit systems; OS x64-based systems
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-111306
 ---
 
-CVE-2026-95922 is a heap-based buffer overflow vulnerability in the Windows Graphics Kernel. 
+## Overview
+
+A heap-based buffer overflow vulnerability exists in Microsoft Office Word, tracked as CVE-2026-111306. According to the CVSS v3.1 vector (AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H), the vulnerability allows an unauthorized attacker to execute code. 
+
+## Attack Chain
+
+The vulnerability is a heap-based buffer overflow. The CVSS vector indicates that user interaction is required (UI:R) and that the attack complexity is low (AC:L).
 
 ## Impact
 
-This vulnerability allows an authorized attacker to elevate privileges locally.
+Successful exploitation allows for the execution of code, with high impact on confidentiality, integrity, and availability.
 
 ## Recommendation
 
-Consult the official Microsoft Security Update Guide for further information regarding this vulnerability.
+Users should apply the latest security updates provided by Microsoft. The vulnerability affects multiple versions of Microsoft 365 Apps for Enterprise, Office 365 for Mac, and Office LTSC 2021/2024. Remediation is available through Microsoft security channels.
