@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f762246a-8455-5c0e-bf53-9ad3ef658842",
+  "id": "bundle--ca53ee3f-cebe-5221-926e-79dadb00d77f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -57958,6 +57958,17 @@
       "relationship_type": "has",
       "source_ref": "software--ae195453-4176-5eaf-b0d4-6a959395496c",
       "target_ref": "vulnerability--632b790a-95e5-591d-ad0b-faee3cc1c28e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--438651b7-0d9b-5c45-9583-3fd38895a12e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--20dd8935-9a1a-5651-ba6f-dc5a9aeb64fb",
+      "target_ref": "vulnerability--75e28590-1181-5d3d-8f34-d982fbbb0441"
     },
     {
       "type": "relationship",
@@ -362646,6 +362657,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e58eb32a-53fb-5cbb-9786-e0e107618321",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T10:16:55.000Z",
+      "modified": "2026-11-20T10:16:55.000Z",
+      "name": "Gladys Assistant: Path traversal in backup restore handler (CVE-2026-133501)",
+      "description": "## Overview\nA path traversal vulnerability has been identified in Gladys Assistant up to version 4.71.0. The flaw affects an unknown function within the `server/lib/gateway/gateway.downloadBackup.js` file of the Backup Restore Handler component.\n\n## Attack Chain\nThe vulnerability can be launched remotely. Publicly released exploit code exists for this vulnerability.\n\n## Impact\nThe identified manipulation results in path traversal. The specific scope of impact regarding file access or system compromise beyond the path traversal itself is not explicitly detailed in the available source.\n\n## Recommendation\nUpgrade Gladys Assistant to version 4.72.0 to remediate the vulnerability.",
+      "published": "2026-11-20T10:16:55.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--20dd8935-9a1a-5651-ba6f-dc5a9aeb64fb",
+        "vulnerability--75e28590-1181-5d3d-8f34-d982fbbb0441"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-gladys-assistant-path-traversal-cve-2026-133501",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-gladys-assistant-path-traversal-cve-2026-133501/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-133501"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133501"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-gladys-assistant-path-traversal-cve-2026-133501",
+      "x_craftedsignal_event_id": "brief-2026-11-20-gladys-assistant-path-traversal-cve-2026-133501",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gladys-assistant-path-traversal-cve-2026-133501/",
+      "x_craftedsignal_activity_at": "2026-11-20T10:16:55.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e59c4cd4-b9b2-538b-942b-e853d25c8c5e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T20:28:10.000Z",
@@ -451876,6 +451931,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121070",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121070"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--75e28590-1181-5d3d-8f34-d982fbbb0441",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-133501",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-133501",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133501"
         }
       ]
     },
