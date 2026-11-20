@@ -1,21 +1,54 @@
 ---
+brief_id: brief-2026-08-netty-hpke-exposure
+event_id: brief-2026-08-netty-hpke-exposure
+revision: 1
+activity_at: "2026-08-20T19:12:50Z"
 title: Information Exposure of HPKE Private Keys in Netty Incubator
 slug: 2026-08-netty-hpke-exposure
 description: The netty-incubator-codec-ohttp-hpke-classes-boringssl library exposes raw HPKE private key bytes in its toString() methods and exception messages, potentially leading to hardcoded key material in application logs.
 date: "2026-08-20T19:12:50Z"
+lastmod: "2026-11-20T01:29:07Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: B
+  credibility: "2"
+  rating: B2
+  likelihood: roughly even chance
+cpes:
+  - cpe:2.3:a:netty:netty_incubator_codec_ohttp_hpke_classes_boringssl:*:*:*:*:*:*:*:*
 vendors:
   - Netty
 products:
   - netty-incubator-codec-ohttp-hpke-classes-boringssl
+cve_verification:
+  CVE-2026-61798:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-20T01:29:07.521725397Z
+cves:
+  - id: CVE-2026-61798
+    cvss: 8.1
+    kev_status: "false"
 references:
   - https://github.com/advisories/GHSA-2mc4-j865-9q4r
   - https://nvd.nist.gov/vuln/detail/CVE-2026-61798
+updates:
+  - at: "2026-11-20T01:29:07Z"
+    level: L2
+    summary: added CVE-2026-61798
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-61798
 ---
+
+## Overview
 
 The library `netty-incubator-codec-ohttp-hpke-classes-boringssl` (up to and including version 0.0.22.Final) contains a critical information exposure vulnerability related to the handling of HPKE private keys. The library's `BoringSSLAsymmetricCipherKeyPair.toString()` and `BoringSSLAsymmetricKeyParameter.toString()` methods explicitly include raw private key byte arrays in their output. Furthermore, the `EVP_HPKE_KEY_init_or_throw` error-handling path in `BoringSSL.java` logs the full byte array of a failed private key initialization within an `IllegalArgumentException` message. 
 
