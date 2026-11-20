@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--35e91dc3-09d6-5cfd-bcd1-6fd3246b1f29",
+  "id": "bundle--bf854c9a-c6de-5b3f-b9b1-3ba26620df38",
   "objects": [
     {
       "type": "attack-pattern",
@@ -26449,6 +26449,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e5b55cee-61b9-541d-8f5d-0785840ff991",
       "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--211240e2-d724-562a-a25d-d617afe8146a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T02:04:04.000Z",
+      "modified": "2026-11-20T02:04:04.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--890132e6-af24-5721-978e-d8cb220ab03c",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -77251,6 +77262,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7be34093-46fa-54e6-97aa-ec2bdd816553",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7e904b7e-6344-5db7-b3c3-d4bdeeee9288",
+      "target_ref": "vulnerability--1a2c9a45-3001-58cb-8479-481481b3e4a7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7be3504d-c812-5db3-b743-3fcba1ffa66d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -103130,6 +103152,17 @@
       "relationship_type": "has",
       "source_ref": "software--eca28be9-b320-5ab2-b203-961f46b5b8ce",
       "target_ref": "vulnerability--2d214b82-520c-5de4-b7d9-43b243c7bd35"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--aa7726de-09ee-5573-8121-b76f8debf621",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6805ac97-5f67-55ab-9f0b-7c6399f39788",
+      "target_ref": "vulnerability--58537628-45ca-5e59-bf7f-8eb34977c0b3"
     },
     {
       "type": "relationship",
@@ -163119,6 +163152,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--19e7f7b4-c351-584d-b267-4c7ad3bcee91",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T02:03:06.000Z",
+      "modified": "2026-11-20T02:03:06.000Z",
+      "name": "Refitter: Arbitrary Code Execution via Unescaped OpenAPI Paths (CVE-2026-63345)",
+      "description": "## Overview\nRefitter is a tool for generating C# REST API clients using the Refit library. In versions prior to 2.1.2, the tool emits OpenAPI `paths`-object keys verbatim into Refit route attributes (e.g., `[Get(\"\u0026lt;path\u003e\")]`) without escaping quotation marks or restricting characters. An attacker can provide a single-line, slash-prefixed path that escapes the attribute string, closes the interface and namespace, and injects a top-level `file class` with a `[ModuleInitializer]` method. This behavior survives default OpenAPI validation. The vulnerability was verified on Refitter 2.0.0 using .NET 8.\n\n## Impact\nWhen an application compiles and loads a Refitter-generated assembly, the injected `[ModuleInitializer]` method executes, resulting in arbitrary code execution at process startup. This occurs even if the generated client is not explicitly called. Additionally, the raw emission of header parameter names within `[Header(\"\u0026lt;name\u003e\")]` attributes can lead to build-breaking Denial of Service.\n\n## Recommendation\nThe vulnerability is fixed in Refitter version 2.1.2. Users should upgrade to this version to ensure proper escaping of route templates and header attributes.",
+      "published": "2026-11-20T02:03:06.000Z",
+      "labels": [
+        "cwe-74",
+        "cwe-77"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7e904b7e-6344-5db7-b3c3-d4bdeeee9288",
+        "vulnerability--1a2c9a45-3001-58cb-8479-481481b3e4a7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-refitter-rce-ghsa-3fhm-p725-h3g3",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-refitter-rce-ghsa-3fhm-p725-h3g3/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-63345"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-3fhm-p725-h3g3"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-refitter-rce-ghsa-3fhm-p725-h3g3",
+      "x_craftedsignal_event_id": "brief-2026-11-20-refitter-rce-ghsa-3fhm-p725-h3g3",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-refitter-rce-ghsa-3fhm-p725-h3g3/",
+      "x_craftedsignal_activity_at": "2026-11-20T02:03:06.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.0035,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -223829,6 +223910,53 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.4,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--890132e6-af24-5721-978e-d8cb220ab03c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T02:04:04.000Z",
+      "modified": "2026-11-20T02:04:04.000Z",
+      "name": "Datalayer Jupyter MCP Server Unauthenticated Management Route Hijacking",
+      "description": "## Overview\nJupyter MCP Server is a Model Context Protocol server for Jupyter. In standalone streamable-http mode, versions prior to 1.0.3 enforce `MCP_TOKEN` authentication on the `/mcp` endpoint but fail to enforce it on the state-changing `/api/connect` and `/api/stop` management routes. This boundary failure occurs outside of normal MCP JSON-RPC tool dispatch and does not require explicit insecure no-auth mode.\n\n## Attack Chain\nAn unauthenticated network caller can invoke the `PUT /api/connect` route to replace `runtime_url` and `document_url` values, reset `ServerContext`, and start a kernel client against attacker-controlled infrastructure. This causes the server to send Jupyter API and WebSocket traffic to that attacker-controlled backend. Additionally, an unauthenticated caller can use the `DELETE /api/stop` route to stop the current notebook kernel.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to manipulate the active backend connection of the Jupyter MCP server, redirecting sensitive Jupyter API and WebSocket traffic to attacker-controlled infrastructure. Furthermore, the attacker can cause a denial of service by stopping the current notebook kernel.\n\n## Recommendation\nUpgrade `jupyter-mcp-server` to version 1.0.3 or later to address the authentication boundary failure on management routes.",
+      "published": "2026-11-20T02:04:04.000Z",
+      "labels": [
+        "cve-2026-77318"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6805ac97-5f67-55ab-9f0b-7c6399f39788",
+        "vulnerability--58537628-45ca-5e59-bf7f-8eb34977c0b3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-jupyter-mcp-hijack-ghsa-24pw-rf5p-mgp7",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-jupyter-mcp-hijack-ghsa-24pw-rf5p-mgp7/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-77318"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-24pw-rf5p-mgp7"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-jupyter-mcp-hijack-ghsa-24pw-rf5p-mgp7",
+      "x_craftedsignal_event_id": "brief-2026-11-20-jupyter-mcp-hijack-ghsa-24pw-rf5p-mgp7",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-jupyter-mcp-hijack-ghsa-24pw-rf5p-mgp7/",
+      "x_craftedsignal_activity_at": "2026-11-20T02:04:04.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -294116,6 +294244,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--6805ac97-5f67-55ab-9f0b-7c6399f39788",
+      "name": "jupyter-mcp-server",
+      "vendor": "datalayer"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--68172d77-ad89-51ba-9626-d7155deb7822",
       "name": "Digital signage",
       "vendor": "Videostrong"
@@ -295713,6 +295848,13 @@
       "id": "software--7e6ee8c2-50bd-5eae-bea2-4504b58ac875",
       "name": "Splunk AI Assistant (\u003c 2.0.0)",
       "vendor": "Splunk"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--7e904b7e-6344-5db7-b3c3-d4bdeeee9288",
+      "name": "refitter",
+      "vendor": "christianhelle"
     },
     {
       "type": "software",
@@ -312910,6 +313052,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--1a2c9a45-3001-58cb-8479-481481b3e4a7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-63345",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-63345",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63345"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--1a3c525a-7ed6-5e15-bb6d-11fe787993c2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -327896,6 +328054,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-63198",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63198"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--58537628-45ca-5e59-bf7f-8eb34977c0b3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-77318",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-77318",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77318"
         }
       ]
     },
