@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b23df5ed-ed5e-598c-9eeb-493753a05a85",
+  "id": "bundle--d62cfe57-4db0-5416-89c8-ee28ceafec53",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11303,17 +11303,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ab478dc0-dcd0-5635-a3a6-fcd020cd2d38",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--4d40569c-0a83-5105-a705-b12f0ae6ea98",
-      "target_ref": "vulnerability--8781bb38-47d2-58ef-b8c0-f902afc8c7f2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ab4e9d19-4185-568c-8cbe-7bca9cfe8856",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13653,17 +13642,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ba9b3e54-5b94-5139-abad-06afb40fcd76",
       "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d5765f2a-564c-52c3-811f-686f41b81b5c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-22T03:27:54.000Z",
-      "modified": "2026-08-22T03:27:54.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6bbc55f6-99c7-5d5e-844b-5eda9ec07aa5",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -25022,52 +25000,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--6bbc55f6-99c7-5d5e-844b-5eda9ec07aa5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-22T03:27:54.000Z",
-      "modified": "2026-08-22T03:27:54.000Z",
-      "name": "Privilege Escalation in WPeMatico RSS Feed Fetcher Plugin for WordPress",
-      "description": "## Overview\n\nThe WPeMatico RSS Feed Fetcher plugin for WordPress (versions 2.8.24 and earlier) contains a critical security flaw involving the wpematico_import_settings function. The plugin fails to perform adequate capability checks when processing settings imports, allowing authenticated attackers with subscriber-level access to modify arbitrary options within the WordPress database. \n\nBy manipulating these options, an attacker can change the default user registration role to 'administrator' and enable the site's user registration feature. This allows the attacker to create new administrative accounts or elevate existing low-privileged accounts, granting them full control over the WordPress installation. This vulnerability represents a significant risk for site integrity and requires immediate patching of the plugin to the version containing the fix.\n\n## Impact\n\nThe vulnerability allows an authenticated attacker to achieve full administrative control over a WordPress site. By altering default site options such as 'users_can_register' and 'default_role', an attacker can bypass standard registration controls to gain elevated access. This impact extends to any organization utilizing the WPeMatico plugin, potentially affecting the confidentiality, integrity, and availability of the entire WordPress platform.\n\n## Recommendation\n\n* Update the WPeMatico RSS Feed Fetcher plugin to the latest patched version immediately.\n* Audit WordPress site options for unauthorized changes to the 'default_role' or 'users_can_register' settings.\n* Implement stricter access control monitoring for plugins that perform sensitive database updates.\n",
-      "published": "2026-08-22T03:27:54.000Z",
-      "labels": [
-        "privilege-escalation",
-        "vulnerability",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--4d40569c-0a83-5105-a705-b12f0ae6ea98",
-        "vulnerability--8781bb38-47d2-58ef-b8c0-f902afc8c7f2"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-22-wpematico-priv-esc",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-wpematico-priv-esc/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19883"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-22-wpematico-priv-esc",
-      "x_craftedsignal_event_id": "brief-2026-08-22-wpematico-priv-esc",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-wpematico-priv-esc/",
-      "x_craftedsignal_activity_at": "2026-08-22T03:27:54.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -38356,13 +38288,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--4d40569c-0a83-5105-a705-b12f0ae6ea98",
-      "name": "WPeMatico RSS Feed Fetcher (2.8.24)",
-      "vendor": "WordPress"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--4d519b0c-2a15-50c7-aa5c-fe1c129d730e",
       "name": "Azure DevOps"
     },
@@ -44261,22 +44186,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-82454",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82454"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--8781bb38-47d2-58ef-b8c0-f902afc8c7f2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-19883",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-19883",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19883"
         }
       ]
     },

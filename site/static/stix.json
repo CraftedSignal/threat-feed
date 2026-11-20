@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--eac4412f-8087-5aa8-81f6-76e82618dc6b",
+  "id": "bundle--7ec96ab8-6f75-5192-9b4a-eacb2e310b21",
   "objects": [
     {
       "type": "attack-pattern",
@@ -36590,7 +36590,7 @@
       "id": "relationship--2567b162-62b7-5f88-a914-a3e9ce97c4cd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T13:59:20.000Z",
-      "modified": "2026-11-16T13:59:20.000Z",
+      "modified": "2026-11-20T03:29:17.000Z",
       "relationship_type": "uses",
       "source_ref": "report--801e4e99-6905-5367-9fc3-0e3c46c07c10",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -74265,7 +74265,7 @@
       "id": "relationship--598ee734-34ac-58e3-bd1c-09d81688fdda",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T13:59:20.000Z",
-      "modified": "2026-11-16T13:59:20.000Z",
+      "modified": "2026-11-20T03:29:17.000Z",
       "relationship_type": "uses",
       "source_ref": "report--801e4e99-6905-5367-9fc3-0e3c46c07c10",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
@@ -229110,7 +229110,7 @@
       "id": "report--30f96cb2-b885-52a8-9139-e92481c52235",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T22:18:50.000Z",
-      "modified": "2026-11-15T22:18:50.000Z",
+      "modified": "2026-11-20T03:29:17.000Z",
       "name": "Linux Kernel: TCP Pre-auth Remote NULL Pointer Dereference (CVE-2026-99288)",
       "description": "## Overview\nCVE-2026-99288 is a vulnerability in the Linux kernel where a race condition during lockless TCP established ehash lookups can result in a kernel null pointer dereference. The vulnerability occurs because TCP established ehash lookups rely on SLAB_TYPESAFE_BY_RCU; if a lookup races with the freeing and reallocation of an existing request socket, the kernel may return a reference to an unhashed object. A PoC demonstrated that triggering this during SYN cookie processing causes the kernel to read a socket state through a NULL listener.\n\n## Attack Chain\nA remote attacker can trigger this vulnerability by driving concurrent operations that involve a stale ehash lookup and the freeing and reallocation of an existing request socket.\n\n## Impact\nSuccessful exploitation results in a kernel null pointer dereference and subsequent system panic, leading to a denial of service. The impact is limited to system instability caused by the dereference.\n\n## Recommendation\nUsers should apply patches to affected Linux kernel versions. The CVE source indicates that versions 6.12.117, 6.18.63, 7.3.4, and later releases contain the fix.",
       "published": "2026-11-15T22:18:50.000Z",
@@ -229137,19 +229137,29 @@
         {
           "source_name": "reference",
           "url": "https://seclists.org/oss-sec/2026/q4/715"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://socprime.com/blog/cve-2026-99288-noisytcp-linux-kernel-flaw-enables-remote-server-crashes/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=B5B7A44A-5383-5BE8-A26D-897DA4AAEE64\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-15-noisytcp-cve-2026-99288",
       "x_craftedsignal_event_id": "brief-2026-11-15-noisytcp-cve-2026-99288",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-noisytcp-cve-2026-99288/",
-      "x_craftedsignal_activity_at": "2026-11-15T22:18:50.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T03:29:17.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00252,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -286633,7 +286643,7 @@
       "id": "report--801e4e99-6905-5367-9fc3-0e3c46c07c10",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T13:59:20.000Z",
-      "modified": "2026-11-16T13:59:20.000Z",
+      "modified": "2026-11-20T03:29:17.000Z",
       "name": "Tensei: Authentication bypass in @tensei/auth (CVE-2026-129552)",
       "description": "## Overview\nTensei versions 0.11.5 and earlier are vulnerable to an authentication bypass in the @tensei/auth component. When the environment variable JWT_SECRET is not configured, the application falls back to a hard-coded JWT signing key, 'auth-secret-key'. Attackers can utilize this key to sign arbitrary JSON Web Tokens, which are then accepted by the application to authenticate as any user account within the system.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to impersonate any user, including those with administrative privileges, leading to full unauthorized access to the application data and administrative functions.\n\n## Recommendation\n- Verify your current Tensei deployment and check if the JWT_SECRET environment variable is explicitly set and uses a cryptographically strong, non-default value.\n- Ensure the environment variable is configured correctly to prevent the application from falling back to the hard-coded default.\n- Monitor logs for unusual authentication activity or administrative actions originating from unexpected user accounts.",
       "published": "2026-11-16T13:59:20.000Z",
@@ -286657,20 +286667,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129552"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-129552\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-16-tensei-auth-bypass-cve-2026-129552",
       "x_craftedsignal_event_id": "brief-2026-11-16-tensei-auth-bypass-cve-2026-129552",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tensei-auth-bypass-cve-2026-129552/",
-      "x_craftedsignal_activity_at": "2026-11-16T13:59:20.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T03:29:17.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00535,
       "x_craftedsignal_kev_status": "false"
     },
     {
