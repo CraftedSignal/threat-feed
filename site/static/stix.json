@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--72d060a0-3980-5432-840a-d8c0bed12d1b",
+  "id": "bundle--831e1b9b-dbbb-5f7d-a302-7b894871ea31",
   "objects": [
     {
       "type": "attack-pattern",
@@ -111753,7 +111753,7 @@
       "id": "relationship--8c541334-244f-56dc-88e9-dd48b74fda92",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T09:27:27.000Z",
-      "modified": "2026-11-15T09:27:27.000Z",
+      "modified": "2026-11-20T03:07:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--626a4a57-8157-561f-bd9d-3ec437c8ca9d",
       "target_ref": "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92"
@@ -266830,7 +266830,7 @@
       "id": "report--626a4a57-8157-561f-bd9d-3ec437c8ca9d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T09:27:27.000Z",
-      "modified": "2026-11-15T09:27:27.000Z",
+      "modified": "2026-11-20T03:07:47.000Z",
       "name": "Linux Foundation Magma: Obsidian REST authentication bypass (CVE-2026-129360)",
       "description": "## Overview\n\nLinux Foundation Magma up to 1.9.0 contains an authentication bypass vulnerability in the Obsidian REST component. The flaw exists in the file orc8r/cloud/go/services/obsidian/access/operator.go. By manipulating the X-Magma-Client-Cert-Serial HTTP header, a remote attacker can bypass authentication mechanisms. The vendor has not responded to disclosure attempts, and no patch is currently available.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated remote attacker to bypass authentication, potentially leading to unauthorized access to the Magma cloud platform services.\n\n## Recommendation\n\nMonitor for abnormal or spoofed X-Magma-Client-Cert-Serial headers in web application logs related to the Magma Obsidian REST API until a vendor patch is released. Restrict access to the Obsidian REST API to known, trusted IP addresses using network-level controls.",
       "published": "2026-11-15T09:27:27.000Z",
@@ -266849,20 +266849,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129360"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=D87E788B-5C23-53A6-AFCE-CCF4F7EE3D76\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-15-magma-auth-bypass-cve-2026-129360",
       "x_craftedsignal_event_id": "brief-2026-11-15-magma-auth-bypass-cve-2026-129360",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-magma-auth-bypass-cve-2026-129360/",
-      "x_craftedsignal_activity_at": "2026-11-15T09:27:27.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T03:07:47.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_epss_max": 0.00411,
       "x_craftedsignal_kev_status": "false"
     },
     {

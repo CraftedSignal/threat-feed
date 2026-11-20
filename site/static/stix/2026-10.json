@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ed7eae80-8014-584f-bac3-4aa41f0c66d4",
+  "id": "bundle--c59c5d3e-e7e9-5b38-85fb-b4b7f5deb849",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11461,7 +11461,7 @@
       "id": "relationship--116f87d2-9174-5aea-9670-f507deb8f862",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T12:03:34.000Z",
-      "modified": "2026-10-26T19:13:50.000Z",
+      "modified": "2026-11-20T03:07:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--da8baf10-7178-5491-99ec-80cd3795eff6",
       "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
@@ -39566,7 +39566,7 @@
       "id": "relationship--6c41bde9-d64d-5356-a06b-27b483143d20",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T12:03:34.000Z",
-      "modified": "2026-10-26T19:13:50.000Z",
+      "modified": "2026-11-20T03:07:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--da8baf10-7178-5491-99ec-80cd3795eff6",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
@@ -72049,7 +72049,7 @@
       "id": "relationship--d1d11055-9315-5799-aabe-89da79ffb3fc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T12:03:34.000Z",
-      "modified": "2026-10-26T19:13:50.000Z",
+      "modified": "2026-11-20T03:07:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--da8baf10-7178-5491-99ec-80cd3795eff6",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
@@ -73567,7 +73567,7 @@
       "id": "relationship--d667b733-e43a-5119-9e5a-e811008e4908",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T12:03:34.000Z",
-      "modified": "2026-10-26T19:13:50.000Z",
+      "modified": "2026-11-20T03:07:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--da8baf10-7178-5491-99ec-80cd3795eff6",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -181839,7 +181839,7 @@
       "id": "report--da8baf10-7178-5491-99ec-80cd3795eff6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T12:03:34.000Z",
-      "modified": "2026-10-26T19:13:50.000Z",
+      "modified": "2026-11-20T03:07:47.000Z",
       "name": "Apache Camel Template Injection via HTTP Producer Headers",
       "description": "## Overview\n\nApache Camel components (Camel HTTP, Netty HTTP, Undertow, and Vert.x HTTP) contain a critical vulnerability, CVE-2026-78164, involving improper neutralization of template engine elements. The Camel HTTP producer families incorrectly process inbound headers CamelHttpUri and CamelRestHttpUri by passing them through CamelContext.resolvePropertyPlaceholders(). \n\nThis resolution mechanism is intended for configuration and is not a secure URI-parsing step. It grants attackers access to OS environment variables, JVM system properties, cloud secret stores (AWS, Azure, GCP, HashiCorp, IBM, CyberArk, and Kubernetes), and the ability to invoke no-argument methods on any bean registered within the application context. Attackers can trigger this via direct header injection or, in certain reverse-proxy configurations, by manipulating the request line. The vulnerability allows for information disclosure of sensitive configuration data and potential remote code execution through secondary exploitation of reachable beans. This issue impacts Apache Camel versions 4.0.0 through 4.18.4 and 4.19.0 through 4.22.0.\n\n## Impact\n\nSuccessful exploitation leads to the exposure of sensitive secrets, environment configuration, and potential unauthorized code execution via bean invocation. This impacts any organization running Apache Camel HTTP components exposed to untrusted input, particularly in cloud-native environments where secret stores are integrated directly into the Camel context.\n\n## Recommendation\n\nPrioritized actions for security teams:\n- Patch immediately: Upgrade to Apache Camel 4.23.0, 4.22.1, or 4.18.5 as per the affected version stream.\n- Mitigation (short-term): For deployments unable to patch, implement a HeaderFilterStrategy to strip CamelHttpUri and CamelRestHttpUri headers at the trust boundary before they reach the producer.\n- Mitigation (short-term): Enable skipControlHeaders=true on camel-http endpoints where applicable, though this is not available for all affected components.\n- Configuration: Avoid storing secrets in environment variables or system properties that are resolvable via Camel placeholders; migrate secrets to a dedicated, restricted-access vault service.\n",
       "published": "2026-10-19T12:03:34.000Z",
@@ -181895,22 +181895,26 @@
         },
         {
           "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-OSCERD-CVE-2026-78164\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4146"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-apache-camel-cve-2026-78164",
       "x_craftedsignal_event_id": "brief-2026-10-apache-camel-cve-2026-78164",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-apache-camel-cve-2026-78164/",
-      "x_craftedsignal_activity_at": "2026-10-26T19:13:50.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T03:07:47.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.2,
-      "x_craftedsignal_epss_max": 0.00502,
+      "x_craftedsignal_epss_max": 0.00665,
       "x_craftedsignal_kev_status": "false"
     },
     {

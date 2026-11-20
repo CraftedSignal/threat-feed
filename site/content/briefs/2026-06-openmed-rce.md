@@ -1,13 +1,39 @@
 ---
+brief_id: brief-2026-06-02-openmed-rce
+event_id: brief-2026-06-02-openmed-rce
+revision: 2
+activity_at: "2026-11-20T03:07:47Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T03:07:47Z"
+    checksum: sha256:5641bb5eb3c09999bbb05fefa81fb54929a26727ac03904aadd31ac99abd4852
+    summary: poc_available; added CVE-2026-47117; openmed version < 1.5.2
+    changed_fields:
+      - affected_products
+      - cve_verification
+      - cves
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SAITEJA-ERUKUDE-CVE-2026-47117-OPENMED-RCE&utm_source=rss&utm_medium=rss
 title: OpenMed RCE via Malicious Hugging Face Model Loading (CVE-2026-47117)
 slug: 2026-06-openmed-rce
 description: OpenMed before 1.5.2 is vulnerable to remote code execution (CVE-2026-47117) due to broad substring matching in the PII privacy-filter model loading path, allowing an unauthenticated attacker to execute arbitrary code by supplying a malicious Hugging Face model repository containing custom Transformers code.
 date: "2026-06-02T16:20:18Z"
+lastmod: "2026-11-20T03:07:25Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SAITEJA-ERUKUDE-CVE-2026-47117-OPENMED-RCE&utm_source=rss&utm_medium=rss
 tags:
   - cve
   - rce
@@ -17,16 +43,30 @@ vendors:
 products:
   - OpenMed
   - Transformers
+product_versions:
+  - product: OpenMed
+    range: < 1.5.2
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1203
     technique_name: Exploitation for Client Execution
+cve_verification:
+  CVE-2026-47117:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-20T03:07:25.128438017Z
+cves:
+  - id: CVE-2026-47117
+    cvss: 9.8
+    epss: 0.00915
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47117
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SAITEJA-ERUKUDE-CVE-2026-47117-OPENMED-RCE&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect Suspicious OpenMed Model Loading via Hugging Face (CVE-2026-47117)
-    description: Detects CVE-2026-47117 exploitation - Suspicious OpenMed model loading via Hugging Face by monitoring network connections for requests with potentially malicious model names.
+    description: Detects CVE-2026-47117 exploitation — Suspicious OpenMed model loading via Hugging Face by monitoring network connections for requests with potentially malicious model names.
     platform: sigma
     severity: high
     tactics:
@@ -48,7 +88,17 @@ rules:
       - process_creation
       - windows
 rules_count: 2
+updates:
+  - at: "2026-11-20T03:07:25Z"
+    level: L2
+    summary: poc_available; added CVE-2026-47117; openmed version < 1.5.2
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SAITEJA-ERUKUDE-CVE-2026-47117-OPENMED-RCE&utm_source=rss&utm_medium=rss
 ---
+
+## Overview
 
 OpenMed before version 1.5.2 is susceptible to a critical remote code execution vulnerability (CVE-2026-47117) in its PII privacy-filter model loading mechanism. The vulnerability arises from insufficient validation of the `model_name` parameter, which is used to load Hugging Face models. An unauthenticated attacker can exploit this by crafting a malicious model repository hosted on Hugging Face. The attacker leverages the `trust_remote_code=True` setting during model loading and supplies a specially crafted `model_name` containing a substring match that points to their malicious repository. This repository includes custom Transformers code within either `config.json` or `tokenizer_config.json` via the `auto_map` functionality. The injected code is then executed with the same privileges as the OpenMed service process, potentially leading to complete system compromise.
 
