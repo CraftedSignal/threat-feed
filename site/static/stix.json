@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0accf8f9-e61a-5148-98e0-ecb5af010b94",
+  "id": "bundle--f98860b3-cda2-5b70-80a1-f5d0b85c7548",
   "objects": [
     {
       "type": "attack-pattern",
@@ -86159,6 +86159,17 @@
       "relationship_type": "uses",
       "source_ref": "report--1300d8c1-7a5d-5ec4-ad76-34535cbf8730",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--69c63a0c-0b5b-5e1a-a586-bb0c3b0ddb5e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--836d96fb-5b6c-531a-8e63-e13ec1242f23",
+      "target_ref": "vulnerability--54846002-6664-53f3-ab56-19a58f6022b3"
     },
     {
       "type": "relationship",
@@ -231677,6 +231688,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--322ca337-c997-5531-9581-3260c189dd94",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T14:28:02.000Z",
+      "modified": "2026-11-20T14:28:02.000Z",
+      "name": "phpMyFAQ: Authentication bypass in AuthLdap::create() (CVE-2026-76208)",
+      "description": "## Overview\nphpMyFAQ versions 3.1.0 before 4.1.7 contain an authentication bypass vulnerability in the AuthLdap::create() function. When LDAP authentication is enabled, after a successful LDAP bind the code calls User::setStatus('active') unconditionally, which overwrites the account_status column of a pre-existing local account from 'blocked' to 'active'.\n\n## Attack Chain\nA user whose local phpMyFAQ account has been administratively blocked can restore their account and log in by authenticating via LDAP. The state transition is not logged, so administrators cannot detect that the block was overridden.\n\n## Impact\nAdministratively blocked users can bypass access restrictions and regain access to the application via LDAP authentication.\n\n## Recommendation\nUpgrade to phpMyFAQ 4.1.7 or later.",
+      "published": "2026-11-20T14:28:02.000Z",
+      "labels": [
+        "cve-2026-76208"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--836d96fb-5b6c-531a-8e63-e13ec1242f23",
+        "vulnerability--54846002-6664-53f3-ab56-19a58f6022b3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-phpmyfaq-auth-bypass-cve-2026-76208",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-phpmyfaq-auth-bypass-cve-2026-76208/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-76208"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76208"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-phpmyfaq-auth-bypass-cve-2026-76208",
+      "x_craftedsignal_event_id": "brief-2026-11-20-phpmyfaq-auth-bypass-cve-2026-76208",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-phpmyfaq-auth-bypass-cve-2026-76208/",
+      "x_craftedsignal_activity_at": "2026-11-20T14:28:02.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_epss_max": 0.00438,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -399022,6 +399081,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--836d96fb-5b6c-531a-8e63-e13ec1242f23",
+      "name": "phpMyFAQ (\u003c 4.1.7)",
+      "vendor": "thorsten"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8372e9a1-9469-5e17-8a27-91abc329b966",
       "name": "GoTo Webinar"
     },
@@ -441437,6 +441503,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-76476",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76476"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--54846002-6664-53f3-ab56-19a58f6022b3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-76208",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-76208",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76208"
         }
       ]
     },
