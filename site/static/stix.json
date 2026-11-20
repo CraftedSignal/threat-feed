@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bfca3fc8-49b5-5e9e-b579-1244aa3c4692",
+  "id": "bundle--9238b5bf-94f2-54d0-855d-6d5f9c909d0e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -69175,6 +69175,17 @@
       "relationship_type": "has",
       "source_ref": "software--85475315-041c-542e-bcae-560f82ce7f95",
       "target_ref": "vulnerability--622fcc9d-ed6d-5113-bf74-fbc7227393c3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--52e5dc1f-df52-53f3-8d27-115699aca262",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--712a71eb-43bc-5f37-b09b-f2de5b1ad327",
+      "target_ref": "vulnerability--7c6b3e7b-fb06-5e55-b1d3-af1a776e77e1"
     },
     {
       "type": "relationship",
@@ -159034,6 +159045,17 @@
       "relationship_type": "has",
       "source_ref": "software--0d9cada7-128e-57a8-a140-77fbb67c3a7a",
       "target_ref": "vulnerability--e6f1fc19-448d-5e44-8f34-3b4eb796e03b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ccc83607-b704-59d1-aed8-e77b3a16fe7a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T14:25:16.000Z",
+      "modified": "2026-11-20T14:25:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--acb35671-8927-5793-9507-3aaf512ddc9b",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -322972,6 +322994,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--acb35671-8927-5793-9507-3aaf512ddc9b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T14:25:16.000Z",
+      "modified": "2026-11-20T14:25:16.000Z",
+      "name": "llama.cpp: Integer overflow in hrm_text loader (CVE-2026-133710)",
+      "description": "## Overview\nllama.cpp versions b11003 before b12556 contain an integer overflow in the hrm_text loader load_arch_hparams() function. This vulnerability enables attackers to bypass the block count check using crafted GGUF metadata.\n\n## Attack Chain\nAttackers can provide a crafted GGUF model where layer factors wrap modulo 2^32. This manipulation causes the load_arch_tensors() function to write tensor pointers past the intended memory space in model.layers.\n\n## Impact\nThe memory corruption resulting from this vulnerability affects heap memory and may potentially enable arbitrary code execution. According to CVSS 3.1 metrics, the attack requires local access, low attack complexity, and user interaction, and it is considered to have high confidentiality, integrity, and availability impact.\n\n## Recommendation\nNo official remediation or fixed release information is currently available in the provided source.",
+      "published": "2026-11-20T14:25:16.000Z",
+      "labels": [
+        "cve",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--712a71eb-43bc-5f37-b09b-f2de5b1ad327",
+        "vulnerability--7c6b3e7b-fb06-5e55-b1d3-af1a776e77e1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-llama-cpp-integer-overflow-cve-2026-133710",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-llama-cpp-integer-overflow-cve-2026-133710/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-133710"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133710"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-llama-cpp-integer-overflow-cve-2026-133710",
+      "x_craftedsignal_event_id": "brief-2026-11-20-llama-cpp-integer-overflow-cve-2026-133710",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-llama-cpp-integer-overflow-cve-2026-133710/",
+      "x_craftedsignal_activity_at": "2026-11-20T14:25:16.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--acd27579-3d3b-529c-a521-4901f8606fe1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T18:13:16.000Z",
@@ -397495,6 +397566,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--712a71eb-43bc-5f37-b09b-f2de5b1ad327",
+      "name": "llama.cpp",
+      "vendor": "ggml-org"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--713c0f32-c74f-560c-b501-f6f4973173c3",
       "name": "JWT Auth WordPress Plugin (\u003c= 3.0.2)"
     },
@@ -455460,6 +455538,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-125075",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125075"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7c6b3e7b-fb06-5e55-b1d3-af1a776e77e1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-133710",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-133710",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133710"
         }
       ]
     },
