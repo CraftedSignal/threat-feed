@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e35950bb-1435-529b-a4a4-d1ace6d695eb",
+  "id": "bundle--b89260da-cfec-58c2-80a7-338761f96115",
   "objects": [
     {
       "type": "attack-pattern",
@@ -54708,6 +54708,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--3a1e2816-1e9a-5b10-9669-a7e81410510e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5433a1e4-d041-5f6a-bb6c-a2409c3df402",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2fdb1a66-cf57-58a3-a81b-4da8df61be1d",
+      "target_ref": "vulnerability--25f4b8ee-76f7-50fc-96cb-92611ce161f4"
     },
     {
       "type": "relationship",
@@ -122703,6 +122714,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--cd5ff47c-5f62-5851-a362-47803c3eeb76",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--48a69775-5d3d-5538-83f3-87c88b639c2d",
+      "target_ref": "vulnerability--25f4b8ee-76f7-50fc-96cb-92611ce161f4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--cd61583f-978f-5331-a6e3-e2314f246cdb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:40:13.000Z",
@@ -131884,6 +131906,17 @@
       "relationship_type": "has",
       "source_ref": "software--9e4ee0dc-4a0c-5bcc-8fed-6bce167e6203",
       "target_ref": "vulnerability--c344340d-4b5f-559a-aa05-fb90c6a2e291"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--defb50fa-5085-5c32-a7a7-bb5a246c5d0e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T00:38:45.000Z",
+      "modified": "2026-11-20T00:38:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--724e038b-0a5f-5edf-b409-ebb3b4107c9e",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -210959,6 +210992,56 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--724e038b-0a5f-5edf-b409-ebb3b4107c9e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T00:38:45.000Z",
+      "modified": "2026-11-20T00:38:45.000Z",
+      "name": "JetBrains TeamCity: Remote Code Execution via Git VCS Root (CVE-2026-133081)",
+      "description": "## Overview\nJetBrains TeamCity versions before 2026.2.2 and 2026.1.6 are susceptible to a remote code execution vulnerability (CVE-2026-133081) triggered via Git VCS root URLs.\n\n## Attack Chain\nThe vulnerability is exploitable via Git VCS root URLs. CVSS v3.1 metrics characterize the attack as having a High complexity, requiring Low privileges with no user interaction and a network-accessible vector.\n\n## Impact\nSuccessful exploitation allows for remote code execution on the target TeamCity server, with high impacts on confidentiality, integrity, and availability.\n\n## Recommendation\nThere is no currently verified remediation information in the supplied sources regarding the fix versions.",
+      "published": "2026-11-20T00:38:45.000Z",
+      "labels": [
+        "rce",
+        "vcs"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2fdb1a66-cf57-58a3-a81b-4da8df61be1d",
+        "software--48a69775-5d3d-5538-83f3-87c88b639c2d",
+        "vulnerability--25f4b8ee-76f7-50fc-96cb-92611ce161f4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-teamcity-rce-cve-2026-133081",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-teamcity-rce-cve-2026-133081/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-133081"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133081"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-teamcity-rce-cve-2026-133081",
+      "x_craftedsignal_event_id": "brief-2026-11-20-teamcity-rce-cve-2026-133081",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-teamcity-rce-cve-2026-133081/",
+      "x_craftedsignal_activity_at": "2026-11-20T00:38:45.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -314956,6 +315039,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118295",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118295"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--25f4b8ee-76f7-50fc-96cb-92611ce161f4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-133081",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-133081",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133081"
         }
       ]
     },
