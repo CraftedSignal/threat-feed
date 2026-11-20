@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a4ed47cb-501b-5772-b482-7f35830c8011",
+  "id": "bundle--87261b22-437c-5899-82da-82c868993ab2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -24777,6 +24777,17 @@
       "relationship_type": "has",
       "source_ref": "software--c43f1365-4d56-5830-b567-1d4d1abe179d",
       "target_ref": "vulnerability--a8b68d32-ab68-59d4-98b2-f931bc2abded"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1d893d20-a6e9-5868-b030-a1a6055d0c96",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9ae5132c-745e-5892-b7b4-d696fd3c8bf6",
+      "target_ref": "vulnerability--aa86eddc-e4c0-5cb1-9c8d-97bb24cc6119"
     },
     {
       "type": "relationship",
@@ -52721,6 +52732,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4ff78d64-bac5-57ce-96b8-5688b0d197fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e9210302-b012-5537-a6fb-071fbdf39e7a",
+      "target_ref": "vulnerability--22765f0e-babc-5cd6-b908-f9f76c8ea751"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4ff9ae95-9c5a-5641-8a03-219fb0c8310f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -56171,6 +56193,17 @@
       "relationship_type": "has",
       "source_ref": "software--e7413333-9558-5641-b0d7-a54cd9d8f046",
       "target_ref": "vulnerability--d589d679-44a4-53a0-8a76-5a84662b9f90"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5618d5a3-b1b1-5e28-b058-9316200a2c5d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e9210302-b012-5537-a6fb-071fbdf39e7a",
+      "target_ref": "vulnerability--970d9e31-6477-53ca-9d95-b827f6c8d12d"
     },
     {
       "type": "relationship",
@@ -115549,6 +115582,17 @@
       "relationship_type": "has",
       "source_ref": "software--984da445-8e53-558e-8900-455e1463604d",
       "target_ref": "vulnerability--98108b12-68bb-55c3-86fc-24c97efac526"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bef88881-10e2-57ff-ba13-6ffbe04511c8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T10:39:10.000Z",
+      "modified": "2026-11-20T10:39:10.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--cb02aaff-a6e7-570d-8ca7-b1a9a8f906e1",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -214376,6 +214420,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--74b8e5fd-6d15-5473-af1e-2a2d567f7a25",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T10:38:36.000Z",
+      "modified": "2026-11-20T10:38:36.000Z",
+      "name": "Imran Tauqeer CubeWP Forms DOM-based cross-site scripting (CVE-2026-129075)",
+      "description": "## Overview\nImran Tauqeer's CubeWP Forms plugin for WordPress is susceptible to a DOM-based cross-site scripting (XSS) vulnerability. The flaw, identified as CVE-2026-129075, arises from the improper neutralization of user-supplied input during web page generation. \n\n## Attack Chain\nThe vulnerability is categorized as DOM-Based XSS. According to CVSS v3.1 scoring (vector: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:L), successful exploitation requires user interaction and occurs over the network.\n\n## Impact\nExploitation can lead to the execution of arbitrary scripts within the context of a user's browser, resulting in impacts to confidentiality, integrity, and availability.\n\n## Recommendation\nUpgrade the CubeWP Forms plugin to version 1.1.13 or later to remediate this vulnerability.",
+      "published": "2026-11-20T10:38:36.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e9210302-b012-5537-a6fb-071fbdf39e7a",
+        "vulnerability--970d9e31-6477-53ca-9d95-b827f6c8d12d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-cubewp-xss-cve-2026-129075",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cubewp-xss-cve-2026-129075/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129075"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129075"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-cubewp-xss-cve-2026-129075",
+      "x_craftedsignal_event_id": "brief-2026-11-20-cubewp-xss-cve-2026-129075",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cubewp-xss-cve-2026-129075/",
+      "x_craftedsignal_activity_at": "2026-11-20T10:38:36.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--74bbd50a-45b9-586a-a568-2b4224c560e0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T16:12:10.000Z",
@@ -216186,6 +216274,54 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.00473,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--7873ed9c-73ea-5da9-8681-56feff7f71d3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T10:38:48.000Z",
+      "modified": "2026-11-20T10:38:48.000Z",
+      "name": "GiveWP: Reflected Cross-site Scripting (CVE-2026-130813)",
+      "description": "## Overview\n\nThe GiveWP WordPress plugin is affected by a Reflected Cross-site Scripting (XSS) vulnerability identified as CVE-2026-130813. The vulnerability stems from the improper neutralization of input during web page generation. This issue affects GiveWP versions from n/a through 4.19.2.\n\n## Attack Chain\n\nSuccessful exploitation requires user interaction to execute the malicious script within the context of the affected application.\n\n## Impact\n\nSuccessful exploitation results in Reflected XSS. The CVSS vector (CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:L) indicates that the vulnerability allows for impacts on confidentiality, integrity, and availability.\n\n## Recommendation\n\nUpdate the WordPress GiveWP plugin to the latest available version (at least 4.19.2.1) to remediate the vulnerability.",
+      "published": "2026-11-20T10:38:48.000Z",
+      "labels": [
+        "CVE-2026-130813",
+        "XSS"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9ae5132c-745e-5892-b7b4-d696fd3c8bf6",
+        "vulnerability--aa86eddc-e4c0-5cb1-9c8d-97bb24cc6119"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-givewp-xss-cve-2026-130813",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-givewp-xss-cve-2026-130813/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130813"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130813"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-givewp-xss-cve-2026-130813",
+      "x_craftedsignal_event_id": "brief-2026-11-20-givewp-xss-cve-2026-130813",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-givewp-xss-cve-2026-130813/",
+      "x_craftedsignal_activity_at": "2026-11-20T10:38:48.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -259915,6 +260051,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--cb02aaff-a6e7-570d-8ca7-b1a9a8f906e1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T10:39:10.000Z",
+      "modified": "2026-11-20T10:39:10.000Z",
+      "name": "Imran Tauqeer CubeWP Forms: DOM-based cross-site scripting (CVE-2026-131797)",
+      "description": "## Overview\nImproper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Imran Tauqeer CubeWP Forms cubewp-forms allows DOM-Based XSS. This issue affects CubeWP Forms from n/a through 1.1.12.\n\n## Impact\nThe vulnerability has a CVSS v3.1 base score of 7.1, with a vector indicating a required user interaction, changed scope, and low impacts to confidentiality, integrity, and availability. \n\n## Recommendation\nUpdate the WordPress CubeWP Forms plugin to the latest available version (at least 1.1.13).",
+      "published": "2026-11-20T10:39:10.000Z",
+      "labels": [
+        "cve-2026-131797",
+        "xss"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e9210302-b012-5537-a6fb-071fbdf39e7a",
+        "vulnerability--22765f0e-babc-5cd6-b908-f9f76c8ea751"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-cubewp-forms-xss-cve-2026-131797",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cubewp-forms-xss-cve-2026-131797/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-131797"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131797"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-cubewp-forms-xss-cve-2026-131797",
+      "x_craftedsignal_event_id": "brief-2026-11-20-cubewp-forms-xss-cve-2026-131797",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cubewp-forms-xss-cve-2026-131797/",
+      "x_craftedsignal_activity_at": "2026-11-20T10:39:10.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--cb0b3268-2346-5b18-a609-7d64103d1c27",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T22:36:18.000Z",
@@ -300808,6 +300993,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9ae5132c-745e-5892-b7b4-d696fd3c8bf6",
+      "name": "GiveWP",
+      "vendor": "Liquid Web / StellarWP"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9ae536da-76f1-5535-a00a-8c6e42deee9b",
       "name": "FortiMail",
       "vendor": "Fortinet"
@@ -306769,6 +306961,13 @@
       "id": "software--e9150ff6-0778-58c6-90ef-3c1f32382b1f",
       "name": "SharePoint Server",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e9210302-b012-5537-a6fb-071fbdf39e7a",
+      "name": "CubeWP Forms",
+      "vendor": "Imran Tauqeer"
     },
     {
       "type": "software",
@@ -318086,6 +318285,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-123478",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123478"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--22765f0e-babc-5cd6-b908-f9f76c8ea751",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-131797",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-131797",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131797"
         }
       ]
     },
@@ -347996,6 +348211,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--970d9e31-6477-53ca-9d95-b827f6c8d12d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129075",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129075",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129075"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--970e091d-c3de-5192-b3f0-82c877ddd4b8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -353398,6 +353629,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119849",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119849"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--aa86eddc-e4c0-5cb1-9c8d-97bb24cc6119",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130813",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130813",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130813"
         }
       ]
     },
