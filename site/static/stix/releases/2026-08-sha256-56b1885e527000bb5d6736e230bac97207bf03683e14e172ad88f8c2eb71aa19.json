@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e9289686-f1f2-586a-8312-f872185f136b",
+  "id": "bundle--5ee1d9e6-b249-576a-8316-3f3f7fd31c50",
   "objects": [
     {
       "type": "attack-pattern",
@@ -159,22 +159,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1556",
           "url": "https://attack.mitre.org/techniques/T1556"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--139e63b4-7520-5370-b408-c1bff3a4d51f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Software",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1592.002",
-          "url": "https://attack.mitre.org/techniques/T1592/002"
         }
       ]
     },
@@ -2408,17 +2392,6 @@
       "relationship_type": "has",
       "source_ref": "software--f4335fc0-710b-50f2-b826-b944c895ae4a",
       "target_ref": "vulnerability--358ef3bc-64eb-583b-8bf1-6b5103d90cf5"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--07dec174-e731-5948-a5b2-195d8c478189",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-22T19:49:36.000Z",
-      "modified": "2026-08-22T19:49:36.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--82d414b5-7407-5dbf-a8b2-da05901201e0",
-      "target_ref": "attack-pattern--6b03145b-7498-5541-90f0-417695744f7a"
     },
     {
       "type": "relationship",
@@ -7912,17 +7885,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--71f2b575-e019-5554-a2b3-8b32f3ca5ab8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--f10e8e64-4d79-5504-ae0a-4f039c13fc26",
-      "target_ref": "vulnerability--a4f7de34-8305-5311-abbd-73c7495aa7da"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--721fac5b-5480-5e93-a707-0a02fb53a670",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-25T20:49:31.000Z",
@@ -10526,17 +10488,6 @@
       "relationship_type": "uses",
       "source_ref": "report--87ccc8c3-88ce-5688-813f-ea22bee1b6a2",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a453ba91-fad2-5e43-b7fb-181d409c176a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-22T19:49:36.000Z",
-      "modified": "2026-08-22T19:49:36.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--82d414b5-7407-5dbf-a8b2-da05901201e0",
-      "target_ref": "attack-pattern--139e63b4-7520-5370-b408-c1bff3a4d51f"
     },
     {
       "type": "relationship",
@@ -25795,59 +25746,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--82d414b5-7407-5dbf-a8b2-da05901201e0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-22T19:49:36.000Z",
-      "modified": "2026-08-22T19:49:36.000Z",
-      "name": "Unauthenticated PII Disclosure in NewPath WildApricotPress WordPress Plugin",
-      "description": "## Overview\n\nCVE-2026-13736 is an unauthenticated information disclosure vulnerability in the NewPath WildApricotPress Add-on - Member Directory for WordPress (version 1.0.0 and below). The plugin registers a custom REST API endpoint, `/wp-json/newpath-wap/v1/directory`, which is intended to display member information. However, the endpoint defines its `permission_callback` as `__return_true`, explicitly allowing unauthenticated access. Furthermore, the backend implementation fails to apply field-level privacy filtering, serializing raw member objects that include sensitive PII such as email addresses, physical addresses, and phone numbers. An attacker can exploit this flaw by sending a standard HTTP GET request to the vulnerable endpoint, potentially harvesting the entire member database. This vulnerability poses a significant risk to the privacy of members associated with organizations utilizing this plugin.\n\n## Attack Chain\n\n1. Attacker performs reconnaissance to identify WordPress sites running the NewPath WildApricotPress Add-on.\n2. Attacker confirms the presence of the vulnerable endpoint at `/wp-json/newpath-wap/v1/directory`.\n3. Attacker sends an unauthenticated HTTP GET request to the target REST endpoint.\n4. The WordPress REST server processes the request, bypassing authentication due to the insecure `permission_callback`.\n5. The plugin code executes `newpath_wap_get_member_directory` to fetch raw data.\n6. The backend retrieves the full member record set without checking user session privileges.\n7. The server responds with a JSON payload containing raw PII fields.\n8. Attacker parses the JSON output to collect and store the scraped PII.\n\n## Impact\n\nSuccessful exploitation results in the unauthorized mass exfiltration of sensitive member information, including names, personal emails, physical addresses, and contact phone numbers. This can lead to increased targeted phishing campaigns against the membership base, potential GDPR or other regulatory compliance violations for the host organization, and loss of trust in the platform.\n\n## Recommendation\n\n* Update the `NewPath WildApricotPress Add-on - Member Directory` plugin to the latest version, which enforces proper authentication and data serialization.\n* Implement the Sigma detection rule below to identify unauthorized access attempts to the vulnerable REST endpoint.\n* If an update is not immediately feasible, use a web application firewall or server configuration to block unauthenticated requests to `/wp-json/newpath-wap/v1/directory`.\n",
-      "published": "2026-08-22T19:49:36.000Z",
-      "labels": [
-        "information-disclosure",
-        "pii",
-        "rest-api",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--139e63b4-7520-5370-b408-c1bff3a4d51f",
-        "attack-pattern--6b03145b-7498-5541-90f0-417695744f7a",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--f10e8e64-4d79-5504-ae0a-4f039c13fc26",
-        "vulnerability--a4f7de34-8305-5311-abbd-73c7495aa7da"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-cve-2026-13736",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2026-13736/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13736"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wpscan.com/vulnerability/97fe9780-ad69-4f36-9496-5ca9c0e2bc39/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-cve-2026-13736",
-      "x_craftedsignal_event_id": "brief-2026-08-cve-2026-13736",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2026-13736/",
-      "x_craftedsignal_activity_at": "2026-08-22T19:49:36.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 5.3,
-      "x_craftedsignal_epss_max": 0.00132,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--8325bd8f-d067-594f-b6f9-92dfdb00afc0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T16:02:26.000Z",
@@ -39601,13 +39499,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--f10e8e64-4d79-5504-ae0a-4f039c13fc26",
-      "name": "WildApricotPress Add-on – Member Directory (1.0.0)",
-      "vendor": "NewPath"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--f16fa667-a96a-5d0f-b60a-496a1020a267",
       "name": "Food Ordering System",
       "vendor": "SililaWijesinghe"
@@ -43360,22 +43251,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-18527",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18527"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--a4f7de34-8305-5311-abbd-73c7495aa7da",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-13736",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-13736",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13736"
         }
       ]
     },
