@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1ea71ada-3407-5028-bd3f-807f2b994f17",
+  "id": "bundle--72949203-36f7-5765-bf4b-0f4a6b5b910d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -164992,6 +164992,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d5e4e801-c0fa-5107-9908-febcb69e4517",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--68d83dcc-8a31-516a-9652-7c6676621c2b",
+      "target_ref": "vulnerability--44b313de-7303-5bd7-b5d1-0f71e03809e0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d5e5cdf2-c706-5f21-a322-5afbdd683a8d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T03:46:33.000Z",
@@ -207610,6 +207621,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--12fcc36d-1a5e-51b4-97a2-64e4100db629",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T04:01:57.000Z",
+      "modified": "2026-11-20T04:01:57.000Z",
+      "name": "Hexpm: Local file storage path traversal (CVE-2026-23939)",
+      "description": "## Overview\nA Path Traversal vulnerability exists in the `Hexpm.Store.Local` module of the `hexpm/hexpm` project, allowing Relative Path Traversal. This issue is specific to self-hosted deployments using the Local Storage backend; it does not affect the hex.pm service.\n\n## Attack Chain\nThe vulnerability is associated with the program file `lib/hexpm/store/local.ex` and the routines `Hexpm.Store.Local.get/3`, `Hexpm.Store.Local.put/4`, `Hexpm.Store.Local.delete/2`, and `Hexpm.Store.Local.delete_many/2`.\n\n## Impact\nThe vulnerability is identified as CVE-2026-23939. The CVSS v4.0 base score is 6.9 and the CVSS v3.1 base score is 7.5. It is network-accessible with no required privileges or user interaction, resulting in potential low confidentiality impact.\n\n## Recommendation\n- Avoid using the local file store backend in any exposed environment.\n- Restrict network access to the registry when using the local backend.\n- Production deployments should use object storage (e.g., S3-compatible backends) instead of the local filesystem store.\n- The vulnerability is resolved in git commit 5d2ccd2f14f45a63225a73fb5b1c937baf36fdc0.",
+      "published": "2026-11-20T04:01:57.000Z",
+      "labels": [
+        "cwe-22",
+        "path-traversal"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--68d83dcc-8a31-516a-9652-7c6676621c2b",
+        "vulnerability--44b313de-7303-5bd7-b5d1-0f71e03809e0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-hexpm-path-traversal-cve-2026-23939",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-hexpm-path-traversal-cve-2026-23939/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-23939"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23939"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-hexpm-path-traversal-cve-2026-23939",
+      "x_craftedsignal_event_id": "brief-2026-11-20-hexpm-path-traversal-cve-2026-23939",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-hexpm-path-traversal-cve-2026-23939/",
+      "x_craftedsignal_activity_at": "2026-11-20T04:01:57.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00475,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -393359,6 +393419,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--68d83dcc-8a31-516a-9652-7c6676621c2b",
+      "name": "hexpm/hexpm: from 931ee0ed46fa89218e0400a4f6e6d15f96406050 (before 5d2ccd2f14f45a63225a73fb5b1c937baf36fdc0)",
+      "vendor": "hexpm"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--68dafff3-a48a-52cc-93c5-61867c957121",
       "name": "Keycloak (\u003c= 26.8.1)",
       "vendor": "Keycloak"
@@ -433542,6 +433609,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-88220",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88220"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--44b313de-7303-5bd7-b5d1-0f71e03809e0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-23939",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-23939",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23939"
         }
       ]
     },
