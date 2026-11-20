@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-09-krybit-ransomware
 event_id: brief-2026-09-krybit-ransomware
-revision: 3
-activity_at: "2026-11-11T00:39:37Z"
+revision: 4
+activity_at: "2026-11-20T04:57:10Z"
 revision_history:
   - revision: 2
     at: "2026-10-29T23:09:11Z"
@@ -27,11 +27,21 @@ revision_history:
       - updates
     source_urls:
       - https://www.ransomware.live/group/krybit
+  - revision: 4
+    at: "2026-11-20T04:57:10Z"
+    checksum: sha256:adaa8c986d4245f511f2cff0ed7c2e3df6759208fcfd71da667b47d002b8d2dc
+    summary: new IOCs
+    changed_fields:
+      - iocs
+      - lastmod
+      - updates
+    source_urls:
+      - https://www.ransomware.live/group/krybit
 title: Krybit Ransomware-as-a-Service Operations
 slug: 2026-09-krybit-ransomware
 description: Krybit is an emerging RaaS group active since March 2026 that targets diverse sectors globally with encryption payloads for Windows, Linux, and ESXi environments.
 date: "2026-09-13T21:17:50Z"
-lastmod: "2026-11-11T00:38:53Z"
+lastmod: "2026-11-20T04:56:56Z"
 type: threat
 claim_state: verified
 types:
@@ -79,10 +89,12 @@ iocs:
     value: krybieodq754vlwufrsuxaswxb5zpxyibaawmed2jaduoz2e5m56hmid.onion
   - type: domain
     value: krybivdln3oc3twbin4budgznzq7dmcolldnsx455lspxxe23b56y5qd.onion
+  - type: url
+    value: http://krybitqsdzwmhnitvwuhvsntfgf2wrhxveyxroxpc44c6gkft2cqldyd.onion/blog/bd1e816c1daef9c7083fda3a81d47fac09f300617ec943247ecbc8c77454da12/
 ioc_counts:
   domain: 5
   hash_md5: 4
-  url: 1
+  url: 2
 action_plan:
   priority: elevated
   owners:
@@ -117,7 +129,16 @@ updates:
       - ransomware-live
     source_urls:
       - https://www.ransomware.live/group/krybit
+  - at: "2026-11-20T04:56:56Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - ransomware-live
+    source_urls:
+      - https://www.ransomware.live/group/krybit
 ---
+
+## Overview
 
 Krybit is an active Ransomware-as-a-Service (RaaS) group that launched in late March 2026. The group provides affiliates with encryption tooling that supports Windows, Linux, ESXi, and NAS environments, operating on an 80/20 revenue split model. Since their inception, they have been prolific, claiming at least 147 victims across 51 countries, with heavy targeting observed in sectors including professional services, technology, retail, and healthcare. The group is notable for its competitive posturing, having engaged in a public feud with a rival threat group, 0APT, which resulted in reciprocal leaks of operator data. Defenders should prioritize monitoring for the deployment of their custom ransomware payloads and communication with their Tor-based infrastructure, which is hosted primarily on Apache and Python/Werkzeug servers.
 
