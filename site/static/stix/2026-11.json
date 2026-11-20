@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ed4b9ef8-b470-5ead-92da-0023d22809aa",
+  "id": "bundle--c4ef3a0e-8d1d-5ee8-927d-dcdb3f7df610",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12987,6 +12987,17 @@
       "relationship_type": "has",
       "source_ref": "software--3cf3fa2c-ee5c-5a1d-bd2b-69417ecacd7f",
       "target_ref": "vulnerability--08cc12e0-0057-507b-ac62-6f1b20067b17"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--13636a05-2dd0-5dc9-bce6-8a8a55faca01",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f9b0856c-ca8e-5d39-958d-fb0bb232349a",
+      "target_ref": "vulnerability--2442a0a0-9245-517f-b7ff-b6c02c2fd434"
     },
     {
       "type": "relationship",
@@ -51938,6 +51949,17 @@
       "relationship_type": "has",
       "source_ref": "software--069a23c1-df31-55c8-8aa7-49bc4b40f031",
       "target_ref": "vulnerability--8d3903c2-8d00-535b-8cd2-f0bf96a88233"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a76e64e2-bb13-5926-9139-a22923691457",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--084bfc27-25ab-5776-98cb-516c4972836d",
+      "target_ref": "vulnerability--2442a0a0-9245-517f-b7ff-b6c02c2fd434"
     },
     {
       "type": "relationship",
@@ -120335,6 +120357,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--54245f53-025d-50cc-81f1-6446fd470e46",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T00:24:51.000Z",
+      "modified": "2026-11-20T00:24:51.000Z",
+      "name": "JetBrains TeamCity: Stored cross-site scripting (CVE-2026-132913)",
+      "description": "## Overview\nJetBrains TeamCity versions before 2026.2, 2026.1.4, and 2025.11.8 are affected by a stored cross-site scripting (XSS) vulnerability located on the P4 Code Review build tab. The vulnerability, assigned CVE-2026-132913, has a CVSS 3.1 base score of 8.4.\n\n## Impact\nSuccessful exploitation of the stored XSS vulnerability allows an attacker to execute arbitrary scripts in the browsers of users accessing the P4 Code Review build tab.\n\n## Recommendation\nUpgrade JetBrains TeamCity to versions 2026.2, 2026.1.4, or 2025.11.8 to remediate this issue.",
+      "published": "2026-11-20T00:24:51.000Z",
+      "labels": [
+        "xss"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--084bfc27-25ab-5776-98cb-516c4972836d",
+        "software--f9b0856c-ca8e-5d39-958d-fb0bb232349a",
+        "vulnerability--2442a0a0-9245-517f-b7ff-b6c02c2fd434"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-jetbrains-teamcity-xss-cve-2026-132913",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-jetbrains-teamcity-xss-cve-2026-132913/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132913"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.jetbrains.com/privacy-security/issues-fixed/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-jetbrains-teamcity-xss-cve-2026-132913",
+      "x_craftedsignal_event_id": "brief-2026-11-20-jetbrains-teamcity-xss-cve-2026-132913",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-jetbrains-teamcity-xss-cve-2026-132913/",
+      "x_craftedsignal_activity_at": "2026-11-20T00:24:51.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.4,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -234423,6 +234493,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96980",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96980"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2442a0a0-9245-517f-b7ff-b6c02c2fd434",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-132913",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-132913",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132913"
         }
       ]
     },
