@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0a71ab95-ae3e-5e80-b392-110b236a7b13",
+  "id": "bundle--b70c049d-7c66-59b6-9a42-30cf93f6783b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1727,6 +1727,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1498",
           "url": "https://attack.mitre.org/techniques/T1498"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--8a3cfc81-fad0-5da6-b3bd-ab73bb5c6ac1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Clear Windows Event Logs",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1070.001",
+          "url": "https://attack.mitre.org/techniques/T1070/001"
         }
       ]
     },
@@ -13685,6 +13701,17 @@
       "relationship_type": "has",
       "source_ref": "software--4125c234-1427-5c4a-a040-901cb0024925",
       "target_ref": "vulnerability--0959b103-a06a-5a93-b3c3-0b46f565a7a3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--158b7627-03cd-582f-a611-6a240f5bc261",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T01:50:59.000Z",
+      "modified": "2026-11-20T01:50:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8b48b198-0be5-53cb-b89e-07d95174884b",
+      "target_ref": "attack-pattern--8a3cfc81-fad0-5da6-b3bd-ab73bb5c6ac1"
     },
     {
       "type": "relationship",
@@ -149974,6 +150001,49 @@
       },
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--8b48b198-0be5-53cb-b89e-07d95174884b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T01:50:59.000Z",
+      "modified": "2026-11-20T01:50:59.000Z",
+      "name": "Persistence of Cleared Windows Event Log Data",
+      "description": "## Overview\n\nResearch from Arctic Wolf demonstrates that the Windows command for clearing event logs does not perform a secure wipe of the associated .evtx files. While the high-level system event log interface may appear empty, the historical records often remain preserved within the underlying file structure. This persistence allows incident responders and forensic analysts to recover data that an attacker intended to destroy by clearing the logs.\n\n## Impact\n\nAttackers who rely on clearing logs to mask their activity (T1070.001) may leave behind evidence that is recoverable through advanced forensic examination, despite the logs appearing cleared in standard administrative tools.\n\n## Recommendation\n\nSecurity teams should focus on proactive monitoring rather than relying on the absence of logs as an indicator of cleanliness. Incorporate forensic review of .evtx files into incident response playbooks for all suspected compromises, as clearing logs is a high-fidelity indicator of malicious intent, and the files may contain the evidence needed for investigation.",
+      "published": "2026-11-20T01:50:59.000Z",
+      "labels": [
+        "defense-evasion",
+        "forensics",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--8a3cfc81-fad0-5da6-b3bd-ab73bb5c6ac1",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-windows-log-persistence",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-windows-log-persistence/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://arcticwolf.com/resources/blog/windows-event-log-cleared-think-outside-the-box/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-windows-log-persistence",
+      "x_craftedsignal_event_id": "brief-2026-11-20-windows-log-persistence",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-windows-log-persistence/",
+      "x_craftedsignal_activity_at": "2026-11-20T01:50:59.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
