@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-oracle-security-updates
 event_id: brief-2026-11-oracle-security-updates
-revision: 37
-activity_at: "2026-11-20T02:16:27Z"
+revision: 38
+activity_at: "2026-11-20T02:19:25Z"
 revision_history:
   - revision: 2
     at: "2026-11-17T23:49:55Z"
@@ -509,11 +509,25 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101635
+  - revision: 38
+    at: "2026-11-20T02:19:25Z"
+    checksum: sha256:5e1c756d89263be216a4c0869a27cc62f4bb500a61d7a34adbf6bbfdb86df8cf
+    summary: added CVE-2026-101664, CVE-2026-101690
+    changed_fields:
+      - content
+      - cve_verification
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101664
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101690
 title: Oracle Security Updates - November 2026
 slug: 2026-11-oracle-security-updates
 description: Roundup of Oracle security advisories published in November 2026.
 date: "2026-11-16T21:54:15Z"
-lastmod: "2026-11-20T02:16:04Z"
+lastmod: "2026-11-20T02:17:27Z"
 type: threat
 types:
   - threat
@@ -726,6 +740,10 @@ cve_verification:
     status: verified
     source: nvd
     checked_at: 2026-11-19T17:45:42.759637507Z
+  CVE-2026-101664:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-20T02:17:18.660991375Z
   CVE-2026-101679:
     status: verified
     source: nvd
@@ -738,6 +756,10 @@ cve_verification:
     status: verified
     source: nvd
     checked_at: 2026-11-19T19:07:21.990472559Z
+  CVE-2026-101690:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-20T02:17:27.112411926Z
   CVE-2026-101691:
     status: verified
     source: nvd
@@ -2682,20 +2704,28 @@ cves:
     epss: 0.00365
     kev_status: "false"
   - id: CVE-2026-101635
+    product: Mobile Field Service (12.2.3-12.2.15)
     cvss: 8.8
     epss: 0.00448
     kev_status: "false"
+  - id: CVE-2026-101664
+    product: Mobile Field Service (12.2.3-12.2.15)
+    cvss: 8.8
+    epss: 0.00448
+    kev_status: "false"
+  - id: CVE-2026-101690
+    cvss: 8.2
+    epss: 0.00373
+    kev_status: "false"
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-101635
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-101690
 updates:
-  - at: "2026-11-19T23:13:13Z"
+  - at: "2026-11-19T23:13:30Z"
     level: L2
-    summary: added CVE-2026-101797 +3
+    summary: added CVE-2026-87305, CVE-2026-87306
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-101797
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-83393
       - https://nvd.nist.gov/vuln/detail/CVE-2026-87305
       - https://nvd.nist.gov/vuln/detail/CVE-2026-87306
   - at: "2026-11-20T02:16:04Z"
@@ -2705,11 +2735,19 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101635
+  - at: "2026-11-20T02:17:19Z"
+    level: L2
+    summary: added CVE-2026-101664, CVE-2026-101690
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101664
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101690
 ---
 
 ## Overview
 
-This roundup covers 275 Oracle security vulnerabilities. CVSS base scores range from 7.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect APEX, Application Development Framework, Application Testing Suite, AutoVue, Autonomous Health Framework, Business Intelligence Enterprise Edition, Communications Billing and Revenue Management, E-Business Suite, E-Business Suite Integrated SOA Gateway, Fusion Middleware, Hyperion Financial Close Management, Hyperion Financial Data Quality Management, Enterprise Edition, Hyperion Financial Management, Hyperion Infrastructure Technology, Hyperion Planning, Java SE, Mobile Field Service, MySQL Server, Oracle Access Manager, Oracle Business Intelligence Enterprise Edition, Oracle Collaborative Planning, Oracle Database Server, Oracle E-Business Suite, Oracle E-Business Suite Integrated SOA Gateway, Oracle E-Business Suite Secure Enterprise Search, Oracle E-Business Suite iProcurement, Oracle Enterprise Manager Base Platform, Oracle Financial Services Customer Screening, Oracle Fusion Middleware, Oracle Hyperion Financial Close Management, Oracle Hyperion Infrastructure Technology, Oracle Hyperion Planning, Oracle Managed File Transfer, Oracle Mobile Field Service, Oracle REST Data Services, Oracle Service Bus, Oracle VM VirtualBox, Oracle WebCenter Portal, PeopleSoft Enterprise PeopleTools, Product Lifecycle Analytics, Service Delivery Platform, Siebel CRM, Siebel CRM Deployment, VM VirtualBox, WebCenter Portal, WebCenter Sites, WebLogic Server, iProcurement.
+This roundup covers 277 Oracle security vulnerabilities. CVSS base scores range from 7.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect APEX, Application Development Framework, Application Testing Suite, AutoVue, Autonomous Health Framework, Business Intelligence Enterprise Edition, Communications Billing and Revenue Management, E-Business Suite, E-Business Suite Integrated SOA Gateway, Fusion Middleware, Hyperion Financial Close Management, Hyperion Financial Data Quality Management, Enterprise Edition, Hyperion Financial Management, Hyperion Infrastructure Technology, Hyperion Planning, Java SE, Mobile Field Service, MySQL Server, Oracle Access Manager, Oracle Business Intelligence Enterprise Edition, Oracle Collaborative Planning, Oracle Database Server, Oracle E-Business Suite, Oracle E-Business Suite Integrated SOA Gateway, Oracle E-Business Suite Secure Enterprise Search, Oracle E-Business Suite iProcurement, Oracle Enterprise Manager Base Platform, Oracle Financial Services Customer Screening, Oracle Fusion Middleware, Oracle Hyperion Financial Close Management, Oracle Hyperion Infrastructure Technology, Oracle Hyperion Planning, Oracle Managed File Transfer, Oracle Mobile Field Service, Oracle REST Data Services, Oracle Service Bus, Oracle VM VirtualBox, Oracle WebCenter Portal, PeopleSoft Enterprise PeopleTools, Product Lifecycle Analytics, Service Delivery Platform, Siebel CRM, Siebel CRM Deployment, VM VirtualBox, WebCenter Portal, WebCenter Sites, WebLogic Server, iProcurement.
 
 ## Summary
 
@@ -2990,6 +3028,8 @@ This roundup covers 275 Oracle security vulnerabilities. CVSS base scores range 
 | [CVE-2026-83393](#cve-2026-83393) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83393) (authoritative) |
 | [CVE-2026-87305](#cve-2026-87305) | n/a | High | 8.1 | 0.35% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-87305) (authoritative) |
 | [CVE-2026-87306](#cve-2026-87306) | n/a | High | 8.1 | 0.36% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-87306) (authoritative) |
+| [CVE-2026-101635](#cve-2026-101635) | Mobile Field Service (12.2.3-12.2.15) | High | 8.8 | 0.45% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101635) (authoritative) |
+| [CVE-2026-101664](#cve-2026-101664) | Mobile Field Service (12.2.3-12.2.15) | High | 8.8 | 0.45% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101664) (authoritative) |
 
 
 ## By product
@@ -3006,6 +3046,7 @@ This roundup covers 275 Oracle security vulnerabilities. CVSS base scores range 
 - **Hyperion Infrastructure Technology**: [CVE-2026-114955](#cve-2026-114955), [CVE-2026-114958](#cve-2026-114958), [CVE-2026-115058](#cve-2026-115058), [CVE-2026-115059](#cve-2026-115059), [CVE-2026-115064](#cve-2026-115064), [CVE-2026-115143](#cve-2026-115143), [CVE-2026-115159](#cve-2026-115159), [CVE-2026-115160](#cve-2026-115160), [CVE-2026-115163](#cve-2026-115163), [CVE-2026-115164](#cve-2026-115164), [CVE-2026-115166](#cve-2026-115166), [CVE-2026-115172](#cve-2026-115172), [CVE-2026-115173](#cve-2026-115173), [CVE-2026-115139](#cve-2026-115139), [CVE-2026-115178](#cve-2026-115178), [CVE-2026-127416](#cve-2026-127416), [CVE-2026-114818](#cve-2026-114818), [CVE-2026-114828](#cve-2026-114828), [CVE-2026-115049](#cve-2026-115049), [CVE-2026-115051](#cve-2026-115051), [CVE-2026-115067](#cve-2026-115067), [CVE-2026-115072](#cve-2026-115072), [CVE-2026-115077](#cve-2026-115077), [CVE-2026-115142](#cve-2026-115142), [CVE-2026-115151](#cve-2026-115151), [CVE-2026-115155](#cve-2026-115155), [CVE-2026-115157](#cve-2026-115157)
 - **Hyperion Planning**: [CVE-2026-114799](#cve-2026-114799), [CVE-2026-114809](#cve-2026-114809), [CVE-2026-115086](#cve-2026-115086), [CVE-2026-115089](#cve-2026-115089), [CVE-2026-115088](#cve-2026-115088), [CVE-2026-115092](#cve-2026-115092), [CVE-2026-115124](#cve-2026-115124), [CVE-2026-115129](#cve-2026-115129), [CVE-2026-115130](#cve-2026-115130), [CVE-2026-115140](#cve-2026-115140), [CVE-2026-115141](#cve-2026-115141), [CVE-2026-114956](#cve-2026-114956), [CVE-2026-115087](#cve-2026-115087), [CVE-2026-115094](#cve-2026-115094), [CVE-2026-115101](#cve-2026-115101), [CVE-2026-115128](#cve-2026-115128), [CVE-2026-115131](#cve-2026-115131)
 - **Java SE**: [CVE-2026-114939](#cve-2026-114939), [CVE-2026-114940](#cve-2026-114940), [CVE-2026-114941](#cve-2026-114941), [CVE-2026-114942](#cve-2026-114942)
+- **Mobile Field Service**: [CVE-2026-101654](#cve-2026-101654), [CVE-2026-101635](#cve-2026-101635), [CVE-2026-101664](#cve-2026-101664)
 - **MySQL Server**: [CVE-2026-114952](#cve-2026-114952), [CVE-2026-127428](#cve-2026-127428), [CVE-2026-114949](#cve-2026-114949), [CVE-2026-114950](#cve-2026-114950), [CVE-2026-114951](#cve-2026-114951), [CVE-2026-101786](#cve-2026-101786), [CVE-2026-101797](#cve-2026-101797)
 - **Oracle Access Manager**: [CVE-2026-91516](#cve-2026-91516), [CVE-2026-91507](#cve-2026-91507), [CVE-2026-114835](#cve-2026-114835), [CVE-2026-91500](#cve-2026-91500), [CVE-2026-91510](#cve-2026-91510), [CVE-2026-91498](#cve-2026-91498), [CVE-2026-91509](#cve-2026-91509), [CVE-2026-91522](#cve-2026-91522), [CVE-2026-91531](#cve-2026-91531), [CVE-2026-91533](#cve-2026-91533), [CVE-2026-91540](#cve-2026-91540), [CVE-2026-91543](#cve-2026-91543), [CVE-2026-91564](#cve-2026-91564), [CVE-2026-91671](#cve-2026-91671)
 - **Oracle Business Intelligence Enterprise Edition**: [CVE-2026-114813](#cve-2026-114813), [CVE-2026-114784](#cve-2026-114784), [CVE-2026-114793](#cve-2026-114793), [CVE-2026-114794](#cve-2026-114794), [CVE-2026-114814](#cve-2026-114814), [CVE-2026-114815](#cve-2026-114815)
@@ -5481,3 +5522,21 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-87305
 CVE-2026-87306 is an interoperability security vulnerability in Oracle JD Edwards EnterpriseOne Tools affecting versions 9.2.0.0 through 9.2.26.5. A low-privileged attacker with network access via the JDENET protocol can exploit this vulnerability to gain unauthorized read, write, or delete access to critical application data.
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-87306
+
+## CVE-2026-101635
+
+CVE-2026-101635 is a high-severity vulnerability in the Oracle Mobile Field Service component of Oracle E-Business Suite. The vulnerability allows a low-privileged attacker with network access via HTTP to potentially take over the affected service. The vulnerability has a CVSS 3.1 base score of 8.8, reflecting significant impact on confidentiality, integrity, and availability.
+
+Affected products:
+- Mobile Field Service (12.2.3-12.2.15)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101635
+
+## CVE-2026-101664
+
+Oracle Mobile Field Service within Oracle E-Business Suite contains a vulnerability in its Internal Operations component, allowing a low-privileged, network-authenticated attacker to achieve a full takeover of the application via HTTP. The vulnerability carries a CVSS base score of 8.8, indicating high confidentiality, integrity, and availability impacts.
+
+Affected products:
+- Mobile Field Service (12.2.3-12.2.15)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101664
