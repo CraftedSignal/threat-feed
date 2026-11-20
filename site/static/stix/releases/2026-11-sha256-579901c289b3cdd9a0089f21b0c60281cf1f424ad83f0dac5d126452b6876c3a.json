@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ffcfcf0d-1622-529f-924c-010d09e315b8",
+  "id": "bundle--cb087568-10df-5d80-a379-967897114895",
   "objects": [
     {
       "type": "attack-pattern",
@@ -98184,6 +98184,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a256d319-67cc-5261-aabc-70fb9ae7797b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T01:03:20.000Z",
+      "modified": "2026-11-20T01:03:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ebf88e5e-b6e4-5602-859b-e54b67dd4545",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a25c1e57-400d-575a-a0a8-a3c6a76ba871",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T14:35:19.000Z",
@@ -103240,6 +103251,17 @@
       "relationship_type": "has",
       "source_ref": "software--b736db0d-cf4c-5356-9821-1bdd896fc6e1",
       "target_ref": "vulnerability--bb6db18d-9a72-595d-8ef2-0ef21d18f51a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ab236d5e-dded-539a-b8c6-8a8864b7b18a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9a7b6adf-ce45-5fe7-876a-6b1b1c3d8ccd",
+      "target_ref": "vulnerability--e29b4863-0537-57ca-be33-fb1c3c02d02b"
     },
     {
       "type": "relationship",
@@ -117115,6 +117137,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c382c75a-f52c-5b1b-89ad-3ed9cb979208",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3a5393fb-1463-5144-b738-76829379d0ad",
+      "target_ref": "vulnerability--1269ba11-d252-5e5f-acca-bdf5a73bf2bd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c3905c28-0cab-5742-9e30-7e828cbfb8b6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -123282,6 +123315,17 @@
       "relationship_type": "has",
       "source_ref": "software--760f4da8-6331-5eaa-8797-87ab34a84bd8",
       "target_ref": "vulnerability--79a58db8-4eeb-5cf9-8c05-738773fc307c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cea1678b-fcfd-5c0c-8ad2-ea4751a269a7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T03:01:26.000Z",
+      "modified": "2026-11-20T03:01:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b8777b19-dee3-590d-9771-c2e21651ecc1",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -247286,6 +247330,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b8777b19-dee3-590d-9771-c2e21651ecc1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T03:01:26.000Z",
+      "modified": "2026-11-20T03:01:26.000Z",
+      "name": "PublishPress Authors: Blind SQL Injection (CVE-2026-122676)",
+      "description": "## Overview\nThe PublishPress Authors plugin for WordPress contains an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability, specifically identified as a Blind SQL Injection. This vulnerability affects all versions from n/a through 4.18.0.\n\n## Attack Chain\nThe vulnerability is exploitable via a network attack vector. It requires low privileges and does not require user interaction. The vulnerability allows for blind SQL injection, which may allow an attacker to infer information from the database.\n\n## Impact\nSuccessful exploitation of this vulnerability may lead to the disclosure of sensitive information from the database. The CVSS 3.1 vector is CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:N/A:L, with a base score of 8.5.\n\n## Recommendation\nUsers of the PublishPress Authors plugin should update to version 4.20.0 or later to remediate this vulnerability.",
+      "published": "2026-11-20T03:01:26.000Z",
+      "labels": [
+        "cve",
+        "sqli",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3a5393fb-1463-5144-b738-76829379d0ad",
+        "vulnerability--1269ba11-d252-5e5f-acca-bdf5a73bf2bd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-publishpress-authors-sqli-cve-2026-122676",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-publishpress-authors-sqli-cve-2026-122676/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-122676"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122676"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-publishpress-authors-sqli-cve-2026-122676",
+      "x_craftedsignal_event_id": "brief-2026-11-20-publishpress-authors-sqli-cve-2026-122676",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-publishpress-authors-sqli-cve-2026-122676/",
+      "x_craftedsignal_activity_at": "2026-11-20T03:01:26.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b87efdcb-0a19-57b8-92f2-629e312de6e5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T16:34:59.000Z",
@@ -274164,6 +274258,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ebf88e5e-b6e4-5602-859b-e54b67dd4545",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T01:03:20.000Z",
+      "modified": "2026-11-20T01:03:20.000Z",
+      "name": "RepoManager Stored Cross-Site Scripting (CVE-2026-130158)",
+      "description": "## Overview\nRepoManager is a self-hosted deb/rpm package repository. In versions prior to 5.13.3, a registered host or a party with host/API credentials can submit package metadata that is stored and rendered on the host's package detail page without sanitization. This allows stored HTML or JavaScript to execute.\n\n## Attack Chain\nAn authenticated party with host or API credentials submits malicious package metadata through inventory or available-update reporting. The application stores this input. When an administrator later views the affected package detail page, the script executes within their authenticated browser session.\n\n## Impact\nThe executed script can expose administrative data or forge privileged requests within the administrator's session. The advisory notes potential privilege escalation through administrator-only functionality.\n\n## Recommendation\nUpgrade to RepoManager version 5.13.3, which contains the fix for this vulnerability.",
+      "published": "2026-11-20T01:03:20.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9a7b6adf-ce45-5fe7-876a-6b1b1c3d8ccd",
+        "vulnerability--e29b4863-0537-57ca-be33-fb1c3c02d02b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-repomanager-xss-cve-2026-130158",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-repomanager-xss-cve-2026-130158/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130158"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130158"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-repomanager-xss-cve-2026-130158",
+      "x_craftedsignal_event_id": "brief-2026-11-20-repomanager-xss-cve-2026-130158",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-repomanager-xss-cve-2026-130158/",
+      "x_craftedsignal_activity_at": "2026-11-20T01:03:20.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ec0f148b-b664-5bae-b4e0-0fb84acfb4f6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T20:06:10.000Z",
@@ -289295,6 +289434,13 @@
       "id": "software--3a4bc2f3-a7ed-551e-b00a-0d3765580c39",
       "name": "proxygen (\u003c v2026.11.09.00)",
       "vendor": "Facebook"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3a5393fb-1463-5144-b738-76829379d0ad",
+      "name": "PublishPress Authors",
+      "vendor": "PublishPress"
     },
     {
       "type": "software",
@@ -309182,6 +309328,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96171",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96171"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--1269ba11-d252-5e5f-acca-bdf5a73bf2bd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-122676",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-122676",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122676"
         }
       ]
     },
@@ -363038,6 +363200,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109481",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109481"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e29b4863-0537-57ca-be33-fb1c3c02d02b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130158",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130158",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130158"
         }
       ]
     },
