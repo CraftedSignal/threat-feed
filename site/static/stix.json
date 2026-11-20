@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9a791e46-6b81-5e19-9bb4-8da3c1becb01",
+  "id": "bundle--8112ec2a-b40b-5e57-a354-089933289538",
   "objects": [
     {
       "type": "attack-pattern",
@@ -134234,6 +134234,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--aba25198-35ae-5fd3-bc3c-20cc45105bc0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T18:43:12.000Z",
+      "modified": "2026-11-20T04:28:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--994e8204-a064-537d-b138-1d6636766319",
+      "target_ref": "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--aba379ff-c27a-5cec-b57c-cff353b7eb14",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -147602,7 +147613,7 @@
       "id": "relationship--bd86ef8c-d705-5395-9e8d-957f448ef56e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T18:43:12.000Z",
-      "modified": "2026-11-19T18:43:12.000Z",
+      "modified": "2026-11-20T04:28:34.000Z",
       "relationship_type": "uses",
       "source_ref": "report--994e8204-a064-537d-b138-1d6636766319",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
@@ -306252,12 +306263,17 @@
       "id": "report--994e8204-a064-537d-b138-1d6636766319",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T18:43:12.000Z",
-      "modified": "2026-11-19T18:43:12.000Z",
+      "modified": "2026-11-20T04:28:34.000Z",
       "name": "Stoatchat: Unbounded JXL image decoding denial of service (CVE-2026-133234)",
       "description": "## Overview\nStoatchat versions before 0.16.5 contain an unbounded JXL image decoding vulnerability in the revolt_files component, specifically within the decode_image function. An unauthenticated attacker can exploit this via the /proxy endpoint to trigger excessive memory allocation and crash the january service, leading to a denial of service for proxy and embed functions.\n\n## Attack Chain\n1. Attacker identifies a target running a Stoatchat version before 0.16.5.\n2. Attacker hosts a small JXL image file that declares very large dimensions (e.g., 12000x12000 pixels).\n3. Attacker submits the image URL to the vulnerable /proxy endpoint on the target system.\n4. The january service attempts to decode the malformed JXL image.\n5. The decode_image function fails to bound the allocation request, resulting in massive memory consumption.\n6. The service is OOM-killed by the operating system, resulting in a denial of service for proxy and embed functionality.\n\n## Impact\nSuccessful exploitation results in the denial of service for the proxy and embed components of the Stoatchat application due to memory exhaustion.\n\n## Recommendation\n- Upgrade Stoatchat to version 0.16.5 or later to resolve the memory allocation vulnerability.\n- Monitor the january service for unexpected process restarts or memory usage spikes that correlate with requests to the /proxy endpoint.",
       "published": "2026-11-19T18:43:12.000Z",
+      "labels": [
+        "cve-2026-133234",
+        "denial-of-service"
+      ],
       "object_refs": [
         "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--6b413e5c-6987-5443-80f2-c1a14cc7e329",
         "vulnerability--53ededb1-08df-505c-aa5d-a38c9df954e7"
@@ -306275,14 +306291,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133234"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=A5F7DADB-0153-52D8-9155-401E56C3B5CB\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 40,
       "x_craftedsignal_brief_id": "brief-2026-11-19-stoatchat-jxl-dos-cve-2026-133234",
       "x_craftedsignal_event_id": "brief-2026-11-19-stoatchat-jxl-dos-cve-2026-133234",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-stoatchat-jxl-dos-cve-2026-133234/",
-      "x_craftedsignal_activity_at": "2026-11-19T18:43:12.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T04:28:34.000Z",
       "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
