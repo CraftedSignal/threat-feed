@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c9608bdd-07bb-52f1-84fe-3bb9d786f810",
+  "id": "bundle--9e8702b3-1b6e-53a1-83e8-a4cdcb765587",
   "objects": [
     {
       "type": "attack-pattern",
@@ -95819,6 +95819,17 @@
       "relationship_type": "has",
       "source_ref": "software--85475315-041c-542e-bcae-560f82ce7f95",
       "target_ref": "vulnerability--ac5839ba-8c34-5308-9ee5-55875c7f9bcf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--99ee5285-9a2c-5a26-a32b-18a7111d5729",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3d4cb3de-10a2-57ed-804f-037ea6ea7ce3",
+      "target_ref": "vulnerability--e36da806-7bc6-5bf8-bf58-18dde8b6fe5b"
     },
     {
       "type": "relationship",
@@ -227621,6 +227632,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8217d64a-bc9e-5a60-9278-98246e4209bf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T22:47:38.000Z",
+      "modified": "2026-11-20T22:47:38.000Z",
+      "name": "hankcs HanLP path traversal (CVE-2026-133835)",
+      "description": "## Overview\nA path traversal vulnerability has been identified in the `uncompress` function within `hanlp/utils/io_util.py` of the hankcs HanLP library, specifically affecting the TAR Archive Extraction Handler. This vulnerability affects HanLP versions up to 2.1.6.\n\n## Attack Chain\nThe vulnerability allows for remote exploitation via the `uncompress` function in the TAR Archive Extraction Handler. Public proof-of-concept exploit code is available for this vulnerability.\n\n## Impact\nThe vulnerability enables path traversal; the specific impact on system integrity or confidentiality beyond this mechanism is not explicitly detailed in the source.\n\n## Recommendation\nUpgrade to version 2.1.7 to address this issue. A patch has been associated with commit hash `feb0f82d12762cf4e687b9926efd90c672857780`.",
+      "published": "2026-11-20T22:47:38.000Z",
+      "labels": [
+        "cve",
+        "path-traversal"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3d4cb3de-10a2-57ed-804f-037ea6ea7ce3",
+        "vulnerability--e36da806-7bc6-5bf8-bf58-18dde8b6fe5b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-hanlp-path-traversal-cve-2026-133835",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-hanlp-path-traversal-cve-2026-133835/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-133835"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133835"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-hanlp-path-traversal-cve-2026-133835",
+      "x_craftedsignal_event_id": "brief-2026-11-20-hanlp-path-traversal-cve-2026-133835",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-hanlp-path-traversal-cve-2026-133835/",
+      "x_craftedsignal_activity_at": "2026-11-20T22:47:38.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--822a0b07-0d02-5524-a041-cbec42b897e6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T01:29:57.000Z",
@@ -301975,6 +302034,13 @@
       "id": "software--3d47bdb6-3c06-538e-9e8f-8a43bca3df72",
       "name": "RXR-12 Wi-Fi router (\u003c 20260813_c2169ea5)",
       "vendor": "Rooxis"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3d4cb3de-10a2-57ed-804f-037ea6ea7ce3",
+      "name": "HanLP",
+      "vendor": "hankcs"
     },
     {
       "type": "software",
@@ -379102,6 +379168,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-101785",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101785"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e36da806-7bc6-5bf8-bf58-18dde8b6fe5b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-133835",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-133835",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133835"
         }
       ]
     },
