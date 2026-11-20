@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--040c6c7f-866e-58c7-a856-7d2c76ade843",
+  "id": "bundle--470ba4ed-e48d-5419-a985-d7d725ca443e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -160486,6 +160486,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--1d9d0bc3-e79c-55a8-ae23-894578b24488"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cecdc0d6-3c58-5341-8ec2-4b32a30200c9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3cbf5023-e244-5fff-bd9b-6d6be8a87aeb",
+      "target_ref": "vulnerability--42544b2e-4133-517e-9fba-9e83242f9a1c"
     },
     {
       "type": "relationship",
@@ -353501,6 +353512,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d8ed41d2-9ef4-5228-9862-4cfd3e2309e9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T11:07:59.000Z",
+      "modified": "2026-11-20T11:07:59.000Z",
+      "name": "Dnsmasq: DNS Cache Poisoning via Forged IP Fragments (CVE-2023-28450)",
+      "description": "## Overview\nCVE-2023-28450 is a vulnerability in Dnsmasq versions before 2.90. The default maximum EDNS.0 UDP packet size was set to 4096, whereas it should have been 1232 following DNS Flag Day 2020. This configuration enables DNS cache poisoning via forged IP fragment injection on the local network.\n\n## Attack Chain\nAn attacker on the local network can trigger a DNS query for a target domain. Because the advertised buffer size allows fragmentation, the attacker can flood the router with forged 'second fragments' indexed by 16-bit IP ID values. The kernel reassembles these fragments without DNS-level authentication, allowing the attacker to poison the DNS cache with malicious records. This vulnerability was demonstrated in a lab environment on a Vodafone Station (firmware XF6_4.0.07.04) running Dnsmasq 2.84rc2.\n\n## Impact\nSuccessful exploitation allows an attacker to poison the DNS cache of the router, potentially redirecting traffic for all connected devices to unauthorized destinations. The attack requires the attacker to be on the local network (no privileges required) and allows for high-impact availability degradation or manipulation.\n\n## Recommendation\nUpgrade Dnsmasq to version 2.90 or later. For environments where updating is not immediately feasible, administrators can set 'edns-packet-max=1232' in the Dnsmasq configuration file. Users can mitigate the risk by configuring devices to bypass the local Dnsmasq resolver using encrypted DNS (DoH/DoT) or by setting upstream DNS servers directly.",
+      "published": "2026-11-20T11:07:59.000Z",
+      "labels": [
+        "cache-poisoning",
+        "dns",
+        "dnsmasq"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3cbf5023-e244-5fff-bd9b-6d6be8a87aeb",
+        "vulnerability--42544b2e-4133-517e-9fba-9e83242f9a1c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-dnsmasq-poisoning-cve-2023-28450",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dnsmasq-poisoning-cve-2023-28450/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2023-28450"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=D89462A2-BEEE-517B-8E72-974960ADA6CF\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-dnsmasq-poisoning-cve-2023-28450",
+      "x_craftedsignal_event_id": "brief-2026-11-20-dnsmasq-poisoning-cve-2023-28450",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dnsmasq-poisoning-cve-2023-28450/",
+      "x_craftedsignal_activity_at": "2026-11-20T11:07:59.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.01838,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d8efb87f-f3a5-5c38-bd83-63d33848593c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T07:56:31.000Z",
@@ -391046,6 +391107,13 @@
       "spec_version": "2.1",
       "id": "software--3c93b7c0-9a34-519f-a6e4-042d6ebcc814",
       "name": "Virtual Intranet Access (VIA)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3cbf5023-e244-5fff-bd9b-6d6be8a87aeb",
+      "name": "Dnsmasq (\u003c 2.90)",
+      "vendor": "Thekelleys"
     },
     {
       "type": "software",
@@ -435902,6 +435970,22 @@
           "source_name": "cve",
           "external_id": "CVE-2025-53472",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-53472"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--42544b2e-4133-517e-9fba-9e83242f9a1c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2023-28450",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2023-28450",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-28450"
         }
       ]
     },
