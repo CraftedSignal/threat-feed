@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--70cc0c81-92d9-5d92-b26c-eedc8194ad1c",
+  "id": "bundle--cb558935-a281-5ee7-8e03-8a30ed9f082e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -25078,6 +25078,17 @@
       "relationship_type": "has",
       "source_ref": "software--ec0f0254-c841-5c7e-b519-5cc5d3e72dae",
       "target_ref": "vulnerability--8c3225b3-d3d1-52db-a27e-068fbbbb94aa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1da7bd75-7bd9-5b9c-8bba-d2bc08560df6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T18:29:46.000Z",
+      "modified": "2026-11-20T18:29:46.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3bfb395b-059b-5ccc-9cb1-3d4d2197fa1c",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -100362,6 +100373,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--7d984cee-9fdf-571f-b723-64b0af6c8ead"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a2fad748-8151-5cca-8de4-43040ba26593",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0e234aeb-2ac8-5fb6-9854-0003f8d11d77",
+      "target_ref": "vulnerability--57c1f916-78cf-5db6-89e6-bebc4c235116"
     },
     {
       "type": "relationship",
@@ -186668,6 +186690,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3bfb395b-059b-5ccc-9cb1-3d4d2197fa1c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T18:29:46.000Z",
+      "modified": "2026-11-20T18:29:46.000Z",
+      "name": "FlowIntel: File-to-Note Conversion Denial of Service (CVE-2026-133626)",
+      "description": "### Overview\nFlowIntel is affected by a resource exhaustion vulnerability in its file-to-note conversion feature. An authenticated user can trigger this issue by attaching and converting a crafted, sparse CSV or JSON file into a case note. The application renders the data as a Markdown table by padding every row to the maximum column count. A file with a small number of filled cells but a very large number of columns causes the application to allocate a quadratic number of padded table cells, leading to memory or CPU exhaustion of the worker process.\n\n### Attack Chain\nAn authenticated user with access to a case in FlowIntel attaches a sparse CSV or JSON file. The conversion process, specifically within the `file_converter.py` module, fails to bound the output, leading to resource exhaustion.\n\n### Impact\nSuccessful exploitation results in a denial of service by exhausting worker process resources, potentially disrupting service for other users. The vulnerability has no impact on data confidentiality or integrity.\n\n### Recommendation\nUpgrade to a version containing the vendor fix (commit 90b822a0). The remediation introduces bounds on table expansion (maximum 50,000 padded cells and a 4x padding ratio) and renders oversized tables as fenced code blocks while serializing nested JSON in compact form.",
+      "published": "2026-11-20T18:29:46.000Z",
+      "labels": [
+        "denial-of-service",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0e234aeb-2ac8-5fb6-9854-0003f8d11d77",
+        "vulnerability--57c1f916-78cf-5db6-89e6-bebc4c235116"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-flowintel-dos-cve-2026-133626",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-flowintel-dos-cve-2026-133626/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-133626"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=9241D032-819F-5FB5-B2AE-599DFF3C675F\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-flowintel-dos-cve-2026-133626",
+      "x_craftedsignal_event_id": "brief-2026-11-20-flowintel-dos-cve-2026-133626",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-flowintel-dos-cve-2026-133626/",
+      "x_craftedsignal_activity_at": "2026-11-20T18:29:46.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00397,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -336840,6 +336911,22 @@
           "source_name": "cve",
           "external_id": "CVE-2025-34208",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-34208"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--57c1f916-78cf-5db6-89e6-bebc4c235116",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-133626",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-133626",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133626"
         }
       ]
     },
