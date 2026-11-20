@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--287c75a8-f4cd-54d8-8eab-14bbb1a460ea",
+  "id": "bundle--55d784ef-ead7-54eb-93d9-5b8da08a3ee3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12979,6 +12979,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--c186b08d-2fb5-5d89-88b5-dd614d148ecf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--08dc348b-0251-5fee-a20d-67b87f8f4cc8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T16:39:00.000Z",
+      "modified": "2026-11-20T16:39:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ab5aeb19-e639-5903-966c-05c828a8db31",
+      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
     },
     {
       "type": "relationship",
@@ -78763,6 +78774,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7cae8ddd-35d8-5cca-ae79-002183e180f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4d895f72-77fc-5a91-a1c7-dd5a6331dd7f",
+      "target_ref": "vulnerability--3eba8d21-c557-5942-88b0-ec7d83a58664"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7cb0c1f0-62a6-5712-9d64-745e2627f136",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -87856,6 +87878,17 @@
       "relationship_type": "has",
       "source_ref": "software--c73a54cf-49fd-5de3-97df-e24ad57d2ced",
       "target_ref": "vulnerability--f5670377-ce6c-5481-8d53-5fa182aac7c4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8cc6eac4-962f-5c93-b5ce-01cb95aa4222",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--fb82c015-5111-5317-8df9-613c596c3e9e",
+      "target_ref": "vulnerability--3eba8d21-c557-5942-88b0-ec7d83a58664"
     },
     {
       "type": "relationship",
@@ -247246,6 +247279,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ab5aeb19-e639-5903-966c-05c828a8db31",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T16:39:00.000Z",
+      "modified": "2026-11-20T16:39:00.000Z",
+      "name": "Hickory DNS: Query amplification denial of service (CVE-2026-123586)",
+      "description": "## Overview\nHickory DNS hickory-recursor (versions 0.25.0-alpha.3 through 0.25.2) and hickory-resolver (versions 0.26.0-alpha.1 before 0.26.2) contain a query amplification vulnerability in the recursive resolver. The issue occurs when the resolver processes cyclic sibling name server referrals that lack glue records. An attacker controlling two zones whose name servers reference each other without providing glue records can force the recursor into a loop, sending excessive upstream queries further amplified by zero-TTL NS records.\n\n## Attack Chain\n- An attacker controls two zones with cyclic name server references that do not contain glue records.\n- The attacker triggers a lookup against an affected Hickory DNS resolver for these zones.\n- The recursive resolver enters a loop, generating excessive upstream traffic.\n\n## Impact\nSuccessful exploitation results in resource exhaustion and a denial-of-service (DoS) condition on the resolver. The vulnerability does not require user interaction or privileges to execute.\n\n## Recommendation\nNo fixed release or specific remediation is currently documented in the primary evidence for the affected versions of hickory-recursor or hickory-resolver.",
+      "published": "2026-11-20T16:39:00.000Z",
+      "labels": [
+        "cve",
+        "denial-of-service",
+        "dns"
+      ],
+      "object_refs": [
+        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4d895f72-77fc-5a91-a1c7-dd5a6331dd7f",
+        "software--fb82c015-5111-5317-8df9-613c596c3e9e",
+        "vulnerability--3eba8d21-c557-5942-88b0-ec7d83a58664"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-hickory-dns-amplification-cve-2026-123586",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-hickory-dns-amplification-cve-2026-123586/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-123586"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123586"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-hickory-dns-amplification-cve-2026-123586",
+      "x_craftedsignal_event_id": "brief-2026-11-20-hickory-dns-amplification-cve-2026-123586",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-hickory-dns-amplification-cve-2026-123586/",
+      "x_craftedsignal_activity_at": "2026-11-20T16:39:00.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00343,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ab5f40d7-ba1f-5b2a-8d32-ca279da0a7ac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T02:26:53.000Z",
@@ -298589,6 +298674,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4d895f72-77fc-5a91-a1c7-dd5a6331dd7f",
+      "name": "hickory-recursor",
+      "vendor": "Hickory DNS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4d8b2b46-2c54-522a-b6d5-62a74064f281",
       "name": "Storyden (\u003c= 1.26.16)",
       "vendor": "Storyden"
@@ -311899,6 +311991,13 @@
       "id": "software--fb595f8a-bba0-5026-b9c0-d583e968294b",
       "name": "OpenSSL (\u003c 4.1.1)",
       "vendor": "OpenSSL"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--fb82c015-5111-5317-8df9-613c596c3e9e",
+      "name": "hickory-resolver",
+      "vendor": "Hickory DNS"
     },
     {
       "type": "software",
@@ -329145,6 +329244,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109594",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109594"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3eba8d21-c557-5942-88b0-ec7d83a58664",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-123586",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-123586",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123586"
         }
       ]
     },
