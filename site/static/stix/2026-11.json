@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--086b6dab-49e8-5a94-9f08-9793ce37170d",
+  "id": "bundle--979327b9-159c-56d8-9685-0c2ed3969f57",
   "objects": [
     {
       "type": "attack-pattern",
@@ -216938,7 +216938,7 @@
       "id": "report--7ec22624-f23b-55c5-a8bc-f346626c49b4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T14:34:41.000Z",
-      "modified": "2026-11-18T14:34:41.000Z",
+      "modified": "2026-11-20T05:01:20.000Z",
       "name": "WWBN AVideo Stored Cross-Site Scripting (CVE-2026-130648)",
       "description": "## Overview\nWWBN AVideo versions from 6.5 up to and including 29.8.0 are affected by a stored cross-site scripting (XSS) vulnerability. The application fails to validate the 'videoLink' parameter when submitting embed videos.\n\n## Attack Chain\nAuthenticated users with upload permissions can inject malicious scripts by submitting a 'javascript:' scheme URI within the 'videoLink' field. This input is stored by the application and subsequently rendered into an iframe 'src' attribute within 'videoEmbeded.php' and 'PlayerSkins.php'. The payload executes in the context of any user who views the embedded video, including administrators.\n\n## Impact\nSuccessful execution of the injected JavaScript allows for unauthorized actions performed in the victim's session. This includes the potential creation of new administrator accounts when the victim is an administrator.\n\n## Recommendation\nRemediation details are currently unknown as a fixed version is not specified in the available CNA evidence. Users should monitor for unauthorized activity and restrict upload permissions where possible.",
       "published": "2026-11-18T14:34:41.000Z",
@@ -216964,20 +216964,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130648"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=5154A09E-BD52-5F0F-8413-15E0C4C0E64D\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-18-wwbn-avideo-xss-cve-2026-130648",
       "x_craftedsignal_event_id": "brief-2026-11-18-wwbn-avideo-xss-cve-2026-130648",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wwbn-avideo-xss-cve-2026-130648/",
-      "x_craftedsignal_activity_at": "2026-11-18T14:34:41.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T05:01:20.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.7,
+      "x_craftedsignal_epss_max": 0.00365,
       "x_craftedsignal_kev_status": "false"
     },
     {
