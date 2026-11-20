@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c7b43e43-499b-5c80-9d5c-91318b184711",
+  "id": "bundle--f7430ed0-9da8-5cff-96b8-5d7ded094815",
   "objects": [
     {
       "type": "attack-pattern",
@@ -34002,6 +34002,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--218bebdd-5f52-52c6-9c56-e9b06902df10",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--45994cf6-9d6d-5d04-a541-ca0be4b2c2f4",
+      "target_ref": "vulnerability--8c3225b3-d3d1-52db-a27e-068fbbbb94aa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--218d275f-4133-5479-b113-be332b65602c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -60860,6 +60871,17 @@
       "relationship_type": "has",
       "source_ref": "software--60a633aa-df40-5bed-8098-a86be456a57c",
       "target_ref": "vulnerability--18c46975-9140-5185-b745-627388f54768"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4787cebb-a000-5237-973a-c4c38213160f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--db3c72f1-bb33-507e-999f-1cf124ffaa45",
+      "target_ref": "vulnerability--8c3225b3-d3d1-52db-a27e-068fbbbb94aa"
     },
     {
       "type": "relationship",
@@ -116579,6 +116601,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--931a69a7-dd05-5e6d-9b7b-1a7fc006d0ca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6200db00-84b6-50f6-9b53-6756951ba065",
+      "target_ref": "vulnerability--77e805e1-9174-5fcc-a758-4677ae307c73"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--931a912c-c080-5961-a85b-c25a717a9561",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -145857,6 +145890,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--4e76f27a-2061-51f3-8cf9-b3adc52b3731"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bb029bcb-6f05-5eac-95fe-1a3239502027",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--07d9c18e-bbfd-52be-b4f9-162ec122500f",
+      "target_ref": "vulnerability--8c3225b3-d3d1-52db-a27e-068fbbbb94aa"
     },
     {
       "type": "relationship",
@@ -194525,6 +194569,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ff5ad0c0-f5e8-5ec5-b369-8ce460254534",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0ccf8b05-76ef-5311-9619-0bc951406d85",
+      "target_ref": "vulnerability--8c3225b3-d3d1-52db-a27e-068fbbbb94aa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ff601f32-292e-58e1-9e31-d553112cefa5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -240235,6 +240290,51 @@
       },
       "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_epss_max": 0.01751,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3d712254-83b7-5f81-ab5f-9cbd36aafab4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T22:31:45.000Z",
+      "modified": "2026-11-19T22:31:45.000Z",
+      "name": "MLflow: Command Injection in Model Serving (CVE-2026-0596)",
+      "description": "## Overview\nA command injection vulnerability exists in mlflow/mlflow when serving a model with `enable_mlserver=True`. The `model_uri` parameter is embedded directly into a shell command executed via `bash -c` without proper sanitization. If the `model_uri` contains shell metacharacters, such as `$()` or backticks, it allows for command substitution and execution of attacker-controlled commands.\n\n## Attack Chain\n1. An attacker identifies an MLflow instance configured with `enable_mlserver=True`.\n2. The attacker provides a crafted `model_uri` containing shell metacharacters (e.g., `$()` or backticks) to the service.\n3. The application incorporates the unvalidated input into a shell command executed via `bash -c`, resulting in the execution of arbitrary commands with the privileges of the serving process.\n\n## Impact\nSuccessful exploitation allows for arbitrary command execution, which can lead to privilege escalation if a higher-privileged service serves models from a directory writable by lower-privileged users.\n\n## Recommendation\nThe provided CNA information does not specify a fixed version or a definitive remediation. Users should monitor for unauthorized use of shell metacharacters in model service configuration parameters until vendor-provided patches are identified.",
+      "published": "2026-11-19T22:31:45.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6200db00-84b6-50f6-9b53-6756951ba065",
+        "vulnerability--77e805e1-9174-5fcc-a758-4677ae307c73"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-mlflow-insecure-deserialization-cve-2026-0596",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mlflow-insecure-deserialization-cve-2026-0596/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-0596"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SPARSHBISWAS-AI-CVE-2026-0596-REPRODUCTION\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-mlflow-insecure-deserialization-cve-2026-0596",
+      "x_craftedsignal_event_id": "brief-2026-11-19-mlflow-insecure-deserialization-cve-2026-0596",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mlflow-insecure-deserialization-cve-2026-0596/",
+      "x_craftedsignal_activity_at": "2026-11-19T22:31:45.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.0132,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -308494,6 +308594,62 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--9cc3d75e-e5c4-59d1-b744-a0645ba6599a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T22:31:32.000Z",
+      "modified": "2026-11-19T22:31:32.000Z",
+      "name": "PHP: Remote Code Execution via Timezone Cache Use-After-Free (CVE-2026-129496)",
+      "description": "## Overview\nA use-after-free vulnerability exists in the PHP date extension's timezone cache, specifically affecting non-thread-safe builds such as Apache mod_php or CGI. The issue arises when a diagnostic message is written to a file-based error_log during module startup, causing the timezone cache to be allocated in startup memory that is subsequently freed while a reference to it persists. A diagnostic raised early in the first request of a worker process then accesses this freed cache.\n\n## Attack Chain\nAn unauthenticated remote attacker can crash PHP-FPM, Apache mod_php, or CGI workers by sending a crafted request. Arbitrary code execution may be possible and has been demonstrated in lab environments using known memory addresses.\n\n## Impact\nSuccessful exploitation can result in a crash of the affected PHP worker processes or potential arbitrary code execution as the user running the PHP service.\n\n## Recommendation\nUpgrade to the patched PHP versions: 8.2.36, 8.3.37, 8.4.28, or 8.5.13. Until patching is possible, the PHP Group recommends configuring PHP to send error logs to syslog instead of a file-based error_log, correcting startup diagnostic issues (such as invalid date.timezone settings), and restarting the master and every worker process.",
+      "published": "2026-11-19T22:31:32.000Z",
+      "labels": [
+        "cve",
+        "rce",
+        "vulnerability",
+        "web-application"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--07d9c18e-bbfd-52be-b4f9-162ec122500f",
+        "software--0ccf8b05-76ef-5311-9619-0bc951406d85",
+        "software--45994cf6-9d6d-5d04-a541-ca0be4b2c2f4",
+        "software--db3c72f1-bb33-507e-999f-1cf124ffaa45",
+        "vulnerability--8c3225b3-d3d1-52db-a27e-068fbbbb94aa"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-php-timezone-use-after-free-cve-2026-129496",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-php-timezone-use-after-free-cve-2026-129496/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129496"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/php/php-src/security/advisories/GHSA-gr4f-wgx5-jpfv"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=7D935A5A-2F20-5521-B56B-77DCA5FF928D\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-php-timezone-use-after-free-cve-2026-129496",
+      "x_craftedsignal_event_id": "brief-2026-11-19-php-timezone-use-after-free-cve-2026-129496",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-php-timezone-use-after-free-cve-2026-129496/",
+      "x_craftedsignal_activity_at": "2026-11-19T22:31:32.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -381698,6 +381854,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--07d9c18e-bbfd-52be-b4f9-162ec122500f",
+      "name": "PHP (\u003e= 8.2.0, \u003c 8.2.36)",
+      "vendor": "PHP Group"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--07f1dc60-f71c-5ad0-99f5-3afe0893502d",
       "name": "Consul Community Edition (\u003c 2.1.0)",
       "vendor": "HashiCorp"
@@ -382397,6 +382560,13 @@
       "id": "software--0cc78577-48a8-5e8d-a9ed-3f0832908dd2",
       "name": "FortiManager 7.4.0 through 7.4.11",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--0ccf8b05-76ef-5311-9619-0bc951406d85",
+      "name": "PHP (\u003e= 8.4.0, \u003c 8.4.28)",
+      "vendor": "PHP Group"
     },
     {
       "type": "software",
@@ -389002,6 +389172,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--45994cf6-9d6d-5d04-a541-ca0be4b2c2f4",
+      "name": "PHP (\u003e= 8.3.0, \u003c 8.3.37)",
+      "vendor": "PHP Group"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--45a5913c-4e49-5833-a55c-87865eb299fe",
       "name": "Qiskit SDK (2.4.0-2.6.1)",
       "vendor": "IBM"
@@ -392254,6 +392431,13 @@
       "id": "software--61f369d3-e8e8-5cc4-b65a-92ca13eec10d",
       "name": "IBM API Connect 12.1.0.0 through 12.1.1.2 (12.1.0.0-12.1.1.2)",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6200db00-84b6-50f6-9b53-6756951ba065",
+      "name": "mlflow/mlflow",
+      "vendor": "mlflow"
     },
     {
       "type": "software",
@@ -405845,6 +406029,13 @@
       "id": "software--db3b04cd-5597-5a2c-83ce-17c19b3b166b",
       "name": "RouterOS (\u003c= 7.24.5)",
       "vendor": "MikroTik"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--db3c72f1-bb33-507e-999f-1cf124ffaa45",
+      "name": "PHP (\u003e= 8.5.0, \u003c 8.5.13)",
+      "vendor": "PHP Group"
     },
     {
       "type": "software",
@@ -449673,6 +449864,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--77e805e1-9174-5fcc-a758-4677ae307c73",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-0596",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-0596",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0596"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--77f56c22-4016-516b-ba12-4155aed0f06a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -456627,6 +456834,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-97015",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97015"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8c3225b3-d3d1-52db-a27e-068fbbbb94aa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129496",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129496",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129496"
         }
       ]
     },
