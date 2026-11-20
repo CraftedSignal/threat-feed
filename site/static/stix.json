@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4153cf2f-c4ee-5b00-a24a-7fae081c74c1",
+  "id": "bundle--0df2d418-2287-583b-9f5d-44ea8fb6b1d1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -134189,6 +134189,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ac02eaa7-8e15-5ab4-a794-4c88f547936c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b9235701-ec1f-5633-b9ed-22d43b3eeb4d",
+      "target_ref": "vulnerability--a93bd1bc-57e9-5cdd-856a-d51842710b7c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ac06a611-c1e5-5d06-82bb-4fb15bb85ede",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -192727,6 +192738,17 @@
       "relationship_type": "uses",
       "source_ref": "report--958ce01d-ce2d-5eef-8efb-3fbb525af9fc",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fd9dde91-ba8b-5325-a7f3-3d469a40c5e6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9bb3d7ca-01a1-530c-a555-b999731d5812",
+      "target_ref": "vulnerability--a93bd1bc-57e9-5cdd-856a-d51842710b7c"
     },
     {
       "type": "relationship",
@@ -347806,6 +347828,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d7557d65-9efb-5b54-b2ea-53c0c08fcc4c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T20:21:37.000Z",
+      "modified": "2026-11-19T20:21:37.000Z",
+      "name": "Go toolchain: Arbitrary code execution during package linking (CVE-2026-97038)",
+      "description": "## Overview\n\nThe Go toolchain's cmd/go component is vulnerable to arbitrary code execution during the package linking phase. Malicious packages containing crafted \".syso\" files or cgo linker inputs allow for the injection of arbitrary linker flags or the execution of arbitrary code at link time. The issue arises because the go command previously failed to validate the format of or check for embedded linker options in several types of inputs: \".syso\" files, direct object or library inputs in \"#cgo LDFLAGS\", and libraries in \"-L\" directories. These were passed to the external linker without verification.\n\n## Attack Chain\n\nAttackers can leverage this vulnerability to perform several malicious actions:\n- Executing GNU ld implicit linker scripts disguised as libraries or \".syso\" files.\n- Loading malicious inputs via \"-l:\u0026lt;filename\u003e\" or \"-l\" containing path separators.\n- Injecting unallowlisted linker flags via PE/COFF \".drectve\" sections on Windows or Mach-O \"LC_LINKER_OPTION\" load commands on Darwin.\n- Invoking LTO plugins via GCC or LLVM LTO intermediate representation sections in ELF, PE/COFF, or Mach-O objects.\n\nThe updated go command now verifies that \".syso\" files, direct linker inputs, and libraries in \"-L\" directories are valid binary objects or archives that do not contain unallowlisted \".drectve\" directives, \"LC_LINKER_OPTION\" load commands, or LTO IR sections, and it disallows \"-l:\u0026lt;filename\u003e\" as well as \":\", \"=\", or path separators in \"-l\" flags.\n\n## Impact\n\nSuccessful exploitation results in arbitrary code execution at link time during the build process.\n\n## Recommendation\n\nUsers should upgrade the Go toolchain to version 1.26.11 or later for the 1.26.x branch, or version 1.27.4 or later for the 1.27.x branch, to incorporate the necessary validation logic for linker inputs.",
+      "published": "2026-11-19T20:21:37.000Z",
+      "labels": [
+        "rce",
+        "supply-chain"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9bb3d7ca-01a1-530c-a555-b999731d5812",
+        "software--b9235701-ec1f-5633-b9ed-22d43b3eeb4d",
+        "vulnerability--a93bd1bc-57e9-5cdd-856a-d51842710b7c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-go-toolchain-rce-cve-2026-97038",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-go-toolchain-rce-cve-2026-97038/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-97038"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97038"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-go-toolchain-rce-cve-2026-97038",
+      "x_craftedsignal_event_id": "brief-2026-11-19-go-toolchain-rce-cve-2026-97038",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-go-toolchain-rce-cve-2026-97038/",
+      "x_craftedsignal_activity_at": "2026-11-19T20:21:37.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00541,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d75b8a09-b8bf-5328-80c2-427a4b11ee07",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T20:17:47.000Z",
@@ -396639,6 +396711,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9bb3d7ca-01a1-530c-a555-b999731d5812",
+      "name": "cmd/go (\u003e= 1.27.0-0, \u003c 1.27.4)",
+      "vendor": "Go toolchain"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9bf3243a-959d-5fe5-856f-5000354b9788",
       "name": "Rocq Prover",
       "vendor": "Rocq"
@@ -399937,6 +400016,13 @@
       "id": "software--b921d5fa-dd2b-56fc-916e-db9395ef4287",
       "name": "Mendix SAML (Mendix 11 compatible) (\u003c V4.2.4)",
       "vendor": "Siemens"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b9235701-ec1f-5633-b9ed-22d43b3eeb4d",
+      "name": "cmd/go (\u003c 1.26.11)",
+      "vendor": "Go toolchain"
     },
     {
       "type": "software",
@@ -464458,6 +464544,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115330",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115330"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a93bd1bc-57e9-5cdd-856a-d51842710b7c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-97038",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-97038",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97038"
         }
       ]
     },
