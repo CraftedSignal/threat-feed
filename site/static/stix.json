@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--af0bd4cf-38f7-551c-a772-6e42c1d6fa29",
+  "id": "bundle--28a325a3-dfc3-542f-b74b-56332afae3a5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16679,6 +16679,17 @@
       "relationship_type": "has",
       "source_ref": "software--515e6e2b-be62-5066-a850-3699fc1d9c98",
       "target_ref": "vulnerability--9967c66c-ffa3-5b51-a30b-8638b03020f1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0a34b22c-7d7d-5b69-a0db-945e0269f29a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6c5a4104-dbcb-54e4-93fa-cfee7280f91f",
+      "target_ref": "vulnerability--e974ca9d-557d-5113-8eb1-8c1de1988af8"
     },
     {
       "type": "relationship",
@@ -155492,6 +155503,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c85691b1-337c-5298-9eb8-96414e606fb7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T16:51:00.000Z",
+      "modified": "2026-11-20T16:51:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--41ccb367-bff7-533e-a3ac-f4e9a330bc1c",
+      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c8569cd1-bcf3-50f6-8e20-657e80efe1bb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -244248,6 +244270,55 @@
       },
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_epss_max": 0.00269,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--41ccb367-bff7-533e-a3ac-f4e9a330bc1c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T16:51:00.000Z",
+      "modified": "2026-11-20T16:51:00.000Z",
+      "name": "JetBrains TeamCity: Secure parameter disclosure (CVE-2026-132900)",
+      "description": "## Overview\nJetBrains TeamCity contains a vulnerability where secure parameter values, such as credentials or sensitive configuration tokens, are exposed to users with 'project viewer' permissions. This issue specifically affects users viewing pipeline data. The vulnerability is assigned CVE-2026-132900 with a CVSS base score of 7.5.\n\n## Impact\nSuccessful exploitation allows unauthorized users to view sensitive information stored as secure parameters within TeamCity pipelines. This could lead to the exposure of credentials, API keys, or other secrets used for build and deployment processes.\n\n## Recommendation\n- Upgrade JetBrains TeamCity to version 2026.2, 2026.1.4, 2025.11.8, or later, as these versions contain the fix for this issue.\n- Audit existing project viewer permissions and rotate any secrets that may have been exposed through the TeamCity pipeline UI prior to patching.",
+      "published": "2026-11-20T16:51:00.000Z",
+      "object_refs": [
+        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6c5a4104-dbcb-54e4-93fa-cfee7280f91f",
+        "vulnerability--e974ca9d-557d-5113-8eb1-8c1de1988af8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-jetbrains-teamcity-secure-parameter-disclosure-cve-2026-132900",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-jetbrains-teamcity-secure-parameter-disclosure-cve-2026-132900/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-132900"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132900"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.jetbrains.com/privacy-security/issues-fixed/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-jetbrains-teamcity-secure-parameter-disclosure-cve-2026-132900",
+      "x_craftedsignal_event_id": "brief-2026-11-20-jetbrains-teamcity-secure-parameter-disclosure-cve-2026-132900",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-jetbrains-teamcity-secure-parameter-disclosure-cve-2026-132900/",
+      "x_craftedsignal_activity_at": "2026-11-20T16:51:00.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -492630,6 +492701,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119268",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119268"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e974ca9d-557d-5113-8eb1-8c1de1988af8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-132900",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-132900",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132900"
         }
       ]
     },
