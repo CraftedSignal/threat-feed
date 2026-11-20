@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8b99ae85-058d-5fec-a948-606981ef73dd",
+  "id": "bundle--086b6dab-49e8-5a94-9f08-9793ce37170d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -40720,6 +40720,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3b3cc116-d16d-5f6d-92ef-83d6c022a734",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f2aa2764-6bf4-58b6-9764-84a560cdacfd",
+      "target_ref": "vulnerability--3e940a2e-b40c-50d2-ab0e-024c0b7b9383"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3b415ec0-6104-56ff-88f2-49de7ea1e725",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -68502,6 +68513,17 @@
       "relationship_type": "has",
       "source_ref": "software--63754bc3-bb98-5641-8394-7864c270438a",
       "target_ref": "vulnerability--f1c44395-ada2-5470-9ddd-9938ddb9eeed"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6cb3615e-ad46-5e3a-bf6f-8953bca533e9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f2aa2764-6bf4-58b6-9764-84a560cdacfd",
+      "target_ref": "vulnerability--0e21c69b-6120-5d25-9b80-7c25a3780ff3"
     },
     {
       "type": "relationship",
@@ -248446,6 +248468,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b98cfe84-2404-5c94-ba75-4934f428f673",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T18:09:37.000Z",
+      "modified": "2026-11-19T18:09:37.000Z",
+      "name": "Vite: Arbitrary File Read Vulnerabilities (CVE-2025-32395, CVE-2025-30208)",
+      "description": "## Overview\nVite development servers are vulnerable to arbitrary file read attacks when explicitly exposed to the network using the `--host` or `server.host` configuration options. \n\n### CVE-2025-30208\nVite versions prior to 4.5.10, 5.4.15, 6.0.12, 6.1.2, and 6.2.3 allow attackers to bypass `@fs` access restrictions. The vulnerability exists because trailing separators in URLs are incorrectly processed in query string regexes. By appending `?raw??` or `?import\u0026raw??` to a request, an attacker can bypass file system access controls.\n\n### CVE-2025-32395\nVite versions prior to 4.5.13, 5.4.18, 6.0.15, 6.1.5, and 6.2.6 are vulnerable when running on Node.js or Bun runtimes. The vulnerability arises because these runtimes pass requests containing '#' in the request-target to the application. Vite fails to account for this character in its `server.fs.deny` check, allowing unauthorized file access. Deno environments are not affected.\n\n## Impact\nSuccessful exploitation allows an unauthenticated, remote attacker to read arbitrary files from the server, potentially exposing sensitive information.\n\n## Recommendation\nAdministrators should update Vite to the following fixed versions:\n- For CVE-2025-30208: 4.5.10, 5.4.15, 6.0.12, 6.1.2, or 6.2.3.\n- For CVE-2025-32395: 4.5.13, 5.4.18, 6.0.15, 6.1.5, or 6.2.6.\n- Avoid exposing Vite development servers to the network unless necessary.",
+      "published": "2026-11-19T18:09:37.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f2aa2764-6bf4-58b6-9764-84a560cdacfd",
+        "vulnerability--0e21c69b-6120-5d25-9b80-7c25a3780ff3",
+        "vulnerability--3e940a2e-b40c-50d2-ab0e-024c0b7b9383"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-vite-arbitrary-file-read-cve-2025-32395",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-vite-arbitrary-file-read-cve-2025-32395/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-30208"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-32395"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RUIWENYA-CVE-2025-32395\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-vite-arbitrary-file-read-cve-2025-32395",
+      "x_craftedsignal_event_id": "brief-2026-11-19-vite-arbitrary-file-read-cve-2025-32395",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-vite-arbitrary-file-read-cve-2025-32395/",
+      "x_craftedsignal_activity_at": "2026-11-19T18:09:37.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.0181,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b995838b-67a8-56c0-9827-ced4b95e154f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T19:12:28.000Z",
@@ -303532,6 +303603,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--f2aa2764-6bf4-58b6-9764-84a560cdacfd",
+      "name": "vite",
+      "vendor": "vitejs"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f2ce76c5-5f60-5562-9a13-7b774e19a747",
       "name": "QNX Software Development Platform (8.0)",
       "vendor": "BlackBerry"
@@ -308792,6 +308870,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-70182",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70182"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0e21c69b-6120-5d25-9b80-7c25a3780ff3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-30208",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-30208",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-30208"
         }
       ]
     },
@@ -320920,6 +321014,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116317",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116317"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3e940a2e-b40c-50d2-ab0e-024c0b7b9383",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-32395",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-32395",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-32395"
         }
       ]
     },
