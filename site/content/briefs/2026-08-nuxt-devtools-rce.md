@@ -1,47 +1,81 @@
 ---
+brief_id: brief-2026-08-05-nuxt-devtools-rce
+event_id: brief-2026-08-05-nuxt-devtools-rce
+revision: 2
+activity_at: "2026-11-20T03:17:15Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T03:17:15Z"
+    checksum: sha256:bb668a4ca53fd37b0db858ce855995a37bb751d9c5f2f52825b0dbc938250fbd
+    summary: poc_available
+    changed_fields:
+      - affected_vendors
+      - cpes
+      - cve_verification
+      - cves
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - rules
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=3186A0D1-8C78-5954-B759-205A7996EDA7&utm_source=rss&utm_medium=rss
 title: Unauthenticated RCE in Nuxt DevTools via Vite HMR WebSocket
 slug: 2026-08-nuxt-devtools-rce
 description: An unauthenticated RPC vulnerability in Nuxt DevTools (CVE-2026-71319) allows local or remote attackers to achieve arbitrary command execution by chaining malicious configuration updates and editor launch commands.
 date: "2026-08-06T03:25:48Z"
+lastmod: "2026-11-20T03:16:14Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+cpes:
+  - cpe:2.3:a:nuxt:devtools:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=3186A0D1-8C78-5954-B759-205A7996EDA7&utm_source=rss&utm_medium=rss
+vendors:
+  - Nuxt
 products:
   - Nuxt DevTools
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.003
-    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    technique_name: Windows Command Shell
     evidence: An attacker who can reach the HMR port can therefore chain updateOptions and openInEditor to execute an arbitrary program on the developer's machine.
     confidence_band: high
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1204.002
-    technique_name: 'User Execution: Malicious File'
+    technique_name: Malicious File
     evidence: or by a malicious website the developer visits while the dev server is running (a browser can open the HMR WebSocket cross-origin).
     confidence_band: high
+cve_verification:
+  CVE-2026-71319:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-20T03:16:14.165978517Z
 cves:
   - id: CVE-2026-71319
     cvss: 9.6
+    epss: 0.00629
+    kev_status: "false"
 references:
   - https://github.com/advisories/GHSA-279x-mwfv-vcqv
   - https://www.npmjs.com/package/launch-editor
-rules:
-  - title: Detect Suspicious Child Process Execution from Node.js
-    description: Detects potential exploitation of CVE-2026-71319 where a Node.js process spawns unexpected shell-like commands often used in launch-editor exploitation.
-    platform: sigma
-    severity: high
-    tactics:
-      - execution
-    techniques:
-      - T1059.003
-    data_sources:
-      - process_creation
-      - windows
-rules_count: 1
+  - https://sploitus.com/exploit?id=3186A0D1-8C78-5954-B759-205A7996EDA7&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -67,7 +101,17 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-71319
       evidence: 'Disable DevTools entirely with devtools: { enabled: false } in nuxt.config'
+updates:
+  - at: "2026-11-20T03:16:14Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=3186A0D1-8C78-5954-B759-205A7996EDA7&utm_source=rss&utm_medium=rss
 ---
+
+## Overview
 
 Nuxt DevTools version 3.x prior to 3.3.1 contains a critical vulnerability (CVE-2026-71319) in its RPC mechanism. The DevTools plugin exposes a bidirectional RPC channel over the Vite HMR WebSocket. This channel lacks authentication, meaning any client capable of reaching the HMR endpoint can issue RPC calls without a handshake or origin verification.
 
