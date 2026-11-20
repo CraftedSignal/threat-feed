@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5ee1d9e6-b249-576a-8316-3f3f7fd31c50",
+  "id": "bundle--07a34b52-b1b6-59b7-b4ca-6d517c45b92c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3844,17 +3844,6 @@
       "relationship_type": "uses",
       "source_ref": "report--d4b2c9e0-6a1f-5b3c-8b42-57b43e9ca5bb",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--25399bef-dea3-502c-84c4-809db0b6886a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--d3d83259-673d-54e2-be0b-e8d674c36c01",
-      "target_ref": "vulnerability--b24b8439-a261-50eb-80fe-e4621772ec27"
     },
     {
       "type": "relationship",
@@ -13612,17 +13601,6 @@
       "relationship_type": "has",
       "source_ref": "software--3ae21254-fea6-558b-83a3-ca856c253f51",
       "target_ref": "vulnerability--bb596e4b-ae0d-523b-9fd0-b59b2d1dc707"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e1f3ae19-b491-5da7-a5a3-b137721ca970",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-22T22:51:16.000Z",
-      "modified": "2026-08-22T22:51:16.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a761e8cd-f13f-573b-9267-eac1ece670a3",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -28565,56 +28543,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--a761e8cd-f13f-573b-9267-eac1ece670a3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-22T22:51:16.000Z",
-      "modified": "2026-08-22T22:51:16.000Z",
-      "name": "Authenticated OS Command Injection in TP-Link Archer C20 Routers",
-      "description": "## Overview\n\nCVE-2026-75616 is a critical vulnerability affecting the TP-Link Archer C20 v6 router series, specifically within the handling of BPA WAN configuration settings in the web management interface. An attacker who has already obtained administrator credentials for the device can leverage this flaw to perform OS command injection. By injecting malicious shell commands into the BPA WAN parameters, the attacker can force the system to execute code with root privileges. A proof-of-concept exploit has been published, utilizing Python to interact with the device's web management interface, demonstrating how an attacker can establish a reverse shell connection to the router. This vulnerability impacts EU, US, and RU firmware versions earlier than build 260811/260812.\n\n## Impact\n\nSuccessful exploitation of this vulnerability grants an attacker full root-level control over the Archer C20 v6 router. Given the position of the router at the edge of the network, this allows for persistent unauthorized access, traffic interception, and potential lateral movement into the local network. Users are strongly advised to update to the latest manufacturer-provided firmware to mitigate this risk.\n\n## Recommendation\n\n- Immediately update TP-Link Archer C20 v6 firmware to the latest available version (at least Build 260811 for EU, or 260812 for US/RU) to patch CVE-2026-75616.\n- Restrict access to the router web management interface to trusted internal IP addresses only.\n- Rotate administrator credentials for all TP-Link router interfaces immediately, as the vulnerability requires administrative access for exploitation.\n- Audit network logs for unusual outbound connections originating from the router's management IP, specifically focusing on connections to unauthorized remote listener ports (e.g., port 4445 as documented in the PoC).\n",
-      "published": "2026-08-22T22:51:16.000Z",
-      "labels": [
-        "command-injection",
-        "cve-2026-75616",
-        "tp-link"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--d3d83259-673d-54e2-be0b-e8d674c36c01",
-        "vulnerability--b24b8439-a261-50eb-80fe-e4621772ec27"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-tp-link-cve-2026-75616",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-tp-link-cve-2026-75616/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75616"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.tp-link.com/en/support/faq/5252/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-tp-link-cve-2026-75616",
-      "x_craftedsignal_event_id": "brief-2026-08-tp-link-cve-2026-75616",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-tp-link-cve-2026-75616/",
-      "x_craftedsignal_activity_at": "2026-08-22T22:51:16.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_epss_max": 0.03119,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--a79795dc-2a72-57c0-aa04-6c9b1c829284",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T21:13:43.000Z",
@@ -39025,13 +38953,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--d3d83259-673d-54e2-be0b-e8d674c36c01",
-      "name": "Archer C20 v6",
-      "vendor": "TP-Link"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--d3e5534f-8165-5476-8206-39159087a214",
       "name": "Oracle Weblogic Server Proxy Plug-in",
       "vendor": "Oracle"
@@ -43459,22 +43380,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-82857",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82857"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--b24b8439-a261-50eb-80fe-e4621772ec27",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-75616",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-75616",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75616"
         }
       ]
     },
