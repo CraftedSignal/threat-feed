@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1cdf5929-c294-5ccc-a057-371e95544d11",
+  "id": "bundle--bfc0b73f-548d-57a7-bf70-857b716b362b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -63698,6 +63698,17 @@
       "relationship_type": "has",
       "source_ref": "software--24d37cea-3d30-57cb-b3e6-3d1a47099247",
       "target_ref": "vulnerability--896e1a79-1556-534d-820d-f98d1a261fe3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4b4531c2-5bad-567c-8829-403e28d3ba11",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--52c6e109-e349-5f2f-8eea-38e317e4766f",
+      "target_ref": "vulnerability--39d9c128-dba5-566b-ae4e-c2a963c89f1c"
     },
     {
       "type": "relationship",
@@ -341297,6 +341308,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--cbd254ad-e07a-511a-9f76-bc993f4f2c6e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T23:03:24.000Z",
+      "modified": "2026-11-19T23:03:24.000Z",
+      "name": "RustDesk Server Pro: Use of a broken or risky cryptographic algorithm (CVE-2026-3598)",
+      "description": "## Overview\nRustDesk Server Pro versions through 1.7.5 are affected by a 'Use of a Broken or Risky Cryptographic Algorithm' vulnerability located in the product's config string generation and web console export modules. The vulnerability affects the product on Windows, MacOS, and Linux. The supplier of the product maintains the position that this is not a vulnerability.\n\n## Attack Chain\nAccording to the CVSS 4.0 vector (CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N), the vulnerability can be exploited over the network (AV:N) with low attack complexity (AC:L). Exploitation requires no privileges (PR:N) and no user interaction (UI:N).\n\n## Impact\nSuccessful exploitation allows an attacker to retrieve embedded sensitive data.\n\n## Recommendation\nWhile the supplier disputes the existence of the vulnerability, the recommended remediation is to implement AES-256-GCM AEAD or equivalent authenticated encryption. As a workaround, users are advised to treat configuration strings as public and restrict their distribution to trusted channels only.",
+      "published": "2026-11-19T23:03:24.000Z",
+      "labels": [
+        "cve-2026-3598"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--52c6e109-e349-5f2f-8eea-38e317e4766f",
+        "vulnerability--39d9c128-dba5-566b-ae4e-c2a963c89f1c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-rustdesk-cryptographic-flaw-cve-2026-3598",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-rustdesk-cryptographic-flaw-cve-2026-3598/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-3598"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3598"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-rustdesk-cryptographic-flaw-cve-2026-3598",
+      "x_craftedsignal_event_id": "brief-2026-11-19-rustdesk-cryptographic-flaw-cve-2026-3598",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-rustdesk-cryptographic-flaw-cve-2026-3598/",
+      "x_craftedsignal_activity_at": "2026-11-19T23:03:24.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00262,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--cbed7b03-5823-5f95-b95f-fb3556fcac5f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T07:58:28.000Z",
@@ -390223,6 +390282,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--52c6e109-e349-5f2f-8eea-38e317e4766f",
+      "name": "RustDesk Server Pro",
+      "vendor": "RustDesk"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--52e9cc65-bd18-5ba2-b23e-985b5091511c",
       "name": "FortiWeb (\u003c 7.2.11)",
       "vendor": "Fortinet"
@@ -429280,6 +429346,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-76955",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76955"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--39d9c128-dba5-566b-ae4e-c2a963c89f1c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-3598",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-3598",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3598"
         }
       ]
     },
