@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--fbae2ead-0b6d-5a04-bc69-0cc2acb2667f",
+  "id": "bundle--57832df8-4e88-5577-9c63-0d1d79c76810",
   "objects": [
     {
       "type": "attack-pattern",
@@ -85888,6 +85888,17 @@
       "relationship_type": "has",
       "source_ref": "software--b6cc9769-3f7c-5dc3-87b6-1eb59ea0a2b1",
       "target_ref": "vulnerability--471ac8eb-1a95-5ad8-a163-020b0410a22f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--69ad4be9-b3d4-578d-bcc8-0e655188dd65",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--77420efb-72fc-5479-b940-c24aa95849fb",
+      "target_ref": "vulnerability--5395b09a-632b-5e8f-879c-05eaef9feab8"
     },
     {
       "type": "relationship",
@@ -173452,6 +173463,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e228b1b3-0aef-57f5-a50c-c369326aaa8f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T20:38:36.000Z",
+      "modified": "2026-11-20T20:38:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cf68d50-f19c-57f7-9d58-c14139b71c4f",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e2298d88-51fc-5065-804f-64043bd0b1ef",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T15:28:54.000Z",
@@ -226176,6 +226198,56 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2cf68d50-f19c-57f7-9d58-c14139b71c4f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T20:38:36.000Z",
+      "modified": "2026-11-20T20:38:36.000Z",
+      "name": "D-Link DCS-935L OS Command Injection (CVE-2026-133680)",
+      "description": "## Overview\nA vulnerability exists in the D-Link DCS-935L firmware version 1.10.01 within the Local Recording CGI component, specifically in the 'loginRouter' function of the 'web/cgi-bin/localrecording/setconf.cgi' file. This flaw permits remote OS command injection through manipulation of the 'account' or 'password' arguments.\n\n## Attack Chain\nThe vulnerability is a remote OS command injection flaw located in a web-based CGI component. Remote exploitation is possible.\n\n## Impact\nSuccessful exploitation results in the execution of arbitrary operating system commands on the affected device.\n\n## Recommendation\nThe current information does not specify a fixed firmware version or official patch status. Users should monitor official D-Link support channels. Restricting network access to the device's web interface is recommended until remediation is available.",
+      "published": "2026-11-20T20:38:36.000Z",
+      "labels": [
+        "cve",
+        "rce",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--77420efb-72fc-5479-b940-c24aa95849fb",
+        "vulnerability--5395b09a-632b-5e8f-879c-05eaef9feab8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-dlink-dcs-935l-cve-2026-133680",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dlink-dcs-935l-cve-2026-133680/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-133680"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133680"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-dlink-dcs-935l-cve-2026-133680",
+      "x_craftedsignal_event_id": "brief-2026-11-20-dlink-dcs-935l-cve-2026-133680",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dlink-dcs-935l-cve-2026-133680/",
+      "x_craftedsignal_activity_at": "2026-11-20T20:38:36.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -398408,6 +398480,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--77420efb-72fc-5479-b940-c24aa95849fb",
+      "name": "DCS-935L (= 1.10.01)",
+      "vendor": "D-Link"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7752864f-514c-5260-970b-676908423d3f",
       "name": "Masterstudy - Education WordPress Theme (\u003c= 4.8.151)",
       "vendor": "MasterStudy"
@@ -441857,6 +441936,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-75492",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75492"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5395b09a-632b-5e8f-879c-05eaef9feab8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-133680",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-133680",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133680"
         }
       ]
     },
