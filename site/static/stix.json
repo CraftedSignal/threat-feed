@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--14289b6f-d332-576f-a9ee-f7e28023aac8",
+  "id": "bundle--7a644d99-ea30-5ce1-8157-03e287de7503",
   "objects": [
     {
       "type": "attack-pattern",
@@ -115475,6 +115475,17 @@
       "relationship_type": "has",
       "source_ref": "software--9b03b814-5dcd-555e-8914-1c76d2544cb7",
       "target_ref": "vulnerability--fb55ea8e-e7d6-519f-9ab0-50fd5dc65ff7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--91dff276-0576-5616-b170-16f536eb5885",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9dd86995-ece8-52ce-99be-084cf24ff46c",
+      "target_ref": "vulnerability--fe994cf0-d774-5ceb-9123-b4b830a71211"
     },
     {
       "type": "relationship",
@@ -375976,6 +375987,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--fc1e3c0f-49e7-5116-9407-40114c878984",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T18:42:42.000Z",
+      "modified": "2026-11-19T18:42:42.000Z",
+      "name": "GNOME GDM CreateRemoteDisplay authorization bypass (CVE-2026-132858)",
+      "description": "## Overview\nA flaw was found in gdm. The CreateRemoteDisplay D-Bus method fails to perform proper authorization checks when initiating a remote display session. A local attacker with access to the login screen environment can invoke this method with an arbitrary username to bypass standard automatic login verification checks.\n\n## Attack Chain\nA local attacker with access to the login screen environment can invoke the CreateRemoteDisplay D-Bus method to bypass standard automatic login verification checks.\n\n## Impact\nThis vulnerability allows the attacker to achieve privilege escalation and start an unauthorized session as any user on the system, including root. The attack requires local access to the login screen environment.\n\n## Recommendation\nFor systems where a graphical login interface is not required (such as headless servers), disable the GDM service and configure the system to boot into multi-user target mode using the following commands:\n\n1. systemctl set-default multi-user.target\n2. systemctl stop gdm.service\n\nWarning: Stopping gdm.service immediately terminates any active graphical desktop sessions. Systems remain accessible via SSH and text-based virtual consoles. For systems requiring a graphical desktop environment, no supported configuration workaround exists to disable this interface without impacting display manager functionality.",
+      "published": "2026-11-19T18:42:42.000Z",
+      "labels": [
+        "auth-bypass",
+        "cve-2026-132858",
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9dd86995-ece8-52ce-99be-084cf24ff46c",
+        "vulnerability--fe994cf0-d774-5ceb-9123-b4b830a71211"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-gdm-auth-bypass-cve-2026-132858",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-gdm-auth-bypass-cve-2026-132858/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-132858"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132858"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-gdm-auth-bypass-cve-2026-132858",
+      "x_craftedsignal_event_id": "brief-2026-11-19-gdm-auth-bypass-cve-2026-132858",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gdm-auth-bypass-cve-2026-132858/",
+      "x_craftedsignal_activity_at": "2026-11-19T18:42:42.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fc24ab81-1e1c-54e2-acc2-480758922d87",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T09:19:28.000Z",
@@ -396861,6 +396921,13 @@
       "id": "software--9dc67bff-5644-5a38-a027-f7d74172b6b8",
       "name": "Zephyr RTOS (\u003c patched version)",
       "vendor": "Zephyr Project"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--9dd86995-ece8-52ce-99be-084cf24ff46c",
+      "name": "Red Hat Enterprise Linux 10",
+      "vendor": "Red Hat"
     },
     {
       "type": "software",
@@ -493667,6 +493734,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-123551",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123551"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fe994cf0-d774-5ceb-9123-b4b830a71211",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-132858",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-132858",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132858"
         }
       ]
     },
