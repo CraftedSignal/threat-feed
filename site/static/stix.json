@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--cb31e9b1-fa42-5f39-888f-e37dfd21fc8e",
+  "id": "bundle--3a10256d-3e2d-5aca-a301-8163e5346a9d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -30705,7 +30705,7 @@
       "id": "relationship--308d83e0-350f-51d5-bf71-08c29114d8b4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T10:05:51.000Z",
-      "modified": "2026-11-18T10:05:51.000Z",
+      "modified": "2026-11-20T01:33:35.000Z",
       "relationship_type": "uses",
       "source_ref": "report--0a59cba4-beb9-5f47-9335-409f99b2d98a",
       "target_ref": "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876"
@@ -128659,7 +128659,7 @@
       "id": "report--0a59cba4-beb9-5f47-9335-409f99b2d98a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T10:05:51.000Z",
-      "modified": "2026-11-18T10:05:51.000Z",
+      "modified": "2026-11-20T01:33:35.000Z",
       "name": "Zohocorp ManageEngine DDI Central: PowerShell command injection in Telnet feature (CVE-2026-95643)",
       "description": "## Overview\n\nZohocorp ManageEngine DDI Central builds prior to 6500 are vulnerable to an authenticated PowerShell command injection flaw within the Telnet connectivity component. An attacker with administrative access can exploit this vulnerability by providing specially crafted IPv6 scope identifiers, which are then processed by the application to execute arbitrary commands on managed Windows nodes. As of this report, no specific fixed release version was disclosed by the CNA, though the vulnerability is restricted to builds before 6500.\n\n## Impact\n\nSuccessful exploitation of this vulnerability permits remote command execution on managed Windows nodes. Given the privilege level required, this could lead to full system compromise of managed infrastructure.\n\n## Recommendation\n\n- Audit and restrict administrative access to the DDI Central management interface.\n- Inventory all instances of ManageEngine DDI Central to identify versions below 6500.\n- Monitor managed Windows nodes for suspicious PowerShell process executions originating from the DDI Central server's process context.\n- Contact Zohocorp support to verify availability of a security patch or configuration workaround for the Telnet connectivity feature.",
       "published": "2026-11-18T10:05:51.000Z",
@@ -128682,14 +128682,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95643"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-95643\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-18-cve-2026-95643",
       "x_craftedsignal_event_id": "brief-2026-11-18-cve-2026-95643",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-95643/",
-      "x_craftedsignal_activity_at": "2026-11-18T10:05:51.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T01:33:35.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {

@@ -1,13 +1,29 @@
 ---
+brief_id: brief-2026-04-24-marimo-rce
+event_id: brief-2026-04-24-marimo-rce
+revision: 1
+activity_at: "2026-04-24T12:00:00Z"
 title: Marimo Pre-Authentication Remote Code Execution Vulnerability (CVE-2026-39987)
 slug: 2026-04-marimo-rce
 description: CVE-2026-39987 is a pre-authentication remote code execution vulnerability in Marimo, enabling unauthenticated attackers to execute arbitrary system commands.
 date: "2026-04-24T12:00:00Z"
-type: advisory
+lastmod: "2026-11-20T01:31:52Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-04-24T12:00:00Z"
+  confidence: high
+cpes:
+  - cpe:2.3:a:coreweave:marimo:*:*:*:*:*:python:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-NXPLOITED-CVE-2026-39987&utm_source=rss&utm_medium=rss
 tags:
   - CVE-2026-39987
   - rce
@@ -20,15 +36,23 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1219
-    technique_name: Exploitation of Remote Services
+    technique_name: Remote Access Software
+cve_verification:
+  CVE-2026-39987:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-20T01:31:52.581798324Z
 cves:
   - id: CVE-2026-39987
     cvss: 9.8
-    epss: 0.55209
+    epss: 0.99743
+    kev: true
+    kev_status: "true"
 references:
   - https://www.cve.org/CVERecord?id=CVE-2026-39987
   - https://github.com/marimo-team/marimo/security/advisories/GHSA-2679-6mx9-h9xc
   - https://nvd.nist.gov/vuln/detail/CVE-2026-39987
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-NXPLOITED-CVE-2026-39987&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect Marimo Exploitation Attempt
     description: Detects potential exploitation attempts targeting CVE-2026-39987 based on suspicious HTTP requests to the Marimo server.
@@ -53,7 +77,17 @@ rules:
       - process_creation
       - linux
 rules_count: 2
+updates:
+  - at: "2026-11-20T01:31:52Z"
+    level: L3
+    summary: exploited:true; poc_available; KEV CVE-2026-39987
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-NXPLOITED-CVE-2026-39987&utm_source=rss&utm_medium=rss
 ---
+
+## Overview
 
 A pre-authentication remote code execution vulnerability, CVE-2026-39987, exists within the Marimo application. This vulnerability allows an unauthenticated attacker to gain shell access and execute arbitrary system commands on the affected system. Given the nature of the vulnerability, all versions of Marimo are potentially affected unless patched or mitigated. Successful exploitation could lead to complete system compromise, data theft, or denial of service. The vulnerability was publicly disclosed in April 2026 and organizations using Marimo should take immediate action to address it.
 
