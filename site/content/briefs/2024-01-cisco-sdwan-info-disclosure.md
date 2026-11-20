@@ -1,13 +1,39 @@
 ---
+brief_id: brief-2024-01-19-cisco-sdwan-info-disclosure
+event_id: brief-2024-01-19-cisco-sdwan-info-disclosure
+revision: 2
+activity_at: "2026-11-20T01:37:27Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T01:37:27Z"
+    checksum: sha256:3866fa90aa2d14b89c38636c2cd92eabf64683432f8647edc5e88c784cd5939f
+    summary: exploited:true; KEV CVE-2026-20133
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Cisco Catalyst SD-WAN Manager Information Disclosure Vulnerability (CVE-2026-20133)
 slug: 2024-01-cisco-sdwan-info-disclosure
 description: Cisco Catalyst SD-WAN Manager contains an information disclosure vulnerability (CVE-2026-20133) that could allow remote attackers to view sensitive information on affected systems, requiring immediate patching or mitigation.
 date: "2024-01-19T12:00:00Z"
-type: advisory
+lastmod: "2026-11-20T01:36:50Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-04-20T00:00:00Z"
+  confidence: high
 tags:
   - cve
   - vulnerability
@@ -26,6 +52,8 @@ cves:
   - id: CVE-2026-20133
     cvss: 6.5
     epss: 0.0112
+    kev: true
+    kev_status: "true"
 references:
   - https://www.cve.org/CVERecord?id=CVE-2026-20133
   - https://www.cisa.gov/news-events/directives/ed-26-03-mitigate-vulnerabilities-cisco-sd-wan-systems
@@ -56,7 +84,17 @@ rules:
       - webserver
       - linux
 rules_count: 2
+updates:
+  - at: "2026-11-20T01:36:50Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-20133
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 Cisco Catalyst SD-WAN Manager is susceptible to an information disclosure vulnerability, identified as CVE-2026-20133. The vulnerability allows unauthorized remote attackers to potentially gain access to sensitive information residing on affected systems. While the exact nature of the disclosed information isn't specified in the advisory, it could encompass configuration details, user credentials, or other sensitive data critical for the secure operation of the SD-WAN environment. CISA has issued Emergency Directive 26-03 and associated guidance, highlighting the severity and urging immediate action. The directive impacts organizations utilizing Cisco SD-WAN devices and emphasizes the need for thorough risk assessment and implementation of provided mitigation strategies.
 

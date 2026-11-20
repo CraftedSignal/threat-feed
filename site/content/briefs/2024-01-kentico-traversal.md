@@ -1,13 +1,39 @@
 ---
+brief_id: brief-2024-01-30-kentico-traversal
+event_id: brief-2024-01-30-kentico-traversal
+revision: 2
+activity_at: "2026-11-20T01:37:27Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T01:37:27Z"
+    checksum: sha256:536d9e9117479560029e7f4af4d72b64e4b04d15ea6a0c08d13d64e336e0b560
+    summary: exploited:true; KEV CVE-2025-2749
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Kentico Xperience Path Traversal Vulnerability (CVE-2025-2749)
 slug: 2024-01-kentico-traversal
 description: Kentico Xperience contains a path traversal vulnerability (CVE-2025-2749) that could allow an authenticated user's Staging Sync Server to upload arbitrary data to path relative locations, potentially leading to remote code execution or data compromise.
 date: "2024-01-30T12:00:00Z"
-type: advisory
+lastmod: "2026-11-20T01:36:50Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-04-20T00:00:00Z"
+  confidence: high
 tags:
   - path traversal
   - cve-2025-2749
@@ -25,6 +51,8 @@ cves:
   - id: CVE-2025-2749
     cvss: 7.2
     epss: 0.05051
+    kev: true
+    kev_status: "true"
 references:
   - https://www.cve.org/CVERecord?id=CVE-2025-2749
   - https://devnet.kentico.com/download/hotfixes
@@ -53,7 +81,17 @@ rules:
       - file_event
       - windows
 rules_count: 2
+updates:
+  - at: "2026-11-20T01:36:50Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2025-2749
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 CVE-2025-2749 is a path traversal vulnerability affecting Kentico Xperience, a digital experience platform. This vulnerability allows an authenticated user, specifically one with access to the Staging Sync Server, to upload arbitrary data to path-relative locations on the server. The vulnerability stems from insufficient validation of file paths during the staging synchronization process. Successful exploitation of this vulnerability could lead to arbitrary file uploads, potentially overwriting critical system files or introducing malicious code. This could enable an attacker to achieve remote code execution, compromise sensitive data, or disrupt the availability of the Kentico Xperience instance. Due to the potential for significant impact, organizations using Kentico Xperience should apply mitigations as soon as possible.
 

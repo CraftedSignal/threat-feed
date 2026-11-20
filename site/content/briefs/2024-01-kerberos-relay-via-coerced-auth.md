@@ -1,22 +1,46 @@
 ---
+brief_id: brief-2024-01-03-kerberos-relay-via-coerced-auth
+event_id: brief-2024-01-03-kerberos-relay-via-coerced-auth
+revision: 2
+activity_at: "2026-11-20T01:37:27Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T01:37:27Z"
+    checksum: sha256:b0e92d228310cab3f2f07c78a329bff1fcff865c9a5e950cc18290d21ac240f7
+    summary: exploited:true; KEV CVE-2025-33073
+    changed_fields:
+      - affected_products
+      - affected_vendors
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Potential Kerberos Relay Attack via Coerced Authentication against a Computer Account
 slug: 2024-01-kerberos-relay-via-coerced-auth
 description: Detects potential Kerberos relay attacks by identifying coercion attempts followed by authentication events using a target server's computer account, originating from a different host, indicating an attacker has captured and relayed Kerberos authentication material to execute code on behalf of the compromised system.
 date: "2024-01-03T12:00:00Z"
-type: advisory
+lastmod: "2026-11-20T01:36:50Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2025-10-20T00:00:00Z"
+  confidence: high
 tags:
   - kerberos
   - relay
   - credential_access
   - windows
-vendors:
-  - Microsoft
-products:
-  - Windows
 affected_os:
   - windows
 mitre_ttps:
@@ -27,7 +51,9 @@ mitre_ttps:
 cves:
   - id: CVE-2025-33073
     cvss: 8.8
-    epss: 0.64315
+    epss: 0.4924
+    kev: true
+    kev_status: "true"
 references:
   - https://github.com/p0dalirius/windows-coerced-authentication-methods
   - https://www.thehacker.recipes/a-d/movement/mitm-and-coerced-authentications
@@ -72,7 +98,17 @@ rules:
       - process_creation
       - windows
 rules_count: 3
+updates:
+  - at: "2026-11-20T01:36:50Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2025-33073
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 This detection identifies potential Kerberos relay attacks targeting Windows systems. The attack involves coercing a target server to authenticate to an attacker-controlled system, which then relays the authentication to another service. The initial coercion leverages commonly abused named pipes like Spoolss, netdfs, and lsarpc. By capturing and relaying the Kerberos authentication, attackers can impersonate the target server and potentially execute code with elevated privileges. This activity is often associated with lateral movement and privilege escalation within a Windows domain. The detection focuses on the sequence of events, specifically a file access event (5145) against a named pipe, followed by a Kerberos authentication event (4624/4625) originating from a different IP address. Defenders should be aware that successful exploitation may lead to full domain compromise.
 

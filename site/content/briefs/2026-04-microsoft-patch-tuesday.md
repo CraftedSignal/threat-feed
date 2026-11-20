@@ -1,14 +1,39 @@
 ---
+brief_id: brief-2026-04-16-microsoft-patch-tuesday
+event_id: brief-2026-04-16-microsoft-patch-tuesday
+revision: 2
+activity_at: "2026-11-20T01:37:27Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T01:37:27Z"
+    checksum: sha256:ff19dd815eb1b8bbd541ef85037504467335e694a44b941bd4d6cd06dd507172
+    summary: exploited:true; KEV CVE-2026-33825; KEV CVE-2026-33824
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - ttps
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Microsoft April 2026 Patch Tuesday Addresses 163 Vulnerabilities
 slug: 2026-04-microsoft-patch-tuesday
 description: Microsoft's April 2026 Patch Tuesday addresses 163 vulnerabilities, including 8 critical ones, ranging from Tampering to Remote Code Execution and Privilege Escalation, affecting various Microsoft products; it is recommended to apply patches immediately.
 date: "2026-04-16T10:00:00Z"
+lastmod: "2026-11-20T01:36:50Z"
 type: threat
 types:
   - threat
 severities:
   - critical
 exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-04-22T00:00:00Z"
+  confidence: high
 tags:
   - patch-tuesday
   - vulnerability
@@ -28,24 +53,37 @@ mitre_ttps:
     tactic_name: Defense Evasion
     technique_id: T1553
     technique_name: Subvert Trust Controls
+    subtechnique_id: T1553.001
+    subtechnique_name: Gatekeeper Bypass
   - tactic_id: TA0008
     tactic_name: Lateral Movement
     technique_id: T1021
     technique_name: Remote Services
+    subtechnique_id: T1021.002
+    subtechnique_name: SMB/Windows Admin Shares
 cves:
   - id: CVE-2026-33826
     cvss: 8
+    kev_status: unknown
   - id: CVE-2026-33825
     cvss: 7.8
-    epss: 0.03818
+    kev: true
+    kev_status: "true"
   - id: CVE-2026-33824
     cvss: 9.8
+    kev: true
+    kev_status: "true"
   - id: CVE-2026-33827
     cvss: 8.1
+    kev_status: unknown
   - id: CVE-2026-27913
     cvss: 7.7
+    kev_status: unknown
   - id: CVE-2026-26151
     cvss: 7.1
+    kev_status: unknown
+  - id: CVE-2026-32201
+    kev_status: unknown
 references:
   - https://ccb.belgium.be/advisories/warning-microsoft-patch-tuesday-april-2026-patches-163-vulnerabilities-8-critical-154
   - https://msrc.microsoft.com/update-guide/releaseNote/2026-Apr
@@ -76,7 +114,17 @@ rules:
       - network_connection
       - windows
 rules_count: 2
+updates:
+  - at: "2026-11-20T01:36:50Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-33825; KEV CVE-2026-33824
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 Microsoft's April 2026 Patch Tuesday addresses 163 vulnerabilities across its product range, with 8 rated as critical. This update includes fixes for actively exploited zero-day vulnerabilities. The vulnerabilities span multiple categories, including remote code execution (RCE), elevation of privilege, and spoofing. Specifically, CVE-2026-32201 is a zero-day actively exploited in Microsoft SharePoint, and CVE-2026-33826 poses a critical RCE risk in Windows Active Directory environments. Given the wide range of impacted products and the severity of certain vulnerabilities, organizations are strongly advised to prioritize patching to mitigate potential risks of exploitation and lateral movement. The updates cover both server and workstation products.
 

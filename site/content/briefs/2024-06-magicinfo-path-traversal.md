@@ -1,14 +1,24 @@
 ---
+brief_id: brief-2024-06-19-magicinfo-path-traversal
+event_id: brief-2024-06-19-magicinfo-path-traversal
+revision: 1
+activity_at: "2024-06-19T12:00:00Z"
 title: Samsung MagicINFO 9 Server Path Traversal Vulnerability (CVE-2024-7399)
 slug: 2024-06-magicinfo-path-traversal
 description: A path traversal vulnerability in Samsung MagicINFO 9 Server could allow an attacker to write arbitrary files with system privileges, potentially leading to code execution or system compromise.
 date: "2024-06-19T12:00:00Z"
+lastmod: "2026-11-20T01:36:50Z"
 type: threat
 types:
   - threat
 severities:
   - critical
 exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-04-24T00:00:00Z"
+  confidence: high
 tags:
   - path-traversal
   - cve-2024-7399
@@ -21,11 +31,15 @@ mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1505
-    technique_name: 'Server Software Component: Web Shell'
+    technique_name: Server Software Component
+    subtechnique_id: T1505.003
+    subtechnique_name: Web Shell
 cves:
   - id: CVE-2024-7399
     cvss: 8.8
     epss: 0.82263
+    kev: true
+    kev_status: "true"
 references:
   - https://www.cve.org/CVERecord?id=CVE-2024-7399
   - https://security.samsungtv.com/securityUpdates
@@ -54,7 +68,17 @@ rules:
       - file_event
       - linux
 rules_count: 2
+updates:
+  - at: "2026-11-20T01:36:50Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2024-7399
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 A critical path traversal vulnerability, identified as CVE-2024-7399, affects Samsung MagicINFO 9 Server. This flaw could be exploited by an attacker to write arbitrary files to the server with system-level privileges. Successful exploitation could lead to a complete compromise of the MagicINFO server, potentially allowing attackers to execute arbitrary code, install backdoors, or manipulate data stored on the server. Given the potential for widespread impact, organizations utilizing MagicINFO 9 Server should prioritize patching or mitigating this vulnerability immediately. The vulnerability was added to the CISA Known Exploited Vulnerabilities (KEV) catalog, highlighting its active exploitation risk.
 

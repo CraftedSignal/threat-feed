@@ -1,13 +1,39 @@
 ---
+brief_id: brief-2024-01-24-zimbra-xss
+event_id: brief-2024-01-24-zimbra-xss
+revision: 2
+activity_at: "2026-11-20T01:37:27Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T01:37:27Z"
+    checksum: sha256:3b674878308089e637a1b9f8b2dc4aafd16f6fbcb22d1b9ea8124a9a44d537a0
+    summary: exploited:true; KEV CVE-2025-48700
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Synacor Zimbra Collaboration Suite (ZCS) Cross-Site Scripting Vulnerability
 slug: 2024-01-zimbra-xss
 description: A cross-site scripting (XSS) vulnerability in Synacor Zimbra Collaboration Suite (ZCS) could allow attackers to execute arbitrary JavaScript within a user's session, potentially leading to unauthorized access to sensitive information.
 date: "2024-01-24T12:00:00Z"
-type: advisory
+lastmod: "2026-11-20T01:36:50Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - medium
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-04-20T00:00:00Z"
+  confidence: high
 tags:
   - xss
   - vulnerability
@@ -25,6 +51,8 @@ cves:
   - id: CVE-2025-48700
     cvss: 6.1
     epss: 0.18757
+    kev: true
+    kev_status: "true"
 references:
   - https://www.cve.org/CVERecord?id=CVE-2025-48700
   - https://wiki.zimbra.com/wiki/Zimbra_Security_Advisories
@@ -53,7 +81,17 @@ rules:
       - webserver
       - linux
 rules_count: 2
+updates:
+  - at: "2026-11-20T01:36:50Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2025-48700
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 A cross-site scripting (XSS) vulnerability, identified as CVE-2025-48700, exists within the Synacor Zimbra Collaboration Suite (ZCS). This flaw could be exploited by attackers to inject and execute arbitrary JavaScript code within a user's web browser session when they interact with a compromised Zimbra instance. Successful exploitation could lead to the theft of session cookies, credential harvesting, or other malicious activities performed on behalf of the victim user. The vulnerability requires user interaction to trigger, making it essential to educate users about the risks of clicking on untrusted links or opening suspicious attachments. The scope of the vulnerability affects installations of Zimbra Collaboration Suite.
 

@@ -1,13 +1,24 @@
 ---
+brief_id: brief-2024-04-29-screenconnect-path-traversal
+event_id: brief-2024-04-29-screenconnect-path-traversal
+revision: 1
+activity_at: "2024-04-29T12:00:00Z"
 title: ConnectWise ScreenConnect Path Traversal Vulnerability (CVE-2024-1708)
 slug: 2024-04-29-screenconnect-path-traversal
 description: CVE-2024-1708 is a path traversal vulnerability in ConnectWise ScreenConnect that could allow an attacker to execute remote code or directly impact confidential data and critical systems.
 date: "2024-04-29T12:00:00Z"
-type: advisory
+lastmod: "2026-11-20T01:36:50Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-04-28T00:00:00Z"
+  confidence: high
 tags:
   - path-traversal
   - remote-code-execution
@@ -26,6 +37,8 @@ cves:
   - id: CVE-2024-1708
     cvss: 8.4
     epss: 0.8162
+    kev: true
+    kev_status: "true"
 references:
   - https://www.cve.org/CVERecord?id=CVE-2024-1708
   - https://www.connectwise.com/company/trust/security-bulletins/connectwise-screenconnect-23.9.8
@@ -54,7 +67,17 @@ rules:
       - webserver
       - linux
 rules_count: 2
+updates:
+  - at: "2026-11-20T01:36:50Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2024-1708
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 CVE-2024-1708 is a critical path traversal vulnerability affecting ConnectWise ScreenConnect. This flaw could allow an unauthenticated attacker to execute remote code or directly access confidential data and critical systems. ConnectWise released security bulletin 23.9.8 to address this vulnerability. Given the potential for remote code execution and data compromise, this vulnerability poses a significant risk to organizations using ConnectWise ScreenConnect, potentially allowing full system takeover. CISA added this to their KEV catalog and recommends applying mitigations per vendor instructions, following BOD 22-01 guidance for cloud services, or discontinuing use of the product if mitigations are unavailable.
 

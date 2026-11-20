@@ -1,8 +1,30 @@
 ---
+brief_id: brief-2026-04-18-payouts-king-qemu
+event_id: brief-2026-04-18-payouts-king-qemu
+revision: 2
+activity_at: "2026-11-20T01:37:27Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T01:37:27Z"
+    checksum: sha256:4fec20fef764505cb8d157d0b29647dee40af460d952ef2f70f7239c1feb0354
+    summary: exploited:true; KEV CVE-2025-26399
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - ttps
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Payouts King Ransomware Abusing QEMU VMs for Defense Evasion
 slug: 2026-04-payouts-king-qemu
 description: The Payouts King ransomware is leveraging QEMU VMs as a reverse SSH backdoor to execute payloads, store malicious files, and establish covert remote access tunnels, bypassing endpoint security measures.
 date: "2026-04-18T12:00:00Z"
+lastmod: "2026-11-20T01:36:50Z"
 type: threat
 types:
   - threat
@@ -10,6 +32,12 @@ severities:
   - critical
 actors:
   - GOLD ENCOUNTER
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-03-09T00:00:00Z"
+  confidence: high
 tags:
   - payouts-king
   - ransomware
@@ -25,10 +53,12 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1566
     technique_name: Phishing
+    subtechnique_id: T1566.001
+    subtechnique_name: Spearphishing Attachment
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1053.005
-    technique_name: 'Scheduled Task/Job: Scheduled Task'
+    technique_name: Scheduled Task
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
@@ -36,11 +66,11 @@ mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1622
-    technique_name: Masquerade Task or Service
+    technique_name: Debugger Evasion
   - tactic_id: TA0006
     tactic_name: Credential Access
     technique_id: T1003.001
-    technique_name: 'OS Credential Dumping: LSASS Memory'
+    technique_name: LSASS Memory
   - tactic_id: TA0010
     tactic_name: Exfiltration
     technique_id: T1041
@@ -48,11 +78,13 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1574.002
-    technique_name: 'Hijack Execution Flow: DLL Side-Loading'
+    technique_name: DLL Side-Loading
 cves:
   - id: CVE-2025-26399
     cvss: 9.8
-    epss: 0.26563
+    epss: 0.32241
+    kev: true
+    kev_status: "true"
 references:
   - https://www.bleepingcomputer.com/news/security/payouts-king-ransomware-uses-qemu-vms-to-bypass-endpoint-security/
 iocs:
@@ -84,7 +116,17 @@ rules:
       - process_creation
       - windows
 rules_count: 2
+updates:
+  - at: "2026-11-20T01:36:50Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2025-26399
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 The Payouts King ransomware, associated with the GOLD ENCOUNTER threat group, is utilizing QEMU, an open-source CPU emulator, to run hidden Alpine Linux virtual machines (VMs) on compromised Windows systems, effectively bypassing endpoint security solutions. This technique allows attackers to execute malicious payloads, store sensitive data, and create covert remote access tunnels over SSH without being detected by host-based security tools. Observed since November 2025 (tracked as STAC4713), this campaign initially exploited exposed SonicWall VPNs and the SolarWinds Web Help Desk vulnerability (CVE-2025-26399). More recent attacks have leveraged exposed Cisco SSL VPNs and Microsoft Teams phishing campaigns to deliver payloads. The attackers are likely tied to former BlackBasta affiliates based on similar initial access methods. This tactic enables persistence, elevated privileges, and data exfiltration while evading detection.
 

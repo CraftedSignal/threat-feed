@@ -1,21 +1,67 @@
 ---
+brief_id: brief-2024-01-03-sigred-overflow
+event_id: brief-2024-01-03-sigred-overflow
+revision: 2
+activity_at: "2026-11-20T01:37:27Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T01:37:27Z"
+    checksum: sha256:6d36992ca9912dbc330dc7b9693f7fe9b75f3a9fc36eedf002d6cc207dd9d50c
+    summary: exploited:true; KEV CVE-2020-1350
+    changed_fields:
+      - affected_os
+      - affected_products
+      - affected_vendors
+      - cpes
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - references
+      - ttps
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Detection of Abnormally Large DNS Responses Indicative of CVE-2020-1350 Exploitation
 slug: 2024-01-sigred-overflow
 description: This rule detects abnormally large DNS responses indicative of exploitation attempts targeting a known overflow vulnerability (CVE-2020-1350) in Windows DNS servers, potentially leading to Remote Code Execution (RCE) or Denial of Service (DoS).
 date: "2024-01-03T12:00:00Z"
-type: advisory
+lastmod: "2026-11-20T01:36:50Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - medium
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2021-11-03T00:00:00Z"
+  confidence: high
+cpes:
+  - cpe:2.3:o:microsoft:windows_server_2008:-:sp2:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2008:r2:sp1:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2016:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2019:-:*:*:*:*:*:*:*
 tags:
   - sigred
   - dns-server
   - vulnerability
 vendors:
+  - CrowdStrike
+  - Elastic
   - Microsoft
+  - ReasonLabs
+  - SentinelOne
 products:
-  - Windows DNS Server
+  - Elastic Defend
+  - Microsoft Defender XDR
+  - ReasonLabs DNS
+  - SentinelOne Cloud Funnel
+  - Windows Domain Name System (DNS) Server
+affected_os:
+  - windows
 mitre_ttps:
   - tactic_id: TA0008
     tactic_name: Lateral Movement
@@ -25,11 +71,20 @@ mitre_ttps:
     tactic_name: Impact
     technique_id: T1499
     technique_name: Endpoint Denial of Service
+    subtechnique_id: T1499.004
+    subtechnique_name: Application or System Exploitation
+cves:
+  - id: CVE-2020-1350
+    cvss: 10
+    epss: 0.93808
+    kev: true
+    kev_status: "true"
 references:
   - https://research.checkpoint.com/2020/resolving-your-way-into-domain-admin-exploiting-a-17-year-old-bug-in-windows-dns-servers/
   - https://msrc-blog.microsoft.com/2020/07/14/july-2020-security-update-cve-2020-1350-vulnerability-in-windows-domain-name-system-dns-server/
   - https://github.com/maxpl0it/CVE-2020-1350-DoS
   - https://www.elastic.co/security-labs/detection-rules-for-sigred-vulnerability
+  - https://github.com/elastic/detection-rules/blob/main/rules/windows/lateral_movement_unusual_dns_service_children.toml
 rules:
   - title: Abnormally Large DNS Response
     description: Detects DNS responses exceeding 60KB, potentially indicating CVE-2020-1350 exploitation attempts.
@@ -58,7 +113,22 @@ rules:
       - network_connection
       - windows
 rules_count: 2
+updates:
+  - at: "2026-05-12T17:47:04Z"
+    level: L2
+    summary: added CVE-2020-1350;
+    sources:
+      - elastic
+  - at: "2026-11-20T01:36:50Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2020-1350
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 This threat brief focuses on the detection of abnormally large DNS responses that may indicate exploitation attempts against CVE-2020-1350, also known as SigRed. This vulnerability affects Windows DNS servers and can lead to Remote Code Execution (RCE) or Denial of Service (DoS) if successfully exploited. The vulnerability resides in how the Windows DNS server parses incoming DNS queries, specifically related to signature records (SIG). An attacker can craft a malicious DNS response that triggers a buffer overflow when processed by the DNS server. This detection rule focuses on identifying network traffic exhibiting abnormally large DNS response sizes, specifically those exceeding 60KB. While some legitimate DNS traffic may approach this size, responses significantly larger are often indicative of exploitation attempts.
 

@@ -1,13 +1,39 @@
 ---
+brief_id: brief-2024-05-15-jetbrains-teamcity-suspicious-child-process
+event_id: brief-2024-05-15-jetbrains-teamcity-suspicious-child-process
+revision: 2
+activity_at: "2026-11-20T01:37:27Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T01:37:27Z"
+    checksum: sha256:195140e5574eeb1e64b3e716748b81f5557183534381e7ba080893f1cd3e566e
+    summary: exploited:true; KEV CVE-2023-42793
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - ttps
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Suspicious Child Processes Spawned by JetBrains TeamCity
 slug: 2024-05-jetbrains-teamcity-suspicious-child-process
 description: Detection of suspicious processes spawned by JetBrains TeamCity indicates potential exploitation of remote code execution vulnerabilities, with attackers using command interpreters and system binaries for malicious purposes.
 date: "2024-05-15T12:00:00Z"
-type: advisory
+lastmod: "2026-11-20T01:36:50Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - medium
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2023-10-04T00:00:00Z"
+  confidence: high
 tags:
   - teamcity
   - supply-chain
@@ -27,38 +53,56 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+    subtechnique_id: T1059.001
+    subtechnique_name: PowerShell
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+    subtechnique_id: T1059.003
+    subtechnique_name: Windows Command Shell
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1218
     technique_name: System Binary Proxy Execution
+    subtechnique_id: T1218.003
+    subtechnique_name: CMSTP
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1218
     technique_name: System Binary Proxy Execution
+    subtechnique_id: T1218.004
+    subtechnique_name: InstallUtil
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1218
     technique_name: System Binary Proxy Execution
+    subtechnique_id: T1218.005
+    subtechnique_name: Mshta
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1218
     technique_name: System Binary Proxy Execution
+    subtechnique_id: T1218.007
+    subtechnique_name: Msiexec
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1218
     technique_name: System Binary Proxy Execution
+    subtechnique_id: T1218.008
+    subtechnique_name: Odbcconf
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1218
     technique_name: System Binary Proxy Execution
+    subtechnique_id: T1218.010
+    subtechnique_name: Regsvr32
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1218
     technique_name: System Binary Proxy Execution
+    subtechnique_id: T1218.011
+    subtechnique_name: Rundll32
   - tactic_id: TA0007
     tactic_name: Discovery
     technique_id: T1016
@@ -91,6 +135,8 @@ cves:
   - id: CVE-2023-42793
     cvss: 9.8
     epss: 0.92913
+    kev: true
+    kev_status: "true"
 references:
   - https://www.trendmicro.com/en_us/research/24/c/teamcity-vulnerability-exploits-lead-to-jasmin-ransomware.html
 rules:
@@ -123,7 +169,17 @@ rules:
       - process_creation
       - windows
 rules_count: 2
+updates:
+  - at: "2026-11-20T01:36:50Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2023-42793
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 JetBrains TeamCity is a continuous integration and deployment server, making it a high-value target for attackers. Exploitation of TeamCity vulnerabilities can lead to remote code execution, enabling adversaries to compromise the software development pipeline. This activity is detected by monitoring for suspicious child processes initiated by the TeamCity Java executable, focusing on executables like `cmd.exe`, `powershell.exe`, and `msiexec.exe`. The detection logic excludes legitimate operations to reduce false positives. This activity can lead to complete compromise of the build environment, allowing attackers to inject malicious code into software builds.
 

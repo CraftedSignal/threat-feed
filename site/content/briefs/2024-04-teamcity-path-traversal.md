@@ -1,14 +1,38 @@
 ---
+brief_id: brief-2024-04-29-teamcity-path-traversal
+event_id: brief-2024-04-29-teamcity-path-traversal
+revision: 2
+activity_at: "2026-11-20T01:37:27Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T01:37:27Z"
+    checksum: sha256:5e675402624dd347abd407da31ba6afbe23b537048b73ff9eb5021a4dcb7b217
+    summary: exploited:true; KEV CVE-2024-27199
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: JetBrains TeamCity Relative Path Traversal Vulnerability (CVE-2024-27199)
 slug: 2024-04-teamcity-path-traversal
 description: A relative path traversal vulnerability in JetBrains TeamCity (CVE-2024-27199) could allow limited administrative actions and has been linked to ransomware attacks.
 date: "2024-04-29T12:00:00Z"
+lastmod: "2026-11-20T01:36:50Z"
 type: threat
 types:
   - threat
 severities:
   - critical
 exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-04-20T00:00:00Z"
+  confidence: high
 tags:
   - cve-2024-27199
   - path-traversal
@@ -27,6 +51,10 @@ cves:
   - id: CVE-2024-27199
     cvss: 7.3
     epss: 0.91355
+    kev: true
+    kev_status: "true"
+  - id: CVE-2024-27198
+    kev_status: unknown
 references:
   - https://www.cve.org/CVERecord?id=CVE-2024-27199
   - https://www.jetbrains.com/privacy-security/issues-fixed/
@@ -56,7 +84,17 @@ rules:
       - webserver
       - linux
 rules_count: 2
+updates:
+  - at: "2026-11-20T01:36:50Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2024-27199
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 CVE-2024-27199 is a relative path traversal vulnerability affecting JetBrains TeamCity, a continuous integration and deployment server. This vulnerability allows attackers to perform limited administrative actions by manipulating file paths. JetBrains released a patch for this vulnerability in version 2023.11.4. CISA has added CVE-2024-27199 to its Known Exploited Vulnerabilities catalog, indicating active exploitation in the wild, including its use in ransomware attacks. The vulnerability poses a significant risk to organizations using TeamCity, potentially leading to unauthorized access, data breaches, and system compromise.
 

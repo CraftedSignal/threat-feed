@@ -1,40 +1,66 @@
 ---
+brief_id: brief-2024-01-02-unshare-namespace-manipulation
+event_id: brief-2024-01-02-unshare-namespace-manipulation
+revision: 2
+activity_at: "2026-11-20T01:37:27Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T01:37:27Z"
+    checksum: sha256:ed9c57f215ffcd1dfb28dc44da74e19708efced2ccd1c9a815284e9f20b27daa
+    summary: exploited:true; KEV CVE-2022-0185
+    changed_fields:
+      - cpes
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Suspicious Unshare Usage for Namespace Manipulation
 slug: 2024-01-unshare-namespace-manipulation
 description: The `unshare` command is used to create new namespaces in Linux, which can be exploited to break out of containers or elevate privileges by creating namespaces that bypass security controls.
 date: "2024-01-02T12:00:00Z"
-lastmod: "2026-07-20T12:48:38Z"
-type: advisory
+lastmod: "2026-11-20T01:36:50Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - medium
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2024-08-21T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:netapp:h410c_firmware:-:*:*:*:*:*:*:*
-  - cpe:2.3:o:netapp:h300s_firmware:-:*:*:*:*:*:*:*
-  - cpe:2.3:o:netapp:h500s_firmware:-:*:*:*:*:*:*:*
-  - cpe:2.3:o:netapp:h700s_firmware:-:*:*:*:*:*:*:*
   - cpe:2.3:o:netapp:h300e_firmware:-:*:*:*:*:*:*:*
-  - cpe:2.3:o:netapp:h500e_firmware:-:*:*:*:*:*:*:*
-  - cpe:2.3:o:netapp:h700e_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:netapp:h300s_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:netapp:h410c_firmware:-:*:*:*:*:*:*:*
   - cpe:2.3:o:netapp:h410s_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:netapp:h500e_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:netapp:h500s_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:netapp:h700e_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:netapp:h700s_firmware:-:*:*:*:*:*:*:*
 tags:
   - privilege-escalation
   - container-escape
   - linux
 vendors:
   - Elastic
-  - SentinelOne
   - Linux Foundation
+  - SentinelOne
 products:
-  - Elastic Defend
   - Auditbeat
+  - Elastic Defend
   - Elastic Endgame
-  - SentinelOne Cloud Funnel
-  - Linux Kernel
-  - util-linux
   - Kubernetes
+  - Linux Kernel
+  - SentinelOne Cloud Funnel
+  - util-linux
 affected_os:
   - Linux
 mitre_ttps:
@@ -50,6 +76,8 @@ cves:
   - id: CVE-2022-0185
     cvss: 8.4
     epss: 0.25151
+    kev: true
+    kev_status: "true"
 references:
   - https://man7.org/linux/man-pages/man1/unshare.1.html
   - https://www.crowdstrike.com/blog/cve-2022-0185-kubernetes-container-escape-using-linux-kernel-exploit/
@@ -88,7 +116,16 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/linux/privilege_escalation_unshare_namespace_manipulation.toml
+  - at: "2026-11-20T01:36:50Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2022-0185
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 The `unshare` command in Linux is a utility used to create new namespaces, providing isolation for processes. While crucial for containerization and security, attackers can misuse `unshare` to escape container boundaries or escalate privileges by manipulating system namespaces. This occurs by creating namespaces that bypass established security controls. This activity is often observed when threat actors attempt to gain unauthorized access to host resources or elevate their privileges within a compromised system. The focus of this detection is on identifying unusual `unshare` executions that deviate from legitimate system management activities.
 

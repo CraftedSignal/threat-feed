@@ -1,13 +1,38 @@
 ---
+brief_id: brief-2026-04-23-mirai-dlink-rce
+event_id: brief-2026-04-23-mirai-dlink-rce
+revision: 2
+activity_at: "2026-11-20T01:37:27Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T01:37:27Z"
+    checksum: sha256:540cc42a233f2ff77f84e418445c4268655b37319d840aadda608ebfe02e5abb
+    summary: exploited:true; KEV CVE-2025-29635; KEV CVE-2023-1389
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Mirai Campaign Exploiting CVE-2025-29635 in D-Link Routers
 slug: 2026-04-mirai-dlink-rce
 description: A new Mirai-based malware campaign is exploiting CVE-2025-29635, a command-injection vulnerability affecting D-Link DIR-823X routers, to enlist devices into the botnet.
 date: "2026-04-23T12:00:00Z"
-type: advisory
+lastmod: "2026-11-20T01:36:50Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2023-05-01T00:00:00Z"
+  confidence: high
 tags:
   - mirai
   - ddos
@@ -28,7 +53,7 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.004
-    technique_name: 'Command and Scripting Interpreter: Unix Shell'
+    technique_name: Unix Shell
   - tactic_id: TA0011
     tactic_name: Command and Control
     technique_id: T1105
@@ -36,14 +61,18 @@ mitre_ttps:
   - tactic_id: TA0042
     tactic_name: Resource Development
     technique_id: T1583.001
-    technique_name: 'Acquire Infrastructure: Domains'
+    technique_name: Domains
 cves:
   - id: CVE-2025-29635
     cvss: 8.8
-    epss: 0.69694
+    epss: 0.0125
+    kev: true
+    kev_status: "true"
   - id: CVE-2023-1389
     cvss: 8.8
     epss: 0.93543
+    kev: true
+    kev_status: "true"
 references:
   - https://www.bleepingcomputer.com/news/security/new-mirai-campaign-exploits-rce-flaw-in-eol-d-link-routers/
 rules:
@@ -70,7 +99,17 @@ rules:
       - webserver
       - linux
 rules_count: 2
+updates:
+  - at: "2026-11-20T01:36:50Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2025-29635; KEV CVE-2023-1389
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 A new Mirai-based malware campaign has been observed exploiting CVE-2025-29635, a high-severity command injection vulnerability affecting D-Link DIR-823X routers. Discovered by Akamai's SIRT in March 2026, the campaign involves attackers sending malicious POST requests to vulnerable D-Link routers to execute arbitrary commands. This vulnerability allows attackers to download and execute a shell script, ultimately leading to the deployment of Mirai-based malware. The affected D-Link routers reached end-of-life in November 2024, meaning a patch is unlikely. The same actor is also exploiting CVE-2023-1389 impacting TP-Link routers, and an RCE flaw in ZTE ZXV10 H108L routers, deploying the same Mirai payload.
 

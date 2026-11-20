@@ -1,13 +1,38 @@
 ---
+brief_id: brief-2024-01-03-cpanel-auth-bypass
+event_id: brief-2024-01-03-cpanel-auth-bypass
+revision: 2
+activity_at: "2026-11-20T01:37:27Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T01:37:27Z"
+    checksum: sha256:fb857b518c083658bbd275eaea9e83c54654da23a3d3dcb70ed895d9c77f9925
+    summary: exploited:true; KEV CVE-2026-41940
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: WebPros cPanel & WHM and WP2 Authentication Bypass Vulnerability (CVE-2026-41940)
 slug: 2024-01-cpanel-auth-bypass
 description: CVE-2026-41940 is an authentication bypass vulnerability in WebPros cPanel & WHM and WP2 (WordPress Squared) that allows unauthenticated remote attackers to gain unauthorized access to the control panel.
 date: "2024-01-03T12:00:00Z"
-type: advisory
+lastmod: "2026-11-20T01:36:50Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-04-30T00:00:00Z"
+  confidence: high
 tags:
   - cpanel
   - whm
@@ -25,10 +50,12 @@ mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
-    technique_name: Exploit Public Fasing Application
+    technique_name: Exploit Public-Facing Application
 cves:
   - id: CVE-2026-41940
     cvss: 9.8
+    kev: true
+    kev_status: "true"
 references:
   - https://www.cve.org/CVERecord?id=CVE-2026-41940
   - https://support.cpanel.net/hc/en-us/articles/40073787579671-cPanel-WHM-Security-Update-04-28-2026
@@ -60,7 +87,17 @@ rules:
       - webserver
       - linux
 rules_count: 2
+updates:
+  - at: "2026-11-20T01:36:50Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-41940
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 WebPros cPanel & WHM (WebHost Manager) and WP2 (WordPress Squared) are affected by an authentication bypass vulnerability, identified as CVE-2026-41940. This flaw exists within the login flow, potentially granting unauthenticated remote attackers unauthorized access to the control panel. Successful exploitation allows attackers to bypass normal authentication mechanisms and directly access sensitive administrative functions within cPanel & WHM and WP2. Defenders should apply vendor-provided mitigations or discontinue use of the product if mitigations are not available. The vulnerability was disclosed in April 2026, and mitigations should be applied by May 3, 2026.
 

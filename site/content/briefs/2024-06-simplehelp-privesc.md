@@ -1,13 +1,24 @@
 ---
+brief_id: brief-2024-06-25-simplehelp-privesc
+event_id: brief-2024-06-25-simplehelp-privesc
+revision: 1
+activity_at: "2024-06-25T12:00:00Z"
 title: SimpleHelp Missing Authorization Vulnerability Leads to Privilege Escalation
 slug: 2024-06-simplehelp-privesc
 description: A missing authorization vulnerability in SimpleHelp (CVE-2024-57726) allows low-privileged technicians to create API keys with excessive permissions, potentially escalating privileges to the server admin role.
 date: "2024-06-25T12:00:00Z"
-type: advisory
+lastmod: "2026-11-20T01:36:50Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-04-24T00:00:00Z"
+  confidence: high
 tags:
   - privilege-escalation
   - missing-authorization
@@ -25,6 +36,8 @@ cves:
   - id: CVE-2024-57726
     cvss: 9.9
     epss: 0.45963
+    kev: true
+    kev_status: "true"
 references:
   - https://www.cve.org/CVERecord?id=CVE-2024-57726
   - https://simple-help.com/kb---security-vulnerabilities-01-2025#security-vulnerabilities-in-simplehelp-5-5-7-and-earlier
@@ -53,7 +66,17 @@ rules:
       - webserver
       - linux
 rules_count: 2
+updates:
+  - at: "2026-11-20T01:36:50Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2024-57726
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 CVE-2024-57726 affects SimpleHelp, a remote support software solution. This vulnerability stems from a missing authorization check, allowing low-privileged technicians to create API keys with elevated permissions beyond their intended scope. Specifically, these API keys can be manipulated to grant server admin privileges, potentially enabling unauthorized access to sensitive data and critical system configurations. The vulnerability impacts SimpleHelp versions 5.5.7 and earlier. Successful exploitation allows attackers to bypass intended access controls, gain complete control over the SimpleHelp server, and potentially pivot to other systems within the network. This vulnerability was disclosed in January 2025, and organizations using affected SimpleHelp versions are at risk.
 

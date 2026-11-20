@@ -1,14 +1,24 @@
 ---
+brief_id: brief-2026-04-21-cisco-sdwan-privilege-escalation
+event_id: brief-2026-04-21-cisco-sdwan-privilege-escalation
+revision: 1
+activity_at: "2026-04-21T12:00:00Z"
 title: Cisco Catalyst SD-WAN Manager Incorrect Use of Privileged APIs Vulnerability
 slug: 2026-04-cisco-sdwan-privilege-escalation
 description: Cisco Catalyst SD-WAN Manager contains an incorrect use of privileged APIs vulnerability due to improper file handling on the API interface, allowing an attacker to upload a malicious file and overwrite arbitrary files to gain vmanage user privileges.
 date: "2026-04-21T12:00:00Z"
+lastmod: "2026-11-20T01:36:50Z"
 type: threat
 types:
   - threat
 severities:
   - critical
 exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-04-20T00:00:00Z"
+  confidence: high
 tags:
   - cve-2026-20122
   - privilege-escalation
@@ -30,6 +40,8 @@ cves:
   - id: CVE-2026-20122
     cvss: 5.4
     epss: 0.00988
+    kev: true
+    kev_status: "true"
 references:
   - https://www.cve.org/CVERecord?id=CVE-2026-20122
   - https://www.cisa.gov/news-events/directives/ed-26-03-mitigate-vulnerabilities-cisco-sd-wan-systems
@@ -60,7 +72,17 @@ rules:
       - file_event
       - linux
 rules_count: 2
+updates:
+  - at: "2026-11-20T01:36:50Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-20122
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 Cisco Catalyst SD-WAN Manager is vulnerable to an incorrect use of privileged APIs. This flaw stems from improper file handling within the API interface. An attacker can exploit this vulnerability by uploading a malicious file to the local file system. Successful exploitation allows an attacker to overwrite arbitrary files on the affected system and ultimately gain vmanage user privileges. CISA has released Emergency Directive 26-03 and associated hunt/hardening guidance in response to active exploitation of Cisco SD-WAN vulnerabilities. This issue poses a significant risk to organizations utilizing affected Cisco SD-WAN deployments, as it allows for privilege escalation and potential compromise of the entire SD-WAN infrastructure.
 

@@ -1,13 +1,40 @@
 ---
+brief_id: brief-2024-05-16-screenconnect-child-process
+event_id: brief-2024-05-16-screenconnect-child-process
+revision: 2
+activity_at: "2026-11-20T01:37:27Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T01:37:27Z"
+    checksum: sha256:bee3cf57abcd23f11c7049d08718508b90e2d72c602cbe816ed9d316b1df99e5
+    summary: exploited:true; KEV CVE-2024-1709; KEV CVE-2024-1708
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - rules
+      - ttps
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Suspicious ScreenConnect Client Child Process Activity
 slug: 2024-05-screenconnect-child-process
 description: This rule identifies suspicious child processes spawned by ScreenConnect client processes, potentially indicating unauthorized access and command execution abusing ScreenConnect remote access software to perform malicious activities such as data exfiltration or establishing persistence.
 date: "2024-05-16T16:10:00Z"
-type: advisory
+lastmod: "2026-11-20T01:36:50Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - medium
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2024-02-22T00:00:00Z"
+  confidence: high
 tags:
   - command-and-control
   - defense-evasion
@@ -19,8 +46,8 @@ vendors:
 products:
   - Elastic Defend
   - Microsoft Defender XDR
-  - SentinelOne Cloud Funnel
   - ScreenConnect
+  - SentinelOne Cloud Funnel
 affected_os:
   - Windows
 mitre_ttps:
@@ -31,19 +58,25 @@ mitre_ttps:
   - tactic_id: TA0011
     tactic_name: Command and Control
     technique_id: T1219
-    technique_name: Remote Access Tools
+    technique_name: Remote Access Software
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1218
     technique_name: System Binary Proxy Execution
+    subtechnique_id: T1218.005
+    subtechnique_name: Mshta
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1218
     technique_name: System Binary Proxy Execution
+    subtechnique_id: T1218.007
+    subtechnique_name: Msiexec
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1218
     technique_name: System Binary Proxy Execution
+    subtechnique_id: T1218.011
+    subtechnique_name: Rundll32
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1047
@@ -52,52 +85,46 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+    subtechnique_id: T1059.001
+    subtechnique_name: PowerShell
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+    subtechnique_id: T1059.003
+    subtechnique_name: Windows Command Shell
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+    subtechnique_id: T1059.005
+    subtechnique_name: Visual Basic
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1053
     technique_name: Scheduled Task/Job
+    subtechnique_id: T1053.005
+    subtechnique_name: Scheduled Task
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1543
     technique_name: Create or Modify System Process
+    subtechnique_id: T1543.003
+    subtechnique_name: Windows Service
 cves:
   - id: CVE-2024-1709
     cvss: 10
     epss: 0.94322
+    kev: true
+    kev_status: "true"
   - id: CVE-2024-1708
     cvss: 8.4
     epss: 0.84882
+    kev: true
+    kev_status: "true"
 references:
   - https://www.huntress.com/blog/slashandgrab-screen-connect-post-exploitation-in-the-wild-cve-2024-1709-cve-2024-1708
 rules:
-  - title: ScreenConnect Spawning Suspicious Processes
-    description: Detects suspicious processes spawned by ScreenConnect client processes, indicating potential unauthorized command execution.
-    platform: sigma
-    severity: medium
-    tactics:
-      - command_and_control
-      - defense_evasion
-      - execution
-      - persistence
-    techniques:
-      - T1053.005
-      - T1059.001
-      - T1059.003
-      - T1218
-      - T1218.005
-      - T1218.011
-      - T1219
-    data_sources:
-      - process_creation
-      - windows
   - title: ScreenConnect Spawning Net.exe Adding User
     description: Detects net.exe being spawned by ScreenConnect client processes with arguments indicating user creation, a sign of potential privilege escalation or unauthorized access.
     platform: sigma
@@ -111,8 +138,18 @@ rules:
     data_sources:
       - process_creation
       - windows
-rules_count: 2
+rules_count: 1
+updates:
+  - at: "2026-11-20T01:36:50Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2024-1709; KEV CVE-2024-1708
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 This threat brief focuses on the detection of suspicious activities related to the ScreenConnect remote access tool. ScreenConnect is a legitimate remote support software, but adversaries can exploit it to execute unauthorized commands on compromised systems. This detection identifies suspicious child processes spawned by ScreenConnect client processes, such as `ScreenConnect.ClientService.exe` or `ScreenConnect.WindowsClient.exe`, which can indicate malicious activities such as spawning PowerShell or cmd.exe with unusual arguments. This activity can indicate potential abuse of remote access capabilities, leading to data exfiltration, command and control communication, or the establishment of persistence mechanisms. Recent exploitation of CVE-2024-1709 and CVE-2024-1708 have highlighted the risk associated with ScreenConnect exploitation.
 

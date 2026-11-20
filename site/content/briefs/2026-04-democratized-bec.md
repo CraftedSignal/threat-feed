@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-04-03-democratized-bec
 event_id: brief-2026-04-03-democratized-bec
-revision: 2
-activity_at: "2026-11-09T13:36:23Z"
+revision: 3
+activity_at: "2026-11-20T01:37:27Z"
 revision_history:
   - revision: 2
     at: "2026-11-09T13:36:23Z"
@@ -24,19 +24,37 @@ revision_history:
       - updates
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-C0RYDORAS-CVE-2025-55182&utm_source=rss&utm_medium=rss
+  - revision: 3
+    at: "2026-11-20T01:37:27Z"
+    checksum: sha256:7a0c265b763e45253b8ceb086aee5c3dc8edd3809b6457363ee63c61451d7d11
+    summary: exploited:true; KEV CVE-2025-55182
+    changed_fields:
+      - claim_state
+      - cves
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Democratization of Business Email Compromise (BEC) Attacks
 slug: 2026-04-democratized-bec
 description: Attackers are leveraging AI to rapidly reconnoiter and tailor content for smaller organizations, making it easier to execute business email compromise (BEC) scams and scam smaller sums from many victims, as demonstrated by a recent attack targeting a small community organization.
 date: "2026-04-03T12:00:00Z"
-lastmod: "2026-11-09T13:35:15Z"
-type: advisory
-claim_state: <nil>
+lastmod: "2026-11-20T01:36:50Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - medium
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2025-12-05T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:a:facebook:react:19.0.0:*:*:*:*:*:*:*
   - cpe:2.3:a:facebook:react:19.1.0:*:*:*:*:*:*:*
@@ -75,7 +93,8 @@ cves:
   - id: CVE-2025-55182
     cvss: 10
     epss: 0.99731
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://blog.talosintelligence.com/the-democratisation-of-business-email-compromise-fraud/
   - https://blog.talosintelligence.com/uat-10608-inside-a-large-scale-automated-credential-harvesting-operation-targeting-web-applications
@@ -130,7 +149,16 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-C0RYDORAS-CVE-2025-55182&utm_source=rss&utm_medium=rss
+  - at: "2026-11-20T01:36:50Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2025-55182
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 Business Email Compromise (BEC) attacks have historically targeted large organizations with significant payouts justifying the required time investment. However, recent trends indicate a democratization of BEC, with smaller organizations becoming increasingly targeted. This shift is largely driven by the adoption of AI, enabling attackers to rapidly reconnoiter and tailor content for smaller organizations at scale. Attackers are now targeting smaller community associations, charities, and businesses, recognizing that scamming smaller sums from many victims can be as profitable as scamming large sums from a few. These organizations are often less aware of the threat and thus more vulnerable.
 

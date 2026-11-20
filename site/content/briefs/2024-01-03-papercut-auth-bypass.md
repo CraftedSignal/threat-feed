@@ -1,14 +1,38 @@
 ---
+brief_id: brief-2024-01-03-papercut-auth-bypass
+event_id: brief-2024-01-03-papercut-auth-bypass
+revision: 2
+activity_at: "2026-11-20T01:37:27Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T01:37:27Z"
+    checksum: sha256:f931df53aa1f8ab0c8e5e94bfeb7fbbaf12aeefeb98e5854e5d59f016f681063
+    summary: exploited:true; KEV CVE-2023-27351
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: PaperCut NG/MF Improper Authentication Vulnerability (CVE-2023-27351)
 slug: 2024-01-03-papercut-auth-bypass
 description: CVE-2023-27351 is an improper authentication vulnerability in PaperCut NG/MF that allows remote attackers to bypass authentication via the SecurityRequestFilter class, leading to potential ransomware deployment.
 date: "2024-01-03T12:00:00Z"
+lastmod: "2026-11-20T01:36:50Z"
 type: threat
 types:
   - threat
 severities:
   - critical
 exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-04-20T00:00:00Z"
+  confidence: high
 tags:
   - papercut
   - authentication-bypass
@@ -27,6 +51,8 @@ cves:
   - id: CVE-2023-27351
     cvss: 7.5
     epss: 0.86957
+    kev: true
+    kev_status: "true"
 references:
   - https://www.cve.org/CVERecord?id=CVE-2023-27351
   - https://www.papercut.com/kb/Main/PO-1216-and-PO-1219
@@ -55,7 +81,17 @@ rules:
       - file_event
       - linux
 rules_count: 2
+updates:
+  - at: "2026-11-20T01:36:50Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2023-27351
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 CVE-2023-27351 is a critical improper authentication vulnerability affecting PaperCut NG/MF. The vulnerability exists within the SecurityRequestFilter class, enabling remote attackers to bypass authentication mechanisms. This bypass can lead to unauthorized access to sensitive functionalities within the PaperCut NG/MF application. Publicly available reports indicate that this vulnerability is being actively exploited, including instances of ransomware deployment following successful exploitation. Due to the ease of exploitation and the potentially severe consequences, organizations using affected versions of PaperCut NG/MF are urged to apply mitigations immediately.
 

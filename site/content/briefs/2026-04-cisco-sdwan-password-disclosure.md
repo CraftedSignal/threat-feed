@@ -1,13 +1,39 @@
 ---
+brief_id: brief-2026-04-21-cisco-sdwan-password-disclosure
+event_id: brief-2026-04-21-cisco-sdwan-password-disclosure
+revision: 2
+activity_at: "2026-11-20T01:37:27Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T01:37:27Z"
+    checksum: sha256:95337e081fdd2e1eceec8efbc1c7b879508c6b6d55d714eb19d5e483d3be6037
+    summary: exploited:true; KEV CVE-2026-20128
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Cisco Catalyst SD-WAN Manager Password Disclosure Vulnerability (CVE-2026-20128)
 slug: 2026-04-cisco-sdwan-password-disclosure
 description: Cisco Catalyst SD-WAN Manager stores passwords in a recoverable format, allowing an authenticated local attacker to gain DCA user privileges by accessing a credential file.
 date: "2026-04-21T12:00:00Z"
-type: advisory
+lastmod: "2026-11-20T01:36:50Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - medium
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-04-20T00:00:00Z"
+  confidence: high
 tags:
   - cve-2026-20128
   - credential-access
@@ -26,6 +52,8 @@ cves:
   - id: CVE-2026-20128
     cvss: 7.5
     epss: 0.00043
+    kev: true
+    kev_status: "true"
 references:
   - https://www.cve.org/CVERecord?id=CVE-2026-20128
   - https://www.cisa.gov/news-events/directives/ed-26-03-mitigate-vulnerabilities-cisco-sd-wan-systems
@@ -56,7 +84,17 @@ rules:
       - process_creation
       - linux
 rules_count: 2
+updates:
+  - at: "2026-11-20T01:36:50Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-20128
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 Cisco Catalyst SD-WAN Manager is affected by a vulnerability (CVE-2026-20128) that allows for the disclosure of stored passwords. An authenticated, local attacker with low privileges can exploit this vulnerability by accessing a credential file on the filesystem. Successful exploitation grants the attacker DCA user privileges, potentially leading to unauthorized access and control over the SD-WAN environment. CISA has issued Emergency Directive 26-03 and associated guidance to mitigate risks associated with Cisco SD-WAN devices. This vulnerability highlights the importance of proper credential management and access controls in network management systems.
 

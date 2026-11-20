@@ -1,22 +1,43 @@
 ---
+brief_id: brief-2024-01-02-msdt-proxy-execution
+event_id: brief-2024-01-02-msdt-proxy-execution
+revision: 2
+activity_at: "2026-11-20T01:37:27Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T01:37:27Z"
+    checksum: sha256:21508c16135e91e3a79e8b111e403140183bf122082fe4b24b5a657237122907
+    summary: exploited:true; KEV CVE-2022-30190
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - ttps
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Microsoft Diagnostics Troubleshooting Wizard (MSDT) Proxy Execution Abuse
 slug: 2024-01-02-msdt-proxy-execution
 description: The Microsoft Diagnostics Troubleshooting Wizard (MSDT) can be abused to proxy malicious command or binary execution via malicious process arguments, potentially leading to defense evasion and arbitrary code execution.
 date: "2024-01-02T12:00:00Z"
-type: advisory
+lastmod: "2026-11-20T01:36:50Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2022-06-14T00:00:00Z"
+  confidence: high
 tags:
   - defense-evasion
   - proxy-execution
   - msdt
-vendors:
-  - Microsoft
-products:
-  - Microsoft Diagnostics Troubleshooting Wizard
-  - Windows
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
@@ -26,6 +47,8 @@ mitre_ttps:
     tactic_name: Defense Evasion
     technique_id: T1036
     technique_name: Masquerading
+    subtechnique_id: T1036.003
+    subtechnique_name: Rename System Utilities
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1203
@@ -33,7 +56,9 @@ mitre_ttps:
 cves:
   - id: CVE-2022-30190
     cvss: 7.8
-    epss: 0.99374
+    epss: 0.93596
+    kev: true
+    kev_status: "true"
 references:
   - https://twitter.com/nao_sec/status/1530196847679401984
   - https://lolbas-project.github.io/lolbas/Binaries/Msdt/
@@ -61,7 +86,17 @@ rules:
       - process_creation
       - windows
 rules_count: 2
+updates:
+  - at: "2026-11-20T01:36:50Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2022-30190
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 The Microsoft Diagnostics Troubleshooting Wizard (MSDT) is a legitimate Windows tool designed to diagnose and resolve system issues. However, attackers can abuse MSDT to execute malicious commands or binaries by manipulating its process arguments. This technique, often referred to as "living off the land," allows adversaries to bypass traditional security measures by proxying their malicious actions through a trusted system utility. This particular rule focuses on identifying instances where MSDT is used with suspicious arguments or from unusual locations. Observed exploitation has been linked to the abuse of the "Follina" vulnerability (CVE-2022-30190), although this rule is designed to detect broader MSDT abuse patterns, not just specific CVE exploitation. This technique allows attackers to evade detection by blending in with legitimate system activity and potentially gaining elevated privileges.
 

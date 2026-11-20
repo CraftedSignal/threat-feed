@@ -1,13 +1,24 @@
 ---
+brief_id: brief-2024-06-25-simplehelp-path-traversal
+event_id: brief-2024-06-25-simplehelp-path-traversal
+revision: 1
+activity_at: "2024-06-25T10:00:00Z"
 title: SimpleHelp Path Traversal Vulnerability (CVE-2024-57728)
 slug: 2024-06-simplehelp-path-traversal
 description: CVE-2024-57728 is a path traversal vulnerability in SimpleHelp that allows admin users to upload arbitrary files anywhere on the file system by uploading a crafted zip file, potentially leading to arbitrary code execution.
 date: "2024-06-25T10:00:00Z"
-type: advisory
+lastmod: "2026-11-20T01:36:50Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-04-24T00:00:00Z"
+  confidence: high
 tags:
   - cve-2024-57728
   - path-traversal
@@ -21,6 +32,8 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1566
     technique_name: Phishing
+    subtechnique_id: T1566.001
+    subtechnique_name: Spearphishing Attachment
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1068
@@ -28,11 +41,13 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.004
-    technique_name: 'Command and Scripting Interpreter: Unix Shell'
+    technique_name: Unix Shell
 cves:
   - id: CVE-2024-57728
     cvss: 7.2
     epss: 0.59327
+    kev: true
+    kev_status: "true"
 references:
   - https://www.cve.org/CVERecord?id=CVE-2024-57728
   - https://simple-help.com/kb---security-vulnerabilities-01-2025#security-vulnerabilities-in-simplehelp-5-5-7-and-earlier
@@ -62,7 +77,17 @@ rules:
       - process_creation
       - linux
 rules_count: 2
+updates:
+  - at: "2026-11-20T01:36:50Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2024-57728
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 A path traversal vulnerability exists within SimpleHelp, identified as CVE-2024-57728. This flaw enables authenticated administrators to upload arbitrary files to any location on the server's file system. This is achieved through the use of a specially crafted ZIP archive (a technique known as Zip Slip). Successful exploitation allows an attacker to execute arbitrary code within the security context of the SimpleHelp server user. The vulnerability impacts SimpleHelp versions 5.5.7 and earlier. Defenders should apply vendor-provided mitigations or discontinue use of the software.
 
