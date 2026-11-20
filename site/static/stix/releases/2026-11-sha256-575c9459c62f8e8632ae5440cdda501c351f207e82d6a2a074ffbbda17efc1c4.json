@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b1abc4eb-5905-5408-aa4b-113965ff626a",
+  "id": "bundle--343c636b-0941-5052-95f3-4b4ad47964c1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -198020,7 +198020,7 @@
       "id": "report--5544dcb5-7d42-5d79-8cc6-8fab53d17762",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T08:16:13.000Z",
-      "modified": "2026-11-19T08:16:13.000Z",
+      "modified": "2026-11-20T08:05:53.000Z",
       "name": "Ruby: Heap-based buffer overflow in case conversion (CVE-2026-132825)",
       "description": "## Overview\nRuby versions prior to 3.3.14, 3.4.13, and 4.0.10 contain a heap-based buffer overflow vulnerability triggered during case conversion operations. The issue allows a one-byte write outside the intended buffer when processing specific character encodings, such as ISO-8859-1 or Windows-1252. The CVSS 3.1 score is 7.4 (AV:L/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H).\n\n## Impact\nThe vulnerability can cause memory corruption, potentially leading to unauthorized data modification, information disclosure, or service disruption depending on how the application handles memory allocation in the context of the overflow.\n\n## Recommendation\n- Audit environments for Ruby versions below 3.3.14, 3.4.13, or 4.0.10.\n- Upgrade Ruby installations to versions 3.3.14, 3.4.13, 4.0.10, or later to ensure the buffer handling logic is corrected.\n- For applications processing untrusted or externally provided text content, validate encoding input before passing it to Ruby case-conversion functions until patches are applied.",
       "published": "2026-11-19T08:16:13.000Z",
@@ -198044,19 +198044,33 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132825"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/ruby-releases-fixes-for-7-regex-and.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4668"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.sonatype.com/blog/november2shell-continues-with-7-patched-ruby-vulnerabilities"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-19-ruby-buffer-overflow-cve-2026-132825",
       "x_craftedsignal_event_id": "brief-2026-11-19-ruby-buffer-overflow-cve-2026-132825",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ruby-buffer-overflow-cve-2026-132825/",
-      "x_craftedsignal_activity_at": "2026-11-19T08:16:13.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T08:05:53.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_cvss_max": 7.4,
+      "x_craftedsignal_epss_max": 0.00174,
       "x_craftedsignal_kev_status": "false"
     },
     {
