@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2014fa1e-b13c-537f-9cbd-9a300acc76e5",
+  "id": "bundle--52b63d1a-75f6-5aef-9ac1-3c5a8d62707b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -138777,7 +138777,7 @@
       "id": "relationship--ece1af4e-fef6-5987-bb23-f0e07e5d8405",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T07:36:48.000Z",
-      "modified": "2026-11-16T07:36:48.000Z",
+      "modified": "2026-11-20T03:20:08.000Z",
       "relationship_type": "uses",
       "source_ref": "report--947f44eb-d29d-5346-8895-75fa384b2f1d",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -138931,7 +138931,7 @@
       "id": "relationship--ed175bc9-53de-555a-baf9-0095ce7ddc94",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T07:36:48.000Z",
-      "modified": "2026-11-16T07:36:48.000Z",
+      "modified": "2026-11-20T03:20:08.000Z",
       "relationship_type": "uses",
       "source_ref": "report--947f44eb-d29d-5346-8895-75fa384b2f1d",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
@@ -228520,7 +228520,7 @@
       "id": "report--947f44eb-d29d-5346-8895-75fa384b2f1d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T07:36:48.000Z",
-      "modified": "2026-11-16T07:36:48.000Z",
+      "modified": "2026-11-20T03:20:08.000Z",
       "name": "CloudPaste: WebDAV credential disclosure (CVE-2026-129494)",
       "description": "## Overview\nCloudPaste versions 1.1.0 through 1.9.1 contain an information disclosure vulnerability that allows unauthenticated attackers to obtain WebDAV storage credentials through the unauthenticated /api/proxy/link endpoint. Attackers who know a public share slug can retrieve the Basic Authorization header containing the WebDAV username and password, then read, modify, or delete files on the WebDAV server.\n\n## Attack Chain\nAn unauthenticated attacker can query the /api/proxy/link endpoint with a known public share slug to retrieve the associated WebDAV authentication credentials.\n\n## Impact\nExploitation allows unauthorized access to WebDAV storage, enabling the unauthorized reading, modification, or deletion of files on the target server.\n\n## Recommendation\nAdministrators should monitor web access logs for requests to the /api/proxy/link endpoint. As of the current date, no specific remediation or patch information is available in the provided CVE records.",
       "published": "2026-11-16T07:36:48.000Z",
@@ -228549,19 +228549,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129494"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=6B4941D1-24DD-574D-A0CA-47B5A3A64492\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-16-cloudpaste-info-disclosure-cve-2026-129494",
       "x_craftedsignal_event_id": "brief-2026-11-16-cloudpaste-info-disclosure-cve-2026-129494",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cloudpaste-info-disclosure-cve-2026-129494/",
-      "x_craftedsignal_activity_at": "2026-11-16T07:36:48.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T03:20:08.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00403,
       "x_craftedsignal_kev_status": "false"
     },
     {
