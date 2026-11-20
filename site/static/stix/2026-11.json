@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--552ac632-6d43-5f1a-a5b7-9fc1ab4c86be",
+  "id": "bundle--119b989c-23e8-5de4-ae39-97295b658cd2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -26262,6 +26262,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--83c1829b-830f-5378-adab-d9148598e4c1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--207abe7c-086f-5f9d-b382-d306bf3258eb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T10:26:27.000Z",
+      "modified": "2026-11-20T10:26:27.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--258041e3-96e6-53ac-a218-b99bd56ad7b3",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -70728,6 +70739,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6fcdbabf-0d7f-5add-9328-01a481df082d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0d060a99-09aa-5a20-8ae4-7034cf3ca09d",
+      "target_ref": "vulnerability--3c7afe43-4812-5085-bd21-2e9c5abc11ff"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6fd1c25e-1b23-5dc1-ab5b-8576d36e5f39",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -79117,6 +79139,17 @@
       "relationship_type": "has",
       "source_ref": "software--12432b0a-d53a-586b-94c1-d122ee8aa002",
       "target_ref": "vulnerability--eb977cca-f5f9-5a6a-939b-6b9287fed1a8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7e6a09e4-0d4a-576d-97aa-c53d557f5aba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6722d32f-ace5-5a4a-b542-f56e58cd0cf6",
+      "target_ref": "vulnerability--4261a035-a6a0-5ce9-b518-815d492ae834"
     },
     {
       "type": "relationship",
@@ -98807,6 +98840,17 @@
       "relationship_type": "has",
       "source_ref": "software--9b29fc51-4379-51e0-8894-92460705009c",
       "target_ref": "vulnerability--01ffd15d-ecd0-59ce-aea3-9ffd9f706184"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a23e7dee-504d-59bb-9617-123b54b9d4be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T10:27:02.000Z",
+      "modified": "2026-11-20T10:27:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--279ae196-bdab-5b0d-a63d-6b756dd2647d",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -170901,6 +170945,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--258041e3-96e6-53ac-a218-b99bd56ad7b3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T10:26:27.000Z",
+      "modified": "2026-11-20T10:26:27.000Z",
+      "name": "benoitc hackney: CRLF injection and HTTP request splitting (CVE-2026-47075)",
+      "description": "## Overview\n\nThe benoitc hackney library, a common HTTP client for Erlang, is vulnerable to an Improper Neutralization of CRLF Sequences issue. The library fails to perform necessary percent-encoding of carriage return (\\r) and line feed (\\n) characters when constructing HTTP/1.1 request targets in the `hackney_url:make_url/3` function. An attacker who can influence the URL input passed to this function can inject raw CRLF sequences, which are then transmitted as line breaks. This flaw permits HTTP Request Splitting or the injection of arbitrary HTTP headers into requests made by the application.\n\n## Impact\n\nSuccessful exploitation allows an attacker to manipulate the structure of HTTP requests sent by a vulnerable application. This may lead to unauthorized header insertion or request splitting, potentially resulting in cross-site scripting (XSS), cache poisoning, or bypassing security controls that rely on header inspection.\n\n## Recommendation\n\n- Identify applications within the environment that utilize the `benoitc/hackney` library for outbound HTTP requests.\n- Upgrade all instances of `benoitc/hackney` to version 4.0.1 or later to ensure proper percent-encoding of URL components.\n- For applications that cannot be upgraded immediately, validate and sanitize all user-supplied input intended for URL construction to prevent the inclusion of \\r and \\n characters.",
+      "published": "2026-11-20T10:26:27.000Z",
+      "labels": [
+        "crlf-injection",
+        "cve-2026-47075",
+        "http-request-splitting"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6722d32f-ace5-5a4a-b542-f56e58cd0cf6",
+        "vulnerability--4261a035-a6a0-5ce9-b518-815d492ae834"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-hackney-crlf-injection-cve-2026-47075",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-hackney-crlf-injection-cve-2026-47075/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-47075"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47075"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-hackney-crlf-injection-cve-2026-47075",
+      "x_craftedsignal_event_id": "brief-2026-11-20-hackney-crlf-injection-cve-2026-47075",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-hackney-crlf-injection-cve-2026-47075/",
+      "x_craftedsignal_activity_at": "2026-11-20T10:26:27.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00479,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--258988aa-87d3-5725-aa7c-3e7153805a63",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:59:44.000Z",
@@ -171965,6 +172060,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--279ae196-bdab-5b0d-a63d-6b756dd2647d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T10:27:02.000Z",
+      "modified": "2026-11-20T10:27:02.000Z",
+      "name": "GiveWP: Authentication bypass vulnerability (CVE-2026-97196)",
+      "description": "## Overview\n\nThe WordPress plugin GiveWP contains a critical vulnerability (CVE-2026-97196) classified as an improper validation of unsafe equivalence in input. This flaw permits unauthenticated remote attackers to perform an authentication bypass. The vulnerability affects all versions of the plugin up to and including 4.16.9.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to bypass authentication mechanisms, potentially leading to unauthorized access to administrative or user-restricted functionality within the affected WordPress environment. The vulnerability is rated with a CVSS v3.1 score of 9.1 (Critical).\n\n## Recommendation\n\nAdministrators should immediately update the GiveWP plugin to version 4.17.0 or later to remediate the vulnerability. For environments where immediate patching is not possible, monitor server access logs for anomalous, unauthorized activity originating from unauthenticated sessions that attempt to access privileged administrative endpoints.",
+      "published": "2026-11-20T10:27:02.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0d060a99-09aa-5a20-8ae4-7034cf3ca09d",
+        "vulnerability--3c7afe43-4812-5085-bd21-2e9c5abc11ff"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-givewp-auth-bypass-cve-2026-97196",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-givewp-auth-bypass-cve-2026-97196/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-97196"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97196"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-givewp-auth-bypass-cve-2026-97196",
+      "x_craftedsignal_event_id": "brief-2026-11-20-givewp-auth-bypass-cve-2026-97196",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-givewp-auth-bypass-cve-2026-97196/",
+      "x_craftedsignal_activity_at": "2026-11-20T10:27:02.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.00441,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -289661,6 +289802,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0d060a99-09aa-5a20-8ae4-7034cf3ca09d",
+      "name": "GiveWP (\u003c= 4.16.9)",
+      "vendor": "StellarWP"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0d37376d-6072-5b47-8033-1e0397091529",
       "name": "Okta Privileged Access Gateway (\u003c 1.116.3)",
       "vendor": "Okta"
@@ -296540,6 +296688,13 @@
       "id": "software--670fca82-a833-5034-b2f5-dd2484b42f93",
       "name": "Apache TomEE (11.0.0-M1 to \u003c11.0.0-M2)",
       "vendor": "Apache Software Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6722d32f-ace5-5a4a-b542-f56e58cd0cf6",
+      "name": "hackney (\u003c 4.0.1)",
+      "vendor": "benoitc"
     },
     {
       "type": "software",
@@ -324179,6 +324334,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--3c7afe43-4812-5085-bd21-2e9c5abc11ff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-97196",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-97196",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97196"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--3c7bb8e5-bf3b-5d9f-98f7-06386b6c2dc3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -325501,6 +325672,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124687",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124687"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4261a035-a6a0-5ce9-b518-815d492ae834",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-47075",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-47075",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47075"
         }
       ]
     },
