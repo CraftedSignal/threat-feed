@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bd028b37-0222-5dc7-ae42-ec04db403274",
+  "id": "bundle--1e84ec46-12d9-5243-af61-6c3dfe8bdbff",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3007,6 +3007,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1589.002",
           "url": "https://attack.mitre.org/techniques/T1589/002"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--f99cc3db-ed05-5a99-8555-1e5a41f27aad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Password Policy Discovery",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1201",
+          "url": "https://attack.mitre.org/techniques/T1201"
         }
       ]
     },
@@ -51781,6 +51797,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--26780440-8678-5491-9ba6-090332ecd46a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4d5f1152-f95b-527d-875d-9bb387bd9bd3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T14:00:49.000Z",
+      "modified": "2026-11-20T14:00:49.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5db778e5-7f4b-5913-b45c-59d8b5a3c109",
+      "target_ref": "attack-pattern--f99cc3db-ed05-5a99-8555-1e5a41f27aad"
     },
     {
       "type": "relationship",
@@ -205423,6 +205450,65 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5db778e5-7f4b-5913-b45c-59d8b5a3c109",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T14:00:49.000Z",
+      "modified": "2026-11-20T14:00:49.000Z",
+      "name": "AWS IAM Password Policy Recon by Rare User",
+      "description": "## Overview\nThis rule identifies the first time, within a lookback window, that an identity retrieves the AWS account password policy via the IAM GetAccountPasswordPolicy API. Adversaries with compromised credentials may enumerate the password policy to understand credential requirements and plan password spraying, brute force, or new-access-key persistence. The rule uses a New Terms mechanism to detect when a unique combination of cloud.account.id, user.name, and source.as.organization.name appears.\n\n## Attack Chain\nAdversaries with compromised credentials call the GetAccountPasswordPolicy API to discover security posture details, which can inform downstream activities such as password spraying or brute force attacks.\n\n## Impact\nSuccessful unauthorized enumeration of IAM password policies assists attackers in identifying account security requirements, facilitating credential stuffing or password spraying campaigns.\n\n## Recommendation\n- Confirm who user.name and aws.cloudtrail.user_identity.arn represent and whether policy reads are expected for that principal.\n- Review source.ip, source.as.organization.name, and geolocation to see if the call aligns with normal network activity.\n- Inspect user_agent.original for unfamiliar offensive tooling.\n- Correlate with STS activity (GetCallerIdentity, AssumeRole) or IAM modifications (CreateAccessKey, CreateLoginProfile).\n- Rotate credentials for the implicated principal if activity is unexpected.",
+      "published": "2026-11-20T14:00:49.000Z",
+      "labels": [
+        "Data Source: AWS",
+        "Data Source: AWS CloudTrail",
+        "Data Source: Amazon Web Services",
+        "Domain: Cloud",
+        "Domain: Identity",
+        "Platform: AWS",
+        "Resources: Investigation Guide",
+        "Rule Type: New Terms",
+        "Service: AWS IAM",
+        "Tactic: Discovery"
+      ],
+      "object_refs": [
+        "attack-pattern--f99cc3db-ed05-5a99-8555-1e5a41f27aad",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--50fc96f2-7d91-5f22-9310-fd06c15d92a0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-aws-iam-password-policy-recon",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-aws-iam-password-policy-recon/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountPasswordPolicy.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_iam_password_policy_recon_by_rare_user.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.atomicredteam.io/docs/atomics/T1201"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-aws-iam-password-policy-recon",
+      "x_craftedsignal_event_id": "brief-2026-11-20-aws-iam-password-policy-recon",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-aws-iam-password-policy-recon/",
+      "x_craftedsignal_activity_at": "2026-11-20T14:00:49.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
