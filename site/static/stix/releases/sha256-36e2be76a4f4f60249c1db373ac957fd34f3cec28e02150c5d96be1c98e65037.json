@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0df2d418-2287-583b-9f5d-44ea8fb6b1d1",
+  "id": "bundle--3e6b16bd-bcdb-503f-b067-434dfb341d0b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -34822,6 +34822,17 @@
       "relationship_type": "uses",
       "source_ref": "report--07ad7ef7-1bdd-5d42-a218-9f426d84d88d",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--22d28bda-8b76-51c3-820e-b8d95fb85c67",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ee418b18-2d37-5e57-b21f-1331a1ab2a9f",
+      "target_ref": "vulnerability--71a7ebbd-ae9c-53f0-811c-839933401c6c"
     },
     {
       "type": "relationship",
@@ -87171,6 +87182,17 @@
       "relationship_type": "has",
       "source_ref": "software--62c4c758-7894-5de5-b4a5-57bceaec45c5",
       "target_ref": "vulnerability--0a691a94-21f9-56b4-8d67-6d762c990df8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6b6ed99c-1e6a-54cf-a0f7-70cf034b59e7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--81104c8e-6ee4-54ea-b0fe-5331281bc444",
+      "target_ref": "vulnerability--71a7ebbd-ae9c-53f0-811c-839933401c6c"
     },
     {
       "type": "relationship",
@@ -193578,6 +193600,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--fede2394-cb45-58bd-907b-c79d28cb2702",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--02632c21-384d-5f17-93f3-d93d6275ad83",
+      "target_ref": "vulnerability--71a7ebbd-ae9c-53f0-811c-839933401c6c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--fee83a87-53d1-519b-a215-827fca0e6f71",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -198479,6 +198512,56 @@
       },
       "x_craftedsignal_cvss_max": 5.3,
       "x_craftedsignal_epss_max": 0.00315,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0737b3c6-e515-5761-8f7a-8bea6cd36360",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T00:02:41.000Z",
+      "modified": "2026-11-20T00:02:41.000Z",
+      "name": "OpenSSL: CMS and PKCS#7 SignedData CPU exhaustion (CVE-2026-121482)",
+      "description": "## Overview\nA vulnerability exists in OpenSSL where verifying a maliciously crafted CMS or PKCS#7 SignedData message with CRL checking enabled may consume excessive CPU time. The CPU usage grows with the square of the message size, which can lead to a denial of service.\n\n## Impact\nSuccessful exploitation results in excessive CPU utilization, potentially causing a denial of service. The vulnerability carries a CVSS 3.1 base score of 7.5.\n\n## Recommendation\nAdministrators using affected versions of OpenSSL should prepare to update their installations. As of the current advisory, specific fixed version releases are not documented in the provided source material; continue to monitor vendor security bulletins for updates.",
+      "published": "2026-11-20T00:02:41.000Z",
+      "labels": [
+        "denial-of-service"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--02632c21-384d-5f17-93f3-d93d6275ad83",
+        "software--81104c8e-6ee4-54ea-b0fe-5331281bc444",
+        "software--ee418b18-2d37-5e57-b21f-1331a1ab2a9f",
+        "vulnerability--71a7ebbd-ae9c-53f0-811c-839933401c6c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-openssl-cve-2026-121482",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openssl-cve-2026-121482/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-121482"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121482"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-openssl-cve-2026-121482",
+      "x_craftedsignal_event_id": "brief-2026-11-20-openssl-cve-2026-121482",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openssl-cve-2026-121482/",
+      "x_craftedsignal_activity_at": "2026-11-20T00:02:41.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.0014,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -379020,6 +379103,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--02632c21-384d-5f17-93f3-d93d6275ad83",
+      "name": "OpenSSL (\u003e= 4.0.0, \u003c 4.0.4)",
+      "vendor": "OpenSSL"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--026d54a7-17bf-5a7f-8bfc-32cc633263b4",
       "name": "musl (\u003c 10.6p2)"
     },
@@ -393738,6 +393828,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--81104c8e-6ee4-54ea-b0fe-5331281bc444",
+      "name": "OpenSSL (\u003e= 3.5.0, \u003c 3.5.10)",
+      "vendor": "OpenSSL"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8124164f-a566-5bb3-9e50-d5589669078e",
       "name": "XClarity Essentials OneCLI",
       "vendor": "Lenovo"
@@ -405835,6 +405932,13 @@
       "id": "software--ee3a2ebc-670d-5534-9d68-e1828fd216e5",
       "name": "Auth Armor WordPress plugin (\u003c= 1.0.3)",
       "vendor": "Auth Armor"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ee418b18-2d37-5e57-b21f-1331a1ab2a9f",
+      "name": "OpenSSL (\u003e= 4.1.0, \u003c 4.1.1)",
+      "vendor": "OpenSSL"
     },
     {
       "type": "software",
@@ -445504,6 +445608,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-33050",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33050"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--71a7ebbd-ae9c-53f0-811c-839933401c6c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121482",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121482",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121482"
         }
       ]
     },
