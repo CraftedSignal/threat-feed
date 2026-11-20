@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7a644d99-ea30-5ce1-8157-03e287de7503",
+  "id": "bundle--cb801876-786f-5e6e-8c35-fbbd99a18fc7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -86534,6 +86534,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--1ad9229c-7f42-5062-8c0c-521831814fa2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6aa39e23-3fdf-5ab5-a260-91f8d287025d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--084bfc27-25ab-5776-98cb-516c4972836d",
+      "target_ref": "vulnerability--34d1f651-1db7-5732-9e7b-b87636002676"
     },
     {
       "type": "relationship",
@@ -190011,6 +190022,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--564b928c-dcde-5bde-aa53-0ebfa4d29638"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f9cbb604-4e7c-598c-8450-55b4c429285a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f9b0856c-ca8e-5d39-958d-fb0bb232349a",
+      "target_ref": "vulnerability--34d1f651-1db7-5732-9e7b-b87636002676"
     },
     {
       "type": "relationship",
@@ -317327,6 +317349,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a9b7f054-2210-5545-a598-782ee3ff97ba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T00:23:48.000Z",
+      "modified": "2026-11-20T00:23:48.000Z",
+      "name": "JetBrains TeamCity: Improper Authorization in VCS Root Management (CVE-2026-132904)",
+      "description": "## Overview\nJetBrains TeamCity versions before 2026.2, 2026.1.4, and 2025.11.8 are affected by a missing authorization vulnerability (CVE-2026-132904). This issue allows users with the 'project viewer' role to remove Version Control System (VCS) roots, which are critical configuration elements for project source code repositories.\n\n## Impact\nSuccessful exploitation of this vulnerability by a low-privileged user (project viewer) allows for the unauthorized removal of VCS roots. This results in an integrity and availability impact as project configurations are altered. The CVSS v3.1 base score is 8.1 (CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:H).\n\n## Recommendation\nUsers should update JetBrains TeamCity to the versions resolving this issue (2026.2, 2026.1.4, or 2025.11.8). Verify current environment versions and monitor official JetBrains security channels for additional guidance.",
+      "published": "2026-11-20T00:23:48.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--084bfc27-25ab-5776-98cb-516c4972836d",
+        "software--f9b0856c-ca8e-5d39-958d-fb0bb232349a",
+        "vulnerability--34d1f651-1db7-5732-9e7b-b87636002676"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-jetbrains-teamcity-auth-bypass-cve-2026-132904",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-jetbrains-teamcity-auth-bypass-cve-2026-132904/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-132904"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132904"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.jetbrains.com/privacy-security/issues-fixed/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-jetbrains-teamcity-auth-bypass-cve-2026-132904",
+      "x_craftedsignal_event_id": "brief-2026-11-20-jetbrains-teamcity-auth-bypass-cve-2026-132904",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-jetbrains-teamcity-auth-bypass-cve-2026-132904/",
+      "x_craftedsignal_activity_at": "2026-11-20T00:23:48.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a9bf8fc9-1b2e-54a8-a13e-7a7444dcd849",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T17:44:58.000Z",
@@ -426006,6 +426077,22 @@
           "source_name": "cve",
           "external_id": "CVE-2023-5359",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-5359"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--34d1f651-1db7-5732-9e7b-b87636002676",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-132904",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-132904",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132904"
         }
       ]
     },
