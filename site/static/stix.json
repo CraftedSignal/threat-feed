@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c40563c4-dd4f-531b-830a-92650f82e21c",
+  "id": "bundle--976e80e9-3f2e-57a0-9cc5-aaa80e041e49",
   "objects": [
     {
       "type": "attack-pattern",
@@ -42259,6 +42259,17 @@
       "relationship_type": "has",
       "source_ref": "software--c3ec3ac4-f1d0-58d7-9fb1-9576695351cb",
       "target_ref": "vulnerability--fb24ce87-a02c-51f3-93cb-f944eac056ac"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2cf7f049-513a-5d14-a3c4-e241ba8cf16a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T03:58:02.000Z",
+      "modified": "2026-11-20T03:58:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1e4f074a-bdd9-5d5b-a174-f8ae3891e7f0",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -100218,6 +100229,17 @@
       "relationship_type": "uses",
       "source_ref": "report--11efb167-9db4-5c03-8a1c-385762c1e26f",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7c6a5e7d-964f-5f8a-855e-1d3a33956935",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--90ed9def-bbe7-5eb1-a370-48f9e4628ed2",
+      "target_ref": "vulnerability--8a6f0e5c-a142-5145-bceb-5b03e10f3ab3"
     },
     {
       "type": "relationship",
@@ -216549,6 +216571,51 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-deepseek-harness-auth/",
       "x_craftedsignal_activity_at": "2026-10-26T17:44:34.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1e4f074a-bdd9-5d5b-a174-f8ae3891e7f0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T03:58:02.000Z",
+      "modified": "2026-11-20T03:58:02.000Z",
+      "name": "sumiie24 School-Management-System: SQL Injection (CVE-2026-133415)",
+      "description": "## Overview\nA SQL injection vulnerability exists in the sumiie24 School-Management-System, affecting versions up to commit d946d649c7c95e101fc5679ecd91999533bb10d7. The issue resides within the 'parent_Registration.php' script, where the 'student_reg' argument is improperly handled. A public exploit for this vulnerability has been disclosed.\n\n## Attack Chain\nThe vulnerability allows for remote execution of SQL injection by manipulating the 'student_reg' input parameter within the 'parent_Registration.php' file.\n\n## Impact\nSuccessful exploitation allows for unauthorized database manipulation. The product utilizes a rolling release model, meaning specific patch versions are not available.\n\n## Recommendation\nDue to the rolling release nature of the software, users should consult the upstream repository for updates. No specific fix version is currently identified.",
+      "published": "2026-11-20T03:58:02.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--90ed9def-bbe7-5eb1-a370-48f9e4628ed2",
+        "vulnerability--8a6f0e5c-a142-5145-bceb-5b03e10f3ab3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-school-management-system-sqli-cve-2026-133415",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-school-management-system-sqli-cve-2026-133415/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-133415"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133415"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-school-management-system-sqli-cve-2026-133415",
+      "x_craftedsignal_event_id": "brief-2026-11-20-school-management-system-sqli-cve-2026-133415",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-school-management-system-sqli-cve-2026-133415/",
+      "x_craftedsignal_activity_at": "2026-11-20T03:58:02.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -397979,6 +398046,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--90ed9def-bbe7-5eb1-a370-48f9e4628ed2",
+      "name": "School-Management-System",
+      "vendor": "sumiie24"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--90fc7eae-142e-5250-84f1-d7f88aae1907",
       "name": "Windows 10 21h2 (\u003c 10.0.19044.6093)",
       "vendor": "Microsoft"
@@ -456428,6 +456502,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-129113",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129113"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8a6f0e5c-a142-5145-bceb-5b03e10f3ab3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-133415",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-133415",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133415"
         }
       ]
     },
