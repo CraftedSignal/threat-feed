@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5086524f-8db7-5939-b0e8-cdca71d3dcea",
+  "id": "bundle--94601341-ac17-5697-898f-f8d5e72d5da8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10449,6 +10449,17 @@
       "relationship_type": "has",
       "source_ref": "software--27a4173f-e379-5d55-87cc-18d53460a263",
       "target_ref": "vulnerability--c51210ab-fad4-5143-b4e1-31e02237e460"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0504de23-c1c3-58df-ab28-3742baa4cc0b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T14:38:39.000Z",
+      "modified": "2026-11-20T14:38:39.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d21604b1-00a6-55f8-8a65-0a965abfaad3",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -50174,6 +50185,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4b23f551-c0bb-56c3-a6ac-1dc35b5c78be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d0461259-2b33-5b3c-be7a-16bac1ed989d",
+      "target_ref": "vulnerability--152c174c-8234-5406-b58b-38aeb2e3228a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4b2697fa-9cac-5ba1-bb3d-c9d2b61c76b3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -77230,6 +77252,17 @@
       "relationship_type": "uses",
       "source_ref": "report--6ce81f8b-2fa1-5ad9-9e22-e218b3678658",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7abf62a7-6a5b-5dec-b186-5ae2836bad9d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7a23e79a-9953-51c6-a503-fb5df27cab4f",
+      "target_ref": "vulnerability--f11aca40-f84d-56b7-965b-c70fd555f1c0"
     },
     {
       "type": "relationship",
@@ -120552,6 +120585,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c73c4dec-83db-5cfe-adf7-9e0c1b5857ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T14:38:13.000Z",
+      "modified": "2026-11-20T14:38:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0e3fe530-d7a0-5bad-8c5c-e8ad7f5a1b3c",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c7425573-73e5-57f0-948d-ee88d389d67b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T14:08:19.000Z",
@@ -158302,6 +158346,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.4,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0e3fe530-d7a0-5bad-8c5c-e8ad7f5a1b3c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T14:38:13.000Z",
+      "modified": "2026-11-20T14:38:13.000Z",
+      "name": "Optimole: Stored Cross-Site Scripting (CVE-2026-125094)",
+      "description": "## Overview\n\nThe Optimole plugin for WordPress, specifically the 'Optimize Images | Convert WebP \u0026 AVIF | CDN \u0026 Lazy Load | Image Optimization' component, contains a stored Cross-Site Scripting (XSS) vulnerability. Versions up to and including 4.2.19 fail to properly sanitize input and escape output in the 'comment' parameter. This flaw permits unauthenticated attackers to inject malicious scripts that execute in the browser of any user who views the affected page. \n\n## Impact\n\nSuccessful exploitation results in the execution of arbitrary JavaScript within the context of the victim's session. This may lead to session hijacking, unauthorized actions on behalf of the user, or further client-side attacks. The impact is elevated by the ability for unauthenticated users to trigger the exploit.\n\n## Recommendation\n\n- Identify and inventory all WordPress sites running the Optimole plugin.\n- Disable the AMP plugin or switch to a template mode other than 'Transitional' or 'Standard' if immediate patching is not possible.\n- Monitor vendor security channels for the release of a security patch addressing CVE-2026-125094. As of this report, a fixed version has not been disclosed by the vendor.\n- Audit existing comments on public-facing posts for suspicious script tags or obfuscated JavaScript.",
+      "published": "2026-11-20T14:38:13.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d0461259-2b33-5b3c-be7a-16bac1ed989d",
+        "vulnerability--152c174c-8234-5406-b58b-38aeb2e3228a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-optimole-xss-cve-2026-125094",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-optimole-xss-cve-2026-125094/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-125094"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125094"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-optimole-xss-cve-2026-125094",
+      "x_craftedsignal_event_id": "brief-2026-11-20-optimole-xss-cve-2026-125094",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-optimole-xss-cve-2026-125094/",
+      "x_craftedsignal_activity_at": "2026-11-20T14:38:13.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -265645,6 +265734,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d21604b1-00a6-55f8-8a65-0a965abfaad3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T14:38:39.000Z",
+      "modified": "2026-11-20T14:38:39.000Z",
+      "name": "miniOrange OTP Verification: Authentication bypass (CVE-2026-129073)",
+      "description": "## Overview\n\nThe miniOrange OTP Verification plugin for WordPress is susceptible to an Authentication Bypass Using an Alternate Path or Channel vulnerability (CVE-2026-129073). This flaw allows an unauthenticated remote attacker to circumvent authentication controls, potentially resulting in full system compromise. The vulnerability affects all versions of the plugin up to and including 5.6.1.\n\n## Impact\n\nSuccessful exploitation grants unauthenticated attackers the ability to bypass authentication mechanisms, which may lead to unauthorized administrative access, sensitive data exfiltration, or complete site takeover. The vulnerability has a CVSS v3.1 base score of 9.8.\n\n## Recommendation\n\n1. Immediately update the miniOrange OTP Verification plugin to version 5.6.2 or later.\n2. Review audit logs for suspicious administrative activity or unauthorized account modifications originating from external IP addresses.\n3. Audit user access logs for unusual patterns, such as multiple successful logins without corresponding OTP validation events.",
+      "published": "2026-11-20T14:38:39.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7a23e79a-9953-51c6-a503-fb5df27cab4f",
+        "vulnerability--f11aca40-f84d-56b7-965b-c70fd555f1c0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-miniorange-otp-bypass-cve-2026-129073",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-miniorange-otp-bypass-cve-2026-129073/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129073"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129073"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-miniorange-otp-bypass-cve-2026-129073",
+      "x_craftedsignal_event_id": "brief-2026-11-20-miniorange-otp-bypass-cve-2026-129073",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-miniorange-otp-bypass-cve-2026-129073/",
+      "x_craftedsignal_activity_at": "2026-11-20T14:38:39.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d220c97c-137d-5e1a-a525-72707337dc85",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T13:55:46.000Z",
@@ -300406,6 +300540,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7a23e79a-9953-51c6-a503-fb5df27cab4f",
+      "name": "miniorange otp verification (\u003c= 5.6.1)",
+      "vendor": "miniOrange"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7a30809d-5afc-5012-a4e7-23bc3ccdbe39",
       "name": "FortiAnalyzer Cloud (7.2.1 through 7.2.12)",
       "vendor": "Fortinet"
@@ -316802,6 +316943,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-127131",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127131"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--152c174c-8234-5406-b58b-38aeb2e3228a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125094",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125094",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125094"
         }
       ]
     },
@@ -374706,6 +374863,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-129606",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129606"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f11aca40-f84d-56b7-965b-c70fd555f1c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129073",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129073",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129073"
         }
       ]
     },
