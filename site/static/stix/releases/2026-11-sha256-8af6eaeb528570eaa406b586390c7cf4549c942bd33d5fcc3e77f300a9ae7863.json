@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a42e20fc-d819-5601-8722-ea4d724047ac",
+  "id": "bundle--860336bf-e0af-5cdd-801a-48b2b5352671",
   "objects": [
     {
       "type": "attack-pattern",
@@ -121493,6 +121493,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--cac64f52-fdf2-5d84-b87e-c04cb1180a6a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2fdb1a66-cf57-58a3-a81b-4da8df61be1d",
+      "target_ref": "vulnerability--3cdc9435-70f1-5157-b88d-01fcedb9aeb8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--cacddd44-268e-5863-bc6a-f7d7eaaf0d61",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -146349,6 +146360,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--d4d75fd1-2eca-53b1-92b2-d6e5dfca085d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f889a6c3-1e02-56ad-9928-82aceac279e6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--48a69775-5d3d-5538-83f3-87c88b639c2d",
+      "target_ref": "vulnerability--3cdc9435-70f1-5157-b88d-01fcedb9aeb8"
     },
     {
       "type": "relationship",
@@ -279360,6 +279382,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f2ae1501-cf40-53ea-8549-8e457845ef22",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T00:39:07.000Z",
+      "modified": "2026-11-20T00:39:07.000Z",
+      "name": "JetBrains TeamCity: VCS root credential exposure (CVE-2026-133084)",
+      "description": "## Overview\nJetBrains TeamCity contains a vulnerability where version control system (VCS) root credentials can be exposed through links within the change viewer. This issue affects TeamCity versions prior to 2026.2.2 and 2026.1.6.\n\n## Impact\nThe vulnerability is assigned a CVSS 3.1 base score of 7.7. The impact is characterized by high confidentiality loss (C:H) without affecting integrity or availability (I:N, A:N). The attack vector is network-based (AV:N) with low attack complexity (AC:L). Exploitation requires low privileges (PR:L) and does not require user interaction (UI:N).\n\n## Recommendation\nUsers should update to version 2026.2.2 or 2026.1.6 or later to address this vulnerability.",
+      "published": "2026-11-20T00:39:07.000Z",
+      "labels": [
+        "cve-2026-133084"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2fdb1a66-cf57-58a3-a81b-4da8df61be1d",
+        "software--48a69775-5d3d-5538-83f3-87c88b639c2d",
+        "vulnerability--3cdc9435-70f1-5157-b88d-01fcedb9aeb8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-teamcity-vcs-credential-exposure-cve-2026-133084",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-teamcity-vcs-credential-exposure-cve-2026-133084/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-133084"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133084"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-teamcity-vcs-credential-exposure-cve-2026-133084",
+      "x_craftedsignal_event_id": "brief-2026-11-20-teamcity-vcs-credential-exposure-cve-2026-133084",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-teamcity-vcs-credential-exposure-cve-2026-133084/",
+      "x_craftedsignal_activity_at": "2026-11-20T00:39:07.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f2afbcc0-137c-5bd7-8e71-79a1431a9120",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:16:00.000Z",
@@ -322061,6 +322131,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110059",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110059"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3cdc9435-70f1-5157-b88d-01fcedb9aeb8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-133084",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-133084",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133084"
         }
       ]
     },
