@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d5a1ce60-63d0-5a61-a27c-4dc95e7121b5",
+  "id": "bundle--8dc7a912-f771-5de1-a848-cd3f8c7709ae",
   "objects": [
     {
       "type": "attack-pattern",
@@ -67996,6 +67996,17 @@
       "relationship_type": "has",
       "source_ref": "software--084bfc27-25ab-5776-98cb-516c4972836d",
       "target_ref": "vulnerability--34d1f651-1db7-5732-9e7b-b87636002676"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6aa4a9f8-aa7c-5e22-bf6e-2725aeea604a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--cf9a9dc5-c324-53f8-a8ba-15741d7dc4ed",
+      "target_ref": "vulnerability--cbb27284-abc7-5f46-9f75-35ab3f10dc98"
     },
     {
       "type": "relationship",
@@ -207689,6 +207700,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--64f42098-ad28-567d-a622-f7cc4d00f9d4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T12:21:38.000Z",
+      "modified": "2026-11-20T12:21:38.000Z",
+      "name": "CWILL Shipment Tracking for WooCommerce Stored XSS and Authentication Bypass (CVE-2026-121790)",
+      "description": "## Overview\nThe CWILL (Formerly ParcelPanel) - Shipment Tracking, Tracking \u0026 Order Tracking for WooCommerce plugin for WordPress is vulnerable to Stored Cross-Site Scripting (XSS) via the 'data[].courier_code' and 'data[].tracking_number' parameters in all versions up to, and including, 4.6.2. This vulnerability stems from insufficient input sanitization and output escaping. Additionally, the plugin is susceptible to an authentication bypass when the 'parcelpanel_api_key' WordPress option is non-empty, which occurs automatically once an administrator has opened or connected the ParcelPanel admin page. An unauthenticated attacker can bypass the access gate by supplying a JSON boolean true as the 'pp_sign' parameter, which PHP's loose equality operator (==) incorrectly evaluates as true when compared against the non-empty md5 hex string.\n\n## Attack Chain\nAn unauthenticated attacker can exploit the authentication bypass by supplying a JSON boolean true as the 'pp_sign' parameter, provided the 'parcelpanel_api_key' is non-empty. Once the access gate is bypassed, the attacker can inject arbitrary web scripts via the 'data[].courier_code' or 'data[].tracking_number' parameters. These scripts are stored and execute whenever a user accesses the affected page.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to inject arbitrary web scripts in pages, which will execute when a user accesses an injected page.\n\n## Recommendation\nNo official patched version or remediation is currently documented in available sources. Users should monitor for plugin updates from the vendor.",
+      "published": "2026-11-20T12:21:38.000Z",
+      "labels": [
+        "XSS",
+        "authentication-bypass",
+        "woocommerce",
+        "wordpress"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--cf9a9dc5-c324-53f8-a8ba-15741d7dc4ed",
+        "vulnerability--cbb27284-abc7-5f46-9f75-35ab3f10dc98"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-cwill-xss-cve-2026-121790",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cwill-xss-cve-2026-121790/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-121790"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121790"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-cwill-xss-cve-2026-121790",
+      "x_craftedsignal_event_id": "brief-2026-11-20-cwill-xss-cve-2026-121790",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cwill-xss-cve-2026-121790/",
+      "x_craftedsignal_activity_at": "2026-11-20T12:21:38.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--652f08bc-e6ab-5390-8e6d-17ec5584585c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:33:14.000Z",
@@ -306289,6 +306350,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--cf9a9dc5-c324-53f8-a8ba-15741d7dc4ed",
+      "name": "CWILL (Formerly ParcelPanel) – Shipment Tracking, Tracking \u0026 Order Tracking for WooCommerce (\u003c= 4.6.2)",
+      "vendor": "parcelpanel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--cf9b8f0b-a4ec-5cfe-85de-3af7933490e5",
       "name": "WN551X3-A (M51X3_V251020-WO-182e965)",
       "vendor": "Wavlink"
@@ -363973,6 +364041,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-76101",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76101"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--cbb27284-abc7-5f46-9f75-35ab3f10dc98",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121790",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121790",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121790"
         }
       ]
     },
