@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8619b840-ba32-59be-bc39-cfc4c9c5aa42",
+  "id": "bundle--61d30fd6-cb0c-58db-aa58-9762558746e7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -39158,6 +39158,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--38335813-38fc-58f3-9dfb-837b6ab72404",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T06:46:42.000Z",
+      "modified": "2026-11-20T06:46:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bbde6bc7-de41-5c96-9698-4a321c185c19",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3837ac24-0a5b-5885-8477-ed9709166df8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -60725,6 +60736,17 @@
       "relationship_type": "uses",
       "source_ref": "report--95c308b0-557f-58ae-94cd-752ff639587b",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5e32466d-e964-5e41-8ddd-72dd42872faf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T06:46:42.000Z",
+      "modified": "2026-11-20T06:46:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bbde6bc7-de41-5c96-9698-4a321c185c19",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -136097,6 +136119,17 @@
       "relationship_type": "has",
       "source_ref": "software--7c56fa6a-c4d7-5f64-b84b-c982cda54be0",
       "target_ref": "vulnerability--807e7b12-e09f-5d82-9a1c-c345ef6c6a18"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e6167291-6abc-55ab-806e-e9c90ade295a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--71d5b116-80cb-59b1-a6fa-55ec53779df0",
+      "target_ref": "vulnerability--bf6a73a7-69ab-5d8b-a1d3-b4f584951b31"
     },
     {
       "type": "relationship",
@@ -250573,6 +250606,66 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--bbde6bc7-de41-5c96-9698-4a321c185c19",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T06:46:42.000Z",
+      "modified": "2026-11-20T06:46:42.000Z",
+      "name": "Crawl4AI Unauthenticated Remote Code Execution (CVE-2026-26216)",
+      "description": "## Overview\nCrawl4AI versions prior to 0.8.0 contain a remote code execution vulnerability in the Docker API deployment. The /crawl endpoint accepts a hooks parameter containing Python code that is executed using exec(). The __import__ builtin was included in the allowed builtins list, allowing unauthenticated remote attackers to import arbitrary modules and execute system commands. This effectively bypassed the application's intended sandbox restrictions.\n\n## Attack Chain\n1. An unauthenticated attacker sends a POST request to the /crawl endpoint.\n2. The attacker injects arbitrary Python code into the hooks.code parameter.\n3. The application executes the injected code using exec(). Because __import__ is allowed, attackers can import modules like os or subprocess to perform unauthorized actions.\n\n## Impact\nSuccessful exploitation allows full server compromise, including arbitrary command execution, file read and write access, sensitive data exfiltration, and lateral movement within internal networks.\n\n## Recommendation\nUsers should update to Crawl4AI 0.8.0 or later. Version 0.8.0 removes __import__, eval, exec, and open from the allowed builtins and disables hooks by default (requiring opt-in via the CRAWL4AI_HOOKS_ENABLED environment variable).",
+      "published": "2026-11-20T06:46:42.000Z",
+      "labels": [
+        "code-injection",
+        "cve",
+        "rce"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--71d5b116-80cb-59b1-a6fa-55ec53779df0",
+        "vulnerability--bf6a73a7-69ab-5d8b-a1d3-b4f584951b31"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-crawl4ai-rce-cve-2026-26216",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-crawl4ai-rce-cve-2026-26216/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-26216"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/unclecode/crawl4ai/security/advisories/GHSA-5882-5rx9-xgxp"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JOAOVICDEV-EXPLOIT-CVE-2026-26216"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JOAOVICDEV-EXPLOIT-CVE-2026-26216\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-crawl4ai-rce-cve-2026-26216",
+      "x_craftedsignal_event_id": "brief-2026-11-20-crawl4ai-rce-cve-2026-26216",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-crawl4ai-rce-cve-2026-26216/",
+      "x_craftedsignal_activity_at": "2026-11-20T06:46:42.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.06326,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--bbfc6ff2-9747-59a0-af7e-7b1fd5b1ec21",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T21:39:33.000Z",
@@ -295883,6 +295976,13 @@
       "id": "software--71c5c82c-28b4-5cb3-bf86-ab3dbc43d5c9",
       "name": "Checkov by Prisma Cloud (\u003c 3.4.2)",
       "vendor": "Palo Alto Networks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--71d5b116-80cb-59b1-a6fa-55ec53779df0",
+      "name": "Crawl4AI (\u003c 0.8.0)",
+      "vendor": "unclecode"
     },
     {
       "type": "software",
@@ -356597,6 +356697,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-98056",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98056"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--bf6a73a7-69ab-5d8b-a1d3-b4f584951b31",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-26216",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-26216",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26216"
         }
       ]
     },

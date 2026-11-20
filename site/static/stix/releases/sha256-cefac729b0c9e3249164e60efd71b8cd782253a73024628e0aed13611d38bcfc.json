@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--baf44f05-d4fb-5923-816c-776516d01624",
+  "id": "bundle--068c6f76-3aa9-5252-9c2c-88eb7e91c782",
   "objects": [
     {
       "type": "attack-pattern",
@@ -319,22 +319,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1588.004",
           "url": "https://attack.mitre.org/techniques/T1588/004"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--0da16fc7-cf12-5309-bb62-f4ccf37e69ff",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Additional Container Cluster Roles",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1098.006",
-          "url": "https://attack.mitre.org/techniques/T1098/006"
         }
       ]
     },
@@ -49838,6 +49822,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--38335813-38fc-58f3-9dfb-837b6ab72404",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T06:46:42.000Z",
+      "modified": "2026-11-20T06:46:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bbde6bc7-de41-5c96-9698-4a321c185c19",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3837ac24-0a5b-5885-8477-ed9709166df8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -62572,17 +62567,6 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--439e7f8b-0535-57f1-813a-552c44fa8c35"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--49f35e7c-687a-5da9-894d-b5d7c535f448",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T09:07:33.000Z",
-      "modified": "2026-10-21T09:07:33.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f5bb15ef-7514-507c-8336-8f162b7a2171",
-      "target_ref": "attack-pattern--0da16fc7-cf12-5309-bb62-f4ccf37e69ff"
     },
     {
       "type": "relationship",
@@ -77598,6 +77582,17 @@
       "relationship_type": "uses",
       "source_ref": "report--95c308b0-557f-58ae-94cd-752ff639587b",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5e32466d-e964-5e41-8ddd-72dd42872faf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T06:46:42.000Z",
+      "modified": "2026-11-20T06:46:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bbde6bc7-de41-5c96-9698-4a321c185c19",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -176085,17 +176080,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e5f68110-368a-548b-bfc6-b3ea1f6cb27f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--21369408-c997-5fa6-8aca-7742a6d9f910",
-      "target_ref": "vulnerability--b5edf708-f2af-59fc-949a-08f054e6fd40"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e6033fbd-e2f4-5c61-bb5a-94ce5abe4499",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -176114,6 +176098,17 @@
       "relationship_type": "has",
       "source_ref": "software--7c56fa6a-c4d7-5f64-b84b-c982cda54be0",
       "target_ref": "vulnerability--807e7b12-e09f-5d82-9a1c-c345ef6c6a18"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e6167291-6abc-55ab-806e-e9c90ade295a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--71d5b116-80cb-59b1-a6fa-55ec53779df0",
+      "target_ref": "vulnerability--bf6a73a7-69ab-5d8b-a1d3-b4f584951b31"
     },
     {
       "type": "relationship",
@@ -330043,6 +330038,66 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--bbde6bc7-de41-5c96-9698-4a321c185c19",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T06:46:42.000Z",
+      "modified": "2026-11-20T06:46:42.000Z",
+      "name": "Crawl4AI Unauthenticated Remote Code Execution (CVE-2026-26216)",
+      "description": "## Overview\nCrawl4AI versions prior to 0.8.0 contain a remote code execution vulnerability in the Docker API deployment. The /crawl endpoint accepts a hooks parameter containing Python code that is executed using exec(). The __import__ builtin was included in the allowed builtins list, allowing unauthenticated remote attackers to import arbitrary modules and execute system commands. This effectively bypassed the application's intended sandbox restrictions.\n\n## Attack Chain\n1. An unauthenticated attacker sends a POST request to the /crawl endpoint.\n2. The attacker injects arbitrary Python code into the hooks.code parameter.\n3. The application executes the injected code using exec(). Because __import__ is allowed, attackers can import modules like os or subprocess to perform unauthorized actions.\n\n## Impact\nSuccessful exploitation allows full server compromise, including arbitrary command execution, file read and write access, sensitive data exfiltration, and lateral movement within internal networks.\n\n## Recommendation\nUsers should update to Crawl4AI 0.8.0 or later. Version 0.8.0 removes __import__, eval, exec, and open from the allowed builtins and disables hooks by default (requiring opt-in via the CRAWL4AI_HOOKS_ENABLED environment variable).",
+      "published": "2026-11-20T06:46:42.000Z",
+      "labels": [
+        "code-injection",
+        "cve",
+        "rce"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--71d5b116-80cb-59b1-a6fa-55ec53779df0",
+        "vulnerability--bf6a73a7-69ab-5d8b-a1d3-b4f584951b31"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-crawl4ai-rce-cve-2026-26216",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-crawl4ai-rce-cve-2026-26216/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-26216"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/unclecode/crawl4ai/security/advisories/GHSA-5882-5rx9-xgxp"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JOAOVICDEV-EXPLOIT-CVE-2026-26216"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JOAOVICDEV-EXPLOIT-CVE-2026-26216\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-crawl4ai-rce-cve-2026-26216",
+      "x_craftedsignal_event_id": "brief-2026-11-20-crawl4ai-rce-cve-2026-26216",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-crawl4ai-rce-cve-2026-26216/",
+      "x_craftedsignal_activity_at": "2026-11-20T06:46:42.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.06326,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--bbf506cf-9db8-5ce4-a624-0f38d4599a12",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T11:01:33.000Z",
@@ -336793,46 +336848,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--c4d614fd-a3e3-5b20-ad94-2ad3b8b6f7b8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T08:42:23.000Z",
-      "modified": "2026-10-21T08:42:23.000Z",
-      "name": "Kevin Stover Ninja Forms: Stored Cross-site Scripting (CVE-2026-110899)",
-      "description": "## Overview\nCVE-2026-110899 is a stored cross-site scripting (XSS) vulnerability in the Kevin Stover Ninja Forms plugin. The vulnerability is caused by improper neutralization of input during web page generation. This issue affects Ninja Forms versions up to and including 3.15.5.\n\n## Impact\nSuccessful exploitation allows for stored XSS.\n",
-      "published": "2026-10-21T08:42:23.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--21369408-c997-5fa6-8aca-7742a6d9f910",
-        "vulnerability--b5edf708-f2af-59fc-949a-08f054e6fd40"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-21-ninja-forms-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-21-ninja-forms-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110899"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-21-ninja-forms-xss",
-      "x_craftedsignal_event_id": "brief-2026-10-21-ninja-forms-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-21-ninja-forms-xss/",
-      "x_craftedsignal_activity_at": "2026-10-21T08:42:23.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -373395,57 +373410,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--f5bb15ef-7514-507c-8336-8f162b7a2171",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T09:07:33.000Z",
-      "modified": "2026-10-21T09:07:33.000Z",
-      "name": "AWS EKS: Creation or Modification of Sensitive RBAC Roles",
-      "description": "## Overview\nThe creation or modification of Roles and ClusterRoles with high-risk RBAC permissions can silently expand privileges within an EKS cluster. Attackers may add a ClusterRole with wildcard (`*`) verbs or resources to bind themselves or service accounts to cluster-admin - equivalent access. Legitimate administrative or automated tasks may also trigger this activity; therefore, changes should be validated against expected operational workflows or version-controlled manifests.\n\n## Recommendation\n- Monitor EKS control-plane audit logs for the creation or modification of Roles and ClusterRoles.\n- Investigate the identity and origin of changes, verifying if they originated from approved automation or interactive sessions.\n- Compare Role/ClusterRole manifests before and after the change to identify the introduction of wildcard access or escalation verbs (bind, escalate, impersonate).\n- Review associated RoleBindings or ClusterRoleBindings to determine which subjects gained effective permissions.\n- Utilize RBAC guardrails (e.g., OPA Gatekeeper or Kyverno) to restrict wildcard or escalation verbs to approved groups.\n",
-      "published": "2026-10-21T09:07:33.000Z",
-      "labels": [
-        "aws",
-        "cloud",
-        "eks",
-        "kubernetes",
-        "persistence",
-        "privilege-escalation",
-        "rbac"
-      ],
-      "object_refs": [
-        "attack-pattern--0da16fc7-cf12-5309-bb62-f4ccf37e69ff",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-21-eks-rbac-persistence",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-eks-rbac-persistence/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/persistence_sensitive_role_creation_or_modification_aws_eks.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://heilancoos.github.io/research/2025/12/16/kubernetes.html#overly-permissive-role-based-access-control"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-21-eks-rbac-persistence",
-      "x_craftedsignal_event_id": "brief-2026-10-21-eks-rbac-persistence",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-eks-rbac-persistence/",
-      "x_craftedsignal_activity_at": "2026-10-21T09:07:33.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--f5c8a868-b751-5c29-8ecd-0cddac6ab3d4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T18:40:10.000Z",
@@ -385092,13 +385056,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--21369408-c997-5fa6-8aca-7742a6d9f910",
-      "name": "Ninja Forms (n/a through 3.15.5)",
-      "vendor": "Kevin Stover"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--213b6899-f7a1-5c3e-9792-b02d36bd90ff",
       "name": "ManageEngine Key Manager Plus (\u003c= 7150)",
       "vendor": "ZohoCorp"
@@ -394382,6 +394339,13 @@
       "id": "software--71c5c82c-28b4-5cb3-bf86-ab3dbc43d5c9",
       "name": "Checkov by Prisma Cloud (\u003c 3.4.2)",
       "vendor": "Palo Alto Networks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--71d5b116-80cb-59b1-a6fa-55ec53779df0",
+      "name": "Crawl4AI (\u003c 0.8.0)",
+      "vendor": "unclecode"
     },
     {
       "type": "software",
@@ -471953,22 +471917,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--b5edf708-f2af-59fc-949a-08f054e6fd40",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-110899",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-110899",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110899"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--b602394e-8d76-50dc-9d7b-79cd5ba66f6a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -475131,6 +475079,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-98056",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98056"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--bf6a73a7-69ab-5d8b-a1d3-b4f584951b31",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-26216",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-26216",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26216"
         }
       ]
     },
