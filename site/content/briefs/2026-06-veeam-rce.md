@@ -1,13 +1,44 @@
 ---
+brief_id: brief-2026-06-09-veeam-rce-cve-2026-44963
+event_id: brief-2026-06-09-veeam-rce-cve-2026-44963
+revision: 2
+activity_at: "2026-11-20T04:33:02Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T04:33:02Z"
+    checksum: sha256:a93a4012b07a5b96d502fa1e96ce884698dd8b8b8c5ebe299c1db1b235ab66d3
+    summary: poc_available
+    changed_fields:
+      - cpes
+      - cve_verification
+      - cves
+      - has_poc
+      - iocs
+      - lastmod
+      - poc_references
+      - references
+      - rules
+      - ttps
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JOCKERJML-CVE-2026-44963-VEEAM-CHECKER&utm_source=rss&utm_medium=rss
 title: Vulnerability in Veeam Backup & Replication Allowing Remote Code Execution (CVE-2026-44963)
 slug: 2026-06-veeam-rce
 description: A critical remote code execution vulnerability, tracked as CVE-2026-44963, has been discovered in Veeam Backup & Replication versions prior to 12.3.2.4854, which could allow an unauthenticated attacker to execute arbitrary code on affected systems, leading to full compromise of the backup infrastructure and potential data exfiltration or destruction.
 date: "2026-06-14T09:09:13Z"
+lastmod: "2026-11-20T04:32:48Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
+cpes:
+  - cpe:2.3:a:veeam:backup_replication_12_3_2_4854:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JOCKERJML-CVE-2026-44963-VEEAM-CHECKER&utm_source=rss&utm_medium=rss
 tags:
   - remote-code-execution
   - vulnerability
@@ -29,13 +60,22 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+    subtechnique_id: T1059.003
+    subtechnique_name: Windows Command Shell
+cve_verification:
+  CVE-2026-44963:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-20T04:32:48.179056553Z
 cves:
   - id: CVE-2026-44963
-    epss: 0.00586
+    epss: 0.02351
+    kev_status: "false"
 references:
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0712/
   - https://www.veeam.com/kb4869
   - https://www.cve.org/CVERecord?id=CVE-2026-44963
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JOCKERJML-CVE-2026-44963-VEEAM-CHECKER&utm_source=rss&utm_medium=rss
 iocs:
   - type: url
     value: https://www.veeam.com/kb4869
@@ -56,32 +96,18 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: Detects CVE-2026-44963 Exploitation - Uncommon Child Processes from Veeam Service
-    description: Detects the spawning of commonly abused Windows binaries (cmd, bitsadmin, certutil, mshta, regsvr32) by a Veeam Backup & Replication service, which is highly indicative of CVE-2026-44963 exploitation and arbitrary code execution.
-    platform: sigma
-    severity: high
-    tactics:
-      - execution
-    techniques:
-      - T1059
-      - T1105
-    data_sources:
-      - process_creation
-      - windows
-  - title: Detects CVE-2026-44963 Exploitation - Outbound C2 from Veeam Service to Non-Standard Port
-    description: Detects suspicious outbound network connections to non-standard ports initiated by Veeam Backup & Replication service processes, which could indicate command and control (C2) communication or data exfiltration post-CVE-2026-44963 exploitation.
-    platform: sigma
-    severity: medium
-    tactics:
-      - command_and_control
-    techniques:
-      - T1041
-      - T1071.001
-    data_sources:
-      - network_connection
-      - windows
-rules_count: 3
+rules_count: 1
+updates:
+  - at: "2026-11-20T04:32:48Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JOCKERJML-CVE-2026-44963-VEEAM-CHECKER&utm_source=rss&utm_medium=rss
 ---
+
+## Overview
 
 CERT-FR has published an advisory regarding a critical remote code execution (RCE) vulnerability, CVE-2026-44963, affecting Veeam Backup & Replication software. This flaw impacts all versions prior to 12.3.2.4854. An unauthenticated attacker can exploit this vulnerability to execute arbitrary code on the underlying operating system where Veeam Backup & Replication is installed. The exploitation of such a vulnerability on a backup server is particularly severe, as these systems often have extensive network access and contain highly sensitive data, including backups of critical organizational assets. Organizations using vulnerable versions are strongly advised to apply the security patch referenced in Veeam's security bulletin kb4869 without delay to prevent potential compromise.
 
