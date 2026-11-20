@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--54d49fe5-3e29-5d3e-95e8-bc32b425d1e7",
+  "id": "bundle--b83573d7-48b7-57ac-b8c4-99a7b3b925a2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -150076,6 +150076,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--ad0f3aef-1743-5e25-9572-91327c215ce6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c1f9aef2-aeb6-5a14-8478-51939d7bf8ea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f2aa2764-6bf4-58b6-9764-84a560cdacfd",
+      "target_ref": "vulnerability--e593dd41-828e-50db-9964-9c51b4d3d7cb"
     },
     {
       "type": "relationship",
@@ -372428,6 +372439,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f378a37c-5bff-5e3c-8aa2-4dd482a54e34",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T17:23:27.000Z",
+      "modified": "2026-11-20T17:23:27.000Z",
+      "name": "Vite Development Server Path Traversal Vulnerabilities",
+      "description": "## Overview\nVite, a frontend development build tool, contains path traversal vulnerabilities in its development server. Both CVE-2025-30208 and CVE-2025-31486 allow for the bypass of `server.fs.deny` security restrictions when the Vite dev server is explicitly exposed to the network (e.g., via the `--host` flag).\n\n## Attack Mechanics\n- **CVE-2025-30208:** Attackers can bypass file access limitations by appending `?raw??` or `?import\u0026raw??` to a URL. This issue exists because trailing separators are inconsistently removed in query string regexes.\n- **CVE-2025-31486:** Attackers can bypass `server.fs.deny` by appending `?.svg` with `?.wasm?init` or using a `sec-fetch-dest: script` header. This is only possible if the target file is smaller than `build.assetsInlineLimit` (default 4KB) and when using Vite 6.0+.\n\n## Impact\nSuccessful exploitation allows unauthenticated remote attackers to read arbitrary files from the filesystem of the server. These vulnerabilities require user interaction, have high attack complexity, and are not exploitable if the Vite dev server is not exposed to the network.\n\n## Affected Versions\n- **CVE-2025-30208:** Affected versions include \u003c 4.5.10; \u003e= 5.0.0, \u003c 5.4.15; \u003e= 6.0.0, \u003c 6.0.12; \u003e= 6.1.0, \u003c 6.1.2; and \u003e= 6.2.0, \u003c 6.2.3.\n- **CVE-2025-31486:** Affected versions include \u003c 4.5.12; \u003e= 5.0.0, \u003c 5.4.17; \u003e= 6.0.0, \u003c 6.0.14; \u003e= 6.1.0, \u003c 6.1.4; and \u003e= 6.2.0, \u003c 6.2.5.\n\n## Remediation\nUsers should update to the following versions to mitigate these issues:\n- **CVE-2025-30208:** Fixed in 4.5.10, 5.4.15, 6.0.12, 6.1.2, and 6.2.3.\n- **CVE-2025-31486:** Fixed in 4.5.12, 5.4.17, 6.0.14, 6.1.4, and 6.2.5.",
+      "published": "2026-11-20T17:23:27.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f2aa2764-6bf4-58b6-9764-84a560cdacfd",
+        "vulnerability--0e21c69b-6120-5d25-9b80-7c25a3780ff3",
+        "vulnerability--e593dd41-828e-50db-9964-9c51b4d3d7cb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-vite-path-traversal-cve-2025-31486",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-vite-path-traversal-cve-2025-31486/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-30208"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-31486"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-HACKMELOCAL-CVE-2025-31486-SIMULATION\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-vite-path-traversal-cve-2025-31486",
+      "x_craftedsignal_event_id": "brief-2026-11-20-vite-path-traversal-cve-2025-31486",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-vite-path-traversal-cve-2025-31486/",
+      "x_craftedsignal_activity_at": "2026-11-20T17:23:27.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.3,
+      "x_craftedsignal_epss_max": 0.40461,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f3790753-b532-5c2f-8663-5e9d29a5dea2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T19:56:32.000Z",
@@ -489247,6 +489308,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115155",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115155"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e593dd41-828e-50db-9964-9c51b4d3d7cb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-31486",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-31486",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-31486"
         }
       ]
     },
