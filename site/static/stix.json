@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ac410ad1-072a-5beb-b06d-c3cd49ed6874",
+  "id": "bundle--1d627560-d6b4-5d01-9c18-2e8fc3aa92ff",
   "objects": [
     {
       "type": "attack-pattern",
@@ -56618,6 +56618,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--41e6a0e1-33bb-5618-90c4-0c0f676db03e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4ea84a17-1578-5946-aab3-f5c893258b00",
+      "target_ref": "vulnerability--18b01115-cda1-5f24-a68c-b9117b44d8e7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--41e6e759-3ed3-5ce2-808c-9116f6272043",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -99360,6 +99371,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--14846285-12bf-5b61-b910-f2e8ae5ed6ea"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7b4e9103-a02b-5630-b293-6df3b9f38dd9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0e165425-23bd-5185-be8f-e70f87716f12",
+      "target_ref": "vulnerability--18b01115-cda1-5f24-a68c-b9117b44d8e7"
     },
     {
       "type": "relationship",
@@ -166548,6 +166570,17 @@
       "relationship_type": "has",
       "source_ref": "software--8ef2574a-f1c6-583b-a38d-d3fedfb175e5",
       "target_ref": "vulnerability--469afdbc-816c-52c7-a8ef-5ad5dd602d38"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d7db224b-f528-5b23-b240-cbd473935708",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--18ec1c0d-8cab-5ecb-8916-62dd79ef93f6",
+      "target_ref": "vulnerability--18b01115-cda1-5f24-a68c-b9117b44d8e7"
     },
     {
       "type": "relationship",
@@ -325820,6 +325853,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b422e655-826f-587d-9938-65331f1cc290",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T22:11:25.000Z",
+      "modified": "2026-11-19T22:11:25.000Z",
+      "name": "JTL-Shop Stored Script Injection Vulnerability (CVE-2026-22309)",
+      "description": "## Overview\nThe visitor tracking of JTL-Shop automatically registers unknown crawler user agents without filtering the value. The stored value is subsequently rendered without output encoding on several pages of the administration backend, including search engine statistics, the crawler dashboard widget, the crawler edit form, the sitemap export download list, and campaign details.\n\n## Attack Chain\nAn unauthenticated remote attacker can store script code using the User-Agent header in a single request. This code is executed in the browser session of an administrator who opens one of the affected backend pages.\n\n## Impact\nSuccessful exploitation allows an unauthenticated remote attacker to execute arbitrary script code within the browser session of an administrator, enabling the attacker to perform actions with the administrator's privileges.\n\n## Recommendation\nThe source documentation does not specify a fixed release or remediation version at this time. Users are advised to monitor official vendor communications for patches.",
+      "published": "2026-11-19T22:11:25.000Z",
+      "labels": [
+        "cve",
+        "web-application",
+        "xss"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0e165425-23bd-5185-be8f-e70f87716f12",
+        "software--18ec1c0d-8cab-5ecb-8916-62dd79ef93f6",
+        "software--4ea84a17-1578-5946-aab3-f5c893258b00",
+        "vulnerability--18b01115-cda1-5f24-a68c-b9117b44d8e7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-jtl-shop-xss-cve-2026-22309",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-jtl-shop-xss-cve-2026-22309/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-22309"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22309"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-jtl-shop-xss-cve-2026-22309",
+      "x_craftedsignal_event_id": "brief-2026-11-19-jtl-shop-xss-cve-2026-22309",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-jtl-shop-xss-cve-2026-22309/",
+      "x_craftedsignal_activity_at": "2026-11-19T22:11:25.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b44b929b-cf5b-5772-9792-aa571c3bc2b2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T09:41:29.000Z",
@@ -383336,6 +383420,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0e165425-23bd-5185-be8f-e70f87716f12",
+      "name": "JTL-Shop (\u003e= 5.6.0, \u003c 5.6.6)",
+      "vendor": "JTL-Software GmbH"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0e1e84db-1238-56b8-ac58-5c90bc8e2953",
       "name": "Yandex Browser (\u003c 24.7.1.380)",
       "vendor": "Yandex"
@@ -390924,6 +391015,13 @@
       "id": "software--4e70be3a-3385-5b5b-bae9-8adddbf4dcf7",
       "name": "iOS (\u003c= 27.0)",
       "vendor": "Apple"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4ea84a17-1578-5946-aab3-f5c893258b00",
+      "name": "JTL-Shop (\u003e= 5.7.0, \u003c 5.7.6)",
+      "vendor": "JTL-Software GmbH"
     },
     {
       "type": "software",
@@ -419619,6 +419717,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118300",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118300"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--18b01115-cda1-5f24-a68c-b9117b44d8e7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-22309",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-22309",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22309"
         }
       ]
     },
