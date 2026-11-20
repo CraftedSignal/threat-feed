@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-oracle-security-updates
 event_id: brief-2026-11-oracle-security-updates
-revision: 49
-activity_at: "2026-11-20T22:58:42Z"
+revision: 50
+activity_at: "2026-11-20T23:05:31Z"
 revision_history:
   - revision: 2
     at: "2026-11-17T23:49:55Z"
@@ -649,11 +649,23 @@ revision_history:
       - content
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101688
+  - revision: 50
+    at: "2026-11-20T23:05:31Z"
+    checksum: sha256:b909236b365a80f7c2320d72cdaf2131f336fbb83af5de8903c62f6d064f444f
+    summary: added CVE-2026-101655
+    changed_fields:
+      - cve_verification
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101655
 title: Oracle Security Updates - November 2026
 slug: 2026-11-oracle-security-updates
 description: Roundup of Oracle security advisories published in November 2026.
 date: "2026-11-16T21:54:15Z"
-lastmod: "2026-11-20T22:55:47Z"
+lastmod: "2026-11-20T23:05:12Z"
 type: threat
 types:
   - threat
@@ -887,6 +899,10 @@ cve_verification:
     status: verified
     source: nvd
     checked_at: 2026-11-20T20:39:28.659435265Z
+  CVE-2026-101655:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-20T23:05:11.914451468Z
   CVE-2026-101657:
     status: verified
     source: nvd
@@ -2780,16 +2796,19 @@ cves:
     cvss: 8.6
     epss: 0.00438
     kev_status: "false"
+  - id: CVE-2026-101655
+    cvss: 8.8
+    epss: 0.00448
+    kev_status: "false"
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-101688
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-101655
 updates:
-  - at: "2026-11-20T20:39:29Z"
+  - at: "2026-11-20T20:39:35Z"
     level: L2
-    summary: added CVE-2026-101641, CVE-2026-101642, CVE-2026-101643
+    summary: added CVE-2026-101642, CVE-2026-101643
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-101641
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101642
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101643
   - at: "2026-11-20T22:48:31Z"
@@ -2806,6 +2825,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101688
+  - at: "2026-11-20T23:05:12Z"
+    level: L2
+    summary: added CVE-2026-101655
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101655
 ---
 
 ## Overview
