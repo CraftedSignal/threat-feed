@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bfc0b73f-548d-57a7-bf70-857b716b362b",
+  "id": "bundle--9b6ce802-5ff0-521c-be04-830548cd80eb",
   "objects": [
     {
       "type": "attack-pattern",
@@ -100794,6 +100794,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7d5f73b2-2df9-595a-a587-352d67da9e40",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T04:03:24.000Z",
+      "modified": "2026-11-20T04:03:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--21b048ca-751f-5ab6-b90e-85fd71dba4d0",
+      "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7d606ee8-a036-51f8-af10-6dc86a3fe4bb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T15:43:28.000Z",
@@ -120106,6 +120117,17 @@
       "relationship_type": "has",
       "source_ref": "software--01f8ac03-315c-54b4-9404-67d43294f6a8",
       "target_ref": "vulnerability--d200b7ce-83dd-51dc-8399-a5dd71c1eee7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--98401708-7685-513c-9912-f12b6b2b935d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T04:03:24.000Z",
+      "modified": "2026-11-20T04:03:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--21b048ca-751f-5ab6-b90e-85fd71dba4d0",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -174131,6 +174153,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e3148f16-7080-55bd-bf64-89b53a0b2b11",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b32cf4cf-f191-5e1b-a589-da4c3ac7c080",
+      "target_ref": "vulnerability--0f785e54-95bd-579e-8cd7-475c20ed46a7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e315ba60-c81f-5afc-8974-5073d74df22a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -218857,6 +218890,53 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--21b048ca-751f-5ab6-b90e-85fd71dba4d0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T04:03:24.000Z",
+      "modified": "2026-11-20T04:03:24.000Z",
+      "name": "gleam-wisp wisp: Path traversal in wisp.serve_static (CVE-2026-28807)",
+      "description": "## Overview\n\nThe wisp library (gleam-wisp) contains an improper limitation of a pathname to a restricted directory (Path Traversal) vulnerability in the `wisp.serve_static` function. The vulnerability arises because user-supplied input undergoes path sanitization before percent-decoding occurs. An attacker can supply a percent-encoded sequence like `%2e%2e` which bypasses initial sanitization checks; subsequent percent-decoding converts the sequence to `..`, enabling the underlying operating system to perform directory traversal when the application attempts to read the file.\n\n## Impact\n\nAn unauthenticated attacker can read any file that is accessible to the application process. Potential impact includes the exposure of application source code, configuration files containing secrets, and sensitive system files.\n\n## Recommendation\n\n- Update `wisp` to version 2.2.1 or later immediately.\n- Audit logs for HTTP requests containing percent-encoded path traversal sequences targeting static file routes.\n- Review application file permissions to ensure the process runs with the least privilege required, limiting the scope of any potential file read.",
+      "published": "2026-11-20T04:03:24.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b32cf4cf-f191-5e1b-a589-da4c3ac7c080",
+        "vulnerability--0f785e54-95bd-579e-8cd7-475c20ed46a7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-gleam-wisp-path-traversal-cve-2026-28807",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-gleam-wisp-path-traversal-cve-2026-28807/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-28807"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28807"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-gleam-wisp-path-traversal-cve-2026-28807",
+      "x_craftedsignal_event_id": "brief-2026-11-20-gleam-wisp-path-traversal-cve-2026-28807",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gleam-wisp-path-traversal-cve-2026-28807/",
+      "x_craftedsignal_activity_at": "2026-11-20T04:03:24.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.01165,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -401112,6 +401192,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b32cf4cf-f191-5e1b-a589-da4c3ac7c080",
+      "name": "wisp (\u003e= 2.1.1, \u003c 2.2.1)",
+      "vendor": "gleam-wisp"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b331c19d-a601-54fd-9f5a-038da0e46552",
       "name": "JBoss Enterprise Application Platform",
       "vendor": "Red Hat"
@@ -415330,6 +415417,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96051",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96051"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0f785e54-95bd-579e-8cd7-475c20ed46a7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-28807",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-28807",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28807"
         }
       ]
     },
