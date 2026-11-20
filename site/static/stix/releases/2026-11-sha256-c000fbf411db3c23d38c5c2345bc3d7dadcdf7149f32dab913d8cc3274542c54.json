@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e66d49b4-24c7-5c81-ac37-ced7134fa881",
+  "id": "bundle--ed4b9ef8-b470-5ead-92da-0023d22809aa",
   "objects": [
     {
       "type": "attack-pattern",
@@ -35574,6 +35574,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--69b0bcd2-8e7a-593f-b992-88fa9309cb14",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--67c62043-6f3e-5d17-96ed-61308bc76702",
+      "target_ref": "vulnerability--1a11332d-fa5d-5eac-bc34-a7c5bd7a372e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--69c341a2-917c-5cc6-a611-dfb38f6fbf15",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T15:18:09.000Z",
@@ -52338,6 +52349,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a9323d9c-0a5d-57ab-8733-edabc8bd9c33",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--618a900f-fab4-59f4-a2e7-b95fc576b402",
+      "target_ref": "vulnerability--62fbc4b9-8d99-527a-ad27-13f9ed24868b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a93f4d6b-6447-5954-b1eb-377de836e3b8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:34:08.000Z",
@@ -53324,6 +53346,17 @@
       "relationship_type": "has",
       "source_ref": "software--8156cee7-76ea-5be6-b41b-82ce924d6416",
       "target_ref": "vulnerability--8868d13c-497c-55b0-a15e-ab51dbc7f173"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ac07cb7c-b689-59e6-b07b-1eb9dd3b1caa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--32dfe3d8-ddbd-52a2-a265-9ce6d66e3f4f",
+      "target_ref": "vulnerability--62e809e7-9b95-5730-86a9-f03de5362b89"
     },
     {
       "type": "relationship",
@@ -66528,6 +66561,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--de19f3fe-b383-595c-959a-639a2bc3657d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--970654a8-f5cf-5d8a-be1f-e1af050a3ba4",
+      "target_ref": "vulnerability--62e809e7-9b95-5730-86a9-f03de5362b89"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--de1adcda-5c72-5869-b24d-7810946d2a9a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T16:32:16.000Z",
@@ -72266,6 +72310,17 @@
       "relationship_type": "has",
       "source_ref": "software--4bdccab0-6c4b-5f0d-b546-2fbdf59b795b",
       "target_ref": "vulnerability--ec4d88a5-d215-58e5-8cc1-07c049789b75"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f33463c7-4981-5bfb-9914-c39d439c9330",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f13e04a3-5397-53a4-b02f-3ba0e16bfa09",
+      "target_ref": "vulnerability--62e809e7-9b95-5730-86a9-f03de5362b89"
     },
     {
       "type": "relationship",
@@ -110159,6 +110214,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--428aad1d-8a20-5ca9-9edd-28f570be856c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T00:01:16.000Z",
+      "modified": "2026-11-20T00:01:16.000Z",
+      "name": "Eclipse Mosquitto: libmosquitto heap memory disclosure (CVE-2026-130491)",
+      "description": "## Overview\nIn Eclipse Mosquitto client library versions 1.5-1.6.13, 2.0.0-2.0.22, and 2.1.0-2.1.2, the `libmosquitto` library fails to reject Will messages exceeding 65535 bytes when using `mosquitto_will_set()` or `mosquitto_will_set_v5()`. This omission causes the library to transmit up to 65535 bytes of uninitialized heap memory as part of the Will payload. The disclosed memory may contain sensitive information present in the heap.\n\n## Impact\nSuccessful exploitation may result in the disclosure of potentially sensitive data from the process heap to other MQTT clients subscribed to the topic where the Will message is published.\n\n## Recommendation\n- Validate payload lengths before calling `mosquitto_will_set()` or `mosquitto_will_set_v5()` to ensure they do not exceed 65535 bytes.\n- Monitor the project repository for the release of patched versions addressing CVE-2026-130491.\n- Audit applications using `libmosquitto` to identify instances where user-supplied or untrusted data is passed to Will message functions.",
+      "published": "2026-11-20T00:01:16.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--32dfe3d8-ddbd-52a2-a265-9ce6d66e3f4f",
+        "software--970654a8-f5cf-5d8a-be1f-e1af050a3ba4",
+        "software--f13e04a3-5397-53a4-b02f-3ba0e16bfa09",
+        "vulnerability--62e809e7-9b95-5730-86a9-f03de5362b89"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-eclipse-mosquitto-memory-disclosure-cve-2026-130491",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-eclipse-mosquitto-memory-disclosure-cve-2026-130491/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/eclipse-mosquitto/mosquitto/security/advisories/GHSA-6hx2-p6j3-qrjg"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://gitlab.eclipse.org/security/cve-assignment/-/work_items/593"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130491"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-eclipse-mosquitto-memory-disclosure-cve-2026-130491",
+      "x_craftedsignal_event_id": "brief-2026-11-20-eclipse-mosquitto-memory-disclosure-cve-2026-130491",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-eclipse-mosquitto-memory-disclosure-cve-2026-130491/",
+      "x_craftedsignal_activity_at": "2026-11-20T00:01:16.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00227,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--429452c1-a44b-540b-a34e-082176aed2e4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T17:30:44.000Z",
@@ -133541,6 +133647,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--6faa4512-3115-5ce1-8414-2643b9f5f0f4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T00:01:33.000Z",
+      "modified": "2026-11-20T00:01:33.000Z",
+      "name": "Eclipse Mosquitto: mosquitto_ctrl denial-of-service (CVE-2026-126706)",
+      "description": "## Overview\n\nEclipse Mosquitto versions 2.1.0 through 2.1.2 and the current development branch (commit 6aaba326) contain a null-pointer dereference (CWE-476) in the `mosquitto_ctrl` utility. The vulnerability is located in `apps/mosquitto_ctrl/ctrl_shell.c` within the `ctrl_shell__on_message()` function. When the utility processes a `$CONTROL` PUBLISH response from a broker, it fails to validate the data type of the \"error\" field. If a broker sends a non-string value, the code attempts to access `valuestring` on a structure that does not contain one, resulting in a NULL pointer dereference and a crash of the `mosquitto_ctrl` process.\n\n## Attack Chain\n\nAn attacker controlling a malicious MQTT broker or performing a man-in-the-middle attack on an unencrypted or unauthenticated connection can trigger the vulnerability by sending a crafted `$CONTROL` PUBLISH packet with a non-string \"error\" field.\n\n## Impact\n\nThis vulnerability results in a client-side denial of service, preventing the operator from further administrative interaction with the broker via the `mosquitto_ctrl` utility.\n\n## Recommendation\n\n1. Only use `mosquitto_ctrl` to connect to trusted brokers.\n2. Enforce the use of TLS with strict certificate verification (using `--cafile`, `--cert`, and `--key` flags) to prevent man-in-the-middle injection.\n3. Apply the provided patch to `apps/mosquitto_ctrl/ctrl_shell.c` to include null-checks for the `valuestring` property before calling `strcmp`.",
+      "published": "2026-11-20T00:01:33.000Z",
+      "labels": [
+        "CWE-476",
+        "Denial of Service"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--67c62043-6f3e-5d17-96ed-61308bc76702",
+        "vulnerability--1a11332d-fa5d-5eac-bc34-a7c5bd7a372e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-mosquitto-ctrl-dos-cve-2026-126706",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mosquitto-ctrl-dos-cve-2026-126706/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://gitlab.eclipse.org/security/vulnerability-reports/-/work_items/1174"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126706"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-mosquitto-ctrl-dos-cve-2026-126706",
+      "x_craftedsignal_event_id": "brief-2026-11-20-mosquitto-ctrl-dos-cve-2026-126706",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mosquitto-ctrl-dos-cve-2026-126706/",
+      "x_craftedsignal_activity_at": "2026-11-20T00:01:33.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.0021,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -200317,6 +200472,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f4b2787e-9ccf-5e72-b7f6-a5b762f29ca7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T00:00:29.000Z",
+      "modified": "2026-11-20T00:00:29.000Z",
+      "name": "Apache SeaTunnel Web Improper Authentication (CVE-2026-128981)",
+      "description": "## Overview\n\nApache SeaTunnel Web 1.0.2 contains an improper authentication vulnerability (CVE-2026-128981) where the application login process fails to verify if an account has been disabled. A user possessing valid credentials for a disabled account can successfully authenticate and receive a new, functional login token, thereby gaining access to protected APIs. \n\nThis product is no longer maintained and the 1.0.2 release lacks the account-status check that was subsequently introduced in the project's main branch (pull request #264). No official patch exists for this component.\n\n## Impact\n\nSuccessful exploitation allows users to maintain unauthorized access to protected resources despite their accounts being marked as disabled within the system. This vulnerability does not provide an authentication bypass for users who do not have valid credentials.\n\n## Recommendation\n\n- Discontinue the use of Apache SeaTunnel Web 1.0.2 immediately, as the product is end-of-life and lacks maintained security updates.\n- Audit existing user access controls and authentication logs to identify any sessions initiated by users whose accounts were intended to be disabled.\n- Migrate to an actively maintained data integration platform.",
+      "published": "2026-11-20T00:00:29.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--618a900f-fab4-59f4-a2e7-b95fc576b402",
+        "vulnerability--62fbc4b9-8d99-527a-ad27-13f9ed24868b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-apache-seatunnel-web-auth-bypass-cve-2026-128981",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-seatunnel-web-auth-bypass-cve-2026-128981/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128981"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-apache-seatunnel-web-auth-bypass-cve-2026-128981",
+      "x_craftedsignal_event_id": "brief-2026-11-20-apache-seatunnel-web-auth-bypass-cve-2026-128981",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-seatunnel-web-auth-bypass-cve-2026-128981/",
+      "x_craftedsignal_activity_at": "2026-11-20T00:00:29.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f4b6a122-c45a-5216-9e83-71ac5b9bed32",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:32:50.000Z",
@@ -209847,6 +210041,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--32dfe3d8-ddbd-52a2-a265-9ce6d66e3f4f",
+      "name": "Mosquitto (1.5-1.6.13)",
+      "vendor": "Eclipse"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--32e597cc-da31-51b6-a8ee-4100f619433d",
       "name": "PaperCut print management server"
     },
@@ -213158,6 +213359,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--618a900f-fab4-59f4-a2e7-b95fc576b402",
+      "name": "SeaTunnel Web (1.0.2)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--61a23c73-36cf-5d2b-b05e-7e230df9cb9b",
       "name": "Emitter (\u003c= 3.1)",
       "vendor": "emitter-io"
@@ -213635,6 +213843,13 @@
       "spec_version": "2.1",
       "id": "software--67a8ec51-ac15-5b6d-ba03-bf9d09c2bf6c",
       "name": "SurrealDB (3.1.0 up to, but not including, 3.3.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--67c62043-6f3e-5d17-96ed-61308bc76702",
+      "name": "Eclipse Mosquitto (\u003e= 2.1.0, \u003c= 2.1.2)",
+      "vendor": "Eclipse Foundation"
     },
     {
       "type": "software",
@@ -216957,6 +217172,13 @@
       "id": "software--9701a994-1568-515f-ad65-10e604db3e4c",
       "name": "MiCollab (\u003c= 10.3.0.18)",
       "vendor": "Mitel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--970654a8-f5cf-5d8a-be1f-e1af050a3ba4",
+      "name": "Mosquitto (2.0.0-2.0.22)",
+      "vendor": "Eclipse"
     },
     {
       "type": "software",
@@ -223488,6 +223710,13 @@
       "spec_version": "2.1",
       "id": "software--f0f732cd-746c-5223-b603-45fbe91a8475",
       "name": "Custom Block Builder (\u003c 3.0.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f13e04a3-5397-53a4-b02f-3ba0e16bfa09",
+      "name": "Mosquitto (2.1.0-2.1.2)",
+      "vendor": "Eclipse"
     },
     {
       "type": "software",
@@ -231746,6 +231975,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120043",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120043"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--1a11332d-fa5d-5eac-bc34-a7c5bd7a372e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126706",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126706",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126706"
         }
       ]
     },
@@ -249032,6 +249277,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--62e809e7-9b95-5730-86a9-f03de5362b89",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130491",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130491",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130491"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--62ec61f7-a9ef-53de-9942-7bd8aa88ad2f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -249090,6 +249351,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112736",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112736"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--62fbc4b9-8d99-527a-ad27-13f9ed24868b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-128981",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-128981",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128981"
         }
       ]
     },
