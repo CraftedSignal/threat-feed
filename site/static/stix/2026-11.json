@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b89260da-cfec-58c2-80a7-338761f96115",
+  "id": "bundle--5e32553b-9555-534d-acd9-7ac41af9e2b9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -104802,6 +104802,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--7e3fbeef-1c67-5f40-ac4c-8269f9b7bd9c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ada61dda-de47-58f9-8378-6d9f1087e69a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f0a5d1d3-1451-5338-946f-903270e22063",
+      "target_ref": "vulnerability--ebca9acf-1116-57c6-9095-343f8ff97eae"
     },
     {
       "type": "relationship",
@@ -276541,6 +276552,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ef0f8e8b-3289-59aa-b289-1bd403ad880b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T02:03:21.000Z",
+      "modified": "2026-11-20T02:03:21.000Z",
+      "name": "NLTK: JVM Argument Injection and Sandbox Bypass (CVE-2026-128138)",
+      "description": "## Overview\nNLTK (Natural Language Toolkit) version 3.10.3 contains an incomplete security fix for JVM argument-injection and untrusted JAR/classpath execution paths in `nltk.internals.java()`. While previous hardening validated Java launcher tokens in the `options` channel, the 3.10.3 implementation fails to require the first token of the caller-controlled `cmd` sequence to be a main class. Consequently, supplying `-jar` or an `@argfile` via `nltk.internals.java` or `StanfordSegmenter.java_class` allows execution of attacker-selected Java bytecode.\n\n## Attack Chain\nAn attacker able to influence the `cmd` parameter of `nltk.internals.java()` or the `java_class` argument of `StanfordSegmenter` can inject Java launcher tokens. These tokens are appended to the command sequence and passed to `subprocess.Popen` without verification. The Java child process executes with the privileges of the parent Python process. This is not a claim that importing NLTK alone is remotely exploitable; the vulnerability is reachable only when these argument channels are exposed to untrusted input.\n\n## Impact\nSuccessful exploitation allows the execution of attacker-selected Java bytecode with the privileges of the process using NLTK.\n\n## Recommendation\nUpgrade to version 3.10.4. In environments where patching is not possible, audit application code to ensure input values provided to `cmd` or `java_class` are restricted from using Java launcher switches or `@argfile` references.",
+      "published": "2026-11-20T02:03:21.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f0a5d1d3-1451-5338-946f-903270e22063",
+        "vulnerability--ebca9acf-1116-57c6-9095-343f8ff97eae"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-nltk-jvm-bypass-ghsa-x8q7-6c7m-52gw",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-jvm-bypass-ghsa-x8q7-6c7m-52gw/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-128138"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-x8q7-6c7m-52gw"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-nltk-jvm-bypass-ghsa-x8q7-6c7m-52gw",
+      "x_craftedsignal_event_id": "brief-2026-11-20-nltk-jvm-bypass-ghsa-x8q7-6c7m-52gw",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-jvm-bypass-ghsa-x8q7-6c7m-52gw/",
+      "x_craftedsignal_activity_at": "2026-11-20T02:03:21.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ef102326-2a5f-52a5-b30d-1f0f8139ce11",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T10:54:50.000Z",
@@ -303635,6 +303690,12 @@
       "id": "software--f0939775-201f-5ffe-8557-e278e56d8d78",
       "name": "jt808-server (\u003c= a07f68c466b560b97ef41edb8a4966469abdf83e)",
       "vendor": "yezhihao"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f0a5d1d3-1451-5338-946f-903270e22063",
+      "name": "nltk"
     },
     {
       "type": "software",
@@ -366287,6 +366348,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-129784",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129784"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ebca9acf-1116-57c6-9095-343f8ff97eae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-128138",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-128138",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128138"
         }
       ]
     },
