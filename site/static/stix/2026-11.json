@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3f75b06f-fafb-540b-8b3c-63eab4821d31",
+  "id": "bundle--e9aad49f-6ce4-5208-9e59-a74011beb977",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2799,6 +2799,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1189",
           "url": "https://attack.mitre.org/techniques/T1189"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--e59d0a71-a7b2-52f9-a2f2-a9d5194cdfbd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Create Snapshot",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1578.001",
+          "url": "https://attack.mitre.org/techniques/T1578/001"
         }
       ]
     },
@@ -10015,6 +10031,17 @@
       "relationship_type": "has",
       "source_ref": "software--3cf3fa2c-ee5c-5a1d-bd2b-69417ecacd7f",
       "target_ref": "vulnerability--873f0736-a1de-5462-883b-c9bc49a2247f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--044e3bf4-6bbb-5124-9d9c-b0dc192f27a2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--012add88-f12b-5ea3-9d97-6354d9e7931a",
+      "target_ref": "vulnerability--b016e508-4c46-5981-841b-63babb699286"
     },
     {
       "type": "relationship",
@@ -38245,6 +38272,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--361c84c1-3268-5dc5-af17-2b3571e393ea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9e21660a-6943-5194-9a72-eb5347e5c2b4",
+      "target_ref": "vulnerability--b016e508-4c46-5981-841b-63babb699286"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--362b83d3-68ba-54fd-bea3-7fca757daa05",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -38549,6 +38587,17 @@
       "relationship_type": "has",
       "source_ref": "software--215708b5-511e-5d3d-b97c-083260c91643",
       "target_ref": "vulnerability--f3e4a4bc-b78f-5966-936a-781ebc15390e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--36b98f77-0926-52ee-ada3-e731986e637c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T13:59:45.000Z",
+      "modified": "2026-11-20T13:59:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5cb2da79-6ec9-5d84-93a7-973f23169e6c",
+      "target_ref": "attack-pattern--e59d0a71-a7b2-52f9-a2f2-a9d5194cdfbd"
     },
     {
       "type": "relationship",
@@ -56567,17 +56616,6 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--17b75a22-6356-5d27-be97-8017dc1c86aa"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--56815692-5596-5878-aefe-ec7cf1071466",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--e38dfbd1-7a22-566c-9702-5ecb8fbeb594",
-      "target_ref": "vulnerability--b016e508-4c46-5981-841b-63babb699286"
     },
     {
       "type": "relationship",
@@ -177914,7 +177952,7 @@
       "id": "report--30f96cb2-b885-52a8-9139-e92481c52235",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T22:18:50.000Z",
-      "modified": "2026-11-20T03:29:17.000Z",
+      "modified": "2026-11-20T14:01:21.000Z",
       "name": "Linux Kernel: TCP Pre-auth Remote NULL Pointer Dereference (CVE-2026-99288)",
       "description": "## Overview\nCVE-2026-99288 is a vulnerability in the Linux kernel where a race condition during lockless TCP established ehash lookups can result in a kernel null pointer dereference. The vulnerability occurs because TCP established ehash lookups rely on SLAB_TYPESAFE_BY_RCU; if a lookup races with the freeing and reallocation of an existing request socket, the kernel may return a reference to an unhashed object. A PoC demonstrated that triggering this during SYN cookie processing causes the kernel to read a socket state through a NULL listener.\n\n## Attack Chain\nA remote attacker can trigger this vulnerability by driving concurrent operations that involve a stale ehash lookup and the freeing and reallocation of an existing request socket.\n\n## Impact\nSuccessful exploitation results in a kernel null pointer dereference and subsequent system panic, leading to a denial of service. The impact is limited to system instability caused by the dereference.\n\n## Recommendation\nUsers should apply patches to affected Linux kernel versions. The CVE source indicates that versions 6.12.117, 6.18.63, 7.3.4, and later releases contain the fix.",
       "published": "2026-11-15T22:18:50.000Z",
@@ -177925,7 +177963,8 @@
       ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--e38dfbd1-7a22-566c-9702-5ecb8fbeb594",
+        "software--012add88-f12b-5ea3-9d97-6354d9e7931a",
+        "software--9e21660a-6943-5194-9a72-eb5347e5c2b4",
         "vulnerability--b016e508-4c46-5981-841b-63babb699286"
       ],
       "external_references": [
@@ -177949,14 +177988,18 @@
         {
           "source_name": "reference",
           "url": "https://sploitus.com/exploit?id=B5B7A44A-5383-5BE8-A26D-897DA4AAEE64\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4695"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-15-noisytcp-cve-2026-99288",
       "x_craftedsignal_event_id": "brief-2026-11-15-noisytcp-cve-2026-99288",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-noisytcp-cve-2026-99288/",
-      "x_craftedsignal_activity_at": "2026-11-20T03:29:17.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T14:01:21.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -203279,6 +203322,63 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5cb2da79-6ec9-5d84-93a7-973f23169e6c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T13:59:45.000Z",
+      "modified": "2026-11-20T13:59:45.000Z",
+      "name": "Azure: Unauthorized Compute Snapshot Creation (T1578.001)",
+      "description": "## Overview\n\nAdversaries create snapshots of Azure managed disks as a defense evasion technique to stage data for exfiltration. By creating a snapshot, the attacker can move, share, or export the disk data to an attacker-controlled subscription without triggering alerts associated with direct VM access or data-in-use monitoring. Monitoring for \"Microsoft.Compute/snapshots/write\" operations, particularly those originating from unexpected Autonomous System Numbers (ASN), can help identify potential unauthorized staging activity.\n\n## Impact\n\nUnauthorized creation of disk snapshots facilitates data theft and exfiltration by allowing attackers to access point-in-time copies of virtual machine storage. This technique enables attackers to move data to their own infrastructure for offline analysis or data extraction.\n\n## Recommendation\n\n- Inventory all principals authorized to create snapshots within your Azure environment.\n- Implement monitoring for the \"Microsoft.Compute/snapshots/write\" activity in Azure Activity Logs.\n- Alert on snapshot creation activities originating from IP addresses or ASNs that are not part of your organization's known network range or typical cloud egress providers.\n- Monitor for follow-on actions such as SAS export (\"Microsoft.Compute/snapshots/beginGetAccess/action\"), CopySnapshot, or unexpected share operations in the same time window as snapshot creation.\n- Tighten least-privilege access to the \"Microsoft.Compute/snapshots/*\" resource provider and revoke SAS access if unauthorized snapshots are identified.",
+      "published": "2026-11-20T13:59:45.000Z",
+      "labels": [
+        "azure",
+        "cloud",
+        "data-exfiltration",
+        "defense-evasion"
+      ],
+      "object_refs": [
+        "attack-pattern--e59d0a71-a7b2-52f9-a2f2-a9d5194cdfbd",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2cf69450-15b8-536c-859c-3c59b2481831"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-azure-snapshot-abuse",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-azure-snapshot-abuse/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/defense_evasion_azure_compute_snapshot_created_by_unusual_identity.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1578.001/T1578.001.md"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/snapshot-copy-managed-disk"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cyngular.com/blog/beyond-the-backup-the-hidden-dangers-of-azure-snapshot-exfiltration"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-azure-snapshot-abuse",
+      "x_craftedsignal_event_id": "brief-2026-11-20-azure-snapshot-abuse",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-azure-snapshot-abuse/",
+      "x_craftedsignal_activity_at": "2026-11-20T13:59:45.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -290495,6 +290595,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--012add88-f12b-5ea3-9d97-6354d9e7931a",
+      "name": "Linux",
+      "vendor": "Linux Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--013257e0-9792-5660-a64e-2c1344a7784c",
       "name": "Splunk Enterprise (10.6 \u003c 10.6.1)",
       "vendor": "Splunk"
@@ -307894,12 +308001,6 @@
       "id": "software--e38071f0-ab64-54d2-b83e-6048c3af1e30",
       "name": "TeamPass (\u003c 3.2.1.2)",
       "vendor": "TeamPass"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--e38dfbd1-7a22-566c-9702-5ecb8fbeb594",
-      "name": "Linux"
     },
     {
       "type": "software",
