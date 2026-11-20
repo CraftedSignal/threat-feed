@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6b76488f-240a-52d8-ae36-a32b5f0b0aab",
+  "id": "bundle--2c120b86-e497-5c54-ab25-030c463c6516",
   "objects": [
     {
       "type": "attack-pattern",
@@ -152022,6 +152022,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--fce67977-5c50-550e-8910-f0169c89a44d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d5e66872-318b-5a8f-bd1c-8aa765e1b557",
+      "target_ref": "vulnerability--167f5213-44b2-5d2f-8337-8cc0dd2a5068"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--fce7d878-3066-574c-97e2-f8fe9b79102a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -189015,6 +189026,50 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3dd5cb72-7911-55ed-8881-ae7e971f3577",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T20:09:08.000Z",
+      "modified": "2026-11-20T20:09:08.000Z",
+      "name": "Git LFS: Arbitrary command execution via crafted configurations (CVE-2026-105803)",
+      "description": "## Overview\nGit LFS (Large File Storage) is a Git extension for versioning large files. A vulnerability exists where Git LFS fails to correctly filter the limited set of options permitted in a repository's .lfsconfig file when option keys contain certain additional components. This allows an attacker to craft keys that mimic options used to configure custom object transfer commands.\n\n## Attack Chain\nWhen a user fetches objects from a malicious repository, Git LFS may interpret crafted .lfsconfig keys to use an attacker-selected command or binary, resulting in execution during the transfer process.\n\n## Impact\nSuccessful exploitation allows the execution of an arbitrary command or binary on the system of any user who performs a fetch operation on a malicious repository.\n\n## Recommendation\nUpgrade to Git LFS version 3.8.1. The vulnerability is resolved by restricting the configuration of custom object transfer commands to local Git configuration files. As a workaround, users and administrators should avoid cloning repositories from untrusted sources, or disable Git LFS entirely.",
+      "published": "2026-11-20T20:09:08.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d5e66872-318b-5a8f-bd1c-8aa765e1b557",
+        "vulnerability--167f5213-44b2-5d2f-8337-8cc0dd2a5068"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-git-lfs-rce-ghsa-x72p-hmqp-46hw",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-git-lfs-rce-ghsa-x72p-hmqp-46hw/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-105803"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-x72p-hmqp-46hw"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-git-lfs-rce-ghsa-x72p-hmqp-46hw",
+      "x_craftedsignal_event_id": "brief-2026-11-20-git-lfs-rce-ghsa-x72p-hmqp-46hw",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-git-lfs-rce-ghsa-x72p-hmqp-46hw/",
+      "x_craftedsignal_activity_at": "2026-11-20T20:09:08.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00545,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -313536,6 +313591,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d5e66872-318b-5a8f-bd1c-8aa765e1b557",
+      "name": "git-lfs",
+      "vendor": "git-lfs"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d5f6d007-3c4c-5dd8-b232-47f043f22c24",
       "name": "NocoDB (\u003c 2026.09.0)",
       "vendor": "NocoDB"
@@ -323403,6 +323465,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126433",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126433"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--167f5213-44b2-5d2f-8337-8cc0dd2a5068",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-105803",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-105803",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105803"
         }
       ]
     },
