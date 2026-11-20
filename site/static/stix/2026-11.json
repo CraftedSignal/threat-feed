@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b526ffb3-48fa-54e3-b83a-9d2af24bfefc",
+  "id": "bundle--b7eae699-402d-51b2-9d0a-259da3313121",
   "objects": [
     {
       "type": "attack-pattern",
@@ -19239,6 +19239,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2a4cc570-306b-5f77-ab72-0dc32aaa04bb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f6c99948-9d0b-5938-ba3e-92eb6c18c721",
+      "target_ref": "vulnerability--a9de31cb-8e23-5620-9ebf-4020fbf3923b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2a4f14ef-f473-57b5-b2e5-a4dc14ac8b62",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T03:43:23.000Z",
@@ -21193,6 +21204,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e78ae208-7347-561c-bd1b-f92d133c6b75",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--31e72895-b2f4-544f-8996-71b3a1e477fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T00:51:42.000Z",
+      "modified": "2026-11-20T00:51:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3c32b19f-8dee-563f-b77d-e4bb028cc0fa",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -34474,6 +34496,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6519c0fe-b0b4-518c-b165-b0592840db7a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4096fdf4-4571-5bb6-9222-92281c62f778",
+      "target_ref": "vulnerability--2cbdd15f-3dfa-524f-bfa3-c56591485488"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--65244ec9-e78a-5e16-85d1-6f4fa16520f9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T02:51:18.000Z",
@@ -39024,6 +39057,17 @@
       "relationship_type": "uses",
       "source_ref": "report--f23a97a2-706c-5269-8f9c-483efbfcc6ab",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--76b327b9-f451-54fd-b2fc-8def5621a74a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f6c99948-9d0b-5938-ba3e-92eb6c18c721",
+      "target_ref": "vulnerability--b73a35df-415d-5d14-aeba-160cb267d876"
     },
     {
       "type": "relationship",
@@ -44700,6 +44744,17 @@
       "relationship_type": "uses",
       "source_ref": "report--2a5f423c-4425-5da5-b22b-7a172f6b7dbf",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8bfea3c7-67d3-59af-afd6-06ec1079fad5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f6c99948-9d0b-5938-ba3e-92eb6c18c721",
+      "target_ref": "vulnerability--f76b9e00-acc6-5bb6-9e11-f8040cd493d8"
     },
     {
       "type": "relationship",
@@ -107487,6 +107542,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--3c32b19f-8dee-563f-b77d-e4bb028cc0fa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T00:51:42.000Z",
+      "modified": "2026-11-20T00:51:42.000Z",
+      "name": "NLTK: XML corpus reader denial-of-service (CVE-2026-128139)",
+      "description": "## Overview\n\nNLTK (Natural Language Toolkit) is a library used for Natural Language Processing in Python. A vulnerability exists in the `XMLCorpusView._read_xml_fragment` method where the library repeatedly applies whole-buffer XML validation while parsing large comment or CDATA sections within an XML corpus file. This results in quadratic CPU consumption, leading to a denial-of-service condition when processing attacker-supplied files.\n\n## Impact\n\nAn attacker capable of supplying an XML corpus file to an application utilizing NLTK versions 3.6 to 3.10.3 can trigger resource exhaustion, potentially causing the application to become unresponsive or crash due to high CPU usage.\n\n## Recommendation\n\nUpgrade NLTK to version 3.10.4 or later immediately. Users should audit applications that consume external or untrusted XML corpus files via NLTK's `XMLCorpusReader` or related components.",
+      "published": "2026-11-20T00:51:42.000Z",
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4096fdf4-4571-5bb6-9222-92281c62f778",
+        "vulnerability--2cbdd15f-3dfa-524f-bfa3-c56591485488"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-nltk-xml-dos-cve-2026-128139",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-xml-dos-cve-2026-128139/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-128139"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128139"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-nltk-xml-dos-cve-2026-128139",
+      "x_craftedsignal_event_id": "brief-2026-11-20-nltk-xml-dos-cve-2026-128139",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-xml-dos-cve-2026-128139/",
+      "x_craftedsignal_activity_at": "2026-11-20T00:51:42.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--3c46d747-c3b6-51a4-ac73-9c7a0d2150f3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T14:10:33.000Z",
@@ -108500,6 +108600,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3e69a91d-5b0a-5d53-b578-6adfe28cdb2e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T00:51:25.000Z",
+      "modified": "2026-11-20T00:51:25.000Z",
+      "name": "NLTK ZIP Package Extraction Path Traversal (CVE-2026-128135)",
+      "description": "## Overview\nNLTK (Natural Language Toolkit) versions 3.9.4 to 3.10.3 are vulnerable to a flaw during ZIP package extraction. A local attacker who can pre-place a hardlink within the extraction root that points to an external file can cause the NLTK extraction process to overwrite the target file, violating the pathsec containment boundary.\n\n## Attack Chain\nAn attacker with local access can prepare an extraction target (a hardlink) that resolves to a location outside the intended NLTK data root. During package extraction, the library follows this hardlink, resulting in an arbitrary file write.\n\n## Impact\nSuccessful exploitation allows a local attacker to overwrite files outside the data root, impacting system integrity and availability.\n\n## Recommendation\nUpgrade NLTK to version 3.10.4 or later, which contains the fix for this issue.",
+      "published": "2026-11-20T00:51:25.000Z",
+      "labels": [
+        "cve",
+        "path-traversal"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f6c99948-9d0b-5938-ba3e-92eb6c18c721",
+        "vulnerability--f76b9e00-acc6-5bb6-9e11-f8040cd493d8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-nltk-path-traversal-cve-2026-128135",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-path-traversal-cve-2026-128135/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-128135"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128135"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-nltk-path-traversal-cve-2026-128135",
+      "x_craftedsignal_event_id": "brief-2026-11-20-nltk-path-traversal-cve-2026-128135",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-path-traversal-cve-2026-128135/",
+      "x_craftedsignal_activity_at": "2026-11-20T00:51:25.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -133062,6 +133210,50 @@
       },
       "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_epss_max": 0.00216,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--6dad823f-88c6-5485-9a07-5bedab37dfa2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T00:52:01.000Z",
+      "modified": "2026-11-20T00:52:01.000Z",
+      "name": "NLTK: Denial of Service in WordNet traversal (CVE-2026-129223)",
+      "description": "## Overview\n\nNLTK (Natural Language Toolkit) versions prior to 3.10.4 are affected by a vulnerability in the `WordNet Synset.tree` and `acyclic_tree` functions. These functions traverse relation graphs using recursive utility helpers without a depth bound. Exploitation requires the host application to load an attacker-influenced custom or foreign WordNet-format lexical resource. NLTK's bundled WordNet 3.0 corpus does not contain relations deep enough to trigger this crash threshold.\n\n## Impact\n\nAn excessively deep relation graph in a processed resource can exceed the Python recursion limit, resulting in the termination of the traversal or the application's request worker, causing a denial of service.\n\n## Recommendation\n\nUpgrade NLTK to version 3.10.4 or later, which contains the fix for this vulnerability.",
+      "published": "2026-11-20T00:52:01.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f6c99948-9d0b-5938-ba3e-92eb6c18c721",
+        "vulnerability--b73a35df-415d-5d14-aeba-160cb267d876"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-nltk-recursion-dos-cve-2026-129223",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-recursion-dos-cve-2026-129223/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129223"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129223"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-nltk-recursion-dos-cve-2026-129223",
+      "x_craftedsignal_event_id": "brief-2026-11-20-nltk-recursion-dos-cve-2026-129223",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-recursion-dos-cve-2026-129223/",
+      "x_craftedsignal_activity_at": "2026-11-20T00:52:01.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -196272,6 +196464,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--eb0a5535-3361-537c-a341-1e16c7d46677",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T00:51:51.000Z",
+      "modified": "2026-11-20T00:51:51.000Z",
+      "name": "NLTK: Denial of service in DependencyGraph (CVE-2026-129222)",
+      "description": "## Overview\nNLTK (Natural Language Toolkit) is a suite of open source Python modules, data sets, and tutorials supporting research and development in Natural Language Processing. The functions `DependencyGraph.tree` and `DependencyGraph.triples` walk parsed dependency edges through unbounded Python recursion without utilizing a working cycle or depth guard. \n\n## Impact\nA crafted CoNLL or Malt-TAB dependency file containing a sufficiently long chain can raise a `RecursionError` when these APIs are called, aborting the current worker process and resulting in a denial of service.\n\n## Recommendation\nUsers should upgrade to NLTK version 3.10.4 or later, which includes a fix for this issue.",
+      "published": "2026-11-20T00:51:51.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f6c99948-9d0b-5938-ba3e-92eb6c18c721",
+        "vulnerability--a9de31cb-8e23-5620-9ebf-4020fbf3923b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-nltk-recursion-denial-cve-2026-129222",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-recursion-denial-cve-2026-129222/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129222"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129222"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-nltk-recursion-denial-cve-2026-129222",
+      "x_craftedsignal_event_id": "brief-2026-11-20-nltk-recursion-denial-cve-2026-129222",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-recursion-denial-cve-2026-129222/",
+      "x_craftedsignal_activity_at": "2026-11-20T00:51:51.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--eb3c57d7-930b-5a55-97ca-8c053a12b285",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T16:46:05.000Z",
@@ -211802,6 +212038,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4096fdf4-4571-5bb6-9222-92281c62f778",
+      "name": "NLTK (3.6 - 3.10.3)",
+      "vendor": "NLTK"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--40973d88-7cc3-5bde-ac58-e64a5dd87c97",
       "name": "Network-AI (\u003c 5.15.5)",
       "vendor": "Network-AI"
@@ -224954,6 +225197,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--f6c99948-9d0b-5938-ba3e-92eb6c18c721",
+      "name": "nltk",
+      "vendor": "nltk"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f6caa88d-0610-5d48-b01d-fac11f2a7398",
       "name": "Craft CMS (4.0.0 through 4.18.8)",
       "vendor": "Craft CMS"
@@ -237332,6 +237582,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116764",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116764"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2cbdd15f-3dfa-524f-bfa3-c56591485488",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-128139",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-128139",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128139"
         }
       ]
     },
@@ -268650,6 +268916,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--a9de31cb-8e23-5620-9ebf-4020fbf3923b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129222",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129222",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129222"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--a9e7ca3a-50af-5c52-807c-18c0f44a38dd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -271956,6 +272238,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114835",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114835"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b73a35df-415d-5d14-aeba-160cb267d876",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129223",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129223",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129223"
         }
       ]
     },
@@ -288548,6 +288846,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118278",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118278"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f76b9e00-acc6-5bb6-9e11-f8040cd493d8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-128135",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-128135",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128135"
         }
       ]
     },

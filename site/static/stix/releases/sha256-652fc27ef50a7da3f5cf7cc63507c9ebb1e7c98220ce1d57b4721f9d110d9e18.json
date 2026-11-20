@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9256d2ef-5690-56a7-9601-662bcbad9767",
+  "id": "bundle--327172fc-5ab2-5386-b4ee-1b4d91481dc7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1333,22 +1333,6 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
-      "id": "attack-pattern--5a25a649-6ab1-5cbf-821f-f501783fcc18",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "System Service Discovery",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1007",
-          "url": "https://attack.mitre.org/techniques/T1007"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
       "id": "attack-pattern--5ab6eef3-7c5b-5d07-9beb-a7e97d824bb5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1711,22 +1695,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1090.002",
           "url": "https://attack.mitre.org/techniques/T1090/002"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--73bca283-1912-5342-9a74-b22e3714a53e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Msiexec",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1218.007",
-          "url": "https://attack.mitre.org/techniques/T1218/007"
         }
       ]
     },
@@ -2943,22 +2911,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1090.003",
           "url": "https://attack.mitre.org/techniques/T1090/003"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--da26685a-06ae-5445-a6a5-2e777dbba577",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Query Registry",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1012",
-          "url": "https://attack.mitre.org/techniques/T1012"
         }
       ]
     },
@@ -16252,17 +16204,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--0f706373-6a12-5063-a8f5-c0ca19e7353f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T00:48:29.000Z",
-      "modified": "2026-10-21T00:48:29.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5b4da0e1-df68-5769-a900-fb4f2533df40",
-      "target_ref": "attack-pattern--da26685a-06ae-5445-a6a5-2e777dbba577"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--0f72997b-349a-519b-a8f6-e36b670482c3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -22034,17 +21975,6 @@
       "relationship_type": "has",
       "source_ref": "software--16f15362-162e-5c77-9024-689fcf839a2f",
       "target_ref": "vulnerability--eff538af-f7c6-5c8e-b351-858fd0cd11aa"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1c320b8e-f28e-5835-a577-afa354ceaf8a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T00:48:22.000Z",
-      "modified": "2026-10-21T00:48:22.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--9cffd403-298c-50fe-982a-5b35c77e206c",
-      "target_ref": "attack-pattern--73bca283-1912-5342-9a74-b22e3714a53e"
     },
     {
       "type": "relationship",
@@ -28187,6 +28117,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2a4cc570-306b-5f77-ab72-0dc32aaa04bb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f6c99948-9d0b-5938-ba3e-92eb6c18c721",
+      "target_ref": "vulnerability--a9de31cb-8e23-5620-9ebf-4020fbf3923b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2a4f14ef-f473-57b5-b2e5-a4dc14ac8b62",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T03:43:23.000Z",
@@ -31142,6 +31083,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e78ae208-7347-561c-bd1b-f92d133c6b75",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--31e72895-b2f4-544f-8996-71b3a1e477fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T00:51:42.000Z",
+      "modified": "2026-11-20T00:51:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3c32b19f-8dee-563f-b77d-e4bb028cc0fa",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -53091,6 +53043,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6519c0fe-b0b4-518c-b165-b0592840db7a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4096fdf4-4571-5bb6-9222-92281c62f778",
+      "target_ref": "vulnerability--2cbdd15f-3dfa-524f-bfa3-c56591485488"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--65244ec9-e78a-5e16-85d1-6f4fa16520f9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T02:51:18.000Z",
@@ -60934,6 +60897,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--76b327b9-f451-54fd-b2fc-8def5621a74a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f6c99948-9d0b-5938-ba3e-92eb6c18c721",
+      "target_ref": "vulnerability--b73a35df-415d-5d14-aeba-160cb267d876"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--76b6254d-7188-5139-a130-a1c67aaad6b9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -62305,17 +62279,6 @@
       "relationship_type": "has",
       "source_ref": "software--6c84027a-814f-5c2b-9382-6f7b972ba316",
       "target_ref": "vulnerability--a6cf163b-71e5-5c9d-9753-f09bec302312"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--79444781-93be-5656-8301-9dedf710bc1b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T00:48:33.000Z",
-      "modified": "2026-10-21T00:48:33.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--bd6e681b-7d62-5833-aaf4-9e8a62f773ad",
-      "target_ref": "attack-pattern--cab43178-fae3-52ac-a29f-a095c60026fa"
     },
     {
       "type": "relationship",
@@ -64065,17 +64028,6 @@
       "relationship_type": "has",
       "source_ref": "software--e5d9f204-c533-52f6-b0fa-f5b0df25c9a3",
       "target_ref": "vulnerability--80393bef-1fd2-5afa-9d82-8b27bd4f90fd"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7d7a3495-9bf9-5352-9142-c9720024fced",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T00:48:16.000Z",
-      "modified": "2026-10-21T00:48:16.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3d9e02fc-5af3-589e-b6f9-538d84672ba1",
-      "target_ref": "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876"
     },
     {
       "type": "relationship",
@@ -70511,6 +70463,17 @@
       "relationship_type": "uses",
       "source_ref": "report--2a5f423c-4425-5da5-b22b-7a172f6b7dbf",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8bfea3c7-67d3-59af-afd6-06ec1079fad5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f6c99948-9d0b-5938-ba3e-92eb6c18c721",
+      "target_ref": "vulnerability--f76b9e00-acc6-5bb6-9e11-f8040cd493d8"
     },
     {
       "type": "relationship",
@@ -97989,17 +97952,6 @@
       "relationship_type": "has",
       "source_ref": "software--aa4e0a42-69e7-5975-9d0f-53b0f5eda849",
       "target_ref": "vulnerability--e4688b84-c3ae-5e71-8590-2422eba4ae78"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c98b2000-a36e-5b3d-9993-c50e3310ca66",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T00:48:29.000Z",
-      "modified": "2026-10-21T00:48:29.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5b4da0e1-df68-5769-a900-fb4f2533df40",
-      "target_ref": "attack-pattern--5a25a649-6ab1-5cbf-821f-f501783fcc18"
     },
     {
       "type": "relationship",
@@ -164780,6 +164732,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--3c32b19f-8dee-563f-b77d-e4bb028cc0fa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T00:51:42.000Z",
+      "modified": "2026-11-20T00:51:42.000Z",
+      "name": "NLTK: XML corpus reader denial-of-service (CVE-2026-128139)",
+      "description": "## Overview\n\nNLTK (Natural Language Toolkit) is a library used for Natural Language Processing in Python. A vulnerability exists in the `XMLCorpusView._read_xml_fragment` method where the library repeatedly applies whole-buffer XML validation while parsing large comment or CDATA sections within an XML corpus file. This results in quadratic CPU consumption, leading to a denial-of-service condition when processing attacker-supplied files.\n\n## Impact\n\nAn attacker capable of supplying an XML corpus file to an application utilizing NLTK versions 3.6 to 3.10.3 can trigger resource exhaustion, potentially causing the application to become unresponsive or crash due to high CPU usage.\n\n## Recommendation\n\nUpgrade NLTK to version 3.10.4 or later immediately. Users should audit applications that consume external or untrusted XML corpus files via NLTK's `XMLCorpusReader` or related components.",
+      "published": "2026-11-20T00:51:42.000Z",
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4096fdf4-4571-5bb6-9222-92281c62f778",
+        "vulnerability--2cbdd15f-3dfa-524f-bfa3-c56591485488"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-nltk-xml-dos-cve-2026-128139",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-xml-dos-cve-2026-128139/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-128139"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128139"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-nltk-xml-dos-cve-2026-128139",
+      "x_craftedsignal_event_id": "brief-2026-11-20-nltk-xml-dos-cve-2026-128139",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-xml-dos-cve-2026-128139/",
+      "x_craftedsignal_activity_at": "2026-11-20T00:51:42.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--3c332707-d76f-5c87-a353-05d87670abac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T16:07:54.000Z",
@@ -165914,45 +165911,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--3d9e02fc-5af3-589e-b6f9-538d84672ba1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T00:48:16.000Z",
-      "modified": "2026-10-21T00:48:16.000Z",
-      "name": "Detection of Alternate PowerShell Hosts",
-      "description": "## Overview\n\nAttackers frequently leverage alternative hosts to execute PowerShell scripts as a means to evade detection mechanisms configured to monitor only the standard `powershell.exe` or `pwsh.exe` processes. By embedding the PowerShell engine within custom binaries, signed trusted applications, or living-off-the-land binaries, adversaries can maintain persistence and perform post-exploitation activity while remaining invisible to standard process-creation telemetry focused on known interpreters. This technique involves utilizing the PowerShell managed API to host the runtime in-process, effectively decoupling the execution from the standard command-line wrappers. Defenders must monitor the PowerShell Module logging (Event ID 4103) to identify the \"HostName\" and \"HostApplication\" fields, which reveal the actual binary initiating the PowerShell runspace, rather than relying on process-based detection.\n\n## Attack Chain\n\n1. Attacker identifies a legitimate, signed, or obscure binary that supports hosting the .NET runtime.\n2. Attacker develops or selects a payload to execute in-memory via the hosted PowerShell engine.\n3. Attacker triggers the execution of the target binary with arguments that invoke the PowerShell runspace initialization.\n4. The host process initializes the System.Management.Automation assembly to host the PowerShell environment.\n5. The PowerShell engine executes the malicious script block or command, which appears as child activity of the host process, not `powershell.exe`.\n6. Attacker performs discovery, credential access, or data staging within the context of the host process.\n7. Attacker maintains stealth by avoiding spawns of child processes commonly monitored for PowerShell execution.\n\n## Impact\n\nSuccessful abuse of alternate PowerShell hosts allows attackers to bypass endpoint detection and response (EDR) rules that alert on common PowerShell-related command-line arguments. This increases the attacker's dwell time and operational security, facilitating long-term access, lateral movement, and data exfiltration within target environments.\n\n## Recommendation\n\n- Enable Microsoft-Windows-PowerShell/Operational (Event ID 4103) to capture \"HostName\" and \"HostApplication\" metadata.\n- Deploy the provided Sigma rule to detect PowerShell code execution initiated by unexpected parent processes.\n- Baseline legitimate administrative tools in the environment to minimize false positives, specifically identifying software that uses the PowerShell API (e.g., system management or backup agents).\n",
-      "published": "2026-10-21T00:48:16.000Z",
-      "labels": [
-        "detection-engineering",
-        "execution",
-        "powershell"
-      ],
-      "object_refs": [
-        "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-21-alternate-powershell-hosts",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-alternate-powershell-hosts/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-21-alternate-powershell-hosts",
-      "x_craftedsignal_event_id": "brief-2026-10-21-alternate-powershell-hosts",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-alternate-powershell-hosts/",
-      "x_craftedsignal_activity_at": "2026-10-21T00:48:16.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--3dac5b78-d1b4-5d32-937d-1f1082ae9f36",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T20:32:53.000Z",
@@ -166441,6 +166399,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3e69a91d-5b0a-5d53-b578-6adfe28cdb2e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T00:51:25.000Z",
+      "modified": "2026-11-20T00:51:25.000Z",
+      "name": "NLTK ZIP Package Extraction Path Traversal (CVE-2026-128135)",
+      "description": "## Overview\nNLTK (Natural Language Toolkit) versions 3.9.4 to 3.10.3 are vulnerable to a flaw during ZIP package extraction. A local attacker who can pre-place a hardlink within the extraction root that points to an external file can cause the NLTK extraction process to overwrite the target file, violating the pathsec containment boundary.\n\n## Attack Chain\nAn attacker with local access can prepare an extraction target (a hardlink) that resolves to a location outside the intended NLTK data root. During package extraction, the library follows this hardlink, resulting in an arbitrary file write.\n\n## Impact\nSuccessful exploitation allows a local attacker to overwrite files outside the data root, impacting system integrity and availability.\n\n## Recommendation\nUpgrade NLTK to version 3.10.4 or later, which contains the fix for this issue.",
+      "published": "2026-11-20T00:51:25.000Z",
+      "labels": [
+        "cve",
+        "path-traversal"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f6c99948-9d0b-5938-ba3e-92eb6c18c721",
+        "vulnerability--f76b9e00-acc6-5bb6-9e11-f8040cd493d8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-nltk-path-traversal-cve-2026-128135",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-path-traversal-cve-2026-128135/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-128135"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128135"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-nltk-path-traversal-cve-2026-128135",
+      "x_craftedsignal_event_id": "brief-2026-11-20-nltk-path-traversal-cve-2026-128135",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-path-traversal-cve-2026-128135/",
+      "x_craftedsignal_activity_at": "2026-11-20T00:51:25.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -187547,46 +187553,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--5b4da0e1-df68-5769-a900-fb4f2533df40",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T00:48:29.000Z",
-      "modified": "2026-10-21T00:48:29.000Z",
-      "name": "Configuration and Service Reconnaissance via Reg.exe",
-      "description": "## Overview\n\nAdversaries frequently leverage the legitimate Windows utility `reg.exe` to perform reconnaissance activities. By querying sensitive registry keys, an attacker can enumerate installed software, system configuration details, and potential persistence mechanisms. This behavior is commonly observed in the early stages of a post-compromise environment, as it allows threat actors to map out the system's security posture and identify interesting services or applications for further exploitation. Security teams should monitor for the combination of `reg.exe` execution with specific command-line arguments targeting keys related to auto-start locations, service configurations, and system policies.\n\n## Attack Chain\n\n1. Initial access is gained to the target system via a user-level shell or remote access tool.\n2. The attacker identifies the `reg.exe` utility in the system path.\n3. The attacker executes `reg query` to target specific registry hives, such as `HKCU` or `HKLM`.\n4. The query focuses on paths like `currentVersion\\run` to identify persistence mechanisms.\n5. The attacker proceeds to query `currentcontrolset\\services` to identify installed system services.\n6. The gathered registry data is exfiltrated or parsed locally to identify future targets.\n7. The final objective includes leveraging the discovered information for privilege escalation or lateral movement.\n\n## Impact\n\nSuccessful reconnaissance allows an attacker to build an accurate profile of the target environment, enabling the identification of weak configurations, security product paths, and persistent entry points. This data significantly reduces the time required for an attacker to move from initial access to full domain compromise.\n\n## Recommendation\n\n* Deploy the provided Sigma rule to detect `reg.exe` usage targeting sensitive registry hives in your SIEM.\n* Establish an allowlist of administrative tools or management scripts that legitimately use `reg.exe` to query system configurations to reduce false positives.\n* Audit endpoint telemetry for frequent `reg query` commands from non-administrative service accounts.\n",
-      "published": "2026-10-21T00:48:29.000Z",
-      "labels": [
-        "discovery",
-        "reconnaissance",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--5a25a649-6ab1-5cbf-821f-f501783fcc18",
-        "attack-pattern--da26685a-06ae-5445-a6a5-2e777dbba577",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-21-reg-exe-recon",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-reg-exe-recon/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-21-reg-exe-recon",
-      "x_craftedsignal_event_id": "brief-2026-10-21-reg-exe-recon",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-reg-exe-recon/",
-      "x_craftedsignal_activity_at": "2026-10-21T00:48:29.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--5b61dd9f-08f3-5989-bd9b-04c9d27293a5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T20:27:49.000Z",
@@ -199472,6 +199438,50 @@
       },
       "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_epss_max": 0.00216,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--6dad823f-88c6-5485-9a07-5bedab37dfa2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T00:52:01.000Z",
+      "modified": "2026-11-20T00:52:01.000Z",
+      "name": "NLTK: Denial of Service in WordNet traversal (CVE-2026-129223)",
+      "description": "## Overview\n\nNLTK (Natural Language Toolkit) versions prior to 3.10.4 are affected by a vulnerability in the `WordNet Synset.tree` and `acyclic_tree` functions. These functions traverse relation graphs using recursive utility helpers without a depth bound. Exploitation requires the host application to load an attacker-influenced custom or foreign WordNet-format lexical resource. NLTK's bundled WordNet 3.0 corpus does not contain relations deep enough to trigger this crash threshold.\n\n## Impact\n\nAn excessively deep relation graph in a processed resource can exceed the Python recursion limit, resulting in the termination of the traversal or the application's request worker, causing a denial of service.\n\n## Recommendation\n\nUpgrade NLTK to version 3.10.4 or later, which contains the fix for this vulnerability.",
+      "published": "2026-11-20T00:52:01.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f6c99948-9d0b-5938-ba3e-92eb6c18c721",
+        "vulnerability--b73a35df-415d-5d14-aeba-160cb267d876"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-nltk-recursion-dos-cve-2026-129223",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-recursion-dos-cve-2026-129223/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129223"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129223"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-nltk-recursion-dos-cve-2026-129223",
+      "x_craftedsignal_event_id": "brief-2026-11-20-nltk-recursion-dos-cve-2026-129223",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-recursion-dos-cve-2026-129223/",
+      "x_craftedsignal_activity_at": "2026-11-20T00:52:01.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -233135,57 +233145,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--9cffd403-298c-50fe-982a-5b35c77e206c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T00:48:22.000Z",
-      "modified": "2026-10-21T00:48:22.000Z",
-      "name": "MsiExec DllUnregisterServer execution",
-      "description": "## Overview\n\nThe Windows Installer utility (msiexec.exe) is a signed, legitimate binary used for installing and configuring software. Attackers can leverage the \"/Z\" flag to load a specified DLL and call its exported \"DllUnregisterServer\" function. This technique is often used to bypass security controls or execute malicious code in the context of a trusted process. Because this behavior is atypical for standard administrative tasks outside of specific update or maintenance workflows, it serves as a high-fidelity indicator of potential malicious activity. Defenders should monitor process command lines for the use of the \"/Z\" parameter in conjunction with external DLL references.\n\n## Attack Chain\n\n1. Attacker crafts a malicious DLL file containing a payload within the DllUnregisterServer exported function.\n2. The DLL is staged on the target system, typically in a directory where the user or service has write permissions.\n3. Attacker identifies the msiexec.exe utility, a native Windows component.\n4. Attacker executes msiexec.exe via command line using the \"/Z\" flag.\n5. The command line specifies the full path to the malicious DLL as the argument for the \"/Z\" parameter.\n6. MsiExec initializes and loads the attacker-supplied DLL into its memory space.\n7. MsiExec calls the DllUnregisterServer function within the loaded DLL.\n8. The payload executes, potentially resulting in secondary malware deployment, C2 communication, or lateral movement.\n\n## Impact\n\nSuccessful exploitation allows for execution of arbitrary code in the context of the msiexec.exe process, potentially bypassing application allowlisting and leveraging the trusted reputation of the Windows Installer binary.\n\n## Recommendation\n\nDeploy the provided Sigma rule to detect suspicious msiexec.exe invocations. Audit legitimate software installers or update agents in the environment that may utilize the \"/Z\" flag and include them in the filter logic of the detection rule.\n",
-      "published": "2026-10-21T00:48:22.000Z",
-      "labels": [
-        "living-off-the-land",
-        "stealth",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--73bca283-1912-5342-9a74-b22e3714a53e",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-21-msiexec-unregister",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-21-msiexec-unregister/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_msiexec_dll.yml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/redcanaryco/atomic-red-team/blob/f339e7da7d05f6057fdfcdd3742bfcf365fee2a9/atomics/T1218.007/T1218.007.md"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://lolbas-project.github.io/lolbas/Binaries/Msiexec/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-21-msiexec-unregister",
-      "x_craftedsignal_event_id": "brief-2026-10-21-msiexec-unregister",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-21-msiexec-unregister/",
-      "x_craftedsignal_activity_at": "2026-10-21T00:48:22.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--9d0b0ad4-f7a0-5d42-8999-d69b78a997dd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T00:16:29.000Z",
@@ -255040,46 +254999,6 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--bd6e681b-7d62-5833-aaf4-9e8a62f773ad",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T00:48:33.000Z",
-      "modified": "2026-10-21T00:48:33.000Z",
-      "name": "Uncommon Svchost Parent Process Execution",
-      "description": "## Overview\n\nThe Windows Service Host process (svchost.exe) is a critical system component responsible for hosting multiple services. In a healthy environment, svchost.exe is typically launched by services.exe, or occasionally by other known system-level processes associated with Windows updates or security software. When svchost.exe is initiated by an unconventional parent process, it often serves as a primary indicator of process masquerading, where an attacker renames a malicious binary to svchost.exe to hide its activity, or uses a legitimate process to perform process hollowing or injection. Defenders should monitor for these anomalies as they frequently appear during the persistence or execution phases of an attack.\n\n## Impact\n\nSuccessful exploitation of process masquerading or injection can allow an attacker to execute malicious code within the context of a trusted system process, potentially leading to privilege escalation, persistence, and the evasion of security software that relies on process reputation or path-based monitoring.\n\n## Recommendation\n\nDeploy the provided Sigma rule to detect suspicious process lineage associated with svchost.exe. Review instances triggered by non-system processes to determine if they are related to legitimate, albeit uncommon, administrative or third-party software before taking remediation action.\n",
-      "published": "2026-10-21T00:48:33.000Z",
-      "labels": [
-        "endpoint-security",
-        "process-masquerading",
-        "stealth",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--cab43178-fae3-52ac-a29f-a095c60026fa",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-21-uncommon-svchost-parent",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-uncommon-svchost-parent/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-21-uncommon-svchost-parent",
-      "x_craftedsignal_event_id": "brief-2026-10-21-uncommon-svchost-parent",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-uncommon-svchost-parent/",
-      "x_craftedsignal_activity_at": "2026-10-21T00:48:33.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -284927,52 +284846,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--e6fbb62e-5f1a-5ffb-ba57-1931943be936",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T00:48:09.000Z",
-      "modified": "2026-10-21T00:48:09.000Z",
-      "name": "Windows Firewall Exception List Rule Deletion",
-      "description": "## Overview\n\nThe deletion of Windows Firewall rules is a common technique used by threat actors to perform defense impairment. By removing existing rules, attackers can disable inbound or outbound traffic filtering that would otherwise block their command and control (C2) communication or lateral movement activities. This behavior can be identified by monitoring Windows Defender Firewall events for rule deletion triggers, specifically Event IDs 2006 and 2052. Defenders should focus on rule modifications initiated by processes not associated with trusted system services or legitimate administrative installation processes.\n\n## Attack Chain\n\n1. An attacker gains elevated execution privileges on a target Windows host.\n2. The attacker identifies restrictive firewall rules that impede their desired network traffic.\n3. The attacker executes a command or script using tools like netsh.exe or PowerShell to modify the firewall configuration.\n4. The attacker deletes the target firewall rule from the Windows Defender Firewall exception list.\n5. The Windows security event log captures the modification (Event IDs 2006 or 2052).\n6. The firewall becomes permissive for the previously blocked traffic.\n7. The attacker establishes unauthorized network connections to an external C2 server or internal target.\n\n## Impact\n\nSuccessful defense impairment through firewall rule deletion leaves systems exposed to unauthorized inbound access and allows malicious outbound traffic that would otherwise be blocked. This activity is typically a precursor to data exfiltration, payload delivery, or lateral movement within the network.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to detect suspicious deletion of firewall rules by unauthorized processes.\n- Baseline legitimate software installers and administrative tasks that modify the firewall to tune out false positives.\n- Review Event ID 2006 and 2052 logs regularly to identify non-standard firewall modifications.\n",
-      "published": "2026-10-21T00:48:09.000Z",
-      "labels": [
-        "defense-impairment",
-        "firewall",
-        "windows"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-21-windows-firewall-deletion",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-windows-firewall-deletion/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/firewall_as/win_firewall_as_delete_rule.yml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd364427(v=ws.10)"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-21-windows-firewall-deletion",
-      "x_craftedsignal_event_id": "brief-2026-10-21-windows-firewall-deletion",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-windows-firewall-deletion/",
-      "x_craftedsignal_activity_at": "2026-10-21T00:48:09.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--e702bba7-02eb-59c6-997b-779db8a2d3f9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T08:39:57.000Z",
@@ -288208,6 +288081,50 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.00212,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--eb0a5535-3361-537c-a341-1e16c7d46677",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T00:51:51.000Z",
+      "modified": "2026-11-20T00:51:51.000Z",
+      "name": "NLTK: Denial of service in DependencyGraph (CVE-2026-129222)",
+      "description": "## Overview\nNLTK (Natural Language Toolkit) is a suite of open source Python modules, data sets, and tutorials supporting research and development in Natural Language Processing. The functions `DependencyGraph.tree` and `DependencyGraph.triples` walk parsed dependency edges through unbounded Python recursion without utilizing a working cycle or depth guard. \n\n## Impact\nA crafted CoNLL or Malt-TAB dependency file containing a sufficiently long chain can raise a `RecursionError` when these APIs are called, aborting the current worker process and resulting in a denial of service.\n\n## Recommendation\nUsers should upgrade to NLTK version 3.10.4 or later, which includes a fix for this issue.",
+      "published": "2026-11-20T00:51:51.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f6c99948-9d0b-5938-ba3e-92eb6c18c721",
+        "vulnerability--a9de31cb-8e23-5620-9ebf-4020fbf3923b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-nltk-recursion-denial-cve-2026-129222",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-recursion-denial-cve-2026-129222/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129222"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129222"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-nltk-recursion-denial-cve-2026-129222",
+      "x_craftedsignal_event_id": "brief-2026-11-20-nltk-recursion-denial-cve-2026-129222",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-recursion-denial-cve-2026-129222/",
+      "x_craftedsignal_activity_at": "2026-11-20T00:51:51.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -311322,6 +311239,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4096fdf4-4571-5bb6-9222-92281c62f778",
+      "name": "NLTK (3.6 - 3.10.3)",
+      "vendor": "NLTK"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--40973d88-7cc3-5bde-ac58-e64a5dd87c97",
       "name": "Network-AI (\u003c 5.15.5)",
       "vendor": "Network-AI"
@@ -331323,6 +331247,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--f6c99948-9d0b-5938-ba3e-92eb6c18c721",
+      "name": "nltk",
+      "vendor": "nltk"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f6caa88d-0610-5d48-b01d-fac11f2a7398",
       "name": "Craft CMS (4.0.0 through 4.18.8)",
       "vendor": "Craft CMS"
@@ -347778,6 +347709,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116764",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116764"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2cbdd15f-3dfa-524f-bfa3-c56591485488",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-128139",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-128139",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128139"
         }
       ]
     },
@@ -388856,6 +388803,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--a9de31cb-8e23-5620-9ebf-4020fbf3923b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129222",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129222",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129222"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--a9e7ca3a-50af-5c52-807c-18c0f44a38dd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -393154,6 +393117,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96644",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96644"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b73a35df-415d-5d14-aeba-160cb267d876",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129223",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129223",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129223"
         }
       ]
     },
@@ -414738,6 +414717,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115513",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115513"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f76b9e00-acc6-5bb6-9e11-f8040cd493d8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-128135",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-128135",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128135"
         }
       ]
     },
