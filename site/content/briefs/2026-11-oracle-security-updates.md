@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-oracle-security-updates
 event_id: brief-2026-11-oracle-security-updates
-revision: 48
-activity_at: "2026-11-20T22:56:05Z"
+revision: 49
+activity_at: "2026-11-20T22:58:42Z"
 revision_history:
   - revision: 2
     at: "2026-11-17T23:49:55Z"
@@ -639,6 +639,14 @@ revision_history:
       - lastmod
       - references
       - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101688
+  - revision: 49
+    at: "2026-11-20T22:58:42Z"
+    checksum: sha256:4e1634edcc1eac0cfb64a591f0fd3f24954b472aa6dd8d8c2b3b8f349bf36637
+    summary: added CVE-2026-101688
+    changed_fields:
+      - content
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101688
 title: Oracle Security Updates - November 2026
@@ -2802,7 +2810,7 @@ updates:
 
 ## Overview
 
-This roundup covers 286 Oracle security vulnerabilities. CVSS base scores range from 7.1 to 9.6. None are reported as actively exploited at the time of release. The issues affect APEX, Application Development Framework, Application Testing Suite, AutoVue, Autonomous Health Framework, Business Intelligence Enterprise Edition, Communications Billing and Revenue Management, E-Business Suite, E-Business Suite Integrated SOA Gateway, Fusion Middleware, Hyperion Financial Close Management, Hyperion Financial Data Quality Management, Enterprise Edition, Hyperion Financial Management, Hyperion Infrastructure Technology, Hyperion Planning, Java SE, Mobile Field Service, MySQL Server, Oracle Access Manager, Oracle Business Intelligence Enterprise Edition, Oracle Collaborative Planning, Oracle Database Server, Oracle E-Business Suite, Oracle E-Business Suite Integrated SOA Gateway, Oracle E-Business Suite Secure Enterprise Search, Oracle E-Business Suite iProcurement, Oracle Enterprise Manager Base Platform, Oracle Financial Services Customer Screening, Oracle Fusion Middleware, Oracle Hyperion Financial Close Management, Oracle Hyperion Infrastructure Technology, Oracle Hyperion Planning, Oracle Managed File Transfer, Oracle Mobile Field Service, Oracle REST Data Services, Oracle Service Bus, Oracle VM VirtualBox, Oracle WebCenter Portal, PeopleSoft Enterprise PeopleTools, Product Lifecycle Analytics, Service Delivery Platform, Siebel CRM, Siebel CRM Deployment, VM VirtualBox, WebCenter Portal, WebCenter Sites, WebLogic Server, WebLogic Server Proxy Plug-In, iProcurement.
+This roundup covers 287 Oracle security vulnerabilities. CVSS base scores range from 7.1 to 9.6. None are reported as actively exploited at the time of release. The issues affect APEX, Application Development Framework, Application Testing Suite, AutoVue, Autonomous Health Framework, Business Intelligence Enterprise Edition, Communications Billing and Revenue Management, E-Business Suite, E-Business Suite Integrated SOA Gateway, Fusion Middleware, Hyperion Financial Close Management, Hyperion Financial Data Quality Management, Enterprise Edition, Hyperion Financial Management, Hyperion Infrastructure Technology, Hyperion Planning, Java SE, Mobile Field Service, MySQL Server, Oracle Access Manager, Oracle Business Intelligence Enterprise Edition, Oracle Collaborative Planning, Oracle Database Server, Oracle E-Business Suite, Oracle E-Business Suite Integrated SOA Gateway, Oracle E-Business Suite Secure Enterprise Search, Oracle E-Business Suite iProcurement, Oracle Enterprise Manager Base Platform, Oracle Financial Services Customer Screening, Oracle Fusion Middleware, Oracle Hyperion Financial Close Management, Oracle Hyperion Infrastructure Technology, Oracle Hyperion Planning, Oracle Managed File Transfer, Oracle Mobile Field Service, Oracle REST Data Services, Oracle Service Bus, Oracle VM VirtualBox, Oracle WebCenter Portal, PeopleSoft Enterprise PeopleTools, Product Lifecycle Analytics, Service Delivery Platform, Siebel CRM, Siebel CRM Deployment, VM VirtualBox, WebCenter Portal, WebCenter Sites, WebLogic Server, WebLogic Server Proxy Plug-In, iProcurement.
 
 ## Summary
 
@@ -3094,6 +3102,7 @@ This roundup covers 286 Oracle security vulnerabilities. CVSS base scores range 
 | [CVE-2026-101642](#cve-2026-101642) | Oracle E-Business Suite (12.2.3-12.2.15) | High | 7.1 | 0.40% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101642) (authoritative) |
 | [CVE-2026-101643](#cve-2026-101643) | E-Business Suite (12.2.3-12.2.15) | High | 7.1 | 0.31% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101643) (authoritative) |
 | [CVE-2026-101640](#cve-2026-101640) | n/a | High | 8.2 | 0.37% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101640) (authoritative) |
+| [CVE-2026-101688](#cve-2026-101688) | n/a | High | 8.6 | 0.44% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101688) (authoritative) |
 
 
 ## By product
@@ -5683,3 +5692,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101643
 CVE-2026-101640 is a vulnerability in the Audience component of Oracle Marketing within Oracle E-Business Suite versions 12.2.3 through 12.2.15. The vulnerability allows an unauthenticated attacker with network access to perform unauthorized read, update, insert, or delete operations on sensitive data via HTTP, carrying a CVSS score of 8.2.
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101640
+
+## CVE-2026-101688
+
+Oracle E-Business Suite Integrated SOA Gateway versions 12.2.3 through 12.2.15 contain an unauthenticated vulnerability in the SOA Provider component. An attacker with network access via HTTP can achieve unauthorized access to critical data. The vulnerability has a significant scope change impact and carries a CVSS 3.1 base score of 8.6.
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101688
