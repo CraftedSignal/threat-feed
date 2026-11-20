@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f9772694-8f68-5fba-b7c7-d8ec95be1636",
+  "id": "bundle--8c038bcd-e548-5d96-8378-54930f73d6bb",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2751,22 +2751,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1556.006",
           "url": "https://attack.mitre.org/techniques/T1556/006"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--d0167e47-2549-5e4c-819a-7b638bba6bf8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Wordlist Scanning",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1595.003",
-          "url": "https://attack.mitre.org/techniques/T1595/003"
         }
       ]
     },
@@ -21231,6 +21215,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0fea3360-d0a1-53d1-aba4-3012d3227302",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6c740bdb-b74d-5257-a891-ed0ce309f46c",
+      "target_ref": "vulnerability--6da5e3b6-db6c-54f5-a1e0-7ac57b6e73c7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0feaa863-6d03-5deb-85f6-ccaab6f2c74a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -24362,6 +24357,17 @@
       "relationship_type": "has",
       "source_ref": "software--618883b8-5f6d-5b7c-a27a-9347187a01ea",
       "target_ref": "vulnerability--c631d597-9bc4-584f-b564-d23a35a01c7f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--144a41ea-ede3-5dce-a126-59eec9e55d61",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3b3f3af6-bdf4-56d2-8af5-ac3527ef53f4",
+      "target_ref": "vulnerability--6da5e3b6-db6c-54f5-a1e0-7ac57b6e73c7"
     },
     {
       "type": "relationship",
@@ -60600,17 +60606,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--470c4553-f8b0-52e4-aec7-0a8dda1f9179",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T07:47:08.000Z",
-      "modified": "2026-10-21T14:01:54.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
-      "target_ref": "attack-pattern--d0167e47-2549-5e4c-819a-7b638bba6bf8"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--470d22d8-fc4b-5e9d-8b4a-5272c6a0fb3f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -78453,17 +78448,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--5f0ee0c0-09c8-5bf2-9bff-7628ba690c7b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T07:47:08.000Z",
-      "modified": "2026-10-21T14:01:54.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
-      "target_ref": "attack-pattern--59f348cb-9ef6-5341-9b2e-325eadda7b79"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--5f1072a5-3894-5017-9f82-c227479daf22",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T22:19:59.000Z",
@@ -78823,17 +78807,6 @@
       "relationship_type": "has",
       "source_ref": "software--8d260d0e-9cd0-59c8-892a-c5c2e8eee5c0",
       "target_ref": "vulnerability--3a454342-b218-580a-ab4b-aa2e5b792668"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5f959b5f-e669-5032-90bf-90a8e249d085",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T07:46:50.000Z",
-      "modified": "2026-10-21T07:46:50.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a027fb0e-b7ed-594e-8af5-356443a471ae",
-      "target_ref": "attack-pattern--01959e06-6fa4-5fae-a45c-0c4b168701d2"
     },
     {
       "type": "relationship",
@@ -81914,17 +81887,6 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--0e20f2d1-2b5b-5ea6-843f-67abcf2a0ab1"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--63d7f276-ba93-5b4e-825a-ce23da0bb771",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T07:47:08.000Z",
-      "modified": "2026-10-21T14:01:54.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
-      "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
     },
     {
       "type": "relationship",
@@ -85401,17 +85363,6 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--becd6248-d9ab-54a5-9332-23c15f502a7c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--688992c2-a4de-5d52-8af8-580e347469f2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T07:47:08.000Z",
-      "modified": "2026-10-21T14:01:54.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
-      "target_ref": "attack-pattern--de70c912-f2cd-5897-a69b-bd02a5e9fb39"
     },
     {
       "type": "relationship",
@@ -97472,17 +97423,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--785d0ff6-8493-580d-b4cc-a01c8e9b42ac",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T07:47:08.000Z",
-      "modified": "2026-10-21T14:01:54.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
-      "target_ref": "attack-pattern--01959e06-6fa4-5fae-a45c-0c4b168701d2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--785e5702-d42e-5f65-aafe-a90ff86b1781",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -100739,17 +100679,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--7cf52399-3308-5945-97fc-a7a211bdc535",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T07:47:08.000Z",
-      "modified": "2026-10-21T14:01:54.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
-      "target_ref": "attack-pattern--3b9eadfb-cda2-56c5-95f3-e9f47c4788ee"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--7cf6e507-edef-5ac1-8337-eb5b442a3f68",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -102649,17 +102578,6 @@
       "relationship_type": "has",
       "source_ref": "software--85475315-041c-542e-bcae-560f82ce7f95",
       "target_ref": "vulnerability--9ed52d6a-c0c0-5763-a90f-da2b6ef594c9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7f574173-cf85-53c8-a19c-0ad02103a6da",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T07:47:08.000Z",
-      "modified": "2026-10-21T14:01:54.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
-      "target_ref": "attack-pattern--bd875342-0c00-5eaf-9fc6-290ea891ae27"
     },
     {
       "type": "relationship",
@@ -177288,17 +177206,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e6de2eea-9009-5e91-ad40-70c62e18e7d1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T07:47:08.000Z",
-      "modified": "2026-10-21T14:01:54.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
-      "target_ref": "attack-pattern--ba052b64-f78a-580e-9d7f-b25f5806ac6b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e6e025b9-8fa6-5dbe-85fa-e833ccd2cc98",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -181204,17 +181111,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ec2e0a28-59fe-514c-b0fc-c0e959e7336f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T07:47:08.000Z",
-      "modified": "2026-10-21T14:01:54.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
-      "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ec2e892b-a7dd-5630-9215-2a06063392b3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -181387,17 +181283,6 @@
       "relationship_type": "has",
       "source_ref": "software--2f50e802-8d45-55b4-afce-721f0d38effb",
       "target_ref": "vulnerability--2a69e5f2-eea1-5eaa-a1bd-273e0a50b2a9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ec627348-e2c4-5a97-8e0f-46fbbbe00e65",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T07:47:08.000Z",
-      "modified": "2026-10-21T14:01:54.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
-      "target_ref": "attack-pattern--0da16fc7-cf12-5309-bb62-f4ccf37e69ff"
     },
     {
       "type": "relationship",
@@ -214891,6 +214776,57 @@
       },
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_epss_max": 0.00153,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1ae44439-16e9-5d7b-a6d3-fdb7dbf872d6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T06:46:28.000Z",
+      "modified": "2026-11-20T06:46:28.000Z",
+      "name": "F5 NGINX: Mail proxy use-after-free (CVE-2026-113425)",
+      "description": "## Overview\nA use-after-free vulnerability exists in NGINX Plus and NGINX Open Source when configured as a mail proxy. Undisclosed traffic can cause memory corruption within an nginx worker process. This is a data plane issue with no control plane exposure. Software versions that have reached End of Technical Support (EoTS) are not evaluated.\n\n## Attack Chain\nRemote unauthenticated attackers may trigger this vulnerability using undisclosed traffic. Successful exploitation can lead to a worker process crash or, on systems where Address Space Layout Randomization (ASLR) is disabled or bypassed, remote code execution.\n\n## Impact\nA remote unauthenticated attacker may cause a denial of service by crashing an nginx worker process or corrupting its memory. Remote code execution is a potential impact if ASLR is disabled or bypassed.\n\n## Recommendation\n- Restrict mail proxy listeners to trusted networks.",
+      "published": "2026-11-20T06:46:28.000Z",
+      "labels": [
+        "denial-of-service",
+        "remote-code-execution",
+        "use-after-free"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3b3f3af6-bdf4-56d2-8af5-ac3527ef53f4",
+        "software--6c740bdb-b74d-5257-a891-ed0ce309f46c",
+        "vulnerability--6da5e3b6-db6c-54f5-a1e0-7ac57b6e73c7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-nginx-mail-proxy-uaf-cve-2026-113425",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nginx-mail-proxy-uaf-cve-2026-113425/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-113425"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113425"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-nginx-mail-proxy-uaf-cve-2026-113425",
+      "x_craftedsignal_event_id": "brief-2026-11-20-nginx-mail-proxy-uaf-cve-2026-113425",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nginx-mail-proxy-uaf-cve-2026-113425/",
+      "x_craftedsignal_activity_at": "2026-11-20T06:46:28.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.01582,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -281202,74 +281138,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--76a8d5d7-453f-5bde-9f93-1e0ae389c582",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T07:47:00.000Z",
-      "modified": "2026-10-21T13:09:06.000Z",
-      "name": "eMudhra: Eight compromised intermediate CA keys threaten TLS trust",
-      "description": "Mozilla received a report on 17 October 2026 that private keys for eight eMudhra intermediate CA certificates had been compromised. Security researcher Scott Helme independently recovered the weak keys from the public certificates and reported that one private key was the integer **4**; others included **56** and **115**. SecurityWeek subsequently reported on the same recoverable-key incident. This describes very small key values, not short certificate files. A holder of a compromised CA key could issue fraudulent HTTPS certificates. Intercepting a connection would also require an on-path position. The cited sources do not establish observed malicious use of these keys.\n\n## Affected intermediate CAs\n\nMozilla's [incident record](https://bugzilla.mozilla.org/show_bug.cgi?id=2083449) identifies six TLS issuers and two code-signing issuers. The names and CCADB identifiers are:\n\n| Purpose | Intermediate CA | CCADB ID |\n| --- | --- | --- |\n| TLS | EM EV TLS CA - G3B (eMudhra BV) | A012304 |\n| TLS | EM OV TLS CA - G3B (eMudhra BV) | A012308 |\n| TLS | EM DV TLS CA - G3B (eMudhra BV) | A012302 |\n| TLS | EM EV TLS CA - G3C (eMudhra Inc) | A012296 |\n| TLS | EM OV TLS CA - G3C (eMudhra Inc) | A012300 |\n| TLS | EM DV TLS CA - G3C (eMudhra Inc) | A012294 |\n| Code signing | EM OV CS CA - G3B (eMudhra BV) | A012306 |\n| Code signing | EM OV CS CA - G3C (eMudhra Inc) | A012298 |\n\nUse the SHA-256 certificate fingerprints in Mozilla's incident record when matching a certificate chain; a CA name alone is not a reliable cryptographic identifier.\n\nMozilla blocked the affected certificates through Firefox OneCRL on 17 October and released Firefox and NSS updates for clients that may not receive that block. As downstream remediation for the same incident, the certifi maintainer removed the affected emSign roots from its CA bundle in version 2026.10.18. The certifi advisory is therefore part of this certificate-chain incident, not a separate compromise.\n\n## Recommendation\n\n- Check which browsers, libraries, containers, and custom trust stores still trust the affected certificate chain.\n- Apply current browser and NSS updates; update affected certifi installations to 2026.10.18 or later and rebuild bundled images.\n- Investigate any suspicious TLS certificate chains issued through the affected intermediates, while keeping observed exploitation separate from the confirmed key compromise.",
-      "published": "2026-10-21T07:47:00.000Z",
-      "labels": [
-        "certificate-authority",
-        "cryptography",
-        "python",
-        "supply-chain",
-        "tls-interception"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--0811054d-2388-5571-b84b-9389ec658c0b",
-        "software--180e61d0-e367-5fcc-b0d9-6450e85a4520",
-        "software--47c674b3-eaf7-5845-8448-ffd69980a603",
-        "software--cb5f562c-2eae-5755-a903-33bff92d7ab5"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-21-emudhra-intermediate-key-compromise",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-emudhra-intermediate-key-compromise/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://blog.mozilla.org/security/2026/10/20/protecting-firefox-users-following-the-compromise-of-emudhra-intermediate-certificates/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://bugzilla.mozilla.org/show_bug.cgi?id=2083449"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/certifi/python-certifi/security/advisories/GHSA-6q48-6c7w-9gw2"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://scotthelme.co.uk/eight-bits-of-trust-emudhras-ca-keys-cracked-in-milliseconds/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://seclists.org/oss-sec/2026/q4/276"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.securityweek.com/browsers-block-emudhra-intermediate-cas-over-recoverable-private-keys/"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-21-emudhra-intermediate-key-compromise",
-      "x_craftedsignal_event_id": "brief-2026-10-21-emudhra-intermediate-key-compromise",
-      "x_craftedsignal_revision": 4,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-emudhra-intermediate-key-compromise/",
-      "x_craftedsignal_activity_at": "2026-10-21T13:09:06.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--76b2efcd-f7ce-5683-929d-fc68be7c9f9b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T19:55:56.000Z",
@@ -312950,54 +312818,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--a027fb0e-b7ed-594e-8af5-356443a471ae",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T07:46:50.000Z",
-      "modified": "2026-10-21T07:46:50.000Z",
-      "name": "AWS EKS: Potential Unauthorized Kubernetes Secret access",
-      "description": "## Overview\nKubernetes audit identities (system:node:* and system:serviceaccount:*) are intended to operate with predictable API usage. Direct 'get' or 'list' operations on the Secrets API by these principals can be a sign of credential access, as compromised tokens or node credentials may be used to exfiltrate sensitive material.\n\n## Investigation Guidance\n- Review RBAC RoleBindings and ClusterRoleBindings for the identified node or workload.\n- Inspect the namespace, object name, source IP, and user agent to differentiate between recognized automation and anomalous activity.\n- Review authorization decisions in the audit logs to distinguish successful reads from probing denials.\n- Correlate activity with other events such as pod execs, token creation, or RoleBinding modifications.\n\n## False Positives\n- In-cluster operators, CSI drivers, GitOps agents, and platform controllers may legitimately interact with Secrets.\n- Rare kubelet or node maintenance tooling may access Secret APIs.\n",
-      "published": "2026-10-21T07:46:50.000Z",
-      "labels": [
-        "aws",
-        "cloud",
-        "credential-access",
-        "kubernetes"
-      ],
-      "object_refs": [
-        "attack-pattern--01959e06-6fa4-5fae-a45c-0c4b168701d2",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-21-eks-credential-access",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-eks-credential-access/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/credential_access_kubernetes_secret_read_by_node_or_pod_service_account_aws_eks.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://kubernetes.io/docs/reference/access-authn-authz/authentication/#service-account-tokens"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-21-eks-credential-access",
-      "x_craftedsignal_event_id": "brief-2026-10-21-eks-credential-access",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-eks-credential-access/",
-      "x_craftedsignal_activity_at": "2026-10-21T07:46:50.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--a02ad1ae-1100-5d58-ab54-a6b623c32632",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T17:34:54.000Z",
@@ -315582,134 +315402,6 @@
       "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_epss_max": 0.01788,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T07:47:08.000Z",
-      "modified": "2026-10-21T14:01:54.000Z",
-      "name": "Amazon EKS: Improper TokenRequest API usage detection",
-      "description": "## Overview\n\nThe Kubernetes TokenRequest API allows identities with appropriate RBAC permissions to programmatically generate short-lived tokens for service accounts. Because this process occurs via the API server, the resulting tokens do not leave traditional filesystem footprints, evading file-based monitoring. In Amazon EKS environments, attackers who have gained initial cluster access can leverage this API to mint tokens for highly privileged service accounts, effectively bypassing security controls meant to protect mounted secrets.\n\n## Impact\n\nSuccessful abuse of the TokenRequest API enables attackers to impersonate privileged service accounts, perform unauthorized cluster operations, or gain access to AWS cloud resources through IRSA (IAM Roles for Service Accounts).\n\n## Recommendation\n\n- Enable and ingest EKS control-plane audit logs into your SIEM as defined in the AWS integration documentation for `aws.eks_audit`.\n- Deploy the detection rules provided below to monitor for `create` events against the `serviceaccounts/token` subresource by non-system identities.\n- Review RBAC policies across the cluster to identify and restrict `create` permissions on the `serviceaccounts/token` subresource to only strictly necessary service accounts or users.\n- Audit existing tokens minted via TokenRequest by correlating `aws.eks.audit.annotations.authentication_kubernetes_io/issued-credential-id` with subsequent API activity.\n",
-      "published": "2026-10-21T07:47:08.000Z",
-      "labels": [
-        "aws",
-        "cloud",
-        "cloud-security",
-        "command-and-control",
-        "container-escape",
-        "credential-access",
-        "discovery",
-        "eks",
-        "execution",
-        "initial-access",
-        "kubernetes",
-        "persistence",
-        "privilege-escalation",
-        "reconnaissance"
-      ],
-      "object_refs": [
-        "attack-pattern--01959e06-6fa4-5fae-a45c-0c4b168701d2",
-        "attack-pattern--0da16fc7-cf12-5309-bb62-f4ccf37e69ff",
-        "attack-pattern--3b9eadfb-cda2-56c5-95f3-e9f47c4788ee",
-        "attack-pattern--59f348cb-9ef6-5341-9b2e-325eadda7b79",
-        "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d",
-        "attack-pattern--ba052b64-f78a-580e-9d7f-b25f5806ac6b",
-        "attack-pattern--bd875342-0c00-5eaf-9fc6-290ea891ae27",
-        "attack-pattern--d0167e47-2549-5e4c-819a-7b638bba6bf8",
-        "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765",
-        "attack-pattern--de70c912-f2cd-5897-a69b-bd02a5e9fb39",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--a95034b8-a1a3-59aa-9f62-1110c74acdcf"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-21-eks-tokenrequest-abuse",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-eks-tokenrequest-abuse/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://attack.mitre.org/techniques/T1613/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://cloud.hacktricks.wiki/en/pentesting-cloud/kubernetes-security/kubernetes-privilege-escalation/workload-and-pod-access.html"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/credential_access_kubernetes_service_account_token_created_via_tokenrequest_aws_eks.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_endpoint_permission_enumeration_by_anonymous_user_aws_eks.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_kubernetes_multi_resource_setup_recon_aws_eks.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/execution_kubernetes_pod_exec_curl_wget_https_aws_eks.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/initial_access_anonymous_request_authorized_aws_eks.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/privilege_escalation_api_proxy_to_node_aws_eks.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/privilege_escalation_privileged_pod_created_aws_eks.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/privilege_escalation_sensitive_rbac_change_followed_by_workload_modification_aws_eks.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://heilancoos.github.io/research/2025/12/16/kubernetes.html#overly-permissive-role-based-access-control"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://heilancoos.github.io/research/2025/12/16/kubernetes.html#unauthenticated-api-access"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://kubernetes.io/docs/concepts/cluster-administration/proxies/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://kubernetes.io/docs/reference/kubernetes-api/authentication-resources/token-v1/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://media.defense.gov/2021/Aug/03/2002820425/-1/-1/1/CTR_KUBERNETES%20HARDENING%20GUIDANCE.PDF"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://media.defense.gov/2022/Aug/29/2003066362/-1/-1/0/CTR_KUBERNETES_HARDENING_GUIDANCE_1.2_20220829.PDF"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-21-eks-tokenrequest-abuse",
-      "x_craftedsignal_event_id": "brief-2026-10-21-eks-tokenrequest-abuse",
-      "x_craftedsignal_revision": 8,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-eks-tokenrequest-abuse/",
-      "x_craftedsignal_activity_at": "2026-10-21T14:01:54.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -383239,13 +382931,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--0811054d-2388-5571-b84b-9389ec658c0b",
-      "name": "emSign intermediate CA certificates",
-      "vendor": "eMudhra"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--08214a66-970f-5e09-a981-a1534a66acc9",
       "name": "Modem"
     },
@@ -385330,13 +385015,6 @@
       "id": "software--180aaef7-10a8-55f1-96df-04e4605b9ea7",
       "name": "Wasmtime (39.0.0 - 48.0.3, 49.0.0 - 49.0.1)",
       "vendor": "Bytecode Alliance"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--180e61d0-e367-5fcc-b0d9-6450e85a4520",
-      "name": "Intermediate Certificate Authorities",
-      "vendor": "eMudhra"
     },
     {
       "type": "software",
@@ -389426,6 +389104,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3b3f3af6-bdf4-56d2-8af5-ac3527ef53f4",
+      "name": "NGINX Open Source (versions \u003c 1.31.9, \u003c 1.30.7, and \u003c 0.5.33)",
+      "vendor": "F5"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3b45797e-8e5a-5bad-9abb-407a166a4593",
       "name": "libexpat (\u003c= 2.9.0)"
     },
@@ -390852,13 +390537,6 @@
       "id": "software--47c0d59f-1251-50f8-b922-1631d54836f8",
       "name": "FortiSandbox PaaS (5.0.4 \u003c 5.0.6)",
       "vendor": "Fortinet"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--47c674b3-eaf7-5845-8448-ffd69980a603",
-      "name": "certifi (\u003c 2026.10.18)",
-      "vendor": "eMudhra"
     },
     {
       "type": "software",
@@ -395029,6 +394707,13 @@
       "id": "software--6c710a42-4f62-59aa-8ca6-6b32a4f00869",
       "name": "Red Hat OpenStack Platform 18.0",
       "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6c740bdb-b74d-5257-a891-ed0ce309f46c",
+      "name": "NGINX Plus (versions \u003c 37.3.0.1, \u003c 37.0.8.1, and \u003c R33)",
+      "vendor": "F5"
     },
     {
       "type": "software",
@@ -401933,13 +401618,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--a95034b8-a1a3-59aa-9f62-1110c74acdcf",
-      "name": "Elastic Kubernetes Service (EKS)",
-      "vendor": "Amazon"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--a960fd7e-c861-52ed-9b8c-befdd19ef4c0",
       "name": "imgproxy (\u003c 4.0.16)",
       "vendor": "imgproxy"
@@ -405692,13 +405370,6 @@
       "spec_version": "2.1",
       "id": "software--cb54a4c6-0cc3-5c5d-a98e-501a7bf49203",
       "name": "NoNonsense Notes (versionCode 72600)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--cb5f562c-2eae-5755-a903-33bff92d7ab5",
-      "name": "eMudhra CA Intermediate Certificates (P384)",
-      "vendor": "eMudhra"
     },
     {
       "type": "software",
@@ -448285,6 +447956,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116620",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116620"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6da5e3b6-db6c-54f5-a1e0-7ac57b6e73c7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113425",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113425",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113425"
         }
       ]
     },
