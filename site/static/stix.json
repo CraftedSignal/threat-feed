@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b0f92540-10a6-598c-9bee-0806e5085d1d",
+  "id": "bundle--e6e9c390-94d3-56a5-a805-271762c9d43d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -84635,6 +84635,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6782652d-8946-5901-aced-7364c849e73e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--43158341-99f1-5f77-b978-6b1c2e52604f",
+      "target_ref": "vulnerability--22940f1f-2a55-54bc-a28c-c29bad47fb1f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--67859a8e-f63d-5b41-be60-01d4e0329107",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -87744,6 +87755,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--e16062dd-b562-5398-9192-49df6df5ca07"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6bd0471b-7cd4-5b2d-bd7a-174c558efd30",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--888eae59-6483-53c2-858b-c677d2df15b3",
+      "target_ref": "vulnerability--22940f1f-2a55-54bc-a28c-c29bad47fb1f"
     },
     {
       "type": "relationship",
@@ -111768,6 +111790,17 @@
       "relationship_type": "has",
       "source_ref": "software--3abf18af-6b0b-5a50-a778-12400bc0def1",
       "target_ref": "vulnerability--70f5ab5d-f8c4-5290-a2c1-54a39f2a98b0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8bd9abd8-928f-5025-af21-428552695bfe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--47a4c9f2-4735-5100-b7b2-80811801a3e8",
+      "target_ref": "vulnerability--22940f1f-2a55-54bc-a28c-c29bad47fb1f"
     },
     {
       "type": "relationship",
@@ -194855,6 +194888,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ff3d3528-efc7-59cc-94a7-b5c40a6e4329",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1dd8105b-3700-5709-94ef-ffb7187acdfd",
+      "target_ref": "vulnerability--22940f1f-2a55-54bc-a28c-c29bad47fb1f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ff46d952-11d2-5c5a-a1be-e0e8f821a243",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -249666,6 +249710,53 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--48ac160b-8a82-5e98-a6ae-2e275ba4613f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T01:18:21.000Z",
+      "modified": "2026-11-20T01:18:21.000Z",
+      "name": "Splunk Enterprise Privilege Escalation (CVE-2026-76538)",
+      "description": "## Overview\nIn Splunk Enterprise versions below 10.4.5, 10.2.9, 10.0.12, and 9.4.16, a user who does not hold the \"admin\" or \"power\" Splunk roles could cause Splunk Enterprise to run arbitrary Search Processing Language (SPL) searches with elevated privileges. This vulnerability exists because Splunk Enterprise does not correctly neutralize caller-supplied data model acceleration values before they are placed into generated summarization searches.\n\n## Impact\nUsers lacking \"admin\" or \"power\" roles can execute arbitrary SPL searches with elevated privileges through data model acceleration.\n\n## Recommendation\nUpgrade to Splunk Enterprise version 10.6.1, 10.4.5, 10.2.9, 10.0.12, 9.4.17, or higher.",
+      "published": "2026-11-20T01:18:21.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1dd8105b-3700-5709-94ef-ffb7187acdfd",
+        "software--43158341-99f1-5f77-b978-6b1c2e52604f",
+        "software--47a4c9f2-4735-5100-b7b2-80811801a3e8",
+        "software--888eae59-6483-53c2-858b-c677d2df15b3",
+        "vulnerability--22940f1f-2a55-54bc-a28c-c29bad47fb1f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-splunk-enterprise-privilege-escalation-cve-2026-76538",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-splunk-enterprise-privilege-escalation-cve-2026-76538/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-76538"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76538"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-splunk-enterprise-privilege-escalation-cve-2026-76538",
+      "x_craftedsignal_event_id": "brief-2026-11-20-splunk-enterprise-privilege-escalation-cve-2026-76538",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-splunk-enterprise-privilege-escalation-cve-2026-76538/",
+      "x_craftedsignal_activity_at": "2026-11-20T01:18:21.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -423488,6 +423579,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124709",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124709"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--22940f1f-2a55-54bc-a28c-c29bad47fb1f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-76538",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-76538",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76538"
         }
       ]
     },
