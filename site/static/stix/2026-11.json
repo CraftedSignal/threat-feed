@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9f391ad2-cd3c-5fe0-a5a2-6bf020704ebc",
+  "id": "bundle--28b5b17e-c2a4-5672-8279-6449f53a0f98",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11394,6 +11394,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0687a436-fcd7-5c55-8752-fd82f6b43ce9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ddaefe64-2799-58db-bc6b-3dca64524b6d",
+      "target_ref": "vulnerability--3c6eb0e3-2656-5ea7-9e7a-243afec8f154"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--06894986-7690-567b-8b6c-67acf5cc0201",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T09:23:27.000Z",
@@ -18320,6 +18331,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--8980353a-d3e8-57aa-89b6-548a070a31ee"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--125c7701-e7b3-5c1d-bfe1-ba5675037281",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--df248516-d988-5103-acd5-e0dbbc6decf3",
+      "target_ref": "vulnerability--4f86a2c0-7a49-5abc-93cc-1b9ceeb0c6ca"
     },
     {
       "type": "relationship",
@@ -128577,6 +128599,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d9168bd2-eb26-511b-9aa2-7f0dd635830a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T03:58:12.000Z",
+      "modified": "2026-11-20T03:58:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--dbf43001-9e28-597a-b4aa-9191cc0c2f12",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d91c0102-f48c-5f47-b42c-982b1e0ed8ac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -135789,6 +135822,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--4ca8279f-8495-5174-999c-58528851e2e4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e70cb476-5715-5685-a672-b37cac166709",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T03:58:19.000Z",
+      "modified": "2026-11-20T03:58:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--372ad826-cfae-5438-b32b-c511442bb98a",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -179042,6 +179086,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--372ad826-cfae-5438-b32b-c511442bb98a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T03:58:19.000Z",
+      "modified": "2026-11-20T03:58:19.000Z",
+      "name": "Neotroni Lighting PowerLink SQL injection (CVE-2026-133534)",
+      "description": "## Overview\nNeotroni Lighting PowerLink version 1.1 is vulnerable to SQL injection. An unauthenticated remote attacker can leverage this flaw to execute arbitrary SQL queries, leading to unauthorized access to database contents. This issue is tracked as CVE-2026-133534.\n\n## Impact\nSuccessful exploitation allows unauthenticated remote attackers to perform unauthorized database read operations, potentially exposing sensitive information stored within the application's backend database.\n\n## Recommendation\n- Upgrade Neotroni Lighting PowerLink to version 2.0 or later to remediate this vulnerability.\n- If patching is not immediately feasible, inspect web server logs for suspicious SQL syntax in requests to the PowerLink application.",
+      "published": "2026-11-20T03:58:19.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ddaefe64-2799-58db-bc6b-3dca64524b6d",
+        "vulnerability--3c6eb0e3-2656-5ea7-9e7a-243afec8f154"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-neotroni-powerlink-sql-injection-cve-2026-133534",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-neotroni-powerlink-sql-injection-cve-2026-133534/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-133534"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133534"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-neotroni-powerlink-sql-injection-cve-2026-133534",
+      "x_craftedsignal_event_id": "brief-2026-11-20-neotroni-powerlink-sql-injection-cve-2026-133534",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-neotroni-powerlink-sql-injection-cve-2026-133534/",
+      "x_craftedsignal_activity_at": "2026-11-20T03:58:19.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -265281,6 +265370,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--dbf43001-9e28-597a-b4aa-9191cc0c2f12",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T03:58:12.000Z",
+      "modified": "2026-11-20T03:58:12.000Z",
+      "name": "rajesh2211 Doctor-Appointment-System SQL injection (CVE-2026-133478)",
+      "description": "## Overview\n\nA SQL injection vulnerability exists in the rajesh2211 Doctor-Appointment-System, specifically within the AppointmentSystem/AppointmentSystem/Connectivity.php file. An unauthenticated remote attacker can manipulate the 'User' parameter to execute arbitrary SQL commands. The project follows a rolling release model, and all versions up to commit hash ee974dcf4c50da85e6ea026e27f4370e9468b3cc are confirmed as affected. No official patch or fixed version has been announced at this time.\n\n## Impact\n\nSuccessful exploitation allows a remote, unauthenticated attacker to inject malicious SQL commands, potentially leading to unauthorized data access, modification, or deletion within the underlying database used by the application.\n\n## Recommendation\n\n- Identify and inventory all instances of the Doctor-Appointment-System within the environment.\n- Monitor the project repository for official security updates or commit-level fixes.\n- Given the absence of a vendor-supplied patch, consider implementing restrictive web application firewall (WAF) rules to detect and block SQL injection patterns targeting the 'User' argument in login requests.\n- Restrict access to the login interface to authorized networks until a security fix is applied.",
+      "published": "2026-11-20T03:58:12.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--df248516-d988-5103-acd5-e0dbbc6decf3",
+        "vulnerability--4f86a2c0-7a49-5abc-93cc-1b9ceeb0c6ca"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-doctor-appointment-system-sql-injection-cve-2026-133478",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-doctor-appointment-system-sql-injection-cve-2026-133478/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-133478"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133478"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-doctor-appointment-system-sql-injection-cve-2026-133478",
+      "x_craftedsignal_event_id": "brief-2026-11-20-doctor-appointment-system-sql-injection-cve-2026-133478",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-doctor-appointment-system-sql-injection-cve-2026-133478/",
+      "x_craftedsignal_activity_at": "2026-11-20T03:58:12.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--dc0a857d-4f84-56de-84c5-568c47ca3a13",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T21:59:11.000Z",
@@ -301003,6 +301137,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ddaefe64-2799-58db-bc6b-3dca64524b6d",
+      "name": "PowerLink (1.1)",
+      "vendor": "Neotroni Lighting"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ddbc8eae-e01c-5f5f-bacb-02a2bd1ca903",
       "name": "TanOS",
       "vendor": "Tanium"
@@ -301095,6 +301236,13 @@
       "id": "software--df23587e-f2a1-5b4c-a852-dd811624fdda",
       "name": "TRIRIGA Application Platform (5.0.0 through 5.0.9)",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--df248516-d988-5103-acd5-e0dbbc6decf3",
+      "name": "Doctor-Appointment-System (\u003c= ee974dcf4c50da85e6ea026e27f4370e9468b3cc)",
+      "vendor": "rajesh2211"
     },
     {
       "type": "software",
@@ -319527,6 +319675,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--3c6eb0e3-2656-5ea7-9e7a-243afec8f154",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-133534",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-133534",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133534"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--3c7bb8e5-bf3b-5d9f-98f7-06386b6c2dc3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -323681,6 +323845,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119512",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119512"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4f86a2c0-7a49-5abc-93cc-1b9ceeb0c6ca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-133478",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-133478",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133478"
         }
       ]
     },
