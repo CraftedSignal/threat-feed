@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7b87b1d9-8cea-5433-ac13-024b37f0a0b2",
+  "id": "bundle--33bc6fa3-d60d-5468-aabf-0d9ac155e342",
   "objects": [
     {
       "type": "attack-pattern",
@@ -99680,6 +99680,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a362a544-708a-56c7-b9c6-7171fb4158c1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5260fec5-353c-5482-a04c-67a873bb6450",
+      "target_ref": "vulnerability--1f73c97c-c1ab-5311-a6e0-9d824e7111ca"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a3635d95-0f2d-517a-80ad-5fa5dd373316",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T17:30:28.000Z",
@@ -193548,6 +193559,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--4ae13b65-1212-595d-9b01-2b80704e9c89",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T10:39:23.000Z",
+      "modified": "2026-11-20T10:39:23.000Z",
+      "name": "InstaWP Connect: Blind SQL Injection (CVE-2026-128915)",
+      "description": "## Overview\nThe InstaWP Connect WordPress plugin contains a Blind SQL Injection vulnerability due to the improper neutralization of special elements used in SQL commands. This vulnerability affects all versions from n/a through 0.1.4.4.\n\n## Attack Chain\nThe vulnerability is exploitable over the network by a user with low privileges. The attack requires no user interaction.\n\n## Impact\nThe vulnerability has a CVSS v3.1 base score of 8.5. It allows for high impact on confidentiality and low impact on availability. The integrity impact is categorized as none.\n\n## Recommendation\nUsers should update the InstaWP Connect plugin to version 0.1.4.5 or later, which resolves the vulnerability.",
+      "published": "2026-11-20T10:39:23.000Z",
+      "labels": [
+        "cve",
+        "sql-injection",
+        "wordpress-plugin"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5260fec5-353c-5482-a04c-67a873bb6450",
+        "vulnerability--1f73c97c-c1ab-5311-a6e0-9d824e7111ca"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-instawp-sql-injection-cve-2026-128915",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-instawp-sql-injection-cve-2026-128915/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-128915"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128915"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-instawp-sql-injection-cve-2026-128915",
+      "x_craftedsignal_event_id": "brief-2026-11-20-instawp-sql-injection-cve-2026-128915",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-instawp-sql-injection-cve-2026-128915/",
+      "x_craftedsignal_activity_at": "2026-11-20T10:39:23.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -296131,6 +296191,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5260fec5-353c-5482-a04c-67a873bb6450",
+      "name": "InstaWP Connect",
+      "vendor": "InstaWP"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--528f8b05-5568-548d-941b-1ba0a5a1ab03",
       "name": "pardus-boot-repair (1.0.8 through \u003c 1.1.0)",
       "vendor": "TÜBİTAK BİLGEM Software Technologies Research Institute"
@@ -317962,6 +318029,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-130380",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130380"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--1f73c97c-c1ab-5311-a6e0-9d824e7111ca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-128915",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-128915",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128915"
         }
       ]
     },
