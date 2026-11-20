@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--038a8e24-610d-536c-8785-a5a56c123568",
+  "id": "bundle--9321018a-17f1-5bfb-b3db-1b70d41747e3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -351,22 +351,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1496",
           "url": "https://attack.mitre.org/techniques/T1496"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--2b9dc711-e202-51c6-9b7d-de4286c4d846",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Abuse Elevation Control Mechanism",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1548",
-          "url": "https://attack.mitre.org/techniques/T1548"
         }
       ]
     },
@@ -12214,28 +12198,6 @@
       "relationship_type": "uses",
       "source_ref": "report--1d8d2e4a-2485-5130-a1dd-37879d797b9c",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c53b1fc8-03a6-50a8-ba50-fd4b4943e1ce",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-22T16:21:44.000Z",
-      "modified": "2026-08-22T16:21:44.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e819182a-be4e-5ef9-83db-5102ca6dbb67",
-      "target_ref": "attack-pattern--2b9dc711-e202-51c6-9b7d-de4286c4d846"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c5ab7a97-817e-52e3-8c30-610426fc6901",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-22T16:21:44.000Z",
-      "modified": "2026-08-22T16:21:44.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e819182a-be4e-5ef9-83db-5102ca6dbb67",
-      "target_ref": "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88"
     },
     {
       "type": "relationship",
@@ -34084,54 +34046,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--e819182a-be4e-5ef9-83db-5102ca6dbb67",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-22T16:21:44.000Z",
-      "modified": "2026-08-22T16:21:44.000Z",
-      "name": "NachoMDM Vulnerability in Windows MDM Enrollment",
-      "description": "## Overview\n\nNachoMDM identifies a critical security flaw in the Windows Mobile Device Management (MDM) enrollment mechanism. Discovered by researchers and detailed in August 2026, this vulnerability permits an attacker to intercept or manipulate the standard enrollment workflow, leading to a bypass of User Account Control (UAC). By weaponizing this process, an attacker can escalate privileges from a standard user context to NT AUTHORITY\\SYSTEM. The vulnerability exploits the trust relationship and the elevated processes invoked during device configuration, allowing for arbitrary code execution. This is particularly significant for environments that allow self-enrollment or rely on automated MDM provisioning, as an attacker with initial local access can weaponize the enrollment sequence to gain full control of the Windows operating system.\n\n## Impact\n\nThe vulnerability results in a total compromise of the host system through privilege escalation to SYSTEM level. Organizations utilizing Windows MDM enrollment are at risk, particularly those that permit non-administrative users to initiate enrollment processes. Successful exploitation allows for persistent access, credential theft, and full system control.\n\n## Recommendation\n\nPrioritized actions for detection engineering and security teams:\n\n- Monitor the Windows MDM enrollment log (Microsoft-Windows-DeviceManagement-Enterprise-Diagnostics-Provider/Admin) for anomalous initiation or high-frequency failures that may indicate enrollment process tampering.\n- Review and restrict permissions for initiating MDM enrollment to authorized service accounts or administrative roles only.\n- Audit existing MDM configurations to ensure that enrollment endpoints are strictly hardened and that no unauthorized enrollment profiles are active in the environment.\n",
-      "published": "2026-08-22T16:21:44.000Z",
-      "labels": [
-        "mdm",
-        "privilege-escalation",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--2b9dc711-e202-51c6-9b7d-de4286c4d846",
-        "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--92f1878b-a318-5a93-823d-5f915fa31e11"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-nachomdm",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-nachomdm/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://blog.amberwolf.com/blog/2026/august/weaponising-windows-mdm/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.reddit.com/r/blueteamsec/comments/1vvew7y/nachomdm_weaponising_windows_mdm_for_uac_bypass/"
-        }
-      ],
-      "x_craftedsignal_brief_id": "brief-2026-08-nachomdm",
-      "x_craftedsignal_event_id": "brief-2026-08-nachomdm",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-nachomdm/",
-      "x_craftedsignal_activity_at": "2026-08-22T16:21:44.000Z",
-      "x_craftedsignal_severity": "rumour",
-      "x_craftedsignal_type": "rumour",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--e908f301-2590-5e84-aee6-f4930906c43e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-25T10:07:51.000Z",
@@ -38297,13 +38211,6 @@
       "spec_version": "2.1",
       "id": "software--92d0dbed-61d9-5af0-bb63-dbd0104c8afa",
       "name": "iis"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--92f1878b-a318-5a93-823d-5f915fa31e11",
-      "name": "Windows Mobile Device Management",
-      "vendor": "Microsoft"
     },
     {
       "type": "software",
