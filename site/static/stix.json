@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--81f9adef-245e-50d4-9191-54cc277894d9",
+  "id": "bundle--98096deb-0f10-5710-97cc-5cb499c35765",
   "objects": [
     {
       "type": "attack-pattern",
@@ -64013,6 +64013,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4c62c086-cba9-5d8f-ac24-b1b7654aa85c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T20:57:39.000Z",
+      "modified": "2026-11-20T20:57:39.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--db3ec46a-8ede-5b38-8b07-85603ff0f982",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4c6b49a9-7fc9-58e7-a853-8974477fd10f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T11:57:34.000Z",
@@ -85426,6 +85437,17 @@
       "relationship_type": "has",
       "source_ref": "software--eb2e31ef-6e0d-5013-bcfc-4a212acbd335",
       "target_ref": "vulnerability--504299fa-19b7-584b-80e4-f74f07cb7390"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--69959600-4857-5673-8489-b49f26569d84",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0af66ed4-1d6a-5999-b8fa-24409335a394",
+      "target_ref": "vulnerability--0d473da5-2a48-5ede-8392-6528c81b9db1"
     },
     {
       "type": "relationship",
@@ -112992,6 +113014,17 @@
       "relationship_type": "uses",
       "source_ref": "report--61febc62-354d-5766-bfbf-6d407cb7ba39",
       "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8ebd860b-9f16-5101-b124-d27eb629b683",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--cbe75074-89bf-5f6b-b172-968d014bc972",
+      "target_ref": "vulnerability--939e5edb-84b6-5a90-a5cc-211f810edbb5"
     },
     {
       "type": "relationship",
@@ -294238,6 +294271,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--88a48de6-aeee-5d39-b911-5003ba1256c5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T20:57:45.000Z",
+      "modified": "2026-11-20T20:57:45.000Z",
+      "name": "AppPresser: Stored cross-site scripting (CVE-2026-121852)",
+      "description": "## Overview\n\nThe AppPresser WordPress plugin, in versions prior to 5.0.0, is vulnerable to a Stored Cross-Site Scripting (XSS) vulnerability. The flaw exists because the plugin fails to properly escape debug log contents when displaying them within the administrative dashboard. Additionally, the plugin decodes escape sequences after input sanitization, allowing an unauthenticated attacker to inject malicious scripts that are executed when an administrator views the logs.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to execute arbitrary JavaScript in the context of an administrator session. This can lead to unauthorized administrative actions, account takeover, or the manipulation of the WordPress environment.\n\n## Recommendation\n\n- Identify and update the AppPresser WordPress plugin to version 5.0.0 or later immediately.\n- Disable debug logging in the AppPresser plugin settings if an immediate update is not feasible.\n- Monitor administrative dashboard access and review plugin debug logs for suspicious script injections.",
+      "published": "2026-11-20T20:57:45.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0af66ed4-1d6a-5999-b8fa-24409335a394",
+        "vulnerability--0d473da5-2a48-5ede-8392-6528c81b9db1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-apppresser-xss-cve-2026-121852",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apppresser-xss-cve-2026-121852/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-121852"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121852"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-apppresser-xss-cve-2026-121852",
+      "x_craftedsignal_event_id": "brief-2026-11-20-apppresser-xss-cve-2026-121852",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apppresser-xss-cve-2026-121852/",
+      "x_craftedsignal_activity_at": "2026-11-20T20:57:45.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.0017,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--88c54b74-92d6-52a9-82a7-887f7936dd67",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T16:58:24.000Z",
@@ -354025,6 +354103,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--db3ec46a-8ede-5b38-8b07-85603ff0f982",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T20:57:39.000Z",
+      "modified": "2026-11-20T20:57:39.000Z",
+      "name": "SAML SSO Login: XML signature wrapping authentication bypass (CVE-2026-108687)",
+      "description": "## Overview\nThe SAML SSO Login WordPress plugin through version 1.5.2 contains a vulnerability where it fails to verify that the SAML assertion whose signature is validated is the same assertion used to determine user identity. This flaw allows an attacker who possesses a validly signed assertion for any identity to authenticate as any user, including administrators, via XML signature wrapping. There is currently no confirmed fixed version or patch information disclosed in the provided CVE evidence.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to perform a complete authentication bypass, resulting in unauthorized access to the application with the privileges of any existing user, including administrative accounts.\n\n## Recommendation\n- Audit all SAML SSO Login plugin installations for version 1.5.2 or earlier.\n- Since no patch is currently identified, consider disabling the plugin or restricting access to the SSO login endpoint until a vendor update is available.\n- Review authentication logs for irregular or unauthorized administrative access patterns originating from SAML assertions.",
+      "published": "2026-11-20T20:57:39.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--cbe75074-89bf-5f6b-b172-968d014bc972",
+        "vulnerability--939e5edb-84b6-5a90-a5cc-211f810edbb5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-saml-sso-login-xml-signature-wrapping-cve-2026-108687",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-saml-sso-login-xml-signature-wrapping-cve-2026-108687/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-108687"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108687"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-saml-sso-login-xml-signature-wrapping-cve-2026-108687",
+      "x_craftedsignal_event_id": "brief-2026-11-20-saml-sso-login-xml-signature-wrapping-cve-2026-108687",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-saml-sso-login-xml-signature-wrapping-cve-2026-108687/",
+      "x_craftedsignal_activity_at": "2026-11-20T20:57:39.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.00137,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--db51c42d-0ac3-5173-8f7f-ef7663a24655",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:19:27.000Z",
@@ -383449,6 +383573,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0af66ed4-1d6a-5999-b8fa-24409335a394",
+      "name": "AppPresser (\u003c 5.0.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0afdddd9-65f6-5a91-8575-f7c841a6499f",
       "name": "Brotli (1.0.3 \u003c= v \u003c 1.0.10)"
     },
@@ -405557,6 +405687,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--cbe75074-89bf-5f6b-b172-968d014bc972",
+      "name": "SAML SSO Login (\u003c= 1.5.2)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--cc212796-ff65-5a7c-906a-a309eaacfc33",
       "name": "Thor Vector Graphics (\u003c 1.1.2)",
       "vendor": "ThorVG"
@@ -416499,6 +416635,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119706",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119706"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0d473da5-2a48-5ede-8392-6528c81b9db1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121852",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121852",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121852"
         }
       ]
     },
@@ -461171,6 +461323,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119921",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119921"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--939e5edb-84b6-5a90-a5cc-211f810edbb5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-108687",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-108687",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108687"
         }
       ]
     },
