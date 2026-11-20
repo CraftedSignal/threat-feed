@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--979327b9-159c-56d8-9685-0c2ed3969f57",
+  "id": "bundle--2d91957f-1140-5527-90c4-1515ec11c4c1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -24341,6 +24341,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1d001dba-73a8-5fc5-af2d-3d180e7ee591",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ff4ecb20-f3be-5720-a5d8-07c55872a202",
+      "target_ref": "vulnerability--cdce9822-b9f0-5a33-8455-6f60911a03fe"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1d0029a6-c679-5582-960b-2d5d5a5a1dda",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -27703,6 +27714,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--ecc60d2a-3ef8-5f92-a9a6-dc3739ff90ed"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--238b2f4f-3f0c-5752-ab96-ed35372c33ea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T18:30:25.000Z",
+      "modified": "2026-11-19T18:30:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--49eb4e77-e7ff-5861-a84e-2e73954e4015",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -118270,6 +118292,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c5b1a529-56bb-5d3d-b223-f0b7d07f78f2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T18:30:25.000Z",
+      "modified": "2026-11-19T18:30:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--49eb4e77-e7ff-5861-a84e-2e73954e4015",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c5b649a7-10a4-59c8-8555-922ca963f910",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -190423,6 +190456,53 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--49eb4e77-e7ff-5861-a84e-2e73954e4015",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T18:30:25.000Z",
+      "modified": "2026-11-19T18:30:25.000Z",
+      "name": "Live Composer: Stored Cross-Site Scripting in Page Builder (CVE-2026-119073)",
+      "description": "## Overview\nLive Composer Page Builder, a WordPress plugin, contains a Stored Cross-Site Scripting (XSS) vulnerability. The flaw exists because the plugin fails to sanitize the 'pagination_type' parameter in the 'dslc_post_pagination' function within the '[dslc_module_posts_output]' shortcode before outputting it into an HTML attribute context. This vulnerability affects versions prior to 2.1.23.\n\n## Attack Chain\n1. An authenticated user with Contributor-level access or higher (Contributor+) creates or edits a post using the Live Composer editor.\n2. The attacker embeds a crafted '[dslc_module_posts_output]' shortcode with a malicious 'pagination_type' payload containing JavaScript event handlers (such as 'onfocus').\n3. When a site visitor or administrator views the page containing the malicious shortcode, the injected script executes in their browser.\n\n## Impact\nSuccessful exploitation allows the execution of arbitrary JavaScript in the victim's browser session. Potential impacts include session hijacking, theft of nonces, or unauthorized administrative actions.\n\n## Recommendation\nAdministrators should update the Live Composer Page Builder plugin to version 2.1.23 or later. If immediate updates are not possible, consider restricting Contributor-level access or implementing WAF rules to block malicious event handlers in POST bodies.",
+      "published": "2026-11-19T18:30:25.000Z",
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ff4ecb20-f3be-5720-a5d8-07c55872a202",
+        "vulnerability--cdce9822-b9f0-5a33-8455-6f60911a03fe"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-live-composer-xss-cve-2026-119073",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-live-composer-xss-cve-2026-119073/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-119073"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=2B1D64B1-65F1-525B-B036-832DBCD7ACFD\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-live-composer-xss-cve-2026-119073",
+      "x_craftedsignal_event_id": "brief-2026-11-19-live-composer-xss-cve-2026-119073",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-live-composer-xss-cve-2026-119073/",
+      "x_craftedsignal_activity_at": "2026-11-19T18:30:25.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.8,
+      "x_craftedsignal_epss_max": 0.0029,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -304507,6 +304587,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ff4ecb20-f3be-5720-a5d8-07c55872a202",
+      "name": "Live Composer Page Builder",
+      "vendor": "Live Composer"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ff57d8ca-c938-5326-ab2b-be3de2b5cfbd",
       "name": "Rancher Fleet (0.13.0-0.13.17)",
       "vendor": "SUSE"
@@ -358139,6 +358226,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-77033",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77033"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--cdce9822-b9f0-5a33-8455-6f60911a03fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119073",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119073",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119073"
         }
       ]
     },
