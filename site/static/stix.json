@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1f8828e7-4ffa-51c6-8ce0-e18607168d5a",
+  "id": "bundle--e1778c94-ed87-523a-a4d0-7a61fb1f2d5f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -66293,7 +66293,7 @@
       "id": "relationship--4fab319a-205d-54cd-9aed-20ed83ae4dca",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T17:25:43.000Z",
-      "modified": "2026-11-19T16:15:02.000Z",
+      "modified": "2026-11-20T20:22:19.000Z",
       "relationship_type": "uses",
       "source_ref": "report--beafdf6e-2162-501d-b1f3-f5e48194fb2c",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -129455,7 +129455,7 @@
       "id": "relationship--a601c904-a6b7-5c57-b0fc-e5ee90dcb8d0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T17:25:43.000Z",
-      "modified": "2026-11-19T16:15:02.000Z",
+      "modified": "2026-11-20T20:22:19.000Z",
       "relationship_type": "uses",
       "source_ref": "report--beafdf6e-2162-501d-b1f3-f5e48194fb2c",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -154942,7 +154942,7 @@
       "id": "relationship--c8812d68-7421-5e55-967e-057c3481cdd0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T21:58:00.000Z",
-      "modified": "2026-11-20T04:38:22.000Z",
+      "modified": "2026-11-20T20:22:19.000Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--cce6f80d-c59f-5cd3-8649-0e6ba71893e1",
       "target_ref": "threat-actor--d4428c43-0fb8-5df0-8a31-04c13c02530e"
@@ -333188,7 +333188,7 @@
       "id": "report--beafdf6e-2162-501d-b1f3-f5e48194fb2c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T17:25:43.000Z",
-      "modified": "2026-11-19T16:15:02.000Z",
+      "modified": "2026-11-20T20:22:19.000Z",
       "name": "Apache Roller: Remote Code Execution via XML-RPC Deserialization (CVE-2026-129448)",
       "description": "## Overview\n\nApache Roller versions 4.0.0 through 6.1.4 contain a critical vulnerability in the XML-RPC endpoint that allows an unauthenticated remote attacker to execute arbitrary code. The flaw exists because the endpoint accepts and deserializes vendor extension types prior to completing authentication of the requester.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to achieve remote code execution (RCE) with the privileges of the Apache Roller process, leading to a full compromise of confidentiality, integrity, and availability.\n\n## Recommendation\n\nImmediately upgrade to Apache Roller version 6.1.5 or later to remediate CVE-2026-129448. Until an upgrade is possible, disable the XML-RPC endpoint if not strictly required for business operations to mitigate the attack surface.",
       "published": "2026-11-17T17:25:43.000Z",
@@ -333228,17 +333228,20 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-17-apache-roller-deserialization-cve-2026-129448",
       "x_craftedsignal_event_id": "brief-2026-11-17-apache-roller-deserialization-cve-2026-129448",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-roller-deserialization-cve-2026-129448/",
-      "x_craftedsignal_activity_at": "2026-11-19T16:15:02.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T20:22:19.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-11-20T00:00:00.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.0164,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -343301,7 +343304,7 @@
       "id": "report--cce6f80d-c59f-5cd3-8649-0e6ba71893e1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T21:58:00.000Z",
-      "modified": "2026-11-20T04:38:22.000Z",
+      "modified": "2026-11-20T20:22:19.000Z",
       "name": "VMware vCenter Server and Telco Cloud Platform authentication bypass (CVE-2026-123890)",
       "description": "## Overview\nVMware has disclosed an authentication bypass vulnerability (CVE-2026-123890) within the VMware Directory Service. The vulnerability is rated with a CVSS base score of 9.8. It can be exploited remotely by an unauthenticated attacker with no user interaction required.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to bypass authentication mechanisms, impacting the confidentiality, integrity, and availability of the affected platform.\n\n## Recommendation\nFor VMware vCenter, the following versions are affected and have specified fixes:\n- vCenter 9.1.x (fixed in 9.1.1.0200)\n- vCenter 9.0.x (fixed in 9.0.2.0200)\n- vCenter 8.0 (fixed in 8.0 U3m)\n- vCenter 5.x (fixed in 5.2.5)\n\nFor Telco Cloud Platform (versions 3.0, 4.x, 5.0.x, 5.1.x, 5.2) and Telco Cloud Infrastructure (version 3.0), users should consult VMware KB463116 for guidance, as specific fixed versions are not listed in the current advisory.",
       "published": "2026-11-19T21:58:00.000Z",
@@ -343350,9 +343353,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-19-vmware-vcenter-auth-bypass-cve-2026-123890",
       "x_craftedsignal_event_id": "brief-2026-11-19-vmware-vcenter-auth-bypass-cve-2026-123890",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-vmware-vcenter-auth-bypass-cve-2026-123890/",
-      "x_craftedsignal_activity_at": "2026-11-20T04:38:22.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T20:22:19.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -343362,7 +343365,7 @@
         "confidence": "medium"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
