@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--60dcbd75-e5fe-5c97-9a74-5ad2515f248d",
+  "id": "bundle--f3e45458-9d6d-5c74-ab68-c128b2049883",
   "objects": [
     {
       "type": "attack-pattern",
@@ -147555,6 +147555,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bcf5b946-a14f-5edc-841f-9506debf3219",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2b7dae27-f642-57bf-ae0b-94a66de721b3",
+      "target_ref": "vulnerability--b29f6828-3d72-5f44-8c41-657f8baf3878"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bd01ca9f-2e8f-540d-b181-5be6ebab6c8b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -285550,6 +285561,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--7cce895d-144e-55f5-a280-c0b9243143ce",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T02:07:43.000Z",
+      "modified": "2026-11-20T02:07:43.000Z",
+      "name": "obsidian-sync-mcp: Host and Origin header validation bypass (CVE-2026-77283)",
+      "description": "## Overview\nobsidian-sync-mcp is an MCP server that provides AI agents with access to Obsidian vaults. In versions \u003c= 0.5.6, deployments running in no-auth mode (without an MCP_AUTH_TOKEN) fail to validate Host or Origin headers on the HTTP /mcp endpoint. This allows a malicious website visited by an operator to bypass local network security assumptions and interact with the MCP tool surface.\n\n## Attack Chain\n1. The operator runs the server in no-auth mode.\n2. The operator visits an attacker-controlled website.\n3. The website utilizes DNS rebinding to resolve an attacker-controlled hostname to local addresses, or performs a direct cross-origin request to the loopback address.\n4. The server accepts these requests as trusted local calls, allowing the execution of MCP tool methods including reading, creating, overwriting, deleting, or moving notes.\n\n## Impact\nUnauthenticated attackers can invoke the full MCP tool surface, leading to unauthorized access to, or modification of, vault notes. In CouchDB or self-hosted LiveSync modes, vault content is equally reachable. Deployments that set MCP_AUTH_TOKEN are not affected because browsers do not attach the bearer token, resulting in an HTTP 401 response.\n\n## Recommendation\n- Upgrade to version 0.5.7, which adds application-layer Host and Origin header validation to reject unauthorized requests before any MCP method runs.\n- If an upgrade is not immediate, set the MCP_AUTH_TOKEN environment variable to require authentication, which closes the path immediately.",
+      "published": "2026-11-20T02:07:43.000Z",
+      "labels": [
+        "attack.execution",
+        "attack.initial-access"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2b7dae27-f642-57bf-ae0b-94a66de721b3",
+        "vulnerability--b29f6828-3d72-5f44-8c41-657f8baf3878"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-obsidian-sync-mcp-rce-ghsa-mx6p-3fg7-v6pj",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-obsidian-sync-mcp-rce-ghsa-mx6p-3fg7-v6pj/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-77283"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-mx6p-3fg7-v6pj"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-obsidian-sync-mcp-rce-ghsa-mx6p-3fg7-v6pj",
+      "x_craftedsignal_event_id": "brief-2026-11-20-obsidian-sync-mcp-rce-ghsa-mx6p-3fg7-v6pj",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-obsidian-sync-mcp-rce-ghsa-mx6p-3fg7-v6pj/",
+      "x_craftedsignal_activity_at": "2026-11-20T02:07:43.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00375,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--7cdbfdea-ca18-5f22-a6fc-4b8f41774b33",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T23:23:57.000Z",
@@ -387239,6 +387298,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2b7dae27-f642-57bf-ae0b-94a66de721b3",
+      "name": "obsidian-sync-mcp",
+      "vendor": "es617"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2b7dbc4f-766c-5955-82fd-493c4d73802e",
       "name": "Cloud Pak for Data 5.4.0.0",
       "vendor": "IBM"
@@ -471744,6 +471810,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-76493",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76493"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b29f6828-3d72-5f44-8c41-657f8baf3878",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-77283",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-77283",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77283"
         }
       ]
     },
