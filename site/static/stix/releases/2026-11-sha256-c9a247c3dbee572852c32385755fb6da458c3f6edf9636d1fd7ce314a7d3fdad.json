@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e1143a7d-834d-510e-a1ea-025453b06c4e",
+  "id": "bundle--357e847f-779e-572a-9d1e-546e4ec0e47a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -41358,6 +41358,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--c3a2f178-e618-5b70-bb95-469a95dbcf1d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3b2b0466-4968-5c9c-9539-123aa08955d4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8ec00ecc-5db8-5c02-ae2a-a9faea041c3b",
+      "target_ref": "vulnerability--db6fdc2c-c3fe-547f-9909-f63dde9973fe"
     },
     {
       "type": "relationship",
@@ -201447,6 +201458,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5477156d-acf9-51aa-a6c2-28a301c8f73f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T18:36:15.000Z",
+      "modified": "2026-11-20T18:36:15.000Z",
+      "name": "Iceburg CRM: Incorrect authorization in Module::saveRecord (CVE-2026-133874)",
+      "description": "## Overview\nIceburg CRM versions through 5.0.0 contain an incorrect authorization vulnerability in the Module::saveRecord() method. The flaw allows authenticated users to write to unauthorized modules by prefixing request body keys with another module ID. Attackers with write access to one module can submit crafted requests to POST /data/save or PUT /api/crm/{id} to set their role_id to Admin and access administrative data.\n\n## Attack Chain\n1. Authenticated user leverages write access to a module.\n2. User submits a crafted request to POST /data/save or PUT /api/crm/{id} with request body keys prefixed by a target module ID.\n3. Module::saveRecord() fails to correctly authorize the write operation for the target module.\n\n## Impact\nSuccessful exploitation allows an authenticated user to write to unauthorized modules, including modification of the role_id attribute to Admin, which grants unauthorized access to administrative data.\n\n## Recommendation\nNo remediation is currently known; users should monitor the product for official updates and patch releases.",
+      "published": "2026-11-20T18:36:15.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8ec00ecc-5db8-5c02-ae2a-a9faea041c3b",
+        "vulnerability--db6fdc2c-c3fe-547f-9909-f63dde9973fe"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-iceburg-crm-auth-bypass-cve-2026-133874",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-iceburg-crm-auth-bypass-cve-2026-133874/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-133874"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133874"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-iceburg-crm-auth-bypass-cve-2026-133874",
+      "x_craftedsignal_event_id": "brief-2026-11-20-iceburg-crm-auth-bypass-cve-2026-133874",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-iceburg-crm-auth-bypass-cve-2026-133874/",
+      "x_craftedsignal_activity_at": "2026-11-20T18:36:15.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--549af675-c919-58c2-aae6-db81a7b27f95",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T06:02:51.000Z",
@@ -305004,6 +305059,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8ec00ecc-5db8-5c02-ae2a-a9faea041c3b",
+      "name": "iceburgcrm (\u003c= 5.0.0)",
+      "vendor": "iceburgcrm"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8ed0c6fd-4ea3-58a4-b1f2-1ae94d1a160d",
       "name": "Illumio Core VEN (Windows)",
       "vendor": "Illumio"
@@ -372484,6 +372546,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108409",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108409"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--db6fdc2c-c3fe-547f-9909-f63dde9973fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-133874",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-133874",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133874"
         }
       ]
     },
