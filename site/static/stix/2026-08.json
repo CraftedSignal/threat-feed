@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9321018a-17f1-5bfb-b3db-1b70d41747e3",
+  "id": "bundle--c274e910-67fd-5d63-a52f-e02912cf78b8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3915,17 +3915,6 @@
       "relationship_type": "uses",
       "source_ref": "report--5bf0dec3-6a31-5104-8dfc-ce39f3b08971",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--25a86fa4-b36b-504c-b7bd-0dd9cf304813",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--80d8c508-ede0-513f-b9a1-d7262ca95b18",
-      "target_ref": "vulnerability--0bd5df09-1927-5390-b7ca-9a7faf8a9233"
     },
     {
       "type": "relationship",
@@ -8095,17 +8084,6 @@
       "relationship_type": "has",
       "source_ref": "software--06a38527-45a1-5730-a257-725679e08e41",
       "target_ref": "vulnerability--e3ea5919-4220-5185-8db2-da65fe8033ef"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--73ca37a2-f698-5866-beb1-2ffc96c667c1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-22T17:31:56.000Z",
-      "modified": "2026-08-22T17:31:56.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ef579d71-bc61-5f1b-a56f-39554a873338",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -12389,17 +12367,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--c8bdd89e-987f-5366-a664-8e2211697a43",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--6cf842b3-3601-547e-8232-99de4435a0aa",
-      "target_ref": "vulnerability--7fefaa95-b834-5c8e-a18f-110e06920373"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--c8cc66f3-0721-5014-bc65-4dbe8b756f9b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T17:40:55.000Z",
@@ -12990,17 +12957,6 @@
       "relationship_type": "has",
       "source_ref": "software--45d1dccf-47d5-558c-bb6d-07a322875da0",
       "target_ref": "vulnerability--2b221ae2-0c58-55f5-b53b-0df7dcfe264b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d2a5a66c-eac5-5b98-a158-47b9b71d25b4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--46a93cf2-6460-52a4-82b3-0fb9e9654f27",
-      "target_ref": "vulnerability--7fefaa95-b834-5c8e-a18f-110e06920373"
     },
     {
       "type": "relationship",
@@ -16676,47 +16632,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--0f500676-3701-5d8f-8c76-6a5f25a24802",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-22T17:32:02.000Z",
-      "modified": "2026-08-22T17:32:02.000Z",
-      "name": "TLS Hostname Verification Bypass in Netty",
-      "description": "## Overview\n\nCVE-2026-62243 affects Netty's netty-handler library, specifically versions 4.2.0.Final through 4.2.16.Final and 4.1.136.Final and earlier. The vulnerability exists within the SslProvider.OPENSSL client path. When these specific versions are deployed in environments utilizing Java 25 or later, or in environments where Unsafe-based trust-manager wrapping is unavailable, the client fails to perform TLS hostname verification.\n\nThis flaw results in the client accepting certificates issued for arbitrary hostnames, provided a plain X509TrustManager is in use. A man-in-the-middle attacker can exploit this misconfiguration to intercept encrypted traffic, bypassing the identity validation layer of the TLS handshake. Defenders should prioritize updating to Netty versions 4.2.17.Final or 4.1.137.Final to remediate the vulnerability. Given the library's widespread use in Java-based applications, it is critical to identify all services incorporating these versions of netty-handler.\n\n## Impact\n\nSuccessful exploitation allows a man-in-the-middle attacker to decrypt, observe, and potentially modify sensitive data in transit between a client and a server. This impact is significant for applications handling authentication credentials, API keys, or personal identifiable information. As this vulnerability affects the core network communication layer, any Java application relying on the affected Netty versions as a TLS client is susceptible to traffic interception if the network path can be influenced by an attacker.\n\n## Recommendation\n\n* Upgrade all instances of netty-handler to 4.2.17.Final or 4.1.137.Final to resolve CVE-2026-62243.\n* Audit application dependencies to identify versions of io.netty:netty-handler within the vulnerable ranges (4.2.0.Final-4.2.16.Final or \u003c= 4.1.136.Final).\n* Until patching is completed, restrict network access for affected applications to trusted environments to mitigate the risk of man-in-the-middle positioning.\n",
-      "published": "2026-08-22T17:32:02.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--46a93cf2-6460-52a4-82b3-0fb9e9654f27",
-        "software--6cf842b3-3601-547e-8232-99de4435a0aa",
-        "vulnerability--7fefaa95-b834-5c8e-a18f-110e06920373"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-22-netty-tls-hostname-verification",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-netty-tls-hostname-verification/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62243"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-22-netty-tls-hostname-verification",
-      "x_craftedsignal_event_id": "brief-2026-08-22-netty-tls-hostname-verification",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-netty-tls-hostname-verification/",
-      "x_craftedsignal_activity_at": "2026-08-22T17:32:02.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -34781,47 +34696,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--ef579d71-bc61-5f1b-a56f-39554a873338",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-22T17:31:56.000Z",
-      "modified": "2026-08-22T17:31:56.000Z",
-      "name": "PHP Object Injection in WS Form LITE",
-      "description": "## Overview\n\nThe WS Form LITE plugin for WordPress, specifically versions 1.10.80 and earlier, contains a critical PHP Object Injection vulnerability (CVE-2026-4703). The issue stems from the unsafe deserialization of untrusted user input within form submission meta values. While the plugin does not ship with a native Property-Oriented Programming (POP) chain, attackers can leverage this deserialization primitive to trigger arbitrary file deletion, data exfiltration, or remote code execution (RCE) if other installed plugins or themes provide the necessary gadgets. Because this can be triggered by unauthenticated users, the attack surface includes any WordPress instance using the affected version of the plugin, provided the hosting environment contains vulnerable gadgets in the broader plugin ecosystem.\n\n## Impact\n\nSuccessful exploitation requires a secondary POP chain to be present on the target WordPress site. If such a chain exists, the impact includes full site compromise, unauthorized data access, and persistent code execution, depending on the capabilities of the available gadgets. The severity is high due to the potential for unauthenticated access to the deserialization routine.\n\n## Recommendation\n\nUpdate the WS Form LITE plugin to the latest version immediately to remediate the unsafe deserialization entry point. Detection teams should audit WordPress environments for the presence of the vulnerable plugin version using vulnerability management tools. Monitor server access logs for unusual POST requests directed at form submission endpoints that deviate from expected patterns, particularly those containing serialized PHP data structures. Ensure all installed plugins and themes are audited to identify and remove any components that contain dangerous POP chain gadgets.\n",
-      "published": "2026-08-22T17:31:56.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--80d8c508-ede0-513f-b9a1-d7262ca95b18",
-        "vulnerability--0bd5df09-1927-5390-b7ca-9a7faf8a9233"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-ws-form-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-ws-form-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4703"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-ws-form-injection",
-      "x_craftedsignal_event_id": "brief-2026-08-ws-form-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-ws-form-injection/",
-      "x_craftedsignal_activity_at": "2026-08-22T17:31:56.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--f08ce54d-98d6-583a-8cbb-3389462421a7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T15:58:02.000Z",
@@ -36902,12 +36776,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--46a93cf2-6460-52a4-82b3-0fb9e9654f27",
-      "name": "netty-handler (\u003c= 4.1.136.Final)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--46f3fcd4-324e-5d5b-9595-1727dbc522b7",
       "name": "Barangay Resident Profiling Management System (1.0)",
       "vendor": "code-projects"
@@ -37539,12 +37407,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--6cf842b3-3601-547e-8232-99de4435a0aa",
-      "name": "netty-handler (4.2.0.Final - 4.2.16.Final)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--6d089afb-b8f6-52bd-a6ce-7067c6944bd6",
       "name": "pac4j-core (\u003c 6.5.6)",
       "vendor": "pac4j"
@@ -37950,13 +37812,6 @@
       "id": "software--80b19b37-5961-5e08-bab4-908f263ece64",
       "name": "Pangolin (\u003c 1.22.0)",
       "vendor": "Pangolin"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--80d8c508-ede0-513f-b9a1-d7262ca95b18",
-      "name": "WS Form LITE (\u003c= 1.10.80)",
-      "vendor": "WS Form"
     },
     {
       "type": "software",
@@ -40177,22 +40032,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-82017",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82017"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--0bd5df09-1927-5390-b7ca-9a7faf8a9233",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-4703",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-4703",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4703"
         }
       ]
     },
@@ -42545,22 +42384,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-55068",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55068"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--7fefaa95-b834-5c8e-a18f-110e06920373",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-62243",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-62243",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62243"
         }
       ]
     },
