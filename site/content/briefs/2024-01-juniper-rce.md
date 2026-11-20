@@ -1,23 +1,49 @@
 ---
+brief_id: brief-2024-01-03-juniper-rce
+event_id: brief-2024-01-03-juniper-rce
+revision: 2
+activity_at: "2026-11-20T03:11:01Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T03:11:01Z"
+    checksum: sha256:1f6b27b6f8a0ecc2517af7bc4694ddf4719adf115db45dcccfc0e35274bb84b8
+    summary: exploited:true; KEV CVE-2023-36846; KEV CVE-2023-36847; KEV CVE-2023-36844; KEV CVE-2023-36845
+    changed_fields:
+      - cpes
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - ttps
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Juniper Networks J-Web Remote Code Execution Vulnerability Exploitation
 slug: 2024-01-juniper-rce
 description: Exploitation attempts targeting Juniper Networks J-Web interface via the webauth_operation.php endpoint to achieve remote code execution.
 date: "2024-01-03T15:00:00Z"
-lastmod: "2026-08-28T19:17:56Z"
-type: advisory
+lastmod: "2026-11-20T03:10:25Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2023-11-13T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:o:juniper:junos:*:*:*:*:*:*:*:*
   - cpe:2.3:o:juniper:junos:20.4:-:*:*:*:*:*:*
-  - cpe:2.3:o:juniper:junos:20.4:r1:*:*:*:*:*:*
   - cpe:2.3:o:juniper:junos:20.4:r1-s1:*:*:*:*:*:*
-  - cpe:2.3:o:juniper:junos:20.4:r2:*:*:*:*:*:*
+  - cpe:2.3:o:juniper:junos:20.4:r1:*:*:*:*:*:*
   - cpe:2.3:o:juniper:junos:20.4:r2-s1:*:*:*:*:*:*
   - cpe:2.3:o:juniper:junos:20.4:r2-s2:*:*:*:*:*:*
-  - cpe:2.3:o:juniper:junos:20.4:r3:*:*:*:*:*:*
+  - cpe:2.3:o:juniper:junos:20.4:r2:*:*:*:*:*:*
   - cpe:2.3:o:juniper:junos:20.4:r3-s1:*:*:*:*:*:*
   - cpe:2.3:o:juniper:junos:20.4:r3-s2:*:*:*:*:*:*
   - cpe:2.3:o:juniper:junos:20.4:r3-s3:*:*:*:*:*:*
@@ -26,11 +52,12 @@ cpes:
   - cpe:2.3:o:juniper:junos:20.4:r3-s6:*:*:*:*:*:*
   - cpe:2.3:o:juniper:junos:20.4:r3-s7:*:*:*:*:*:*
   - cpe:2.3:o:juniper:junos:20.4:r3-s8:*:*:*:*:*:*
-  - cpe:2.3:o:juniper:junos:21.1:r1:*:*:*:*:*:*
+  - cpe:2.3:o:juniper:junos:20.4:r3:*:*:*:*:*:*
   - cpe:2.3:o:juniper:junos:21.1:r1-s1:*:*:*:*:*:*
-  - cpe:2.3:o:juniper:junos:21.1:r2:*:*:*:*:*:*
+  - cpe:2.3:o:juniper:junos:21.1:r1:*:*:*:*:*:*
   - cpe:2.3:o:juniper:junos:21.1:r2-s1:*:*:*:*:*:*
   - cpe:2.3:o:juniper:junos:21.1:r2-s2:*:*:*:*:*:*
+  - cpe:2.3:o:juniper:junos:21.1:r2:*:*:*:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XNEHRU-CVE-2023-36845-JUNIPER-VULNERABILITY&utm_source=rss&utm_medium=rss
@@ -56,23 +83,33 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+    subtechnique_id: T1059.004
+    subtechnique_name: Unix Shell
   - tactic_id: TA0011
     tactic_name: Command and Control
     technique_id: T1105
-    technique_name: Remote Access Software
+    technique_name: Ingress Tool Transfer
 cves:
   - id: CVE-2023-36844
     cvss: 5.3
     epss: 0.91357
+    kev: true
+    kev_status: "true"
   - id: CVE-2023-36845
     cvss: 9.8
     epss: 0.94265
+    kev: true
+    kev_status: "true"
   - id: CVE-2023-36846
     cvss: 5.3
     epss: 0.95101
+    kev: true
+    kev_status: "true"
   - id: CVE-2023-36847
     cvss: 5.3
     epss: 0.85769
+    kev: true
+    kev_status: "true"
 references:
   - https://supportportal.juniper.net/s/article/2023-08-Out-of-Cycle-Security-Bulletin-Junos-OS-SRX-Series-and-EX-Series-Multiple-vulnerabilities-in-J-Web-can-be-combined-to-allow-a-preAuth-Remote-Code-Execution?language=en_US
   - https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2023/CVE-2023-36844.yaml
@@ -125,7 +162,16 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XNEHRU-CVE-2023-36845-JUNIPER-VULNERABILITY&utm_source=rss&utm_medium=rss
+  - at: "2026-11-20T03:10:25Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2023-36846; KEV CVE-2023-36847; KEV CVE-2023-36844; KEV CVE-2023-36845
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 Juniper Networks devices, specifically those using the J-Web interface, are susceptible to remote code execution vulnerabilities. These vulnerabilities, including CVE-2023-36844, CVE-2023-36845, CVE-2023-36846, and CVE-2023-36847, allow attackers to execute arbitrary code on affected systems. The primary attack vector involves sending malicious requests to the `/webauth_operation.php` endpoint with manipulated `PHPRC` parameters. Successful exploitation grants the attacker unauthorized access, potentially leading to data theft, network compromise, and complete system control. Exploitation attempts have been observed targeting vulnerable Juniper SRX and EX series devices. Publicly available exploit code exists, increasing the likelihood of widespread exploitation.
 

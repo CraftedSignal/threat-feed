@@ -1,14 +1,40 @@
 ---
+brief_id: brief-2024-01-26-sharepoint-spinstall0-webshell
+event_id: brief-2024-01-26-sharepoint-spinstall0-webshell
+revision: 2
+activity_at: "2026-11-20T03:11:01Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T03:11:01Z"
+    checksum: sha256:eb3f5abfb82fc015a013bf6d6aab47cfffd2391f32c3184ad69f2d3744abe148
+    summary: exploited:true; KEV CVE-2025-53770
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - ttps
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: SharePoint spinstall0.aspx Webshell Activity
 slug: 2024-01-sharepoint-spinstall0-webshell
 description: This brief describes the detection of GET requests to the spinstall0.aspx webshell, commonly deployed after exploiting CVE-2025-53770 in Microsoft SharePoint, indicating potential command execution, data exfiltration, or credential harvesting.
 date: "2024-01-26T12:00:00Z"
-lastmod: "2026-08-28T07:23:30Z"
-type: advisory
+lastmod: "2026-11-20T03:10:25Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2025-07-20T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:a:microsoft:sharepoint_server:*:*:*:*:subscription:*:*:*
   - cpe:2.3:a:microsoft:sharepoint_server:2016:*:*:*:enterprise:*:*:*
@@ -34,6 +60,8 @@ mitre_ttps:
     tactic_name: Persistence
     technique_id: T1505
     technique_name: Server Software Component
+    subtechnique_id: T1505.003
+    subtechnique_name: Web Shell
   - tactic_id: TA0006
     tactic_name: Credential Access
     technique_id: T1552
@@ -42,6 +70,8 @@ cves:
   - id: CVE-2025-53770
     cvss: 9.8
     epss: 0.99982
+    kev: true
+    kev_status: "true"
 references:
   - https://research.eye.security/sharepoint-under-siege/
   - https://www.cisa.gov/news-events/alerts/2025/07/20/microsoft-releases-guidance-exploitation-sharepoint-vulnerability-cve-2025-53770
@@ -88,7 +118,16 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-YOSASASUTSUT-BLACKASH-CVE-2025-53770&utm_source=rss&utm_medium=rss
+  - at: "2026-11-20T03:10:25Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2025-53770
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 The Microsoft SharePoint vulnerability CVE-2025-53770 allows attackers to deploy a webshell named "spinstall0.aspx" within the SharePoint layouts directory after successful exploitation via the ToolPane.aspx endpoint. This webshell serves as a backdoor, enabling attackers to execute commands, exfiltrate data, and extract sensitive information such as encryption keys and authentication tokens from the compromised SharePoint server. The presence of "spinstall0.aspx" and subsequent GET requests to it strongly indicate active post-exploitation activity, potentially leading to significant data breaches and privilege escalation within the organization. The exploitation of CVE-2025-53770 and the use of the spinstall0.aspx webshell pose a significant threat to organizations utilizing vulnerable SharePoint instances.
 

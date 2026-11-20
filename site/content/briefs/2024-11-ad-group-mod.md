@@ -1,14 +1,40 @@
 ---
+brief_id: brief-2024-11-02-ad-group-mod
+event_id: brief-2024-11-02-ad-group-mod
+revision: 2
+activity_at: "2026-11-20T03:11:01Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T03:11:01Z"
+    checksum: sha256:5e2a7e888a58ce5b5b4faf06d56dd2dd6996f529f3cf1edc97f1212c2a451ccf
+    summary: exploited:true; KEV CVE-2024-37085
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - ttps
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Detection of Windows Privileged Group Modifications
 slug: 2024-11-ad-group-mod
 description: This brief covers the detection of modifications to privileged Active Directory groups, potentially linked to the exploitation of CVE-2024-37085, where attackers may attempt to manipulate privileged groups to gain unauthorized access to systems.
 date: "2024-11-02T12:00:00Z"
-lastmod: "2026-10-12T18:05:08Z"
-type: advisory
+lastmod: "2026-11-20T03:10:25Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2024-07-30T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:a:vmware:cloud_foundation:*:*:*:*:*:*:*:*
   - cpe:2.3:o:vmware:esxi:7.0:*:*:*:*:*:*:*
@@ -30,14 +56,20 @@ mitre_ttps:
     tactic_name: Privilege Escalation
     technique_id: T1136
     technique_name: Create Account
+    subtechnique_id: T1136.001
+    subtechnique_name: Local Account
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1136
     technique_name: Create Account
+    subtechnique_id: T1136.002
+    subtechnique_name: Domain Account
 cves:
   - id: CVE-2024-37085
     cvss: 6.8
     epss: 0.2677
+    kev: true
+    kev_status: "true"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2024-37085
   - https://www.rapid7.com/blog/post/2024/07/30/vmware-esxi-cve-2024-37085-targeted-in-ransomware-campaigns/%5C
@@ -70,12 +102,21 @@ rules_count: 2
 updates:
   - at: "2026-10-12T18:05:08Z"
     level: L2
-    summary: added CVE-2024-37085; OS windows server
+    summary: added CVE-2024-37085;
     sources:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_esx_admins_group_creation_via_net.yml
+  - at: "2026-11-20T03:10:25Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2024-37085
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 This brief addresses the threat of unauthorized modifications to privileged groups in Active Directory. The focus is on identifying when actors create, delete, or alter memberships of sensitive groups such as "Domain Admins", "Enterprise Admins", and "ESX Admins". Such actions can be indicative of malicious activity, particularly in the context of exploiting vulnerabilities like CVE-2024-37085, the VMware ESXi Active Directory Integration Authentication Bypass. Successful exploitation could allow attackers to escalate privileges and gain control over critical systems. The detection relies on analyzing Windows Security Event logs, specifically Event Codes 4727, 4731, 4744, 4749, 4754, 4756, 4759, 4783, and 4790. Timely detection of these modifications is crucial for preventing lateral movement and data breaches within the network.
 

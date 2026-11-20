@@ -1,25 +1,44 @@
 ---
 brief_id: brief-2024-01-03-citrix-bleed
 event_id: brief-2024-01-03-citrix-bleed
-revision: 1
-activity_at: "2024-01-03T12:00:00Z"
+revision: 2
+activity_at: "2026-11-20T03:11:01Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T03:11:01Z"
+    checksum: sha256:4b0f5109a415d044a2667766e6c5b6e265776813d182b0622aebdf8850942220
+    summary: exploited:true; KEV CVE-2023-4966
+    changed_fields:
+      - claim_state
+      - cpes
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Citrix ADC and Gateway Unauthorized Data Disclosure (CVE-2023-4966)
 slug: 2024-01-citrix-bleed
 description: Exploitation of CVE-2023-4966, known as Citrix Bleed, allows unauthorized data disclosure via the /oauth/idp/.well-known/openid-configuration endpoint, leading to session token theft and potential unauthorized access.
 date: "2024-01-03T12:00:00Z"
-lastmod: "2026-10-29T02:49:02Z"
-type: advisory
-claim_state: <nil>
+lastmod: "2026-11-20T03:10:25Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2023-10-18T00:00:00Z"
+  confidence: high
 cpes:
+  - cpe:2.3:a:citrix:netscaler_application_delivery_controller:*:*:*:*:-:*:*:*
   - cpe:2.3:a:citrix:netscaler_application_delivery_controller:*:*:*:*:fips:*:*:*
   - cpe:2.3:a:citrix:netscaler_application_delivery_controller:*:*:*:*:ndcpp:*:*:*
-  - cpe:2.3:a:citrix:netscaler_application_delivery_controller:*:*:*:*:-:*:*:*
   - cpe:2.3:a:citrix:netscaler_gateway:*:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
@@ -40,7 +59,8 @@ cves:
   - id: CVE-2023-4966
     cvss: 9.4
     epss: 0.99999
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://www.assetnote.io/resources/research/citrix-bleed-leaking-session-tokens-with-cve-2023-4966
   - https://github.com/assetnote/exploits/tree/main/citrix/CVE-2023-4966
@@ -77,7 +97,16 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-AKSHTHEJO-CVE-2023-4966-EXPLOIT&utm_source=rss&utm_medium=rss
+  - at: "2026-11-20T03:10:25Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2023-4966
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 The Citrix Bleed vulnerability (CVE-2023-4966) is a critical security flaw affecting Citrix ADC and Gateway appliances. This vulnerability allows an unauthenticated attacker to perform unauthorized data disclosure. Successful exploitation leads to the leakage of session tokens, potentially enabling attackers to hijack legitimate user sessions. The vulnerability was widely discussed in late 2023, with proof-of-concept exploits rapidly emerging. Organizations that have not patched their Citrix ADC and Gateway appliances are vulnerable to session hijacking and subsequent data breaches. The scope of potential attacks is broad, affecting any organization using vulnerable Citrix appliances for remote access or application delivery.
 

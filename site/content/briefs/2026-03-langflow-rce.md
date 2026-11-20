@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-03-24-langflow-rce
 event_id: brief-2026-03-24-langflow-rce
-revision: 3
-activity_at: "2026-11-06T15:07:50Z"
+revision: 4
+activity_at: "2026-11-20T03:11:01Z"
 revision_history:
   - revision: 2
     at: "2026-11-01T10:58:48Z"
@@ -40,13 +40,27 @@ revision_history:
       - updates
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4368
+  - revision: 4
+    at: "2026-11-20T03:11:01Z"
+    checksum: sha256:d7d6f8a919eecdf3a78b73aab315eb51c56b6eda117dd4a9a740e5b896e49f1c
+    summary: KEV CVE-2026-33017
+    changed_fields:
+      - claim_state
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Critical RCE Vulnerability in Langflow AI Pipelines (CVE-2026-33017)
 slug: 2026-03-langflow-rce
 description: A critical remote code execution vulnerability, CVE-2026-33017, exists in Langflow AI pipelines prior to version 1.9.0 that allows an unauthenticated remote attacker to execute code with full server process privileges, impacting availability, integrity, and confidentiality.
 date: "2026-03-24T12:00:00Z"
-lastmod: "2026-11-06T15:06:54Z"
+lastmod: "2026-11-20T03:10:25Z"
 type: threat
-claim_state: <nil>
 types:
   - threat
 severities:
@@ -54,9 +68,9 @@ severities:
 exploited: true
 exploitation_evidence:
   status: confirmed_active
-  source_url: https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-TATOSEC-CVE-2026-33017-LANGFLOP&utm_source=rss&utm_medium=rss
-  observed_at: "2026-11-01T08:09:12Z"
-  confidence: medium
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-03-25T00:00:00Z"
+  confidence: high
 source_assessment:
   reliability: A
   credibility: "1"
@@ -77,21 +91,25 @@ tags:
   - denial-of-service
   - vulnerability
 vendors:
-  - B3log
-  - Langflow
-  - n8n
-  - Citrix
-  - Marimo
   - Apache
-products:
-  - Siyuan
-  - Langflow <= 1.8.2
-  - Langflow (< 1.3.4)
-  - n8n (< 1.121.0)
-  - Citrix NetScaler
-  - Marimo notebook
-  - Apache Tomcat
+  - B3log
+  - Citrix
   - Langflow
+  - Marimo
+  - n8n
+products:
+  - Apache Tomcat
+  - Citrix NetScaler
+  - Langflow
+  - Langflow <= 1.8.2
+  - Marimo notebook
+  - n8n
+  - Siyuan
+product_versions:
+  - product: Langflow
+    range: < 1.3.4
+  - product: n8n
+    range: < 1.121.0
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -113,7 +131,8 @@ cves:
   - id: CVE-2026-33017
     cvss: 9.8
     epss: 0.96177
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://ccb.belgium.be/advisories/warning-critical-vulnerability-langflow-ai-pipelines-patch-immediately
   - https://github.com/langflow-ai/langflow/security/advisories/GHSA-vwmf-pq79-vjvx
@@ -205,7 +224,16 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4368
+  - at: "2026-11-20T03:10:25Z"
+    level: L3
+    summary: KEV CVE-2026-33017
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 A critical remote code execution vulnerability, CVE-2026-33017, affects Langflow AI pipelines prior to version 1.9.0. Langflow is a tool used for building and deploying AI-powered agents and workflows. The vulnerability resides in the `build_public_tmp` endpoint, which is intended to be unauthenticated for public flows. However, it incorrectly accepts attacker-supplied flow data, leading to remote code execution with full server process privileges. The vulnerability can be exploited by an unauthenticated remote attacker if the Langflow instance has at least one public flow, a common setup for demos and chatbots. Security researchers have reported that this vulnerability is actively exploited and targeted by scanning activity, making immediate patching or mitigation essential.
 

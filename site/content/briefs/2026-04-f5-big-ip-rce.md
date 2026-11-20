@@ -1,15 +1,38 @@
 ---
+brief_id: brief-2026-04-01-f5-big-ip-rce
+event_id: brief-2026-04-01-f5-big-ip-rce
+revision: 2
+activity_at: "2026-11-20T03:11:01Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T03:11:01Z"
+    checksum: sha256:25ddca970e035f6a6fdf95f903831dd195c7ca1df7fbc6c0345d13790c1d5890
+    summary: exploited:true; KEV CVE-2025-53521
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: F5 BIG-IP APM CVE-2025-53521 Reclassified as Actively Exploited Unauthenticated RCE
 slug: 2026-04-f5-big-ip-rce
 description: F5 has reclassified CVE-2025-53521, a vulnerability in BIG-IP APM, as a critical unauthenticated remote code execution vulnerability and reports it is being actively exploited in the wild.
 date: "2026-04-01T12:00:00Z"
-lastmod: "2026-09-09T09:51:20Z"
+lastmod: "2026-11-20T03:10:25Z"
 type: threat
 types:
   - threat
 severities:
   - critical
 exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-03-27T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:a:f5:big-ip_access_policy_manager:*:*:*:*:*:*:*:*
 tags:
@@ -30,6 +53,8 @@ cves:
   - id: CVE-2025-53521
     cvss: 9.8
     epss: 0.02213
+    kev: true
+    kev_status: "true"
 references:
   - https://arcticwolf.com/resources/blog/cve-2025-53521/
   - https://thehackernews.com/2026/09/f5-big-ip-apm-malware-injects-php-web.html
@@ -65,7 +90,16 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/09/f5-big-ip-apm-malware-injects-php-web.html
+  - at: "2026-11-20T03:10:25Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2025-53521
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 On March 28, 2026, F5 issued a revised security advisory regarding CVE-2025-53521, a vulnerability affecting BIG-IP APM. Initially disclosed in October 2025 and categorized as a medium-severity denial-of-service (DoS) issue, it has been reclassified as a critical remote code execution (RCE) vulnerability. F5 has confirmed that CVE-2025-53521 is now being actively exploited by unauthenticated attackers. The updated classification significantly elevates the risk associated with this vulnerability, necessitating immediate action from organizations utilizing affected BIG-IP APM instances to prevent potential system compromise and unauthorized access.
 

@@ -1,21 +1,43 @@
 ---
 brief_id: brief-2024-01-02-vulnerable-driver-load
 event_id: brief-2024-01-02-vulnerable-driver-load
-revision: 1
-activity_at: "2024-01-02T12:00:00Z"
+revision: 2
+activity_at: "2026-11-20T03:11:01Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T03:11:01Z"
+    checksum: sha256:213b404a8aba0a8b1d3b3c2548105f377d7d061d12fe4e8018331b7f2d23c5a0
+    summary: exploited:true; KEV CVE-2022-37969
+    changed_fields:
+      - cpes
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - ttps
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Detection of Vulnerable Driver Loading on Windows Systems
 slug: 2024-01-vulnerable-driver-load
 description: Detection of loading known vulnerable Windows drivers that may indicate persistence or privilege escalation attempts via exploitation.
 date: "2024-01-02T12:00:00Z"
-lastmod: "2026-10-05T12:30:10Z"
-type: advisory
+lastmod: "2026-11-20T03:10:25Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2022-09-14T00:00:00Z"
+  confidence: high
 cpes:
+  - cpe:2.3:o:asrock:rgb_driver_firmware:-:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_10_1507:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:*:*
@@ -33,7 +55,6 @@ cpes:
   - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:asrock:rgb_driver_firmware:-:*:*:*:*:*:*:*
 tags:
   - vulnerable-driver
   - privilege-escalation
@@ -46,11 +67,14 @@ mitre_ttps:
     tactic_name: Privilege Escalation
     technique_id: T1543
     technique_name: Create or Modify System Process
+    subtechnique_id: T1543.003
+    subtechnique_name: Windows Service
 cves:
   - id: CVE-2022-37969
     cvss: 7.8
     epss: 0.28275
-    kev_status: unknown
+    kev: true
+    kev_status: "true"
   - id: CVE-2020-15368
     cvss: 5.5
     epss: 0.0136
@@ -102,7 +126,16 @@ updates:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_vulnerable_driver_loaded.yml
+  - at: "2026-11-20T03:10:25Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2022-37969
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 This brief focuses on the detection of vulnerable Windows drivers being loaded into the system, which is a common tactic used by threat actors to achieve persistence and/or escalate privileges. The loading of these drivers can be indicative of ongoing exploitation attempts. This behavior is detected via analysis of Windows Sysmon Event ID 6, which logs driver loading events. Attackers leverage vulnerable drivers to bypass security controls and execute arbitrary code at elevated privilege levels. Successful exploitation can lead to complete system compromise and sensitive data exfiltration. This activity is particularly relevant due to the increasing number of publicly known vulnerable drivers and readily available exploitation techniques. Some drivers are intentionally backdoored, while others have flaws that are exploited.
 

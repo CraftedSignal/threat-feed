@@ -1,13 +1,47 @@
 ---
+brief_id: brief-2024-05-03-jetbrains-teamcity-auth-bypass
+event_id: brief-2024-05-03-jetbrains-teamcity-auth-bypass
+revision: 2
+activity_at: "2026-11-20T03:11:01Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T03:11:01Z"
+    checksum: sha256:64ba672fa2842c691646fade0da2606a87b495ea2654d976f266e80d4500f1c6
+    summary: exploited:true; KEV CVE-2024-27198
+    changed_fields:
+      - affected_products
+      - affected_vendors
+      - cpes
+      - cves
+      - exploitation_evidence
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: JetBrains TeamCity Authentication Bypass Vulnerability (CVE-2024-27198)
 slug: 2024-05-jetbrains-teamcity-auth-bypass
 description: Exploitation of CVE-2024-27198 in JetBrains TeamCity allows unauthenticated attackers to bypass authentication and gain administrative access by sending malicious HTTP POST requests to specific API endpoints.
 date: "2024-05-03T12:00:00Z"
-type: advisory
+lastmod: "2026-11-20T03:10:25Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2024-03-07T00:00:00Z"
+  confidence: high
+cpes:
+  - cpe:2.3:a:jetbrains:teamcity:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=05DFD629-3F18-5D72-86FF-7FAE1B2B58D2&utm_source=rss&utm_medium=rss
 tags:
   - jetbrains
   - teamcity
@@ -22,11 +56,20 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
+cves:
+  - id: CVE-2024-27198
+    cvss: 9.8
+    epss: 0.93047
+    kev: true
+    kev_status: "true"
+  - id: CVE-2024-27199
+    kev_status: unknown
 references:
   - https://github.com/projectdiscovery/nuclei-templates/pull/9279/files
   - https://www.rapid7.com/blog/post/2024/03/04/etr-cve-2024-27198-and-cve-2024-27199-jetbrains-teamcity-multiple-authentication-bypass-vulnerabilities-fixed/
   - https://blog.jetbrains.com/teamcity/2024/03/teamcity-2023-11-4-is-out/
   - https://blog.jetbrains.com/teamcity/2024/03/additional-critical-security-issues-affecting-teamcity-on-premises-cve-2024-27198-and-cve-2024-27199-update-to-2023-11-4-now/
+  - https://sploitus.com/exploit?id=05DFD629-3F18-5D72-86FF-7FAE1B2B58D2&utm_source=rss&utm_medium=rss
 rules:
   - title: TeamCity Authentication Bypass Attempt
     description: Detects attempts to exploit CVE-2024-27198 by monitoring for POST requests to specific TeamCity API endpoints.
@@ -52,7 +95,22 @@ rules:
       - webserver
       - linux
 rules_count: 2
+updates:
+  - at: "2026-05-18T13:03:16Z"
+    level: L2
+    summary: poc_available; added CVE-2024-27198
+    sources:
+      - sploitus
+  - at: "2026-11-20T03:10:25Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2024-27198
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 CVE-2024-27198 is a critical authentication bypass vulnerability affecting JetBrains TeamCity on-premises servers. Disclosed in March 2024, this vulnerability allows unauthenticated attackers to perform administrative actions by crafting specific HTTP POST requests. The vulnerability is triggered by improper handling of requests to the `/app/rest/users` and `/app/rest/users/id:1/tokens` endpoints, enabling attackers to bypass authentication checks and create new user tokens with administrative privileges. Successful exploitation grants attackers full control over the TeamCity server, potentially leading to source code compromise, supply chain attacks, and deployment of malicious software. Organizations using vulnerable versions of TeamCity are at high risk and require immediate patching and monitoring.
 

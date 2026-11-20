@@ -1,13 +1,47 @@
 ---
+brief_id: brief-2024-01-03-fortinet-auth-bypass
+event_id: brief-2024-01-03-fortinet-auth-bypass
+revision: 2
+activity_at: "2026-11-20T03:11:01Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T03:11:01Z"
+    checksum: sha256:a981cb4130c29ee5474b49854fdc43893db504dc4a98e46d76b77f2fd530198f
+    summary: exploited:true; KEV CVE-2022-40684
+    changed_fields:
+      - affected_products
+      - affected_vendors
+      - cpes
+      - cves
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Fortinet Appliance Authentication Bypass Vulnerability (CVE-2022-40684) Exploitation
 slug: 2024-01-03-fortinet-auth-bypass
 description: Exploitation of CVE-2022-40684, a Fortinet appliance authentication bypass vulnerability, allows unauthorized REST API access to modify system configurations, potentially leading to complete system compromise.
 date: "2024-01-03T10:00:00Z"
-type: advisory
+lastmod: "2026-11-20T03:10:25Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2022-10-11T00:00:00Z"
+  confidence: high
+cpes:
+  - cpe:2.3:a:fortinet:fortiproxy:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:fortinet:fortiproxy:7.2.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:fortinet:fortiswitchmanager:7.0.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:fortinet:fortiswitchmanager:7.2.0:*:*:*:*:*:*:*
+  - cpe:2.3:o:fortinet:fortios:*:*:*:*:*:*:*:*
 tags:
   - cve-2022-40684
   - fortinet
@@ -15,11 +49,10 @@ tags:
   - network-appliance
   - initial-access
 vendors:
-  - Fortinet
+  - Cloudflare
 products:
-  - FortiOS
-  - FortiProxy
-  - FortiSwitchManager
+  - BasedApparel.com
+  - Chrome
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -29,6 +62,12 @@ mitre_ttps:
     tactic_name: Privilege Escalation
     technique_id: T1133
     technique_name: External Remote Services
+cves:
+  - id: CVE-2022-40684
+    cvss: 9.8
+    epss: 0.94427
+    kev: true
+    kev_status: "true"
 references:
   - https://www.wordfence.com/blog/2022/10/threat-advisory-cve-2022-40684-fortinet-appliance-auth-bypass/
   - https://www.horizon3.ai/fortios-fortiproxy-and-fortiswitchmanager-authentication-bypass-technical-deep-dive-cve-2022-40684/
@@ -36,6 +75,12 @@ references:
   - https://www.horizon3.ai/fortinet-iocs-cve-2022-40684/
   - https://attackerkb.com/topics/QWOxGIKkGx/cve-2022-40684/rapid7-analysis
   - https://github.com/rapid7/metasploit-framework/pull/17143
+  - https://hackread.com/fbi-chief-kash-patel-store-hacked-infostealer-clickfix/
+iocs:
+  - type: domain
+    value: BasedApparel.com
+ioc_counts:
+  domain: 1
 rules:
   - title: Fortinet Appliance Auth Bypass Attempt
     description: Detects attempts to exploit CVE-2022-40684 by monitoring requests to the /api/v2/cmdb/system/admin endpoint.
@@ -62,7 +107,22 @@ rules:
       - webserver
       - linux
 rules_count: 2
+updates:
+  - at: "2026-05-25T16:25:46Z"
+    level: L2
+    summary: added CVE-2022-40684
+    sources:
+      - hackread
+  - at: "2026-11-20T03:10:25Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2022-40684
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 CVE-2022-40684 is an authentication bypass vulnerability affecting Fortinet appliances, specifically FortiOS, FortiProxy, and FortiSwitchManager. Successful exploitation allows a remote attacker to bypass authentication and perform unauthorized administrative actions via crafted HTTP requests. Public exploits and Metasploit modules targeting this vulnerability were quickly developed and released after the vulnerability was disclosed in late 2022. The vulnerability stems from an improper access control issue, allowing attackers to interact with the REST API without proper authentication. The primary targets are organizations using unpatched Fortinet appliances, and the impact can range from data theft and denial of service to complete network compromise.
 

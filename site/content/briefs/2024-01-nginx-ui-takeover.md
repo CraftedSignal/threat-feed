@@ -1,25 +1,130 @@
 ---
 brief_id: brief-2024-01-09-nginx-ui-takeover
 event_id: brief-2024-01-09-nginx-ui-takeover
-revision: 1
-activity_at: "2024-01-09T12:00:00Z"
+revision: 2
+activity_at: "2026-11-20T03:11:01Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T03:11:01Z"
+    checksum: sha256:dcd687d180bf16f417bc17aed1678703d0a1b33bfa9ded386d1b26a0af489d65
+    summary: exploited:true; KEV CVE-2026-20133; KEV CVE-2026-32202; KEV CVE-2026-34621; KEV CVE-2024-1708; KEV CVE-2025-2749
+    changed_fields:
+      - affected_os
+      - affected_products
+      - affected_vendors
+      - cpes
+      - cves
+      - exploitation_evidence
+      - has_poc
+      - iocs
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Unauthenticated Remote Takeover of Nginx-UI via MCP Endpoint
 slug: 2024-01-nginx-ui-takeover
 description: Nginx-UI is vulnerable to unauthenticated remote takeover due to a missing authentication check on the `/mcp_message` endpoint, allowing attackers to invoke MCP tools without authentication, leading to arbitrary nginx configuration modification, traffic interception, service disruption, configuration exfiltration, and credential harvesting; the default empty IP whitelist allows access from any network attacker.
 date: "2024-01-09T12:00:00Z"
-type: advisory
+lastmod: "2026-11-20T03:10:25Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-04-13T00:00:00Z"
+  confidence: high
+cpes:
+  - cpe:2.3:a:adobe:acrobat:*:*:*:*:classic:*:*:*
+  - cpe:2.3:a:adobe:acrobat_dc:*:*:*:*:continuous:*:*:*
+  - cpe:2.3:a:adobe:acrobat_reader_dc:*:*:*:*:continuous:*:*:*
+  - cpe:2.3:a:cisco:catalyst_sd-wan_manager:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:cisco:catalyst_sd-wan_manager:20.12.6:*:*:*:*:*:*:*
+  - cpe:2.3:a:connectwise:screenconnect:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:kentico:xperience:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*
+has_poc: true
 tags:
   - nginx-ui
   - nginx
   - unauthenticated
   - remote-takeover
   - CVE-2026-33032
+vendors:
+  - Adobe
+  - Apache
+  - Cisco
+  - ConnectWise
+  - cPanel
+  - D-Link
+  - Fortinet
+  - Ivanti
+  - JetBrains
+  - Kentico
+  - Microsoft
+  - PaperCut
+  - Quest
+  - Samsung
+  - SimpleHelp
+  - Synacor
+products:
+  - Acrobat Reader
+  - ActiveMQ Broker
+  - Adobe Acrobat
+  - Apache ActiveMQ
+  - Catalyst SD-WAN Manager
+  - cPanel
+  - Defender
+  - DIR-823X
+  - Endpoint Manager Mobile
+  - Excel Viewer
+  - Exchange Server
+  - FortiClient EMS
+  - KACE Systems Management Appliance
+  - Kentico Xperience
+  - MagicINFO Server
+  - Marimo
+  - Office
+  - Office Compatibility Pack
+  - Office Excel
+  - PaperCut MF
+  - PaperCut NG
+  - ScreenConnect
+  - SharePoint Server
+  - SimpleHelp remote support software
+  - TeamCity On-Premises
+  - Visual Basic for Applications
+  - WHM
+  - Windows Server
+  - Windows Server Host Process for Windows Tasks
+  - Windows Shell
+  - WP Squared
+  - Zimbra Collaboration Suite (ZCS)
+affected_os:
+  - Windows Server
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -42,10 +147,36 @@ mitre_ttps:
     technique_id: T1566
     technique_name: Phishing
 cves:
+  - id: CVE-2024-1708
+    cvss: 8.4
+    epss: 0.85271
+    kev: true
+    kev_status: "true"
+  - id: CVE-2025-2749
+    cvss: 7.2
+    epss: 0.04902
+    kev: true
+    kev_status: "true"
+  - id: CVE-2026-20133
+    cvss: 6.5
+    epss: 0.01356
+    kev: true
+    kev_status: "true"
+  - id: CVE-2026-32202
+    cvss: 4.3
+    epss: 0.07193
+    kev: true
+    kev_status: "true"
+  - id: CVE-2026-34621
+    cvss: 8.6
+    epss: 0.12155
+    kev: true
+    kev_status: "true"
   - id: CVE-2026-33032
     kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-h6c2-x2m2-mwhf
+  - https://www.recordedfuture.com/blog/april-cve-landscape
 iocs:
   - type: url
     value: http://target:9000/mcp_message
@@ -78,7 +209,22 @@ rules:
       - webserver
       - linux
 rules_count: 2
+updates:
+  - at: "2026-05-15T14:03:08Z"
+    level: L2
+    summary: poc_available; added CVE-2024-1708 +4; OS windows server
+    sources:
+      - recorded-future
+  - at: "2026-11-20T03:10:25Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2026-20133; KEV CVE-2026-32202; KEV CVE-2026-34621; KEV CVE-2024-1708; KEV CVE-2025-2749
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 The nginx-ui MCP (Model Context Protocol) integration exposes two HTTP endpoints: `/mcp` and `/mcp_message`. While `/mcp` requires authentication, the `/mcp_message` endpoint only applies IP whitelisting - and the default IP whitelist is empty, which the middleware treats as "allow all". This vulnerability, affecting nginx-ui versions 1.99 and earlier, allows any network attacker to invoke all MCP tools without authentication via the `/mcp_message` endpoint. This includes restarting nginx, creating/modifying/deleting nginx configuration files, and triggering automatic config reloads. Successful exploitation leads to complete nginx service takeover. This is critical for defenders as it provides an unauthenticated pathway to control a critical piece of infrastructure typically fronting web applications.
 

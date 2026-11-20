@@ -1,31 +1,57 @@
 ---
+brief_id: brief-2024-04-29-ivanti-connect-secure-bookmark-endpoint
+event_id: brief-2024-04-29-ivanti-connect-secure-bookmark-endpoint
+revision: 2
+activity_at: "2026-11-20T03:11:01Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T03:11:01Z"
+    checksum: sha256:5a1b4ea46c39e358644b2fdc04ddc2a63db23a0b13c1927d878b73edb5208a65
+    summary: exploited:true; KEV CVE-2024-21887; KEV CVE-2023-46805
+    changed_fields:
+      - cpes
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Detection of Exploitation Attempts Targeting Ivanti Connect Secure Bookmark Endpoint Vulnerabilities
 slug: 2024-04-ivanti-connect-secure-bookmark-endpoint
 description: Detection of access to the Ivanti Connect Secure bookmark endpoint associated with CVE-2023-46805 and CVE-2024-21887 via a GET request resulting in a 403 Forbidden response indicates a potential exploitation attempt.
 date: "2024-04-29T12:00:00Z"
-lastmod: "2026-10-13T17:40:53Z"
-type: advisory
+lastmod: "2026-11-20T03:10:25Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2024-01-10T00:00:00Z"
+  confidence: high
 cpes:
-  - cpe:2.3:a:ivanti:connect_secure:9.0:*:*:*:*:*:*:*
-  - cpe:2.3:a:ivanti:connect_secure:9.1:*:*:*:*:*:*:*
   - cpe:2.3:a:ivanti:connect_secure:22.1:*:*:*:*:*:*:*
   - cpe:2.3:a:ivanti:connect_secure:22.2:*:*:*:*:*:*:*
   - cpe:2.3:a:ivanti:connect_secure:22.3:r1:*:*:*:*:*:*
   - cpe:2.3:a:ivanti:connect_secure:22.4:*:*:*:*:*:*:*
   - cpe:2.3:a:ivanti:connect_secure:22.5:r2.1:*:*:*:*:*:*
   - cpe:2.3:a:ivanti:connect_secure:22.6:*:*:*:*:*:*:*
-  - cpe:2.3:a:ivanti:policy_secure:9.0:*:*:*:*:*:*:*
-  - cpe:2.3:a:ivanti:policy_secure:9.1:*:*:*:*:*:*:*
+  - cpe:2.3:a:ivanti:connect_secure:9.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:ivanti:connect_secure:9.1:*:*:*:*:*:*:*
   - cpe:2.3:a:ivanti:policy_secure:22.1:*:*:*:*:*:*:*
   - cpe:2.3:a:ivanti:policy_secure:22.2:*:*:*:*:*:*:*
   - cpe:2.3:a:ivanti:policy_secure:22.3:*:*:*:*:*:*:*
   - cpe:2.3:a:ivanti:policy_secure:22.4:*:*:*:*:*:*:*
   - cpe:2.3:a:ivanti:policy_secure:22.5:*:*:*:*:*:*:*
   - cpe:2.3:a:ivanti:policy_secure:22.6:r1:*:*:*:*:*:*
+  - cpe:2.3:a:ivanti:policy_secure:9.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:ivanti:policy_secure:9.1:*:*:*:*:*:*:*
   - cpe:2.3:a:wpmet:wp_ultimate_review:*:*:*:*:*:wordpress:*:*
 tags:
   - ivanti
@@ -48,12 +74,17 @@ cves:
   - id: CVE-2023-46805
     cvss: 8.2
     epss: 0.99986
+    kev: true
+    kev_status: "true"
   - id: CVE-2024-21887
     cvss: 9.1
     epss: 0.99999
+    kev: true
+    kev_status: "true"
   - id: CVE-2023-46085
     cvss: 4.3
     epss: 0.00214
+    kev_status: unknown
 references:
   - https://github.com/RootUp/PersonalStuff/blob/master/http-vuln-cve2023-46805_2024_21887.nse
   - https://github.com/projectdiscovery/nuclei-templates/blob/c6b351e71b0fb0e40e222e97038f1fe09ac58194/http/misconfiguration/ivanti/CVE-2023-46085-CVE-2024-21887-mitigation-not-applied.yaml
@@ -91,7 +122,16 @@ updates:
       - reddit-blueteamsec
     source_urls:
       - https://www.reddit.com/r/blueteamsec/comments/1x5177o/a_series_of_unauthenticated_events_chained/
+  - at: "2026-11-20T03:10:25Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2024-21887; KEV CVE-2023-46805
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 This threat brief addresses exploitation attempts targeting Ivanti Connect Secure VPN appliances, specifically focusing on CVE-2023-46805 and CVE-2024-21887. These vulnerabilities allow for authentication bypass and command injection, potentially leading to unauthenticated remote code execution. The attacks target a specific endpoint related to web bookmarks, `/api/v1/configuration/users/user-roles/user-role/rest-userrole1/web/web-bookmarks/bookmark`. Detection focuses on identifying anomalous GET requests to this endpoint that result in a 403 Forbidden response. Successful exploitation grants attackers unauthorized access to the system, allowing them to execute commands, steal sensitive data, or deploy malicious payloads. Due to the critical nature of VPN appliances in network security, defenders must prioritize detecting and mitigating these exploitation attempts.
 

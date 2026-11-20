@@ -1,14 +1,39 @@
 ---
+brief_id: brief-2024-01-03-confluence-rce
+event_id: brief-2024-01-03-confluence-rce
+revision: 2
+activity_at: "2026-11-20T03:11:01Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T03:11:01Z"
+    checksum: sha256:3ffdffa03e44288b5c67cbf35fccc07c554e6e84bf98a3003bc3c78d3b228d78
+    summary: exploited:true; KEV CVE-2022-26134
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: Confluence Unauthenticated Remote Code Execution (CVE-2022-26134)
 slug: 2024-01-confluence-rce
 description: Exploitation of CVE-2022-26134, an unauthenticated remote code execution vulnerability in Atlassian Confluence, allows attackers to execute arbitrary code on vulnerable servers, potentially leading to complete system compromise.
 date: "2024-01-03T12:00:00Z"
-lastmod: "2026-09-03T01:47:42Z"
-type: advisory
+lastmod: "2026-11-20T03:10:25Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2022-06-02T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:a:atlassian:confluence_data_center:*:*:*:*:*:*:*:*
   - cpe:2.3:a:atlassian:confluence_data_center:7.18.0:*:*:*:*:*:*:*
@@ -32,7 +57,7 @@ mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1548
-    technique_name: Exploitation for Privilege Escalation
+    technique_name: Abuse Elevation Control Mechanism
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1133
@@ -40,11 +65,13 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1505
-    technique_name: Server-Side Component
+    technique_name: Server Software Component
 cves:
   - id: CVE-2022-26134
     cvss: 9.8
     epss: 0.99999
+    kev: true
+    kev_status: "true"
 references:
   - https://confluence.atlassian.com/doc/confluence-security-advisory-2022-06-02-1130377146.html
   - https://www.splunk.com/en_us/blog/security/atlassian-confluence-vulnerability-cve-2022-26134.html
@@ -94,7 +121,16 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ARCHANCHOUDHURY-CONFLUENCE-CVE-2022-26134&utm_source=rss&utm_medium=rss
+  - at: "2026-11-20T03:10:25Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2022-26134
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 CVE-2022-26134 is an unauthenticated remote code execution vulnerability affecting Atlassian Confluence Server and Data Center. Publicly disclosed in June 2022, this vulnerability allows unauthenticated attackers to execute arbitrary code on vulnerable Confluence servers. The vulnerability stems from insufficient input validation, allowing OGNL injection via specially crafted HTTP requests. Exploitation attempts were observed shortly after the vulnerability became public, with attackers leveraging it to deploy web shells, cryptominers, and other malicious payloads. This vulnerability has been widely exploited, making it a significant threat to organizations using affected Confluence versions. Successful exploitation grants attackers complete control over the Confluence server, enabling data theft, lateral movement, and further malicious activities within the network.
 

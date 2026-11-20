@@ -1,14 +1,39 @@
 ---
+brief_id: brief-2024-01-02-jetbrains-teamcity-rce
+event_id: brief-2024-01-02-jetbrains-teamcity-rce
+revision: 2
+activity_at: "2026-11-20T03:11:01Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T03:11:01Z"
+    checksum: sha256:c2a659d7cb4cb40777b70fadc2edca40622a06052ad2624666d8c78bd49230ce
+    summary: exploited:true; KEV CVE-2023-42793
+    changed_fields:
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: JetBrains TeamCity CVE-2023-42793 RCE Attempt
 slug: 2024-01-02-jetbrains-teamcity-rce
 description: An attacker attempts to exploit the CVE-2023-42793 vulnerability in JetBrains TeamCity On-Premises by sending a malicious POST request to gain administrative access and achieve remote code execution.
 date: "2024-01-02T12:00:00Z"
-lastmod: "2026-08-28T08:24:19Z"
-type: advisory
+lastmod: "2026-11-20T03:10:25Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2023-10-04T00:00:00Z"
+  confidence: high
 cpes:
   - cpe:2.3:a:jetbrains:teamcity:*:*:*:*:*:*:*:*
 has_poc: true
@@ -30,6 +55,8 @@ cves:
   - id: CVE-2023-42793
     cvss: 9.8
     epss: 0.99979
+    kev: true
+    kev_status: "true"
 references:
   - https://blog.jetbrains.com/teamcity/2023/09/critical-security-issue-affecting-teamcity-on-premises-update-to-2023-05-4-now/
   - https://www.sonarsource.com/blog/teamcity-vulnerability/
@@ -68,7 +95,16 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-FLOJBOJ-CVE-2023-42793&utm_source=rss&utm_medium=rss
+  - at: "2026-11-20T03:10:25Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2023-42793
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 The CVE-2023-42793 vulnerability in JetBrains TeamCity On-Premises allows an unauthenticated attacker to perform remote code execution. This vulnerability affects versions prior to 2023.05.4. The vulnerability arises from improper handling of authentication tokens, specifically related to the `/app/rest/users/id:1/tokens/RPC2` endpoint. An attacker can exploit this by sending a specially crafted POST request. Successful exploitation grants the attacker administrative privileges, potentially leading to full system compromise, data breaches, and further unauthorized access within the network. Detection efforts should focus on monitoring web traffic for suspicious POST requests targeting the identified endpoint.
 
