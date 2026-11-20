@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--068c6f76-3aa9-5252-9c2c-88eb7e91c782",
+  "id": "bundle--1ea71ada-3407-5028-bd3f-807f2b994f17",
   "objects": [
     {
       "type": "attack-pattern",
@@ -122730,6 +122730,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9c791c59-630a-524a-afec-8fc49481cc3f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--dc1cec2c-7ee8-595c-9ab5-d085a79d086a",
+      "target_ref": "vulnerability--bd03cdeb-3277-5027-9070-6b900c0e0df9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9c7bcd23-6341-51e4-a8ed-74bb80a77334",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -167280,6 +167291,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d94ab5f5-8a69-5411-b988-ad8e21c80011",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1ce878c1-7946-51ff-97f8-da588f203827",
+      "target_ref": "vulnerability--bd03cdeb-3277-5027-9070-6b900c0e0df9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d94b0176-a1a6-5a08-8888-bf23d9ae7906",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -184337,6 +184359,17 @@
       "relationship_type": "has",
       "source_ref": "software--577fc4dc-1c61-509a-94eb-bc2a6b1618bb",
       "target_ref": "vulnerability--d7bf7ede-1ee4-5481-a2c6-d311b3e4ec3e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f0fd68ce-af7e-5c8c-8be8-71bf7c8bfc40",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T08:19:09.000Z",
+      "modified": "2026-11-20T08:19:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e0233be2-71d7-5877-8db9-09212a1bbdb6",
+      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
     },
     {
       "type": "relationship",
@@ -255592,57 +255625,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--522504e0-e007-5b45-bf12-8b9dbaa79560",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T09:18:21.000Z",
-      "modified": "2026-10-21T09:18:21.000Z",
-      "name": "Dokploy: Storage command injection via customGitBranch (CVE-2026-72867)",
-      "description": "A public proof-of-concept exploit has been published for CVE-2026-72867. The vulnerability allows for storage-based OS command injection in Dokploy via the 'customGitBranch' field. The exploit targets the 'compose/update' path and leverages the fact that input is interpolated into a 'git clone --branch' command during deployment. The vulnerability is reported to allow command execution with root privileges, as the container runs as root and mounts 'docker.sock'.\n",
-      "published": "2026-10-21T09:18:21.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "vulnerability--e58cf7d7-1fc8-52e3-8655-db9ee80a729a"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-21-dokploy-cve-2026-72867",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-dokploy-cve-2026-72867/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/Dokploy/dokploy/commit/47347ab"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=D734EFEC-FFC0-5858-9CE7-E98911E2C5D5"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=D734EFEC-FFC0-5858-9CE7-E98911E2C5D5\u0026utm_source=rss\u0026utm_medium=rss"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-21-dokploy-cve-2026-72867",
-      "x_craftedsignal_event_id": "brief-2026-10-21-dokploy-cve-2026-72867",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-dokploy-cve-2026-72867/",
-      "x_craftedsignal_activity_at": "2026-10-21T09:18:21.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "confirmed_active",
-        "source_url": "https://sploitus.com/exploit?id=D734EFEC-FFC0-5858-9CE7-E98911E2C5D5",
-        "observed_at": "2026-10-21T09:18:21.000Z",
-        "confidence": "medium"
-      },
-      "x_craftedsignal_cvss_max": 9.9,
-      "x_craftedsignal_epss_max": 0.034,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -356936,6 +356918,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e0233be2-71d7-5877-8db9-09212a1bbdb6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T08:19:09.000Z",
+      "modified": "2026-11-20T08:19:09.000Z",
+      "name": "Erlang/OTP: Denial of Service in SSL Application (CVE-2026-55952)",
+      "description": "## Overview\nThe Erlang/OTP ssl application incorrectly validates the length of the PSK identity list and binder list within a TLS 1.3 ClientHello pre-shared key extension. When a mismatched number of identities and binders is provided, the record is forwarded to the session ticket handler, causing the handler process to crash. This results in a persistent disruption of session ticket handling on the affected listener until the ssl application is restarted. TLS 1.2 connections are not affected.\n\n## Attack Chain\nAn unauthenticated remote attacker can send a single crafted ClientHello to a TLS 1.3 server with session tickets enabled (in either stateful or stateless mode) to trigger the crash.\n\n## Impact\nSuccessful exploitation results in a persistent denial of service for new TLS 1.3 handshakes on the affected listener. The vulnerability does not affect TLS 1.2 connections.\n\n## Recommendation\nUpgrade to the following patched releases:\n- Erlang/OTP: \u003e= 27.3.4.14, \u003e= 28.5.0.3, or \u003e= 29.0.3\n- ssl application: \u003e= 11.2.12.10, \u003e= 11.6.0.3, or \u003e= 11.7.3\n\nIf patching is not immediate, mitigate by disabling session tickets on TLS 1.3 servers via the 'session_tickets' option or by restricting the server to TLS 1.2 using the 'versions' option.",
+      "published": "2026-11-20T08:19:09.000Z",
+      "labels": [
+        "denial-of-service",
+        "tls"
+      ],
+      "object_refs": [
+        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1ce878c1-7946-51ff-97f8-da588f203827",
+        "software--dc1cec2c-7ee8-595c-9ab5-d085a79d086a",
+        "vulnerability--bd03cdeb-3277-5027-9070-6b900c0e0df9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-erlang-otp-ssl-dos-cve-2026-55952",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-erlang-otp-ssl-dos-cve-2026-55952/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-55952"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55952"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-erlang-otp-ssl-dos-cve-2026-55952",
+      "x_craftedsignal_event_id": "brief-2026-11-20-erlang-otp-ssl-dos-cve-2026-55952",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-erlang-otp-ssl-dos-cve-2026-55952/",
+      "x_craftedsignal_activity_at": "2026-11-20T08:19:09.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00545,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e025513e-4896-57b2-b083-d02f8fc3e44b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T21:06:46.000Z",
@@ -384619,6 +384652,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1ce878c1-7946-51ff-97f8-da588f203827",
+      "name": "ssl (\u003e= 9.5, \u003c 11.2.12.10; \u003e= 11.3, \u003c 11.6.0.3; \u003e= 11.7, \u003c 11.7.3)",
+      "vendor": "Erlang"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1cf712ff-219d-5aa2-be91-cbca183bbbba",
       "name": "Splunk Enterprise (\u003e= 9.4, \u003c 9.4.17)",
       "vendor": "Splunk"
@@ -406269,6 +406309,13 @@
       "id": "software--dc0cb987-2aa4-5cd6-a61e-7a6569b7875e",
       "name": "C-Kermit (\u003c 11.1.515)",
       "vendor": "OpenKermit"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--dc1cec2c-7ee8-595c-9ab5-d085a79d086a",
+      "name": "Erlang/OTP (\u003e= 22.2, \u003c 27.3.4.14; \u003e= 28.0, \u003c 28.5.0.3; \u003e= 29.0, \u003c 29.0.3)",
+      "vendor": "Erlang"
     },
     {
       "type": "software",
@@ -474285,6 +474332,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--bd03cdeb-3277-5027-9070-6b900c0e0df9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-55952",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-55952",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55952"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--bd03ff8b-ed6f-50c3-a11a-f723ac83ded0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -488263,22 +488326,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115155",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115155"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--e58cf7d7-1fc8-52e3-8655-db9ee80a729a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-72867",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-72867",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72867"
         }
       ]
     },
