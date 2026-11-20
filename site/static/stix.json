@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3b3c9916-2180-5447-84c7-54f626a0de0f",
+  "id": "bundle--bfca3fc8-49b5-5e9e-b579-1244aa3c4692",
   "objects": [
     {
       "type": "attack-pattern",
@@ -21318,6 +21318,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--103a8d78-dc3a-552f-8af5-e2b1562c5dbf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-17T20:56:36.000Z",
+      "modified": "2026-11-20T15:40:52.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--98132774-e1cf-562b-9dda-e4417816d232",
+      "target_ref": "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--103fbb50-28aa-5454-a537-45e3ff0a2d71",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -24086,6 +24097,17 @@
       "relationship_type": "has",
       "source_ref": "software--49c20be4-6d99-50cf-b5fb-d4a721db7686",
       "target_ref": "vulnerability--ac34ddb7-7eb5-5e41-92b9-ecc1eced820b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--14284789-cb3d-56eb-9cfc-9ab25a05864f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T14:00:18.000Z",
+      "modified": "2026-11-20T14:00:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c8b18a99-940f-599b-b20e-70582da8a61f",
+      "target_ref": "attack-pattern--296fc6f2-dbef-543a-8261-6c7285c5fff8"
     },
     {
       "type": "relationship",
@@ -133642,7 +133664,7 @@
       "id": "relationship--aa7be3c0-0b3c-56a0-9b89-f89d53ca0ced",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:56:36.000Z",
-      "modified": "2026-11-17T20:56:36.000Z",
+      "modified": "2026-11-20T15:40:52.000Z",
       "relationship_type": "uses",
       "source_ref": "report--98132774-e1cf-562b-9dda-e4417816d232",
       "target_ref": "attack-pattern--ef1452bf-58eb-5f41-83f1-2a11b79b5b91"
@@ -145922,6 +145944,17 @@
       "relationship_type": "has",
       "source_ref": "software--386e1056-5ac8-56c9-a3ec-bd4688902b66",
       "target_ref": "vulnerability--b2dc38c9-c10c-5177-a6de-be0a6790a035"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--baa2182f-3270-5092-acbf-747bdaa76ed9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T14:00:18.000Z",
+      "modified": "2026-11-20T14:00:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c8b18a99-940f-599b-b20e-70582da8a61f",
+      "target_ref": "attack-pattern--af36256b-7f61-5622-8047-8836c263a2f6"
     },
     {
       "type": "relationship",
@@ -307132,16 +307165,25 @@
       "id": "report--98132774-e1cf-562b-9dda-e4417816d232",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:56:36.000Z",
-      "modified": "2026-11-17T20:56:36.000Z",
+      "modified": "2026-11-20T15:40:52.000Z",
       "name": "Microsoft Entra ID: Rogue device registration via ROADtools",
       "description": "## Overview\n\nThe ROADtools (roadtx) framework facilitates persistence in Microsoft Entra ID environments by registering rogue devices that appear to be legitimate endpoints. Attackers utilize hardcoded default characteristics, specifically the cloud device OS build \"10.0.19041.928\" and device display names following the \"DESKTOP-\" pattern, to bypass security controls. Additionally, ROADtools can register devices via Windows Hello for Business using the hardcoded user-agent string \"Dsreg/10.0 (Windows 10.0.19044.1826)\". Successful registration allows attackers to acquire a Primary Refresh Token (PRT), bypass MFA and Conditional Access policies, and gain trusted, programmatic access to the tenant.\n\n## Impact\n\n- Acquisition of Primary Refresh Tokens (PRT) for persistent, authenticated access.\n- Bypass of multi-factor authentication (MFA) and Conditional Access policies.\n- Unauthorized programmatic access to sensitive tenant resources.\n\n## Recommendation\n\n- Monitor Microsoft Entra ID audit logs for the specific OS build and naming patterns identified by Elastic.\n- Review device registration workflows to ensure all new device entries correlate with expected provisioning programs.\n- Investigate sign-in logs for follow-on access using Primary Refresh Tokens immediately following suspicious device registrations.\n- Implement Conditional Access policies to restrict device registration permissions and require MFA for all device join operations.\n- Validate that device registration service actions are only initiated by authorized identities and from expected source IP ranges.",
       "published": "2026-11-17T20:56:36.000Z",
       "labels": [
+        "Data Source: Azure",
+        "Data Source: Microsoft Entra ID Audit Logs",
+        "Domain: Cloud",
+        "Domain: Identity",
+        "Platform: Azure",
+        "Platform: Microsoft Entra ID",
+        "Rule Type: ES|QL",
+        "Tactic: Persistence",
         "cloud",
         "identity",
         "persistence"
       ],
       "object_refs": [
+        "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238",
         "attack-pattern--ef1452bf-58eb-5f41-83f1-2a11b79b5b91",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--28ee369c-acac-5afb-81cf-e25224434b7d"
@@ -307162,7 +307204,23 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/persistence_entra_id_register_device_unusual_user_agent.toml"
+        },
+        {
+          "source_name": "reference",
           "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/persistence_entra_id_roadtools_default_device_registration.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/persistence_entra_password_reset_of_another_user.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1098.003/T1098.003.md"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/entra/identity/monitoring-health/concept-audit-logs"
         },
         {
           "source_name": "reference",
@@ -307172,9 +307230,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-17-roadtools-entra-persistence",
       "x_craftedsignal_event_id": "brief-2026-11-17-roadtools-entra-persistence",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-roadtools-entra-persistence/",
-      "x_craftedsignal_activity_at": "2026-11-17T20:56:36.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T15:40:52.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -342061,6 +342119,65 @@
       },
       "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--c8b18a99-940f-599b-b20e-70582da8a61f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T14:00:18.000Z",
+      "modified": "2026-11-20T14:00:18.000Z",
+      "name": "Entra ID User Created or Deleted by Unusual UPN",
+      "description": "## Overview\nThe Elastic detection rule identifies anomalous user lifecycle events within Microsoft Entra ID by flagging the first time a user-initiated principal creates or deletes a user ('Add user' or 'Delete user') within a 10-day history window. The rule excludes app/service-initiated lifecycle events such as HR or SCIM provisioning.\n\n## Attack Chain\nAdversaries with compromised privileged identities may create users to establish persistence or delete users to cause impact or evade detection.\n\n## Impact\nThe creation of unauthorized directory users provides persistence via backdoor accounts, while the deletion of existing users results in service disruption and potential evasion.\n\n## Recommendation\n- Verify whether the initiating principal (`azure.auditlogs.properties.initiated_by.user.userPrincipalName`) is authorized to perform user lifecycle management.\n- Investigate the target user (`azure.auditlogs.properties.target_resources.0.user_principal_name`) for unauthorized modifications.\n- Correlate events with role assignments, credential additions, or sign-ins involving the target account.\n- In confirmed unauthorized cases, disable or remove created accounts, restore deleted accounts, review follow-on activity, and rotate the initiator's credentials.",
+      "published": "2026-11-20T14:00:18.000Z",
+      "labels": [
+        "Data Source: Azure",
+        "Data Source: Microsoft Entra ID Audit Logs",
+        "Domain: Cloud",
+        "Domain: Identity",
+        "Platform: Azure",
+        "Platform: Entra ID",
+        "Rule Type: New Terms",
+        "Tactic: Impact",
+        "Tactic: Persistence"
+      ],
+      "object_refs": [
+        "attack-pattern--296fc6f2-dbef-543a-8261-6c7285c5fff8",
+        "attack-pattern--af36256b-7f61-5622-8047-8836c263a2f6",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--776551c5-792e-5921-81de-9db160939364"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-entra-id-user-lifecycle-anomaly",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-entra-id-user-lifecycle-anomaly/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/persistence_entra_user_created_or_deleted_by_unusual_upn.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1136.003/T1136.003.md"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1531/T1531.md"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-entra-id-user-lifecycle-anomaly",
+      "x_craftedsignal_event_id": "brief-2026-11-20-entra-id-user-lifecycle-anomaly",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-entra-id-user-lifecycle-anomaly/",
+      "x_craftedsignal_activity_at": "2026-11-20T14:00:18.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
