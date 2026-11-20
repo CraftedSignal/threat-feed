@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d62cfe57-4db0-5416-89c8-ee28ceafec53",
+  "id": "bundle--d0141710-55df-573a-8c56-44af4d290c58",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5781,17 +5781,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--4347de68-877d-5a9a-a18a-4648643d587f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-22T05:42:44.000Z",
-      "modified": "2026-08-22T05:42:44.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--0de0cb23-f0cd-586e-866b-ec4efc7c9d34",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--43487c70-7113-520c-8432-18ea62d4e70d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8707,17 +8696,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--7944a6b1-ccbc-5667-ad62-2c5a380e08b4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-22T05:42:44.000Z",
-      "modified": "2026-08-22T05:42:44.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--0de0cb23-f0cd-586e-866b-ec4efc7c9d34",
-      "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--7967cccf-781c-58f6-b37f-7cb2f3b54cb6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -11277,17 +11255,6 @@
       "relationship_type": "uses",
       "source_ref": "report--e39e14e2-3d5d-5487-ba27-9488e0e5dfc5",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ab0508b1-bd0e-5c3d-99f7-bb6e8654712d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--d0b2f8f6-2018-5838-bf8b-c740d7dd8c4c",
-      "target_ref": "vulnerability--1b5a1ec4-b391-5383-9245-b5d76819f62b"
     },
     {
       "type": "relationship",
@@ -17361,52 +17328,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--0de0cb23-f0cd-586e-866b-ec4efc7c9d34",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-22T05:42:44.000Z",
-      "modified": "2026-08-22T05:42:44.000Z",
-      "name": "Stored XSS in J2Commerce via Guest Checkout Filter Bypass",
-      "description": "## Overview\n\nJ2Commerce (com_j2store) versions 4.1.5 and earlier contain a stored Cross-Site Scripting (XSS) vulnerability (CVE-2026-74252) within the guest checkout billing address fields. The vulnerability is caused by a filter bypass in Joomla's `Input::getArray()` method, which can be exploited when PHP's `variables_order` configuration defaults to 'EGPCS' (Cookie overrides POST in `$_REQUEST`). \n\nAn unauthenticated attacker can submit a malicious payload in cookie fields that are then stored unsanitized in the `j2store_orderinfos` database table. Because the J2Commerce administrator order management panel fails to encode these fields when rendering the orders list, the payload executes automatically in the administrator's browser as soon as the orders listing page is loaded. This allows for session hijacking, unauthorized creation of administrator accounts, or the installation of malicious plugins to achieve further system compromise. The vulnerability affects any hosting environment where cookies take precedence over POST data in `$_REQUEST`.\n\n## Attack Chain\n\n1. Attacker sends a GET request to the J2Commerce frontend to obtain a CSRF token.\n2. Attacker adds an item to the cart using `option=com_j2store\u0026view=carts\u0026task=addItem`.\n3. Attacker submits a POST request to `guest_validate` containing both a POST parameter `first_name=RAW` to trigger the filter bypass and a Cookie `first_name` containing the XSS payload.\n4. Attacker completes the shipping validation step to set the necessary session data.\n5. Attacker completes the payment selection step.\n6. Attacker finalizes the order via `confirmPayment`, which causes the backend to store the unsanitized XSS payload in the database.\n7. Administrator accesses the J2Commerce orders management interface.\n8. The XSS payload executes automatically in the administrator's browser context, potentially leading to account takeover or webshell deployment.\n\n## Impact\n\nSuccessful exploitation results in full site compromise. An attacker can hijack administrative sessions, create new super-administrator accounts, or install malicious plugins to execute arbitrary PHP code on the server. Because the payload triggers automatically upon viewing the orders list, it requires no user interaction beyond the administrator's routine order management, and it persists until the malicious order record is removed.\n\n## Recommendation\n\n* Update J2Commerce (com_j2store) to version 4.1.6 or later to apply the necessary output encoding.\n* Monitor web server access logs for anomalous POST requests to `com_j2store` checkout endpoints containing non-standard Cookie headers.\n* Review J2Commerce orders database for suspicious values in the `billing_first_name`, `billing_last_name`, or address fields.\n* Configure PHP `request_order` to exclude cookies (e.g., `request_order = \"GP\"`) if possible to prevent cookie-based override of input parameters, though this is a defense-in-depth measure.\n",
-      "published": "2026-08-22T05:42:44.000Z",
-      "labels": [
-        "j2commerce",
-        "web-vulnerability",
-        "xss"
-      ],
-      "object_refs": [
-        "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--d0b2f8f6-2018-5838-bf8b-c740d7dd8c4c",
-        "vulnerability--1b5a1ec4-b391-5383-9245-b5d76819f62b"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-j2commerce-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-j2commerce-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=F87CD075-2D48-564B-991E-2FD88DED31C5"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-j2commerce-xss",
-      "x_craftedsignal_event_id": "brief-2026-08-j2commerce-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-j2commerce-xss/",
-      "x_craftedsignal_activity_at": "2026-08-22T05:42:44.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -40571,13 +40492,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--d0b2f8f6-2018-5838-bf8b-c740d7dd8c4c",
-      "name": "J2Commerce",
-      "vendor": "J2Commerce"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--d0e7e2c9-152b-5b02-9f46-573cc6046691",
       "name": "Langflow OSS (1.0.0 - 1.11.1)",
       "vendor": "IBM"
@@ -41978,22 +41892,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-66152",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66152"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--1b5a1ec4-b391-5383-9245-b5d76819f62b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-74252",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-74252",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74252"
         }
       ]
     },

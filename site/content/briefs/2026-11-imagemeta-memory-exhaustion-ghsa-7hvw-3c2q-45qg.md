@@ -1,12 +1,27 @@
 ---
 brief_id: brief-2026-11-20-imagemeta-memory-exhaustion-ghsa-7hvw-3c2q-45qg
 event_id: brief-2026-11-20-imagemeta-memory-exhaustion-ghsa-7hvw-3c2q-45qg
-revision: 1
-activity_at: "2026-11-20T02:03:40Z"
+revision: 2
+activity_at: "2026-11-20T05:49:30Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-20T05:49:30Z"
+    checksum: sha256:24f10b551e6f3300824ea12ba75320761ac8eb5dc9d036bab26011405c9c48aa
+    summary: poc_available
+    changed_fields:
+      - cve_verification
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=1597C56A-5925-5577-8701-406085793CCA&utm_source=rss&utm_medium=rss
 title: 'bep/imagemeta: Unbounded memory allocation in PNG parsing (CVE-2026-103025)'
 slug: 2026-11-imagemeta-memory-exhaustion-ghsa-7hvw-3c2q-45qg
 description: The bep/imagemeta Go library is vulnerable to memory exhaustion via crafted PNG files containing malformed zTXt chunks, allowing unauthenticated remote attackers to cause a denial-of-service.
 date: "2026-11-20T02:03:40Z"
+lastmod: "2026-11-20T05:48:09Z"
 type: advisory
 types:
   - advisory
@@ -23,6 +38,9 @@ qa_status:
   verdict: pass
 cpes:
   - cpe:2.3:a:bep:imagemeta:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=1597C56A-5925-5577-8701-406085793CCA&utm_source=rss&utm_medium=rss
 vendors:
   - bep
 products:
@@ -36,12 +54,18 @@ mitre_ttps:
     technique_id: T1499
     technique_name: Endpoint Denial of Service
     evidence: Applications that decode untrusted PNGs with IPTC metadata processing can therefore suffer denial of service through memory exhaustion.
+cve_verification:
+  CVE-2026-103025:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-20T02:03:37.18649272Z
 cves:
   - id: CVE-2026-103025
     kev_status: "false"
 references:
   - https://github.com/advisories/GHSA-7hvw-3c2q-45qg
   - https://cveawg.mitre.org/api/cve/CVE-2026-103025
+  - https://sploitus.com/exploit?id=1597C56A-5925-5577-8701-406085793CCA&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   hunt_leads:
@@ -62,6 +86,14 @@ action_plan:
     - priority: short_term
       action: Implement input size boundaries for PNG files and disable IPTC parsing in imagemeta if unused
       evidence: Reject or bound PNG input size before calling Decode, or clear IPTC from Options.Sources if IPTC metadata is not required.
+updates:
+  - at: "2026-11-20T05:48:09Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=1597C56A-5925-5577-8701-406085793CCA&utm_source=rss&utm_medium=rss
 ---
 
 ## Overview
