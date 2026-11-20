@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--af5f5487-c971-5375-a639-04300d509a26",
+  "id": "bundle--b526ffb3-48fa-54e3-b83a-9d2af24bfefc",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7894,6 +7894,17 @@
       "relationship_type": "uses",
       "source_ref": "report--41003f26-10c3-5b8e-8947-a71fe81405fb",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--02446cd9-b3c7-5a93-950c-40b3b17fd6d6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1132d803-2f37-5162-8cd2-3f5c75a4b221",
+      "target_ref": "vulnerability--d358f192-be72-5dee-8788-24d7a4931513"
     },
     {
       "type": "relationship",
@@ -30646,6 +30657,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--56b81df2-6bde-57ba-825b-4c31e6c646ff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--97355d48-8906-5976-b3ec-7b2e4e56984d",
+      "target_ref": "vulnerability--d8a0858c-47ba-514d-a255-3b8b74b61a4a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--56bad040-f807-527f-8a7c-ee77aa65061c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -51975,6 +51997,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a6ea8891-9c64-5f8e-a305-a8aaa0d71c0c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2c807fd0-f524-5d59-9026-12d2823e3c75",
+      "target_ref": "vulnerability--d8a0858c-47ba-514d-a255-3b8b74b61a4a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a6f5f193-b672-5de1-a41c-73bbea1a7bd8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -55436,6 +55469,17 @@
       "relationship_type": "has",
       "source_ref": "software--78bed589-c3cb-56f9-8127-33ed3d10cb2e",
       "target_ref": "vulnerability--02240df5-2f41-5b31-8518-f710a07beb1e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b2f4b3dc-a343-5334-864b-1bb793ec018d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--931cfb6d-63ac-5d37-9810-0b933ba29f5c",
+      "target_ref": "vulnerability--d8a0858c-47ba-514d-a255-3b8b74b61a4a"
     },
     {
       "type": "relationship",
@@ -64478,6 +64522,17 @@
       "relationship_type": "uses",
       "source_ref": "report--0343b859-902f-5f84-ba2f-4c13278bb6be",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d48a278c-1591-58f7-bf0e-0ed9a2311225",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4661fb37-eb12-5afe-9cb1-575851f7e4e8",
+      "target_ref": "vulnerability--d8a0858c-47ba-514d-a255-3b8b74b61a4a"
     },
     {
       "type": "relationship",
@@ -121197,6 +121252,53 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--54d8961e-2b66-5e7d-918f-3929fd899e48",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T22:11:34.000Z",
+      "modified": "2026-11-19T22:11:34.000Z",
+      "name": "JTL-Shop Stored Cross-Site Scripting (CVE-2026-22310)",
+      "description": "## Overview\nJTL-Shop versions 5.5.0 through 5.8.3 are vulnerable to a stored Cross-Site Scripting (XSS) vulnerability. When the setting for saving requests to non-existent pages (404) is enabled, the application stores the raw requested URL in its redirect table. The administration backend renders this URL without output encoding when an administrator attempts to edit the redirect, leading to script execution.\n\n## Attack Chain\nAn unauthenticated remote attacker can submit a single request for a non-existent page containing a malicious script payload. If the 404 logging setting is enabled, this payload is stored in the redirect table. When an administrator accesses the affected redirect via the backend, the script executes in their browser session, granting the attacker the administrator's privileges.\n\n## Impact\nSuccessful exploitation allows an unauthenticated remote attacker to perform unauthorized actions with the privileges of an administrator. The vulnerability requires user interaction as the administrator must open the malicious redirect.\n\n## Recommendation\nAdministrators should evaluate the necessity of the \"save requests to non-existent pages (404)\" setting. While disabled by default in new installations, it may be active in older environments. No fixed release information is currently provided by the source; administrators should monitor vendor bulletins for updates.",
+      "published": "2026-11-19T22:11:34.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2c807fd0-f524-5d59-9026-12d2823e3c75",
+        "software--4661fb37-eb12-5afe-9cb1-575851f7e4e8",
+        "software--931cfb6d-63ac-5d37-9810-0b933ba29f5c",
+        "software--97355d48-8906-5976-b3ec-7b2e4e56984d",
+        "vulnerability--d8a0858c-47ba-514d-a255-3b8b74b61a4a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-jtl-shop-xss-cve-2026-22310",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-jtl-shop-xss-cve-2026-22310/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-22310"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22310"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-jtl-shop-xss-cve-2026-22310",
+      "x_craftedsignal_event_id": "brief-2026-11-19-jtl-shop-xss-cve-2026-22310",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-jtl-shop-xss-cve-2026-22310/",
+      "x_craftedsignal_activity_at": "2026-11-19T22:11:34.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -194382,6 +194484,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e7e28902-dbd7-53ae-9fe0-106555226058",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T22:11:43.000Z",
+      "modified": "2026-11-19T22:11:43.000Z",
+      "name": "django-docutils insecure reStructuredText processing (CVE-2026-59988)",
+      "description": "## Overview\ndjango-docutils provides reStructuredText support for Django. Prior to version 0.30.0, public rendering paths including publish_doctree, publish_html_from_source, publish_html_from_doctree, publish_parts_from_doctree, the {% rst %} template tag, the rst template filter, DocutilsTemplates, and DocutilsView pass lower-trust reStructuredText to Docutils without disabling file_insertion_enabled, raw_enabled, ambient docutils.conf processing, or unsafe URI schemes and without consistently sanitizing doctrees.\n\n## Attack Chain\nAn attacker who can influence rendered reStructuredText can use include or csv-table directives to read local files, cause server-side URL requests, or use raw HTML and unsafe URI output to inject stored script-capable content. Applications that render only trusted static reStructuredText are not affected unless attackers can influence it.\n\n## Impact\nSuccessful exploitation may result in unauthorized local file access, server-side request forgery (SSRF), or stored cross-site scripting (XSS).\n\n## Recommendation\nUpgrade django-docutils to version 0.30.0 or later.",
+      "published": "2026-11-19T22:11:43.000Z",
+      "labels": [
+        "CVE-2026-59988",
+        "LFI",
+        "SSRF",
+        "XSS"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1132d803-2f37-5162-8cd2-3f5c75a4b221",
+        "vulnerability--d358f192-be72-5dee-8788-24d7a4931513"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-django-docutils-rce-cve-2026-59988",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-django-docutils-rce-cve-2026-59988/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-59988"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59988"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-django-docutils-rce-cve-2026-59988",
+      "x_craftedsignal_event_id": "brief-2026-11-19-django-docutils-rce-cve-2026-59988",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-django-docutils-rce-cve-2026-59988/",
+      "x_craftedsignal_activity_at": "2026-11-19T22:11:43.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e7ec66b1-a88c-523a-a40d-9bf27a4b3ead",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T08:46:59.000Z",
@@ -208187,6 +208339,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1132d803-2f37-5162-8cd2-3f5c75a4b221",
+      "name": "django-docutils",
+      "vendor": "tony"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1140ed46-1c1e-5a9f-9b9a-5892e8fe578d",
       "name": "ER706W v1 (\u003c 1.2.11 Build 20260723 Rel.41567)",
       "vendor": "TP-Link"
@@ -210210,6 +210369,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2c807fd0-f524-5d59-9026-12d2823e3c75",
+      "name": "JTL-Shop 5.7.0 to 5.7.5",
+      "vendor": "JTL-Software GmbH"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2ca814f0-2079-5062-ac8e-a0a83d2acdc3",
       "name": "Telco Cloud Platform (= 3.0)",
       "vendor": "VMware"
@@ -212077,6 +212243,13 @@
       "id": "software--46619785-fa58-56b9-9acf-9347c06292b9",
       "name": "mongoose (\u003e= 9.0.0, \u003c 9.9.2)",
       "vendor": "Mongoose"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4661fb37-eb12-5afe-9cb1-575851f7e4e8",
+      "name": "JTL-Shop 5.5.0 to 5.5.4",
+      "vendor": "JTL-Software GmbH"
     },
     {
       "type": "software",
@@ -217488,6 +217661,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--931cfb6d-63ac-5d37-9810-0b933ba29f5c",
+      "name": "JTL-Shop 5.6.0 to 5.6.5",
+      "vendor": "JTL-Software GmbH"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9339567e-d4f6-546f-9617-d93088638eac",
       "name": "Advanced Shipment Tracking for WooCommerce (\u003c= 3.9)",
       "vendor": "WooCommerce"
@@ -217803,6 +217983,13 @@
       "id": "software--970db500-fe14-5a4b-986e-148a97a77c6a",
       "name": "@tsparticles/mcp-server",
       "vendor": "tsparticles"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--97355d48-8906-5976-b3ec-7b2e4e56984d",
+      "name": "JTL-Shop 5.8.0 to 5.8.3",
+      "vendor": "JTL-Software GmbH"
     },
     {
       "type": "software",
@@ -279071,6 +279258,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--d358f192-be72-5dee-8788-24d7a4931513",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-59988",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-59988",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59988"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--d365d676-bd85-5393-9038-6180d688b203",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -280489,6 +280692,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120342",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120342"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d8a0858c-47ba-514d-a255-3b8b74b61a4a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-22310",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-22310",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22310"
         }
       ]
     },
