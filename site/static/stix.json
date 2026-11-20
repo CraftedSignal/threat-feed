@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a4b77d05-d24f-555d-8d94-c62d0266a8c7",
+  "id": "bundle--6af41c39-bee2-51fa-a9db-e5689fa96513",
   "objects": [
     {
       "type": "attack-pattern",
@@ -76706,6 +76706,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5d17196f-063d-581b-aa22-e608a37e2888",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T10:07:37.000Z",
+      "modified": "2026-11-20T10:07:37.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4a86c54e-0a15-5b8f-8ba1-71bed8db552d",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5d19e644-14ca-50bc-8971-7c2be277e0ed",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -137327,6 +137338,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--af9315dc-2c16-5496-ba6e-43602b7324a4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T10:07:37.000Z",
+      "modified": "2026-11-20T10:07:37.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4a86c54e-0a15-5b8f-8ba1-71bed8db552d",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--af942b28-943e-514f-a76c-af323c76b803",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -145144,6 +145166,17 @@
       "relationship_type": "has",
       "source_ref": "software--90945eb0-ad1c-519d-a2ba-71ba57055ef5",
       "target_ref": "vulnerability--1e58936f-3bdb-50d1-8fea-55b491475113"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ba2078ca-77de-5cf9-a55e-8881997d2584",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3a9a2e0e-3010-5a35-bd42-17ad335bd417",
+      "target_ref": "vulnerability--626e9408-8977-5caf-a0e8-339b64acf410"
     },
     {
       "type": "relationship",
@@ -250659,6 +250692,63 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--4a86c54e-0a15-5b8f-8ba1-71bed8db552d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T10:07:37.000Z",
+      "modified": "2026-11-20T10:07:37.000Z",
+      "name": "e107 CMS: Insecure deserialization in install.php (CVE-2025-61505)",
+      "description": "## Overview\n\ne107 CMS through version 2.3.3 contains a critical insecure deserialization vulnerability (CVE-2025-61505) in the `install.php` script. The application uses `unserialize()` on base64-decoded user-supplied data from the `previous_steps` POST parameter without validation or class whitelisting. An unauthenticated attacker can supply crafted serialized objects to instantiate classes within the application scope, potentially achieving remote code execution, arbitrary file writes, or database manipulation depending on available gadget chains.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated remote attackers to manipulate the installation process, leading to potential full system compromise, database corruption, or arbitrary code execution during the setup phase on exposed servers.\n\n## Recommendation\n\n- Remove or rename the `install.php` file immediately following the installation of e107 CMS.\n- Restrict access to the installation script using `.htaccess` or server-level configuration if the file must remain on the web server.\n- Verify the integrity of the application installation and audit configuration files (e.g., `e107_config.php`) for unauthorized modifications if the site was deployed using default settings while exposed to the internet.",
+      "published": "2026-11-20T10:07:37.000Z",
+      "labels": [
+        "cve",
+        "rce",
+        "vulnerability",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3a9a2e0e-3010-5a35-bd42-17ad335bd417",
+        "vulnerability--626e9408-8977-5caf-a0e8-339b64acf410"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-e107-php-object-injection-cve-2025-61505",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-e107-php-object-injection-cve-2025-61505/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-61505"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-PESCADA-DEV-CVE-2025-61505"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-PESCADA-DEV-CVE-2025-61505\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-e107-php-object-injection-cve-2025-61505",
+      "x_craftedsignal_event_id": "brief-2026-11-20-e107-php-object-injection-cve-2025-61505",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-e107-php-object-injection-cve-2025-61505/",
+      "x_craftedsignal_activity_at": "2026-11-20T10:07:37.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.5,
+      "x_craftedsignal_epss_max": 0.00358,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -388269,6 +388359,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3a9a2e0e-3010-5a35-bd42-17ad335bd417",
+      "name": "e107 CMS (\u003c= 2.3.3)",
+      "vendor": "e107"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3aab7920-ff69-5a46-8c26-da9d3e22d1ec",
       "name": "VIA client for Linux",
       "vendor": "VIA"
@@ -443333,6 +443430,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-90869",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90869"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--626e9408-8977-5caf-a0e8-339b64acf410",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-61505",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-61505",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-61505"
         }
       ]
     },
