@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3cb5bc5f-aebe-5e20-8232-d65cc4278c2b",
+  "id": "bundle--a42e20fc-d819-5601-8722-ea4d724047ac",
   "objects": [
     {
       "type": "attack-pattern",
@@ -26218,6 +26218,17 @@
       "relationship_type": "uses",
       "source_ref": "report--b48f16f8-7c9f-506d-aecf-19376fba87f6",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--20ac05cc-aecc-5d0b-aa0e-56d4e014b755",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d9674157-78ff-5b63-b573-057ddba09486",
+      "target_ref": "vulnerability--7e4ca1cc-0428-5ff4-8e16-5ba4ba232111"
     },
     {
       "type": "relationship",
@@ -146353,6 +146364,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f89bc4ff-9dd3-505c-93c3-b728f078b68d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--67c62043-6f3e-5d17-96ed-61308bc76702",
+      "target_ref": "vulnerability--7e4ca1cc-0428-5ff4-8e16-5ba4ba232111"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f8a4f6f1-60fa-5433-9f1f-af761852a676",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -168712,6 +168734,69 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--23bb8868-35e7-5d83-8c74-ed9a9a2be27f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T00:10:51.000Z",
+      "modified": "2026-11-20T00:10:51.000Z",
+      "name": "Eclipse Mosquitto: Integer Overflow in Will Delay Comparator (CVE-2026-126763)",
+      "description": "## Overview\nIn Eclipse Mosquitto versions 1.6 to 2.0.22 and 2.1.0 to 2.1.2, the `will_delay__cmp()` function in `src/will_delay.c` contains an integer overflow vulnerability. An MQTT v5.0 client connecting with a `will_delay_interval` that subsequently disconnects with a shorter interval causes the broker's `will_delay__check()` function to encounter corrupted sort order, resulting in the suppression of all delayed will messages for other clients.\n\n## Attack Chain\n1. An MQTT v5.0 client connects to the broker with a specific `will_delay_interval`.\n2. The client disconnects with a shorter interval, triggering the `will_delay__cmp()` comparator.\n3. Due to an integer cast from `uint32_t` to `int` wrapping to a negative value when the difference exceeds `INT32_MAX`, the internal linked list sort order is corrupted.\n4. The `will_delay__check()` function iterates through the list, encounters a future-dated entry, and terminates before processing subsequent entries.\n\n## Impact\nSuccessful exploitation results in a Denial of Service (DoS) where delayed Last Will and Testament messages are suppressed across the broker. This impacts systems relying on disconnect notifications, such as IoT device health monitoring and safety-critical industrial control systems. The suppression persists until the broker process is restarted.\n\n## Recommendation\nReplace the `will_delay__cmp` function with the pattern used in `session_expiry__cmp()` to correctly handle signed and unsigned integer comparisons. Additionally, update `loop__update_next_event` to cast the interval to `time_t` before multiplication. No specific fixed release version is confirmed in the provided source materials.",
+      "published": "2026-11-20T00:10:51.000Z",
+      "labels": [
+        "CVE-2026-126763",
+        "Denial of Service",
+        "MQTT"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--67c62043-6f3e-5d17-96ed-61308bc76702",
+        "software--d9674157-78ff-5b63-b573-057ddba09486",
+        "vulnerability--7e4ca1cc-0428-5ff4-8e16-5ba4ba232111"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-mosquitto-will-delay-dos-cve-2026-126763",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mosquitto-will-delay-dos-cve-2026-126763/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126763"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/eclipse-mosquitto/mosquitto/security/advisories/GHSA-5vjv-953v-pwfq"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://gitlab.eclipse.org/security/cve-assignment/-/work_items/569"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://gitlab.eclipse.org/security/vulnerability-reports/-/work_items/355"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126763"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-mosquitto-will-delay-dos-cve-2026-126763",
+      "x_craftedsignal_event_id": "brief-2026-11-20-mosquitto-will-delay-dos-cve-2026-126763",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mosquitto-will-delay-dos-cve-2026-126763/",
+      "x_craftedsignal_activity_at": "2026-11-20T00:10:51.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.0022,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -302834,6 +302919,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d9674157-78ff-5b63-b573-057ddba09486",
+      "name": "Eclipse Mosquitto (\u003e= 1.6.0, \u003c= 2.0.22)",
+      "vendor": "Eclipse Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d96d469d-3b0b-5dfb-aa98-af7c320a1e4e",
       "name": "Chrome for Android (139 to 145, excluding 143)"
     },
@@ -337841,6 +337933,22 @@
           "source_name": "cve",
           "external_id": "CVE-2023-41425",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-41425"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7e4ca1cc-0428-5ff4-8e16-5ba4ba232111",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126763",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126763",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126763"
         }
       ]
     },
