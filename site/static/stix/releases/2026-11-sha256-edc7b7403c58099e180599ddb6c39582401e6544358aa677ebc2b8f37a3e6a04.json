@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--41faf381-3220-5951-9a3a-6d3a31d80a6d",
+  "id": "bundle--fd2c7599-1a65-58eb-a398-be0fd5407b0f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -88716,7 +88716,7 @@
       "id": "relationship--91342a18-8aa0-532a-b592-4b001a2ea4c5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T01:54:58.000Z",
-      "modified": "2026-11-18T01:54:58.000Z",
+      "modified": "2026-11-20T03:04:26.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a16270c7-8506-5889-b77c-6dfeea69a03d",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -100398,7 +100398,7 @@
       "id": "relationship--a6a01733-c16d-5a59-96b0-bce179517d0a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T23:56:19.000Z",
-      "modified": "2026-11-18T23:56:19.000Z",
+      "modified": "2026-11-20T03:04:26.000Z",
       "relationship_type": "uses",
       "source_ref": "report--01018657-96d6-58e8-985d-4167ba452dca",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
@@ -149762,7 +149762,7 @@
       "id": "report--01018657-96d6-58e8-985d-4167ba452dca",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T23:56:19.000Z",
-      "modified": "2026-11-18T23:56:19.000Z",
+      "modified": "2026-11-20T03:04:26.000Z",
       "name": "Dokploy: OS Command Injection in Database Password Procedures (CVE-2026-129987)",
       "description": "## Overview\nDokploy versions prior to 0.31.1 contain an OS command injection vulnerability in the database password change procedure for MySQL, PostgreSQL, MariaDB, MongoDB, and Redis. The application improperly validates input by permitting backticks and interpolating user-supplied passwords directly into Bash command strings. An authenticated user can leverage command substitution within the password field to execute arbitrary OS commands with the privileges of the Dokploy process, which is typically root.\n\n## Impact\nSuccessful exploitation allows an authenticated attacker to achieve full remote code execution on the server running Dokploy, typically with root-level privileges.\n\n## Recommendation\n- Upgrade to Dokploy version 0.31.1 or later immediately to remediate this vulnerability.\n- Restrict administrative access to the Dokploy dashboard to authorized personnel only, minimizing the risk of an attacker reaching the vulnerable password change interface.",
       "published": "2026-11-18T23:56:19.000Z",
@@ -149789,14 +149789,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129987"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=5611B5AB-6CB1-56AF-9D5A-91F515193B72\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-18-dokploy-rce-cve-2026-129987",
       "x_craftedsignal_event_id": "brief-2026-11-18-dokploy-rce-cve-2026-129987",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dokploy-rce-cve-2026-129987/",
-      "x_craftedsignal_activity_at": "2026-11-18T23:56:19.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T03:04:26.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -235751,7 +235755,7 @@
       "id": "report--a16270c7-8506-5889-b77c-6dfeea69a03d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T01:54:58.000Z",
-      "modified": "2026-11-18T01:54:58.000Z",
+      "modified": "2026-11-20T03:04:26.000Z",
       "name": "OwnTracks Recorder Format String Vulnerability (CVE-2026-131852)",
       "description": "## Overview\n\nOwnTracks Recorder before version 1.0.5 is vulnerable to a format string vulnerability within the json_response() and related output functions. This flaw allows unauthenticated attackers to execute code by storing a malicious 'tid' value.\n\n## Attack Chain\n\nAttackers can publish locations via POST /pub or MQTT containing printf specifiers within the 'tid' field. The vulnerability is triggered when the attacker reads the data back through a GET /api/0/last request, which processes the stored malicious string through vulnerable output functions.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to write to memory and leak memory addresses. The vulnerability facilitates arbitrary code execution.\n\n## Recommendation\n\nOrganizations should monitor for updates from the vendor regarding remediation. The current advisory specifies that versions before 1.0.5 are affected. No fixed release status is provided in the source documentation.",
       "published": "2026-11-18T01:54:58.000Z",
@@ -235778,20 +235782,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131852"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=7D4C8A6D-96B1-53B4-9EC2-FE5B83F3A08D\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-18-owntracks-recorder-cve-2026-131852",
       "x_craftedsignal_event_id": "brief-2026-11-18-owntracks-recorder-cve-2026-131852",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-owntracks-recorder-cve-2026-131852/",
-      "x_craftedsignal_activity_at": "2026-11-18T01:54:58.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T03:04:26.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00594,
       "x_craftedsignal_kev_status": "false"
     },
     {
