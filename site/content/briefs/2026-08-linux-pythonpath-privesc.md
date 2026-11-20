@@ -1,15 +1,32 @@
 ---
+brief_id: brief-2026-08-linux-pythonpath-privesc
+event_id: brief-2026-08-linux-pythonpath-privesc
+revision: 1
+activity_at: "2026-08-07T15:16:23Z"
 title: Linux Privilege Escalation via PYTHONPATH Manipulation
 slug: 2026-08-linux-pythonpath-privesc
 description: Attackers can escalate privileges on Linux systems by abusing the PYTHONPATH environment variable to force privileged processes, specifically the NeedRestart utility (CVE-2024-48990), to load malicious shared objects.
 date: "2026-08-07T15:16:23Z"
+lastmod: "2026-11-20T14:15:29Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: B
+  credibility: "2"
+  rating: B2
+  likelihood: likely
+qa_status:
+  verdict: pass
 cpes:
   - cpe:2.3:a:needrestart_project:needrestart:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-O-SEC-CVE-2024-48990&utm_source=rss&utm_medium=rss
 vendors:
   - NeedRestart
 products:
@@ -26,16 +43,24 @@ mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1574.007
-    technique_name: 'Hijack Execution Flow: Path Interception by PATH Environment Variable'
+    technique_name: Path Interception by PATH Environment Variable
     evidence: The detection monitors for file writes matching the importlib/__init__.so pattern that do not originate from expected system library paths.
     confidence_band: high
+cve_verification:
+  CVE-2024-48990:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-20T14:15:29.358397416Z
 cves:
   - id: CVE-2024-48990
     cvss: 7.8
-    epss: 0.19924
+    epss: 0.29202
+    kev_status: "false"
 references:
   - https://www.bleepingcomputer.com/news/security/ubuntu-linux-impacted-by-decade-old-needrestart-flaw-that-gives-root/
   - https://www.qualys.com/2024/11/19/needrestart/needrestart.txt
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/linux_possible_privilege_escalation_via_pythonpath.yml
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-O-SEC-CVE-2024-48990&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect Malicious importlib Shared Object Creation
     description: Detects the creation of an importlib/__init__.so file outside of standard system library paths, a known technique for PYTHONPATH-based privilege escalation.
@@ -66,7 +91,17 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2024-48990
       evidence: Documented vulnerability in NeedRestart.
+updates:
+  - at: "2026-11-20T14:15:29Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-O-SEC-CVE-2024-48990&utm_source=rss&utm_medium=rss
 ---
+
+## Overview
 
 This threat involves local privilege escalation on Linux systems where attackers exploit the way Python handles module loading. By manipulating the PYTHONPATH environment variable, an adversary can influence a privileged process to import a malicious shared object instead of the legitimate library. This technique is specifically documented in the exploitation of CVE-2024-48990, a vulnerability in the 'NeedRestart' utility which checks for pending service restarts on Linux distributions. When NeedRestart runs with root privileges, it can be coerced into loading a crafted 'importlib/__init__.so' file placed in an attacker-controlled directory. If successful, the attacker gains arbitrary code execution with the permissions of the calling process, typically root. Defenders should monitor for the creation of shared object files with specific naming conventions in non-standard system directories.
 
