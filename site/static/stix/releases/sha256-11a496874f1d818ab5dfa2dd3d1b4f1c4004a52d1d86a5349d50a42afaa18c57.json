@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b7e78b6b-d683-5add-ad3e-c11d6f1f565d",
+  "id": "bundle--760179bd-93ea-5fcb-96e2-81da6fc9b6c2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20658,6 +20658,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--6dac0643-0ce6-524b-90bf-0090a1e44232"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0f997deb-9bb4-592e-b625-bcc2320cca5b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T21:31:14.000Z",
+      "modified": "2026-11-20T21:31:14.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b0c976dc-0878-5a92-9951-dbba70ad2862",
+      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
     },
     {
       "type": "relationship",
@@ -43054,6 +43065,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--1ae8505a-d051-5886-8344-ceaf1904cf0e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2eb9d07e-b7b1-5509-8b75-418ff4660737",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2f1c001e-c303-5bd0-a46b-1d6ce7300ce9",
+      "target_ref": "vulnerability--9db9e9ce-8171-5acd-b8f9-e76a599497e7"
     },
     {
       "type": "relationship",
@@ -65912,6 +65934,17 @@
       "relationship_type": "has",
       "source_ref": "software--39a43a63-f5a4-51df-99da-5ed3043855a4",
       "target_ref": "vulnerability--6c488955-98f5-5b9f-8986-b5b0f934af68"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4e806bdf-ffb5-540f-8b2f-339cdb41f7e4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6cf22863-5903-5c64-8d4a-299d610e7264",
+      "target_ref": "vulnerability--4276dfd1-b009-5dd5-9fc7-c9efc246dbf9"
     },
     {
       "type": "relationship",
@@ -156226,6 +156259,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c96f072d-176b-5ab1-bdda-dc0844bba0a9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T21:31:04.000Z",
+      "modified": "2026-11-20T21:31:04.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5d7baffc-61a6-59e1-b8c0-60aa3996c016",
+      "target_ref": "attack-pattern--ed297fb1-fb56-59cb-bbe0-dabc9e9cea06"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c96f786c-8321-5cb1-87ec-4746d6d3d558",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -169928,6 +169972,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--d1fdf878-7543-50e7-b976-588709733d93"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--dd0aa7ca-995c-59c5-9984-bf7c73d3a78b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T21:31:04.000Z",
+      "modified": "2026-11-20T21:31:04.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5d7baffc-61a6-59e1-b8c0-60aa3996c016",
+      "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
     },
     {
       "type": "relationship",
@@ -265135,6 +265190,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5d7baffc-61a6-59e1-b8c0-60aa3996c016",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T21:31:04.000Z",
+      "modified": "2026-11-20T21:31:04.000Z",
+      "name": "LibreChat: Authentication bypass and account takeover (CVE-2026-54039)",
+      "description": "## Overview\nLibreChat versions 0.7.0 through 0.8.6 contain an authentication vulnerability that permits account takeover when local registration is enabled and at least one social provider (OAuth) is configured. An unauthenticated attacker can exploit the POST /api/auth/register endpoint by passing an unparsed request object to the authentication service. This allows the attacker to persist a forged provider value associated with a victim's email address. Subsequent login attempts by the victim are handled incorrectly by the email-fallback path in the social login strategy, which fails to validate the provider subject identifier. This results in the victim's OAuth session being bound to the attacker's account record, granting the attacker persistent read and write access to the victim's data. On fresh deployments, this vulnerability can also lead to unauthorized administrator access.\n\n## Attack Chain\n1. The attacker identifies a target user's email address.\n2. The attacker submits a specially crafted request to the POST /api/auth/register endpoint.\n3. The backend service accepts the request, allowing the attacker to associate a forged provider value with the victim's email.\n4. The target user initiates an OAuth login through a configured social provider.\n5. The system's social login strategy (api/strategies/socialLogin.js) fails to verify the provider subject identifier, relying only on the insecurely persisted provider name.\n6. The victim's legitimate OAuth session is incorrectly bound to the attacker's account, enabling unauthorized access to the victim's data.\n\n## Impact\nSuccessful exploitation grants an unauthenticated attacker persistent read and write access to a victim's account data. In cases of fresh installations, the attacker may gain unauthorized administrator privileges.\n\n## Recommendation\nUpgrade LibreChat to version 0.8.6 or later immediately to remediate the vulnerability in the authentication and registration services.",
+      "published": "2026-11-20T21:31:04.000Z",
+      "object_refs": [
+        "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a",
+        "attack-pattern--ed297fb1-fb56-59cb-bbe0-dabc9e9cea06",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6cf22863-5903-5c64-8d4a-299d610e7264",
+        "vulnerability--4276dfd1-b009-5dd5-9fc7-c9efc246dbf9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-librechat-auth-takeover-cve-2026-54039",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-librechat-auth-takeover-cve-2026-54039/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-54039"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54039"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-librechat-auth-takeover-cve-2026-54039",
+      "x_craftedsignal_event_id": "brief-2026-11-20-librechat-auth-takeover-cve-2026-54039",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-librechat-auth-takeover-cve-2026-54039/",
+      "x_craftedsignal_activity_at": "2026-11-20T21:31:04.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5d839ff0-6947-579b-907d-38bd8ec26e85",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T02:52:28.000Z",
@@ -325149,6 +325250,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b0c976dc-0878-5a92-9951-dbba70ad2862",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T21:31:14.000Z",
+      "modified": "2026-11-20T21:31:14.000Z",
+      "name": "LibreChat: Improper Credential Handling in Agent Actions (CVE-2026-54044)",
+      "description": "## Overview\nLibreChat versions prior to 0.8.7 are vulnerable to a security issue within the agent action handling logic in api/server/routes/agents/actions.js. Specifically, the POST /api/agents/actions/:agent_id endpoint allows an editor to modify an agent's metadata.domain and metadata.raw_spec while retaining the owner's credentials, including API keys and OAuth client secrets.\n\n## Attack Chain\n1. An attacker with 'EDIT' level permissions modifies an existing agent's metadata using the POST /api/agents/actions/:agent_id endpoint.\n2. The attacker updates the metadata to point to an attacker-controlled host while preserving the existing owner's api_key and related OAuth client secrets.\n3. Upon subsequent tool invocation, the application decrypts the retained credentials and transmits them to the attacker-controlled destination.\n\n## Impact\nSuccessful exploitation allows an attacker to gain unauthorized access to an agent owner's sensitive credentials, such as API keys and OAuth client secrets, which may lead to unauthorized access to third-party services integrated via the AI provider.\n\n## Recommendation\nThis issue is fixed in LibreChat version 0.8.7. Administrators are advised to update to version 0.8.7 or later to remediate the vulnerability.",
+      "published": "2026-11-20T21:31:14.000Z",
+      "labels": [
+        "credential-access",
+        "librechat"
+      ],
+      "object_refs": [
+        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2f1c001e-c303-5bd0-a46b-1d6ce7300ce9",
+        "vulnerability--9db9e9ce-8171-5acd-b8f9-e76a599497e7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-librechat-credential-theft-cve-2026-54044",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-librechat-credential-theft-cve-2026-54044/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-54044"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54044"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-librechat-credential-theft-cve-2026-54044",
+      "x_craftedsignal_event_id": "brief-2026-11-20-librechat-credential-theft-cve-2026-54044",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-librechat-credential-theft-cve-2026-54044/",
+      "x_craftedsignal_activity_at": "2026-11-20T21:31:14.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.7,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -390286,6 +390436,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2f1c001e-c303-5bd0-a46b-1d6ce7300ce9",
+      "name": "LibreChat",
+      "vendor": "LibreChat-AI"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2f295735-c6b2-5298-849b-10ed316e3402",
       "name": "llama.cpp (b2877 through b11934)",
       "vendor": "llama.cpp"
@@ -397422,6 +397579,13 @@
       "id": "software--6ce1c7c3-f5bd-57e8-8038-e1aa9969b0e1",
       "name": "MQ 9.3.0.0 through 9.3.0.42 LTS",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6cf22863-5903-5c64-8d4a-299d610e7264",
+      "name": "LibreChat (\u003e= 0.7.0, \u003c 0.8.6)",
+      "vendor": "LibreChat-AI"
     },
     {
       "type": "software",
@@ -436798,6 +436962,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--4276dfd1-b009-5dd5-9fc7-c9efc246dbf9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-54039",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-54039",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54039"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--427e7045-e106-50d6-99aa-245b0ba50ae7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -468008,6 +468188,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118375",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118375"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9db9e9ce-8171-5acd-b8f9-e76a599497e7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-54044",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-54044",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54044"
         }
       ]
     },
