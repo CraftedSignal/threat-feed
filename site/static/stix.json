@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4753ddad-cb97-503c-b988-f8516580541a",
+  "id": "bundle--a3661165-08b7-5093-bd3e-3496776c9d46",
   "objects": [
     {
       "type": "attack-pattern",
@@ -98134,17 +98134,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--7943fcd7-9645-5744-9ca8-db892e33f605",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--6c84027a-814f-5c2b-9382-6f7b972ba316",
-      "target_ref": "vulnerability--a6cf163b-71e5-5c9d-9753-f09bec302312"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--7947a771-92d6-5222-8ca3-ccfbebb64662",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -115528,7 +115517,7 @@
       "id": "relationship--9133caaa-20da-516d-b3f1-5d95d64cc2f0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T18:31:06.000Z",
-      "modified": "2026-11-19T18:31:06.000Z",
+      "modified": "2026-11-20T13:19:17.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c9abf92b-a2a3-5da1-8083-d9383cf382b0",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -312237,46 +312226,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--9f13599f-4863-5ad1-9a9c-f3fb2b8ac776",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T13:18:46.000Z",
-      "modified": "2026-10-21T13:18:46.000Z",
-      "name": "Insurance-Management-System: SQL injection in editPlan.php (CVE-2026-114242)",
-      "description": "A vulnerability was identified in dhikshitha29 Insurance-Management-System (commit 91de5edda5baa109ad8e9baf03ce6a3ceda84183/125362cc21dca20d74091a4913a5096bb58dd837). The function `mysqli_query` in `/Admin/View/editPlan.php` is susceptible to SQL injection via the `Plan_no` or `Name` argument. The attack can be executed remotely, and a public exploit is available. The project uses a rolling release model, and no fix has been provided by the maintainer.\n",
-      "published": "2026-10-21T13:18:46.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--6c84027a-814f-5c2b-9382-6f7b972ba316",
-        "vulnerability--a6cf163b-71e5-5c9d-9753-f09bec302312"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-21-insurance-management-sql-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-insurance-management-sql-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114242"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-21-insurance-management-sql-injection",
-      "x_craftedsignal_event_id": "brief-2026-10-21-insurance-management-sql-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-insurance-management-sql-injection/",
-      "x_craftedsignal_activity_at": "2026-10-21T13:18:46.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--9f34921c-dab3-54a1-a0ce-cc31679ce301",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T07:52:36.000Z",
@@ -342193,7 +342142,7 @@
       "id": "report--c9abf92b-a2a3-5da1-8083-d9383cf382b0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T18:31:06.000Z",
-      "modified": "2026-11-19T18:31:06.000Z",
+      "modified": "2026-11-20T13:19:17.000Z",
       "name": "PHP: Remote code execution via session data corruption (CVE-2026-126714)",
       "description": "## Overview\nPHP versions 8.2.*, 8.3.*, 8.4.*, and 8.5.* contain a vulnerability, designated phpAfterShell (CVE-2026-126714), in the default files session save handler. The handler does not clear session files before writing updated data. If a write operation is interrupted, the session file can retain a mix of new and old data. An attacker who can influence session data, such as through the session upload progress feature, can induce this interruption to inject serialized objects. When successfully processed by the application, these objects can lead to remote code execution (RCE) if a suitable gadget chain or secondary vulnerability is present.\n\n## Attack Chain\n1. The attacker identifies a target PHP application that has the session.upload_progress feature enabled.\n2. The attacker initiates a multipart form upload containing a malicious payload designed to trigger an object injection.\n3. The attacker forces an interruption of the PHP worker process during the session file write operation (e.g., via memory exhaustion).\n4. The session file is left in a corrupted state containing the attacker-controlled serialized object.\n5. A subsequent legitimate request calls session_start(), loading the corrupted data.\n6. The PHP interpreter deserializes the malicious object, triggering the gadget chain or secondary memory corruption vulnerability to execute arbitrary code.\n\n## Impact\nSuccessful exploitation can result in remote code execution on the server. Furthermore, the vulnerability can be used to manipulate or corrupt critical session values, such as CSRF tokens or user authentication status.\n\n## Recommendation\n- Immediately upgrade to the fixed PHP versions: 8.2.36, 8.3.37, 8.4.28, or 8.5.13.\n- If an immediate upgrade is not possible, disable the session upload progress feature by setting session.upload_progress.enabled = 0 in php.ini and restarting the PHP worker processes.\n- Rebuild and redeploy all container images using the patched PHP versions.\n- Audit and minimize untrusted data stored within PHP session files to mitigate the impact of object injection.",
       "published": "2026-11-19T18:31:06.000Z",
@@ -342223,15 +342172,23 @@
         },
         {
           "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=83A2DDBE-93F9-53D1-A3DF-2C28687B51D4\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
           "url": "https://thehackernews.com/2026/11/phpaftershell-explained-how-hackers.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.wiz.io/blog/phpaftershell-critical-php-rce-vulnerabilities-cve-2026-126714"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-19-php-aftershell-rce-cve-2026-126714",
       "x_craftedsignal_event_id": "brief-2026-11-19-php-aftershell-rce-cve-2026-126714",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-php-aftershell-rce-cve-2026-126714/",
-      "x_craftedsignal_activity_at": "2026-11-19T18:31:06.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T13:19:17.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -396115,12 +396072,6 @@
       "id": "software--6c740bdb-b74d-5257-a891-ed0ce309f46c",
       "name": "NGINX Plus (versions \u003c 37.3.0.1, \u003c 37.0.8.1, and \u003c R33)",
       "vendor": "F5"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--6c84027a-814f-5c2b-9382-6f7b972ba316",
-      "name": "Insurance-Management-System (rolling release)"
     },
     {
       "type": "software",
@@ -469599,22 +469550,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-127414",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127414"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--a6cf163b-71e5-5c9d-9753-f09bec302312",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-114242",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-114242",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114242"
         }
       ]
     },
