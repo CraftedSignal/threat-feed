@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9166d40b-bf3a-5439-a6b3-c40e3ffbdcab",
+  "id": "bundle--83cd0a3d-7fd6-588c-96a1-c0ab54b011e4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20927,6 +20927,17 @@
       "relationship_type": "has",
       "source_ref": "software--eb5a9624-c45d-5a59-9573-fbdad8510ea4",
       "target_ref": "vulnerability--a862e26d-abb8-51ae-8cda-4998d4e36807"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--172e6080-60f4-58b6-b388-b31fb221117c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--936b9d2c-43e4-540f-813f-50a660b65c0d",
+      "target_ref": "vulnerability--8121567e-c414-56ff-ab2a-fd8b608faaa0"
     },
     {
       "type": "relationship",
@@ -96398,6 +96409,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--32dd75fa-b671-5650-a868-97503d31418c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9eaf0235-795e-53e6-b000-9c4a0b1121b1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T09:09:36.000Z",
+      "modified": "2026-11-20T09:09:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9a0ff057-1485-56c9-815f-7e158c3f568e",
+      "target_ref": "attack-pattern--df700e48-7d2c-59e3-b11f-85d870ac4a51"
     },
     {
       "type": "relationship",
@@ -234055,6 +234077,69 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9a0ff057-1485-56c9-815f-7e158c3f568e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T09:09:36.000Z",
+      "modified": "2026-11-20T09:09:36.000Z",
+      "name": "WBCE CMS Brute-force Protection Bypass (CVE-2025-66204)",
+      "description": "## Overview\r\nWBCE CMS version 1.6.4 is vulnerable to a brute-force protection bypass. The login throttling mechanism, which is designed to block an IP address after 5 invalid login attempts, can be bypassed because the application blindly trusts the X-Forwarded-For HTTP header without validating its source. By modifying this header on each request, an attacker can reset the invalid login counter and perform unlimited password guessing attempts.\r\n\r\n## Attack Chain\r\n1. An attacker initiates login attempts with an invalid password while providing an arbitrary X-Forwarded-For header.\r\n2. After reaching the 5-attempt threshold, the attacker modifies the X-Forwarded-For header to a new value.\r\n3. The application treats the modified header as a new, unblocked IP address, effectively resetting the brute-force protection counter.\r\n\r\n## Impact\r\nThis vulnerability allows for indefinite password guessing attacks, potentially leading to unauthorized access to user or administrator accounts.\r\n\r\n## Recommendation\r\nUpgrade to version 1.6.5, which addresses the insecure handling of the X-Forwarded-For header.",
+      "published": "2026-11-20T09:09:36.000Z",
+      "labels": [
+        "brute-force",
+        "bypass",
+        "cve-2025-66204"
+      ],
+      "object_refs": [
+        "attack-pattern--df700e48-7d2c-59e3-b11f-85d870ac4a51",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--936b9d2c-43e4-540f-813f-50a660b65c0d",
+        "vulnerability--8121567e-c414-56ff-ab2a-fd8b608faaa0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-wbce-cms-bypass-cve-2025-66204",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wbce-cms-bypass-cve-2025-66204/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-66204"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/WBCE/WBCE_CMS/releases/tag/1.6.5"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/WBCE/WBCE_CMS/security/advisories/GHSA-f676-f375-m7mw"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LUKASZ-RYBAK-CVE-2025-66204"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LUKASZ-RYBAK-CVE-2025-66204\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-wbce-cms-bypass-cve-2025-66204",
+      "x_craftedsignal_event_id": "brief-2026-11-20-wbce-cms-bypass-cve-2025-66204",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wbce-cms-bypass-cve-2025-66204/",
+      "x_craftedsignal_activity_at": "2026-11-20T09:09:36.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.00512,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9a735d10-e704-5fe4-b23b-26040d46bb5b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T00:31:44.000Z",
@@ -298627,6 +298712,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--936b9d2c-43e4-540f-813f-50a660b65c0d",
+      "name": "WBCE_CMS",
+      "vendor": "WBCE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9387fe0f-6725-5207-9634-e0b85646932a",
       "name": "Splunk Enterprise Security"
     },
@@ -339806,6 +339898,22 @@
           "source_name": "cve",
           "external_id": "CVE-2021-21983",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-21983"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8121567e-c414-56ff-ab2a-fd8b608faaa0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-66204",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-66204",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66204"
         }
       ]
     },

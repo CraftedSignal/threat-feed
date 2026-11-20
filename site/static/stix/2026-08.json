@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d0141710-55df-573a-8c56-44af4d290c58",
+  "id": "bundle--3ed5edb3-4c43-5cc7-a912-52364f5fe27b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5660,17 +5660,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--419a23c3-f11f-5b28-ae7f-dd37b501e9c0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-22T09:29:24.000Z",
-      "modified": "2026-08-22T09:29:24.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--8b7affe2-f17e-5d38-bb66-b169551926d8",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--41f5a506-213c-5c7b-af5d-cb86265d7c3b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T15:12:38.000Z",
@@ -8483,17 +8472,6 @@
       "relationship_type": "uses",
       "source_ref": "report--7b8e49e1-3470-5b14-80a2-4f766e251586",
       "target_ref": "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--75d1cc17-884a-5eb5-a623-dc447609ae3e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-22T09:29:24.000Z",
-      "modified": "2026-08-22T09:29:24.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--8b7affe2-f17e-5d38-bb66-b169551926d8",
-      "target_ref": "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b"
     },
     {
       "type": "relationship",
@@ -14401,17 +14379,6 @@
       "relationship_type": "has",
       "source_ref": "software--a69dc7c2-ca06-59d2-8b63-cdb4339c497d",
       "target_ref": "vulnerability--6bff301e-6571-574f-97c0-26c3a2dc3c10"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e5ce317f-283d-5025-b4d2-177f55d1cf84",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--d0f09fd4-14be-55bd-9173-41ce5b1acaf3",
-      "target_ref": "vulnerability--743d550f-3afc-585d-adc0-cd21d916b2b9"
     },
     {
       "type": "relationship",
@@ -27653,48 +27620,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--8b7affe2-f17e-5d38-bb66-b169551926d8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-22T09:29:24.000Z",
-      "modified": "2026-08-22T09:29:24.000Z",
-      "name": "Unauthenticated SSRF in Mailgun for WordPress Plugin",
-      "description": "## Overview\n\nThe Mailgun for WordPress plugin is susceptible to a high-severity Server-Side Request Forgery (SSRF) vulnerability, tracked as CVE-2026-78003, affecting all versions up to and including 2.2.0. The vulnerability stems from insufficient input validation within the add_list() function. Specifically, the plugin processes user-controlled input from the $_POST['addresses'] parameter using only sanitize_text_field(), which fails to adequately block malicious input.\n\nAn unauthenticated remote attacker can leverage this flaw to send arbitrary POST requests to external Mailgun API endpoints. Because the plugin relies on the site's locally stored API key to authenticate these requests, the attacker can manipulate Mailgun routing configurations. A critical impact of this vulnerability is the ability to create unauthorized inbound email-forwarding routes, which can be configured to intercept password reset tokens, ultimately allowing an attacker to hijack administrator accounts. This flaw highlights the risks associated with improper handling of user-supplied data in administrative plugin functions.\n\n## Attack Chain\n\n1. The attacker identifies a target WordPress site running a vulnerable version (\u003c= 2.2.0) of the Mailgun for WordPress plugin.\n2. The attacker crafts a malicious HTTP POST request targeting the endpoint handling the add_list() functionality.\n3. The attacker injects malicious payload data into the $_POST['addresses'] parameter to bypass input sanitization.\n4. The plugin's add_list() function processes the crafted input, triggering an unauthorized server-side request.\n5. The server acts as a proxy, sending a POST request to the Mailgun API authenticated with the compromised site's API key.\n6. The attacker successfully interacts with the Mailgun API to create a malicious inbound routing rule.\n7. The attacker triggers a password reset for a target administrator account on the WordPress site.\n8. The attacker intercepts the password reset email via the newly created Mailgun route, resulting in full account takeover.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-78003 can result in complete site compromise. By intercepting administrative password resets, attackers can gain elevated privileges within the WordPress application. This vulnerability poses a critical threat to any organization relying on the Mailgun for WordPress plugin for email delivery, as the potential for unauthorized data access and persistence via malicious email routing is high.\n\n## Recommendation\n\n- Update the Mailgun for WordPress plugin to a version beyond 2.2.0 immediately to apply the patch for CVE-2026-78003.\n- Review all configured Mailgun inbound routes for unauthorized entries, specifically looking for new forwarding rules that may have been created without administrative knowledge.\n- Rotate the Mailgun API key associated with the WordPress site if there is any suspicion that the site was targeted by exploitation attempts.\n- Audit WordPress administrative activity logs for unexpected usage of the add_list() function or associated plugin administrative features by unauthorized sessions.\n",
-      "published": "2026-08-22T09:29:24.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--d0f09fd4-14be-55bd-9173-41ce5b1acaf3",
-        "vulnerability--743d550f-3afc-585d-adc0-cd21d916b2b9"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-mailgun-wordpress-ssrf",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-mailgun-wordpress-ssrf/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78003"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-mailgun-wordpress-ssrf",
-      "x_craftedsignal_event_id": "brief-2026-08-mailgun-wordpress-ssrf",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-mailgun-wordpress-ssrf/",
-      "x_craftedsignal_activity_at": "2026-08-22T09:29:24.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--8ba62f4d-ce03-5e49-af09-adef9fa9c1ef",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T17:13:47.000Z",
@@ -40499,13 +40424,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--d0f09fd4-14be-55bd-9173-41ce5b1acaf3",
-      "name": "Mailgun for WordPress",
-      "vendor": "WordPress"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--d1424fe6-91e1-5e90-8612-82b67c02b798",
       "name": "AVideo (e01e41ecc and earlier)",
       "vendor": "WWBN"
@@ -43620,22 +43538,6 @@
           "source_name": "cve",
           "external_id": "CVE-2018-14847",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-14847"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--743d550f-3afc-585d-adc0-cd21d916b2b9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-78003",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-78003",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78003"
         }
       ]
     },
