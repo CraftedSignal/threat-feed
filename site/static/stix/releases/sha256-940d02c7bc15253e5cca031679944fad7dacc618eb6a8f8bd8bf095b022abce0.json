@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3417ef3e-d8e2-5562-9dbc-826aa9c22e1b",
+  "id": "bundle--712f9c36-f4b6-5a34-a3e0-ec6800b2db0e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -89312,6 +89312,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6db686e7-fbdd-5465-a913-07b5a55c3b8e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--88c6f7b3-531f-5b1b-b67f-79755d6160b3",
+      "target_ref": "vulnerability--818b874b-521d-50c4-ae08-7f072e0426b4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6db71586-d85a-5453-a12c-a761a649d74f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -94203,6 +94214,17 @@
       "relationship_type": "has",
       "source_ref": "software--d613524e-c377-5294-bd5c-4e54e61c0a5c",
       "target_ref": "vulnerability--9810ed3e-6071-52c9-8271-14d63885b5bc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--73ddf19b-633e-5f63-85fe-71f973038bfe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--77142e58-bfc5-5521-91bc-4ae248075ab7",
+      "target_ref": "vulnerability--818b874b-521d-50c4-ae08-7f072e0426b4"
     },
     {
       "type": "relationship",
@@ -120625,6 +120647,17 @@
       "relationship_type": "has",
       "source_ref": "software--6ea2edc7-e6b6-559c-8432-d7b7662c09c6",
       "target_ref": "vulnerability--82b30811-586c-5507-983f-5a8bfb500319"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--989d9680-cbbf-51d3-ab41-f8696a786387",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--81ac2779-08db-53b1-a43a-0d705de0ee1b",
+      "target_ref": "vulnerability--818b874b-521d-50c4-ae08-7f072e0426b4"
     },
     {
       "type": "relationship",
@@ -166308,6 +166341,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--c8a0a00b-1354-52b0-87d3-6eb360dfdee0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d6fbea06-7f24-526f-bb5f-5af5a88ed88d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2b0f8b79-1d76-5000-be25-2e390bec16bc",
+      "target_ref": "vulnerability--818b874b-521d-50c4-ae08-7f072e0426b4"
     },
     {
       "type": "relationship",
@@ -357779,6 +357823,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--de739740-c5d4-5747-9db4-21d888263f27",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T13:17:17.000Z",
+      "modified": "2026-11-20T13:17:17.000Z",
+      "name": "PHP: Remote code execution via garbage collector use-after-free (CVE-2026-129474)",
+      "description": "## Overview\nCVE-2026-129474 is a use-after-free vulnerability in the PHP garbage collector (GC). The vulnerability is triggered when a PHP object's magic methods, such as __debugInfo() or __toString(), are invoked by the garbage collector on an object that has already been freed. This can occur when circular references are processed by gc_collect_cycles() and a destructor triggers backtracing or type coercion. An attacker can potentially achieve remote code execution by controlling object construction and destruction ordering to perform type confusion, or cause a PHP worker crash.\n\n## Attack Chain\nAn attacker sends an authenticated HTTP request that influences the construction of circularly referenced objects. When the PHP garbage collector processes these objects and triggers a free, the attacker-influenced flow invokes magic methods on the freed memory slot, leading to type confusion and potential execution of arbitrary code.\n\n## Impact\nSuccessful exploitation can result in remote code execution within the PHP process context, memory corruption, and service disruption due to PHP worker crashes. The CVSS 4.0 base score is 9.2, categorized as critical.\n\n## Recommendation\nUpgrade PHP to the versions specified in the PHP Security Advisory dated 2026-11-19: 8.2.36, 8.3.37, or 8.4.28. In scenarios where patching is not immediate, monitor PHP-FPM for crashes in the garbage collection code path and consider sandboxing PHP workers to limit potential impact.",
+      "published": "2026-11-20T13:17:17.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2b0f8b79-1d76-5000-be25-2e390bec16bc",
+        "software--77142e58-bfc5-5521-91bc-4ae248075ab7",
+        "software--81ac2779-08db-53b1-a43a-0d705de0ee1b",
+        "software--88c6f7b3-531f-5b1b-b67f-79755d6160b3",
+        "vulnerability--818b874b-521d-50c4-ae08-7f072e0426b4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-php-uaf-rce-cve-2026-129474",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-php-uaf-rce-cve-2026-129474/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129474"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=9977C28A-F3BC-5D46-A30F-4E80146B1934\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-php-uaf-rce-cve-2026-129474",
+      "x_craftedsignal_event_id": "brief-2026-11-20-php-uaf-rce-cve-2026-129474",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-php-uaf-rce-cve-2026-129474/",
+      "x_craftedsignal_activity_at": "2026-11-20T13:17:17.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--de8e1f15-d69f-502c-bad8-2020d710f482",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T14:27:15.000Z",
@@ -388762,6 +388852,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2b0f8b79-1d76-5000-be25-2e390bec16bc",
+      "name": "PHP 8.4 (\u003c= 8.4.27)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2b101cfb-0011-5a75-ac27-63ecd832b64c",
       "name": "Chrome (\u003c 156.0.8078.73 for Linux)",
       "vendor": "Google"
@@ -397583,6 +397679,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--77142e58-bfc5-5521-91bc-4ae248075ab7",
+      "name": "PHP 8.3 (\u003c= 8.3.36)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--771c597f-7c55-5cb7-a845-19f96c6a72e5",
       "name": "FortiSASE (\u003c 24.3.c)",
       "vendor": "Fortinet"
@@ -398711,6 +398813,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--81ac2779-08db-53b1-a43a-0d705de0ee1b",
+      "name": "PHP 8.5 (\u003e= 8.5.0, \u003c 8.5.13)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--81b9fdd0-033e-52e1-84a2-e970b347c0d6",
       "name": "restropress (\u003c= 3.4.11)",
       "vendor": "Magnigenie"
@@ -399571,6 +399679,12 @@
       "id": "software--88a254ca-92b5-53c4-a598-ffb52f79a31e",
       "name": "Apache HTTP Server",
       "vendor": "Apache Software Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--88c6f7b3-531f-5b1b-b67f-79755d6160b3",
+      "name": "PHP 8.2 (\u003c= 8.2.35)"
     },
     {
       "type": "software",
@@ -456524,6 +456638,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-70240",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70240"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--818b874b-521d-50c4-ae08-7f072e0426b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129474",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129474",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129474"
         }
       ]
     },
