@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d2cc0e89-eaf6-52dc-9d5a-2f38c7135628",
+  "id": "bundle--e3b2875c-1936-5218-89a7-3157fda03a7d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -27809,6 +27809,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--191e7a95-bbea-57d0-b189-d1dc65ce4132",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f9c1efd0-48a8-583e-983d-e776fbdd81ff",
+      "target_ref": "vulnerability--8c3225b3-d3d1-52db-a27e-068fbbbb94aa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--191f5a0d-836b-57ca-8a41-b7870acf8297",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T21:31:16.000Z",
@@ -31259,6 +31270,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--94aa0e35-89a2-58c9-bdb1-bf8e5f8cad70"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1d9c3bc8-7c2d-5fa4-a27f-d81af7326627",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ec0f0254-c841-5c7e-b519-5cc5d3e72dae",
+      "target_ref": "vulnerability--8c3225b3-d3d1-52db-a27e-068fbbbb94aa"
     },
     {
       "type": "relationship",
@@ -43997,6 +44019,17 @@
       "relationship_type": "uses",
       "source_ref": "report--d6a39730-1e26-512d-b567-9295c00ee9ec",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2f95ef42-cf54-5769-83ce-5304ea356110",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d5dfb6af-d85a-5134-aa4f-18a75202d33a",
+      "target_ref": "vulnerability--8c3225b3-d3d1-52db-a27e-068fbbbb94aa"
     },
     {
       "type": "relationship",
@@ -96214,6 +96247,17 @@
       "relationship_type": "has",
       "source_ref": "software--f28015ea-3094-5bb3-bf4a-3e90ddc90c2c",
       "target_ref": "vulnerability--1baa56b4-4c0d-52a5-b357-4b8a390cf97b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--770848ca-0bed-5670-99d2-6f05a02c9bbe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e722774f-d691-5c26-9980-a3ef0c823577",
+      "target_ref": "vulnerability--8c3225b3-d3d1-52db-a27e-068fbbbb94aa"
     },
     {
       "type": "relationship",
@@ -157517,6 +157561,17 @@
       "relationship_type": "has",
       "source_ref": "software--bc24f899-0a89-5ddf-9f03-cff548236344",
       "target_ref": "vulnerability--1e5b71e8-6c1d-56f1-9fb6-dadfe6773269"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cae494f2-a9b1-5bb8-b699-ca03cad8d6af",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--93fffdb8-99e2-5ea8-980e-aa75ba0441c7",
+      "target_ref": "vulnerability--8c3225b3-d3d1-52db-a27e-068fbbbb94aa"
     },
     {
       "type": "relationship",
@@ -309211,7 +309266,7 @@
       "id": "report--9cc3d75e-e5c4-59d1-b744-a0645ba6599a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T22:31:32.000Z",
-      "modified": "2026-11-19T22:31:32.000Z",
+      "modified": "2026-11-20T06:40:13.000Z",
       "name": "PHP: Remote Code Execution via Timezone Cache Use-After-Free (CVE-2026-129496)",
       "description": "## Overview\nA use-after-free vulnerability exists in the PHP date extension's timezone cache, specifically affecting non-thread-safe builds such as Apache mod_php or CGI. The issue arises when a diagnostic message is written to a file-based error_log during module startup, causing the timezone cache to be allocated in startup memory that is subsequently freed while a reference to it persists. A diagnostic raised early in the first request of a worker process then accesses this freed cache.\n\n## Attack Chain\nAn unauthenticated remote attacker can crash PHP-FPM, Apache mod_php, or CGI workers by sending a crafted request. Arbitrary code execution may be possible and has been demonstrated in lab environments using known memory addresses.\n\n## Impact\nSuccessful exploitation can result in a crash of the affected PHP worker processes or potential arbitrary code execution as the user running the PHP service.\n\n## Recommendation\nUpgrade to the patched PHP versions: 8.2.36, 8.3.37, 8.4.28, or 8.5.13. Until patching is possible, the PHP Group recommends configuring PHP to send error logs to syslog instead of a file-based error_log, correcting startup diagnostic issues (such as invalid date.timezone settings), and restarting the master and every worker process.",
       "published": "2026-11-19T22:31:32.000Z",
@@ -309226,7 +309281,12 @@
         "software--07d9c18e-bbfd-52be-b4f9-162ec122500f",
         "software--0ccf8b05-76ef-5311-9619-0bc951406d85",
         "software--45994cf6-9d6d-5d04-a541-ca0be4b2c2f4",
+        "software--93fffdb8-99e2-5ea8-980e-aa75ba0441c7",
+        "software--d5dfb6af-d85a-5134-aa4f-18a75202d33a",
         "software--db3c72f1-bb33-507e-999f-1cf124ffaa45",
+        "software--e722774f-d691-5c26-9980-a3ef0c823577",
+        "software--ec0f0254-c841-5c7e-b519-5cc5d3e72dae",
+        "software--f9c1efd0-48a8-583e-983d-e776fbdd81ff",
         "vulnerability--8c3225b3-d3d1-52db-a27e-068fbbbb94aa"
       ],
       "external_references": [
@@ -309241,19 +309301,27 @@
         },
         {
           "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/php-group-security-advisory-av26-1183"
+        },
+        {
+          "source_name": "reference",
           "url": "https://github.com/php/php-src/security/advisories/GHSA-gr4f-wgx5-jpfv"
         },
         {
           "source_name": "reference",
           "url": "https://sploitus.com/exploit?id=7D935A5A-2F20-5521-B56B-77DCA5FF928D\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.php.net/ChangeLog-8.php"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-19-php-timezone-use-after-free-cve-2026-129496",
       "x_craftedsignal_event_id": "brief-2026-11-19-php-timezone-use-after-free-cve-2026-129496",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-php-timezone-use-after-free-cve-2026-129496/",
-      "x_craftedsignal_activity_at": "2026-11-19T22:31:32.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T06:40:13.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -398949,6 +399017,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--93fffdb8-99e2-5ea8-980e-aa75ba0441c7",
+      "name": "PHP (\u003c 8.4.28)",
+      "vendor": "PHP Group"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--940aba6c-4d86-5974-a83b-7f48d484c3da",
       "name": "iM3B-C",
       "vendor": "Intelbras"
@@ -406320,6 +406395,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d5dfb6af-d85a-5134-aa4f-18a75202d33a",
+      "name": "PHP (\u003c 8.3.37)",
+      "vendor": "PHP Group"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d5f6d007-3c4c-5dd8-b232-47f043f22c24",
       "name": "NocoDB (\u003c 2026.09.0)",
       "vendor": "NocoDB"
@@ -408151,6 +408233,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e722774f-d691-5c26-9980-a3ef0c823577",
+      "name": "PHP (\u003c 8.5.13)",
+      "vendor": "PHP Group"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e72f52d6-18e9-53d0-a976-1674bfd1fa9d",
       "name": "Grafana",
       "vendor": "Grafana Labs"
@@ -408755,6 +408844,13 @@
       "id": "software--ec03ba2d-cb3f-58fe-bb2e-84218535055a",
       "name": "Rclone (\u003c 1.75.2)",
       "vendor": "rclone"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ec0f0254-c841-5c7e-b519-5cc5d3e72dae",
+      "name": "PHP (\u003c 8.6.0)",
+      "vendor": "PHP Group"
     },
     {
       "type": "software",
@@ -410247,6 +410343,13 @@
       "id": "software--f9b0856c-ca8e-5d39-958d-fb0bb232349a",
       "name": "TeamCity (\u003e= 2026.1, \u003c 2026.1.4)",
       "vendor": "JetBrains"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f9c1efd0-48a8-583e-983d-e776fbdd81ff",
+      "name": "PHP (\u003c 8.2.36)",
+      "vendor": "PHP Group"
     },
     {
       "type": "software",
