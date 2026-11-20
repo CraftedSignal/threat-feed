@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b70c049d-7c66-59b6-9a42-30cf93f6783b",
+  "id": "bundle--0404b6ee-45d3-537a-8687-573eaf0a04c2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -38077,6 +38077,17 @@
       "relationship_type": "has",
       "source_ref": "software--e56fe4b8-7537-56f0-8161-75153560c198",
       "target_ref": "vulnerability--a8f0be14-54a5-5c38-9c0d-515ff51b770d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--70de71ab-2afe-557c-b81e-a2189d3f69f4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7e577d37-696c-592f-8618-42cca0ee10d8",
+      "target_ref": "vulnerability--15ec5f43-1f02-58c3-bade-7cf92741c2ef"
     },
     {
       "type": "relationship",
@@ -90439,6 +90450,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1ae07d56-a06b-50f6-b17d-f7fdd0210c88",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T16:38:04.000Z",
+      "modified": "2026-11-19T16:38:04.000Z",
+      "name": "jane-php open-api-3: PHPDoc breakout remote code execution (CVE-2026-63413)",
+      "description": "## Overview\nJane is a set of PHP libraries that generates models and API clients from JSON Schema and OpenAPI specifications. In version composer/jane-php/open-api-3 prior to 7.12.0, the generator emits OpenAPI header parameter names verbatim into PHPDoc comment blocks. An attacker can provide a header parameter name containing a PHPDoc closing delimiter (*/) to terminate the comment block early and inject arbitrary PHP code into the class body, including a custom __construct method.\n\n## Attack Chain\n1. An attacker influences an OpenAPI document to include a malicious header parameter name.\n2. The jane-php open-api-3 library generates a Client class with the malicious input embedded in a docblock.\n3. Upon instantiation of the generated client, the injected PHP code executes within the context of the consuming application.\n\n## Impact\nExploitation allows for the execution of arbitrary PHP code with the privileges of the application consuming the generated SDK.\n\n## Recommendation\nUpgrade composer/jane-php/open-api-3 to version 7.12.0 or later.",
+      "published": "2026-11-19T16:38:04.000Z",
+      "labels": [
+        "cve-2026-63413",
+        "php",
+        "rce"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7e577d37-696c-592f-8618-42cca0ee10d8",
+        "vulnerability--15ec5f43-1f02-58c3-bade-7cf92741c2ef"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-19-janephp-rce-ghsa-x9xr-53qx-9qcf",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-janephp-rce-ghsa-x9xr-53qx-9qcf/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-63413"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-x9xr-53qx-9qcf"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-19-janephp-rce-ghsa-x9xr-53qx-9qcf",
+      "x_craftedsignal_event_id": "brief-2026-11-19-janephp-rce-ghsa-x9xr-53qx-9qcf",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-janephp-rce-ghsa-x9xr-53qx-9qcf/",
+      "x_craftedsignal_activity_at": "2026-11-19T16:38:04.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00312,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -219156,6 +219216,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7e577d37-696c-592f-8618-42cca0ee10d8",
+      "name": "composer/jane-php/open-api-3",
+      "vendor": "janephp"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7e607f35-ddf7-5eb6-94c2-a2ec73adc89b",
       "name": "AK-SM series controllers"
     },
@@ -234726,6 +234793,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-19586",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19586"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--15ec5f43-1f02-58c3-bade-7cf92741c2ef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-63413",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-63413",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63413"
         }
       ]
     },
