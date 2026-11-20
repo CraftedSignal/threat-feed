@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e33afc0c-d4fa-566a-ba50-806f7a03d7ba",
+  "id": "bundle--62738a72-5f14-5e6f-9fe1-125d60cec768",
   "objects": [
     {
       "type": "attack-pattern",
@@ -123770,6 +123770,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--cd32831a-78ce-5c11-996f-57e6c5fc07e5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T08:05:21.000Z",
+      "modified": "2026-11-20T08:05:21.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--efd375b8-76d8-514e-923b-aec2a6e04819",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--cd32a275-d5e6-5a96-b247-82ccffe10221",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -132192,6 +132203,17 @@
       "relationship_type": "has",
       "source_ref": "software--85475315-041c-542e-bcae-560f82ce7f95",
       "target_ref": "vulnerability--7be82ffe-f4b0-58da-ac48-d7000ed95505"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--dd07b040-399b-50ad-b320-19ed0db10910",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9ae5132c-745e-5892-b7b4-d696fd3c8bf6",
+      "target_ref": "vulnerability--05bb12f1-1dd7-566c-97ae-7dd5f65d5d82"
     },
     {
       "type": "relationship",
@@ -281239,6 +281261,62 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--efd375b8-76d8-514e-923b-aec2a6e04819",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T08:05:21.000Z",
+      "modified": "2026-11-20T08:05:21.000Z",
+      "name": "GiveWP: Unauthenticated Remote Code Execution via Object Injection (CVE-2026-82222)",
+      "description": "### Overview\nCVE-2026-82222 is a deserialization of untrusted data vulnerability in the Liquid Web / StellarWP GiveWP plugin that allows for object injection. This issue affects GiveWP versions from n/a through 4.16.7.1.\n\n### Attack Chain\nThe vulnerability is reachable in versions \u003c= 4.16.5.1 on a default installation. In versions 4.16.6 through 4.16.7.1, exploitation requires that a legacy (non-V3) form exists; a fresh V3-only installation is not susceptible. The attack leverages an unauthenticated gadget chain, specifically utilizing TCPDF::__destruct() to reach call_user_func_array('system', [cmd]).\n\n### Impact\nSuccessful exploitation results in unauthenticated remote code execution on the WordPress server.\n\n### Recommendation\nUpdate the WordPress GiveWP plugin to version 4.16.7.2 or later.",
+      "published": "2026-11-20T08:05:21.000Z",
+      "labels": [
+        "cve-2026-82222",
+        "deserialization",
+        "rce",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9ae5132c-745e-5892-b7b4-d696fd3c8bf6",
+        "vulnerability--05bb12f1-1dd7-566c-97ae-7dd5f65d5d82"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-givewp-rce-cve-2026-82222",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-givewp-rce-cve-2026-82222/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-82222"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://patchstack.com/articles/unauthenticated-php-object-injection-to-remote-code-execution-on-givewp/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-UDINCHAN-CVE-2026-82222-POC\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-givewp-rce-cve-2026-82222",
+      "x_craftedsignal_event_id": "brief-2026-11-20-givewp-rce-cve-2026-82222",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-givewp-rce-cve-2026-82222/",
+      "x_craftedsignal_activity_at": "2026-11-20T08:05:21.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.0225,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--efe63894-6fc0-5913-bb4a-fe969b573c2b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T00:16:51.000Z",
@@ -311989,6 +312067,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114817",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114817"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--05bb12f1-1dd7-566c-97ae-7dd5f65d5d82",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-82222",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-82222",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82222"
         }
       ]
     },
