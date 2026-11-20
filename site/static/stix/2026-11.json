@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--52b63d1a-75f6-5aef-9ac1-3c5a8d62707b",
+  "id": "bundle--27eba95b-d212-5399-871d-b9131a62194c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -46355,7 +46355,7 @@
       "id": "relationship--45f11d51-2fc3-5c9b-8808-ddc6bf4b7153",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T11:53:43.000Z",
-      "modified": "2026-11-16T11:53:43.000Z",
+      "modified": "2026-11-20T03:21:53.000Z",
       "relationship_type": "uses",
       "source_ref": "report--f3cfe99d-df35-5644-b64b-7221e6e479ee",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -77962,6 +77962,17 @@
       "relationship_type": "has",
       "source_ref": "software--dca4de2c-c0d9-53c5-8c6d-0e13fde3cc4a",
       "target_ref": "vulnerability--dc2927ad-cb0e-5747-83c7-dfee999ad7b0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7db0359d-8866-5424-8756-821e3d3829e3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a2724b69-e305-5e01-a92e-b845d3e532ca",
+      "target_ref": "vulnerability--b2e30d71-fce4-5784-acc6-e4209fdf5423"
     },
     {
       "type": "relationship",
@@ -112674,7 +112685,7 @@
       "id": "relationship--bbd79b70-04ca-5ebb-bf76-42d2884b7858",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T23:55:05.000Z",
-      "modified": "2026-11-18T23:55:05.000Z",
+      "modified": "2026-11-20T03:21:53.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c4988a37-b1cf-522d-8dc7-37269e25ea9f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -252793,7 +252804,7 @@
       "id": "report--c4988a37-b1cf-522d-8dc7-37269e25ea9f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T23:55:05.000Z",
-      "modified": "2026-11-18T23:55:05.000Z",
+      "modified": "2026-11-20T03:21:53.000Z",
       "name": "AnsibleForms authentication bypass (CVE-2026-73969)",
       "description": "## Overview\nAnsibleForms versions prior to 6.2.1 are vulnerable to an authentication bypass vulnerability (CVE-2026-73969). The application uses a hard-coded fallback JWT signing secret located in 'server/config/auth.config.js' if the 'ACCESS_TOKEN_SECRET' environment variable is not configured. Because the application logic in 'server/src/auth/auth_jwt.js' does not cross-reference the user from the database during signature validation, and the middleware ('server/src/lib/middleware.js') implicitly trusts roles and permissions defined within the token, an attacker can generate a malicious, privileged JWT to gain unauthorized administrative access.\n\n## Impact\nSuccessful exploitation allows an unauthenticated, remote attacker to impersonate an administrator, leading to full access to the privileged API of the affected AnsibleForms instance.\n\n## Recommendation\nUpgrade AnsibleForms to version 6.2.1 or later to remediate this vulnerability. Administrators should ensure the 'ACCESS_TOKEN_SECRET' environment variable is explicitly configured with a unique, strong, and private key in all deployments.",
       "published": "2026-11-18T23:55:05.000Z",
@@ -252816,20 +252827,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73969"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-73969\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-18-ansibleforms-auth-bypass-cve-2026-73969",
       "x_craftedsignal_event_id": "brief-2026-11-18-ansibleforms-auth-bypass-cve-2026-73969",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ansibleforms-auth-bypass-cve-2026-73969/",
-      "x_craftedsignal_activity_at": "2026-11-18T23:55:05.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T03:21:53.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00538,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -268966,13 +268982,14 @@
       "id": "report--e3773b48-c171-5696-8537-893f3fb9f6ca",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T22:24:23.000Z",
-      "modified": "2026-11-18T22:24:23.000Z",
+      "modified": "2026-11-20T03:21:53.000Z",
       "name": "SmarterTools SmarterMail Security Advisory",
       "description": "## Overview\n\nOn November 18, 2026, the Canadian Centre for Cyber Security released an advisory (AV26-1177) regarding undisclosed vulnerabilities affecting SmarterMail. The vulnerability impacts all SmarterMail builds prior to 9817. The vendor has provided release notes and download links for the update.\n\n## Recommendation\n\nInventory all deployments of SmarterMail within the organization. Upgrade all instances of SmarterMail to build 9817 or later immediately. Monitor the SmarterTools official release notes for further technical details regarding the patched vulnerabilities as they become available.",
       "published": "2026-11-18T22:24:23.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--a2724b69-e305-5e01-a92e-b845d3e532ca"
+        "software--a2724b69-e305-5e01-a92e-b845d3e532ca",
+        "vulnerability--b2e30d71-fce4-5784-acc6-e4209fdf5423"
       ],
       "external_references": [
         {
@@ -268986,6 +269003,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=B3E18583-64C9-5D70-A0D7-95E4CB102771\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.smartertools.com/smartermail/downloads"
         },
         {
@@ -268996,15 +269017,17 @@
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-18-smartertools-advisory",
       "x_craftedsignal_event_id": "brief-2026-11-18-smartertools-advisory",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-smartertools-advisory/",
-      "x_craftedsignal_activity_at": "2026-11-18T22:24:23.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T03:21:53.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.01813,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -277829,7 +277852,7 @@
       "id": "report--f3cfe99d-df35-5644-b64b-7221e6e479ee",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T11:53:43.000Z",
-      "modified": "2026-11-16T11:53:43.000Z",
+      "modified": "2026-11-20T03:21:53.000Z",
       "name": "httpx: Arbitrary object instantiation via insecure JSON deserialization (CVE-2026-129784)",
       "description": "## Overview\nThe httpx Ruby gem version 1.9.0 is vulnerable to insecure JSON deserialization. When the oj gem is loaded and the multi_json gem is absent, the HTTPX::Response#json method falls back to a decoder that calls Oj.load(response.to_s) without specifying a security mode. By default, Oj uses :object mode, which allows for the instantiation of arbitrary Ruby classes and the resolution of class or module references from the input data.\n\n## Attack Chain\nAn attacker who can control or influence the URL fetched by an application using HTTPX.get(url).json can deliver a malicious JSON payload. If the application environment contains a valid gadget chain, this deserialization process can result in remote code execution (RCE) with the privileges of the Ruby process.\n\n## Impact\nSuccessful exploitation allows an attacker to control object instantiation in the victim process, potentially leading to remote code execution. Exploitation requires specific environmental conditions: the oj gem must be loaded, multi_json must be absent, no safe process-wide Oj.default_options must be set, and the process must contain a valid gadget chain.\n\n## Recommendation\nUpgrade the httpx gem to version 1.9.1 or later, which calls Oj.load with an explicit { mode: :strict } default. If upgrading is not possible, apply one of the following mitigations: specify a safe mode at the call site (response.json(mode: :strict)) or configure a safe process-wide default (e.g., Oj.default_options = { mode: :strict }) before processing untrusted JSON.",
       "published": "2026-11-16T11:53:43.000Z",
@@ -277857,20 +277880,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129784"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-129784\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-16-httpx-deserialization-cve-2026-129784",
       "x_craftedsignal_event_id": "brief-2026-11-16-httpx-deserialization-cve-2026-129784",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-httpx-deserialization-cve-2026-129784/",
-      "x_craftedsignal_activity_at": "2026-11-16T11:53:43.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T03:21:53.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.5,
+      "x_craftedsignal_epss_max": 0.00659,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -349651,6 +349679,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126183",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126183"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b2e30d71-fce4-5784-acc6-e4209fdf5423",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126967",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126967",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126967"
         }
       ]
     },
