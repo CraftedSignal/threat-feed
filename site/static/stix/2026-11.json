@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0404b6ee-45d3-537a-8687-573eaf0a04c2",
+  "id": "bundle--5d3bf1c4-80f8-58c0-bba5-2383b5bd29b9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -767,6 +767,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1114.002",
           "url": "https://attack.mitre.org/techniques/T1114/002"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--34fee94c-ec6f-5bd3-9099-a8ee3cda6556",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Launch Daemon",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1543.004",
+          "url": "https://attack.mitre.org/techniques/T1543/004"
         }
       ]
     },
@@ -2479,6 +2495,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1036.005",
           "url": "https://attack.mitre.org/techniques/T1036/005"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--cb67b622-7ef3-5058-b4b3-a90f5a7a9077",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Launch Agent",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1543.001",
+          "url": "https://attack.mitre.org/techniques/T1543/001"
         }
       ]
     },
@@ -11314,6 +11346,17 @@
       "relationship_type": "has",
       "source_ref": "software--e8d8fa1a-2af8-593b-9162-5cea1fca7f76",
       "target_ref": "vulnerability--9316ef3d-3e57-528c-8ab3-22000ab623ba"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0d0afaab-c7c3-5fa5-9a4e-26175fae92d9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T09:09:21.000Z",
+      "modified": "2026-11-20T01:55:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--915607b2-9b51-59c5-9dda-b4c58cd28530",
+      "target_ref": "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf"
     },
     {
       "type": "relationship",
@@ -52744,6 +52787,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a70caa60-f578-5894-a141-348ec40c6385",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T09:09:21.000Z",
+      "modified": "2026-11-20T01:55:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--915607b2-9b51-59c5-9dda-b4c58cd28530",
+      "target_ref": "attack-pattern--cb67b622-7ef3-5058-b4b3-a90f5a7a9077"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a71ae920-4252-5433-9465-97dd2df19ab8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T07:52:07.000Z",
@@ -63751,6 +63805,17 @@
       "relationship_type": "uses",
       "source_ref": "report--ca41b9d9-3794-57b2-9223-89531b405615",
       "target_ref": "indicator--c3e5846c-0490-5a02-921a-f2cea327dd8d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cdf6b627-ade5-5552-b21d-3a0a0acce897",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T09:09:21.000Z",
+      "modified": "2026-11-20T01:55:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--915607b2-9b51-59c5-9dda-b4c58cd28530",
+      "target_ref": "attack-pattern--9d85f8f1-4fb2-5559-b6ac-ccb12620368e"
     },
     {
       "type": "relationship",
@@ -76489,6 +76554,17 @@
       "relationship_type": "uses",
       "source_ref": "report--8f6a81cc-6fbe-59a0-9e19-5bf0afff5859",
       "target_ref": "attack-pattern--6438e094-8736-5051-84c8-690743a1ce5e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ff24bafc-94e2-52f2-b029-51fd44d73aff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T09:09:21.000Z",
+      "modified": "2026-11-20T01:55:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--915607b2-9b51-59c5-9dda-b4c58cd28530",
+      "target_ref": "attack-pattern--34fee94c-ec6f-5bd3-9099-a8ee3cda6556"
     },
     {
       "type": "relationship",
@@ -153039,6 +153115,64 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--915607b2-9b51-59c5-9dda-b4c58cd28530",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T09:09:21.000Z",
+      "modified": "2026-11-20T01:55:18.000Z",
+      "name": "Persistence via Suspicious Launch Agent or Launch Daemon on macOS",
+      "description": "## Overview\nLaunchAgents and LaunchDaemons are the standard macOS mechanisms for starting programs automatically at user login or system boot. While essential for legitimate software, these persistence mechanisms are heavily abused by malware including RustBucket (DPRK), Shlayer, and CloudMensis. This detection rule identifies plist file creation in LaunchAgent/LaunchDaemon directories when performed by suspicious processes including scripts executing from temporary directories, unsigned binaries, or scripting interpreters like Python and osascript.\n\n## Attack Chain\nAn adversary may establish persistence by installing a new launch agent or daemon which executes at login. This involves the creation of a property list file in directories such as /Library/LaunchAgents/ or /Library/LaunchDaemons/ by processes such as scripts executing from temporary directories, unsigned binaries, or scripting interpreters.\n\n## Impact\nSuccessful abuse allows malicious code to achieve persistence, ensuring it executes automatically upon user login or system boot.\n\n## Recommendation\n- Examine the file.path to identify the specific plist file created and its location.\n- Read the plist contents using plutil or defaults to identify the Program or ProgramArguments configured for execution.\n- Analyze the process.executable to understand what created the plist file and assess whether execution from that location is suspicious.\n- Check the process.name and process.code_signature fields to determine if the creating process was a scripting interpreter or unsigned binary.\n- Locate the binary or script referenced in the plist and calculate its hash for threat intelligence lookups.\n- Review the parent process chain to trace back to the initial execution vector.\n- Immediately unload the suspicious LaunchAgent or LaunchDaemon using launchctl unload and remove the malicious plist file.",
+      "published": "2026-11-02T09:09:21.000Z",
+      "labels": [
+        "Defense Evasion",
+        "Persistence",
+        "macOS"
+      ],
+      "object_refs": [
+        "attack-pattern--34fee94c-ec6f-5bd3-9099-a8ee3cda6556",
+        "attack-pattern--9d85f8f1-4fb2-5559-b6ac-ccb12620368e",
+        "attack-pattern--cb67b622-7ef3-5058-b4b3-a90f5a7a9077",
+        "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-macos-suspicious-launch-agent-daemon",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-macos-suspicious-launch-agent-daemon/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/macos/persistence_suspicious_launch_agent_or_launch_daemon.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://medium.com/red-teaming-with-a-blue-team-mentality/a-brief-look-at-macos-detections-and-post-infection-analysis-b0ede7ecfeb9"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://objective-see.org/blog"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.elastic.co/security-labs/DPRK-strikes-using-a-new-variant-of-rustbucket"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-macos-suspicious-launch-agent-daemon",
+      "x_craftedsignal_event_id": "brief-2026-11-02-macos-suspicious-launch-agent-daemon",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-macos-suspicious-launch-agent-daemon/",
+      "x_craftedsignal_activity_at": "2026-11-20T01:55:18.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
