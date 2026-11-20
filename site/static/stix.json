@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--fc76a8fb-ab17-5c1b-afb5-54dd38e3b295",
+  "id": "bundle--29ff2a45-88bb-5989-b4e9-a8e51c82207a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -59346,17 +59346,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--71e90c39-874b-50bf-b107-0629116249a2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T01:43:03.000Z",
-      "modified": "2026-10-21T01:43:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--732b8bf5-bc02-5e9f-ac32-4ae7f7eae3da",
-      "target_ref": "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--71fb26c5-267c-5955-9214-2eee2d8be176",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -79993,17 +79982,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--a11a01f5-d289-5135-b8af-a88891d26269",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T01:43:03.000Z",
-      "modified": "2026-10-21T01:43:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--732b8bf5-bc02-5e9f-ac32-4ae7f7eae3da",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--a11eb68f-7147-5b9f-9c80-ebed46a4b4e5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -98253,6 +98231,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c8812d68-7421-5e55-967e-057c3481cdd0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T21:58:00.000Z",
+      "modified": "2026-11-20T01:50:07.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--cce6f80d-c59f-5cd3-8649-0e6ba71893e1",
+      "target_ref": "threat-actor--d4428c43-0fb8-5df0-8a31-04c13c02530e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c881660b-750c-5c5f-a890-846cc31a0c02",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T16:44:41.000Z",
@@ -106807,17 +106796,6 @@
       "relationship_type": "has",
       "source_ref": "software--62c7c9ac-603b-59bb-a4d4-7e94afebee02",
       "target_ref": "vulnerability--97d1c14f-f7de-5428-a30a-2d3d23e9ef1c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--dc92fa01-2ee6-5938-a0a4-7db372c3c500",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T01:43:03.000Z",
-      "modified": "2026-10-21T01:43:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--732b8bf5-bc02-5e9f-ac32-4ae7f7eae3da",
-      "target_ref": "attack-pattern--49352fa6-0e34-56e8-89b7-aa09aee8e00a"
     },
     {
       "type": "relationship",
@@ -204376,49 +204354,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--732b8bf5-bc02-5e9f-ac32-4ae7f7eae3da",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T01:43:03.000Z",
-      "modified": "2026-10-21T01:43:03.000Z",
-      "name": "GoldenDMSA HackTool Execution",
-      "description": "## Overview\n\nGoldenDMSA is a specialized offensive security tool designed to target Active Directory environments by exploiting the authentication mechanisms of Group Managed Service Accounts (gMSA). The tool allows attackers to perform account manipulation and authentication bypass, potentially leading to unauthorized privilege escalation or persistence within a compromised domain. The tool's capabilities center on leveraging vulnerabilities in gMSA handling, often involving brute-force techniques against service accounts to recover credentials or impersonate accounts. Its use is typically associated with post-exploitation phases where an adversary seeks to solidify their hold on a domain controller or privileged identity management service. Defenders should monitor for the execution of this specific binary and suspicious command-line patterns indicating brute-force or service account enumeration attempts.\n\n## Attack Chain\n\n1. Initial compromise of a workstation or server joined to the Active Directory domain.\n2. Escalation of privileges to reach a security context capable of executing administrative utilities.\n3. Delivery of the GoldenDMSA.exe utility to the local system disk.\n4. Execution of the tool with command-line arguments specifying a security identifier (SID) or target account.\n5. Utilization of dictionary files or provided wordlists to conduct brute-force attacks against gMSA targets.\n6. Interaction with domain controllers to attempt authentication bypass or credential recovery.\n7. Successful exploitation resulting in the capture of service account secrets or unauthorized access to sensitive service resources.\n\n## Impact\n\nSuccessful use of GoldenDMSA allows attackers to bypass standard AD authentication controls, gain control over service accounts, and potentially perform unauthorized actions within the enterprise domain. This poses a severe risk to service integrity, as compromised gMSAs are often used for critical infrastructure and automated system tasks.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to detect the execution of the GoldenDMSA binary or associated command-line patterns on all endpoints and domain controllers.\n- Audit logs for the use of high-privilege service account operations that deviate from established baselines for gMSA authentication.\n- Implement stringent monitoring for brute-force patterns targeting AD service accounts using Event ID 4625 and 4768.\n",
-      "published": "2026-10-21T01:43:03.000Z",
-      "labels": [
-        "active-directory",
-        "hacktool",
-        "persistence",
-        "privilege-escalation",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--49352fa6-0e34-56e8-89b7-aa09aee8e00a",
-        "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-21-goldendmsa",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-goldendmsa/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-21-goldendmsa",
-      "x_craftedsignal_event_id": "brief-2026-10-21-goldendmsa",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-goldendmsa/",
-      "x_craftedsignal_activity_at": "2026-10-21T01:43:03.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--732cd1e5-1cf7-5be9-a750-0878eb612530",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T20:39:06.000Z",
@@ -268165,7 +268100,7 @@
       "id": "report--cce6f80d-c59f-5cd3-8649-0e6ba71893e1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T21:58:00.000Z",
-      "modified": "2026-11-19T21:58:00.000Z",
+      "modified": "2026-11-20T01:50:07.000Z",
       "name": "VMware vCenter Server and Telco Cloud Platform authentication bypass (CVE-2026-123890)",
       "description": "## Overview\nVMware has disclosed an authentication bypass vulnerability (CVE-2026-123890) within the VMware Directory Service. The vulnerability is rated with a CVSS base score of 9.8. It can be exploited remotely by an unauthenticated attacker with no user interaction required.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to bypass authentication mechanisms, impacting the confidentiality, integrity, and availability of the affected platform.\n\n## Recommendation\nFor VMware vCenter, the following versions are affected and have specified fixes:\n- vCenter 9.1.x (fixed in 9.1.1.0200)\n- vCenter 9.0.x (fixed in 9.0.2.0200)\n- vCenter 8.0 (fixed in 8.0 U3m)\n- vCenter 5.x (fixed in 5.2.5)\n\nFor Telco Cloud Platform (versions 3.0, 4.x, 5.0.x, 5.1.x, 5.2) and Telco Cloud Infrastructure (version 3.0), users should consult VMware KB463116 for guidance, as specific fixed versions are not listed in the current advisory.",
       "published": "2026-11-19T21:58:00.000Z",
@@ -268181,6 +268116,7 @@
         "software--a6e5e37c-1ce8-5dee-99c9-576a47341b16",
         "software--c0fc56a7-8634-5ec1-a820-9005d4fc1f66",
         "software--f1f1aa4e-fcd7-540c-a22d-a1174b251f31",
+        "threat-actor--d4428c43-0fb8-5df0-8a31-04c13c02530e",
         "vulnerability--2dd782a9-15a3-5495-82b3-9d6a0ae2b9ba"
       ],
       "external_references": [
@@ -268196,16 +268132,20 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123890"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.rapid7.com/blog/post/etr-cve-2026-123890-critical-authentication-bypass-vmware-vcenter"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-19-vmware-vcenter-auth-bypass-cve-2026-123890",
       "x_craftedsignal_event_id": "brief-2026-11-19-vmware-vcenter-auth-bypass-cve-2026-123890",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-vmware-vcenter-auth-bypass-cve-2026-123890/",
-      "x_craftedsignal_activity_at": "2026-11-19T21:58:00.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T01:50:07.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
@@ -335249,6 +335189,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "0xBlackash"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--d4428c43-0fb8-5df0-8a31-04c13c02530e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "ARMORY CASTLE"
     },
     {
       "type": "threat-actor",

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0b268606-2546-5879-9d9f-fbeb3de225bf",
+  "id": "bundle--0a71ab95-ae3e-5e80-b392-110b236a7b13",
   "objects": [
     {
       "type": "attack-pattern",
@@ -62349,6 +62349,17 @@
       "relationship_type": "has",
       "source_ref": "software--a2cc72d3-0514-5491-90a3-d2afb73d230a",
       "target_ref": "vulnerability--e098b9f7-f27b-5c06-893e-899e1be3492b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c8812d68-7421-5e55-967e-057c3481cdd0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-19T21:58:00.000Z",
+      "modified": "2026-11-20T01:50:07.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--cce6f80d-c59f-5cd3-8649-0e6ba71893e1",
+      "target_ref": "threat-actor--d4428c43-0fb8-5df0-8a31-04c13c02530e"
     },
     {
       "type": "relationship",
@@ -182819,7 +182830,7 @@
       "id": "report--cce6f80d-c59f-5cd3-8649-0e6ba71893e1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T21:58:00.000Z",
-      "modified": "2026-11-19T21:58:00.000Z",
+      "modified": "2026-11-20T01:50:07.000Z",
       "name": "VMware vCenter Server and Telco Cloud Platform authentication bypass (CVE-2026-123890)",
       "description": "## Overview\nVMware has disclosed an authentication bypass vulnerability (CVE-2026-123890) within the VMware Directory Service. The vulnerability is rated with a CVSS base score of 9.8. It can be exploited remotely by an unauthenticated attacker with no user interaction required.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to bypass authentication mechanisms, impacting the confidentiality, integrity, and availability of the affected platform.\n\n## Recommendation\nFor VMware vCenter, the following versions are affected and have specified fixes:\n- vCenter 9.1.x (fixed in 9.1.1.0200)\n- vCenter 9.0.x (fixed in 9.0.2.0200)\n- vCenter 8.0 (fixed in 8.0 U3m)\n- vCenter 5.x (fixed in 5.2.5)\n\nFor Telco Cloud Platform (versions 3.0, 4.x, 5.0.x, 5.1.x, 5.2) and Telco Cloud Infrastructure (version 3.0), users should consult VMware KB463116 for guidance, as specific fixed versions are not listed in the current advisory.",
       "published": "2026-11-19T21:58:00.000Z",
@@ -182835,6 +182846,7 @@
         "software--a6e5e37c-1ce8-5dee-99c9-576a47341b16",
         "software--c0fc56a7-8634-5ec1-a820-9005d4fc1f66",
         "software--f1f1aa4e-fcd7-540c-a22d-a1174b251f31",
+        "threat-actor--d4428c43-0fb8-5df0-8a31-04c13c02530e",
         "vulnerability--2dd782a9-15a3-5495-82b3-9d6a0ae2b9ba"
       ],
       "external_references": [
@@ -182850,16 +182862,20 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123890"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.rapid7.com/blog/post/etr-cve-2026-123890-critical-authentication-bypass-vmware-vcenter"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-19-vmware-vcenter-auth-bypass-cve-2026-123890",
       "x_craftedsignal_event_id": "brief-2026-11-19-vmware-vcenter-auth-bypass-cve-2026-123890",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-vmware-vcenter-auth-bypass-cve-2026-123890/",
-      "x_craftedsignal_activity_at": "2026-11-19T21:58:00.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T01:50:07.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
@@ -228892,6 +228908,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "0xBlackash"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--d4428c43-0fb8-5df0-8a31-04c13c02530e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "ARMORY CASTLE"
     },
     {
       "type": "threat-actor",
