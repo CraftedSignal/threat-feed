@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2665424d-2036-5f0b-9a64-984436ab03e0",
+  "id": "bundle--d397820a-f2ab-5620-9bc8-0ede5efbfad4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -41750,6 +41750,17 @@
       "relationship_type": "has",
       "source_ref": "software--85475315-041c-542e-bcae-560f82ce7f95",
       "target_ref": "vulnerability--a3385242-9d97-5656-953b-928a34f31109"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3d3c96c7-3aec-53ff-944e-c95934412c46",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6d5a4040-3bea-5783-a3cc-cd300cdc67cf",
+      "target_ref": "vulnerability--78ed9402-9f2e-5466-901f-d873679402af"
     },
     {
       "type": "relationship",
@@ -92332,6 +92343,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--97e9490c-7d85-5b21-849d-5245c0b9f6ad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T04:37:23.000Z",
+      "modified": "2026-11-20T04:37:23.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e0afe62d-659a-5000-935a-0bfdfe4e1625",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--97ea2944-cb0d-5b5f-a995-6df44d358b35",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -120088,7 +120110,7 @@
       "id": "relationship--c8812d68-7421-5e55-967e-057c3481cdd0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T21:58:00.000Z",
-      "modified": "2026-11-20T01:50:07.000Z",
+      "modified": "2026-11-20T04:38:22.000Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--cce6f80d-c59f-5cd3-8649-0e6ba71893e1",
       "target_ref": "threat-actor--d4428c43-0fb8-5df0-8a31-04c13c02530e"
@@ -257576,7 +257598,7 @@
       "id": "report--cce6f80d-c59f-5cd3-8649-0e6ba71893e1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T21:58:00.000Z",
-      "modified": "2026-11-20T01:50:07.000Z",
+      "modified": "2026-11-20T04:38:22.000Z",
       "name": "VMware vCenter Server and Telco Cloud Platform authentication bypass (CVE-2026-123890)",
       "description": "## Overview\nVMware has disclosed an authentication bypass vulnerability (CVE-2026-123890) within the VMware Directory Service. The vulnerability is rated with a CVSS base score of 9.8. It can be exploited remotely by an unauthenticated attacker with no user interaction required.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to bypass authentication mechanisms, impacting the confidentiality, integrity, and availability of the affected platform.\n\n## Recommendation\nFor VMware vCenter, the following versions are affected and have specified fixes:\n- vCenter 9.1.x (fixed in 9.1.1.0200)\n- vCenter 9.0.x (fixed in 9.0.2.0200)\n- vCenter 8.0 (fixed in 8.0 U3m)\n- vCenter 5.x (fixed in 5.2.5)\n\nFor Telco Cloud Platform (versions 3.0, 4.x, 5.0.x, 5.1.x, 5.2) and Telco Cloud Infrastructure (version 3.0), users should consult VMware KB463116 for guidance, as specific fixed versions are not listed in the current advisory.",
       "published": "2026-11-19T21:58:00.000Z",
@@ -257611,19 +257633,30 @@
         },
         {
           "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=6E5A4FB4-3337-5EAC-A424-76B155DCD897\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.rapid7.com/blog/post/etr-cve-2026-123890-critical-authentication-bypass-vmware-vcenter"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-19-vmware-vcenter-auth-bypass-cve-2026-123890",
       "x_craftedsignal_event_id": "brief-2026-11-19-vmware-vcenter-auth-bypass-cve-2026-123890",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-vmware-vcenter-auth-bypass-cve-2026-123890/",
-      "x_craftedsignal_activity_at": "2026-11-20T01:50:07.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T04:38:22.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html",
+        "observed_at": "2026-11-19T15:11:06.000Z",
+        "confidence": "medium"
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
@@ -268507,6 +268540,60 @@
       },
       "x_craftedsignal_cvss_max": 8.2,
       "x_craftedsignal_epss_max": 0.00346,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--e0afe62d-659a-5000-935a-0bfdfe4e1625",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T04:37:23.000Z",
+      "modified": "2026-11-20T04:37:23.000Z",
+      "name": "ALTCHA lib-go: Denial of Service via Nil-Map Panic (CVE-2026-103033)",
+      "description": "## Overview\nALTCHA lib-go is a library for creating and verifying ALTCHA challenges. A vulnerability in the `parseServerSignature` function allows an unauthenticated client to crash a process by submitting an ALTCHA server-signature payload containing a malformed percent escape in the `VerificationData` field. The `url.ParseQuery` function returns partial results when encountering malformed escapes, and because `ServerSignatureVerificationData.Extra` is initialized only when `url.ParseQuery` returns no error, a subsequent write to this nil map triggers a panic.\n\n## Attack Chain\n1. An unauthenticated attacker targets an application using an affected version of `altcha-lib-go`.\n2. The attacker submits a crafted ALTCHA server-signature payload where `VerificationData` contains a malformed percent escape (e.g., `%zz`).\n3. The `parseServerSignature` function is invoked. `url.ParseQuery` processes the malformed input, returning partial values and an error.\n4. The application attempts to write unknown keys to an uninitialized (nil) `Extra` map.\n5. The Go runtime triggers a panic. Depending on the application's implementation, this may result in a crash of the verifying process.\n\n## Impact\nSuccessful exploitation results in an unauthenticated denial of service. Standard `net/http` implementations may recover the goroutine, but application goroutines or frameworks lacking specific recovery mechanisms may experience a full process crash.\n\n## Recommendation\nUpgrade `altcha-lib-go` to version 2.1.0 or later, which initializes the `Extra` map before parsing, preventing the nil-map panic.",
+      "published": "2026-11-20T04:37:23.000Z",
+      "labels": [
+        "cve",
+        "denial-of-service",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6d5a4040-3bea-5783-a3cc-cd300cdc67cf",
+        "vulnerability--78ed9402-9f2e-5466-901f-d873679402af"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-altcha-lib-dos-cve-2026-103033",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-altcha-lib-dos-cve-2026-103033/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-103033"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/altcha-org/altcha-lib-go/security/advisories/GHSA-gfwj-45pc-w6r5"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=EC4C64FA-376E-5B22-BDCB-30373A749E8F\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-altcha-lib-dos-cve-2026-103033",
+      "x_craftedsignal_event_id": "brief-2026-11-20-altcha-lib-dos-cve-2026-103033",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-altcha-lib-dos-cve-2026-103033/",
+      "x_craftedsignal_activity_at": "2026-11-20T04:37:23.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.3,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -293327,6 +293414,13 @@
       "id": "software--6d135c95-c7ef-5d1e-b994-1c93f3ebc1ea",
       "name": "FortiAuthenticator (\u003c= 6.4.10, 6.5.0-6.5.6, 6.6.0-6.6.8, 8.0.0-8.0.2)",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6d5a4040-3bea-5783-a3cc-cd300cdc67cf",
+      "name": "altcha-lib-go",
+      "vendor": "altcha-org"
     },
     {
       "type": "software",
@@ -334651,6 +334745,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126083",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126083"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--78ed9402-9f2e-5466-901f-d873679402af",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-103033",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-103033",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103033"
         }
       ]
     },
