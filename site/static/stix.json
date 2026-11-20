@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9e64729d-2375-5e39-8142-9ab71551f5e7",
+  "id": "bundle--45852ee4-bb92-57c5-800a-8ff648e037ca",
   "objects": [
     {
       "type": "attack-pattern",
@@ -147004,6 +147004,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bc77a0da-d443-5e56-8ca0-64e017071f1c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2bf565b7-1656-55e1-90d4-e6e02e40de4f",
+      "target_ref": "vulnerability--bdb31c38-c1a5-5064-b2d3-bd705ee6f84e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bc7e7464-7057-5bd1-b402-92a248e839e7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T07:49:19.000Z",
@@ -208824,6 +208835,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--140a4917-b3a4-52cb-8aa1-3782576aeaf3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T14:28:10.000Z",
+      "modified": "2026-11-20T14:28:10.000Z",
+      "name": "Traefik Kubernetes Ingress Authentication Bypass (CVE-2026-85596)",
+      "description": "## Overview\nTraefik versions \u003e= v3.7.0 and \u003c v3.7.11 contain an authentication bypass in the Kubernetes Ingress NGINX provider. The vulnerability occurs because the TLS option generated for an Ingress carrying the 'nginx.ingress.kubernetes.io/auth-tls-secret' annotation is named after the Ingress namespace and name. If two Ingress objects share the same host, client CA secret, and client-authentication mode, the generated TLS option names differ. Traefik perceives this as a TLS options conflict and reverts to the entry point's default TLS configuration, which does not request a client certificate.\n\n## Impact\nRoutes configured with 'nginx.ingress.kubernetes.io/auth-tls-verify-client: \"on\"' can be accessed without a valid client certificate due to the fallback to default TLS settings. This impacts the ability to enforce mutual TLS (mTLS) for services exposed via the Kubernetes Ingress NGINX provider.\n\n## Recommendation\nUpgrade to Traefik version v3.7.11, where this issue is fixed.",
+      "published": "2026-11-20T14:28:10.000Z",
+      "labels": [
+        "authentication-bypass",
+        "kubernetes"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2bf565b7-1656-55e1-90d4-e6e02e40de4f",
+        "vulnerability--bdb31c38-c1a5-5064-b2d3-bd705ee6f84e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-traefik-auth-bypass-cve-2026-85596",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-traefik-auth-bypass-cve-2026-85596/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-85596"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85596"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-traefik-auth-bypass-cve-2026-85596",
+      "x_craftedsignal_event_id": "brief-2026-11-20-traefik-auth-bypass-cve-2026-85596",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-traefik-auth-bypass-cve-2026-85596/",
+      "x_craftedsignal_activity_at": "2026-11-20T14:28:10.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00435,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -388490,6 +388550,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2bf565b7-1656-55e1-90d4-e6e02e40de4f",
+      "name": "traefik (\u003e= 3.7.0, \u003c 3.7.11)",
+      "vendor": "traefik"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2bfbdb38-5ef5-55d3-8d16-7851e38fd346",
       "name": "Emacs",
       "vendor": "GNU"
@@ -477375,6 +477442,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121810",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121810"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--bdb31c38-c1a5-5064-b2d3-bd705ee6f84e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-85596",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-85596",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85596"
         }
       ]
     },
