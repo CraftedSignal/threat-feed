@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e0c9dbb7-704a-5330-bda7-73e7c3fef5fe",
+  "id": "bundle--e5e05fba-3417-588b-871c-85e9671c6368",
   "objects": [
     {
       "type": "attack-pattern",
@@ -55718,6 +55718,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--54d12e37-6b05-577c-885f-731510e04a54",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--203bbf4a-aacb-5624-a564-14ab1ef9e12e",
+      "target_ref": "vulnerability--cf997cd8-91c7-5209-a3d5-383f5bba04e3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--54d8570e-0117-567c-b6e2-bc81f3da7f75",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T14:23:34.000Z",
@@ -93983,6 +93994,17 @@
       "relationship_type": "has",
       "source_ref": "software--81ac2779-08db-53b1-a43a-0d705de0ee1b",
       "target_ref": "vulnerability--818b874b-521d-50c4-ae08-7f072e0426b4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--98a0e244-ed57-5d41-9dd6-ccf99cbd976d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T14:51:22.000Z",
+      "modified": "2026-11-20T14:51:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6bf5905e-7f9d-59b1-b913-d9e164c6d97d",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -136630,6 +136652,17 @@
       "relationship_type": "has",
       "source_ref": "software--c5c2a2d0-2666-5436-ba42-0f148e049163",
       "target_ref": "vulnerability--dee99723-0760-5442-b888-832f2bb672b0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e50940f0-cf0d-5e86-a322-d08eccb86875",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--47c41553-a8ab-55e4-9fc4-7846ee02df7d",
+      "target_ref": "vulnerability--8a5e9746-f32e-575e-80c6-5dbdce375bca"
     },
     {
       "type": "relationship",
@@ -211667,6 +211700,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6bf5905e-7f9d-59b1-b913-d9e164c6d97d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T14:51:22.000Z",
+      "modified": "2026-11-20T14:51:22.000Z",
+      "name": "Tomdever wpForo Forum Stored Cross-site Scripting (CVE-2026-128996)",
+      "description": "## Overview\n\nThe Tomdever wpForo Forum plugin for WordPress contains a Stored Cross-site Scripting (XSS) vulnerability. This issue stems from improper neutralization of input during web page generation, affecting the wpforo component in versions from n/a through 3.2.4.\n\n## Attack Chain\n\nThe vulnerability allows for Stored XSS. The CVSS vector string CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:L indicates that the attack vector is network-based, requires user interaction, and involves changed scope.\n\n## Impact\n\nThe vulnerability is rated with a base score of 7.1 (High). It impacts the confidentiality, integrity, and availability of the affected system.\n\n## Recommendation\n\nUsers of the Tomdever wpForo Forum plugin should update to version 3.2.5 or later to remediate this vulnerability.",
+      "published": "2026-11-20T14:51:22.000Z",
+      "labels": [
+        "xss"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--47c41553-a8ab-55e4-9fc4-7846ee02df7d",
+        "vulnerability--8a5e9746-f32e-575e-80c6-5dbdce375bca"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-wpforo-xss-cve-2026-128996",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wpforo-xss-cve-2026-128996/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-128996"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128996"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-wpforo-xss-cve-2026-128996",
+      "x_craftedsignal_event_id": "brief-2026-11-20-wpforo-xss-cve-2026-128996",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wpforo-xss-cve-2026-128996/",
+      "x_craftedsignal_activity_at": "2026-11-20T14:51:22.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--6bf91a64-3984-5abc-9353-00d2e0f2263d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T01:52:18.000Z",
@@ -224454,6 +224535,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--83312f42-8ba3-5314-b42c-fe734f24d0a8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T14:38:30.000Z",
+      "modified": "2026-11-20T14:38:30.000Z",
+      "name": "RomanCode MapSVG: Missing Authorization Vulnerability (CVE-2026-128997)",
+      "description": "## Overview\n\nThe RomanCode MapSVG plugin for WordPress, specifically the 'mapsvg-lite-interactive-vector-maps' package, is vulnerable to a missing authorization issue. This flaw exists in all versions from n/a through 9.0.5 and allows an attacker to exploit incorrectly configured access control security levels.\n\n## Impact\n\nThis vulnerability is assigned a CVSS 3.1 base score of 7.5 (High). The attack is network-based with low attack complexity, requiring no privileges and no user interaction, resulting in a high confidentiality impact.\n\n## Recommendation\n\nUsers of the MapSVG WordPress plugin should update to version 9.0.6 or later to remediate the vulnerability.",
+      "published": "2026-11-20T14:38:30.000Z",
+      "labels": [
+        "plugin",
+        "wordpress"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--203bbf4a-aacb-5624-a564-14ab1ef9e12e",
+        "vulnerability--cf997cd8-91c7-5209-a3d5-383f5bba04e3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-mapsvg-auth-cve-2026-128997",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mapsvg-auth-cve-2026-128997/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-128997"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128997"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-mapsvg-auth-cve-2026-128997",
+      "x_craftedsignal_event_id": "brief-2026-11-20-mapsvg-auth-cve-2026-128997",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mapsvg-auth-cve-2026-128997/",
+      "x_craftedsignal_activity_at": "2026-11-20T14:38:30.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -293935,6 +294064,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--203bbf4a-aacb-5624-a564-14ab1ef9e12e",
+      "name": "MapSVG",
+      "vendor": "RomanCode"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2062bad7-aa06-54d7-959f-5c126a542997",
       "name": "ER7412-M2 v1 (\u003c 1.2.0 Build 20260630 Rel.82947)",
       "vendor": "TP-Link"
@@ -297063,6 +297199,13 @@
       "id": "software--47c0d59f-1251-50f8-b922-1631d54836f8",
       "name": "FortiSandbox PaaS (5.0.4 \u003c 5.0.6)",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--47c41553-a8ab-55e4-9fc4-7846ee02df7d",
+      "name": "wpForo Forum",
+      "vendor": "Tomdever"
     },
     {
       "type": "software",
@@ -347157,6 +347300,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--8a5e9746-f32e-575e-80c6-5dbdce375bca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-128996",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-128996",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128996"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--8a683978-f364-562b-bfa4-a59c8198b190",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -366271,6 +366430,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-99218",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99218"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--cf997cd8-91c7-5209-a3d5-383f5bba04e3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-128997",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-128997",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128997"
         }
       ]
     },
