@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0530a2b3-e20e-5b88-aeb0-7aeb3318873b",
+  "id": "bundle--f90e3b28-20b5-5c05-9a16-bac7e8fb2f77",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10456,7 +10456,7 @@
       "id": "relationship--0504de23-c1c3-58df-ab28-3742baa4cc0b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T14:38:39.000Z",
-      "modified": "2026-11-20T14:38:39.000Z",
+      "modified": "2026-11-20T15:21:45.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d21604b1-00a6-55f8-8a65-0a965abfaad3",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -42749,6 +42749,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3e022e4e-71df-5e79-aeda-23b1a510116f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--dbe0d575-212c-5e3e-8514-8488718a33b3",
+      "target_ref": "vulnerability--48331c40-f9a8-5f55-b77a-2634b3f6c48c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3e0f6b29-0a85-56aa-9054-756d607518d9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -55571,6 +55582,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--0696a9ea-8113-5874-9a84-6d863081bb5f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--54aee633-249b-57e9-9ae5-eaddcdb35621",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--67aafb65-7dd5-58ca-8770-b76a91c962b2",
+      "target_ref": "vulnerability--48331c40-f9a8-5f55-b77a-2634b3f6c48c"
     },
     {
       "type": "relationship",
@@ -81806,6 +81828,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--cc9a2dd3-8e84-5496-88d3-e71290bace49"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--81f28017-0104-52a4-afe0-99da7b58b580",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e5dd59e7-6f14-5950-92ee-dfb7a5bbbec8",
+      "target_ref": "vulnerability--48331c40-f9a8-5f55-b77a-2634b3f6c48c"
     },
     {
       "type": "relationship",
@@ -139479,6 +139512,17 @@
       "relationship_type": "uses",
       "source_ref": "report--714986fd-e389-5156-9a13-aa41989c9701",
       "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ea144a62-5eac-588c-ae0b-92cd1eb87733",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T15:20:59.000Z",
+      "modified": "2026-11-20T15:20:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b17fbc94-17cd-5009-8e2c-0e0e9fa10dec",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -249380,6 +249424,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b17fbc94-17cd-5009-8e2c-0e0e9fa10dec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T15:20:59.000Z",
+      "modified": "2026-11-20T15:20:59.000Z",
+      "name": "Drupal Core: Unauthenticated site takeover (CVE-2026-132165)",
+      "description": "## Overview\nCVE-2026-132165 is a critical site takeover vulnerability in Drupal core (SA-CORE-2026-017). An attacker can gain control of a site by sending an unauthenticated POST request to /core/install.php if the site has completed installation but failed to record the installer task state as 'done'. This allows the attacker to reach the site configuration form, overwrite the administrative user (user 1), and effectively gain full control. The vulnerability is confirmed to affect Drupal versions prior to 10.6.22, 11.0.0 through 11.3.21, and 11.4.0 through 11.4.12.\n\n## Impact\nExploitation results in a total site takeover, including the ability to replace the site administrator's credentials and account information. Existing content, database entries, and files remain intact. Administrative access can facilitate further malicious activity, such as arbitrary file uploads or remote code execution, depending on the site's configuration.\n\n## Recommendation\n- Upgrade Drupal core to version 10.6.22, 11.3.22, or 11.4.13 immediately.\n- If patching is not immediately possible, restrict access to /core/install.php at the web server level.\n- Verify the integrity of the administrative account (user 1) on all public-facing Drupal instances.",
+      "published": "2026-11-20T15:20:59.000Z",
+      "labels": [
+        "cve",
+        "takeover",
+        "webserver"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--67aafb65-7dd5-58ca-8770-b76a91c962b2",
+        "software--dbe0d575-212c-5e3e-8514-8488718a33b3",
+        "software--e5dd59e7-6f14-5950-92ee-dfb7a5bbbec8",
+        "vulnerability--48331c40-f9a8-5f55-b77a-2634b3f6c48c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-drupal-takeover-cve-2026-132165",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-drupal-takeover-cve-2026-132165/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=0E3251C2-2327-5407-B60D-C658024101B1"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=0E3251C2-2327-5407-B60D-C658024101B1\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.drupal.org/sa-core-2026-017"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-drupal-takeover-cve-2026-132165",
+      "x_craftedsignal_event_id": "brief-2026-11-20-drupal-takeover-cve-2026-132165",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-drupal-takeover-cve-2026-132165/",
+      "x_craftedsignal_activity_at": "2026-11-20T15:20:59.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b1898ada-2118-5fa0-bf79-049d5b278039",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T22:50:35.000Z",
@@ -266192,7 +266291,7 @@
       "id": "report--d21604b1-00a6-55f8-8a65-0a965abfaad3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T14:38:39.000Z",
-      "modified": "2026-11-20T14:38:39.000Z",
+      "modified": "2026-11-20T15:21:45.000Z",
       "name": "miniOrange OTP Verification: Authentication bypass (CVE-2026-129073)",
       "description": "## Overview\n\nThe miniOrange OTP Verification plugin for WordPress is susceptible to an Authentication Bypass Using an Alternate Path or Channel vulnerability (CVE-2026-129073). This flaw allows an unauthenticated remote attacker to circumvent authentication controls, potentially resulting in full system compromise. The vulnerability affects all versions of the plugin up to and including 5.6.1.\n\n## Impact\n\nSuccessful exploitation grants unauthenticated attackers the ability to bypass authentication mechanisms, which may lead to unauthorized administrative access, sensitive data exfiltration, or complete site takeover. The vulnerability has a CVSS v3.1 base score of 9.8.\n\n## Recommendation\n\n1. Immediately update the miniOrange OTP Verification plugin to version 5.6.2 or later.\n2. Review audit logs for suspicious administrative activity or unauthorized account modifications originating from external IP addresses.\n3. Audit user access logs for unusual patterns, such as multiple successful logins without corresponding OTP validation events.",
       "published": "2026-11-20T14:38:39.000Z",
@@ -266215,14 +266314,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129073"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-129073\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-20-miniorange-otp-bypass-cve-2026-129073",
       "x_craftedsignal_event_id": "brief-2026-11-20-miniorange-otp-bypass-cve-2026-129073",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-miniorange-otp-bypass-cve-2026-129073/",
-      "x_craftedsignal_activity_at": "2026-11-20T14:38:39.000Z",
+      "x_craftedsignal_activity_at": "2026-11-20T15:21:45.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -299725,6 +299828,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--67aafb65-7dd5-58ca-8770-b76a91c962b2",
+      "name": "Drupal core (\u003c 10.6.22)",
+      "vendor": "Drupal"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--67c62043-6f3e-5d17-96ed-61308bc76702",
       "name": "Eclipse Mosquitto (\u003e= 2.1.0, \u003c= 2.1.2)",
       "vendor": "Eclipse Foundation"
@@ -308539,6 +308649,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--dbe0d575-212c-5e3e-8514-8488718a33b3",
+      "name": "Drupal core (11.4.0 through 11.4.12)",
+      "vendor": "Drupal"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--dbe3514c-4071-52fc-8b10-32002b06b5d2",
       "name": "AWS Advanced JDBC Wrapper",
       "vendor": "AWS"
@@ -309239,6 +309356,13 @@
       "spec_version": "2.1",
       "id": "software--e5d9f204-c533-52f6-b0fa-f5b0df25c9a3",
       "name": "RRD::CGI::Image (through 0.01)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e5dd59e7-6f14-5950-92ee-dfb7a5bbbec8",
+      "name": "Drupal core (11.0.0 through 11.3.21)",
+      "vendor": "Drupal"
     },
     {
       "type": "software",
@@ -330210,6 +330334,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-127111",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127111"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--48331c40-f9a8-5f55-b77a-2634b3f6c48c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-132165",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-132165",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132165"
         }
       ]
     },
