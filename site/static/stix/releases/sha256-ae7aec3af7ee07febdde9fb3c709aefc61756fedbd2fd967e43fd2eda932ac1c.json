@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--37f22f0f-88ce-50c7-8343-5ed071e11954",
+  "id": "bundle--2b0ada64-287f-5670-8729-9030a04fd2f0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -68352,6 +68352,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--51a4be3d-43d6-5711-bf2f-5024606e75b9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T13:17:01.000Z",
+      "modified": "2026-11-20T13:17:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1e50463e-f74f-501c-a380-d41ba8b5c3c9",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--51a64bd3-5e5d-54a1-bad0-d63fb12360af",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -120917,6 +120928,17 @@
       "relationship_type": "has",
       "source_ref": "software--970d366c-66d6-5bc8-99bd-aea961efedfa",
       "target_ref": "vulnerability--da67aac7-0050-5d55-94f4-e79333a88257"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--993713de-fda1-595c-927b-b01fb7f42460",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ed7189e4-e80e-5b5e-a94c-30fa40de56d7",
+      "target_ref": "vulnerability--18438fc5-c4d6-53cb-9790-287e6b60253e"
     },
     {
       "type": "relationship",
@@ -217470,6 +217492,58 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1e50463e-f74f-501c-a380-d41ba8b5c3c9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T13:17:01.000Z",
+      "modified": "2026-11-20T13:17:01.000Z",
+      "name": "Arbitrary File Upload in Front End Users Plugin (CVE-2025-2005)",
+      "description": "## Overview\nThe Front End Users plugin for WordPress is vulnerable to arbitrary file uploads due to missing file type validation in the registration form's file uploads field. This vulnerability affects all versions up to, and including, 3.2.32.\n\n## Attack Chain\nUnauthenticated attackers can send a multipart/form-data POST request to registration forms rendered by the plugin to upload arbitrary files. If the server permits PHP execution within the /wp-content/uploads/ewd_feup_uploads/ directory, this may facilitate remote code execution.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to upload arbitrary files, which may lead to remote code execution and full server compromise.\n\n## Recommendation\nNo fixed release information is provided in the available evidence. Users are advised to monitor for official vendor patches from the author 'rustaurius' and consider disabling the plugin if the risk of arbitrary file upload is unacceptable.",
+      "published": "2026-11-20T13:17:01.000Z",
+      "labels": [
+        "arbitrary-file-upload",
+        "cve-2025-2005",
+        "rce",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ed7189e4-e80e-5b5e-a94c-30fa40de56d7",
+        "vulnerability--18438fc5-c4d6-53cb-9790-287e6b60253e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-front-end-users-rce-cve-2025-2005",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-front-end-users-rce-cve-2025-2005/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-2005"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-NXPLOITED-CVE-2025-2005\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-front-end-users-rce-cve-2025-2005",
+      "x_craftedsignal_event_id": "brief-2026-11-20-front-end-users-rce-cve-2025-2005",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-front-end-users-rce-cve-2025-2005/",
+      "x_craftedsignal_activity_at": "2026-11-20T13:17:01.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.21807,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -410636,6 +410710,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ed7189e4-e80e-5b5e-a94c-30fa40de56d7",
+      "name": "Front End Users (\u003c= 3.2.32)",
+      "vendor": "rustaurius"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--edcdb0f5-3fba-5437-a12a-f0a26294cb6d",
       "name": "guard-core (\u003e= 3.5.0, \u003c 3.13.0)",
       "vendor": "rennf93"
@@ -421554,6 +421635,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116328",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116328"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--18438fc5-c4d6-53cb-9790-287e6b60253e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-2005",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-2005",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-2005"
         }
       ]
     },
