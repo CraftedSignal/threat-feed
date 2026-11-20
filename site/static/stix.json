@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8b33a5bc-8918-5447-bb10-565fb5cdd371",
+  "id": "bundle--8fc9449f-db23-5108-8e53-8baa0838c65f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -82103,6 +82103,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--8580d7f8-6a8c-562e-99a8-2cc0855a80ea"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--642c4a7f-634e-5517-84f2-d8792904a82d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5853eab8-525e-5414-ac88-efbee985c05a",
+      "target_ref": "vulnerability--9114a609-c845-53fa-80fc-0c28a9978e0a"
     },
     {
       "type": "relationship",
@@ -224591,6 +224602,55 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.01412,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2acb8c60-77b6-5dad-833c-0927c28666c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T10:39:00.000Z",
+      "modified": "2026-11-20T10:39:00.000Z",
+      "name": "thembay Aora: Local File Inclusion Vulnerability (CVE-2026-131795)",
+      "description": "## Overview\nThe thembay Aora WordPress theme contains an 'Improper Control of Filename for Include/Require Statement' vulnerability (PHP Remote File Inclusion) that allows for Local File Inclusion. This issue affects Aora versions from n/a through 1.3.5.\n\n## Attack Chain\nThe vulnerability is exploitable via a network-based attack vector (AV:N). It requires no authentication (PR:N) and no user interaction (UI:N), though it carries a high attack complexity (AC:H).\n\n## Impact\nSuccessful exploitation results in high impacts on confidentiality, integrity, and availability. The CVSS 3.1 base score is 8.1.\n\n## Recommendation\nUsers of the WordPress Aora theme should update to at least version 1.3.24 to remediate this vulnerability.",
+      "published": "2026-11-20T10:39:00.000Z",
+      "labels": [
+        "cve",
+        "lfi",
+        "wordpress"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5853eab8-525e-5414-ac88-efbee985c05a",
+        "vulnerability--9114a609-c845-53fa-80fc-0c28a9978e0a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-aora-lfi-cve-2026-131795",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-aora-lfi-cve-2026-131795/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-131795"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131795"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-aora-lfi-cve-2026-131795",
+      "x_craftedsignal_event_id": "brief-2026-11-20-aora-lfi-cve-2026-131795",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-aora-lfi-cve-2026-131795/",
+      "x_craftedsignal_activity_at": "2026-11-20T10:39:00.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -393282,6 +393342,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5853eab8-525e-5414-ac88-efbee985c05a",
+      "name": "Aora WordPress theme",
+      "vendor": "thembay"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--586ab0d7-f29e-58b3-8460-ba950f6214b3",
       "name": "Internet Explorer 11",
       "vendor": "Microsoft"
@@ -461081,6 +461148,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120260",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120260"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9114a609-c845-53fa-80fc-0c28a9978e0a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-131795",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-131795",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131795"
         }
       ]
     },
