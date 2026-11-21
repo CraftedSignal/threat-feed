@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7e51f6ef-4a6e-53d8-bf4c-d5cec8df174e",
+  "id": "bundle--1050b203-3767-57a9-b6ae-29d2ecae1f2d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -57277,7 +57277,7 @@
       "id": "relationship--54b941c7-d16f-5d6d-8241-676c1b9cff49",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T23:24:35.000Z",
-      "modified": "2026-11-15T10:11:40.000Z",
+      "modified": "2026-11-21T21:06:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--137f6009-59b1-55c8-b340-0881c59df635",
       "target_ref": "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92"
@@ -167126,7 +167126,7 @@
       "id": "report--137f6009-59b1-55c8-b340-0881c59df635",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T23:24:35.000Z",
-      "modified": "2026-11-15T10:11:40.000Z",
+      "modified": "2026-11-21T21:06:30.000Z",
       "name": "Apache APISIX: Authentication bypass via header spoofing (CVE-2026-124679)",
       "description": "## Overview\n\nApache APISIX versions 3.18.0 through 3.19.0 are vulnerable to an authentication bypass via header spoofing (CVE-2026-124679). The issue occurs in routes configured with the `jwe-decrypt` plugin where `strict` is set to `false` and a `forward_header` is defined that differs from the token header. Under these conditions, an unauthenticated client can supply a malicious identity header directly, which the upstream service subsequently processes as trusted, decrypted plaintext.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to spoof their identity, effectively bypassing authentication controls and gaining unauthorized access to services protected by the affected APISIX gateway configuration.\n\n## Recommendation\n\nInventory all APISIX instances using the `jwe-decrypt` plugin. Ensure that any routes using this plugin are configured with `strict: true` or verify that the `forward_header` and token header configurations do not allow arbitrary header injection from client requests. Monitor upstream service logs for authentication anomalies or unexpected identity values until patches can be applied.",
       "published": "2026-11-13T23:24:35.000Z",
@@ -167155,9 +167155,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-13-apache-apisix-auth-bypass-cve-2026-124679",
       "x_craftedsignal_event_id": "brief-2026-11-13-apache-apisix-auth-bypass-cve-2026-124679",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-apisix-auth-bypass-cve-2026-124679/",
-      "x_craftedsignal_activity_at": "2026-11-15T10:11:40.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T21:06:30.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
