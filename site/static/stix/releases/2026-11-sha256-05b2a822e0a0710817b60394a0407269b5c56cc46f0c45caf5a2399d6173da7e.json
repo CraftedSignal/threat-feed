@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bb3c68de-24b4-5b16-b1fd-3266d396dfac",
+  "id": "bundle--32df6b69-fdca-5d61-9d15-84e0c750041a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -90301,6 +90301,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8edeb78b-c624-5828-92c4-327560b2d868",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T09:25:50.000Z",
+      "modified": "2026-11-21T09:25:50.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2a0e8ea9-b641-5ae4-9623-c182c19ab2b3",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8ee02fd4-b12d-5435-bceb-a752b17cffa1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -120558,6 +120569,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--0d93edad-f4c0-5ab9-aa7d-389a231125dd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c3635ce1-c064-5e77-b2d5-c17133a2da98",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c63031f9-cacf-54e9-a806-cb44bbade97f",
+      "target_ref": "vulnerability--31f6c8e1-50cd-56ee-b5ad-04e57a9a0fb9"
     },
     {
       "type": "relationship",
@@ -177143,6 +177165,56 @@
       },
       "x_craftedsignal_cvss_max": 6.1,
       "x_craftedsignal_epss_max": 0.0012,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2a0e8ea9-b641-5ae4-9623-c182c19ab2b3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T09:25:50.000Z",
+      "modified": "2026-11-21T09:25:50.000Z",
+      "name": "Contact Form to Any API: Stored Cross-Site Scripting (CVE-2026-131822)",
+      "description": "## Overview\nThe 'Contact Form to Any API' plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'your-message' parameter and other Contact Form 7 (CF7) form fields. The vulnerability exists in all versions up to and including 3.0.7 due to insufficient input sanitization and output escaping. \n\n## Attack Chain\nThe malicious payload is stored via a single unauthenticated POST request to the plugin's public REST feedback endpoint. This endpoint uses a 'permission_callback __return_true' and requires no authentication or prior interaction to submit data, which is subsequently rendered in web pages.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to inject arbitrary web scripts into pages. These scripts execute whenever a user accesses the affected page, potentially impacting users viewing the site.\n\n## Recommendation\n- Audit the WordPress environment for instances of the 'Contact Form to Any API' plugin.\n- Monitor the plugin vendor for security updates addressing this vulnerability.\n- Implement protective measures such as a Web Application Firewall (WAF) to inspect POST requests to REST endpoints for malicious script injection until a patch is applied.",
+      "published": "2026-11-21T09:25:50.000Z",
+      "labels": [
+        "web-application",
+        "wordpress",
+        "xss"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c63031f9-cacf-54e9-a806-cb44bbade97f",
+        "vulnerability--31f6c8e1-50cd-56ee-b5ad-04e57a9a0fb9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-wordpress-contact-form-xss-cve-2026-131822",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wordpress-contact-form-xss-cve-2026-131822/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-131822"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131822"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-wordpress-contact-form-xss-cve-2026-131822",
+      "x_craftedsignal_event_id": "brief-2026-11-21-wordpress-contact-form-xss-cve-2026-131822",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wordpress-contact-form-xss-cve-2026-131822/",
+      "x_craftedsignal_activity_at": "2026-11-21T09:25:50.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -315655,6 +315727,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c63031f9-cacf-54e9-a806-cb44bbade97f",
+      "name": "Contact Form to Any API (\u003c= 3.0.7)",
+      "vendor": "itpathsolutions"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c641eab4-c972-5dbb-b3de-ddf862048350",
       "name": "M60 (1.12.B01)",
       "vendor": "D-Link"
@@ -333923,6 +334002,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126793",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126793"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--31f6c8e1-50cd-56ee-b5ad-04e57a9a0fb9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-131822",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-131822",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131822"
         }
       ]
     },
