@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3d7cdd89-4d7a-5d5c-a32c-59d863ddf9a4",
+  "id": "bundle--9283ca1c-9994-5d68-b4a2-4a22db04dcc4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -27674,6 +27674,17 @@
       "relationship_type": "uses",
       "source_ref": "report--6c7c2117-0b8e-54b3-bb3d-b77adba81d54",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--223997f7-bc4a-5c4a-9dca-824bbcd1b2c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T05:49:59.000Z",
+      "modified": "2026-11-21T05:49:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--af3a4cca-78dc-5673-8a69-85502054d2c3",
+      "target_ref": "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb"
     },
     {
       "type": "relationship",
@@ -81006,6 +81017,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7ec5282f-fe87-5892-b0c1-15143f851a52",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--cd89b570-99f0-5bed-8a23-0717439b5533",
+      "target_ref": "vulnerability--36ed9b9e-3321-5322-8d73-fe5b5b15f945"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7ec6f018-e728-5885-bd4c-b9a799db79c1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -87096,6 +87118,17 @@
       "relationship_type": "has",
       "source_ref": "software--4d0c4c8f-aa81-554f-9db9-b45a5c1d3068",
       "target_ref": "vulnerability--fb24ce87-a02c-51f3-93cb-f944eac056ac"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--89615f89-ec80-56d7-957d-d609033031ca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--16dd6b2b-1fbe-5ada-9a88-d72590f95f5d",
+      "target_ref": "vulnerability--e2e697ed-1260-523f-b397-6b955ba25e1d"
     },
     {
       "type": "relationship",
@@ -138994,6 +139027,17 @@
       "relationship_type": "has",
       "source_ref": "software--f79a945e-0214-5a4f-b134-0d8beae268c6",
       "target_ref": "vulnerability--ac533cf5-69b5-5277-9f3a-de100011b940"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e5952de4-2185-53df-8baa-517fcc5fc734",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--971a3c71-90b8-5038-8b85-12baacaacad1",
+      "target_ref": "vulnerability--36ed9b9e-3321-5322-8d73-fe5b5b15f945"
     },
     {
       "type": "relationship",
@@ -253681,6 +253725,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--af3a4cca-78dc-5673-8a69-85502054d2c3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T05:49:59.000Z",
+      "modified": "2026-11-21T05:49:59.000Z",
+      "name": "Artifex Ghostscript: Remote code execution (CVE-2023-36664)",
+      "description": "## Overview\n\nArtifex Ghostscript versions prior to 10.01.2 contain a vulnerability involving improper permission validation for pipe devices. An attacker can create a specially crafted .eps file containing malicious commands that execute upon being processed by Ghostscript, such as when a user opens the file in LibreOffice Draw. Publicly available proof-of-concept code demonstrates the ability to execute arbitrary commands, including initiating reverse shells.\n\n## Attack Chain\n\n1. Attacker crafts a malicious .eps file containing an embedded command or reverse shell payload.\n2. Attacker distributes the malicious file to a target user.\n3. Target user opens the .eps file using an application that leverages Ghostscript, such as LibreOffice Draw.\n4. The application processes the .eps file, invoking the vulnerable Ghostscript interpreter.\n5. Ghostscript fails to validate the pipe device permissions.\n6. The payload executes with the privileges of the user who opened the file.\n\n## Impact\n\nSuccessful exploitation leads to arbitrary command execution on the host system with the privileges of the user opening the file, potentially resulting in full system compromise, data theft, or lateral movement.\n\n## Recommendation\n\n- Upgrade Artifex Ghostscript to version 10.01.2 or later to address the underlying permission validation flaw.\n- Audit environments for the use of LibreOffice and other document viewers that rely on Ghostscript for rendering .eps content.\n- Restrict the ability of document viewers to execute child processes or spawn shells if possible within your security baseline.",
+      "published": "2026-11-21T05:49:59.000Z",
+      "object_refs": [
+        "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--971a3c71-90b8-5038-8b85-12baacaacad1",
+        "software--cd89b570-99f0-5bed-8a23-0717439b5533",
+        "vulnerability--36ed9b9e-3321-5322-8d73-fe5b5b15f945"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-ghostscript-rce-cve-2023-36664",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ghostscript-rce-cve-2023-36664/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2023-36664"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JEANCHPT-CVE-2023-36664"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JEANCHPT-CVE-2023-36664\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-ghostscript-rce-cve-2023-36664",
+      "x_craftedsignal_event_id": "brief-2026-11-21-ghostscript-rce-cve-2023-36664",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ghostscript-rce-cve-2023-36664/",
+      "x_craftedsignal_activity_at": "2026-11-21T05:49:59.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.0385,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--af5d82f6-e240-535a-a069-a9299498d1bb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T13:12:46.000Z",
@@ -256742,6 +256837,61 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b64d6354-5536-542d-abdc-b60588e163f4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T05:50:25.000Z",
+      "modified": "2026-11-21T05:50:25.000Z",
+      "name": "UniSharp Laravel Filemanager: Unauthenticated Remote Code Execution (CVE-2024-21546)",
+      "description": "## Overview\nUniSharp Laravel Filemanager versions prior to 2.9.1 are vulnerable to Remote Code Execution (RCE). The vulnerability exists because the application allows unauthenticated access to file management routes and fails to properly sanitize filenames, specifically those containing a trailing dot ('.').\n\n## Attack Chain\n1. An unauthenticated attacker accesses the `/laravel-filemanager` route.\n2. The attacker uploads a file with a trailing dot (e.g., `poc.php.`) which bypasses the `LfmUploadValidator` blocklist.\n3. The file is saved as an extensionless hash in the public storage directory.\n4. The attacker interacts with the `RenameController` (e.g., `/laravel-filemanager/rename`) to rename the uploaded file to a valid `.php` extension.\n5. The attacker accesses the renamed file via a direct web request, resulting in remote code execution.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to achieve remote code execution, resulting in the potential for full system compromise, including unauthorized confidentiality, integrity, and availability impacts (CVSS 9.8).\n\n## Recommendation\n- Upgrade `unisharp/laravel-filemanager` to version 2.9.1 or later.\n- Protect all `laravel-filemanager` routes by applying appropriate authentication middleware (e.g., `'web', 'auth'`) in `config/lfm.php`.\n- Configure the web server to deny the execution of `.php` files within the application's public storage or file upload directories.",
+      "published": "2026-11-21T05:50:25.000Z",
+      "labels": [
+        "cve-2024-21546",
+        "rce",
+        "unauthenticated",
+        "web-application"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--16dd6b2b-1fbe-5ada-9a88-d72590f95f5d",
+        "vulnerability--e2e697ed-1260-523f-b397-6b955ba25e1d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-laravel-filemanager-rce-cve-2024-21546",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-laravel-filemanager-rce-cve-2024-21546/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2024-21546"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DIGITALSURGN-CVE-2024-21546"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DIGITALSURGN-CVE-2024-21546\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-laravel-filemanager-rce-cve-2024-21546",
+      "x_craftedsignal_event_id": "brief-2026-11-21-laravel-filemanager-rce-cve-2024-21546",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-laravel-filemanager-rce-cve-2024-21546/",
+      "x_craftedsignal_activity_at": "2026-11-21T05:50:25.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.01311,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -300149,6 +300299,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--16dd6b2b-1fbe-5ada-9a88-d72590f95f5d",
+      "name": "unisharp/laravel-filemanager (\u003c 2.9.1)",
+      "vendor": "unisharp"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--16df14ec-8e6d-5ed7-8abe-c5bbae2f99c8",
       "name": "Aedes (\u003c 1.1.1)",
       "vendor": "Aedes"
@@ -310389,6 +310546,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--971a3c71-90b8-5038-8b85-12baacaacad1",
+      "name": "LibreOffice Draw"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--97355d48-8906-5976-b3ec-7b2e4e56984d",
       "name": "JTL-Shop 5.8.0 to 5.8.3",
       "vendor": "JTL-Software GmbH"
@@ -314674,6 +314837,12 @@
       "id": "software--cd3bbbe1-8857-50a6-8be9-2a2e3997390c",
       "name": "AWE 5000 Series",
       "vendor": "Arista Networks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--cd89b570-99f0-5bed-8a23-0717439b5533",
+      "name": "Ghostscript (\u003c 10.01.2)"
     },
     {
       "type": "software",
@@ -333824,6 +333993,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-128340",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128340"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--36ed9b9e-3321-5322-8d73-fe5b5b15f945",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2023-36664",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2023-36664",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-36664"
         }
       ]
     },
@@ -380464,6 +380649,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-133094",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133094"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e2e697ed-1260-523f-b397-6b955ba25e1d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-21546",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-21546",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-21546"
         }
       ]
     },
