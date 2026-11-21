@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--07a34b52-b1b6-59b7-b4ca-6d517c45b92c",
+  "id": "bundle--ec587611-3d44-5805-8c03-f0c19bcb54dd",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12857,17 +12857,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--d2350cbc-7de7-5652-91bd-0fb91f9d2b4c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--a449f7c5-1c92-5f06-9b25-2aad635dae67",
-      "target_ref": "vulnerability--53eefcd4-e654-5963-84d1-58c29ed8eba2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--d24c7585-1b5d-5a83-885f-2f9a293a2830",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T03:13:43.000Z",
@@ -14228,17 +14217,6 @@
       "relationship_type": "has",
       "source_ref": "software--15fdae3d-f4fe-505a-b5c4-091340d4957c",
       "target_ref": "vulnerability--e5952445-c9a4-53bf-9ad9-86cf25d53b83"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--edd0fd95-642a-572e-b264-9e20f697e556",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-22T23:33:32.000Z",
-      "modified": "2026-08-23T03:52:39.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6ec36713-7b5c-508a-a37f-159c061e89f5",
-      "target_ref": "attack-pattern--3866e24b-251c-5409-b390-26f7184d1897"
     },
     {
       "type": "relationship",
@@ -24116,60 +24094,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--6ec36713-7b5c-508a-a37f-159c061e89f5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-22T23:33:32.000Z",
-      "modified": "2026-08-23T03:52:39.000Z",
-      "name": "Insufficient Access Control in docker-socket-proxy",
-      "description": "## Overview\n\nTecnativa docker-socket-proxy version 0.5.0 and earlier contains an access control vulnerability identified as CVE-2026-78122. The vulnerability arises when the 'CONTAINERS' environment variable is enabled, intended to gate access to specific Docker API endpoints. Due to insufficient granularity in the HAPROXY configuration, the proxy fails to properly restrict read-only endpoints in the /containers namespace. An unauthenticated attacker positioned on the adjacent network can issue GET requests to sensitive endpoints, including /containers/{id}/archive and /containers/{id}/export. Successful exploitation allows the attacker to download entire container filesystems as tar archives, read container logs, and inspect process information via /top. This vulnerability poses a significant risk to environments relying on the proxy to isolate the Docker socket from unauthorized network entities.\n\n## Impact\n\nThe impact of this vulnerability includes the unauthorized disclosure of sensitive data contained within running container filesystems. Successful exploitation enables attackers to extract configuration files, environment variables, source code, and secrets present in the container images. This could lead to further compromise of the underlying infrastructure or linked services.\n\n## Recommendation\n\n- Upgrade to a version of docker-socket-proxy that resolves the configuration flaw in the HAPROXY ruleset.\n- Review and tighten the HAPROXY access control lists (ACLs) to ensure only authorized endpoints are reachable, explicitly denying access to /archive and /export unless strictly required.\n- Monitor logs for unauthorized GET requests to the /containers API namespace originating from untrusted network segments.\n- Restrict network access to the docker-socket-proxy service to only explicitly authorized client IPs using firewall or network security group rules.\n",
-      "published": "2026-08-22T23:33:32.000Z",
-      "labels": [
-        "api-security",
-        "container-security",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--3866e24b-251c-5409-b390-26f7184d1897",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--a449f7c5-1c92-5f06-9b25-2aad635dae67",
-        "vulnerability--53eefcd4-e654-5963-84d1-58c29ed8eba2"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-docker-socket-proxy-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-docker-socket-proxy-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78122"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=2DDF171A-EC6F-5014-AC4E-DBE83BFEDB8A\u0026utm_source=rss\u0026utm_medium=rss"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.vulncheck.com/advisories/docker-socket-proxy-through-insufficient-access-control-granularity-exposes-container-filesystems"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-docker-socket-proxy-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-08-docker-socket-proxy-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-docker-socket-proxy-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-08-23T03:52:39.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.4,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -38150,13 +38074,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--a449f7c5-1c92-5f06-9b25-2aad635dae67",
-      "name": "docker-socket-proxy",
-      "vendor": "Tecnativa"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--a44daabc-9131-5832-8c3e-a160ef63eace",
       "name": "vCenter Server (7.0, 8.0)",
       "vendor": "VMware"
@@ -41348,22 +41265,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-74232",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74232"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--53eefcd4-e654-5963-84d1-58c29ed8eba2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-78122",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-78122",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78122"
         }
       ]
     },
