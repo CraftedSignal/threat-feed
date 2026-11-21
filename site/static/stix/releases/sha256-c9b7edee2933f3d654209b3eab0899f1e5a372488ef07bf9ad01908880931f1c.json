@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--003b6517-ec5e-544a-88e3-e475fbaf6345",
+  "id": "bundle--518e7f1b-8e89-5290-b811-1e5ca09d82c9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -41834,6 +41834,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--14c20174-c935-5efa-b096-418d08735ef8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2ca4a8da-0215-538e-bf30-4fbdd2aaaa28",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T17:47:15.000Z",
+      "modified": "2026-11-21T17:47:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--28cd85d5-26e3-5796-8160-e9233168ff3b",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -100442,6 +100453,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--68222105-0f38-5be1-9836-8f4d926d4053"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7cd923fd-a6b4-531e-9678-fea4ddadae04",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--66a54fe2-102e-5822-9198-48ff65de7fa4",
+      "target_ref": "vulnerability--bbf6a862-09b5-5559-853b-55d95b59e8e6"
     },
     {
       "type": "relationship",
@@ -224885,6 +224907,60 @@
       },
       "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_epss_max": 0.0039,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--28cd85d5-26e3-5796-8160-e9233168ff3b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T17:47:15.000Z",
+      "modified": "2026-11-21T17:47:15.000Z",
+      "name": "Apache OFBiz Unsafe Deserialization Vulnerability (CVE-2021-29200)",
+      "description": "## Overview\nApache OFBiz versions prior to 17.12.07 are affected by an unsafe deserialization vulnerability. An unauthenticated user can perform a remote code execution (RCE) attack.\n\n## Attack Chain\nPublicly available proof-of-concept material leverages Java RMI deserialization via the CommonsBeanutils1 gadget chain to enable remote code execution and reverse shell capabilities.\n\n## Impact\nSuccessful exploitation allows an unauthenticated remote attacker to execute arbitrary code. The vulnerability is rated with a CVSS 3.1 score of 9.8 (Critical Severity).\n\n## Recommendation\nUpgrade to Apache OFBiz version 17.12.07 or later, or apply the patches available at https://issues.apache.org/jira/browse/OFBIZ-12216.",
+      "published": "2026-11-21T17:47:15.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--66a54fe2-102e-5822-9198-48ff65de7fa4",
+        "vulnerability--bbf6a862-09b5-5559-853b-55d95b59e8e6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-cve-2021-29200",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2021-29200/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2021-29200"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://issues.apache.org/jira/browse/OFBIZ-12216"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-FREEIDE-CVE-2021-29200"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-FREEIDE-CVE-2021-29200\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-cve-2021-29200",
+      "x_craftedsignal_event_id": "brief-2026-11-21-cve-2021-29200",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2021-29200/",
+      "x_craftedsignal_activity_at": "2026-11-21T17:47:15.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.5537,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -398506,6 +398582,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--66a54fe2-102e-5822-9198-48ff65de7fa4",
+      "name": "Apache OFBiz (\u003c 17.12.07)",
+      "vendor": "Apache Software Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--66ab4392-4342-507b-9109-f7648afdf7db",
       "name": "Leo",
       "vendor": "webriti"
@@ -480360,6 +480443,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124724",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124724"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--bbf6a862-09b5-5559-853b-55d95b59e8e6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2021-29200",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2021-29200",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-29200"
         }
       ]
     },
