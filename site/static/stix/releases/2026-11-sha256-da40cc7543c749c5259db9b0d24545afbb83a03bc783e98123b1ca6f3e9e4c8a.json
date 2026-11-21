@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2032e6a4-2c4c-520a-aa78-1373822e3363",
+  "id": "bundle--e2517e69-5271-5f69-9afe-a6799c3e5d53",
   "objects": [
     {
       "type": "attack-pattern",
@@ -44825,7 +44825,7 @@
       "id": "relationship--3fbc2017-7779-511d-81c9-f8f5e900bb17",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T08:31:42.000Z",
-      "modified": "2026-11-14T15:13:44.000Z",
+      "modified": "2026-11-21T21:17:56.000Z",
       "relationship_type": "uses",
       "source_ref": "report--361e59a7-445f-596f-a48e-e146c9559034",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -188619,7 +188619,7 @@
       "id": "report--361e59a7-445f-596f-a48e-e146c9559034",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T08:31:42.000Z",
-      "modified": "2026-11-14T15:13:44.000Z",
+      "modified": "2026-11-21T21:17:56.000Z",
       "name": "UnrealIRCd: Command injection in labeled-response module (CVE-2026-114713)",
       "description": "## Overview\n\nCVE-2026-114713 is a command injection vulnerability affecting the labeled-response module in UnrealIRCd versions 6.0.0 through 6.2.7.0. The vulnerability occurs because the application fails to properly escape IRCv3 \"label\" tags when echoing them into server replies. On networks with two or more linked servers, an attacker can leverage this flaw to inject arbitrary server-to-server commands that execute with the authority of the server. This vulnerability carries a CVSS score of 8.6.\n\n## Impact\n\nSuccessful exploitation allows for the execution of unauthorized server-to-server commands, potentially leading to full network compromise, unauthorized modifications to IRC services, or service disruption, as commands are processed with server-level privileges.\n\n## Recommendation\n\n* Upgrade all UnrealIRCd instances to version 6.2.7.1 or later immediately to address the insecure handling of IRCv3 tags.\n* Audit server-to-server (S2S) traffic logs for unusual command patterns or syntax deviations in label-related messages.\n* For environments unable to patch immediately, isolate linked IRC servers to restrict the potential blast radius of server-to-server command injection.\n",
       "published": "2026-11-08T08:31:42.000Z",
@@ -188664,9 +188664,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-08-unrealircd-rce",
       "x_craftedsignal_event_id": "brief-2026-11-08-unrealircd-rce",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-unrealircd-rce/",
-      "x_craftedsignal_activity_at": "2026-11-14T15:13:44.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T21:17:56.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -188675,7 +188675,6 @@
         "observed_at": "2026-11-08T08:31:42.000Z",
         "confidence": "high"
       },
-      "x_craftedsignal_epss_max": 0.01148,
       "x_craftedsignal_kev_status": "true"
     },
     {
