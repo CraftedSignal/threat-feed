@@ -1,12 +1,25 @@
 ---
 brief_id: brief-2026-11-17-cold-relic
 event_id: brief-2026-11-17-cold-relic
-revision: 1
-activity_at: "2026-11-17T20:55:52Z"
+revision: 2
+activity_at: "2026-11-21T09:56:59Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-21T09:56:59Z"
+    checksum: sha256:3b767c22214623145c863adeb21dc917660692635537029815609d0930b66271
+    summary: exploited:true
+    changed_fields:
+      - exploitation_evidence
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://thehackernews.com/2026/11/russian-cold-relic-hackers-use-stolen.html
 title: 'COLD RELIC: Long-term Espionage via Cloud Impersonation and Credential Abuse'
 slug: 2026-11-cold-relic
 description: Russian state-sponsored actor COLD RELIC is leveraging compromised cloud identities and stolen data from initial victims to conduct highly targeted, persistent social engineering and follow-on espionage campaigns across organizations.
 date: "2026-11-17T20:55:52Z"
+lastmod: "2026-11-21T09:56:39Z"
 type: threat
 types:
   - threat
@@ -14,8 +27,12 @@ severities:
   - high
 actors:
   - COLD RELIC
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://thehackernews.com/2026/11/russian-cold-relic-hackers-use-stolen.html
+  observed_at: "2026-11-18T05:58:04Z"
+  confidence: medium
 source_assessment:
   reliability: A
   credibility: "1"
@@ -61,6 +78,7 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://cloud.google.com/blog/topics/threat-intelligence/cold-relic-a-case-study-in-impersonation-and-compromise/
+  - https://thehackernews.com/2026/11/russian-cold-relic-hackers-use-stolen.html
 action_plan:
   priority: immediate_escalation
   owners:
@@ -84,6 +102,14 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: COLD RELIC exported full employee lists and initiated a domain-wide data export via Google Workspace Customer Takeout using Super Admin privileges.
+updates:
+  - at: "2026-11-21T09:56:39Z"
+    level: L3
+    summary: exploited:true
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/11/russian-cold-relic-hackers-use-stolen.html
 ---
 
 ## Overview

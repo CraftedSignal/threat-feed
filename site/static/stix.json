@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--78fa5fa0-e9f5-521c-b6e3-4dfb8e0f5818",
+  "id": "bundle--913783cb-06b9-5917-a962-f4473ab40d29",
   "objects": [
     {
       "type": "attack-pattern",
@@ -44010,17 +44010,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--3015f095-06a1-5fec-b313-4ca82dd18429",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-22T09:54:16.000Z",
-      "modified": "2026-10-22T09:54:16.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d6d6f332-531d-5540-9a0b-0b55649e147a",
-      "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--30181eea-954c-5e84-b8f2-d0683c19ff5d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -74872,17 +74861,6 @@
       "relationship_type": "has",
       "source_ref": "software--2f0754b8-da5a-5822-aee9-74f14ade0095",
       "target_ref": "vulnerability--12491ed0-6298-5674-916b-a74993d22d76"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5ab8b582-fb0c-5890-8a03-889746502aef",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--6e1d529f-8079-5898-957b-56e50118be48",
-      "target_ref": "vulnerability--9bac7a8d-1e87-57d8-a729-f717c5d4fa19"
     },
     {
       "type": "relationship",
@@ -128295,7 +128273,7 @@
       "id": "relationship--a3d50fd6-c344-5127-ab90-179a618381e7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:55:52.000Z",
-      "modified": "2026-11-17T20:55:52.000Z",
+      "modified": "2026-11-21T09:56:59.000Z",
       "relationship_type": "uses",
       "source_ref": "report--714986fd-e389-5156-9a13-aa41989c9701",
       "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
@@ -156609,7 +156587,7 @@
       "id": "relationship--ca49ed5f-55a3-5919-b6f5-40a3cedefa66",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:55:52.000Z",
-      "modified": "2026-11-17T20:55:52.000Z",
+      "modified": "2026-11-21T09:56:59.000Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--714986fd-e389-5156-9a13-aa41989c9701",
       "target_ref": "threat-actor--d604aa84-df03-5931-adf4-c4ffeb9f478f"
@@ -162791,7 +162769,7 @@
       "id": "relationship--d2fd1db8-50d7-5634-8f37-46519e231c29",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:55:52.000Z",
-      "modified": "2026-11-17T20:55:52.000Z",
+      "modified": "2026-11-21T09:56:59.000Z",
       "relationship_type": "uses",
       "source_ref": "report--714986fd-e389-5156-9a13-aa41989c9701",
       "target_ref": "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b"
@@ -178950,7 +178928,7 @@
       "id": "relationship--ea130e5a-3637-54ad-8c50-91232a236de3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:55:52.000Z",
-      "modified": "2026-11-17T20:55:52.000Z",
+      "modified": "2026-11-21T09:56:59.000Z",
       "relationship_type": "uses",
       "source_ref": "report--714986fd-e389-5156-9a13-aa41989c9701",
       "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
@@ -278865,7 +278843,7 @@
       "id": "report--714986fd-e389-5156-9a13-aa41989c9701",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:55:52.000Z",
-      "modified": "2026-11-17T20:55:52.000Z",
+      "modified": "2026-11-21T09:56:59.000Z",
       "name": "COLD RELIC: Long-term Espionage via Cloud Impersonation and Credential Abuse",
       "description": "## Overview\nCOLD RELIC, a Russian state-sponsored threat actor, has been observed conducting multi-stage espionage operations against high-value targets in Europe and North America. The group specializes in cloud productivity environment compromise, using stolen data and identity context from one victim to build authentic pretexts for spear-phishing subsequent targets. Their tradecraft includes the use of residential proxies, MFA push notification fatigue, and unauthorized registration of MFA devices or passkeys to maintain long-term persistence within target tenants.\n\n## Attack Chain\n1. Initial reconnaissance using stolen data (contacts, email archives) from prior victims to establish credible pretexts.\n2. Initial access gained via spear-phishing campaigns or MFA push notification fatigue against cloud identities.\n3. Threat actor authentication using stolen credentials in combination with residential proxy networks to evade location-based detection.\n4. Enrollment of malicious MFA devices, passkeys, or rogue OAuth tokens to secure long-term persistence across SSO and federated providers.\n5. Exfiltration of cloud-stored data, including employee lists and email archives, via administrative tools like Google Workspace Customer Takeout.\n6. Antiforensics activity involving the modification or deletion of security audit logs and Alert Center notifications.\n7. Use of impersonated accounts to initiate contact with new targets via secure messaging platforms and redirectors for further credential theft.\n\n## Impact\nCOLD RELIC consistently maintains a high operational tempo, gaining access to strategic information from defense contractors, government officials, and NGOs. The actor's ability to pivot between federated cloud environments and leverage trusted relationships (impersonation) facilitates the compromise of high-value professional networks.\n\n## Recommendation\n- Audit and monitor Google Workspace Admin logs for 'CUSTOMER_TAKEOUT_CREATED' events and unusual admin-level data exports.\n- Restrict administrative access to cloud environments and implement robust, phishing-resistant MFA (such as FIDO2 security keys) to mitigate push fatigue and rogue device enrollment.\n- Review authentication logs for anomalous device registrations or passkey enrollments that deviate from organizational baselines.\n- Educate employees on the risks of social engineering involving contacts from trusted third parties, particularly through secure messaging applications.\n- Monitor for unauthorized OAuth applications or external email client syncing (IMAP/POP) within tenant configurations.",
       "published": "2026-11-17T20:55:52.000Z",
@@ -278893,18 +278871,25 @@
         {
           "source_name": "reference",
           "url": "https://cloud.google.com/blog/topics/threat-intelligence/cold-relic-a-case-study-in-impersonation-and-compromise/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/russian-cold-relic-hackers-use-stolen.html"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-17-cold-relic",
       "x_craftedsignal_event_id": "brief-2026-11-17-cold-relic",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cold-relic/",
-      "x_craftedsignal_activity_at": "2026-11-17T20:55:52.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T09:56:59.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://thehackernews.com/2026/11/russian-cold-relic-hackers-use-stolen.html",
+        "observed_at": "2026-11-18T05:58:04.000Z",
+        "confidence": "medium"
       },
       "x_craftedsignal_kev_status": "unknown"
     },
@@ -352552,52 +352537,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--d6d6f332-531d-5540-9a0b-0b55649e147a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-22T09:54:16.000Z",
-      "modified": "2026-10-22T09:54:16.000Z",
-      "name": "Obot: Authentication bypass in CLI login flow (CVE-2026-114662)",
-      "description": "## Overview\n\nObot versions before 0.26.0 are affected by an authentication bypass vulnerability within the CLI login flow. An unauthenticated attacker can exploit this by sending a crafted request to the /api/token-request endpoint and tricking a signed-in user into authenticating, which allows the attacker to steal the resulting non-expiring API key. This can lead to full account takeover.\n\n## Attack Chain\n\n1. Attacker crafts a token request.\n2. Attacker submits the request via a POST /api/token-request call.\n3. Attacker lures a signed-in victim to interact with a malicious login link.\n4. Victim authenticates through the provided link.\n5. Attacker retrieves the non-expiring API key generated by the flow.\n6. Attacker uses the stolen API key to gain unauthorized access to the victim account.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to steal a user's API key and gain full access to their Obot account.\n\n## Recommendation\n\n* Upgrade Obot to version 0.26.0 or later to patch the vulnerable CLI login flow.\n* Audit access logs for excessive or anomalous POST requests to the /api/token-request endpoint.\n",
-      "published": "2026-10-22T09:54:16.000Z",
-      "labels": [
-        "api-security",
-        "authentication-bypass",
-        "web-application-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--6e1d529f-8079-5898-957b-56e50118be48",
-        "vulnerability--9bac7a8d-1e87-57d8-a729-f717c5d4fa19"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-22-obot-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-obot-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114662"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-22-obot-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-10-22-obot-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-obot-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-10-22T09:54:16.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--d6ee9dc8-1960-5827-b539-0ceb46a09bae",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T03:09:42.000Z",
@@ -397679,13 +397618,6 @@
       "id": "software--6e13aa1d-7a9d-562e-bacc-eb80abda1ec7",
       "name": "JP1/Automatic Job Management System 3 - Manager (10-00 \u003c= v \u003c 13-50-31)",
       "vendor": "Hitachi"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--6e1d529f-8079-5898-957b-56e50118be48",
-      "name": "Obot (\u003c 0.26.0)",
-      "vendor": "Obot"
     },
     {
       "type": "software",
@@ -467084,22 +467016,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119860",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119860"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--9bac7a8d-1e87-57d8-a729-f717c5d4fa19",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-114662",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-114662",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114662"
         }
       ]
     },
