@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9283ca1c-9994-5d68-b4a2-4a22db04dcc4",
+  "id": "bundle--1740ba73-53dd-53b2-be11-6a83d5116202",
   "objects": [
     {
       "type": "attack-pattern",
@@ -73819,6 +73819,17 @@
       "relationship_type": "uses",
       "source_ref": "report--654a3c0d-618b-5633-88b2-79d5e36b9afb",
       "target_ref": "indicator--aea5e16a-add9-5a83-8a54-bf26ddb99682"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--728fcc2d-e1d5-55ae-a534-2b22163fcade",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--743fa5e8-db0f-5900-b6ad-16047b4a0f83",
+      "target_ref": "vulnerability--6422493e-b294-53f5-8734-2a4cb3be4951"
     },
     {
       "type": "relationship",
@@ -178855,6 +178866,57 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.03095,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2edfb891-b9bd-55f1-b0e8-63929a0e6a33",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T04:44:22.000Z",
+      "modified": "2026-11-21T04:44:22.000Z",
+      "name": "Contao: Stored Cross-Site Scripting in legacy search template (CVE-2026-104884)",
+      "description": "## Overview\nA stored cross-site scripting (XSS) vulnerability exists in the Contao core-bundle, specifically within the `ModuleSearch::compile` method and the legacy `search_default.html5` template. The vulnerability occurs because the `link` template variable is assigned directly from the entity-decoded indexed title without further sanitization. When the legacy template is active, it renders this variable unescaped, allowing arbitrary JavaScript execution for any user viewing the search results.\n\n## Attack Chain\n1. A backend editor inserts a malicious page title containing script or HTML payloads.\n2. The application indexer processes the malicious title.\n3. An anonymous visitor performs a search on a site using the legacy `search_default.html5` template.\n4. The search result page renders the raw, unescaped `link` variable, executing the stored script in the visitor's browser.\n\n## Impact\nSuccessful exploitation allows for arbitrary JavaScript execution in the context of a user's session who views the compromised search results. The vulnerability only affects installations where the legacy template is active; default Twig-based templates auto-escape this content and are not affected.\n\n## Recommendation\n- Upgrade to version 5.3.50 or apply the vendor-provided fix (commit 9519c104) which wraps `link` and `href` assignments in `StringUtil::specialchars`.\n- Utilize the Twig-based search template for the search module instead of the legacy HTML5 template.",
+      "published": "2026-11-21T04:44:22.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--743fa5e8-db0f-5900-b6ad-16047b4a0f83",
+        "vulnerability--6422493e-b294-53f5-8734-2a4cb3be4951"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-contao-xss-cve-2026-104884",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-contao-xss-cve-2026-104884/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/contao/contao/commit/9519c1049462da35054c114d07efdeecaef32d06"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/contao/contao/security/advisories/GHSA-h57j-5f5m-789v"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=F40613BD-E52D-5CB0-B628-E8005B89921F"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=F40613BD-E52D-5CB0-B628-E8005B89921F\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-contao-xss-cve-2026-104884",
+      "x_craftedsignal_event_id": "brief-2026-11-21-contao-xss-cve-2026-104884",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-contao-xss-cve-2026-104884/",
+      "x_craftedsignal_activity_at": "2026-11-21T04:44:22.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -307809,6 +307871,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--743fa5e8-db0f-5900-b6ad-16047b4a0f83",
+      "name": "Contao core-bundle",
+      "vendor": "Contao"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--746ff7f2-c8f6-58eb-b5d0-96e8535fdeb1",
       "name": "filesystem (\u003c 5.4.56, 6.4.50, 7.4.23, 8.1.11)",
       "vendor": "Symfony"
@@ -345417,6 +345486,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126182",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126182"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6422493e-b294-53f5-8734-2a4cb3be4951",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-104884",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-104884",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104884"
         }
       ]
     },
