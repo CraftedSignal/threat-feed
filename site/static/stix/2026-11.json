@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--56f0f8bc-6fad-5ccd-a4b0-8cd7fead3337",
+  "id": "bundle--3ea67574-c745-5ec5-9e06-acfef90a55bd",
   "objects": [
     {
       "type": "attack-pattern",
@@ -96731,6 +96731,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--99d6d78e-30f6-59bd-ab11-b66a6f8eebb1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--536fc6ff-4894-50b6-b8a3-0fa84a42cad9",
+      "target_ref": "vulnerability--96abd1a5-27e3-5d43-94f1-9d11a329c802"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--99da7aec-e305-5f13-94d6-9fd51642b86c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T20:05:04.000Z",
@@ -116857,6 +116868,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--ffddc300-8256-524e-b3e8-75dd2e8e0968"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bb8f3361-123b-513b-bea6-adf7571f9687",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T16:58:57.000Z",
+      "modified": "2026-11-21T16:58:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d6ac0250-9812-59ac-837b-5541bb20e348",
+      "target_ref": "attack-pattern--81fd65a4-87c0-58e0-918c-c27c275ab930"
     },
     {
       "type": "relationship",
@@ -278522,6 +278544,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d6ac0250-9812-59ac-837b-5541bb20e348",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T16:58:57.000Z",
+      "modified": "2026-11-21T16:58:57.000Z",
+      "name": "SecureVPN: Account takeover via API authentication (CVE-2025-492030)",
+      "description": "## Overview\n\nA vulnerability (CVE-2025-492030) has been identified in the SecureVPN API that allows for account takeover. The /api/v1/authenticate endpoint fails to perform proper session token validation, accepting a valid session token belonging to one user to authenticate as a different user. This allows unauthorized access to user accounts.\n\n## Attack Chain\n\n1. Attacker intercepts a valid session token (e.g., via network sniffing or other vulnerabilities).\n2. Attacker crafts a POST request to the /api/v1/authenticate endpoint.\n3. Attacker injects the intercepted session token into the Authorization header.\n4. Attacker specifies the target victim username in the request body.\n5. The SecureVPN API processes the authentication request without validating the token-to-user binding.\n6. Attacker gains authorized access to the victim account.\n\n## Impact\n\nSuccessful exploitation leads to a full account takeover, allowing unauthorized access to sensitive user data and account functions.\n\n## Recommendation\n\n- Immediately audit and restrict exposure of the /api/v1/authenticate endpoint.\n- Implement strict server-side session validation that binds session tokens to the authenticated user ID.\n- Investigate session management logs for anomalous login activity originating from unusual IPs or sessions associated with multiple usernames.",
+      "published": "2026-11-21T16:58:57.000Z",
+      "object_refs": [
+        "attack-pattern--81fd65a4-87c0-58e0-918c-c27c275ab930",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--536fc6ff-4894-50b6-b8a3-0fa84a42cad9",
+        "vulnerability--96abd1a5-27e3-5d43-94f1-9d11a329c802"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-securevpn-account-takeover-cve-2025-492030",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-securevpn-account-takeover-cve-2025-492030/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-IMTHECOPILOTNOW-CVE-2025-492030"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-IMTHECOPILOTNOW-CVE-2025-492030\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-securevpn-account-takeover-cve-2025-492030",
+      "x_craftedsignal_event_id": "brief-2026-11-21-securevpn-account-takeover-cve-2025-492030",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-securevpn-account-takeover-cve-2025-492030/",
+      "x_craftedsignal_activity_at": "2026-11-21T16:58:57.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d6bf9569-1e5b-5cc4-9785-b72f39c3d409",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T19:51:51.000Z",
@@ -309211,6 +309277,13 @@
       "id": "software--536f1d8b-98d3-5d89-a1a1-81cf4a13c79c",
       "name": "Optim (1.0.0, 1.1.0, 1.2.0)",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--536fc6ff-4894-50b6-b8a3-0fa84a42cad9",
+      "name": "SecureVPN",
+      "vendor": "SecureVPN"
     },
     {
       "type": "software",
@@ -364009,6 +364082,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126088",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126088"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--96abd1a5-27e3-5d43-94f1-9d11a329c802",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-492030",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-492030",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-492030"
         }
       ]
     },

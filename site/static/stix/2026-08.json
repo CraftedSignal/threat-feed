@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ae5ab7f0-46ee-53d0-a008-c105cd27c8db",
+  "id": "bundle--ce768f9c-0da1-5bc3-b0c9-4943f86efab2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8435,17 +8435,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--7c3c72b6-d75c-51af-822c-9f252cb5d51a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-23T16:57:04.000Z",
-      "modified": "2026-08-23T16:57:04.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--caa0198c-b3ce-5eca-bcd2-be4511937cc8",
-      "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--7c77728a-4fba-5524-88f1-df78448b6d2e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -11416,17 +11405,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--bb297d14-7d0a-5747-9803-3112545e91b5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--9943caa2-def9-5f56-b2b1-84578cd4b3e7",
-      "target_ref": "vulnerability--db9a4d70-6e4b-508c-ac87-83088564bbcb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--bb7fc008-2643-55c0-94a5-2777ce1ea20d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -12269,17 +12247,6 @@
       "modified": "2026-08-29T17:47:04.000Z",
       "relationship_type": "uses",
       "source_ref": "report--e9774481-2c28-5e6b-853d-d2734c2aebb1",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--cad25827-98b2-5e87-89e5-633ab0af7dd3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-23T16:57:04.000Z",
-      "modified": "2026-08-23T16:57:04.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--caa0198c-b3ce-5eca-bcd2-be4511937cc8",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -31394,55 +31361,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--caa0198c-b3ce-5eca-bcd2-be4511937cc8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-23T16:57:04.000Z",
-      "modified": "2026-08-23T16:57:04.000Z",
-      "name": "Unauthenticated Access Control Bypass in JoomGallery",
-      "description": "## Overview\n\nJoomGallery versions 4.3.0 and earlier suffer from an improper access control vulnerability (CVE-2026-66916) in the `JsonView.php` component. While the HTML-based view correctly enforces password protection for gallery categories, the JSON interface (`format=json`) fails to implement the required `pw_protected` flag checks. This oversight permits unauthenticated remote attackers to query any public-access category ID and receive a full JSON object containing category titles, descriptions, and randomized file paths for protected images. Because JoomGallery relies on the obscurity of these randomized filenames for its security model, the leakage of filenames allows attackers to download the underlying protected images directly from the web server's static directory. This vulnerability affects JoomGallery installations running on Joomla, as the framework does not propagate access checks across different view formats.\n\n## Attack Chain\n\n1. Attacker identifies a JoomGallery installation and identifies target category IDs, which are sequential and easily enumerated.\n2. Attacker crafts an HTTP GET request to the target component: `index.php?option=com_joomgallery\u0026view=category\u0026format=json\u0026id=[ID]`.\n3. The web server routes the request to `site/com_joomgallery/src/View/Category/JsonView.php`.\n4. The application logic executes `getImages()` without verifying if the requested category is password protected.\n5. The application serializes the category's private data, including randomized full filenames, into a JSON response.\n6. The attacker receives the JSON response containing the secret image filenames.\n7. The attacker constructs a direct request to the static file path: `/images/joomgallery/originals/[filename]`.\n8. The web server serves the protected image directly, completing the unauthorized access.\n\n## Impact\n\nSuccessful exploitation allows for the full disclosure of private gallery metadata and the unauthorized download of password-protected images. Since categories are enumerable via ID, an attacker can systematically harvest all content from any password-protected, public-access category. This vulnerability impacts all users of JoomGallery versions 4.3.0 and earlier until upgraded to 4.4.0.\n\n## Recommendation\n\nPrioritized, concrete actions for detection engineering teams:\n- Upgrade JoomGallery to version 4.4.0 immediately to address CVE-2026-66916.\n- Implement web server access controls or WAF rules to block access to the `/images/joomgallery/originals/` directory from external requests.\n- Deploy the Sigma rules below to detect attempts to access the vulnerable JSON view endpoint.\n- Audit existing JoomGallery categories to ensure sensitive images are not stored in directories exposed via direct web requests.\n",
-      "published": "2026-08-23T16:57:04.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--9943caa2-def9-5f56-b2b1-84578cd4b3e7",
-        "vulnerability--db9a4d70-6e4b-508c-ac87-83088564bbcb"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-joomgallery-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-joomgallery-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-g79m-pfhw-2c5m"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66916"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.joomgalleryfriends.net/en/blog/joomgallery-4-en/joomgallery-4-4-0.html"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-joomgallery-bypass",
-      "x_craftedsignal_event_id": "brief-2026-08-joomgallery-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-joomgallery-bypass/",
-      "x_craftedsignal_activity_at": "2026-08-23T16:57:04.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--cbab292f-b038-5adc-8ddc-6e85b834fe20",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T08:24:38.000Z",
@@ -37463,13 +37381,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--9943caa2-def9-5f56-b2b1-84578cd4b3e7",
-      "name": "JoomGallery (\u003c= 4.3.0)",
-      "vendor": "JoomGallery"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--99a8bc94-f5bf-5253-8eae-787b607bfb04",
       "name": "AIX (7.2, 7.3)",
       "vendor": "IBM"
@@ -43375,22 +43286,6 @@
           "source_name": "cve",
           "external_id": "CVE-2023-21768",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-21768"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--db9a4d70-6e4b-508c-ac87-83088564bbcb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-66916",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-66916",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66916"
         }
       ]
     },
