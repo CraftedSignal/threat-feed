@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c4310624-cda2-55e2-8376-44c568754a64",
+  "id": "bundle--d088e848-affd-514d-9e56-95d7abcd7635",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3470,6 +3470,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--02e7c742-f0b3-5583-b58d-8bd714e6814b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T12:01:21.000Z",
+      "modified": "2026-11-21T12:01:21.000Z",
+      "name": "ip: 192.30.240.26",
+      "description": "C2 infrastructure address for malware communication.",
+      "pattern": "[ipv4-addr:value = '192.30.240.26']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-21T12:01:21.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--0347d2dc-1178-5903-a8c8-c871eccac43b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:38:34.000Z",
@@ -4998,6 +5011,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--4c684611-8d53-55dc-920c-9c90ab37c53d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T12:01:21.000Z",
+      "modified": "2026-11-21T12:01:21.000Z",
+      "name": "domain: gta6cloud.nexus",
+      "description": "Malicious site used to deliver the fake GTA VI streaming client and PowerShell instructions.",
+      "pattern": "[domain-name:value = 'gta6cloud.nexus']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-21T12:01:21.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--4d23aebd-fb42-5ce6-a4b8-5a72403631c3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -5162,6 +5188,19 @@
       "pattern": "[ipv4-addr:value = '85.215.73.250']",
       "pattern_type": "stix",
       "valid_from": "2026-11-03T07:07:48.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--5602b295-041b-5db3-a0b1-28220a0e0080",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T12:01:21.000Z",
+      "modified": "2026-11-21T12:01:21.000Z",
+      "name": "domain: velmontriq.net",
+      "description": "Infrastructure used to host malicious payloads including loadperf.dll and unlodctr.exe.",
+      "pattern": "[domain-name:value = 'velmontriq.net']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-21T12:01:21.000Z"
     },
     {
       "type": "indicator",
@@ -60950,6 +60989,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--48565217-76ed-56ed-a3d2-ec06d4c46d3c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T12:01:21.000Z",
+      "modified": "2026-11-21T12:01:21.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--66ad1f66-51c3-5323-889a-982df980fbae",
+      "target_ref": "indicator--02e7c742-f0b3-5583-b58d-8bd714e6814b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--485a17e4-90c8-50c8-aefc-72f7302fede7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -80992,6 +81042,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--636fc976-b3ea-5a84-89d3-94245001bfd5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T12:01:21.000Z",
+      "modified": "2026-11-21T12:01:21.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--66ad1f66-51c3-5323-889a-982df980fbae",
+      "target_ref": "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6371755a-dec5-54f4-ab81-d419bc65dd61",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -87852,6 +87913,17 @@
       "relationship_type": "has",
       "source_ref": "software--63754bc3-bb98-5641-8394-7864c270438a",
       "target_ref": "vulnerability--f1c44395-ada2-5470-9ddd-9938ddb9eeed"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6cb2e199-2ade-5430-b0d6-7c0e082343b3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T12:01:21.000Z",
+      "modified": "2026-11-21T12:01:21.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--66ad1f66-51c3-5323-889a-982df980fbae",
+      "target_ref": "attack-pattern--5ef49edb-94d7-5032-9ce1-22d917ae63a7"
     },
     {
       "type": "relationship",
@@ -110831,6 +110903,17 @@
       "relationship_type": "has",
       "source_ref": "software--91941225-8e16-5438-addd-0f6183427109",
       "target_ref": "vulnerability--8a074ec0-4f70-5245-85d4-e703a60ad433"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8b39945c-327c-56af-98d7-6e3b37a20220",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T12:01:21.000Z",
+      "modified": "2026-11-21T12:01:21.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--66ad1f66-51c3-5323-889a-982df980fbae",
+      "target_ref": "attack-pattern--5e3a72eb-f0e9-5488-ab37-c8d5de0a07a0"
     },
     {
       "type": "relationship",
@@ -149401,6 +149484,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c0bcbefd-24c6-59b0-9e35-07d50e04c521",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T12:01:21.000Z",
+      "modified": "2026-11-21T12:01:21.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--66ad1f66-51c3-5323-889a-982df980fbae",
+      "target_ref": "indicator--4c684611-8d53-55dc-920c-9c90ab37c53d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c0c037c9-246d-557f-8c47-96ec4fdd484e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -162689,6 +162783,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d3026837-ff5c-584d-a38e-890151be874c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T12:01:21.000Z",
+      "modified": "2026-11-21T12:01:21.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--66ad1f66-51c3-5323-889a-982df980fbae",
+      "target_ref": "indicator--5602b295-041b-5db3-a0b1-28220a0e0080"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d304d6c9-5595-5083-a15d-1b24b2bacd23",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T14:01:00.000Z",
@@ -175885,6 +175990,17 @@
       "relationship_type": "has",
       "source_ref": "software--85475315-041c-542e-bcae-560f82ce7f95",
       "target_ref": "vulnerability--9d0e50a8-48db-5e70-9693-d27090484650"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e5f8c53e-558f-55be-b826-001a1f764619",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T12:01:21.000Z",
+      "modified": "2026-11-21T12:01:21.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--66ad1f66-51c3-5323-889a-982df980fbae",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -272593,6 +272709,57 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--66ad1f66-51c3-5323-889a-982df980fbae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T12:01:21.000Z",
+      "modified": "2026-11-21T12:01:21.000Z",
+      "name": "Fake GTA VI Streaming Client Delivers Rust-based Information Stealer",
+      "description": "## Overview\nBitdefender has identified a malvertising campaign distributing a fake GTA VI cloud streaming client for Windows. The threat actors utilize a 'ClickFix' social engineering approach on the domain gta6cloud.nexus, enticing users to run a PowerShell command designed to bypass execution policies. Once executed, the script downloads and deploys malicious payloads that utilize DLL sideloading and process injection to establish persistence and steal sensitive data.\n\n## Attack Chain\n1. Victim visits a malicious landing page (gta6cloud.nexus) promoting a fake GTA VI cloud streaming client.\n2. User is socially engineered via 'ClickFix' instructions to copy and execute a PowerShell command in the Windows Run dialog (Win+R).\n3. The PowerShell command bypasses local execution policies to download an initial payload script.\n4. The script fetches additional components, including a legitimate Windows utility (unlodctr.exe) and a malicious DLL (loadperf.dll), from a secondary domain (velmontriq.net).\n5. Malware establishes persistence by placing files in a hidden directory.\n6. DLL sideloading is used to execute the malicious loadperf.dll via the legitimate unlodctr.exe utility.\n7. A secondary Rust-based stealer (PhotoCache.exe) is injected into legitimate Windows processes.\n8. The stealer collects browser credentials, cookies, tokens, Discord/Steam data, crypto wallets, and API keys, exfiltrating them to nimbuskeepcom and a hardcoded C2 IP.\n\n## Impact\nCompromised systems are subject to the theft of browser-stored credentials, session cookies, authentication tokens, cryptocurrency wallets, developer API keys, clipboard contents, and system screenshots.\n\n## Recommendation\n- Block the domains gta6cloud.nexus, velmontriq.net, and nimbuskeepcom at the network perimeter.\n- Restrict the execution of PowerShell commands initiated from the Windows Run dialog or from untrusted web sources using Group Policy (ConstrainedLanguageMode).\n- Hunt for unauthorized process injection or suspicious DLL loads involving unlodctr.exe.\n- Immediately rotate credentials (email, passwords, API keys) from a known-clean device if compromise is suspected.",
+      "published": "2026-11-21T12:01:21.000Z",
+      "labels": [
+        "gaming",
+        "information-stealer",
+        "malware",
+        "phishing",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--5e3a72eb-f0e9-5488-ab37-c8d5de0a07a0",
+        "attack-pattern--5ef49edb-94d7-5032-9ce1-22d917ae63a7",
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--02e7c742-f0b3-5583-b58d-8bd714e6814b",
+        "indicator--4c684611-8d53-55dc-920c-9c90ab37c53d",
+        "indicator--5602b295-041b-5db3-a0b1-28220a0e0080"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-gta-vi-malware",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-gta-vi-malware/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://hackread.com/fake-gta-vi-streaming-client-malware-windows-pc/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-gta-vi-malware",
+      "x_craftedsignal_event_id": "brief-2026-11-21-gta-vi-malware",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gta-vi-malware/",
+      "x_craftedsignal_activity_at": "2026-11-21T12:01:21.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
