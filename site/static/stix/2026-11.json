@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--af0f52eb-c9aa-5672-a2c1-5baa7df8a7f6",
+  "id": "bundle--cb095766-2e26-5af9-9af5-fa275e115186",
   "objects": [
     {
       "type": "attack-pattern",
@@ -64876,6 +64876,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--14c20174-c935-5efa-b096-418d08735ef8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--62e04c04-0144-5645-9768-8f6aa6789052",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8769c5b5-7ea2-5d4d-93e2-200ac9091d06",
+      "target_ref": "vulnerability--2e30428d-05f3-5cc7-b60c-64f6105dbfff"
     },
     {
       "type": "relationship",
@@ -179736,6 +179747,50 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2f02b3c6-6d90-5a6c-9dac-7ba7ad49f244",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T11:19:24.000Z",
+      "modified": "2026-11-21T11:19:24.000Z",
+      "name": "SiteOrigin CSS Stored DOM-Based Cross-Site Scripting (CVE-2026-125054)",
+      "description": "## Overview\nThe SiteOrigin CSS plugin for WordPress is vulnerable to Stored DOM-Based Cross-Site Scripting via the 'class' parameter in all versions up to, and including, 1.6.9 due to insufficient input sanitization and output escaping.\n\n## Attack Chain\n1. A Contributor-level or higher attacker stores a crafted class attribute value in a post. In specific configurations, unauthenticated attackers may inject the payload if a third-party plugin providing wp_kses_post()-filtered unauthenticated front-end submission is installed, configured, and the submission is approved by a moderator.\n2. A user with the edit_theme_options capability opens the Visual Inspector on the affected post.\n3. The user clicks anywhere in the preview iframe, triggering the stored script.\n\n## Impact\nSuccessful exploitation allows the execution of arbitrary web scripts in the context of the user with the edit_theme_options capability when they interact with the Visual Inspector on an affected post.\n\n## Recommendation\nThe provided information does not specify a remediation or fixed release. Users are advised to monitor for updates from the vendor.",
+      "published": "2026-11-21T11:19:24.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8769c5b5-7ea2-5d4d-93e2-200ac9091d06",
+        "vulnerability--2e30428d-05f3-5cc7-b60c-64f6105dbfff"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-siteorigin-css-xss-cve-2026-125054",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-siteorigin-css-xss-cve-2026-125054/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-125054"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125054"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-siteorigin-css-xss-cve-2026-125054",
+      "x_craftedsignal_event_id": "brief-2026-11-21-siteorigin-css-xss-cve-2026-125054",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-siteorigin-css-xss-cve-2026-125054/",
+      "x_craftedsignal_activity_at": "2026-11-21T11:19:24.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -310933,6 +310988,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8769c5b5-7ea2-5d4d-93e2-200ac9091d06",
+      "name": "SiteOrigin CSS (\u003c= 1.6.9)",
+      "vendor": "gpriday"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--877e0a48-1036-5a0e-9180-0b808ffab6b4",
       "name": "Craft CMS (5.8.17 - 5.11.1)",
       "vendor": "Craft CMS"
@@ -333341,6 +333403,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118726",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118726"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2e30428d-05f3-5cc7-b60c-64f6105dbfff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125054",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125054",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125054"
         }
       ]
     },
