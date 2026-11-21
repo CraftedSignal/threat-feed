@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3f90323b-261e-5f52-b751-f7bb139c7452",
+  "id": "bundle--7396bb2c-6b63-5761-98b0-738f156e86ce",
   "objects": [
     {
       "type": "attack-pattern",
@@ -39821,6 +39821,17 @@
       "relationship_type": "has",
       "source_ref": "software--f50efcb1-34bc-5d5e-ac91-69fde10fe0ca",
       "target_ref": "vulnerability--ebf04e9b-2268-5582-a786-833b428c52fc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2a05e338-eaad-5ce4-838b-497bc7d054f3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6e327acf-2c59-56a8-9cf4-741e7148d190",
+      "target_ref": "vulnerability--e1993fc3-67c1-54e4-b489-60656ccab6c5"
     },
     {
       "type": "relationship",
@@ -87180,6 +87191,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6bd3e76a-37b0-5c09-b2e1-99e82fdcfc89",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--17f88098-694b-5ab8-ac8e-b4ab83ca88cb",
+      "target_ref": "vulnerability--e1993fc3-67c1-54e4-b489-60656ccab6c5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6bd585f8-8716-53b3-96c2-37a6040d9f2d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T15:51:14.000Z",
@@ -126358,6 +126380,17 @@
       "relationship_type": "has",
       "source_ref": "software--0ca411e3-2722-54ea-ba4c-b17c835c48ce",
       "target_ref": "vulnerability--af40c5b8-f44d-51c3-91c3-694856c71eb6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a1b26629-63ac-5335-badc-a92c85f4cd60",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T17:21:23.000Z",
+      "modified": "2026-11-21T17:21:23.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c4b44638-ccbf-5d32-8743-2a12b50b3f29",
+      "target_ref": "attack-pattern--7fbd6d58-7528-54d9-a63e-ba73ac098f89"
     },
     {
       "type": "relationship",
@@ -339892,6 +339925,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c4b44638-ccbf-5d32-8743-2a12b50b3f29",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T17:21:23.000Z",
+      "modified": "2026-11-21T17:21:23.000Z",
+      "name": "Erlang/OTP: Integer underflow in External Term Format decoder (CVE-2026-54890)",
+      "description": "## Overview\nAn integer underflow vulnerability exists in the External Term Format (ETF) decoder within Erlang/OTP's erts modules, specifically in the handler for the BIT_BINARY_EXT tag (77). By supplying an encoding with length and trailing-bits fields set to zero, an attacker can trigger an unsigned integer underflow, forcing the Erlang Virtual Machine to request a massive memory allocation (approximately 2^64 bytes). This results in an immediate, non-recoverable VM-level abort.\n\nThis crash cannot be intercepted by standard application-level exception handling (try/catch) or by the [safe] option in binary_to_term/2. Any application that processes ETF data from untrusted sources is vulnerable.\n\n## Impact\nSuccessful exploitation results in an immediate denial-of-service (DoS) as the entire Erlang node terminates. This vulnerability affects applications that decode external term data from untrusted network sources.\n\n## Recommendation\n- Upgrade Erlang/OTP to one of the following patched versions:\n - OTP 27.3.4.15 or later\n - OTP 28.5.0.4 or later\n - OTP 29.0.4 or later\n- Upgrade Erlang erts to one of the following patched versions:\n - erts 15.2.7.11 or later\n - erts 16.4.0.4 or later\n - erts 17.0.4 or later\n- Immediately audit applications to ensure that `binary_to_term/1,2` or `enif_binary_to_term()` are not called on data originating from untrusted sources, as recommended by the OTP Secure Coding Guidelines (DSG-011). Use alternative serialization formats such as JSON or Protocol Buffers for untrusted input.",
+      "published": "2026-11-21T17:21:23.000Z",
+      "object_refs": [
+        "attack-pattern--7fbd6d58-7528-54d9-a63e-ba73ac098f89",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--17f88098-694b-5ab8-ac8e-b4ab83ca88cb",
+        "software--6e327acf-2c59-56a8-9cf4-741e7148d190",
+        "vulnerability--e1993fc3-67c1-54e4-b489-60656ccab6c5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-erlang-otp-integer-underflow-cve-2026-54890",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-erlang-otp-integer-underflow-cve-2026-54890/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-54890"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54890"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-erlang-otp-integer-underflow-cve-2026-54890",
+      "x_craftedsignal_event_id": "brief-2026-11-21-erlang-otp-integer-underflow-cve-2026-54890",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-erlang-otp-integer-underflow-cve-2026-54890/",
+      "x_craftedsignal_activity_at": "2026-11-21T17:21:23.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00451,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c4d80c69-6eae-5e42-a9e3-fc6639d4956d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T21:36:23.000Z",
@@ -387871,6 +387951,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--17f88098-694b-5ab8-ac8e-b4ab83ca88cb",
+      "name": "Erlang/OTP (\u003e= 27.0, \u003c 27.3.4.15; \u003e= 28.0, \u003c 28.5.0.4; \u003e= 29.0, \u003c 29.0.4)",
+      "vendor": "Erlang"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--17fa6d5a-4da6-5a25-b6d3-6e8402b55adc",
       "name": "undici (5.25.3-6.7.0)"
     },
@@ -397892,6 +397979,13 @@
       "id": "software--6e13aa1d-7a9d-562e-bacc-eb80abda1ec7",
       "name": "JP1/Automatic Job Management System 3 - Manager (10-00 \u003c= v \u003c 13-50-31)",
       "vendor": "Hitachi"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6e327acf-2c59-56a8-9cf4-741e7148d190",
+      "name": "erts (\u003e= 15.0, \u003c 15.2.7.11; \u003e= 16.0, \u003c 16.4.0.4; \u003e= 17.0, \u003c 17.0.4)",
+      "vendor": "Erlang"
     },
     {
       "type": "software",
@@ -491713,6 +491807,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124716",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124716"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e1993fc3-67c1-54e4-b489-60656ccab6c5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-54890",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-54890",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54890"
         }
       ]
     },
