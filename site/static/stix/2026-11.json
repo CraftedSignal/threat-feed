@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--18b340fb-5b33-5062-bfe5-3e549921ae3c",
+  "id": "bundle--2032e6a4-2c4c-520a-aa78-1373822e3363",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11693,7 +11693,7 @@
       "id": "relationship--06894986-7690-567b-8b6c-67acf5cc0201",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T09:23:27.000Z",
-      "modified": "2026-11-16T18:57:57.000Z",
+      "modified": "2026-11-21T21:15:51.000Z",
       "relationship_type": "uses",
       "source_ref": "report--849ee0ca-2cca-5574-939a-38119314681b",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -135190,7 +135190,7 @@
       "id": "relationship--d9df02a9-f3d9-5f1e-9b80-5a813588cba4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T09:23:27.000Z",
-      "modified": "2026-11-16T18:57:57.000Z",
+      "modified": "2026-11-21T21:15:51.000Z",
       "relationship_type": "uses",
       "source_ref": "report--849ee0ca-2cca-5574-939a-38119314681b",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
@@ -235151,7 +235151,7 @@
       "id": "report--849ee0ca-2cca-5574-939a-38119314681b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T09:23:27.000Z",
-      "modified": "2026-11-16T18:57:57.000Z",
+      "modified": "2026-11-21T21:15:51.000Z",
       "name": "Openwave and Cisco BroadWorks: Information Disclosure Vulnerabilities (CVE-2026-111793, CVE-2026-20320)",
       "description": "## Overview\nCISA has added two vulnerabilities, CVE-2026-111793 and CVE-2026-20320, to its Known Exploited Vulnerabilities (KEV) catalog following reports of active exploitation. CVE-2026-111793 affects Openwave Webtop Media Transcoder and allows an authenticated user to bypass file-type restrictions. CVE-2026-20320 is an out-of-band blind XML external entity (XXE) injection vulnerability in the Cisco BroadWorks OCI-P service, which can be exploited remotely without authentication to read sensitive configuration files.\n\n## Impact\nObserved impacts include asset enumeration, credential theft, and harvesting of subscriber billing and device records. At least 13 organizations utilizing a targeted European telecommunications provider have been affected by the campaign.\n\n## Recommendation\n- Patch Cisco BroadWorks Application Delivery Platform, Application Server, Profile Server, and Xtended Services Platform to version RI.2026.07 or later immediately.\n- Patch Openwave Webtop Media Transcoder to version 1.1.22.0 or later.\n- Prioritize patching by the CISA-mandated deadline of November 24, 2026.\n- Review network access logs for the Cisco OCI-P service for anomalous XML-based requests or unusual outbound traffic indicative of XXE data exfiltration.\n",
       "published": "2026-11-11T09:23:27.000Z",
@@ -235200,9 +235200,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-11-openwave-cisco-exploitation",
       "x_craftedsignal_event_id": "brief-2026-11-11-openwave-cisco-exploitation",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openwave-cisco-exploitation/",
-      "x_craftedsignal_activity_at": "2026-11-16T18:57:57.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T21:15:51.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -235212,7 +235212,7 @@
         "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_epss_max": 0.01682,
+      "x_craftedsignal_epss_max": 0.00976,
       "x_craftedsignal_kev_status": "true"
     },
     {
