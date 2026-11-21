@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--45b99c9e-2da1-56af-afc8-495bab871a0f",
+  "id": "bundle--37668982-76fe-5b58-ac15-22db7921f08e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -44389,6 +44389,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--184ab647-12d0-5b92-a748-6ad514327486"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3fa970f3-cc25-555b-a6bf-2f5c7b08b0f4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2b7f6d5b-c545-5ef6-a564-b9082071aff0",
+      "target_ref": "vulnerability--db7394c7-67d6-5a6e-94c1-b07b41a1aa69"
     },
     {
       "type": "relationship",
@@ -177850,6 +177861,53 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--285e722b-87b1-5a08-ba94-aa0b1a2bd82f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T15:29:51.000Z",
+      "modified": "2026-11-21T15:29:51.000Z",
+      "name": "SOES: SDO_downloadsegment Null Pointer Dereference (CVE-2026-129797)",
+      "description": "## Overview\nRT-Labs AB SOES (EtherCAT Slave Stack) versions prior to 3.2.1 contain a vulnerability in the `SDO_downloadsegment` function. The function processes the `DOWNLOADSEGREQ` command byte without verifying if a segmented download is in progress. \n\n## Attack Chain\nBecause the `ESCvar.data` pointer remains NULL until a transfer is initiated, a master can send a `DOWNLOADSEGREQ` frame at any time, leading to a write operation through a NULL or stale pointer. This vulnerability is accessible via the adjacent network and requires no privileges or user interaction.\n\n## Impact\nSuccessful exploitation may result in a denial-of-service, or allow an attacker to perform unauthorized memory writes. The vulnerability has a CVSS v3.1 base score of 8.8 (AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H).\n\n## Recommendation\nUpgrade the SOES library to version 3.2.1 or later.",
+      "published": "2026-11-21T15:29:51.000Z",
+      "labels": [
+        "memory-corruption"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2b7f6d5b-c545-5ef6-a564-b9082071aff0",
+        "vulnerability--db7394c7-67d6-5a6e-94c1-b07b41a1aa69"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-soes-null-pointer-cve-2026-129797",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-soes-null-pointer-cve-2026-129797/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129797"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129797"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-soes-null-pointer-cve-2026-129797",
+      "x_craftedsignal_event_id": "brief-2026-11-21-soes-null-pointer-cve-2026-129797",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-soes-null-pointer-cve-2026-129797/",
+      "x_craftedsignal_activity_at": "2026-11-21T15:29:51.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -382920,6 +382978,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-133874",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133874"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--db7394c7-67d6-5a6e-94c1-b07b41a1aa69",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129797",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129797",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129797"
         }
       ]
     },
