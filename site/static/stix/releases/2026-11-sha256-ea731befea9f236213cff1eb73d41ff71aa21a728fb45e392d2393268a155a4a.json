@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--84c2a1be-eaba-574c-b66b-6fb8c4af6f06",
+  "id": "bundle--0f69cdd0-90a0-5355-a72b-d866b81c2126",
   "objects": [
     {
       "type": "attack-pattern",
@@ -63606,6 +63606,17 @@
       "relationship_type": "has",
       "source_ref": "software--85475315-041c-542e-bcae-560f82ce7f95",
       "target_ref": "vulnerability--558a02eb-a891-5c64-8c5f-d684143f83cb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5f9e00d7-e255-581f-84a6-5f69436db7c3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T18:54:26.000Z",
+      "modified": "2026-11-21T18:54:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b7ce3924-07ee-526c-9392-daf59f4da764",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -152244,6 +152255,17 @@
       "relationship_type": "has",
       "source_ref": "software--6673cabb-e544-50e0-840b-fc80cf57c856",
       "target_ref": "vulnerability--7697c002-b78b-59da-a847-778bc72a0a9f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f931cf8c-bf14-532f-9388-b9b5dc00a856",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--057f63be-ffd4-5039-80a0-cf53d6ef71e8",
+      "target_ref": "vulnerability--3814db6f-1518-58eb-bd9f-8d9ea78aad67"
     },
     {
       "type": "relationship",
@@ -262569,6 +262591,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b7ce3924-07ee-526c-9392-daf59f4da764",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T18:54:26.000Z",
+      "modified": "2026-11-21T18:54:26.000Z",
+      "name": "Netartmedia PHP Car Dealer: SQL injection (CVE-2019-25534)",
+      "description": "## Overview\nNetartmedia PHP Car Dealer contains an SQL injection vulnerability that allows unauthenticated attackers to execute arbitrary SQL queries. Attackers can submit POST requests to index.php with crafted SQL payloads in the features[] parameter. This flaw allows for unauthorized data extraction or database manipulation.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to perform arbitrary SQL queries against the backend database, potentially leading to the disclosure of sensitive information or unauthorized data modification.\n\n## Recommendation\n- Audit web server logs for HTTP POST requests to index.php containing SQL syntax patterns within the features[] parameter.\n- At the time of this report, no vendor-provided patch or fixed version has been identified. Monitor the vendor advisory channel for updates and prioritize remediation once a patch is released.\n- Restrict access to index.php using web application firewall (WAF) rules to filter and block suspicious input strings targeting the features[] parameter.",
+      "published": "2026-11-21T18:54:26.000Z",
+      "labels": [
+        "cve-2019-25534",
+        "sql-injection"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--057f63be-ffd4-5039-80a0-cf53d6ef71e8",
+        "vulnerability--3814db6f-1518-58eb-bd9f-8d9ea78aad67"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-cve-2019-25534",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2019-25534/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2019-25534"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25534"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-cve-2019-25534",
+      "x_craftedsignal_event_id": "brief-2026-11-21-cve-2019-25534",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2019-25534/",
+      "x_craftedsignal_activity_at": "2026-11-21T18:54:26.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_epss_max": 0.00289,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b7d7bca9-245c-5e52-b467-216657ac686c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T10:06:04.000Z",
@@ -304478,6 +304550,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--057f63be-ffd4-5039-80a0-cf53d6ef71e8",
+      "name": "PHP Car Dealer (all versions)",
+      "vendor": "Netartmedia"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--059d5c49-89c2-536a-9dd9-97c40b762f6e",
       "name": "mssql-mcp-server (\u003c= 0.5.2)",
       "vendor": "ConnorBritain"
@@ -340739,6 +340818,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119317",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119317"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3814db6f-1518-58eb-bd9f-8d9ea78aad67",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2019-25534",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2019-25534",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25534"
         }
       ]
     },
