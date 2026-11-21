@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e89d8ab4-0906-5314-bc3d-d5a7720fa455",
+  "id": "bundle--b760aa14-a31e-5cc0-b092-7a3cf47d7444",
   "objects": [
     {
       "type": "attack-pattern",
@@ -109540,6 +109540,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b05d2284-12e1-520a-a403-6856b6c64fad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2584d500-352c-537e-bfc2-1502ea8de78c",
+      "target_ref": "vulnerability--2db81aa7-039a-5119-a8d7-1a9d076190e7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b060879f-b023-5a49-8c62-cf4f7dc5d4d9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -160096,6 +160107,58 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0b485d71-9e62-54ae-94ff-f07bc993fab4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T07:17:09.000Z",
+      "modified": "2026-11-21T07:17:09.000Z",
+      "name": "SAP Security Advisory November 2025 Monthly Rollup",
+      "description": "## Overview\nOn November 11, 2025, SAP published security updates for multiple products, including SAP NetWeaver Enterprise Portal, SAP Solution Manager, and various SAP NetWeaver Application Server components. On November 20, 2026, CISA added CVE-2025-42884 to its Known Exploited Vulnerabilities (KEV) Catalog.\n\n## Attack Chain\nCVE-2025-42884 affects SAP NetWeaver Enterprise Portal (versions EP-BASIS 7.50 and EP-RUNTIME 7.50). An unauthenticated attacker can inject JNDI environment properties or pass a URL during JNDI lookup operations, enabling access to an unintended JNDI provider. This vulnerability does not require user interaction.\n\n## Impact\nSuccessful exploitation allows an attacker to disclose or modify server information. There is no impact on availability. The CVSS 3.1 base score is 6.5 (Medium).\n\n## Recommendation\nAdministrators should review the November 2025 SAP Security Patch Day documentation and apply the necessary updates to the affected products.",
+      "published": "2026-11-21T07:17:09.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2584d500-352c-537e-bfc2-1502ea8de78c",
+        "vulnerability--2db81aa7-039a-5119-a8d7-1a9d076190e7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-sap-security-rollup-cve-2025-42884",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-sap-security-rollup-cve-2025-42884/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/sap-security-advisory-november-2025-monthly-rollup-av25-738"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://support.sap.com/en/my-support/knowledge-base/security-notes-news/november-2025.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2025-42884"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-sap-security-rollup-cve-2025-42884",
+      "x_craftedsignal_event_id": "brief-2026-11-21-sap-security-rollup-cve-2025-42884",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sap-security-rollup-cve-2025-42884/",
+      "x_craftedsignal_activity_at": "2026-11-21T07:17:09.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-11-21T07:17:09.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_cvss_max": 6.5,
+      "x_craftedsignal_epss_max": 0.00276,
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -302437,6 +302500,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2584d500-352c-537e-bfc2-1502ea8de78c",
+      "name": "SAP NetWeaver Enterprise Portal",
+      "vendor": "SAP_SE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2594acc9-52b0-5bae-ab1e-d3d5177ec9f4",
       "name": "PowerStore 9200T (\u003c 5.1.0.0-2798105)",
       "vendor": "Dell"
@@ -332545,6 +332615,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-123283",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123283"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2db81aa7-039a-5119-a8d7-1a9d076190e7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-42884",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-42884",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-42884"
         }
       ]
     },
