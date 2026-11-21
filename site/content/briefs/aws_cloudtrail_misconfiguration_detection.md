@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "AWS CloudTrail Logging Misconfiguration Detection"
 slug: aws_cloudtrail_misconfiguration_detection
 description: This rule detects changes to AWS CloudTrail configurations that could indicate a security risk, specifically disabling or altering trails, or failing a security configuration check. Such actions can significantly reduce visibility into AWS activity.
 date: "2026-07-14T20:24:11Z"
