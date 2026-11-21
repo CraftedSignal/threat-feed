@@ -1,8 +1,17 @@
 ---
 brief_id: brief-2026-11-21-contao-core-bundle-privilege-escalation-ghsa-r9qp-pqx5-8369
 event_id: brief-2026-11-21-contao-core-bundle-privilege-escalation-ghsa-r9qp-pqx5-8369
-revision: 1
-activity_at: "2026-11-21T02:05:33Z"
+revision: 2
+activity_at: "2026-11-21T17:22:06Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-21T17:22:06Z"
+    checksum: sha256:026d7e22292f310554ba9e567b507e121bce0d0e9fbd0e1aa25e3399fcbbd0b5
+    summary: Updated has_poc, poc_references, references
+    changed_fields:
+      - has_poc
+      - poc_references
+      - references
 title: Contao core-bundle Privilege Escalation via theme_import
 slug: 2026-11-contao-core-bundle-privilege-escalation-ghsa-r9qp-pqx5-8369
 description: Non-admin users with delegated user management permissions can grant themselves the 'theme_import' capability, leading to arbitrary PHP execution and bypassing security controls introduced in v5.7.3.
@@ -19,6 +28,9 @@ source_assessment:
   credibility: "2"
   rating: B2
   likelihood: roughly even chance
+has_poc: true
+poc_references:
+  - https://github.com/googlesky/CVE-2026-104883
 tags:
   - privilege-escalation
   - rce
@@ -31,6 +43,7 @@ cves:
     kev_status: "false"
 references:
   - https://github.com/advisories/GHSA-r9qp-pqx5-8369
+  - https://github.com/googlesky/CVE-2026-104883
 ---
 
 ## Overview
