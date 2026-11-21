@@ -1,13 +1,32 @@
 ---
+brief_id: brief-2026-07-windows-ip-discovery
+event_id: brief-2026-07-windows-ip-discovery
+revision: 2
+activity_at: "2026-11-21T17:56:16Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-21T17:56:16Z"
+    checksum: sha256:ef7b087a89afbe8357d314667123e0542c2b410117248398426788a785b4811d
+    summary: new IOCs
+    changed_fields:
+      - iocs
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/windows/discovery_host_public_ip_address_lookup.toml
 title: Suspicious Windows Public IP Address Discovery via DNS
 slug: 2026-07-windows-ip-discovery
 description: Adversaries frequently use public IP lookup services to perform network reconnaissance and verify egress connectivity prior to establishing C2 channels, a behavior detectable via DNS query analysis from suspicious processes.
 date: "2026-07-30T13:32:17Z"
+lastmod: "2026-11-21T17:55:20Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - discovery
   - c2
@@ -22,6 +41,8 @@ mitre_ttps:
     technique_name: System Network Configuration Discovery
     evidence: Identifies DNS queries to known public IP address lookup web services from suspicious Windows processes, which can reveal external IP or internet-connectivity discovery before follow-on activity.
     confidence_band: high
+references:
+  - https://github.com/elastic/detection-rules/blob/main/rules/windows/discovery_host_public_ip_address_lookup.toml
 iocs:
   - type: domain
     value: ip-api.com
@@ -89,8 +110,14 @@ iocs:
     value: httpbin.org
   - type: domain
     value: myip.opendns.com
+  - type: domain
+    value: www.geoplugin.net
+  - type: domain
+    value: '*.geojs.io'
+  - type: domain
+    value: '*portmap.io'
 ioc_counts:
-  domain: 33
+  domain: 36
 rules:
   - title: Detect Public IP Discovery via DNS Query
     description: Detects DNS queries to common public IP address lookup services by LOLBins or suspicious processes running from user-writable paths.
@@ -104,7 +131,17 @@ rules:
       - dns_query
       - windows
 rules_count: 1
+updates:
+  - at: "2026-11-21T17:55:20Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/windows/discovery_host_public_ip_address_lookup.toml
 ---
+
+## Overview
 
 This threat brief focuses on the behavioral pattern of Windows-based processes querying public IP address discovery web services. Threat actors utilize these lookups as an initial reconnaissance step to confirm network connectivity, determine their egress IP, or identify network environment restrictions before initiating command-and-control (C2) operations. 
 
