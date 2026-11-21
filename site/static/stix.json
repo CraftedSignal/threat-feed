@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7396bb2c-6b63-5761-98b0-738f156e86ce",
+  "id": "bundle--732e827f-dd76-5e9a-b3e8-f316be3a1f3b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -38622,17 +38622,6 @@
       "relationship_type": "uses",
       "source_ref": "report--570f489a-7c29-5d28-a35f-daa650f877e0",
       "target_ref": "attack-pattern--bd875342-0c00-5eaf-9fc6-290ea891ae27"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--2859f224-4ed1-5fac-83f3-956dcd60b610",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-11-21T02:48:01.000Z",
-      "modified": "2026-11-21T02:48:01.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--9460cd0d-cc36-5bf1-b578-ef5ac629d8c1",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -129493,17 +129482,6 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--ed714a29-c4f8-5ca8-bb1a-08e99077a98f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a59bcadc-c4d9-56ae-b599-82177b6c0d27",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--6ef3a4f4-45f9-5e6e-ab8a-22b1b2137c58",
-      "target_ref": "vulnerability--14384a01-002e-542b-8a9f-bd1e762672a1"
     },
     {
       "type": "relationship",
@@ -304364,58 +304342,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--9460cd0d-cc36-5bf1-b578-ef5ac629d8c1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-11-21T02:48:01.000Z",
-      "modified": "2026-11-21T02:48:01.000Z",
-      "name": "Contao core-bundle: Improper restriction of implicit-admin capabilities (CVE-2026-104883)",
-      "description": "## Overview\nA vulnerability (CVE-2026-104883) exists in the Contao core-bundle where the `CheckTemplateEditorSaveListener` insufficiently guards implicit-admin capabilities. While it previously restricted the `tpl_editor` capability, other capabilities such as `theme_import`, `layout`, and `unfiltered_html` remained unprotected against self-grant by non-admin users with delegated account management permissions.\n\n## Attack Chain\nA non-administrative user with delegated user or group management permissions can add unauthorized capabilities (such as `theme_import` or `unfiltered_html`) to their own user profile. Upon re-authentication, the user gains elevated privileges, enabling arbitrary PHP execution.\n\n## Impact\nSuccessful exploitation allows a user to gain administrative-level capabilities, leading to arbitrary server-side code execution.\n\n## Recommendation\nUpgrade to a version containing the fix implemented in commit 211498f28d4c86484b96eb0612c1193105b79e51. This fix introduces `CheckImplicitAdminSaveListener`, which restricts all implicit-admin self-grants across the `modules`, `themes`, `elements`, `frontendModules`, and `alexf` fields.",
-      "published": "2026-11-21T02:48:01.000Z",
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--6ef3a4f4-45f9-5e6e-ab8a-22b1b2137c58",
-        "vulnerability--14384a01-002e-542b-8a9f-bd1e762672a1"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-11-21-contao-privilege-escalation-cve-2026-104883",
-          "url": "https://feed.craftedsignal.io/briefs/2026-11-contao-privilege-escalation-cve-2026-104883/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/contao/contao/commit/211498f28d4c86484b96eb0612c1193105b79e51"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/contao/contao/security/advisories/GHSA-r9qp-pqx5-8369"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=E578B6C3-A3EB-5952-ABE8-955E3DC2788F\u0026utm_source=rss\u0026utm_medium=rss"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://vulners.com/cve/CVE-2026-104883"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-11-21-contao-privilege-escalation-cve-2026-104883",
-      "x_craftedsignal_event_id": "brief-2026-11-21-contao-privilege-escalation-cve-2026-104883",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-contao-privilege-escalation-cve-2026-104883/",
-      "x_craftedsignal_activity_at": "2026-11-21T02:48:01.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--94729cca-70e7-5730-b7d8-e6ad5053154a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T23:46:14.000Z",
@@ -398055,12 +397981,6 @@
       "id": "software--6ec57e8c-735c-5f8c-a967-a9fd97300908",
       "name": "Apache Iggy (\u003c 0.10.0)",
       "vendor": "Apache Software Foundation"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--6ef3a4f4-45f9-5e6e-ab8a-22b1b2137c58",
-      "name": "Contao core-bundle"
     },
     {
       "type": "software",
