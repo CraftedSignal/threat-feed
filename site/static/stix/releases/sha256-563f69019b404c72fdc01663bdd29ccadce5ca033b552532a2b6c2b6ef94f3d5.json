@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bd160a31-dbea-51a4-980e-f24521624baa",
+  "id": "bundle--36f18e06-3c72-56ee-9cb5-c3c62d47ef81",
   "objects": [
     {
       "type": "attack-pattern",
@@ -22709,6 +22709,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1245f2a2-2fa2-56b8-b2f3-06e734f05d95",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b00b01db-cb08-58c2-9980-b17e68252f1a",
+      "target_ref": "vulnerability--3eb814b2-fd74-51ee-ba37-e5bdef51e101"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1251c0ca-0529-56a3-8345-364315ad119e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -23090,17 +23101,6 @@
       "relationship_type": "has",
       "source_ref": "software--a0c400cf-8e63-5f5a-882a-80331a674f97",
       "target_ref": "vulnerability--815aa755-80ca-50a7-9e06-172e1a0d589b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--12e4e961-2428-5914-ab01-fb86131515a6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--4a33e8c7-d489-5caa-8eab-eb160ddd9b3d",
-      "target_ref": "vulnerability--5cf062b9-ec7f-5b62-b1fe-900d47207e2b"
     },
     {
       "type": "relationship",
@@ -45596,17 +45596,6 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--ed978a83-9117-502e-8291-b490654c4926"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--3263be8a-4af3-53b7-81f6-160da5decb0b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--2e20f8be-22ab-54dd-93f6-1ce5f60cf850",
-      "target_ref": "vulnerability--3182d1ae-76c5-5b35-8fb6-49ceaa150ed7"
     },
     {
       "type": "relationship",
@@ -145656,6 +145645,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bb502a0d-f983-5e29-8b29-350117bc925a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d36c9145-1787-5eeb-a56e-598cd5a331d1",
+      "target_ref": "vulnerability--3eb814b2-fd74-51ee-ba37-e5bdef51e101"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bb577dc0-0556-5e79-80b0-2e6c666ed441",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -154753,6 +154753,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c7f1848c-241c-51e8-a859-d0d0e0415ddc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T16:29:32.000Z",
+      "modified": "2026-11-21T16:29:32.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--35217e0c-ac4e-5e5f-8e7f-beef8e0495d4",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c7f8f6e1-4d8e-540d-b55b-462ceecb8a85",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -156014,6 +156025,17 @@
       "relationship_type": "has",
       "source_ref": "software--2ee14a39-a0d5-53f5-8280-9d9e55eb80b3",
       "target_ref": "vulnerability--e35e491d-13ee-54e0-a27c-c5cf716e42da"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c9838303-e0ce-5347-8def-b4aa53d96e6a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3ba728d8-e668-51ea-b569-d729b4284ceb",
+      "target_ref": "vulnerability--8e3cbe22-11e0-5ae5-aff2-d3875418ee2b"
     },
     {
       "type": "relationship",
@@ -166963,17 +166985,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--d93f691d-fdc4-524f-b192-1d83dc28acbf",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--083eb94c-497b-55f2-8f71-4829d17be21f",
-      "target_ref": "vulnerability--3182d1ae-76c5-5b35-8fb6-49ceaa150ed7"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--d948673e-ea59-571a-9ae8-7c03093255b6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-21T09:25:07.000Z",
@@ -171216,6 +171227,17 @@
       "relationship_type": "has",
       "source_ref": "software--85475315-041c-542e-bcae-560f82ce7f95",
       "target_ref": "vulnerability--a0d0e8f8-ec76-5a65-9fbc-771b213cbdc7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--df518b3e-ef7f-552e-8f31-5e336ba44392",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T16:29:19.000Z",
+      "modified": "2026-11-21T16:29:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--acb9c06e-cb14-5fb4-990d-acf75df4a463",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -189025,6 +189047,17 @@
       "relationship_type": "has",
       "source_ref": "software--eb2e31ef-6e0d-5013-bcfc-4a212acbd335",
       "target_ref": "vulnerability--fc9f7a10-982d-5407-9bea-b8857cada576"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f7c8f2e8-5433-528f-9155-83bdbec01a9e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d36c9145-1787-5eeb-a56e-598cd5a331d1",
+      "target_ref": "vulnerability--8e3cbe22-11e0-5ae5-aff2-d3875418ee2b"
     },
     {
       "type": "relationship",
@@ -234142,6 +234175,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--35217e0c-ac4e-5e5f-8e7f-beef8e0495d4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T16:29:32.000Z",
+      "modified": "2026-11-21T16:29:32.000Z",
+      "name": "Splunk Enterprise Security: Command injection via workflow actions (CVE-2026-131236)",
+      "description": "## Overview\nSplunk Enterprise Security (ES) versions below 8.7.0 contain a command injection vulnerability (CVE-2026-131236) due to improper validation of event fields. An unauthenticated user capable of influencing indexed data can inject malicious values into the 'orig_sid' or 'orig_rid' event fields. When an authenticated user performs a workflow action - specifically 'View Adaptive Response Invocations' or 'View Adaptive Response Results' - the stored malicious SPL commands execute in the context of the authenticated user's permissions.\n\n## Impact\nSuccessful exploitation allows an attacker to execute arbitrary SPL commands under the context of an authenticated user. This can lead to unauthorized access to sensitive data, modification of security configurations, or service disruption, depending on the privileges assigned to the user who triggers the workflow action.\n\n## Recommendation\n- Upgrade Splunk Enterprise Security and Splunk App for PCI Compliance to version 8.7.0 or higher.\n- As a temporary mitigation, disable Splunk Web if not required for the specific instance to prevent the triggering of the affected workflow actions.",
+      "published": "2026-11-21T16:29:32.000Z",
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b00b01db-cb08-58c2-9980-b17e68252f1a",
+        "software--d36c9145-1787-5eeb-a56e-598cd5a331d1",
+        "vulnerability--3eb814b2-fd74-51ee-ba37-e5bdef51e101"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-splunk-es-cve-2026-131236",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-splunk-es-cve-2026-131236/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-131236"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131236"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-splunk-es-cve-2026-131236",
+      "x_craftedsignal_event_id": "brief-2026-11-21-splunk-es-cve-2026-131236",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-splunk-es-cve-2026-131236/",
+      "x_craftedsignal_activity_at": "2026-11-21T16:29:32.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00276,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--354d8fa5-1767-5087-b19a-53eb201fec19",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T09:38:35.000Z",
@@ -257559,45 +257639,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--52683b5f-5b74-5d1a-82a0-886ae9b905bc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-22T16:14:17.000Z",
-      "modified": "2026-10-22T16:14:17.000Z",
-      "name": "Lotus: SQL injection in custom metrics API (CVE-2026-115330)",
-      "description": "Lotus versions up to and including 0.10.2 contain a SQL injection vulnerability identified as CVE-2026-115330. Authenticated organization users can execute arbitrary SQL by appending stacked statements to custom metric queries. By submitting semicolon-separated SQL through POST /app/metrics/, users can bypass validation to read or modify data across all tenants.\n",
-      "published": "2026-10-22T16:14:17.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "vulnerability--a92aa019-3e71-53d1-9b51-4133e9c9b8b9"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-22-lotus-sql-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-lotus-sql-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115330"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-22-lotus-sql-injection",
-      "x_craftedsignal_event_id": "brief-2026-10-22-lotus-sql-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-lotus-sql-injection/",
-      "x_craftedsignal_activity_at": "2026-10-22T16:14:17.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--5272d640-d33b-5dc0-9ad5-d3509e20d621",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T02:04:54.000Z",
@@ -271596,57 +271637,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--65b16b0a-ee52-5dfa-a70b-6f19bdd4bd51",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-22T16:14:42.000Z",
-      "modified": "2026-10-22T18:16:06.000Z",
-      "name": "Drupal Webform: Code injection via template engine (CVE-2026-96355)",
-      "description": "## Overview\nDrupal Webform is affected by a vulnerability identified as CVE-2026-96355. This issue involves the improper neutralization of special elements within the module's template engine, resulting in Code Injection. This vulnerability affects Webform versions from 0.0.0 to 6.2.12 and from 6.3.0 to 6.3.1.\n",
-      "published": "2026-10-22T16:14:42.000Z",
-      "labels": [
-        "cve-2026-96365",
-        "drupal",
-        "web-application"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--083eb94c-497b-55f2-8f71-4829d17be21f",
-        "software--2e20f8be-22ab-54dd-93f6-1ce5f60cf850",
-        "vulnerability--3182d1ae-76c5-5b35-8fb6-49ceaa150ed7"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-22-drupal-webform-code-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-drupal-webform-code-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96355"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96365"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-22-drupal-webform-code-injection",
-      "x_craftedsignal_event_id": "brief-2026-10-22-drupal-webform-code-injection",
-      "x_craftedsignal_revision": 2,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-drupal-webform-code-injection/",
-      "x_craftedsignal_activity_at": "2026-10-22T18:16:06.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.1,
-      "x_craftedsignal_epss_max": 0.00224,
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--65bbc065-2a1c-5de3-9946-8133ee29dbb9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T21:13:03.000Z",
@@ -276990,46 +276980,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.6,
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--6e93c2e4-507b-507e-8f54-ce419c68f195",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-22T16:14:24.000Z",
-      "modified": "2026-10-22T16:14:24.000Z",
-      "name": "Lotus: SQL injection in billable metrics (CVE-2026-115331)",
-      "description": "Lotus versions through 0.10.2 contain an SQL injection vulnerability. Authenticated organization users can inject SQL by supplying crafted billable metric property_name or categorical filter values. These values are rendered unescaped into Jinja-generated counter, gauge, and rate metric queries, allowing access to the database shared by all tenants.\n",
-      "published": "2026-10-22T16:14:24.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--4a33e8c7-d489-5caa-8eab-eb160ddd9b3d",
-        "vulnerability--5cf062b9-ec7f-5b62-b1fe-900d47207e2b"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-22-lotus-sql-injection-c964744e",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-lotus-sql-injection-c964744e/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115331"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-22-lotus-sql-injection-c964744e",
-      "x_craftedsignal_event_id": "brief-2026-10-22-lotus-sql-injection-c964744e",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-lotus-sql-injection-c964744e/",
-      "x_craftedsignal_activity_at": "2026-10-22T16:14:24.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -318263,46 +318213,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--a57a7535-d9bd-59d4-acd8-6fade6955c36",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-22T16:01:30.000Z",
-      "modified": "2026-10-22T16:01:30.000Z",
-      "name": "NetAlertX: Remote code execution (CVE-2024-46506)",
-      "description": "A remote code execution (RCE) vulnerability in NetAlertX, tracked as CVE-2024-46506, has been reported. A public Python exploit for this vulnerability has been published on Sploitus. The vulnerability has a CVSS score of 10.0 and an EPSS score of 62.7%.\n",
-      "published": "2026-10-22T16:01:30.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "vulnerability--4141dc3a-8e1f-56ad-90b9-7ff364839474"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-22-netalertx-rce-cve-2024-46506",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-netalertx-rce-cve-2024-46506/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-FUFU-BYTE-CVE-2024-46506\u0026utm_source=rss\u0026utm_medium=rss"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-22-netalertx-rce-cve-2024-46506",
-      "x_craftedsignal_event_id": "brief-2026-10-22-netalertx-rce-cve-2024-46506",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-netalertx-rce-cve-2024-46506/",
-      "x_craftedsignal_activity_at": "2026-10-22T16:01:30.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 10,
-      "x_craftedsignal_epss_max": 0.62666,
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--a57c15e0-049f-52b6-8e6a-c9695f1b3e21",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T13:18:09.000Z",
@@ -323213,6 +323123,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--acb9c06e-cb14-5fb4-990d-acf75df4a463",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T16:29:19.000Z",
+      "modified": "2026-11-21T16:29:19.000Z",
+      "name": "Splunk Enterprise Security command injection (CVE-2026-131215)",
+      "description": "## Overview\nSplunk Enterprise Security (ES) versions prior to 8.7.0 contain a command injection vulnerability (CVE-2026-131215) within the User and Entity Behavior Analytics (UEBA) finding exclusion rule workflow. The vulnerability exists because the application does not escape user-controlled values before including them in generated SPL commands.\n\n## Attack Chain\nAn authenticated user holding a role with the 'ueba_finding_exclusion_edit' capability can store attacker-controlled values within a UEBA finding exclusion rule. Splunk Enterprise Security subsequently executes the injected SPL commands with elevated permissions.\n\n## Impact\nSuccessful exploitation allows an authenticated user to perform unauthorized actions including reading stored credentials and modifying lookups and knowledge objects.\n\n## Recommendation\nUpgrade Splunk Enterprise Security and Splunk App for PCI Compliance to version 8.7.0 or higher.",
+      "published": "2026-11-21T16:29:19.000Z",
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3ba728d8-e668-51ea-b569-d729b4284ceb",
+        "software--d36c9145-1787-5eeb-a56e-598cd5a331d1",
+        "vulnerability--8e3cbe22-11e0-5ae5-aff2-d3875418ee2b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-splunk-enterprise-security-cve-2026-131215",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-splunk-enterprise-security-cve-2026-131215/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-131215"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131215"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-splunk-enterprise-security-cve-2026-131215",
+      "x_craftedsignal_event_id": "brief-2026-11-21-splunk-enterprise-security-cve-2026-131215",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-splunk-enterprise-security-cve-2026-131215/",
+      "x_craftedsignal_activity_at": "2026-11-21T16:29:19.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -385715,13 +385670,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--083eb94c-497b-55f2-8f71-4829d17be21f",
-      "name": "Webform (0.0.0-6.2.12, 6.3.0-6.3.1)",
-      "vendor": "Drupal"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--08487e0c-c230-5ea3-9f5b-5d67a7440d70",
       "name": "IoT Edge Linux docker (\u003c 2.0.2)",
       "vendor": "Advantech"
@@ -390372,13 +390320,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--2e20f8be-22ab-54dd-93f6-1ce5f60cf850",
-      "name": "Webform (versions 0.0.0 to 6.2.12 and 6.3.0 to 6.3.1)",
-      "vendor": "Drupal"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--2e2ffb39-dae3-58a3-bbbd-b24b702c895f",
       "name": "Conditional Fields for Contact Form 7 (\u003c 2.7.3)"
     },
@@ -392001,6 +391942,13 @@
       "spec_version": "2.1",
       "id": "software--3b9701d9-5f17-5ac3-a87c-f33fcfda3842",
       "name": "python-markdown2 (\u003c= 2.5.5)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3ba728d8-e668-51ea-b569-d729b4284ceb",
+      "name": "Splunk App for PCI Compliance",
+      "vendor": "Splunk"
     },
     {
       "type": "software",
@@ -393725,13 +393673,6 @@
       "id": "software--4a0fe5fe-ee4e-5b0d-b7f0-adf0e01c502a",
       "name": "Modern Ticket Reservation System (1.0)",
       "vendor": "SourceCodester"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--4a33e8c7-d489-5caa-8eab-eb160ddd9b3d",
-      "name": "Lotus (\u003c= 0.10.2)",
-      "vendor": "Lotus"
     },
     {
       "type": "software",
@@ -431328,22 +431269,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--3182d1ae-76c5-5b35-8fb6-49ceaa150ed7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-96355",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-96355",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96355"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--318348a9-4d59-5319-96d6-8f0c6fd8a69e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -435840,6 +435765,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--3eb814b2-fd74-51ee-ba37-e5bdef51e101",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-131236",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-131236",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131236"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--3eba8d21-c557-5942-88b0-ec7d83a58664",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -436554,22 +436495,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-129151",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129151"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--4141dc3a-8e1f-56ad-90b9-7ff364839474",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2024-46506",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2024-46506",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-46506"
         }
       ]
     },
@@ -445514,22 +445439,6 @@
           "source_name": "cve",
           "external_id": "CVE-2025-66850",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66850"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--5cf062b9-ec7f-5b62-b1fe-900d47207e2b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-115331",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-115331",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115331"
         }
       ]
     },
@@ -462336,6 +462245,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--8e3cbe22-11e0-5ae5-aff2-d3875418ee2b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-131215",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-131215",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131215"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--8e599857-8232-539f-ae64-0451cafd733d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -471914,22 +471839,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119379",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119379"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--a92aa019-3e71-53d1-9b51-4133e9c9b8b9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-115330",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-115330",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115330"
         }
       ]
     },
