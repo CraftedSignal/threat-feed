@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2032a88d-071e-5bf4-9c95-b3576551e0b7",
+  "id": "bundle--d4b5c730-9320-5d44-887f-0145fc33cca4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -57312,6 +57312,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--560e9eef-3222-508a-b435-1ec958a60489",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--632de3ab-abfd-503d-a408-6031ffb41fc6",
+      "target_ref": "vulnerability--8abbda2a-cb5b-5e94-a4f5-500aa072909c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--56114d33-b85e-5813-ba15-29e36f9d11cb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -98859,6 +98870,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9ee22554-78e5-5cb5-aaa3-4a659891ac4f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T09:23:13.000Z",
+      "modified": "2026-11-21T09:23:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ab7719c6-5a4f-531c-b26e-bc6894598414",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9ee374bf-9a26-5c27-a915-07bbc384eb99",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -124401,6 +124423,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ca8afa56-f6e4-5c2b-8467-bfc54ad92cdf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T09:23:27.000Z",
+      "modified": "2026-11-21T09:23:27.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0baf03a0-1506-51dc-840b-b95f1e696a4c",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ca967e53-9ead-58d7-be60-7bfda661fbf0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -148568,6 +148601,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f5aebf6b-a4fb-5f8c-a2bc-5e2f7f423019",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ca00ed99-063c-5a54-b506-c77c5fbcde30",
+      "target_ref": "vulnerability--c1be440a-85ee-5062-ae70-eea55aff267e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f5b022fe-6f26-5371-90c3-d94fee18bfe2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -160184,6 +160228,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0baf03a0-1506-51dc-840b-b95f1e696a4c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T09:23:27.000Z",
+      "modified": "2026-11-21T09:23:27.000Z",
+      "name": "Flutterwave Payments: Stored Cross-Site Scripting (CVE-2026-107713)",
+      "description": "## Overview\nThe Flutterwave Payments plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'form_id' parameter in all versions up to, and including, 1.0.7. This vulnerability arises from insufficient input sanitization and output escaping. The storing endpoint is accessible without authentication because the required nonce is publicly exposed on any front-end page rendering the plugin's [flw-pay-form], [flw-pay-button], or [flw-donation-form] shortcodes, allowing any unauthenticated visitor to scrape and reuse it.\n\n## Attack Chain\n1. An unauthenticated attacker visits a page rendering the vulnerable shortcodes.\n2. The attacker scrapes the page to retrieve the public nonce.\n3. The attacker submits a request to the plugin's storing endpoint with a malicious script in the 'form_id' parameter.\n4. The plugin fails to sanitize the input and stores the script.\n5. The script executes when a user accesses the injected page.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to inject arbitrary web scripts into pages that will execute whenever a user accesses an injected page.\n\n## Recommendation\nUsers should monitor the WordPress plugin repository for security updates addressing this vulnerability.",
+      "published": "2026-11-21T09:23:27.000Z",
+      "labels": [
+        "wordpress",
+        "xss"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ca00ed99-063c-5a54-b506-c77c5fbcde30",
+        "vulnerability--c1be440a-85ee-5062-ae70-eea55aff267e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-flutterwave-xss-cve-2026-107713",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-flutterwave-xss-cve-2026-107713/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-107713"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107713"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-flutterwave-xss-cve-2026-107713",
+      "x_craftedsignal_event_id": "brief-2026-11-21-flutterwave-xss-cve-2026-107713",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-flutterwave-xss-cve-2026-107713/",
+      "x_craftedsignal_activity_at": "2026-11-21T09:23:27.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -251992,6 +252085,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ab7719c6-5a4f-531c-b26e-bc6894598414",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T09:23:13.000Z",
+      "modified": "2026-11-21T09:23:13.000Z",
+      "name": "WPEverest Everest Forms: Authorization bypass and privilege escalation (CVE-2026-129220)",
+      "description": "## Overview\nThe Everest Forms - Contact Form, Payment Form, Quiz, Survey \u0026 Custom Form Builder with AI plugin for WordPress is vulnerable to a Missing Authorization flaw in all versions up to, and including, 3.6.4. The vulnerability stems from the plugin's failure to properly verify if a user is authorized to perform specific actions.\n\n## Attack Chain\nAn authenticated attacker with the 'everest_forms_create_forms' capability can supply an arbitrary slug to the plugin. This triggers the activation hooks of inactive, already-installed plugins on the server. If the inactive plugin's main file follows the 'slug/slug.php' naming convention, its activation hooks are executed, which can result in privilege escalation to the administrator level.\n\n## Impact\nSuccessful exploitation requires that a site administrator has delegated the 'everest_forms_create_forms' capability to a lower-privileged role via the plugin's Role \u0026 Permission feature, and that at least one inactive installed plugin meeting the naming convention exists on the server. If these conditions are met, an attacker can gain administrative access to the WordPress site.\n\n## Recommendation\nAdministrators should audit WordPress roles and permissions to ensure that the 'everest_forms_create_forms' capability is not granted to untrusted users. No specific remediation or fixed version information is currently provided by the sources.",
+      "published": "2026-11-21T09:23:13.000Z",
+      "labels": [
+        "cve-2026-129220",
+        "privilege-escalation",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--632de3ab-abfd-503d-a408-6031ffb41fc6",
+        "vulnerability--8abbda2a-cb5b-5e94-a4f5-500aa072909c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-everest-forms-auth-bypass-cve-2026-129220",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-everest-forms-auth-bypass-cve-2026-129220/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129220"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129220"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-everest-forms-auth-bypass-cve-2026-129220",
+      "x_craftedsignal_event_id": "brief-2026-11-21-everest-forms-auth-bypass-cve-2026-129220",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-everest-forms-auth-bypass-cve-2026-129220/",
+      "x_craftedsignal_activity_at": "2026-11-21T09:23:13.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ab9d9369-51e8-56e0-90d0-2f4bb34faed8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T20:26:24.000Z",
@@ -306593,6 +306736,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--632de3ab-abfd-503d-a408-6031ffb41fc6",
+      "name": "Everest Forms – Contact Form, Payment Form, Quiz, Survey \u0026 Custom Form Builder with AI (\u003c= 3.6.4)",
+      "vendor": "wpeverest"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--632fad84-2e2f-5abb-b1ce-8f1b2bc0dfa6",
       "name": "SUSE Linux Enterprise Server for SAP Applications (12 SP5, 15 SP4, 15 SP5, 15 SP6, 15 SP7)",
       "vendor": "SUSE"
@@ -314812,6 +314962,13 @@
       "id": "software--c9ffffef-8455-5f26-9ef5-240ea9061913",
       "name": "Craft CMS (4.0.0 \u003c= 4.18.8, 5.0.0 \u003c= 5.11.1, 5.8.17 \u003c= 5.11.1)",
       "vendor": "Craft CMS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ca00ed99-063c-5a54-b506-c77c5fbcde30",
+      "name": "Flutterwave Payments (\u003c= 1.0.7)",
+      "vendor": "flutterwave"
     },
     {
       "type": "software",
@@ -356072,6 +356229,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--8abbda2a-cb5b-5e94-a4f5-500aa072909c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129220",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129220",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129220"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--8abd378a-d92c-5f7a-bb40-8246914eea1d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -371570,6 +371743,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112802",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112802"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c1be440a-85ee-5062-ae70-eea55aff267e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-107713",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-107713",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107713"
         }
       ]
     },
