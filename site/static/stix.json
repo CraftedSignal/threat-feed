@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b95d54a9-6e3a-5185-939e-ded61d39adf0",
+  "id": "bundle--07d08387-3395-5c8b-aec5-6aa413abfe9b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -70274,6 +70274,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--d8b9271a-6bfd-515e-957e-9f54c2035dd9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--54bfb3f9-62bd-5323-b347-28df3618a95f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e92831ad-f794-5716-9320-ead9bdf59fc9",
+      "target_ref": "vulnerability--3dcead75-6a80-565d-a940-a451d9b61e26"
     },
     {
       "type": "relationship",
@@ -167668,6 +167679,17 @@
       "relationship_type": "has",
       "source_ref": "software--d72b896b-8c04-5afe-b2d4-d4fb28be5af3",
       "target_ref": "vulnerability--2587d9c2-b059-5140-ad83-7ba0fd67f2a1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--da387df4-b848-500c-9143-acba3c2b8977",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T05:09:02.000Z",
+      "modified": "2026-11-21T05:09:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a61d3b17-46f3-5522-90f2-dd319dca8553",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -318322,6 +318344,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a61d3b17-46f3-5522-90f2-dd319dca8553",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T05:09:02.000Z",
+      "modified": "2026-11-21T05:09:02.000Z",
+      "name": "PHPGurukul News Portal Project unrestricted file upload (CVE-2026-128668)",
+      "description": "## Overview\nPHPGurukul News Portal Project V4.1 contains an unrestricted file upload vulnerability in the admin panel. Authenticated attackers can bypass existing filename extension validation in the add-post.php and change-image.php scripts. While the application attempts to rename uploaded files with an image extension, the lack of robust MIME type and content validation allows the storage of arbitrary content. This creates a vector for Remote Code Execution (RCE) if the server is misconfigured or if secondary Local File Inclusion (LFI) vulnerabilities exist.\n\n## Impact\nSuccessful exploitation allows an authenticated attacker to upload arbitrary files, potentially leading to Remote Code Execution on the hosting server. The vulnerability is rated with a CVSS v3.1 base score of 8.8.\n\n## Recommendation\n- Audit administrative accounts to ensure unauthorized users cannot access the admin panel.\n- Implement strict server-side file validation, including MIME type checking and file content inspection, rather than relying solely on filename extensions.\n- Monitor web server access logs for anomalous POST requests directed at add-post.php and change-image.php.\n- Given the absence of a confirmed fix in the source, contact the vendor for a security update or restrict access to administrative interfaces to trusted IP addresses only.",
+      "published": "2026-11-21T05:09:02.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e92831ad-f794-5716-9320-ead9bdf59fc9",
+        "vulnerability--3dcead75-6a80-565d-a940-a451d9b61e26"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-phpgurukul-news-portal-rce-cve-2026-128668",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-phpgurukul-news-portal-rce-cve-2026-128668/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-128668"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128668"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-phpgurukul-news-portal-rce-cve-2026-128668",
+      "x_craftedsignal_event_id": "brief-2026-11-21-phpgurukul-news-portal-rce-cve-2026-128668",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-phpgurukul-news-portal-rce-cve-2026-128668/",
+      "x_craftedsignal_activity_at": "2026-11-21T05:09:02.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00299,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a62b1b90-830a-5e3f-8f55-66122ef7bc95",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T23:01:51.000Z",
@@ -434789,6 +434857,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-76010",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76010"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3dcead75-6a80-565d-a940-a451d9b61e26",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-128668",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-128668",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128668"
         }
       ]
     },
