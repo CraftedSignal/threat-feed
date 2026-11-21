@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--34574d2d-a914-5112-a01b-aca69c242185",
+  "id": "bundle--18b340fb-5b33-5062-bfe5-3e549921ae3c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -48136,7 +48136,7 @@
       "id": "relationship--458a7305-75d3-5c96-a4ca-26ffe80165ca",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T18:52:38.000Z",
-      "modified": "2026-11-17T03:33:21.000Z",
+      "modified": "2026-11-21T21:13:20.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a012cd52-4cf1-520e-8065-7317279a7761",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -126236,7 +126236,7 @@
       "id": "relationship--ca2d84fa-5bfb-54f4-8702-6013e74d7793",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T18:52:38.000Z",
-      "modified": "2026-11-17T03:33:21.000Z",
+      "modified": "2026-11-21T21:13:20.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a012cd52-4cf1-520e-8065-7317279a7761",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -251042,7 +251042,7 @@
       "id": "report--a012cd52-4cf1-520e-8065-7317279a7761",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T18:52:38.000Z",
-      "modified": "2026-11-17T03:33:21.000Z",
+      "modified": "2026-11-21T21:13:20.000Z",
       "name": "Kubeshark: Argument injection leading to privilege escalation (CVE-2026-129236)",
       "description": "## Overview\nKubeshark, an eBPF-powered network observability tool for Kubernetes, is affected by an argument injection vulnerability in the start_kubeshark MCP tool (cmd/mcpRunner.go). The application fails to use a '--' end-of-options separator when passing the 'pod_regex' argument, allowing a value beginning with '--set' to be interpreted as a Helm value override.\n\n## Attack Chain\n1. An attacker influences the 'pod_regex' argument in the 'start_kubeshark' tool.\n2. When 'kubeshark mcp --allow-destructive' is executed, the injected '--set' parameter allows modification of 'tap.docker.registry' and 'tap.docker.tag'.\n3. The Kubeshark worker, Hub, and front images are redirected to an attacker-controlled registry.\n4. If the host has permission to deploy the worker, the privileged DaemonSet executes the malicious image.\n\n## Impact\nBecause the worker DaemonSet runs privileged with host networking and host filesystem access, a malicious image can obtain node and cluster-admin access if the host already has permissions to deploy the worker. Exploitation requires high privileges and user interaction.\n\n## Recommendation\nThis issue is fixed in version 53.4.0. Users are advised to upgrade to version 53.4.0 or later.",
       "published": "2026-11-16T18:52:38.000Z",
@@ -251080,9 +251080,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-16-kubeshark-argument-injection-cve-2026-129236",
       "x_craftedsignal_event_id": "brief-2026-11-16-kubeshark-argument-injection-cve-2026-129236",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-kubeshark-argument-injection-cve-2026-129236/",
-      "x_craftedsignal_activity_at": "2026-11-17T03:33:21.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T21:13:20.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
