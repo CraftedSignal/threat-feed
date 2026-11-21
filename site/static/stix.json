@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--986a21e5-a699-5bec-bc9e-6a6ee9f50cd9",
+  "id": "bundle--2bbf7315-b4af-589f-9432-d346799dd382",
   "objects": [
     {
       "type": "attack-pattern",
@@ -35861,6 +35861,17 @@
       "relationship_type": "has",
       "source_ref": "software--fc9ea734-d26a-5900-8e06-fa0c76fc00ba",
       "target_ref": "vulnerability--1ec5a9e6-3f70-590c-81eb-937ecc5db7f4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--246ce379-d6f8-5894-8bd1-82bba1be947a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T23:13:58.000Z",
+      "modified": "2026-11-21T23:13:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ec6cbafd-f11c-5c8f-8a0e-05233d9fd163",
+      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
     },
     {
       "type": "relationship",
@@ -122904,6 +122915,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--dbc42c6c-41c3-5bfd-a8cb-5ac41384a986"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9c554672-9baf-5662-bbf5-fc0528487302",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T23:13:58.000Z",
+      "modified": "2026-11-21T23:13:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ec6cbafd-f11c-5c8f-8a0e-05233d9fd163",
+      "target_ref": "attack-pattern--465a38e0-65ed-5b24-b51b-228c2afdc195"
     },
     {
       "type": "relationship",
@@ -371779,6 +371801,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ec6cbafd-f11c-5c8f-8a0e-05233d9fd163",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T23:13:58.000Z",
+      "modified": "2026-11-21T23:13:58.000Z",
+      "name": "AI Supply Chain Privacy and Security Deficiencies",
+      "description": "## Overview\n\nSecurity research by HD Moore (Dragos) conducted in late 2026 demonstrates widespread privacy and security failures within the AI inference ecosystem. By seeding two million unique, trackable canary secrets (AWS keys, URLs, and repository references) into prompts sent through various AI brokers and resellers, researchers documented three distinct threat vectors: direct compromise of hosting providers by external adversaries to siphon prompt data, unauthorized logging and scraping of user prompts by AI resellers, and failure of AI providers to honor 'Zero Data Retention' or 'no data collection' privacy settings.\n\n## Attack Chain\n\n1. User submits a prompt containing sensitive data (e.g., credentials or URLs) to an AI broker application.\n2. The AI broker/router receives the plaintext prompt to determine the optimal inference provider.\n3. The prompt is forwarded through multiple hops in the inference supply chain (resellers, model providers, and hosting infrastructures).\n4. At each hop, providers log and store the plaintext prompt for varying durations, violating stated privacy policies.\n5. Adversaries targeting the provider infrastructure siphon the decrypted prompts directly from the ingress point or logs.\n6. Adversaries extract credentials from stolen prompts and immediately validate them against cloud service providers to gain unauthorized access.\n7. Unauthorized entities scrape embedded URLs within the prompts days or months after the initial request, even when privacy flags were present.\n\n## Impact\n\nObserved impacts include the theft and active use of hundreds of AWS access keys to access S3 buckets, parameter stores, and secrets managers. Adversaries also demonstrated persistence by attempting to spawn hosted models and create IAM users within compromised environments. Prompts marked with privacy-preserving flags were frequently intercepted and scraped by both providers and external malicious actors.\n\n## Recommendation\n\n- Move sensitive AI inference workloads to on-premises servers or utilize direct contracts with first-tier providers that avoid intermediary routing where possible.\n- Treat all prompts submitted to third-party AI services as public information; avoid including any credentials, internal URLs, or proprietary source code in AI prompts.\n- Review egress logs and cloud management APIs for unauthorized access attempts or IAM user creation originating from infrastructure utilized by AI model providers.\n- Audit existing IAM roles used by AI-integrated services and enforce strict least-privilege access, ensuring that even if a prompt is leaked, the credentials exposed have minimal blast radius.",
+      "published": "2026-11-21T23:13:58.000Z",
+      "labels": [
+        "cloud-security",
+        "data-exfiltration",
+        "privacy-violation",
+        "supply-chain"
+      ],
+      "object_refs": [
+        "attack-pattern--465a38e0-65ed-5b24-b51b-228c2afdc195",
+        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--136ac693-9ab8-586f-b1d6-6c7b623eb501",
+        "software--3c118b09-abc5-52c4-a4d7-42627293c5de",
+        "software--3cfd8763-aa82-5eba-94c0-16ee57184d2b",
+        "software--418d8d3d-472a-5de6-816b-d3171a698242",
+        "software--ae10a826-821e-554b-845f-38570e0824fd",
+        "software--bdc4bcac-261c-5705-bc85-9e4a204d3715"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-ai-supply-chain-leaks",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ai-supply-chain-leaks/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-ai-supply-chain-leaks",
+      "x_craftedsignal_event_id": "brief-2026-11-21-ai-supply-chain-leaks",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ai-supply-chain-leaks/",
+      "x_craftedsignal_activity_at": "2026-11-21T23:13:58.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ec7b2b2b-364c-5bac-b92c-80ae75c7f193",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T15:52:51.000Z",
@@ -389224,6 +389297,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--136ac693-9ab8-586f-b1d6-6c7b623eb501",
+      "name": "OpenRouter"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1373056e-6c56-5a12-b90f-ae1d1c9a863e",
       "name": "LiteLLM (\u003e= 1.102.0, \u003c 1.102.2)",
       "vendor": "LiteLLM"
@@ -393986,6 +394065,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3c118b09-abc5-52c4-a4d7-42627293c5de",
+      "name": "Vercel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3c22ff49-c0e0-5d51-b037-7a59f1e0a68d",
       "name": "payever – WooCommerce Gateway (\u003c= 4.8.0)",
       "vendor": "payever"
@@ -394070,6 +394155,12 @@
       "id": "software--3cfafb65-a07b-5ede-9620-295efb0ad835",
       "name": "3315-Series terminals (\u003c 4.5.3.0)",
       "vendor": "ST Engineering iDirect"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3cfd8763-aa82-5eba-94c0-16ee57184d2b",
+      "name": "Novita"
     },
     {
       "type": "software",
@@ -394595,6 +394686,12 @@
       "id": "software--4185b34d-f40f-5044-87f3-b032801c7137",
       "name": "LiteLLM (\u003e= 1.103.0, \u003c 1.103.1)",
       "vendor": "LiteLLM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--418d8d3d-472a-5de6-816b-d3171a698242",
+      "name": "AtlasCloud"
     },
     {
       "type": "software",
@@ -406885,6 +406982,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ae10a826-821e-554b-845f-38570e0824fd",
+      "name": "MiniMax"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ae135e50-01c4-5e3a-8672-0aeaa0db14b8",
       "name": "Jpom (2.10.0 through 2.11.12)",
       "vendor": "Jpom"
@@ -408769,6 +408872,12 @@
       "spec_version": "2.1",
       "id": "software--bdbdf678-b13c-533e-b616-3616b6afd689",
       "name": "Volmarg Personal Management System through 2.1.0"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--bdc4bcac-261c-5705-bc85-9e4a204d3715",
+      "name": "StreamLake"
     },
     {
       "type": "software",
