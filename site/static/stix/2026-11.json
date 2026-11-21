@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f5239ee7-94b1-5c99-995a-4a4237835f8a",
+  "id": "bundle--909d5ba6-e8c6-5121-a623-d3590bb9e33e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -96760,6 +96760,17 @@
       "relationship_type": "has",
       "source_ref": "software--e82cf0ce-fe2e-508a-b914-2a2dfdf9ac4f",
       "target_ref": "vulnerability--d071054c-ea24-5741-b871-6db7a1589f73"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9a31cf3f-8059-5e33-9237-f1207d88ba2f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T13:04:38.000Z",
+      "modified": "2026-11-21T13:04:38.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--a0a3e59a-1eed-53a7-a70c-66b6b185d340",
+      "target_ref": "threat-actor--b6aee160-08da-5b01-908e-a86754fef24c"
     },
     {
       "type": "relationship",
@@ -248326,6 +248337,48 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a0a3e59a-1eed-53a7-a70c-66b6b185d340",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T13:04:38.000Z",
+      "modified": "2026-11-21T13:04:38.000Z",
+      "name": "MONAI Label Path Traversal Vulnerability Exploited by AI Agents",
+      "description": "## Overview\nAmazon threat intelligence researchers identified a campaign in September 2026 where a China-linked threat actor utilized autonomous AI agents operating via the Cairn open source penetration testing framework to exploit a critical path traversal vulnerability in MONAI Label. The researchers discovered the activity after observing an unauthenticated instance of the Cairn framework.\n\n## Attack Chain\n1. Reconnaissance and Access: The threat actor utilized AI agents to target university networks in East Asia. The agents were instructed to obtain shell access.\n2. Vulnerability Discovery: The agents mapped the application API of MONAI Label and identified a path traversal bug in a file upload function.\n3. Exploitation: The agents used the vulnerability to write arbitrary files to the server. In one instance, the agents planted a Python reverse shell in a file that executes upon Python interpreter startup to achieve a root shell.\n4. Lateral Movement: The actor utilized a proxy on a compromised host to tunnel into a second network and target additional devices running the same vulnerable software.\n\n## Impact\nSuccessful exploitation allows for arbitrary file writes and root-level code execution. The vulnerability enables any user who can reach the server over the network to exploit it, as authentication is disabled by default.\n\n## Recommendation\nMONAI Label versions 0.8.5 and earlier are affected. A fix has been created and will be included in the next release of the software.",
+      "published": "2026-11-21T13:04:38.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--59858259-fb2e-5c5a-aa0e-4c6965cd7d91",
+        "threat-actor--b6aee160-08da-5b01-908e-a86754fef24c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-cairn-ai-medical-zero-day",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cairn-ai-medical-zero-day/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/amazon-china-linked-hackers-ai-agents-exploited-medical-software-zero-day/"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-cairn-ai-medical-zero-day",
+      "x_craftedsignal_event_id": "brief-2026-11-21-cairn-ai-medical-zero-day",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cairn-ai-medical-zero-day/",
+      "x_craftedsignal_activity_at": "2026-11-21T13:04:38.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://www.securityweek.com/amazon-china-linked-hackers-ai-agents-exploited-medical-software-zero-day/",
+        "observed_at": "2026-09-01T00:00:00.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a0c759d0-0c55-5974-a6a1-e34fb313aee7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T16:11:44.000Z",
@@ -308767,6 +308820,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--59858259-fb2e-5c5a-aa0e-4c6965cd7d91",
+      "name": "MONAI Label"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--59a76188-b91f-545a-93f8-09d784bd26ef",
       "name": "7-Zip (\u003c 26.06)",
       "vendor": "7-Zip"
@@ -322477,6 +322536,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "Turla"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--b6aee160-08da-5b01-908e-a86754fef24c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Unidentified Chinese-nexus threat actor"
     },
     {
       "type": "threat-actor",
