@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9f39295d-71a8-5ff2-9018-259090836a20",
+  "id": "bundle--49abe4b7-a87c-5603-bd9f-f087335887af",
   "objects": [
     {
       "type": "attack-pattern",
@@ -21656,6 +21656,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--17706802-0aaa-5616-af5d-2d38370805c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2b7f6d5b-c545-5ef6-a564-b9082071aff0",
+      "target_ref": "vulnerability--cc54c6e7-c728-5ab6-b562-797c30177e99"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1779ee65-66ab-5e08-b05d-fd70524655b1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -37932,6 +37943,17 @@
       "relationship_type": "has",
       "source_ref": "software--eb7a941e-626d-5514-8192-3f00830012b5",
       "target_ref": "vulnerability--22e10612-85ea-5d5f-80f6-a48fb6a350d6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--33e3b2cf-10df-5eae-b8bc-5ce7295d2987",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2b7f6d5b-c545-5ef6-a564-b9082071aff0",
+      "target_ref": "vulnerability--e4cb2252-fe30-57f3-ac88-6865b3c75f4b"
     },
     {
       "type": "relationship",
@@ -81980,6 +82002,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7f4a178b-e409-5980-8df6-bf343731bca3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2b7f6d5b-c545-5ef6-a564-b9082071aff0",
+      "target_ref": "vulnerability--a76db513-9d44-50cd-9f27-a12b5eec5fbb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7f51dd3b-20e5-5219-8cad-709876ce41cc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -95550,6 +95583,17 @@
       "relationship_type": "has",
       "source_ref": "software--9065a62c-a79c-52cb-806b-3fb5bbf4fa62",
       "target_ref": "vulnerability--8dacaace-c85b-5665-a20c-93759300cfc7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--97c6f130-2d05-5652-831d-03970c58972f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2b7f6d5b-c545-5ef6-a564-b9082071aff0",
+      "target_ref": "vulnerability--44ca4696-e295-5ea3-9117-28a0b2a77a11"
     },
     {
       "type": "relationship",
@@ -155340,6 +155384,50 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--00596a45-0460-51f2-aa9e-52d783598452",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T15:29:58.000Z",
+      "modified": "2026-11-21T15:29:58.000Z",
+      "name": "RT-Labs AB SOES: Segmented download handler memory corruption (CVE-2026-129798)",
+      "description": "## Overview\n\nThe SOES (Simple Open EtherCAT stack) segmented download handler contains a critical flaw where it fails to track the total number of bytes written during a segmented download operation. By repeatedly sending non-last segments, an attacker acting as a master can advance the internal write pointer beyond the allocated bounds of the object buffer or the complete-access staging buffer. This condition results in out-of-bounds memory writes and potential memory corruption.\n\n## Impact\n\nSuccessful exploitation allows an adjacent network attacker to cause memory corruption, which may lead to unauthorized data overwrites or a denial-of-service condition depending on the stack's memory layout.\n\n## Recommendation\n\nUpgrade the SOES stack to version 3.2.1 or later to implement proper bounds checking on the total number of bytes written during segmented downloads. Users should prioritize this update for any device utilizing the EtherCAT SDO segmented download functionality.",
+      "published": "2026-11-21T15:29:58.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2b7f6d5b-c545-5ef6-a564-b9082071aff0",
+        "vulnerability--44ca4696-e295-5ea3-9117-28a0b2a77a11"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-soes-segmented-download-overflow-cve-2026-129798",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-soes-segmented-download-overflow-cve-2026-129798/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129798"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129798"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-soes-segmented-download-overflow-cve-2026-129798",
+      "x_craftedsignal_event_id": "brief-2026-11-21-soes-segmented-download-overflow-cve-2026-129798",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-soes-segmented-download-overflow-cve-2026-129798/",
+      "x_craftedsignal_activity_at": "2026-11-21T15:29:58.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -222146,6 +222234,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--73b76782-a295-5b24-9113-fe77bbc323c4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T15:30:12.000Z",
+      "modified": "2026-11-21T15:30:12.000Z",
+      "name": "RT-Labs SOES: EtherCAT stack out-of-bounds write (CVE-2026-129811)",
+      "description": "## Overview\nSOES (Simple Open EtherCAT Slave) versions prior to 3.2.1 contain a vulnerability where PDO mapping bit lengths are writable by the master via SDO. The sizeOfPDO function sums these lengths without validating the total against the size of the rxpdo[] or txpdo[] process data buffers. A master can craft a mapping exceeding these buffers, causing COE_pdoPack and COE_pdoUnpack to write past their ends during each process data cycle after the PREOP to SAFEOP transition.\n\n## Impact\nSuccessful exploitation allows for an out-of-bounds write during the process data cycle. The vulnerability has a CVSS v3.1 base score of 8.8 (AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H).\n\n## Recommendation\nUpdate the SOES implementation to version 3.2.1 or later.",
+      "published": "2026-11-21T15:30:12.000Z",
+      "labels": [
+        "cve",
+        "ethercat",
+        "soes"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2b7f6d5b-c545-5ef6-a564-b9082071aff0",
+        "vulnerability--e4cb2252-fe30-57f3-ac88-6865b3c75f4b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-cve-2026-129811",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-129811/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129811"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129811"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-cve-2026-129811",
+      "x_craftedsignal_event_id": "brief-2026-11-21-cve-2026-129811",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-129811/",
+      "x_craftedsignal_activity_at": "2026-11-21T15:30:12.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--73c09876-3c3d-53e9-b1a5-625839b18d18",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T16:13:14.000Z",
@@ -269687,6 +269824,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c7ce9b6f-f33a-5366-8b02-b29608e84b1e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T15:29:41.000Z",
+      "modified": "2026-11-21T15:29:41.000Z",
+      "name": "RT-Labs SOES: SDO download handler memory corruption (CVE-2026-129796)",
+      "description": "## Overview\nThe RT-Labs SOES (Simple Open EtherCAT Stack) CoE SDO download handler does not validate that master-declared transfer sizes for flexible-length objects (such as VISIBLE_STRING and OCTET_STRING) fit within the destination buffer. This vulnerability affects the VISIBLE_STRING zero-padding memset and the first-frame copy into the object buffer.\n\n## Attack Chain\nThe vulnerability is reachable via the local network segment (Adjacent Network access). An attacker can supply a malicious SDO download request to trigger out-of-bounds writes during object processing.\n\n## Impact\nThe memory corruption caused by the unsafe writes can lead to high impact on Confidentiality, Integrity, and Availability. The vulnerability does not require user interaction or specific privileges.\n\n## Recommendation\nUsers of SOES should update to version 3.2.1 or later to implement the required bounds checking.",
+      "published": "2026-11-21T15:29:41.000Z",
+      "labels": [
+        "ethercat",
+        "memory-corruption"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2b7f6d5b-c545-5ef6-a564-b9082071aff0",
+        "vulnerability--a76db513-9d44-50cd-9f27-a12b5eec5fbb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-soes-sdo-overflow-cve-2026-129796",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-soes-sdo-overflow-cve-2026-129796/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129796"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129796"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-soes-sdo-overflow-cve-2026-129796",
+      "x_craftedsignal_event_id": "brief-2026-11-21-soes-sdo-overflow-cve-2026-129796",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-soes-sdo-overflow-cve-2026-129796/",
+      "x_craftedsignal_activity_at": "2026-11-21T15:29:41.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c7daa29a-4069-5c0d-9118-9dbac3fcd672",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T03:46:54.000Z",
@@ -287836,6 +288021,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e7e68021-2488-59a9-9727-0ac0d8859f8e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T15:30:04.000Z",
+      "modified": "2026-11-21T15:30:04.000Z",
+      "name": "RT-Labs AB SOES: FoE DATA frame handler buffer over-read (CVE-2026-129801)",
+      "description": "## Overview\n\nThe SOES (Simple Open EtherCAT stack) library is vulnerable to an out-of-bounds read within its FoE (File over EtherCAT) DATA frame handler (CVE-2026-129801). The vulnerability arises because the payload length is derived from a master-supplied mailbox length field without validation against the physical buffer size. A malicious EtherCAT master can declare a length greater than the actual frame size, causing the FOE_fwrite function to read memory past the end of the mailbox buffer.\n\n## Impact\n\nSuccessful exploitation can result in an out-of-bounds memory read, potentially leading to information disclosure or an application crash (denial of service).\n\n## Recommendation\n\nUpdate the SOES library to version 3.2.1 or later to implement proper validation of the mailbox length field against the physical buffer size. If patching is not immediately feasible, verify if the EtherCAT master can be restricted to trusted, authenticated devices to mitigate the risk of unauthorized frame injection.",
+      "published": "2026-11-21T15:30:04.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2b7f6d5b-c545-5ef6-a564-b9082071aff0",
+        "vulnerability--cc54c6e7-c728-5ab6-b562-797c30177e99"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-foe-data-buffer-over-read-cve-2026-129801",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-foe-data-buffer-over-read-cve-2026-129801/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129801"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129801"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-foe-data-buffer-over-read-cve-2026-129801",
+      "x_craftedsignal_event_id": "brief-2026-11-21-foe-data-buffer-over-read-cve-2026-129801",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-foe-data-buffer-over-read-cve-2026-129801/",
+      "x_craftedsignal_activity_at": "2026-11-21T15:30:04.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e7ec66b1-a88c-523a-a40d-9bf27a4b3ead",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T08:46:59.000Z",
@@ -305241,6 +305470,13 @@
       "id": "software--2b7dbc4f-766c-5955-82fd-493c4d73802e",
       "name": "Cloud Pak for Data 5.4.0.0",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--2b7f6d5b-c545-5ef6-a564-b9082071aff0",
+      "name": "SOES (\u003c 3.2.1)",
+      "vendor": "RT-Labs AB"
     },
     {
       "type": "software",
@@ -341222,6 +341458,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--44ca4696-e295-5ea3-9117-28a0b2a77a11",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129798",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129798",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129798"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--45010cf7-90d5-505d-969a-ae0f42e32098",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -368038,6 +368290,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--a76db513-9d44-50cd-9f27-a12b5eec5fbb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129796",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129796",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129796"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--a77011fc-7913-5626-a811-9f9363dbd4bd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -378534,6 +378802,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--cc54c6e7-c728-5ab6-b562-797c30177e99",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129801",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129801",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129801"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--cc9a2dd3-8e84-5496-88d3-e71290bace49",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -385264,6 +385548,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-123139",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123139"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e4cb2252-fe30-57f3-ac88-6865b3c75f4b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129811",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129811",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129811"
         }
       ]
     },
