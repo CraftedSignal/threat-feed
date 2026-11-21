@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ef278a84-a315-5b61-829c-e2ca0ab55f25",
+  "id": "bundle--e06ce05d-ba7d-535d-9eb5-4268d6a38576",
   "objects": [
     {
       "type": "attack-pattern",
@@ -63005,6 +63005,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5f2e0ed7-e1df-519b-a1b9-68f1097dda46",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f00b4800-1980-5515-b050-86cb1ea02bbe",
+      "target_ref": "vulnerability--e4b37419-1705-56ba-9e2b-571955e29f58"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5f3c05ed-7aee-5a20-8d9e-8414cf82e8dc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -114419,6 +114430,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b80ea283-32fe-5149-8a46-3061e2af4c80",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T13:04:51.000Z",
+      "modified": "2026-11-21T13:04:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--428cb3da-a70a-5f3b-8dba-d7ae80ac545f",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b80fef7b-8e86-52a3-935f-5b47d59c1e2e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -128451,6 +128473,17 @@
       "relationship_type": "has",
       "source_ref": "software--40973d88-7cc3-5bde-ac58-e64a5dd87c97",
       "target_ref": "vulnerability--371d4657-747d-5c4b-bc73-7f8f5efbfda3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d054b727-5a1d-5b4b-8ceb-d668d21cd5ab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T13:04:51.000Z",
+      "modified": "2026-11-21T13:04:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--428cb3da-a70a-5f3b-8dba-d7ae80ac545f",
+      "target_ref": "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b"
     },
     {
       "type": "relationship",
@@ -194054,6 +194087,63 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_epss_max": 0.00227,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--428cb3da-a70a-5f3b-8dba-d7ae80ac545f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T13:04:51.000Z",
+      "modified": "2026-11-21T13:04:51.000Z",
+      "name": "Appsmith: Password reset link hijacking via Origin header injection (CVE-2026-22794)",
+      "description": "## Overview\nAppsmith versions prior to 1.93 are vulnerable to an Origin header injection flaw (CVE-2026-22794). The application improperly trusts the HTTP Origin header when generating password reset and email verification links. By supplying a malicious Origin header during a password reset request, an attacker can cause the application to send a reset link pointing to an attacker-controlled domain. If the targeted user interacts with this link, the sensitive reset token is exposed to the attacker, facilitating account takeover. Public proof-of-concept (PoC) code is available, elevating the risk to unpatched deployments.\n\n## Attack Chain\n1. Attacker identifies a target Appsmith instance and a target user's email address.\n2. Attacker initiates a password reset request by sending a POST request to `/api/v1/users/forgotPassword`.\n3. Attacker injects a malicious URL into the `Origin` header of the request.\n4. Appsmith server constructs a password reset email using the attacker-controlled `Origin` header as the base URL.\n5. The target user receives the legitimate-looking email and clicks the malicious reset link.\n6. The target user's browser transmits the reset token to the attacker's server.\n7. Attacker captures the token from their server logs.\n8. Attacker uses the stolen token via the `/resetPassword` endpoint to finalize the password reset and gain full account access.\n\n## Impact\nSuccessful exploitation leads to full account takeover, allowing unauthorized access to sensitive administrative panels, internal tools, and dashboards managed within the affected Appsmith instance.\n\n## Recommendation\n- Upgrade Appsmith to version 1.93 or later immediately.\n- If patching is delayed, implement strict network-level controls or WAF rules to validate and restrict the `Origin` header on requests to the password reset endpoint.\n- Monitor server logs for password reset requests containing unusual or unexpected domains in the `Origin` header.",
+      "published": "2026-11-21T13:04:51.000Z",
+      "labels": [
+        "account-takeover",
+        "cve-2026-22794",
+        "vulnerability",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b",
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f00b4800-1980-5515-b050-86cb1ea02bbe",
+        "vulnerability--e4b37419-1705-56ba-9e2b-571955e29f58"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-appsmith-origin-injection-cve-2026-22794",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-appsmith-origin-injection-cve-2026-22794/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-22794"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MALIKHAMZA7-CVE-2026-22794-POC"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MALIKHAMZA7-CVE-2026-22794-POC\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-appsmith-origin-injection-cve-2026-22794",
+      "x_craftedsignal_event_id": "brief-2026-11-21-appsmith-origin-injection-cve-2026-22794",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-appsmith-origin-injection-cve-2026-22794/",
+      "x_craftedsignal_activity_at": "2026-11-21T13:04:51.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.6,
+      "x_craftedsignal_epss_max": 0.00386,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -320348,6 +320438,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--f00b4800-1980-5515-b050-86cb1ea02bbe",
+      "name": "Appsmith (\u003c 1.93)",
+      "vendor": "Appsmith"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f0112aa5-5603-5dc0-ac98-c875d1a68ae8",
       "name": "magento-lts (\u003c 20.2.0)",
       "vendor": "OpenMage"
@@ -384290,6 +384387,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-94598",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94598"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e4b37419-1705-56ba-9e2b-571955e29f58",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-22794",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-22794",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22794"
         }
       ]
     },
