@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2854daca-8b21-5f4c-b3f4-84504dfef07e",
+  "id": "bundle--a7e49816-7f91-58ef-a95a-01f5ea75306a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -264026,7 +264026,7 @@
       "id": "report--5b8794a8-5e58-5c51-9272-9ba59aefa8a1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-21T02:05:33.000Z",
-      "modified": "2026-11-21T17:22:06.000Z",
+      "modified": "2026-11-21T17:52:26.000Z",
       "name": "Contao core-bundle Privilege Escalation via theme_import",
       "description": "## Overview\nContao core-bundle contains a privilege escalation vulnerability where non-admin users with delegated user management permissions can grant themselves the 'theme_import' capability. While commit 2b83a60f7763 (introduced in v5.7.3) added `TemplateEditorModuleVoter` to restrict the 'tpl_editor' backend module, the 'theme_import' capability within the 'themes' checkbox field lacks corresponding voter logic. This allows a delegated user manager to grant themselves the 'theme_import' permission, which enables arbitrary PHP execution.\n\n## Attack Chain\n1. A non-admin backend user with delegated user management permissions (the 'user' or 'group' module) edits a group or account.\n2. The user adds 'themes' to the modules field and 'theme_import' to the themes field.\n3. The application accepts these permissions, as they are not restricted by the `TemplateEditorModuleVoter`.\n4. Upon re-authentication, the user gains access to 'theme_import', enabling arbitrary PHP execution.\n\n## Impact\nA delegated user/group manager can escalate privileges to execute arbitrary PHP code on the server, resulting in full system compromise. This bypasses the protections introduced in v5.7.3.\n\n## Recommendation\nUpgrade to the patched versions:\n- For branch 5.0.x: Upgrade to 5.3.50 or later.\n- For branch 5.4.x: Upgrade to 5.7.12 or later.",
       "published": "2026-11-21T02:05:33.000Z",
@@ -264057,9 +264057,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-21-contao-core-bundle-privilege-escalation-ghsa-r9qp-pqx5-8369",
       "x_craftedsignal_event_id": "brief-2026-11-21-contao-core-bundle-privilege-escalation-ghsa-r9qp-pqx5-8369",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-contao-core-bundle-privilege-escalation-ghsa-r9qp-pqx5-8369/",
-      "x_craftedsignal_activity_at": "2026-11-21T17:22:06.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T17:52:26.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
