@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1740ba73-53dd-53b2-be11-6a83d5116202",
+  "id": "bundle--37e5917d-c317-5881-9f8e-9d6babf8243f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -21789,6 +21789,17 @@
       "relationship_type": "has",
       "source_ref": "software--be2679c1-6e47-5076-a882-1cb65387c815",
       "target_ref": "vulnerability--d2113d60-6ed0-53b0-aa05-5b87687e9670"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--17e2dd02-b934-5e96-987d-76ba70b42a7d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ae357742-4173-5fb5-aca1-96712581f1d8",
+      "target_ref": "vulnerability--602497e9-8e5d-59da-81f4-539fba03baf1"
     },
     {
       "type": "relationship",
@@ -108084,6 +108095,17 @@
       "relationship_type": "uses",
       "source_ref": "report--d590fcbc-d0ba-591f-99ae-524718a9b287",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ae6b3424-428f-5dfb-9b8c-2168955bcc9b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T06:57:28.000Z",
+      "modified": "2026-11-21T06:57:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d1a01e3a-6fe1-534f-9e69-bee2794356cf",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -272253,6 +272275,62 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d1a01e3a-6fe1-534f-9e69-bee2794356cf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T06:57:28.000Z",
+      "modified": "2026-11-21T06:57:28.000Z",
+      "name": "Linux Kernel: Use-After-Free in rawv6_send_hdrinc (CVE-2026-99320)",
+      "description": "## Overview\nA use-after-free (UAF) vulnerability (CVE-2026-99320) exists in the Linux kernel's `rawv6_send_hdrinc()` function. The flaw occurs when the kernel caches a route before the Virtual Routing and Forwarding (VRF) output path replaces the `skb-\u003edst` field and releases the original route. If the cached pointer is subsequently dereferenced for statistics accounting or as an output device in `NF_HOOK()`, it results in a UAF. An unprivileged attacker can trigger this condition by manipulating VRF configurations within a user namespace, ultimately leading to kernel memory corruption, arbitrary reads/writes, and local privilege escalation to root.\n\n## Attack Chain\n1. Attacker creates a new user and network namespace using `unshare(CLONE_NEWUSER)`.\n2. Attacker enables `CAP_NET_RAW` and `CAP_NET_ADMIN` within the new namespace.\n3. Attacker configures a VRF interface and adds an associated default route.\n4. Attacker opens an `AF_INET6 SOCK_RAW` socket with `HDRINCL` enabled.\n5. Attacker initiates a `sendmsg()` call to an on-link global address to trigger the vulnerable path.\n6. Kernel attempts to access the stale `rt6_info` object after it has been freed by `dst_destroy()`.\n7. Attacker uses the resulting UAF to gain arbitrary kernel read/write primitives.\n8. Attacker overwrites `modprobe_path` or manipulates security structures to obtain a root shell.\n\n## Impact\nSuccessful exploitation allows an unprivileged local user to gain full root privileges (UID 0) on affected Linux kernels. Attackers can perform arbitrary memory operations, bypass security controls (e.g., KASLR, SMEP, SMAP), and potentially modify kernel-mode behavior via `modprobe_path`.\n\n## Recommendation\n- Update Linux kernel environments to versions that include the upstream fix for `rawv6_send_hdrinc()` (e.g., commits `afb69c90cf62`, `3fda55b34d8f`, `18772182967f`, or `66dfb2cacda7`).\n- Monitor systems for unusual use of `unshare` or `clone` syscalls associated with non-privileged namespace creation in environments where such activity is not expected.\n- Consider disabling unprivileged user namespaces (`kernel.unprivileged_userns_clone = 0` via sysctl) if the environment does not strictly require them, as this significantly increases the difficulty of exploiting local kernel vulnerabilities.",
+      "published": "2026-11-21T06:57:28.000Z",
+      "labels": [
+        "cve-2026-99320",
+        "linux",
+        "privilege-escalation",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ae357742-4173-5fb5-aca1-96712581f1d8",
+        "vulnerability--602497e9-8e5d-59da-81f4-539fba03baf1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-linux-kernel-uaf-cve-2026-99320",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-uaf-cve-2026-99320/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-99320"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=4EC207F0-A456-5C42-9E21-A06631013064"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=4EC207F0-A456-5C42-9E21-A06631013064\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-linux-kernel-uaf-cve-2026-99320",
+      "x_craftedsignal_event_id": "brief-2026-11-21-linux-kernel-uaf-cve-2026-99320",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-uaf-cve-2026-99320/",
+      "x_craftedsignal_activity_at": "2026-11-21T06:57:28.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7,
+      "x_craftedsignal_epss_max": 0.00153,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d1b266ac-fced-580f-b459-b09af158b2a8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T23:54:11.000Z",
@@ -312342,6 +312420,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ae357742-4173-5fb5-aca1-96712581f1d8",
+      "name": "Linux kernel (\u003e= 4.9, \u003c fix commits)",
+      "vendor": "Linux"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ae3d9b44-3563-5c96-a053-d0221f464c6a",
       "name": "OpenRemote (\u003c 1.32.2)",
       "vendor": "OpenRemote"
@@ -344238,6 +344323,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114464",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114464"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--602497e9-8e5d-59da-81f4-539fba03baf1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99320",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99320",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99320"
         }
       ]
     },
