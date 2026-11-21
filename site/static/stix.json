@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5f943c5b-fb36-5e13-aec5-2d4032757a8a",
+  "id": "bundle--003b6517-ec5e-544a-88e3-e475fbaf6345",
   "objects": [
     {
       "type": "attack-pattern",
@@ -81372,6 +81372,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6396c1e8-f5ee-592e-826a-e41c75772d1a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8d29894f-12a7-5524-9f47-f16f6e889c3e",
+      "target_ref": "vulnerability--2b055d19-c912-5413-90f5-b8b07300d22b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--639d5d9c-111b-59a7-8fd2-83182074fa9c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -148721,6 +148732,17 @@
       "relationship_type": "has",
       "source_ref": "software--a0c400cf-8e63-5f5a-882a-80331a674f97",
       "target_ref": "vulnerability--f7242e74-7d1d-5038-9bd7-6b0ed994a715"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--beec14a6-aec5-54aa-aa76-8e393ad38e88",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7762fe7d-e246-5293-b472-2336f8d84f04",
+      "target_ref": "vulnerability--f837fbab-3e7f-5164-afb4-939a4d16cfbd"
     },
     {
       "type": "relationship",
@@ -216943,6 +216965,55 @@
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.93244,
       "x_craftedsignal_kev_status": "true"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1d1404e4-4993-547e-b96a-c9eb0d702b0d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T21:26:17.000Z",
+      "modified": "2026-11-21T21:26:17.000Z",
+      "name": "Fastify @fastify/middie path-routing security bypass (CVE-2026-133250)",
+      "description": "## Overview\n@fastify/middie is the middleware engine for the Fastify web framework. In versions up to and including 9.3.7, middie matches path-scoped middleware against its own reading of the request path, which can differ from the path Fastify's router uses to dispatch the request. When the two disagree, the router can route a request to a handler covered by a middleware mount while middie skips that middleware.\n\n## Attack Chain\nThe mismatch is triggered by empty parameter or wildcard values, request targets that do not begin with a slash, and literal percent characters in a mount path. This occurs without requiring special configuration.\n\n## Impact\nAn unauthenticated client can reach a handler that an authentication, authorization, or rate-limiting middleware was meant to protect, resulting in a bypass of security controls.\n\n## Recommendation\nThe issue is fixed in @fastify/middie 9.3.8, and users should upgrade to 9.3.8 or later.",
+      "published": "2026-11-21T21:26:17.000Z",
+      "labels": [
+        "CVE-2026-133250",
+        "middleware",
+        "security-bypass"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7762fe7d-e246-5293-b472-2336f8d84f04",
+        "vulnerability--f837fbab-3e7f-5164-afb4-939a4d16cfbd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-fastify-middie-bypass-cve-2026-133250",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fastify-middie-bypass-cve-2026-133250/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-133250"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133250"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-fastify-middie-bypass-cve-2026-133250",
+      "x_craftedsignal_event_id": "brief-2026-11-21-fastify-middie-bypass-cve-2026-133250",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fastify-middie-bypass-cve-2026-133250/",
+      "x_craftedsignal_activity_at": "2026-11-21T21:26:17.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -330279,6 +330350,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b625fe82-b3c4-5a9d-b116-688ec70e5013",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T21:26:07.000Z",
+      "modified": "2026-11-21T21:26:07.000Z",
+      "name": "Fastify Express: Authentication bypass vulnerability (CVE-2026-133120)",
+      "description": "## Overview\n@fastify/express is a compatibility layer that enables Express middleware to function within the Fastify web framework. In versions prior to 4.0.10, the plugin passes Express a request URL that does not always match the path dispatched by the Fastify router. This allows path-scoped Express middleware to be skipped while the underlying route handler still executes.\n\n## Attack Chain\nTriggering conditions include specific request forms such as percent-decoding that rewrites a backslash to a slash or double-decodes an encoded percent sign, and request targets that begin with an asterisk. These discrepancies cause the middleware and the handler to disagree on the path or on parameter and query values.\n\n## Impact\nAn unauthenticated client can reach a route handler that authentication, authorization, or rate-limiting middleware was intended to protect. No special configuration is required for this bypass.\n\n## Recommendation\nThe vulnerability is resolved in @fastify/express 4.0.10. Users should upgrade to 4.0.10 or later.",
+      "published": "2026-11-21T21:26:07.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8d29894f-12a7-5524-9f47-f16f6e889c3e",
+        "vulnerability--2b055d19-c912-5413-90f5-b8b07300d22b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-fastify-express-path-bypass-cve-2026-133120",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fastify-express-path-bypass-cve-2026-133120/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-133120"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133120"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-fastify-express-path-bypass-cve-2026-133120",
+      "x_craftedsignal_event_id": "brief-2026-11-21-fastify-express-path-bypass-cve-2026-133120",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fastify-express-path-bypass-cve-2026-133120/",
+      "x_craftedsignal_activity_at": "2026-11-21T21:26:07.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b637574b-266a-5b14-bdd2-8f6d03fcd132",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T01:17:34.000Z",
@@ -402961,6 +403076,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8d29894f-12a7-5524-9f47-f16f6e889c3e",
+      "name": "@fastify/express",
+      "vendor": "@fastify/express"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8d2e0a4f-2b23-5c4c-bfe1-0636892c54d4",
       "name": "Optimizely website personalization platform",
       "vendor": "Optimizely"
@@ -430974,6 +431096,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-125878",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125878"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2b055d19-c912-5413-90f5-b8b07300d22b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-133120",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-133120",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133120"
         }
       ]
     },
@@ -501518,6 +501656,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118716",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118716"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f837fbab-3e7f-5164-afb4-939a4d16cfbd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-133250",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-133250",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133250"
         }
       ]
     },
