@@ -1,75 +1,129 @@
 ---
+brief_id: brief-2026-04-11-litellm-rce
+event_id: brief-2026-04-11-litellm-rce
+revision: 2
+activity_at: "2026-11-21T18:51:38Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-21T18:51:38Z"
+    checksum: sha256:e15d7c92aeb3233a38dda281f7e033bacac7e23b3daab0f116efcf753b810642
+    summary: CISA KEV listing confirmed; corrected affected versions, authentication prerequisite, severity context, and ATT&CK mapping.
+    changed_fields:
+      - affected_products
+      - affected_vendors
+      - content
+      - cpes
+      - cves
+      - exploitation_evidence
+      - has_poc
+      - iocs
+      - lastmod
+      - poc_references
+      - priority
+      - priority_score
+      - priority_signals
+      - references
+      - rules
+      - severity
+      - ttps
+      - updates
 title: LiteLLM Remote Code Execution via Bytecode Rewriting (CVE-2026-40217)
 slug: 2026-04-litellm-rce
 description: LiteLLM through 2026-04-08 allows remote attackers to execute arbitrary code via bytecode rewriting at the /guardrails/test_custom_code URI, potentially leading to complete system compromise.
 date: "2026-04-11T12:00:00Z"
-severities:
-  - critical
+lastmod: "2026-11-21T18:51:03Z"
 type: advisory
 types:
   - advisory
+severities:
+  - high
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2026-11-18T00:00:00Z"
+  confidence: high
+cpes:
+  - cpe:2.3:a:litellm:litellm:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=B01AF870-0BB7-5045-8F8B-19C856066EE7&utm_source=rss&utm_medium=rss
 tags:
   - CVE-2026-40217
   - litellm
   - rce
   - bytecode-rewriting
+vendors:
+  - BerriAI
+products:
+  - LiteLLM
+product_versions:
+  - product: LiteLLM
+    range: '>= 1.81.8, < 1.83.10'
 mitre_ttps:
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1203
-    technique_name: Exploitation for Client Execution
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
 cves:
   - id: CVE-2026-40217
     cvss: 8.8
+    epss: 0.00277
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-40217
   - https://www.x41-dsec.de/lab/advisories/x41-2026-001-litellm/
+  - https://github.com/BerriAI/litellm/security/advisories/GHSA-wxxx-gvqv-xp7p
+  - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  - https://sploitus.com/exploit?id=B01AF870-0BB7-5045-8F8B-19C856066EE7&utm_source=rss&utm_medium=rss
+iocs:
+  - type: url
+    value: https://sploitus.com/exploit?id=B01AF870-0BB7-5045-8F8B-19C856066EE7&utm_source=rss&utm_medium=rss
+ioc_counts:
+  url: 1
 rules:
-  - title: Detect LiteLLM Bytecode Rewrite Attempt
-    description: Detects potential attempts to exploit CVE-2026-40217 by monitoring POST requests to the /guardrails/test_custom_code URI.
-    platform: sigma
-    severity: critical
-    tactics:
-      - execution
-    techniques:
-      - T1203
-    data_sources:
-      - webserver
-      - linux
-  - title: Detect High Volume of Errors from LiteLLM Endpoint
-    description: Detects potential exploitation attempts by monitoring for a high volume of server errors originating from requests to the /guardrails/test_custom_code endpoint.
+  - title: Detect LiteLLM custom-code guardrail requests
+    description: Detect POST requests to the LiteLLM custom-code guardrail endpoint. This is a detection lead, not proof of exploitation; the endpoint requires proxy-admin credentials in default configurations.
     platform: sigma
     severity: high
     tactics:
-      - defense_evasion
+      - initial_access
     techniques:
-      - T1070.001
+      - T1190
     data_sources:
       - webserver
       - linux
-rules_count: 2
+rules_count: 1
+updates:
+  - at: "2026-05-19T14:00:53Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+  - at: "2026-11-21T18:38:57Z"
+    level: L2
+    summary: CISA KEV listing confirmed; corrected affected versions, authentication prerequisite, severity context, and ATT&CK mapping.
+    sources:
+      - CISA KEV
+      - BerriAI advisory
 ---
 
-LiteLLM, a library for simplifying interactions with Large Language Models (LLMs), is vulnerable to remote code execution (RCE) through version 2026-04-08. The vulnerability, identified as CVE-2026-40217, exists due to insufficient input validation at the `/guardrails/test_custom_code` URI. A remote attacker can exploit this flaw by rewriting bytecode, effectively injecting and executing arbitrary code on the server hosting LiteLLM. This vulnerability poses a significant risk, as it allows unauthenticated attackers with network access to the affected server to gain complete control.
+## Overview
 
-## Attack Chain
+CVE-2026-40217 is a sandbox escape in LiteLLM's custom-code guardrail. A crafted request to `POST /guardrails/test_custom_code` can escape the hand-rolled Python sandbox through bytecode-level techniques and execute arbitrary code in the LiteLLM proxy process. BerriAI says this endpoint requires a proxy-admin credential in default configurations; the vendor advisory does not describe this as unauthenticated by default. The default Docker image runs the proxy as root, increasing potential impact in that deployment.
 
-1.  An attacker identifies a LiteLLM instance running a vulnerable version (<= 2026-04-08) with the `/guardrails/test_custom_code` endpoint exposed.
-2.  The attacker crafts a malicious HTTP request targeting the `/guardrails/test_custom_code` URI.
-3.  The malicious request includes specially crafted data designed to rewrite the bytecode executed by the LiteLLM instance.
-4.  The LiteLLM application, due to the vulnerability, processes the attacker-supplied data without proper sanitization or validation.
-5.  The application rewrites its own bytecode based on the attacker's input.
-6.  The rewritten bytecode contains malicious code injected by the attacker.
-7.  The application executes the rewritten bytecode, effectively executing the attacker's injected code.
-8.  The attacker gains arbitrary code execution on the server, allowing them to compromise the system, install malware, or exfiltrate data.
+CISA added CVE-2026-40217 to its Known Exploited Vulnerabilities catalog on 2026-11-18. This brief records the catalog listing as confirmed exploitation evidence; it does not attribute the activity to a particular actor or describe specific attacks.
 
-## Impact
+## Affected versions
 
-Successful exploitation of CVE-2026-40217 allows unauthenticated remote attackers to execute arbitrary code on systems running vulnerable versions of LiteLLM. This can lead to complete system compromise, including data theft, ransomware deployment, and denial of service. The vulnerability could affect any organization utilizing LiteLLM for LLM interaction, particularly those exposing the vulnerable endpoint to untrusted networks. The impact is rated as critical due to the ease of exploitation and the potential for widespread damage.
+BerriAI's advisory lists LiteLLM versions 1.81.8 and later, before 1.83.10, as affected. Its patch guidance says to upgrade to 1.83.11 or later; follow that explicit guidance. The advisory also references release 1.83.10, so verify the vendor's fixed release guidance when planning upgrades.
+
+## Impact and severity
+
+Successful exploitation permits arbitrary code execution in the proxy process. The National Vulnerability Database score retained here is CVSS v3.1 8.8 (High); BerriAI's advisory gives CVSS v4.0 5.9 (Moderate) and scores privileges required as high. These scores use different CVSS versions and assumptions.
 
 ## Recommendation
 
-*   Apply the necessary patches or upgrade to a version of LiteLLM that addresses CVE-2026-40217 immediately.
-*   Implement network segmentation to restrict access to the `/guardrails/test_custom_code` endpoint, as referenced in the vulnerability description.
-*   Deploy the provided Sigma rule `Detect LiteLLM Bytecode Rewrite Attempt` to identify potential exploitation attempts targeting the vulnerable endpoint.
-*   Monitor web server logs for suspicious POST requests to the `/guardrails/test_custom_code` URI, using the log source specified in the Sigma rule.
+* Upgrade to LiteLLM 1.83.11 or later, following BerriAI's explicit patch guidance.
+* Until upgraded, block `POST /guardrails/test_custom_code` at the reverse proxy or API gateway, as BerriAI recommends.
+* Restrict access to the proxy-admin credential and review access logs for requests to this endpoint.
