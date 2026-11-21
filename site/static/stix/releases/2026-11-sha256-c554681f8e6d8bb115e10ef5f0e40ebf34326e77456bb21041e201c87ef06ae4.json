@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--37e5917d-c317-5881-9f8e-9d6babf8243f",
+  "id": "bundle--2032a88d-071e-5bf4-9c95-b3576551e0b7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -42304,6 +42304,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--5969515f-6550-56d5-a08f-e237d429c357"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3c47ee6c-50d9-5090-b799-b7a1e13581cb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a5416b8a-2046-5076-99eb-67dd4b5e0ba1",
+      "target_ref": "vulnerability--bbbd70da-fb3e-5c64-b798-a2290f89fd4c"
     },
     {
       "type": "relationship",
@@ -139302,6 +139313,17 @@
       "relationship_type": "has",
       "source_ref": "software--a09d6e45-a5be-5178-94c9-cc07763bb0b4",
       "target_ref": "vulnerability--dbabb58e-1e0f-5ae6-ac23-3c35249d159f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e5e24443-88be-59f0-ad06-4e7f9469d2ab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T07:03:01.000Z",
+      "modified": "2026-11-21T07:03:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a6de7c1b-8772-54e2-b47a-33eb713860e3",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -249405,6 +249427,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a6de7c1b-8772-54e2-b47a-33eb713860e3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T07:03:01.000Z",
+      "modified": "2026-11-21T07:03:01.000Z",
+      "name": "Seventhqueen Restrictions for BuddyPress Remote Code Execution (CVE-2026-120539)",
+      "description": "## Overview\nThe Restrictions for BuddyPress plugin for WordPress, developed by seventhqueen, is vulnerable to remote code execution (RCE) in all versions up to, and including, 1.5.4. The vulnerability occurs because the plugin splices the attacker-controlled request URI into a PHP expression inside a double-quoted string and evaluates it with eval(). PHP interpolates double-quoted strings, allowing an attacker to execute a payload of the form {${...}} in the URL path. This does not require quote breakout, and WordPress' slashing does not mitigate it.\n\n## Attack Chain\nThis vulnerability is accessible to unauthenticated attackers via a single GET request. Affected conditions are enabled by default and are evaluated before any logged-in check. The site must have BuddyPress and Paid Memberships Pro active alongside this plugin for the vulnerability to be present.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to execute arbitrary PHP code on the server.\n\n## Recommendation\nThere is no known fixed release or remediation provided in the source material. Users are advised to monitor official vendor updates from seventhqueen.",
+      "published": "2026-11-21T07:03:01.000Z",
+      "labels": [
+        "cve",
+        "rce",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a5416b8a-2046-5076-99eb-67dd4b5e0ba1",
+        "vulnerability--bbbd70da-fb3e-5c64-b798-a2290f89fd4c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-restrictions-for-buddypress-rce-cve-2026-120539",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-restrictions-for-buddypress-rce-cve-2026-120539/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-120539"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120539"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-restrictions-for-buddypress-rce-cve-2026-120539",
+      "x_craftedsignal_event_id": "brief-2026-11-21-restrictions-for-buddypress-rce-cve-2026-120539",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-restrictions-for-buddypress-rce-cve-2026-120539/",
+      "x_craftedsignal_activity_at": "2026-11-21T07:03:01.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a6f46360-7937-5aa8-976e-0b7e31247f84",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T14:33:59.000Z",
@@ -311741,6 +311813,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a5416b8a-2046-5076-99eb-67dd4b5e0ba1",
+      "name": "Restrictions for BuddyPress (\u003c= 1.5.4)",
+      "vendor": "seventhqueen"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a54a22a3-a2cb-541c-9a7a-e31f44e320bf",
       "name": "@fastify/http-proxy (9.0.0-11.6.9)",
       "vendor": "Fastify"
@@ -369795,6 +369874,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124700",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124700"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--bbbd70da-fb3e-5c64-b798-a2290f89fd4c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120539",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120539",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120539"
         }
       ]
     },
