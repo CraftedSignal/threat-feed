@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a33b2adf-5c0d-5901-9cc4-1fdabf10a772",
+  "id": "bundle--274cb512-2812-5c6d-8fc1-9ff7988cffce",
   "objects": [
     {
       "type": "attack-pattern",
@@ -37034,6 +37034,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--31f930a0-485f-552a-887f-6f32740767b6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T08:10:25.000Z",
+      "modified": "2026-11-21T16:37:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--442a3fd3-ee6f-59a8-a277-5f1a4348667b",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--31fa1c5e-0b56-5932-badc-f27a8ec4d7ce",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -41067,6 +41078,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--bf7c7fee-1527-58cd-9987-f11fbdc2987c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3992df41-13d4-5931-a51d-2ecbdf71077f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--46f61eef-e12f-50db-a477-258b0b61ff5a",
+      "target_ref": "vulnerability--4a7eb8ed-b1fd-5ff7-97f7-ff288c910257"
     },
     {
       "type": "relationship",
@@ -79765,6 +79787,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--e2841635-c5a6-58cb-8d3d-972faa232802"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7be26d5f-9197-55de-99d5-5a17dc0cd0c3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T08:10:25.000Z",
+      "modified": "2026-11-21T16:37:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--442a3fd3-ee6f-59a8-a277-5f1a4348667b",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -131392,6 +131425,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d54b346e-979d-5f22-b17f-22c4b273535c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T08:10:25.000Z",
+      "modified": "2026-11-21T16:37:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--442a3fd3-ee6f-59a8-a277-5f1a4348667b",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d54c15d4-2a05-543f-a00f-27ae4b3db9f8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -134446,6 +134490,17 @@
       "relationship_type": "has",
       "source_ref": "software--2f0754b8-da5a-5822-aee9-74f14ade0095",
       "target_ref": "vulnerability--b89d47c1-739a-55c5-88da-4010f096b328"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--db0a46b5-6213-5f4c-a19f-26621e90abf4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1063644a-335c-5522-a681-cf29cf77b360",
+      "target_ref": "vulnerability--4a7eb8ed-b1fd-5ff7-97f7-ff288c910257"
     },
     {
       "type": "relationship",
@@ -195883,6 +195938,70 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--442a3fd3-ee6f-59a8-a277-5f1a4348667b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T08:10:25.000Z",
+      "modified": "2026-11-21T16:37:40.000Z",
+      "name": "D-Link DIR-600L: Unauthenticated OS Command Injection (CVE-2026-133493)",
+      "description": "## Overview\n\nA critical vulnerability, CVE-2026-133493, exists in the D-Link DIR-600L router (firmware 2.17b02). The `genacgi_main` function in `gena.cgi` fails to sanitize request parameters before passing them to the system shell. An unauthenticated remote attacker can leverage this to execute arbitrary OS commands with root privileges. As the device is End-of-Life (EOL), D-Link will not provide security updates.\n\n## Attack Chain\n\n1. An unauthenticated attacker sends a malicious HTTP GET request to the target device.\n2. The request targets the `/genacgi` endpoint, passing crafted shell metacharacters (e.g., `;`, `|`) in a parameter.\n3. The `genacgi_main` function retrieves the parameter and insecurely processes it via `sprintf` into a command string.\n4. The `system()` call executes the command string, including the attacker-injected code.\n5. The OS processes the injected command with root-level permissions.\n6. The device is fully compromised, allowing for further persistence, configuration tampering, or enrollment into a botnet.\n\n## Impact\n\nSuccessful exploitation results in full device compromise, potential unauthorized configuration access, and use of the device as an entry point for lateral movement within the network or participation in malicious botnet activity.\n\n## Recommendation\n\nBecause the device is EOL, the primary remediation is to replace the device with a supported, secure model. Organizations unable to replace the hardware immediately must isolate the device from the internet and restrict LAN access to trusted management interfaces. Monitoring for anomalous outbound traffic from these devices is recommended to detect potential botnet activity.",
+      "published": "2026-11-20T08:10:25.000Z",
+      "labels": [
+        "command-injection",
+        "cve-2026-133493",
+        "d-link",
+        "eol",
+        "os-command-injection",
+        "rce"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1063644a-335c-5522-a681-cf29cf77b360",
+        "software--46f61eef-e12f-50db-a477-258b0b61ff5a",
+        "vulnerability--4a7eb8ed-b1fd-5ff7-97f7-ff288c910257"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-dlink-dir600l-rce-cve-2026-133493",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dlink-dir600l-rce-cve-2026-133493/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-133493"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133493"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=2839D57E-BE46-5F14-A83F-C6EEBFF3554E"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=2839D57E-BE46-5F14-A83F-C6EEBFF3554E\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-dlink-dir600l-rce-cve-2026-133493",
+      "x_craftedsignal_event_id": "brief-2026-11-20-dlink-dir600l-rce-cve-2026-133493",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dlink-dir600l-rce-cve-2026-133493/",
+      "x_craftedsignal_activity_at": "2026-11-21T16:37:40.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -308013,6 +308132,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--46f61eef-e12f-50db-a477-258b0b61ff5a",
+      "name": "DIR-600L (= 2.17b02)",
+      "vendor": "D-Link"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--470355c8-499a-5d5f-8c0b-304244808316",
       "name": "Splunk Enterprise (version \u003c 9.4.17)",
       "vendor": "Splunk"
@@ -343004,6 +343130,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-95905",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95905"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4a7eb8ed-b1fd-5ff7-97f7-ff288c910257",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-133493",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-133493",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133493"
         }
       ]
     },
