@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f0b28d31-541e-51f2-b096-68c8d9627d69",
+  "id": "bundle--46096e4e-5078-5b6e-8f19-5423e6d517d2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -132141,8 +132141,9 @@
       "id": "report--685f5621-cae1-52ed-808d-379aad9598d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-25T00:37:57.000Z",
-      "modified": "2026-10-25T00:37:57.000Z",
+      "modified": "2026-11-21T22:51:18.000Z",
       "name": "GEO my WP: Unauthenticated Local File Inclusion (CVE-2024-6330)",
+      "description": "## Impact\nNVD states that GEO my WP versions before 4.5.0.2 allow unauthenticated arbitrary file inclusion in PHP execution context, which can lead to remote code execution.\n\n## Recommendation\nUpdate GEO my WP to version 4.5.0.2 or later.\n",
       "published": "2026-10-25T00:37:57.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
@@ -132157,26 +132158,23 @@
         },
         {
           "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RANDOMROBBIEBF-CVE-2024-6330"
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-6330"
         },
         {
           "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RANDOMROBBIEBF-CVE-2024-6330\u0026utm_source=rss\u0026utm_medium=rss"
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RANDOMROBBIEBF-CVE-2024-6330"
         }
       ],
-      "confidence": 80,
+      "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-25-geo-my-wp-lfi",
       "x_craftedsignal_event_id": "brief-2026-10-25-geo-my-wp-lfi",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-geo-my-wp-lfi/",
-      "x_craftedsignal_activity_at": "2026-10-25T00:37:57.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_activity_at": "2026-11-21T22:51:18.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "confirmed_active",
-        "source_url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RANDOMROBBIEBF-CVE-2024-6330",
-        "observed_at": "2026-09-19T00:00:00.000Z",
-        "confidence": "high"
+        "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.02143,
