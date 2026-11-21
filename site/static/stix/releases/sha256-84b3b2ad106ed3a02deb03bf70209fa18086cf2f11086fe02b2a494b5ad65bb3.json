@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--43b52df4-8baa-566d-b383-5383044e0c4a",
+  "id": "bundle--72ae61a2-d4c6-584d-b476-e362778e783f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -25415,6 +25415,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--163406c3-2f01-503a-a2f0-c752abd84bf8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8cff95a3-dcae-5586-9d0a-6ea41963cc6e",
+      "target_ref": "vulnerability--62500ef4-6b07-535b-9f44-75e375a704dd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--163409d9-1aa5-57f9-b1e1-8e2303c5c041",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -39011,6 +39022,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--28ad41d3-ac6a-50ed-89bc-c944f1635882",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T18:47:27.000Z",
+      "modified": "2026-11-21T18:47:27.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d85405ae-6f3e-5188-ba50-1f7d11c5815f",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--28b2f7f5-d9cf-526d-87ff-a3da0a6d5e36",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -48522,6 +48544,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a9939f84-7490-584d-a9e7-34971362dbd0",
       "target_ref": "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--369a0cb3-8f52-5743-af3e-c822eb63ad63",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7660f12a-e293-52ff-878f-fba1821eb42d",
+      "target_ref": "vulnerability--cc09d636-17f0-5173-a3db-42655ca9b28e"
     },
     {
       "type": "relationship",
@@ -87748,6 +87781,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--7727775f-fc0c-5778-a4e5-603681e5789f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6c271697-9e6e-58f1-8cec-adf8a3754fff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7660f12a-e293-52ff-878f-fba1821eb42d",
+      "target_ref": "vulnerability--1ca5aa1b-d91b-5793-ae2f-8700d30c89c0"
     },
     {
       "type": "relationship",
@@ -187254,6 +187298,17 @@
       "relationship_type": "has",
       "source_ref": "software--3debd7b8-e55f-5d87-bafb-71551a22802b",
       "target_ref": "vulnerability--f012645f-df26-566d-a9e5-6bfa45cb4d74"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f43d7826-4db2-575e-a1fd-0d7a40d73121",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--55fc988b-5395-595a-a515-0c3ac8afc764",
+      "target_ref": "vulnerability--f9b1b5aa-a087-5926-99ca-7d19cee83981"
     },
     {
       "type": "relationship",
@@ -287092,6 +287147,60 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--7b98a18c-5c89-58ea-a014-e47af01fab59",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T17:47:26.000Z",
+      "modified": "2026-11-21T17:47:26.000Z",
+      "name": "Vulnerabilities in WooCommerce Wholesale Lead Capture Plugin",
+      "description": "## Overview\nRymera Web Co Pty Ltd. WooCommerce Wholesale Lead Capture plugin through version 2.0.3.1 contains two critical vulnerabilities: an Unrestricted Upload of File with Dangerous Type (CVE-2026-27540) and an Incorrect Privilege Assignment (CVE-2026-27542).\n\n## Attack Chain\n- CVE-2026-27540: Allows unauthenticated remote attackers to perform file uploads via `admin-ajax.php?action=wwlc_file_upload_handler` to write files to the WordPress uploads directory, leading to potential Remote Code Execution (RCE). Proof-of-concept exploit code has been publicly released for this vulnerability.\n- CVE-2026-27542: An incorrect privilege assignment vulnerability allows for privilege escalation. The source does not explicitly specify if this vulnerability is exploitable by unauthenticated attackers.\n\n## Impact\nBoth vulnerabilities are rated with high impact to confidentiality, integrity, and availability.\n\n## Recommendation\nUpgrade the WooCommerce Wholesale Lead Capture plugin to version 2.0.3.2 or higher. Additional mitigations suggested in public reports include disabling PHP execution in the uploads directory and applying WAF rate-limiting to the `wwlc_file_upload_handler` endpoint.",
+      "published": "2026-11-21T17:47:26.000Z",
+      "labels": [
+        "cve",
+        "privilege-escalation",
+        "rce",
+        "wordpress"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7660f12a-e293-52ff-878f-fba1821eb42d",
+        "vulnerability--1ca5aa1b-d91b-5793-ae2f-8700d30c89c0",
+        "vulnerability--cc09d636-17f0-5173-a3db-42655ca9b28e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-woocommerce-wwlc-rce-cve-2026-27540",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-woocommerce-wwlc-rce-cve-2026-27540/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-27540"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-27542"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-WINRARZIPSEXPLOIT-CVE-2026-27540\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-woocommerce-wwlc-rce-cve-2026-27540",
+      "x_craftedsignal_event_id": "brief-2026-11-21-woocommerce-wwlc-rce-cve-2026-27540",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-woocommerce-wwlc-rce-cve-2026-27540/",
+      "x_craftedsignal_activity_at": "2026-11-21T17:47:26.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--7b9a02f7-55b8-5a75-bb49-b8b2fac85875",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-25T17:47:02.000Z",
@@ -304251,6 +304360,52 @@
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "not_observed"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--929e0b4e-899a-5fbe-9155-bd248fb223c7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T18:42:34.000Z",
+      "modified": "2026-11-21T18:42:34.000Z",
+      "name": "Grav API Plugin: Remote Code Execution (CVE-2026-134253)",
+      "description": "## Overview\n\nThe Grav API plugin, in versions 1.0.0 before 1.1.4, contains a remote code execution vulnerability. The vulnerability allows publishers with media and page write rights to write theme template files through the blueprint-upload endpoint.\n\n## Attack Chain\n\n1. Authenticated publishers with media and page write rights access the blueprint-upload endpoint.\n2. Files are uploaded into a theme's Twig templates folder.\n3. The uploaded file is included from a sandboxed page Twig, which executes commands as the web-server user.\n\n## Impact\n\nSuccessful exploitation allows an authenticated user to execute arbitrary commands as the web-server user.\n\n## Recommendation\n\nUpgrade the Grav API plugin to version 1.1.4 or later, which is reported as unaffected by this vulnerability.",
+      "published": "2026-11-21T18:42:34.000Z",
+      "labels": [
+        "remote-code-execution"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8cff95a3-dcae-5586-9d0a-6ea41963cc6e",
+        "vulnerability--62500ef4-6b07-535b-9f44-75e375a704dd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-grav-api-rce-cve-2026-134253",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-grav-api-rce-cve-2026-134253/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134253"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134253"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-grav-api-rce-cve-2026-134253",
+      "x_craftedsignal_event_id": "brief-2026-11-21-grav-api-rce-cve-2026-134253",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-grav-api-rce-cve-2026-134253/",
+      "x_craftedsignal_activity_at": "2026-11-21T18:42:34.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
       },
       "x_craftedsignal_kev_status": "false"
     },
@@ -355575,6 +355730,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d85405ae-6f3e-5188-ba50-1f7d11c5815f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T18:47:27.000Z",
+      "modified": "2026-11-21T18:47:27.000Z",
+      "name": "Rclone: Authentication Bypass in serve sftp (CVE-2026-134352)",
+      "description": "## Overview\nRclone versions 1.51.0 before 1.76.0 contain an authentication bypass vulnerability in the 'serve sftp --auth-proxy' command. The vulnerability exists because the 'generateCacheKey' function omits the authentication method from the cache key.\n\n## Attack Chain\nAn attacker who knows a victim's base64 public key can submit it as a password from the same client IP address as the victim. This allows the attacker to reuse the cached entry and gain read-write VFS access.\n\n## Impact\nSuccessful exploitation results in unauthorized read-write VFS access.\n\n## Recommendation\nThe vendor lists versions 1.76.0 and later as unaffected by this issue. No specific remediation steps beyond version verification are provided in current source documentation.",
+      "published": "2026-11-21T18:47:27.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--55fc988b-5395-595a-a515-0c3ac8afc764",
+        "vulnerability--f9b1b5aa-a087-5926-99ca-7d19cee83981"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-rclone-auth-bypass-cve-2026-134352",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-rclone-auth-bypass-cve-2026-134352/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134352"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134352"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-rclone-auth-bypass-cve-2026-134352",
+      "x_craftedsignal_event_id": "brief-2026-11-21-rclone-auth-bypass-cve-2026-134352",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-rclone-auth-bypass-cve-2026-134352/",
+      "x_craftedsignal_activity_at": "2026-11-21T18:47:27.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d8542c45-5631-559f-84d9-da4fe864e6a9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T07:51:10.000Z",
@@ -396751,6 +396951,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--55fc988b-5395-595a-a515-0c3ac8afc764",
+      "name": "rclone (\u003c 1.76.0)",
+      "vendor": "rclone"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5604ef85-cfd7-5ec2-93bf-0baf94fd6c89",
       "name": "PostgreSQL (\u003c 18.7, \u003c 17.12, \u003c 16.16, \u003c 15.20, \u003c 14.25)",
       "vendor": "PostgreSQL Global Development Group"
@@ -400549,6 +400756,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7660f12a-e293-52ff-878f-fba1821eb42d",
+      "name": "Woocommerce Wholesale Lead Capture",
+      "vendor": "Rymera Web Co Pty Ltd."
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7665004b-b87f-5b37-9e59-7d2153546a41",
       "name": "RedAmon (\u003c 7.8.0)",
       "vendor": "samugit83"
@@ -403218,6 +403432,13 @@
       "id": "software--8cf8e1bc-6961-5d1f-bacd-d5883bdaafcb",
       "name": "FortiWeb (\u003c 6.2.4, 6.3.8)",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8cff95a3-dcae-5586-9d0a-6ea41963cc6e",
+      "name": "grav (\u003c 1.1.4)",
+      "vendor": "getgrav"
     },
     {
       "type": "software",
@@ -426373,6 +426594,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--1ca5aa1b-d91b-5793-ae2f-8700d30c89c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-27542",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-27542",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27542"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--1cab9b1a-4769-5d1a-b39d-bcac05cb8cf5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -449375,6 +449612,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115146",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115146"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--62500ef4-6b07-535b-9f44-75e375a704dd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134253",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134253",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134253"
         }
       ]
     },
@@ -486501,6 +486754,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--cc09d636-17f0-5173-a3db-42655ca9b28e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-27540",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-27540",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27540"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--cc0eb545-319d-5c74-8409-4b035a11c9cd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -502271,6 +502540,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118218",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118218"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f9b1b5aa-a087-5926-99ca-7d19cee83981",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134352",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134352",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134352"
         }
       ]
     },
