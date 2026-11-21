@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--eaa9417b-757e-589f-a356-6ab8f74d4c2c",
+  "id": "bundle--7e0be8c3-522a-5dda-b3d7-80e424794758",
   "objects": [
     {
       "type": "attack-pattern",
@@ -100973,6 +100973,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7df6acae-8376-533d-8606-769482866229",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7efd77eb-d7f0-5ae2-91d3-479dbdbdd6b6",
+      "target_ref": "vulnerability--e5fcc678-9bee-598f-94b2-a6cfcf4de2a4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7df6b829-a285-5640-886f-2acb0f25fc1a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:42:28.000Z",
@@ -130405,6 +130416,17 @@
       "relationship_type": "has",
       "source_ref": "software--28b72cb1-9f45-50d5-90d3-90e80a6e6bcf",
       "target_ref": "vulnerability--2d08a418-dad2-520f-8c53-520d39efe7a1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a6e9bf9f-3982-5d2e-ae01-49ed5d18af4f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a2de7ac3-d9e7-5c36-ae9a-bacc5b3937a9",
+      "target_ref": "vulnerability--e5fcc678-9bee-598f-94b2-a6cfcf4de2a4"
     },
     {
       "type": "relationship",
@@ -160292,6 +160314,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--f05e1a71-9fc9-5499-947c-b2fd86e7a306"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cf771424-cb76-54dc-85af-fb41e990795f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ce8b3ef6-13f8-51de-9a70-f33f893e89c0",
+      "target_ref": "vulnerability--e5fcc678-9bee-598f-94b2-a6cfcf4de2a4"
     },
     {
       "type": "relationship",
@@ -277890,6 +277923,57 @@
       },
       "x_craftedsignal_cvss_max": 4.7,
       "x_craftedsignal_epss_max": 0.00235,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--701b8a6e-6012-5eab-a6ff-a81368f4f044",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T00:51:56.000Z",
+      "modified": "2026-11-21T00:51:56.000Z",
+      "name": "TP-Link Tapo: Improper authentication vulnerability (CVE-2026-15315)",
+      "description": "## Overview\nTP-Link Tapo C120 and C200 devices contain an improper authentication vulnerability within the login authentication verification module. An attacker on the local network can exploit weaknesses in challenge parameter validation to bypass authentication controls and obtain administrative session tokens.\n\n## Attack Chain\nThis vulnerability requires an attacker to be positioned on the local network (adjacent) to interact with the device's management interface. Successful exploitation allows an attacker to bypass authentication controls.\n\n## Impact\nSuccessful exploitation may allow an attacker to execute privileged management actions, gain unauthorized administrative access, and cause a temporary disruption of device services, resulting in a denial-of-service (DoS) condition.\n\n## Recommendation\nThe provided evidence identifies affected version ranges, but does not explicitly detail fixed releases. Users are advised to check with the vendor for applicable firmware updates that address the vulnerability in the affected product branches: \n- Tapo C120 v1: Affected versions \u003c 1.9.3 Build 260521\n- Tapo C200 v3: Affected versions \u003c 1.9.2 Build 261009\n- Tapo C200 v5: Affected versions \u003c V5_1.4.6 Build 260709 Rel.27675n",
+      "published": "2026-11-21T00:51:56.000Z",
+      "labels": [
+        "authentication-bypass",
+        "denial-of-service"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7efd77eb-d7f0-5ae2-91d3-479dbdbdd6b6",
+        "software--a2de7ac3-d9e7-5c36-ae9a-bacc5b3937a9",
+        "software--ce8b3ef6-13f8-51de-9a70-f33f893e89c0",
+        "vulnerability--e5fcc678-9bee-598f-94b2-a6cfcf4de2a4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-tapo-auth-bypass-cve-2026-15315",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-tapo-auth-bypass-cve-2026-15315/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-15315"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15315"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-tapo-auth-bypass-cve-2026-15315",
+      "x_craftedsignal_event_id": "brief-2026-11-21-tapo-auth-bypass-cve-2026-15315",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tapo-auth-bypass-cve-2026-15315/",
+      "x_craftedsignal_activity_at": "2026-11-21T00:51:56.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00505,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -398980,6 +399064,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7efd77eb-d7f0-5ae2-91d3-479dbdbdd6b6",
+      "name": "Tapo C200 v5",
+      "vendor": "TP-Link Systems Inc."
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7f0df4a7-cf5a-54de-93e8-4446f52e4f86",
       "name": "FortiAnalyzer Cloud (8.0.0-8.0.2, 7.6.x, 7.4.1-7.4.11, 7.2.x)",
       "vendor": "Fortinet"
@@ -402925,6 +403016,13 @@
       "id": "software--a2cc72d3-0514-5491-90a3-d2afb73d230a",
       "name": "Kendo UI for jQuery",
       "vendor": "Progress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a2de7ac3-d9e7-5c36-ae9a-bacc5b3937a9",
+      "name": "Tapo C120 v1",
+      "vendor": "TP-Link Systems Inc."
     },
     {
       "type": "software",
@@ -407855,6 +407953,13 @@
       "id": "software--ce7b85a0-1a77-51f0-aa7e-8db22db7394a",
       "name": "Kibana",
       "vendor": "Elastic"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ce8b3ef6-13f8-51de-9a70-f33f893e89c0",
+      "name": "Tapo C200 v3",
+      "vendor": "TP-Link Systems Inc."
     },
     {
       "type": "software",
@@ -492344,6 +492449,22 @@
           "source_name": "cve",
           "external_id": "CVE-2025-30216",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-30216"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e5fcc678-9bee-598f-94b2-a6cfcf4de2a4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-15315",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-15315",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15315"
         }
       ]
     },
