@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1050b203-3767-57a9-b6ae-29d2ecae1f2d",
+  "id": "bundle--05011a2e-171e-58ec-be3f-0a3913de16fe",
   "objects": [
     {
       "type": "attack-pattern",
@@ -184158,7 +184158,7 @@
       "id": "report--2fee262c-da48-501a-9d3b-5156ff25e82f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T23:13:51.000Z",
-      "modified": "2026-11-19T07:48:31.000Z",
+      "modified": "2026-11-21T21:08:39.000Z",
       "name": "Ontola Atomic Server: Server-side request forgery (CVE-2026-69158)",
       "description": "## Overview\nAtomic Server, an open source headless CMS and real-time database, contains a server-side request forgery (SSRF) vulnerability in versions prior to 0.40.3. Unauthenticated requests to the /bookmark endpoint allow an attacker to supply a URL that the application fetches. Due to insufficient validation in `lib/src/client/helpers.rs` and incorrect endpoint dispatch logic in `lib/src/db.rs`, the application does not restrict requests to loopback, private, link-local, or DNS-rebinding targets.\n\n## Attack Chain\nAn unauthenticated attacker sends a malicious URL to the /bookmark endpoint. The application's internal handler fetches the requested resource without applying proper `check_read` authorization. The server reflects the fetched content in the response, enabling the retrieval of information from reachable internal services or cloud metadata endpoints. The attack is limited to plain-GET requests and constrained by a short request timeout; metadata services requiring separate token requests are not affected.\n\n## Impact\nExploitation can lead to the exposure of internal infrastructure or cloud instance metadata. The impact is limited to GET-based data retrieval.\n\n## Recommendation\nUpgrade Atomic Server to version 0.40.3 or later, which contains the fix for this issue.",
       "published": "2026-11-17T23:13:51.000Z",
@@ -184194,9 +184194,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-17-atomic-server-ssrf-cve-2026-69158",
       "x_craftedsignal_event_id": "brief-2026-11-17-atomic-server-ssrf-cve-2026-69158",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-atomic-server-ssrf-cve-2026-69158/",
-      "x_craftedsignal_activity_at": "2026-11-19T07:48:31.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T21:08:39.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
