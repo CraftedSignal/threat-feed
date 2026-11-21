@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--954bb447-bc73-5293-a02d-e7fc95be94fb",
+  "id": "bundle--3a568b00-279f-5225-9ad9-56a26fa0c9ea",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10507,6 +10507,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--04fdb020-875e-5790-8459-abb8be1fb14b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T01:51:55.000Z",
+      "modified": "2026-11-21T01:51:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--046c50f5-81cb-5e45-a4e0-22b38b031adc",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--05018802-215a-5609-acc8-6ffcb249c6d0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -12875,7 +12886,7 @@
       "id": "relationship--08919271-f72f-5a22-951d-c1773e6f77ef",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T01:04:39.000Z",
-      "modified": "2026-11-20T20:10:51.000Z",
+      "modified": "2026-11-21T01:52:51.000Z",
       "relationship_type": "uses",
       "source_ref": "report--6cbc68fb-f914-56cf-bc7b-a6198891f724",
       "target_ref": "attack-pattern--c3fae9c5-3a60-5c38-bcca-0af495891397"
@@ -21525,6 +21536,17 @@
       "relationship_type": "has",
       "source_ref": "software--99e3a45a-7161-51e1-adde-83a06dbf4e22",
       "target_ref": "vulnerability--a75a8a62-6523-535a-a8f9-3aace613485b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--17894217-2e59-5899-9bdb-c6eb8505317c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d4b29e8f-cb49-55c1-8d83-81e7dfb08c87",
+      "target_ref": "vulnerability--631055f0-bcb6-579f-b192-1e7c524eb1fe"
     },
     {
       "type": "relationship",
@@ -64055,6 +64077,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--61c03f8f-4188-5dc0-884f-a058111feded",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--16df14ec-8e6d-5ed7-8abe-c5bbae2f99c8",
+      "target_ref": "vulnerability--e80f4efa-c1ea-554f-8f07-97f0890d4442"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--61c38f7b-661a-5619-88b6-bf1eddc1a29b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -70805,6 +70838,17 @@
       "relationship_type": "uses",
       "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
       "target_ref": "indicator--816bb215-59d9-575f-8cf8-9730e9d7c971"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6d9a5592-6507-5b18-9033-14083a09f252",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T01:51:00.000Z",
+      "modified": "2026-11-21T01:51:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--40d5f590-3a21-5572-b1b9-a806285f0809",
+      "target_ref": "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf"
     },
     {
       "type": "relationship",
@@ -83745,6 +83789,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--83a2b53f-0200-5835-b1b6-9c1a35d97583",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T01:51:18.000Z",
+      "modified": "2026-11-21T01:51:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5ddc32a8-08fa-5078-9fec-989a0e69eea2",
+      "target_ref": "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--83a631c0-1a8a-5d93-a941-ee9ddd02b260",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -95658,6 +95713,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9972eff3-31fb-5c78-8730-2c4864b0cc7f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T01:51:00.000Z",
+      "modified": "2026-11-21T01:51:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--40d5f590-3a21-5572-b1b9-a806285f0809",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--99740d14-9936-5e02-afac-014faded0dc2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T22:51:58.000Z",
@@ -107347,6 +107413,17 @@
       "relationship_type": "has",
       "source_ref": "software--079f7bd8-2252-5ba6-a57a-9209fe89a1a6",
       "target_ref": "vulnerability--35b79a7d-18f9-548d-88ef-aa40dd6446bf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ad84c9c0-3ea3-5d7d-94ee-6f20d1dc45f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3741ed2a-8682-5b51-a74e-c828c155ba18",
+      "target_ref": "vulnerability--ecb4ca04-3135-5a82-aa35-385e56ab9f46"
     },
     {
       "type": "relationship",
@@ -156051,6 +156128,65 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--046c50f5-81cb-5e45-a4e0-22b38b031adc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T01:51:55.000Z",
+      "modified": "2026-11-21T01:51:55.000Z",
+      "name": "js-toml: Denial of service via uncontrolled recursion (CVE-2026-63386)",
+      "description": "## Overview\n\njs-toml versions prior to 1.1.3 contain a vulnerability in the `load()` function where the recursive-descent parser and interpreter fail to bound the nesting depth of arrays, inline tables, or dotted keys. An attacker can craft malicious TOML input that triggers an uncontrolled recursion, exhausting the V8 call stack and throwing an uncaught `RangeError`. Applications that follow documentation and only handle `SyntaxParseError` exceptions will fail to catch the `RangeError`, leading to process or worker termination. This issue is resolved in version 1.1.3, which introduces a `DEFAULT_MAX_DEPTH` limit and a new `DepthLimitError` that is correctly classified as a `SyntaxParseError`.\n\n## Impact\n\nSuccessful exploitation causes the host Node.js process or worker to crash, resulting in a denial-of-service (DoS) condition. The vulnerability does not affect data confidentiality or integrity.\n\n## Recommendation\n\n- Immediately upgrade `js-toml` to version 1.1.3 or later across all applications that parse untrusted TOML input.\n- Audit application-level exception handling for `js-toml` to ensure that all exceptions, including generic errors, are caught and handled safely to prevent service termination.\n- Review application logic for any dependency on `load()` that might require custom depth limits, using the `maxDepth` option provided in the patched version.",
+      "published": "2026-11-21T01:51:55.000Z",
+      "labels": [
+        "cve-2026-63386",
+        "denial-of-service",
+        "js-toml"
+      ],
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d4b29e8f-cb49-55c1-8d83-81e7dfb08c87",
+        "vulnerability--631055f0-bcb6-579f-b192-1e7c524eb1fe"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-js-toml-dos-cve-2026-63386",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-js-toml-dos-cve-2026-63386/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-63386"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/sunnyadn/js-toml/releases/tag/v1.1.3"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/sunnyadn/js-toml/security/advisories/GHSA-3g82-77xr-68x5"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=D4715C69-C769-59EB-8BE4-06A5108277D1\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-js-toml-dos-cve-2026-63386",
+      "x_craftedsignal_event_id": "brief-2026-11-21-js-toml-dos-cve-2026-63386",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-js-toml-dos-cve-2026-63386/",
+      "x_craftedsignal_activity_at": "2026-11-21T01:51:55.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.3,
+      "x_craftedsignal_epss_max": 0.00361,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--0484203d-41dd-5f9e-8521-fdeb7aa36644",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T09:40:35.000Z",
@@ -190751,6 +190887,67 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--40d5f590-3a21-5572-b1b9-a806285f0809",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T01:51:00.000Z",
+      "modified": "2026-11-21T01:51:00.000Z",
+      "name": "sevenz-rust2: Zip-Slip arbitrary file write (CVE-2026-61725)",
+      "description": "## Overview\nsevenz-rust2 is a Rust-native 7z compressor and decompressor. Versions prior to 0.21.1 contain a path traversal vulnerability during archive extraction. The `decompress_impl` function computes destination paths using `dest.join(entry.name())` without normalizing UTF-16 entry names or verifying containment, allowing an attacker-supplied archive to write or overwrite files outside the intended destination directory.\n\n## Attack Chain\n1. A victim extracts a malicious 7z archive using the `decompress`, `decompress_file`, `decompress_with_password`, or `decompress_file_with_password` convenience entry points.\n2. The `decompress_impl` function processes the entry name, which may contain parent-directory components or absolute paths that escape the extraction root.\n3. `default_entry_extract_fn` utilizes `File::create` to write the entry at the attacker-controlled location.\n\n## Impact\nAn attacker can write to or overwrite files outside the extraction directory. Overwriting writable configuration, startup, cron, or build files can lead to code execution or persistence. The base score is 6.1 (Medium), requiring user interaction and local access.\n\n## Recommendation\nUpgrade to sevenz-rust2 version 0.21.1, which addresses the issue by introducing `safe_join` to reject path traversal attempts.",
+      "published": "2026-11-21T01:51:00.000Z",
+      "labels": [
+        "cve",
+        "path-traversal",
+        "rust",
+        "zip-slip"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3741ed2a-8682-5b51-a74e-c828c155ba18",
+        "vulnerability--ecb4ca04-3135-5a82-aa35-385e56ab9f46"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-sevenz-rust2-path-traversal-cve-2026-61725",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-sevenz-rust2-path-traversal-cve-2026-61725/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-61725"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/hasenbanck/sevenz-rust2/releases/tag/v0.21.1"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/hasenbanck/sevenz-rust2/security/advisories/GHSA-qh76-45cr-8xrc"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=A693638D-E7EA-5E10-A83A-623DC6EEC479\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-sevenz-rust2-path-traversal-cve-2026-61725",
+      "x_craftedsignal_event_id": "brief-2026-11-21-sevenz-rust2-path-traversal-cve-2026-61725",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sevenz-rust2-path-traversal-cve-2026-61725/",
+      "x_craftedsignal_activity_at": "2026-11-21T01:51:00.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.1,
+      "x_craftedsignal_epss_max": 0.00138,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--40e4aefa-22ff-5417-b291-ddbff9a30e3b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T22:04:09.000Z",
@@ -207745,6 +207942,65 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5ddc32a8-08fa-5078-9fec-989a0e69eea2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T01:51:18.000Z",
+      "modified": "2026-11-21T01:51:18.000Z",
+      "name": "Aedes MQTT Broker: Denial of Service via Deeply Nested Topics (CVE-2026-63341)",
+      "description": "## Overview\n\nAedes (an MQTT broker) is vulnerable to a denial-of-service (DoS) attack due to improper validation of MQTT topic structural complexity. Prior to version 1.1.1, the broker does not bound the depth of topic strings before passing them to the `mqemitter` and `qlobber` libraries. An attacker can send a `PUBLISH`, `SUBSCRIBE`, or `Will` message with an excessively deep topic, triggering a `too many words` exception in `qlobber._split_words`. Because the Aedes handlers do not catch this exception, it propagates to the Node.js event loop, causing the entire broker process to crash.\n\n## Attack Chain\n\n1. Attacker establishes an MQTT session with the Aedes broker (authenticated or unauthenticated).\n2. Attacker crafts a malicious MQTT packet (`SUBSCRIBE`, `PUBLISH`, or `Will` message) containing an excessively deep, slash-delimited topic structure.\n3. Aedes receives the packet and invokes the `mqemitter` interface to route the message.\n4. `mqemitter` synchronously calls the `qlobber` library to add or match the topic.\n5. `qlobber` enforces an internal `max_words` limit (default 100) by throwing a synchronous `Error('too many words')`.\n6. The exception is not caught by the Aedes application handlers.\n7. The uncaught error bubbles up to the Node.js event loop, resulting in a process termination (DoS).\n\n## Impact\n\nSuccessful exploitation results in a complete denial-of-service, disconnecting all legitimate clients and preventing reconnection until the Aedes broker process is manually restarted. The vulnerability is exploitable by anonymous users if the broker is configured to allow them.\n\n## Recommendation\n\nImmediately upgrade the Aedes MQTT broker to version 1.1.1 or later. This release introduces a `maxTopicLevels` validation in the protocol boundary that rejects overly complex topics with a `clientError` instead of allowing the exception to propagate to the application core.",
+      "published": "2026-11-21T01:51:18.000Z",
+      "labels": [
+        "aedes",
+        "denial-of-service",
+        "mqtt"
+      ],
+      "object_refs": [
+        "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--16df14ec-8e6d-5ed7-8abe-c5bbae2f99c8",
+        "vulnerability--e80f4efa-c1ea-554f-8f07-97f0890d4442"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-aedes-mqtt-dos-cve-2026-63341",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-aedes-mqtt-dos-cve-2026-63341/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-63341"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/moscajs/aedes/releases/tag/v1.1.1"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/moscajs/aedes/security/advisories/GHSA-xxqp-5qx8-gj5q"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=EDBFACA6-9082-5D7B-9900-DE6A28DE6984\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-aedes-mqtt-dos-cve-2026-63341",
+      "x_craftedsignal_event_id": "brief-2026-11-21-aedes-mqtt-dos-cve-2026-63341",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-aedes-mqtt-dos-cve-2026-63341/",
+      "x_craftedsignal_activity_at": "2026-11-21T01:51:18.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00365,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5de498aa-2782-509c-9a49-35c12d88ee19",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T13:28:01.000Z",
@@ -215622,7 +215878,7 @@
       "id": "report--6cbc68fb-f914-56cf-bc7b-a6198891f724",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T01:04:39.000Z",
-      "modified": "2026-11-20T20:10:51.000Z",
+      "modified": "2026-11-21T01:52:51.000Z",
       "name": "aMQTT: Denial of service in QoS 2 transaction handler (CVE-2026-130176)",
       "description": "## Overview\naMQTT, an open-source MQTT broker and client, contains a vulnerability in the QoS 2 transaction handler (amqtt/mqtt/protocol/handler.py) within the _handle_qos2_message_flow() function. The software fails to clear transaction state and packet identifiers when a client disconnects before the handshake completes. This behavior differs from QoS 1 flows, which correctly expire after a five-second timeout.\n\n## Impact\nRemote clients can repeatedly initiate QoS 2 message flows and disconnect to accumulate state in the broker memory. This can lead to resource exhaustion, ultimately resulting in process termination. No impacts on confidentiality or integrity have been identified.\n\n## Recommendation\n- Upgrade all instances of aMQTT to version 0.12.1 or later.\n- Monitor MQTT broker memory usage for sustained, unexplained growth patterns in environments where anonymous client access or untrusted clients are permitted.",
       "published": "2026-11-20T01:04:39.000Z",
@@ -215650,20 +215906,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130176"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=98BD6B5C-9D67-5D45-82E7-6D9AE9A9BC28\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 40,
       "x_craftedsignal_brief_id": "brief-2026-11-20-amqtt-dos-cve-2026-130176",
       "x_craftedsignal_event_id": "brief-2026-11-20-amqtt-dos-cve-2026-130176",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-amqtt-dos-cve-2026-130176/",
-      "x_craftedsignal_activity_at": "2026-11-20T20:10:51.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T01:52:51.000Z",
       "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00446,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -280650,7 +280911,7 @@
       "id": "report--e252477d-984d-53ed-8d0c-baaf8b198cde",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T19:02:49.000Z",
-      "modified": "2026-11-20T19:02:49.000Z",
+      "modified": "2026-11-21T01:52:51.000Z",
       "name": "svglib: Denial of service via nested SVG use references (CVE-2026-132275)",
       "description": "## Overview\n\nsvglib is a library used to parse and convert SVG files. A vulnerability identified in the svg2rlg() renderer, tracked as CVE-2026-132275, allows an attacker to craft a specifically formatted SVG file containing nested \u0026lt;use\u003e references. While direct cycles are rejected, the renderer permits acyclic reference graphs with repeated fan-out. By supplying a small SVG file, an attacker can trigger exponential node expansion during rendering, leading to significant CPU and memory exhaustion. This impact extends to applications consuming svglib, such as xhtml2pdf, when handling untrusted user-supplied SVG content.\n\n## Impact\n\nSuccessful exploitation causes a denial-of-service condition, leading to high CPU and memory usage in applications processing malicious SVG files. This may lead to application crashes or system instability.\n\n## Recommendation\n\n- Update svglib to version 2.3.1 or later on all systems using the library to process untrusted SVG files.\n- Inventory applications that utilize svglib for SVG rendering, such as xhtml2pdf workflows, to identify exposure points.",
       "published": "2026-11-20T19:02:49.000Z",
@@ -280672,14 +280933,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132275"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=80D042D2-B927-513B-81C5-B2D9C0B6DDCA\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 40,
       "x_craftedsignal_brief_id": "brief-2026-11-20-svglib-denial-of-service-cve-2026-132275",
       "x_craftedsignal_event_id": "brief-2026-11-20-svglib-denial-of-service-cve-2026-132275",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-svglib-denial-of-service-cve-2026-132275/",
-      "x_craftedsignal_activity_at": "2026-11-20T19:02:49.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T01:52:51.000Z",
       "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -299278,6 +299543,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--16df14ec-8e6d-5ed7-8abe-c5bbae2f99c8",
+      "name": "Aedes (\u003c 1.1.1)",
+      "vendor": "Aedes"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--16e08eec-43db-52e0-95a2-c56028bb7824",
       "name": "Linux kernel \u003e= 4.15, \u003c 5.10.259",
       "vendor": "Linux"
@@ -301801,6 +302073,13 @@
       "id": "software--372ca07f-63af-5699-9ddc-4d53966c75aa",
       "name": "Private 5G Core (P5G Core)",
       "vendor": "Hewlett Packard Enterprise (HPE)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3741ed2a-8682-5b51-a74e-c828c155ba18",
+      "name": "sevenz-rust2",
+      "vendor": "hasenbanck"
     },
     {
       "type": "software",
@@ -314296,6 +314575,13 @@
       "id": "software--d49b385a-8723-5f83-88fd-c6eef40f08c3",
       "name": "Login \u0026 Register Forms (easy-login-woocommerce) (\u003c 4.0.2)",
       "vendor": "WordPress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d4b29e8f-cb49-55c1-8d83-81e7dfb08c87",
+      "name": "js-toml (\u003c 1.1.3)",
+      "vendor": "sunnyadn"
     },
     {
       "type": "software",
@@ -343968,6 +344254,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-130635",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130635"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--631055f0-bcb6-579f-b192-1e7c524eb1fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-63386",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-63386",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63386"
         }
       ]
     },
@@ -380790,6 +381092,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--e80f4efa-c1ea-554f-8f07-97f0890d4442",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-63341",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-63341",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63341"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--e82878c9-f16e-5e29-acc5-91699c8ebce8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -381984,6 +382302,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126911",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126911"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ecb4ca04-3135-5a82-aa35-385e56ab9f46",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-61725",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-61725",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61725"
         }
       ]
     },
