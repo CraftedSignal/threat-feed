@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a5bf455c-9e4d-531d-9787-a90d92300d88",
+  "id": "bundle--4b74b261-03bb-5130-8461-6864970a5f65",
   "objects": [
     {
       "type": "attack-pattern",
@@ -39355,7 +39355,7 @@
       "id": "relationship--2957fe62-af1b-5984-a4eb-c3b4b0498d4b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T14:08:09.000Z",
-      "modified": "2026-11-16T18:16:48.000Z",
+      "modified": "2026-11-21T21:10:44.000Z",
       "relationship_type": "uses",
       "source_ref": "report--0c6a89c4-ac3c-5106-897e-72a762e9bfb3",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
@@ -87062,7 +87062,7 @@
       "id": "relationship--6b464181-dd9e-5826-8b07-b46179302338",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T14:08:09.000Z",
-      "modified": "2026-11-16T18:16:48.000Z",
+      "modified": "2026-11-21T21:10:44.000Z",
       "relationship_type": "uses",
       "source_ref": "report--0c6a89c4-ac3c-5106-897e-72a762e9bfb3",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -162126,7 +162126,7 @@
       "id": "relationship--d18633ad-1e9c-5c38-87b4-09d6b4ccb944",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T14:08:09.000Z",
-      "modified": "2026-11-16T18:16:48.000Z",
+      "modified": "2026-11-21T21:10:44.000Z",
       "relationship_type": "uses",
       "source_ref": "report--0c6a89c4-ac3c-5106-897e-72a762e9bfb3",
       "target_ref": "attack-pattern--2d434757-5a55-5689-b191-a633fea9af9a"
@@ -203954,7 +203954,7 @@
       "id": "report--0c6a89c4-ac3c-5106-897e-72a762e9bfb3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T14:08:09.000Z",
-      "modified": "2026-11-16T18:16:48.000Z",
+      "modified": "2026-11-21T21:10:44.000Z",
       "name": "Auth Armor WordPress plugin: Authentication bypass and account takeover (CVE-2026-110960)",
       "description": "## Overview\nThe Auth Armor WordPress plugin through 1.0.3 fails to restrict access to multiple administrative handlers, leaving them accessible to unauthenticated users. This design flaw allows an attacker to leak stored API credentials and perform an administrative enrollment reset. Successful exploitation leads to full administrator account takeover. There is currently no known fixed version or patch announced by the vendor.\n\n## Impact\nSuccessful exploitation results in full administrative control over the affected WordPress instance. Attackers can leverage disclosed API credentials to further compromise the site or associated services.\n\n## Recommendation\n- Audit the installation of the Auth Armor WordPress plugin immediately to determine if the version is 1.0.3 or lower.\n- If possible, deactivate or remove the Auth Armor plugin until an official security update is released by the vendor.\n- Rotate any API credentials or keys stored within the plugin settings, as these are potentially exposed to unauthenticated parties.",
       "published": "2026-11-16T14:08:09.000Z",
@@ -203988,9 +203988,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-16-auth-armor-bypass-cve-2026-110960",
       "x_craftedsignal_event_id": "brief-2026-11-16-auth-armor-bypass-cve-2026-110960",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-auth-armor-bypass-cve-2026-110960/",
-      "x_craftedsignal_activity_at": "2026-11-16T18:16:48.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T21:10:44.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
