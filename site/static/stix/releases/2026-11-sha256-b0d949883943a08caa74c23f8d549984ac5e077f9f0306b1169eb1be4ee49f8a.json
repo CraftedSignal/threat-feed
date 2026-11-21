@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--632833dd-8f9e-5272-88a3-e9457df62f30",
+  "id": "bundle--6ff3d108-b029-5797-a777-2a1c4c0a8109",
   "objects": [
     {
       "type": "attack-pattern",
@@ -23369,7 +23369,7 @@
       "id": "relationship--1a68bfbe-94f9-5476-9c27-9ae0bf749c1d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T19:02:28.000Z",
-      "modified": "2026-11-20T19:02:28.000Z",
+      "modified": "2026-11-21T03:42:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--be24501d-49f6-58ec-821c-28b7ebc0373b",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -142631,7 +142631,7 @@
       "id": "relationship--ec3d1aa0-de6c-53e2-bdc0-20ca6189234c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T19:02:28.000Z",
-      "modified": "2026-11-20T19:02:28.000Z",
+      "modified": "2026-11-21T03:42:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--be24501d-49f6-58ec-821c-28b7ebc0373b",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -261102,7 +261102,7 @@
       "id": "report--be24501d-49f6-58ec-821c-28b7ebc0373b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T19:02:28.000Z",
-      "modified": "2026-11-20T19:02:28.000Z",
+      "modified": "2026-11-21T03:42:47.000Z",
       "name": "Budibase: Stored Cross-Site Scripting (CVE-2026-122244)",
       "description": "## Overview\nBudibase versions prior to 3.50.0 are affected by a stored cross-site scripting (XSS) vulnerability. The flaw exists because the `jsonFormatter.format()` function fails to escape raw strings and object keys, and the `EvaluationSidePanel.svelte` component inserts this data as raw HTML. Additionally, the lack of a Content-Security-Policy on the Builder origin allows for script execution. \n\n## Attack Chain\nAn unauthenticated visitor to a public write form or a basic application user can store malicious markup in a shared external datasource. This markup is subsequently evaluated and rendered when a builder or administrator accesses the affected Handlebars binding previews, such as the Data-section Formula column editor or a binding drawer. \n\n## Impact\nSuccessful exploitation permits stored script execution within the session of a higher-privileged builder or administrator. This allows the attacker to perform privileged Builder API actions and access sensitive workspace data.\n\n## Recommendation\nThis issue is fixed in Budibase versions 3.50.0 and 4.0.0. Organizations should upgrade to these versions to resolve the vulnerability.",
       "published": "2026-11-20T19:02:28.000Z",
@@ -261126,14 +261126,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122244"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=3B65624E-C5EF-5422-BEE1-7B006229856D\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-20-budibase-xss-cve-2026-122244",
       "x_craftedsignal_event_id": "brief-2026-11-20-budibase-xss-cve-2026-122244",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-budibase-xss-cve-2026-122244/",
-      "x_craftedsignal_activity_at": "2026-11-20T19:02:28.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T03:42:47.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a950585f-5538-5aef-b806-8b6443837c4c",
+  "id": "bundle--05b4a786-6b99-558d-a86b-4457579e07a9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3167,22 +3167,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1016",
           "url": "https://attack.mitre.org/techniques/T1016"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--f346474d-c8f5-587d-b7b0-bae31a04910a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Install Root Certificate",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1553.004",
-          "url": "https://attack.mitre.org/techniques/T1553/004"
         }
       ]
     },
@@ -28519,7 +28503,7 @@
       "id": "relationship--1a68bfbe-94f9-5476-9c27-9ae0bf749c1d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T19:02:28.000Z",
-      "modified": "2026-11-20T19:02:28.000Z",
+      "modified": "2026-11-21T03:42:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--be24501d-49f6-58ec-821c-28b7ebc0373b",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -140133,17 +140117,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b381ad65-4fd1-56e2-862d-0254ac4bb70c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-22T03:36:55.000Z",
-      "modified": "2026-10-22T03:36:55.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--080c2704-ec1d-56be-aaff-c0bf56ce0b5d",
-      "target_ref": "attack-pattern--f346474d-c8f5-587d-b7b0-bae31a04910a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b3825fcc-7a9d-5d6c-b56b-31ce43a13e3b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -180473,7 +180446,7 @@
       "id": "relationship--ec3d1aa0-de6c-53e2-bdc0-20ca6189234c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T19:02:28.000Z",
-      "modified": "2026-11-20T19:02:28.000Z",
+      "modified": "2026-11-21T03:42:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--be24501d-49f6-58ec-821c-28b7ebc0373b",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -199831,55 +199804,6 @@
       },
       "x_craftedsignal_cvss_max": 8.7,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--080c2704-ec1d-56be-aaff-c0bf56ce0b5d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-22T03:36:55.000Z",
-      "modified": "2026-10-22T03:36:55.000Z",
-      "name": "Java: Certificate revocation bypass via alternative certificate encoding",
-      "description": "## Overview\nSonatype researchers confirmed that Java's `blocked.certs` mechanism, used to mitigate the October 2026 eMudhra certificate authority compromise, is susceptible to bypass. Because the blocklist relies on exact SHA-256 byte-level fingerprints, attackers can alter the binary encoding of a compromised certificate without invalidating its signature. If the re-encoded certificate is still accepted by the trust store, it bypasses the blocklist. This was demonstrated using both ECDSA (altering signature representation from *s* to *n-s*) and RSA (removing NULL parameters from signature algorithm identifiers) encodings.\n\n## Impact\nThe bypass allows compromised intermediate CA certificates to remain trusted in Java environments even if their original fingerprints are added to `blocked.certs`. This could facilitate the issuance and acceptance of fraudulent certificates by applications relying on the Java trust store, despite vendor-provided mitigation attempts.\n\n## Recommendation\n- Audit Java runtime trust stores to identify and remove root certificates associated with the compromised eMudhra infrastructure rather than relying solely on the `blocked.certs` file.\n- Test certificate chain validation for critical services using both original and potential re-encoded variants of compromised intermediates.\n- Monitor Java application logs for TLS handshake failures or unusual certificate validation outcomes following updates to trust stores.\n- Coordinate with infrastructure and development teams before modifying trust stores to avoid disrupting legitimate TLS connections.\n",
-      "published": "2026-10-22T03:36:55.000Z",
-      "labels": [
-        "certificate-bypass",
-        "defense-evasion",
-        "java",
-        "supply-chain"
-      ],
-      "object_refs": [
-        "attack-pattern--f346474d-c8f5-587d-b7b0-bae31a04910a",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--61501bfd-bb4a-5ba3-842d-739be3e8ce2d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-22-java-certificate-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-java-certificate-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://emudhra.we-have-a-problem.com/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.sonatype.com/blog/the-limits-of-fingerprint-blocklists-a-reproducible-java-certificate-bypass"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-22-java-certificate-bypass",
-      "x_craftedsignal_event_id": "brief-2026-10-22-java-certificate-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-java-certificate-bypass/",
-      "x_craftedsignal_activity_at": "2026-10-22T03:36:55.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -334530,7 +334454,7 @@
       "id": "report--be24501d-49f6-58ec-821c-28b7ebc0373b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T19:02:28.000Z",
-      "modified": "2026-11-20T19:02:28.000Z",
+      "modified": "2026-11-21T03:42:47.000Z",
       "name": "Budibase: Stored Cross-Site Scripting (CVE-2026-122244)",
       "description": "## Overview\nBudibase versions prior to 3.50.0 are affected by a stored cross-site scripting (XSS) vulnerability. The flaw exists because the `jsonFormatter.format()` function fails to escape raw strings and object keys, and the `EvaluationSidePanel.svelte` component inserts this data as raw HTML. Additionally, the lack of a Content-Security-Policy on the Builder origin allows for script execution. \n\n## Attack Chain\nAn unauthenticated visitor to a public write form or a basic application user can store malicious markup in a shared external datasource. This markup is subsequently evaluated and rendered when a builder or administrator accesses the affected Handlebars binding previews, such as the Data-section Formula column editor or a binding drawer. \n\n## Impact\nSuccessful exploitation permits stored script execution within the session of a higher-privileged builder or administrator. This allows the attacker to perform privileged Builder API actions and access sensitive workspace data.\n\n## Recommendation\nThis issue is fixed in Budibase versions 3.50.0 and 4.0.0. Organizations should upgrade to these versions to resolve the vulnerability.",
       "published": "2026-11-20T19:02:28.000Z",
@@ -334554,14 +334478,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122244"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=3B65624E-C5EF-5422-BEE1-7B006229856D\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-20-budibase-xss-cve-2026-122244",
       "x_craftedsignal_event_id": "brief-2026-11-20-budibase-xss-cve-2026-122244",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-budibase-xss-cve-2026-122244/",
-      "x_craftedsignal_activity_at": "2026-11-20T19:02:28.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T03:42:47.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -395895,13 +395823,6 @@
       "id": "software--612255e3-180c-5a32-9ccd-64866ee35346",
       "name": "Everest Forms – Contact Form, Payment Form, Quiz, Survey \u0026 Custom Form Builder with AI (\u003c= 3.6.2)",
       "vendor": "WPEverest"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--61501bfd-bb4a-5ba3-842d-739be3e8ce2d",
-      "name": "JDK",
-      "vendor": "Oracle"
     },
     {
       "type": "software",
