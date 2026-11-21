@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e9e39373-46d2-5f8f-a5a1-2b4d9679c9c4",
+  "id": "bundle--18a47677-7d81-5b5a-8b4a-a54c46b70bc8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -52450,7 +52450,7 @@
       "id": "relationship--3c75d693-1e1f-54af-b19e-c7be53e6d785",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T14:24:42.000Z",
-      "modified": "2026-11-20T14:24:42.000Z",
+      "modified": "2026-11-21T11:04:10.000Z",
       "relationship_type": "uses",
       "source_ref": "report--3840a53f-7a5c-5fb6-80cd-a1dea3cf5432",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -116393,7 +116393,7 @@
       "id": "relationship--93694ed9-42c0-5d3f-91ab-0b3b5963b9b2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T14:24:42.000Z",
-      "modified": "2026-11-20T14:24:42.000Z",
+      "modified": "2026-11-21T11:04:10.000Z",
       "relationship_type": "uses",
       "source_ref": "report--3840a53f-7a5c-5fb6-80cd-a1dea3cf5432",
       "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
@@ -236842,7 +236842,7 @@
       "id": "report--3840a53f-7a5c-5fb6-80cd-a1dea3cf5432",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T14:24:42.000Z",
-      "modified": "2026-11-20T14:24:42.000Z",
+      "modified": "2026-11-21T11:04:10.000Z",
       "name": "BuddyBoss Addons: Authentication bypass and account takeover (CVE-2026-80188)",
       "description": "## Overview\n\nThe BuddyBoss Addons plugin for WordPress is vulnerable to an authentication bypass leading to account takeover in all versions up to and including 1.2.1. The vulnerability exists within the Social Login REST endpoint, which fails to verify identity-token claims from Apple and Facebook. An unauthenticated attacker can supply a crafted token containing a target user's email address to associate an attacker-controlled provider identifier with the victim's account. This allows the attacker to subsequently authenticate as the victim, including users with administrative privileges. Exploitation requires the BuddyBoss Platform plugin to be installed and active, with the Social Login module configured for the affected providers.\n\n## Attack Chain\n\n1. Attacker identifies a target user's email address on a WordPress site running BuddyBoss Addons.\n2. Attacker interacts with the vulnerable Social Login REST endpoint.\n3. Attacker submits a crafted Apple or Facebook identity token using the target user's email address.\n4. The plugin improperly trusts the unverified identity-token claim.\n5. The plugin associates the attacker-controlled provider identifier with the legitimate user account.\n6. The attacker authenticates as the victim via the social login provider.\n7. (Optional) If the BuddyBoss App JWT component is installed, the attacker receives an application token immediately following the malicious REST request.\n\n## Impact\n\nSuccessful exploitation results in full account takeover of any user on the system, including administrators, enabling unauthorized access to the WordPress environment.\n\n## Recommendation\n\nReview the vendor's security updates and patch to a version newer than 1.2.1 immediately upon release. If patching is not possible, disable the Social Login module within the BuddyBoss Platform settings to mitigate the risk of account takeover.",
       "published": "2026-11-20T14:24:42.000Z",
@@ -236866,14 +236866,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80188"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=BF11E540-10AE-5DAA-AC8D-BEE198C5F3FB\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-20-buddyboss-addons-auth-bypass-cve-2026-80188",
       "x_craftedsignal_event_id": "brief-2026-11-20-buddyboss-addons-auth-bypass-cve-2026-80188",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-buddyboss-addons-auth-bypass-cve-2026-80188/",
-      "x_craftedsignal_activity_at": "2026-11-20T14:24:42.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T11:04:10.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
