@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d0fcb1aa-5200-50dd-bbf9-e15555f1dbe1",
+  "id": "bundle--4bcddc29-ed84-51bc-8d52-a2d9f0eccf24",
   "objects": [
     {
       "type": "attack-pattern",
@@ -131110,6 +131110,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--227fcf20-3d9c-5b71-9cab-239c2653abf7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a7bd4b1e-5001-5c35-ae2d-45d46fd96d57",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--066cd7a0-88b7-5df8-b5fc-2a944f68f251",
+      "target_ref": "vulnerability--a406b30d-2563-527c-9d0c-2ad0ead2ec89"
     },
     {
       "type": "relationship",
@@ -323176,6 +323187,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ac55d784-fe06-5013-aa6a-ff3bc532ca49",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T18:39:41.000Z",
+      "modified": "2026-11-21T18:39:41.000Z",
+      "name": "@fastify/express: Middleware bypass vulnerability (CVE-2026-124626)",
+      "description": "## Overview\n@fastify/express is a compatibility layer that lets Express middleware run inside the Fastify web framework. Versions 4.0.5 through 4.0.9 are affected by a middleware bypass vulnerability where the plugin's matcher expects non-empty dynamic segments, but the Fastify router accepts empty parameters or wildcards. \n\n## Attack Chain\nWhen a route and an Express middleware mount share a dynamic pattern, a request with an empty segment matches the Fastify route and executes the handler while the middleware mounted on that pattern is skipped. This permits an unauthenticated request to access a protected handler on a scoped mount without requiring special configuration.\n\n## Impact\nThe practical impact depends on what the empty value selects in the application logic behind the bypassed handler.\n\n## Recommendation\nThe vulnerability is fixed in @fastify/express 4.0.10. Users should upgrade to 4.0.10 or later.",
+      "published": "2026-11-21T18:39:41.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--066cd7a0-88b7-5df8-b5fc-2a944f68f251",
+        "vulnerability--a406b30d-2563-527c-9d0c-2ad0ead2ec89"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-fastify-express-bypass-cve-2026-124626",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fastify-express-bypass-cve-2026-124626/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-124626"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-124626\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-fastify-express-bypass-cve-2026-124626",
+      "x_craftedsignal_event_id": "brief-2026-11-21-fastify-express-bypass-cve-2026-124626",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fastify-express-bypass-cve-2026-124626/",
+      "x_craftedsignal_activity_at": "2026-11-21T18:39:41.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ac5bb359-6f7f-5ac0-9646-822b7e4ab017",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T14:39:40.000Z",
@@ -385939,6 +385994,12 @@
       "id": "software--0667d013-f4cb-53c6-b8a1-5ceed491e8f2",
       "name": "Magma (\u003c= 1.9.0)",
       "vendor": "Linux Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--066cd7a0-88b7-5df8-b5fc-2a944f68f251",
+      "name": "@fastify/express"
     },
     {
       "type": "software",
@@ -470747,6 +470808,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-89209",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89209"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a406b30d-2563-527c-9d0c-2ad0ead2ec89",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124626",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124626",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124626"
         }
       ]
     },
