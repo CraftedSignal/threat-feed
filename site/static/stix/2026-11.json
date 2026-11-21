@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b665df14-c3e8-5857-b23b-a7f3e8039b9d",
+  "id": "bundle--6cac379c-9e80-50af-9044-fc4570393db9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -61725,6 +61725,17 @@
       "relationship_type": "has",
       "source_ref": "software--5b83bb5e-2e7e-5c41-8036-0bd40d7c51aa",
       "target_ref": "vulnerability--c44cf9a1-eb47-5604-8bf2-bbeef5594a18"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5c670b0c-456f-5a5d-ab94-bc75038c4147",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--06b2e112-5aad-59b6-ba0b-c815d6393726",
+      "target_ref": "vulnerability--30d9732c-15bf-5460-9ab9-e286a468361d"
     },
     {
       "type": "relationship",
@@ -225024,6 +225035,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--74e473b1-3c30-577b-8fb6-7b56b970ef67",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T19:27:53.000Z",
+      "modified": "2026-11-21T19:27:53.000Z",
+      "name": "Frappe ERPNext Missing Authorization in Accounts Module (CVE-2026-134418)",
+      "description": "## Overview\nFrappe ERPNext versions 4.0.0 through 15.122.0 (exclusive of 15.122.0) and 16.0.0 through 16.50.0 (exclusive of 16.50.0) contain a missing authorization vulnerability in an Accounts module endpoint. This endpoint returns the taxes and charges of documents without checking record permissions.\n\n## Attack Chain\nAuthenticated users, including portal users or users with no roles, can request arbitrary document types and records through the affected endpoint. This allows the user to read tax rows beyond their permitted scope.\n\n## Impact\nSuccessful exploitation allows authenticated users to access sensitive financial data, specifically tax rows and charges from documents, regardless of their defined permissions.\n\n## Recommendation\nAdministrators should monitor vendor security disclosures for official patch releases. The available source material identifies the affected versions but does not confirm that specific versions remediate the issue.",
+      "published": "2026-11-21T19:27:53.000Z",
+      "labels": [
+        "authorization-bypass"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--06b2e112-5aad-59b6-ba0b-c815d6393726",
+        "vulnerability--30d9732c-15bf-5460-9ab9-e286a468361d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-frappe-erpnext-auth-bypass-cve-2026-134418",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-frappe-erpnext-auth-bypass-cve-2026-134418/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134418"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134418"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-frappe-erpnext-auth-bypass-cve-2026-134418",
+      "x_craftedsignal_event_id": "brief-2026-11-21-frappe-erpnext-auth-bypass-cve-2026-134418",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-frappe-erpnext-auth-bypass-cve-2026-134418/",
+      "x_craftedsignal_activity_at": "2026-11-21T19:27:53.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--74e832cd-2ae1-5ce4-a95d-6ca0278367aa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T23:46:37.000Z",
@@ -340004,6 +340062,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119904",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119904"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--30d9732c-15bf-5460-9ab9-e286a468361d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134418",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134418",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134418"
         }
       ]
     },
