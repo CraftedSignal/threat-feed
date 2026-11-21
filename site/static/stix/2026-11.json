@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--59aa903e-d7c1-5e3b-85b4-dd49c2f2fe6f",
+  "id": "bundle--5bd113bf-ea74-52a5-b98b-accfd230f6b7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8221,6 +8221,17 @@
       "relationship_type": "has",
       "source_ref": "software--386e1056-5ac8-56c9-a3ec-bd4688902b66",
       "target_ref": "vulnerability--7c8ee8bc-3060-528a-97de-cabb65ff51f0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--01417422-d169-5aaa-9c7a-414ab4ef0cb5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T17:47:38.000Z",
+      "modified": "2026-11-21T17:47:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--dc0f40e1-b890-5c1b-a832-7af05a0c3fcf",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -128429,6 +128440,17 @@
       "relationship_type": "uses",
       "source_ref": "report--32826f1c-b39c-536b-a07c-42c9b67c2f9c",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cfb11e6b-9e7f-53cd-9772-ca9b78b6781e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5e9bfe47-4eed-5d93-bed5-94ff20e167af",
+      "target_ref": "vulnerability--d5afc1ca-4f3d-561d-90fc-c0a5d1020659"
     },
     {
       "type": "relationship",
@@ -281783,6 +281805,62 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--dc0f40e1-b890-5c1b-a832-7af05a0c3fcf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T17:47:38.000Z",
+      "modified": "2026-11-21T17:47:38.000Z",
+      "name": "Apache Parquet Java: Remote class instantiation vulnerability (CVE-2025-30065)",
+      "description": "## Overview\n\nApache Parquet Java versions prior to 1.15.1 are vulnerable to a remote class instantiation flaw (CVE-2025-30065). Attackers can provide a crafted Parquet file to a vulnerable application, which may lead to Server-Side Request Forgery (SSRF) or arbitrary code execution if a suitable gadget chain exists within the victim's JVM classpath. The issue stems from the parquet-avro module's handling of schema parsing and object instantiation. Proof-of-concept exploits are publicly available, demonstrating how these files can trigger network requests or arbitrary code execution.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated remote attackers to perform SSRF, potentially accessing internal network resources, or achieve Remote Code Execution (RCE) if the application environment contains exploitable Java gadgets.\n\n## Recommendation\n\n1. Upgrade Apache Parquet Java to version 1.15.1 or later to remediate the schema parsing and class instantiation vulnerability.\n2. Audit applications that ingest Parquet files to ensure they perform strict validation of input data and sources.\n3. Implement network egress filtering on servers processing Parquet files to limit the potential impact of SSRF-based exfiltration or callback attempts.",
+      "published": "2026-11-21T17:47:38.000Z",
+      "labels": [
+        "java",
+        "rce",
+        "ssrf",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5e9bfe47-4eed-5d93-bed5-94ff20e167af",
+        "vulnerability--d5afc1ca-4f3d-561d-90fc-c0a5d1020659"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-parquet-rce-cve-2025-30065",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-parquet-rce-cve-2025-30065/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-30065"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MOUADK-PARQUET-RCE-POC-CVE-2025-30065"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MOUADK-PARQUET-RCE-POC-CVE-2025-30065\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-parquet-rce-cve-2025-30065",
+      "x_craftedsignal_event_id": "brief-2026-11-21-parquet-rce-cve-2025-30065",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-parquet-rce-cve-2025-30065/",
+      "x_craftedsignal_activity_at": "2026-11-21T17:47:38.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.43597,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--dc11c493-ec5b-5e77-be5e-d40881dba9bf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T18:02:48.000Z",
@@ -310150,6 +310228,13 @@
       "id": "software--5e970ae8-13bd-542b-b0fc-1f9e55a0dfd4",
       "name": "Secure Email Gateway (\u003c 15.1.1)",
       "vendor": "SEPPmail"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--5e9bfe47-4eed-5d93-bed5-94ff20e167af",
+      "name": "Apache Parquet Java (\u003c 1.15.1)",
+      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -381909,6 +381994,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-59612",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59612"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d5afc1ca-4f3d-561d-90fc-c0a5d1020659",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-30065",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-30065",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-30065"
         }
       ]
     },

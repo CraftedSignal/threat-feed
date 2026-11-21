@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ce768f9c-0da1-5bc3-b0c9-4943f86efab2",
+  "id": "bundle--b79e835b-9f98-5daa-bee7-c3b471b90f39",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2462,17 +2462,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--0a4d4a9e-1ff3-5666-a512-d8a0e51e7268",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-23T17:37:42.000Z",
-      "modified": "2026-08-23T17:37:42.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--05adaca9-e67c-5940-b585-f75dae80e34d",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--0a6ccf69-ea2c-549b-b329-449c5c7093e9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3943,17 +3932,6 @@
       "relationship_type": "has",
       "source_ref": "software--c8440195-9abf-5503-8632-2d95ccfba62c",
       "target_ref": "vulnerability--069df1ae-ddd4-56e6-9a47-4897b74e4e7b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--2861a0f4-fa57-5922-aea4-e34b6235cd44",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--357f893d-27dc-5be4-adff-5c3acad24a05",
-      "target_ref": "vulnerability--f93b95ee-fc31-5afa-bebb-3f2339907cc1"
     },
     {
       "type": "relationship",
@@ -15492,47 +15470,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--05adaca9-e67c-5940-b585-f75dae80e34d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-23T17:37:42.000Z",
-      "modified": "2026-08-23T17:37:42.000Z",
-      "name": "Denial of Service in justhtml via Uncontrolled Recursion",
-      "description": "## Overview\n\nThe justhtml library is susceptible to a denial of service (DoS) vulnerability, tracked as CVE-2026-9769, due to an uncontrolled recursion flaw in its HTML parsing logic. The vulnerability resides in the TreeBuilder.finish() function, which invokes _populate_selectedcontent() to process the DOM tree. This function initiates a recursive traversal using _find_elements() and _find_element() without implementing a depth limit. An attacker can craft a payload containing approximately 1000 deeply nested elements, such as \u0026lt;div\u003e tags, which consumes the stack and triggers an unhandled Python RecursionError. Depending on the architecture of the host application, this exception can result in worker crashes, request failures, or total service disruption. The issue is resolved in version 1.10.0.\n\n## Impact\n\nSuccessful exploitation results in a denial of service, potentially causing worker processes or the entire web application to terminate unexpectedly when parsing malicious user-supplied content. This vulnerability affects any application using justhtml as a parser for untrusted HTML inputs.\n\n## Recommendation\n\n* Update the justhtml dependency to version 1.10.0 or later immediately to incorporate the recursion depth mitigation.\n* Audit applications utilizing justhtml to ensure they are not exposing the library's parsing functions to unsanitized, externally-provided HTML content.\n* Implement input validation or limit the maximum payload size/depth before passing data to the justhtml parser if an immediate update is not feasible.\n",
-      "published": "2026-08-23T17:37:42.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--357f893d-27dc-5be4-adff-5c3acad24a05",
-        "vulnerability--f93b95ee-fc31-5afa-bebb-3f2339907cc1"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-23-justhtml-dos",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-justhtml-dos/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9769"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-08-23-justhtml-dos",
-      "x_craftedsignal_event_id": "brief-2026-08-23-justhtml-dos",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-justhtml-dos/",
-      "x_craftedsignal_activity_at": "2026-08-23T17:37:42.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -35666,12 +35603,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--357f893d-27dc-5be4-adff-5c3acad24a05",
-      "name": "justhtml (\u003c= 1.9.1)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--35d14bcc-30f2-559d-87b4-7b2d7c065ebd",
       "name": "BookStack (\u003c 26.05.4)",
       "vendor": "BookStack"
@@ -44054,22 +43985,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-40541",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40541"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--f93b95ee-fc31-5afa-bebb-3f2339907cc1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-9769",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-9769",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9769"
         }
       ]
     },
