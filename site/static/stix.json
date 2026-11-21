@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--78a20858-fe16-551c-9ecf-c539c144711e",
+  "id": "bundle--8a80354a-6131-591c-810f-aaeea04fae8c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -60417,6 +60417,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--473415df-6cdd-5ee0-88f5-b211e64c7b4a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3a25d656-acd8-52a4-8ae6-6d51fead4786",
+      "target_ref": "vulnerability--22371c56-2518-5c34-9d9f-e8f72961cd59"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--473763b4-c400-5c60-809b-733ac338b5ef",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T12:47:55.000Z",
@@ -66848,6 +66859,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--2a7aa336-7f03-5618-9875-f8e5715fe27b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4fda4a96-b0d9-57a3-aa4b-320048891587",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f2618260-79c8-54c6-89ba-5c93de3056c1",
+      "target_ref": "vulnerability--ed4f8da8-b5e9-50b7-ab80-075e12dc02c9"
     },
     {
       "type": "relationship",
@@ -160913,6 +160935,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--cfa1abbd-e7c9-5ccf-927e-ec63c0a185c2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f2618260-79c8-54c6-89ba-5c93de3056c1",
+      "target_ref": "vulnerability--6d7240ff-eae1-5a84-b0ac-e877caea15e7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--cfa8c602-632d-5788-8ba5-6f23cf97c7c5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -231777,6 +231810,50 @@
       },
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_epss_max": 0.00304,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3188d037-fecb-5722-a439-6d1e14197890",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T18:47:34.000Z",
+      "modified": "2026-11-21T18:47:34.000Z",
+      "name": "AzuraCast: Liquidsoap annotation injection vulnerability (CVE-2026-134359)",
+      "description": "## Overview\nAzuraCast before version 0.24.1 fails to escape backslashes in Liquidsoap annotation values, which allows authenticated media managers to break out of quoted annotation strings. By setting a crafted ID3 title ending in a backslash, an attacker can inject a 'process:' protocol URI, leading to OS command execution within the Liquidsoap container during playback.\n\n## Attack Chain\n1. An authenticated media manager provides a crafted ID3 title ending in a backslash.\n2. The application fails to properly escape the backslash when generating Liquidsoap annotation values.\n3. The user-controlled input breaks out of the intended annotation string quoting.\n4. A 'process:' protocol URI is injected into the annotation structure.\n5. During media playback, the Liquidsoap container parses the annotation, leading to execution of the injected command.\n\n## Impact\nSuccessful exploitation allows arbitrary OS command execution within the Liquidsoap container. The impact includes the compromise of confidentiality, integrity, and availability within the container context.\n\n## Recommendation\nCurrently, there is no publicly confirmed remediation or official fix information available in the CVE source records. Users are advised to monitor for updates from the vendor.",
+      "published": "2026-11-21T18:47:34.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3a25d656-acd8-52a4-8ae6-6d51fead4786",
+        "vulnerability--22371c56-2518-5c34-9d9f-e8f72961cd59"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-azuracast-injection-cve-2026-134359",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-azuracast-injection-cve-2026-134359/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134359"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134359"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-azuracast-injection-cve-2026-134359",
+      "x_craftedsignal_event_id": "brief-2026-11-21-azuracast-injection-cve-2026-134359",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-azuracast-injection-cve-2026-134359/",
+      "x_craftedsignal_activity_at": "2026-11-21T18:47:34.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -325623,6 +325700,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--aecfd425-b4c6-5517-b9ce-ede81b76c19a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T18:47:04.000Z",
+      "modified": "2026-11-21T18:47:04.000Z",
+      "name": "ArcadeDB: Authorization bypass (CVE-2026-134339)",
+      "description": "## Overview\nArcadeDB versions 26.11.1-SNAPSHOT before 26.11.1 contain an authorization bypass vulnerability. The flaw allows authenticated users to skip per-type ACL checks when a database is opened on demand.\n\n## Attack Chain\nAn attacker can trigger the vulnerability by sending a POST `/api/v1/batch/{database}` request to a closed database. This request triggers the on-demand opening process during which the authorization bypass occurs.\n\n## Impact\nAuthenticated users can read and write database types they are not entitled to access.\n\n## Recommendation\nUpgrade to version 26.11.1 or later as noted in the affected product version status.",
+      "published": "2026-11-21T18:47:04.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f2618260-79c8-54c6-89ba-5c93de3056c1",
+        "vulnerability--ed4f8da8-b5e9-50b7-ab80-075e12dc02c9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-arcadedb-auth-bypass-cve-2026-134339",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-arcadedb-auth-bypass-cve-2026-134339/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134339"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134339"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-arcadedb-auth-bypass-cve-2026-134339",
+      "x_craftedsignal_event_id": "brief-2026-11-21-arcadedb-auth-bypass-cve-2026-134339",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-arcadedb-auth-bypass-cve-2026-134339/",
+      "x_craftedsignal_activity_at": "2026-11-21T18:47:04.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--af23596d-235f-5828-94c0-2706d53ad5e7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T22:59:37.000Z",
@@ -329004,6 +329125,53 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b3b67e5c-04ce-566a-8ea2-08f97677b8cb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T18:46:48.000Z",
+      "modified": "2026-11-21T18:46:48.000Z",
+      "name": "ArcadeDB: Authorization bypass via nested query (CVE-2026-134337)",
+      "description": "## Overview\nArcadeDB native-image server builds 26.8.1 before 26.11.1 are affected by an authorization bypass vulnerability. The issue stems from missing reflection metadata which leaves the SqlAstInspector with an empty AST.\n\n## Attack Chain\nAuthenticated clients can bypass read-only security controls by nesting write-capable statements, such as INSERT, within SELECT projections or LET clauses. This vulnerability is accessible via the query endpoint, MCP read-only mode, and HA follower routing.\n\n## Impact\nSuccessful exploitation allows authenticated users to perform unauthorized write operations, compromising database integrity.\n\n## Recommendation\nUpgrade to ArcadeDB version 26.11.1 or later to resolve the metadata and AST validation issue.",
+      "published": "2026-11-21T18:46:48.000Z",
+      "labels": [
+        "authorization-bypass"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f2618260-79c8-54c6-89ba-5c93de3056c1",
+        "vulnerability--6d7240ff-eae1-5a84-b0ac-e877caea15e7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-arcadedb-auth-bypass-cve-2026-134337",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-arcadedb-auth-bypass-cve-2026-134337/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134337"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134337"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-arcadedb-auth-bypass-cve-2026-134337",
+      "x_craftedsignal_event_id": "brief-2026-11-21-arcadedb-auth-bypass-cve-2026-134337",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-arcadedb-auth-bypass-cve-2026-134337/",
+      "x_craftedsignal_activity_at": "2026-11-21T18:46:48.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -393657,6 +393825,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3a25d656-acd8-52a4-8ae6-6d51fead4786",
+      "name": "AzuraCast (\u003c 0.24.1)",
+      "vendor": "AzuraCast"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3a4a4114-2974-5ca4-8fb9-b06a1b3d927f",
       "name": "Veeam Agent for Linux (\u003c 13.1.2)",
       "vendor": "Veeam"
@@ -414658,7 +414833,7 @@
       "type": "software",
       "spec_version": "2.1",
       "id": "software--f2618260-79c8-54c6-89ba-5c93de3056c1",
-      "name": "ArcadeDB (\u003c 26.11.1)",
+      "name": "arcadedb (\u003c 26.11.1)",
       "vendor": "ArcadeData"
     },
     {
@@ -428290,6 +428465,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-63894",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63894"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--22371c56-2518-5c34-9d9f-e8f72961cd59",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134359",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134359",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134359"
         }
       ]
     },
@@ -453330,6 +453521,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120017",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120017"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6d7240ff-eae1-5a84-b0ac-e877caea15e7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134337",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134337",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134337"
         }
       ]
     },
@@ -498114,6 +498321,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-131582",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131582"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ed4f8da8-b5e9-50b7-ab80-075e12dc02c9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134339",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134339",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134339"
         }
       ]
     },
