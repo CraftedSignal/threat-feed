@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e06ce05d-ba7d-535d-9eb5-4268d6a38576",
+  "id": "bundle--e69e4e2a-07ac-5e91-bb24-9eb57983e713",
   "objects": [
     {
       "type": "attack-pattern",
@@ -210304,7 +210304,7 @@
       "id": "report--5e0e8932-813c-5059-9629-ec73e67fb79c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T20:59:43.000Z",
-      "modified": "2026-11-20T20:59:43.000Z",
+      "modified": "2026-11-21T13:10:46.000Z",
       "name": "Apache Tomcat: Incomplete fix for CVE-2026-25854 (CVE-2026-117517)",
       "description": "## Overview\n\nApache Tomcat contains an incomplete fix for a previously identified vulnerability, CVE-2026-25854, which was originally described as an open redirect issue via the LoadBalancerDrainingValve. This new vulnerability, tracked as CVE-2026-117517, affects multiple branches of Apache Tomcat. The vulnerability is assigned a CVSS v3.1 base score of 7.3.\n\n## Recommendation\n\nUsers of Apache Tomcat must upgrade to the versions that address the incomplete fix:\n\n- Upgrade Apache Tomcat 9.0.x to version 9.0.124 or later.\n- Upgrade Apache Tomcat 10.1.x to version 10.1.62 or later.\n- Upgrade Apache Tomcat 11.0.x to version 11.0.29 or later. Note that version 11.0.28 was not released.",
       "published": "2026-11-20T20:59:43.000Z",
@@ -210333,14 +210333,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-117517"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=D56598A8-50F8-5B36-A5FD-827AB4E5830A\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-20-tomcat-incomplete-fix-cve-2026-117517",
       "x_craftedsignal_event_id": "brief-2026-11-20-tomcat-incomplete-fix-cve-2026-117517",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tomcat-incomplete-fix-cve-2026-117517/",
-      "x_craftedsignal_activity_at": "2026-11-20T20:59:43.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T13:10:46.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
