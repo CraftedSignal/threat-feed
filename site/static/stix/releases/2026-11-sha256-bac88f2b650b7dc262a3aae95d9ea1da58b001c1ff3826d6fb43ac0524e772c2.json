@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--34f21420-0576-52a4-a227-f6569040865a",
+  "id": "bundle--7fd0e7e1-5e37-5d07-9465-ec56b7b1b0e3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -177033,7 +177033,7 @@
       "id": "report--2388b3fd-888d-578f-b464-9599e6399d89",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T17:00:10.000Z",
-      "modified": "2026-11-10T17:00:10.000Z",
+      "modified": "2026-11-21T22:46:57.000Z",
       "name": "ManageEngine DDI Central: Authenticated command injection (CVE-2026-12573)",
       "description": "A public proof-of-concept exploit is available for CVE-2026-12573. The vulnerability allows an authenticated attacker to inject arbitrary commands into Cisco routers managed by ManageEngine DDI Central by manipulating the DHCP pool name field.\n",
       "published": "2026-11-10T17:00:10.000Z",
@@ -177064,19 +177064,15 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-10-manageengine-ddi-central-rce",
       "x_craftedsignal_event_id": "brief-2026-11-10-manageengine-ddi-central-rce",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-manageengine-ddi-central-rce/",
-      "x_craftedsignal_activity_at": "2026-11-10T17:00:10.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T22:46:57.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "confirmed_active",
-        "source_url": "https://sploitus.com/exploit?id=CVE-2026-12573",
-        "observed_at": "2026-11-10T12:24:00.000Z",
-        "confidence": "high"
+        "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_epss_max": 0.03153,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -187893,7 +187889,7 @@
       "id": "report--34c99fa4-ac93-5041-9ff0-87b8735b35a4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T17:15:30.000Z",
-      "modified": "2026-11-04T17:09:57.000Z",
+      "modified": "2026-11-21T22:46:57.000Z",
       "name": "FreeRDP: TLS certificate validation bypass (CVE-2026-121392)",
       "description": "FreeRDP contains an improper certificate validation vulnerability in tls_verify_certificate() that accepts Common Name fallback despite non-matching SAN entries and matches IP literals against DNS strings. Man-in-the-middle attackers holding a certificate from a client-trusted CA can bypass server identity checks to intercept RDP sessions, including keystrokes, clipboard, and screen content. A proof-of-concept exploit is available on Sploitus.\n",
       "published": "2026-11-03T17:15:30.000Z",
@@ -187957,16 +187953,13 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-03-freerdp-tls-bypass",
       "x_craftedsignal_event_id": "brief-2026-11-03-freerdp-tls-bypass",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-freerdp-tls-bypass/",
-      "x_craftedsignal_activity_at": "2026-11-04T17:09:57.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T22:46:57.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "confirmed_active",
-        "source_url": "https://sploitus.com/exploit?id=CVE-2026-121392\u0026utm_source=rss\u0026utm_medium=rss",
-        "observed_at": "2026-11-03T00:00:00.000Z",
-        "confidence": "high"
+        "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
@@ -188357,7 +188350,7 @@
       "id": "report--35657da8-4fa1-5544-a10b-b817f83504bd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T19:00:01.000Z",
-      "modified": "2026-11-10T19:00:01.000Z",
+      "modified": "2026-11-21T22:46:57.000Z",
       "name": "mailcow-dockerized: Remote Code Execution via domain footer SSTI (CVE-2026-125757)",
       "description": "A proof-of-concept exploit has been published for CVE-2026-125757. The vulnerability allows a domain administrator to achieve remote code execution in the shared rspamd container via mailcow footer Server-Side Template Injection (SSTI). The vulnerability occurs because the jinja macro default value in the footer is compiled by the lupa engine without a sandbox environment, allowing `os.execute` to be reached.\n",
       "published": "2026-11-10T19:00:01.000Z",
@@ -188388,16 +188381,13 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-10-mailcow-ssti-rce",
       "x_craftedsignal_event_id": "brief-2026-11-10-mailcow-ssti-rce",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mailcow-ssti-rce/",
-      "x_craftedsignal_activity_at": "2026-11-10T19:00:01.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T22:46:57.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "confirmed_active",
-        "source_url": "https://sploitus.com/exploit?id=C6BBFE76-8A72-5FE1-84D7-1664D43E8805",
-        "observed_at": "2026-11-10T00:00:00.000Z",
-        "confidence": "high"
+        "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_kev_status": "false"
@@ -189020,6 +189010,7 @@
         "observed_at": "2026-11-08T08:31:42.000Z",
         "confidence": "high"
       },
+      "x_craftedsignal_epss_max": 0.01148,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -206498,7 +206489,7 @@
       "id": "report--516f2776-c2b9-5148-930b-1dfe01280d74",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T03:43:53.000Z",
-      "modified": "2026-11-01T03:43:53.000Z",
+      "modified": "2026-11-21T22:46:57.000Z",
       "name": "Tenda AC9: Stack-based buffer overflow (CVE-2025-29384)",
       "published": "2026-11-01T03:43:53.000Z",
       "object_refs": [
@@ -206523,16 +206514,13 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-01-tenda-ac9-cve-2025-29384",
       "x_craftedsignal_event_id": "brief-2026-11-01-tenda-ac9-cve-2025-29384",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tenda-ac9-cve-2025-29384/",
-      "x_craftedsignal_activity_at": "2026-11-01T03:43:53.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T22:46:57.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "confirmed_active",
-        "source_url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-OTSMANE-AHMED-CVE-2025-29384-POC",
-        "observed_at": "2026-11-01T01:31:00.000Z",
-        "confidence": "high"
+        "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.0194,
@@ -223655,7 +223643,7 @@
       "id": "report--70a12f81-477e-569e-a04d-86ee7c6d0119",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T16:59:42.000Z",
-      "modified": "2026-11-10T16:59:42.000Z",
+      "modified": "2026-11-21T22:46:57.000Z",
       "name": "Apache TomEE: Remote Code Execution via EJB Deployer (CVE-2026-87756)",
       "description": "Apache TomEE contains a vulnerability (CVE-2026-87756) in its internal system Enterprise JavaBeans (EJBs) used for remote deployment. When running the default profile, these components fail to enforce administrative role checks. A remote, unauthenticated attacker capable of reaching the remote EJB endpoint could deploy arbitrary applications and execute code. A public exploit or PoC has been published on Sploitus.\n",
       "published": "2026-11-10T16:59:42.000Z",
@@ -223685,16 +223673,13 @@
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-10-tomee-rce",
       "x_craftedsignal_event_id": "brief-2026-11-10-tomee-rce",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tomee-rce/",
-      "x_craftedsignal_activity_at": "2026-11-10T16:59:42.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T22:46:57.000Z",
       "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "confirmed_active",
-        "source_url": "https://sploitus.com/exploit?id=CVE-2026-87756",
-        "observed_at": "2026-11-10T15:28:00.000Z",
-        "confidence": "high"
+        "status": "unknown"
       },
       "x_craftedsignal_kev_status": "false"
     },
@@ -229349,6 +229334,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.02922,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -241680,7 +241666,7 @@
       "id": "report--903b3d76-fd93-531d-ab3d-6b4075e56f06",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T08:18:29.000Z",
-      "modified": "2026-11-06T08:18:29.000Z",
+      "modified": "2026-11-21T22:46:57.000Z",
       "name": "Wing FTP Server: Stored XSS in legacy Activity page (CVE-2026-120491)",
       "description": "A public proof-of-concept exploit is available for CVE-2026-120491. The vulnerability allows an authenticated web-client user to inject a crafted `nowpath` value into live-connection data. When an administrator views the legacy `admin_connection_list.html` page, the injected script may execute in their browser context. The reporter confirmed the issue on Wing FTP Server 8.2.5; tests on 8.2.6 were negative.\n",
       "published": "2026-11-06T08:18:29.000Z",
@@ -241714,16 +241700,13 @@
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-06-wing-ftp-xss",
       "x_craftedsignal_event_id": "brief-2026-11-06-wing-ftp-xss",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wing-ftp-xss/",
-      "x_craftedsignal_activity_at": "2026-11-06T08:18:29.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T22:46:57.000Z",
       "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "confirmed_active",
-        "source_url": "https://sploitus.com/exploit?id=CBEDCCD5-E1F6-5FE2-8A72-F564E9FC3F15\u0026utm_source=rss\u0026utm_medium=rss",
-        "observed_at": "2026-11-06T00:00:00.000Z",
-        "confidence": "high"
+        "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 5.4,
       "x_craftedsignal_epss_max": 0.00176,
@@ -258040,7 +258023,7 @@
       "id": "report--ab081023-f969-56ae-b325-8af8d096f760",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T15:22:35.000Z",
-      "modified": "2026-11-12T15:22:35.000Z",
+      "modified": "2026-11-21T22:46:57.000Z",
       "name": "MISP Modules: Unauthenticated external tool management bypass (CVE-2026-127016)",
       "description": "## Overview\nThe MISP Modules website component, specifically the external_tools Flask blueprint, contains an authorization bypass vulnerability (CVE-2026-127016). When an ADMIN_PASSWORD is configured in the environment, the external tools management endpoints (add, delete, change status, and change configuration) fail to enforce administrator authentication. This allows unauthenticated attackers with network access to manipulate tool configurations. This vulnerability is conditional on the presence of an ADMIN_PASSWORD; installations without one are intentionally designed to allow open management access.\n\n## Impact\nAn unauthenticated attacker can add, delete, or modify external tools, potentially modifying configurations including API keys and ingestion URLs.\n\n## Recommendation\nRefer to the official repository commit for the patch and ensure appropriate administrative access controls are applied.",
       "published": "2026-11-12T15:22:35.000Z",
@@ -258067,16 +258050,13 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-12-cve-2026-127016-misp",
       "x_craftedsignal_event_id": "brief-2026-11-12-cve-2026-127016-misp",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-127016-misp/",
-      "x_craftedsignal_activity_at": "2026-11-12T15:22:35.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T22:46:57.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "confirmed_active",
-        "source_url": "https://sploitus.com/exploit?id=CVE-2026-127016\u0026utm_source=rss\u0026utm_medium=rss",
-        "observed_at": "2026-11-12T00:00:00.000Z",
-        "confidence": "high"
+        "status": "unknown"
       },
       "x_craftedsignal_kev_status": "false"
     },
@@ -300434,7 +300414,7 @@
       "id": "report--f5b38b64-f283-56ac-bd6c-57e1cdb132ff",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T07:18:30.000Z",
-      "modified": "2026-11-08T07:18:30.000Z",
+      "modified": "2026-11-21T22:46:57.000Z",
       "name": "Vikunja: Uncontrolled resource consumption via page parameter (CVE-2026-123531)",
       "description": "Vikunja versions from 1.0.0 before 2.7.1 contain an uncontrolled resource consumption vulnerability. Authenticated users can bypass `service.maxitemsperpage` by sending `page=0` to `/api/v1` list endpoints. This allows attackers to force unbounded SQL queries, memory materialization, and per-row query fan-out, degrading availability for other users. A public exploit or Proof of Concept (PoC) is available on Sploitus.\n",
       "published": "2026-11-08T07:18:30.000Z",
@@ -300464,16 +300444,13 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-08-vikunja-pagination-bypass",
       "x_craftedsignal_event_id": "brief-2026-11-08-vikunja-pagination-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-vikunja-pagination-bypass/",
-      "x_craftedsignal_activity_at": "2026-11-08T07:18:30.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T22:46:57.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "confirmed_active",
-        "source_url": "https://sploitus.com/exploit?id=CVE-2026-123531\u0026utm_source=rss\u0026utm_medium=rss",
-        "observed_at": "2026-11-08T02:23:00.000Z",
-        "confidence": "high"
+        "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"

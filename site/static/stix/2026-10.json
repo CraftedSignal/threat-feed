@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a82da2bc-6110-5fc5-bc0c-dc82178eb7d7",
+  "id": "bundle--f0b28d31-541e-51f2-b096-68c8d9627d69",
   "objects": [
     {
       "type": "attack-pattern",
@@ -109961,7 +109961,7 @@
       "id": "report--37a2a96f-3142-5eaf-86ff-6a3d4b31836a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T13:42:01.000Z",
-      "modified": "2026-10-30T16:52:53.000Z",
+      "modified": "2026-11-21T22:46:57.000Z",
       "name": "ClickHouse Server: Unauthenticated remote code execution (CVE-2026-116366)",
       "description": "An issue has been discovered in ClickHouse Server that, under certain conditions, could allow an unauthenticated user with network access to execute arbitrary code on the server. The vulnerability is reported with a CVSS 4.0 score of 9.5 and a high-severity rating.\n",
       "published": "2026-10-30T13:42:01.000Z",
@@ -110003,18 +110003,14 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-30-clickhouse-rce",
       "x_craftedsignal_event_id": "brief-2026-10-30-clickhouse-rce",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-clickhouse-rce/",
-      "x_craftedsignal_activity_at": "2026-10-30T16:52:53.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T22:46:57.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "confirmed_active",
-        "source_url": "https://sploitus.com/exploit?id=CVE-2026-116366",
-        "observed_at": "2026-10-30T11:24:00.000Z",
-        "confidence": "high"
+        "status": "unknown"
       },
-      "x_craftedsignal_epss_max": 0.01197,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -121815,7 +121811,7 @@
       "id": "report--522504e0-e007-5b45-bf12-8b9dbaa79560",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T09:18:21.000Z",
-      "modified": "2026-10-21T09:18:21.000Z",
+      "modified": "2026-11-21T22:46:57.000Z",
       "name": "Dokploy: Storage command injection via customGitBranch (CVE-2026-72867)",
       "description": "A public proof-of-concept exploit has been published for CVE-2026-72867. The vulnerability allows for storage-based OS command injection in Dokploy via the 'customGitBranch' field. The exploit targets the 'compose/update' path and leverages the fact that input is interpolated into a 'git clone --branch' command during deployment. The vulnerability is reported to allow command execution with root privileges, as the container runs as root and mounts 'docker.sock'.\n",
       "published": "2026-10-21T09:18:21.000Z",
@@ -121845,19 +121841,16 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-21-dokploy-cve-2026-72867",
       "x_craftedsignal_event_id": "brief-2026-10-21-dokploy-cve-2026-72867",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-dokploy-cve-2026-72867/",
-      "x_craftedsignal_activity_at": "2026-10-21T09:18:21.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T22:46:57.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "confirmed_active",
-        "source_url": "https://sploitus.com/exploit?id=D734EFEC-FFC0-5858-9CE7-E98911E2C5D5",
-        "observed_at": "2026-10-21T09:18:21.000Z",
-        "confidence": "medium"
+        "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
-      "x_craftedsignal_epss_max": 0.034,
+      "x_craftedsignal_epss_max": 0.00954,
       "x_craftedsignal_kev_status": "false"
     },
     {

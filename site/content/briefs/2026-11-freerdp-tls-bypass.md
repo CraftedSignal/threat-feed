@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-03-freerdp-tls-bypass
 event_id: brief-2026-11-03-freerdp-tls-bypass
-revision: 2
-activity_at: "2026-11-04T17:09:57Z"
+revision: 3
+activity_at: "2026-11-21T22:46:57Z"
 revision_history:
   - revision: 2
     at: "2026-11-04T17:09:57Z"
@@ -18,23 +18,28 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/freerdp-3-32-2-memory-corruption-cert-bypass-cves
+  - revision: 3
+    at: "2026-11-21T22:46:57Z"
+    checksum: sha256:9ecd3ea3c4e00fee5e63189f73fdfa263355e8605e4e498d05fbf5475eaeb5a4
+    summary: 'exploitation evidence corrected: an exploit-code listing is not exploitation'
+    changed_fields:
+      - claim_state
+      - exploitation_evidence
+      - lastmod
+      - priority_signals
+      - updates
 title: 'FreeRDP: TLS certificate validation bypass (CVE-2026-121392)'
 slug: 2026-11-freerdp-tls-bypass
 description: FreeRDP contains a certificate validation vulnerability in tls_verify_certificate() that allows man-in-the-middle attackers to intercept RDP sessions. A public PoC exploit has been published.
 date: "2026-11-03T17:15:30Z"
-lastmod: "2026-11-04T17:09:24Z"
-type: threat
-claim_state: <nil>
+lastmod: "2026-11-21T22:46:14Z"
+type: advisory
 types:
-  - threat
+  - advisory
 severities:
   - high
-exploited: true
 exploitation_evidence:
-  status: confirmed_active
-  source_url: https://sploitus.com/exploit?id=CVE-2026-121392&utm_source=rss&utm_medium=rss
-  observed_at: "2026-11-03T00:00:00Z"
-  confidence: high
+  status: unknown
 source_assessment:
   reliability: C
   credibility: "2"
@@ -74,6 +79,11 @@ updates:
       - pwn-watch
     source_urls:
       - https://pwn.watch/i/freerdp-3-32-2-memory-corruption-cert-bypass-cves
+  - at: "2026-11-21T22:46:14Z"
+    level: L1
+    summary: 'exploitation evidence corrected: an exploit-code listing is not exploitation'
+    sources:
+      - threat-bot
 ---
 
 FreeRDP contains an improper certificate validation vulnerability in tls_verify_certificate() that accepts Common Name fallback despite non-matching SAN entries and matches IP literals against DNS strings. Man-in-the-middle attackers holding a certificate from a client-trusted CA can bypass server identity checks to intercept RDP sessions, including keystrokes, clipboard, and screen content. A proof-of-concept exploit is available on Sploitus.

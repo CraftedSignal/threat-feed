@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-30-clickhouse-rce
 event_id: brief-2026-10-30-clickhouse-rce
-revision: 2
-activity_at: "2026-10-30T16:52:53Z"
+revision: 3
+activity_at: "2026-11-21T22:46:57Z"
 revision_history:
   - revision: 2
     at: "2026-10-30T16:52:53Z"
@@ -16,23 +16,29 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/clickhouse-server-unauth-rce-cve-2026-116366
+  - revision: 3
+    at: "2026-11-21T22:46:57Z"
+    checksum: sha256:c49d3e03b81a0c97eb612fdb86d52878e785a9484a51d86f62adb55b7aaad67b
+    summary: 'exploitation evidence corrected: an exploit-code listing is not exploitation'
+    changed_fields:
+      - claim_state
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_signals
+      - updates
 title: 'ClickHouse Server: Unauthenticated remote code execution (CVE-2026-116366)'
 slug: 2026-10-clickhouse-rce
 description: CVE-2026-116366 is a high-severity vulnerability in ClickHouse Server that allows an unauthenticated user with network access to execute arbitrary code.
 date: "2026-10-30T13:42:01Z"
-lastmod: "2026-10-30T16:52:19Z"
-type: threat
-claim_state: <nil>
+lastmod: "2026-11-21T22:46:14Z"
+type: advisory
 types:
-  - threat
+  - advisory
 severities:
   - high
-exploited: true
 exploitation_evidence:
-  status: confirmed_active
-  source_url: https://sploitus.com/exploit?id=CVE-2026-116366
-  observed_at: "2026-10-30T11:24:00Z"
-  confidence: high
+  status: unknown
 source_assessment:
   reliability: C
   credibility: "2"
@@ -58,6 +64,11 @@ updates:
       - pwn-watch
     source_urls:
       - https://pwn.watch/i/clickhouse-server-unauth-rce-cve-2026-116366
+  - at: "2026-11-21T22:46:14Z"
+    level: L1
+    summary: 'exploitation evidence corrected: an exploit-code listing is not exploitation'
+    sources:
+      - threat-bot
 ---
 
 An issue has been discovered in ClickHouse Server that, under certain conditions, could allow an unauthenticated user with network access to execute arbitrary code on the server. The vulnerability is reported with a CVSS 4.0 score of 9.5 and a high-severity rating.
