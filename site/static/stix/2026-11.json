@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--82cc467d-9c22-584d-9416-f5faec578568",
+  "id": "bundle--ef278a84-a315-5b61-829c-e2ca0ab55f25",
   "objects": [
     {
       "type": "attack-pattern",
@@ -71145,6 +71145,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6d5f39f7-dfd8-58da-b637-3deddf4dee8b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T11:03:46.000Z",
+      "modified": "2026-11-21T11:03:46.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--93ddd4a5-cfbb-54c0-b1f6-aacfa5312f2b",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6d631d9f-af17-58a5-b2a4-491356d779c9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -88290,6 +88301,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--76c83bc9-1244-58b8-a968-ac95fa1213ff"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8abee5fe-1efe-5d11-aaee-5f1b3153b975",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c0848447-1a43-5177-a997-06c474594dae",
+      "target_ref": "vulnerability--ca04cf65-5463-5885-98d5-923c6acbd44f"
     },
     {
       "type": "relationship",
@@ -240245,6 +240267,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--93ddd4a5-cfbb-54c0-b1f6-aacfa5312f2b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T11:03:46.000Z",
+      "modified": "2026-11-21T11:03:46.000Z",
+      "name": "Unauthenticated SQL Injection in LTL Freight Quotes - SAIA Edition",
+      "description": "### Overview\nThe LTL Freight Quotes - SAIA Edition plugin is susceptible to SQL injection due to insufficient escaping of user-supplied parameters and a lack of proper preparation in existing SQL queries. This allows unauthenticated attackers to append additional SQL commands to existing queries.\n\n### Attack Chain\nAttackers may trigger the vulnerability by supplying malicious input to the 'edit_id' or 'dropship_edit_id' parameters. Publicly documented proof-of-concept exploits utilize the 'admin-ajax.php' endpoint to interact with the vulnerable parameters.\n\n### Impact\nSuccessful exploitation allows unauthenticated attackers to extract sensitive information from the database.\n\n### Recommendation\nAs of the current source data, no information regarding a specific fixed version or official vendor remediation is available. Users should monitor for security updates from the vendor.",
+      "published": "2026-11-21T11:03:46.000Z",
+      "labels": [
+        "CVE-2024-13483",
+        "SQL-Injection",
+        "Unauthenticated"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c0848447-1a43-5177-a997-06c474594dae",
+        "vulnerability--ca04cf65-5463-5885-98d5-923c6acbd44f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-cve-2024-13483",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-13483/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2024-13483"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RANDOMROBBIEBF-CVE-2024-13483"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RANDOMROBBIEBF-CVE-2024-13483\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-cve-2024-13483",
+      "x_craftedsignal_event_id": "brief-2026-11-21-cve-2024-13483",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-13483/",
+      "x_craftedsignal_activity_at": "2026-11-21T11:03:46.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00797,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--93ea599d-6523-5efd-8372-1f342eb52c0b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T15:08:48.000Z",
@@ -316418,6 +316495,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c0848447-1a43-5177-a997-06c474594dae",
+      "name": "LTL Freight Quotes – SAIA Edition (\u003c= 2.2.10)",
+      "vendor": "enituretechnology"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c0859855-65d8-5a79-8252-61ae0143e3ee",
       "name": "MongoDB Server",
       "vendor": "MongoDB"
@@ -376878,6 +376962,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114829",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114829"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ca04cf65-5463-5885-98d5-923c6acbd44f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-13483",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-13483",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-13483"
         }
       ]
     },

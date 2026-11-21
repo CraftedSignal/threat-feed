@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d088e848-affd-514d-9e56-95d7abcd7635",
+  "id": "bundle--0c2afd66-abe4-581c-8175-56a1abdbe107",
   "objects": [
     {
       "type": "attack-pattern",
@@ -37027,17 +37027,6 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--406194f2-0db9-5a39-857d-6bdef9c6f25f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--2641cd41-4c6e-560e-ae96-c96506318473",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-22T12:02:02.000Z",
-      "modified": "2026-10-22T12:50:38.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f5588ff3-9226-50ab-adb2-f978ae867301",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -77918,17 +77907,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--5f13b82f-7a8b-549f-837f-4e20b583b0ca",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--b15701a0-ef28-57af-ab0f-bbf650c06d5b",
-      "target_ref": "vulnerability--b0c331ff-88e6-571b-9a00-bda2b0aae776"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--5f15420f-1e79-5022-af79-200352b5ddc7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -88528,6 +88506,17 @@
       "modified": "2026-11-18T14:40:36.000Z",
       "relationship_type": "uses",
       "source_ref": "report--2acb96a4-2bbd-5939-a6cb-6f109ec36c64",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6d5f39f7-dfd8-58da-b637-3deddf4dee8b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T11:03:46.000Z",
+      "modified": "2026-11-21T11:03:46.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--93ddd4a5-cfbb-54c0-b1f6-aacfa5312f2b",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -110573,6 +110562,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--76c83bc9-1244-58b8-a968-ac95fa1213ff"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8abee5fe-1efe-5d11-aaee-5f1b3153b975",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c0848447-1a43-5177-a997-06c474594dae",
+      "target_ref": "vulnerability--ca04cf65-5463-5885-98d5-923c6acbd44f"
     },
     {
       "type": "relationship",
@@ -304333,6 +304333,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--93ddd4a5-cfbb-54c0-b1f6-aacfa5312f2b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T11:03:46.000Z",
+      "modified": "2026-11-21T11:03:46.000Z",
+      "name": "Unauthenticated SQL Injection in LTL Freight Quotes - SAIA Edition",
+      "description": "### Overview\nThe LTL Freight Quotes - SAIA Edition plugin is susceptible to SQL injection due to insufficient escaping of user-supplied parameters and a lack of proper preparation in existing SQL queries. This allows unauthenticated attackers to append additional SQL commands to existing queries.\n\n### Attack Chain\nAttackers may trigger the vulnerability by supplying malicious input to the 'edit_id' or 'dropship_edit_id' parameters. Publicly documented proof-of-concept exploits utilize the 'admin-ajax.php' endpoint to interact with the vulnerable parameters.\n\n### Impact\nSuccessful exploitation allows unauthenticated attackers to extract sensitive information from the database.\n\n### Recommendation\nAs of the current source data, no information regarding a specific fixed version or official vendor remediation is available. Users should monitor for security updates from the vendor.",
+      "published": "2026-11-21T11:03:46.000Z",
+      "labels": [
+        "CVE-2024-13483",
+        "SQL-Injection",
+        "Unauthenticated"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c0848447-1a43-5177-a997-06c474594dae",
+        "vulnerability--ca04cf65-5463-5885-98d5-923c6acbd44f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-cve-2024-13483",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-13483/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2024-13483"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RANDOMROBBIEBF-CVE-2024-13483"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RANDOMROBBIEBF-CVE-2024-13483\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-cve-2024-13483",
+      "x_craftedsignal_event_id": "brief-2026-11-21-cve-2024-13483",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-13483/",
+      "x_craftedsignal_activity_at": "2026-11-21T11:03:46.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00797,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--93ea599d-6523-5efd-8372-1f342eb52c0b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T15:08:48.000Z",
@@ -377282,56 +377337,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--f5588ff3-9226-50ab-adb2-f978ae867301",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-22T12:02:02.000Z",
-      "modified": "2026-10-22T12:50:38.000Z",
-      "name": "DedeCMS: PHP code injection in ShowMsg() (CVE-2021-48016)",
-      "description": "## Overview\nDedeCMS versions through 5.8.1-beta are vulnerable to PHP code injection within the ShowMsg() function. The vulnerability arises because the application improperly handles the HTTP Referer header, writing it directly into a DedeTemplate string before inclusion. An unauthenticated attacker can exploit this by sending a crafted HTTP request to the '/plus/flink.php?dopost=save' endpoint with an empty validate code field. Successful exploitation results in arbitrary PHP and system command execution. This vulnerability has been subject to in-the-wild exploitation since at least October 14, 2023.\n\n## Attack Chain\n1. Attacker identifies a target running DedeCMS 5.8.1-beta or earlier.\n2. Attacker crafts a malicious HTTP request targeting '/plus/flink.php?dopost=save'.\n3. Attacker includes a malicious payload within the 'Referer' header.\n4. Attacker ensures the 'validate' parameter is empty to bypass simple verification.\n5. The server-side ShowMsg() function processes the crafted 'Referer' header.\n6. The application writes the 'Referer' value into a template string and includes it.\n7. Arbitrary PHP code injected in the 'Referer' header is executed by the server.\n\n## Impact\nSuccessful exploitation allows unauthenticated remote attackers to execute arbitrary PHP code and system commands on the underlying host, potentially leading to full system compromise.\n\n## Recommendation\n- Inventory all internet-facing instances of DedeCMS.\n- Patch affected instances immediately; confirm if the vendor has provided a specific update that remediates the ShowMsg() injection vulnerability.\n- If a patch is unavailable, restrict access to '/plus/flink.php' at the web application firewall or reverse proxy level.\n- Enable detailed web server logging to capture 'Referer' headers and audit requests to the 'flink.php' endpoint for anomalous payloads containing PHP tags or shell commands.\n",
-      "published": "2026-10-22T12:02:02.000Z",
-      "labels": [
-        "php-injection",
-        "remote-code-execution",
-        "web-application-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--b15701a0-ef28-57af-ab0f-bbf650c06d5b",
-        "vulnerability--b0c331ff-88e6-571b-9a00-bda2b0aae776"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-22-dedecms-code-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-dedecms-code-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-48016"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=CVE-2021-48016\u0026utm_source=rss\u0026utm_medium=rss"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-22-dedecms-code-injection",
-      "x_craftedsignal_event_id": "brief-2026-10-22-dedecms-code-injection",
-      "x_craftedsignal_revision": 2,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-dedecms-code-injection/",
-      "x_craftedsignal_activity_at": "2026-10-22T12:50:38.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--f57d3f06-3bc2-508b-9bec-fae648536d96",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T00:08:04.000Z",
@@ -405722,13 +405727,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--b15701a0-ef28-57af-ab0f-bbf650c06d5b",
-      "name": "DedeCMS (\u003c= 5.8.1-beta)",
-      "vendor": "DedeCMS"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--b15a3580-cced-5df0-89ca-aa7b73611f04",
       "name": "Django REST framework (\u003e= 3.6.4)",
       "vendor": "Django REST framework"
@@ -407460,6 +407458,13 @@
       "id": "software--c07ec93a-b3a9-5fb8-ba4a-fce522de9824",
       "name": "Netpbm (\u003c 10.86.51, \u003c 11.02.30, \u003c 11.15.08)",
       "vendor": "Netpbm"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c0848447-1a43-5177-a997-06c474594dae",
+      "name": "LTL Freight Quotes – SAIA Edition (\u003c= 2.2.10)",
+      "vendor": "enituretechnology"
     },
     {
       "type": "software",
@@ -475236,22 +475241,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--b0c331ff-88e6-571b-9a00-bda2b0aae776",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2021-48016",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2021-48016",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-48016"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--b0e4939c-154c-51f4-94ec-0f1128f5bab2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -484046,6 +484035,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114829",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114829"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ca04cf65-5463-5885-98d5-923c6acbd44f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-13483",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-13483",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-13483"
         }
       ]
     },
