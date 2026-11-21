@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0604f764-f836-51e4-9ac8-39f3f53c0245",
+  "id": "bundle--5960ac2a-e78a-5622-8984-e37e0037d93f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -169251,6 +169251,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--dc96dd28-6627-5a85-b684-a1816af4a814",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2b7f6d5b-c545-5ef6-a564-b9082071aff0",
+      "target_ref": "vulnerability--7476a95f-aeef-510a-bfc6-a328515ea7a8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--dc974a3e-05d2-5d2d-bf20-2e6324098af4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T16:39:04.000Z",
@@ -303149,6 +303160,55 @@
       },
       "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_epss_max": 0.00487,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--932e0182-b56d-5238-a33c-0c1f453c0028",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T15:29:34.000Z",
+      "modified": "2026-11-21T15:29:34.000Z",
+      "name": "RT-Labs SOES EtherCAT over Ethernet Buffer Overflow (CVE-2026-129794)",
+      "description": "## Overview\nThe SOES library before version 3.2.1 contains a buffer overflow vulnerability in its EtherCAT over Ethernet (EoE) fragment reassembly code. The implementation uses a frame size specified in the received packet as the bound for a memcpy operation into the application receive buffer without validating that the size fits within the actual buffer.\n\n## Attack Chain\nAn attacker with adjacent network access can send an EoE frame with a crafted size parameter. An attacker can write up to 2016 bytes into an application buffer that may be sized much smaller, causing memory corruption.\n\n## Impact\nSuccessful exploitation results in memory corruption. The vulnerability has a CVSS v3.1 base score of 8.8 (CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H).\n\n## Recommendation\nUsers should update the SOES library to version 3.2.1 or later.",
+      "published": "2026-11-21T15:29:34.000Z",
+      "labels": [
+        "CVE-2026-129794",
+        "buffer-overflow",
+        "ethercat"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2b7f6d5b-c545-5ef6-a564-b9082071aff0",
+        "vulnerability--7476a95f-aeef-510a-bfc6-a328515ea7a8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-soes-eoe-buffer-overflow-cve-2026-129794",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-soes-eoe-buffer-overflow-cve-2026-129794/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129794"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129794"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-soes-eoe-buffer-overflow-cve-2026-129794",
+      "x_craftedsignal_event_id": "brief-2026-11-21-soes-eoe-buffer-overflow-cve-2026-129794",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-soes-eoe-buffer-overflow-cve-2026-129794/",
+      "x_craftedsignal_activity_at": "2026-11-21T15:29:34.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -453140,6 +453200,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112720",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112720"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7476a95f-aeef-510a-bfc6-a328515ea7a8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129794",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129794",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129794"
         }
       ]
     },
