@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0eaa9279-d70b-522e-a50b-f0043a512f69",
+  "id": "bundle--98c2d0dd-97e4-5fd0-93c6-65b2f4e0e67a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -73650,6 +73650,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--58d7a023-b815-5257-af15-ee267ca9ad6d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e3232db9-522c-5291-bab2-e17a1cb6c939",
+      "target_ref": "vulnerability--9eb67434-771a-559f-9acd-7a54d1179bcf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--58dfa47d-76c0-5911-b912-d3d29d86d3af",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -108971,6 +108982,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8863d5ca-9329-5357-95da-504181829525",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f2fab188-2c4b-5840-8a05-b3b8dba970fb",
+      "target_ref": "vulnerability--9eb67434-771a-559f-9acd-7a54d1179bcf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8866425f-509c-5958-ad0f-a48448aed707",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -138469,6 +138491,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--b6b14795-fcc3-5bbe-a029-cfd0bf23974f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b1044a53-1202-5b4d-a0f9-7d6227eb9753",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6ef21276-7384-5968-851d-88d91e60a995",
+      "target_ref": "vulnerability--9eb67434-771a-559f-9acd-7a54d1179bcf"
     },
     {
       "type": "relationship",
@@ -292076,6 +292109,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--81f79309-0904-5ff5-9e36-8234172e176a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T20:52:24.000Z",
+      "modified": "2026-11-21T20:52:24.000Z",
+      "name": "Elecbrakes: Replay and command-integrity vulnerability (CVE-2026-125273)",
+      "description": "## Overview\nCVE-2026-125273 identifies a security flaw in Elecbrakes trailer brake controller firmware where commands lack necessary integrity protections. The absence of nonces, sequence numbers, or session tokens allows an adjacent attacker to capture and replay commands. Additionally, the last command sent to the controller persists across sessions, potentially enabling unauthorized persistent control over the braking state.\n\n## Impact\nAn attacker operating within the adjacent network range can intercept legitimate commands and replay them to the device. This can lead to unauthorized manipulation of the braking system's state or persistent unwanted behavior, as the system does not validate command freshness or integrity.\n\n## Recommendation\n- Upgrade Elecbrakes EB2 firmware to version 3.0.4.4.3 or later using the mobile application.\n- Upgrade Elecbrakes VM1 firmware to version 1.3.4.2.1 or later using the mobile application.\n- For the deprecated ELBC2000 controller, monitor for future guidance from the vendor, as no patch is currently available.",
+      "published": "2026-11-21T20:52:24.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6ef21276-7384-5968-851d-88d91e60a995",
+        "software--e3232db9-522c-5291-bab2-e17a1cb6c939",
+        "software--f2fab188-2c4b-5840-8a05-b3b8dba970fb",
+        "vulnerability--9eb67434-771a-559f-9acd-7a54d1179bcf"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-elecbrakes-replay-vulnerability-cve-2026-125273",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-elecbrakes-replay-vulnerability-cve-2026-125273/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-125273"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125273"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-elecbrakes-replay-vulnerability-cve-2026-125273",
+      "x_craftedsignal_event_id": "brief-2026-11-21-elecbrakes-replay-vulnerability-cve-2026-125273",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-elecbrakes-replay-vulnerability-cve-2026-125273/",
+      "x_craftedsignal_activity_at": "2026-11-21T20:52:24.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.6,
+      "x_craftedsignal_epss_max": 0.00452,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--81f811e6-8349-5a19-8e30-cdec68d89c52",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T11:52:48.000Z",
@@ -399227,6 +399307,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--6ef21276-7384-5968-851d-88d91e60a995",
+      "name": "VM1 (\u003c 1.3.4.2.1)",
+      "vendor": "Elecbrakes"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--6f17cd5a-9a57-536b-80e6-bba30a463ad6",
       "name": "Splunk Enterprise (10.0 \u003c 10.0.11)",
       "vendor": "Splunk"
@@ -412277,6 +412364,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e3232db9-522c-5291-bab2-e17a1cb6c939",
+      "name": "EB2 (\u003c= 3.0.4.2.0)",
+      "vendor": "Elecbrakes"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e3236755-9c3f-5e62-a2bb-c61b777a70f3",
       "name": "Telerik UI for WPF (\u003c 2026.4.1110)",
       "vendor": "Progress"
@@ -414166,6 +414260,13 @@
       "spec_version": "2.1",
       "id": "software--f2ef3331-dc9c-52bc-94d9-2c1405c7bd23",
       "name": "Motus"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f2fab188-2c4b-5840-8a05-b3b8dba970fb",
+      "name": "ELBC2000 (All versions)",
+      "vendor": "Elecbrakes"
     },
     {
       "type": "software",
@@ -469999,6 +470100,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-129056",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129056"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9eb67434-771a-559f-9acd-7a54d1179bcf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125273",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125273",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125273"
         }
       ]
     },
