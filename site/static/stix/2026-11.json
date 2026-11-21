@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--32df6b69-fdca-5d61-9d15-84e0c750041a",
+  "id": "bundle--b219df15-fce9-5c60-96c2-d22d16cec728",
   "objects": [
     {
       "type": "attack-pattern",
@@ -128716,7 +128716,7 @@
       "id": "relationship--d1949d5e-b3a4-563f-85aa-8238b253d74e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T02:57:41.000Z",
-      "modified": "2026-11-18T02:57:41.000Z",
+      "modified": "2026-11-21T10:05:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--516b3be9-a9d3-57be-8c4d-ba16e7134931",
       "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
@@ -202489,7 +202489,7 @@
       "id": "report--516b3be9-a9d3-57be-8c4d-ba16e7134931",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T02:57:41.000Z",
-      "modified": "2026-11-18T02:57:41.000Z",
+      "modified": "2026-11-21T10:05:30.000Z",
       "name": "Microsoft agent-framework: Credential stealer in PyPI package",
       "description": "## Overview\nOn November 17, 2026, at 20:35 UTC, versions 1.26.1 and 1.26.2 of the Microsoft PyPI package agent-framework were published with an added credential stealer. The package receives nearly 200,000 downloads monthly. The malicious versions have since been quarantined.\n\n## Impact\nUsers who downloaded or installed the affected versions are potentially exposed to credential theft.\n\n## Recommendation\nAssess local environments for the presence of the identified malicious versions of the agent-framework package and ensure they have been removed.",
       "published": "2026-11-18T02:57:41.000Z",
@@ -202506,15 +202506,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/attackers-compromise-microsofts-agent.html"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.wiz.io/blog/malicious-version-of-microsofts-agent-framework-published-to-pypi"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-18-agent-framework-pypi",
       "x_craftedsignal_event_id": "brief-2026-11-18-agent-framework-pypi",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-agent-framework-pypi/",
-      "x_craftedsignal_activity_at": "2026-11-18T02:57:41.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T10:05:30.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
