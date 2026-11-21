@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f09f900c-4e90-5471-9f18-42ea03281814",
+  "id": "bundle--6167d576-2d91-5fb1-bc57-428440e3232e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -13118,6 +13118,17 @@
       "relationship_type": "has",
       "source_ref": "software--566ee505-d093-51f3-9ae6-134a5773c68f",
       "target_ref": "vulnerability--2f43b5dd-45c4-50aa-9746-2129255f9326"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--05aa4620-1ac9-57c0-a004-ff52b581d431",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T09:47:23.000Z",
+      "modified": "2026-11-21T09:47:23.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4fbae2d9-2f82-573c-be39-8dc5deb7102f",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -170301,6 +170312,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--dddf0cfb-eddd-51eb-9fda-a4d3cb094878",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7e904b7e-6344-5db7-b3c3-d4bdeeee9288",
+      "target_ref": "vulnerability--e5e14ae7-e449-5d1f-a1eb-7ee71f799d10"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--dde3270d-c40a-57b1-9f6c-97909264246d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-21T00:49:22.000Z",
@@ -181869,6 +181891,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--3e190d05-7550-549d-83bc-27766f5bd88a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ede878bb-f60d-5b05-b682-c1f90db9d3ce",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7e904b7e-6344-5db7-b3c3-d4bdeeee9288",
+      "target_ref": "vulnerability--f91ccc3f-ecfb-597c-9f38-3d59f3ca45e3"
     },
     {
       "type": "relationship",
@@ -255583,6 +255616,71 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--4fbae2d9-2f82-573c-be39-8dc5deb7102f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T09:47:23.000Z",
+      "modified": "2026-11-21T09:47:23.000Z",
+      "name": "Refitter: Arbitrary Code Execution via Crafted OpenAPI Specifications",
+      "description": "## Overview\nRefitter is a tool for generating a C# REST API client using the Refit library. Vulnerabilities (CVE-2026-63344, CVE-2026-63345, CVE-2026-63346) exist in versions prior to 2.1.2, where input from an OpenAPI specification is emitted verbatim into C# attribute strings without proper escaping. An attacker-influenced OpenAPI description can break out of the intended attribute context to inject a top-level `file class` containing a `[ModuleInitializer]` method. This method executes attacker code when the generated assembly is loaded at application startup, even if the generated client is never called.\n\n## Attack Chain\n1. An attacker provides a crafted OpenAPI specification (e.g., specific content-type keys, paths, or header parameter names) to the Refitter tool.\n2. Refitter processes the input and emits the crafted strings verbatim into generated Refit attributes.\n3. The breakout allows the injection of arbitrary code via `[ModuleInitializer]` into the generated C# assembly.\n4. When a victim application compiles and loads the generated assembly at startup, the .NET runtime triggers the injected code.\n\n## Impact\nSuccessful exploitation results in arbitrary code execution in the context of the application that compiles and loads the generated assembly.\n\n## Recommendation\nUpgrade to Refitter version 2.1.2 or later to ensure proper escaping of attribute strings.",
+      "published": "2026-11-21T09:47:23.000Z",
+      "labels": [
+        "dotnet",
+        "openapi",
+        "rce",
+        "supply-chain"
+      ],
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7e904b7e-6344-5db7-b3c3-d4bdeeee9288",
+        "vulnerability--1a2c9a45-3001-58cb-8479-481481b3e4a7",
+        "vulnerability--e5e14ae7-e449-5d1f-a1eb-7ee71f799d10",
+        "vulnerability--f91ccc3f-ecfb-597c-9f38-3d59f3ca45e3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-refitter-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-refitter-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-63344"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-63345"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-63346"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/christianhelle/refitter/commit/63a19b03699a9c267d6fab5f758ec26484db83a1"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=B462E146-953F-5BAF-9974-FC55A56AA045\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-refitter-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-21-refitter-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-refitter-rce/",
+      "x_craftedsignal_activity_at": "2026-11-21T09:47:23.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.0035,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -493153,6 +493251,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--e5e14ae7-e449-5d1f-a1eb-7ee71f799d10",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-63346",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-63346",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63346"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--e5e89ef2-93ed-5316-914e-8cd83737ca4e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -499467,6 +499581,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-104328",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104328"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f91ccc3f-ecfb-597c-9f38-3d59f3ca45e3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-63344",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-63344",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63344"
         }
       ]
     },
