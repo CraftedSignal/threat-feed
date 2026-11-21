@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--81b718bc-9f0e-512c-b356-36833d81e08b",
+  "id": "bundle--f79a5884-ab14-545a-8e15-798ec8d6662d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -69122,6 +69122,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--a1efa1fa-442f-55b7-99b2-4495b282b8bd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6a2edba4-1a54-546a-8286-8bc3e7fd2a88",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9eed2118-2076-5a24-a06b-6b05ab88ce01",
+      "target_ref": "vulnerability--2e381e6b-747d-568a-b6ee-ca3fb7715fd5"
     },
     {
       "type": "relationship",
@@ -187728,6 +187739,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--38147e23-70a8-5c5e-85f7-a1e20d3bedbc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T11:21:20.000Z",
+      "modified": "2026-11-21T11:21:20.000Z",
+      "name": "VikBooking Hotel Booking Engine \u0026 PMS: Stored Cross-Site Scripting (CVE-2026-119061)",
+      "description": "## Overview\nThe VikBooking Hotel Booking Engine \u0026 PMS plugin for WordPress is vulnerable to Stored Cross-Site Scripting (XSS) due to insufficient input sanitization and output escaping in the 'vbf\u0026lt;field_id\u003e' parameter. This vulnerability affects all versions up to, and including, 1.8.20.\n\n## Attack Chain\nUnauthenticated attackers can leverage the 'vbf\u0026lt;field_id\u003e' parameter to inject arbitrary web scripts into pages. These scripts execute whenever a user accesses an affected page.\n\n## Impact\nSuccessful exploitation allows the execution of arbitrary web scripts in the context of a user's browser session when they visit an injected page.\n\n## Recommendation\nUsers should monitor the vendor for security updates or remediation guidance as none is currently specified.",
+      "published": "2026-11-21T11:21:20.000Z",
+      "labels": [
+        "cve-2026-119061",
+        "wordpress",
+        "xss"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9eed2118-2076-5a24-a06b-6b05ab88ce01",
+        "vulnerability--2e381e6b-747d-568a-b6ee-ca3fb7715fd5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-vikbooking-xss-cve-2026-119061",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-vikbooking-xss-cve-2026-119061/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-119061"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119061"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-vikbooking-xss-cve-2026-119061",
+      "x_craftedsignal_event_id": "brief-2026-11-21-vikbooking-xss-cve-2026-119061",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-vikbooking-xss-cve-2026-119061/",
+      "x_craftedsignal_activity_at": "2026-11-21T11:21:20.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -334116,6 +334176,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112222",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112222"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2e381e6b-747d-568a-b6ee-ca3fb7715fd5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119061",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119061",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119061"
         }
       ]
     },
