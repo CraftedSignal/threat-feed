@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--98c2d0dd-97e4-5fd0-93c6-65b2f4e0e67a",
+  "id": "bundle--4f2d37a5-ba4c-5508-ab01-3fbf00c88fac",
   "objects": [
     {
       "type": "attack-pattern",
@@ -46916,6 +46916,17 @@
       "relationship_type": "has",
       "source_ref": "software--efdced95-bbf0-542e-b1ce-43ee8a67472f",
       "target_ref": "vulnerability--5300c4f2-3a77-5472-a79e-b905d5e16b77"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--341f164b-6580-5878-a65c-21ac564c4985",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T20:55:56.000Z",
+      "modified": "2026-11-21T20:55:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4158ee33-f39f-5552-bf3a-f4e0a28cc2b3",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -109807,6 +109818,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--896085be-a334-5562-b234-3955f2f608fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d36c9145-1787-5eeb-a56e-598cd5a331d1",
+      "target_ref": "vulnerability--7f85c3b8-a24f-5352-8c81-6e218c375ece"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--896111ae-fca5-5931-96fb-973dd7373fb0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -157510,6 +157532,17 @@
       "relationship_type": "has",
       "source_ref": "software--558bc551-91ce-5b79-9fd4-e75df66774e1",
       "target_ref": "vulnerability--5f2abb37-d84a-545b-99a7-c9d5459bdf06"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cb2c02d5-0290-5b6f-a6d8-942e715589c1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b00b01db-cb08-58c2-9980-b17e68252f1a",
+      "target_ref": "vulnerability--7f85c3b8-a24f-5352-8c81-6e218c375ece"
     },
     {
       "type": "relationship",
@@ -244846,6 +244879,64 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--4158ee33-f39f-5552-bf3a-f4e0a28cc2b3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T20:55:56.000Z",
+      "modified": "2026-11-21T20:55:56.000Z",
+      "name": "Splunk Enterprise Security: Improper input validation in System Update Status report (CVE-2026-131239)",
+      "description": "## Overview\n\nSplunk Enterprise Security versions below 8.7.0 contain a vulnerability where an attacker with the 'run_collect' capability can store malicious values in Updates data. If another user with access to the 'System Update Status' report interacts with an affected row, the application executes injected Search Processing Language (SPL) commands using the permissions of that victim user. The flaw stems from a lack of input validation for destination, signature, and vendor-product values before they are processed by drilldown searches.\n\n## Impact\n\nSuccessful exploitation allows an attacker to execute arbitrary SPL commands under the context and permissions of the user interacting with the report. This can lead to unauthorized access to sensitive data and the potential modification of data accessible by the victim user.\n\n## Recommendation\n\nUpgrade Splunk Enterprise Security and the Splunk App for PCI Compliance to version 8.7.0 or higher. If patching is not immediately feasible, consider temporarily removing or disabling the Splunk Enterprise Security application.",
+      "published": "2026-11-21T20:55:56.000Z",
+      "labels": [
+        "CVE-2026-131239"
+      ],
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b00b01db-cb08-58c2-9980-b17e68252f1a",
+        "software--d36c9145-1787-5eeb-a56e-598cd5a331d1",
+        "vulnerability--7f85c3b8-a24f-5352-8c81-6e218c375ece"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-splunk-es-cve-2026-131239",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-splunk-es-cve-2026-131239/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-131239"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/splunk-app-for-pci-compliance/installation-and-configuration-manual/8.7/configure-reports/system-update-status"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.2/meet-splunk-apps/manage-app-and-add-on-objects"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131239"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-splunk-es-cve-2026-131239",
+      "x_craftedsignal_event_id": "brief-2026-11-21-splunk-es-cve-2026-131239",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-splunk-es-cve-2026-131239/",
+      "x_craftedsignal_activity_at": "2026-11-21T20:55:56.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_epss_max": 0.00312,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -458740,6 +458831,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121497",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121497"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7f85c3b8-a24f-5352-8c81-6e218c375ece",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-131239",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-131239",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131239"
         }
       ]
     },
