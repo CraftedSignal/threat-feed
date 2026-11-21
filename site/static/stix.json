@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f1c9154a-95f4-5fe1-bd5a-c8311262f058",
+  "id": "bundle--b95d54a9-6e3a-5185-939e-ded61d39adf0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -108536,6 +108536,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--882f5f6d-1d23-53bf-99e5-52634a719266",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--02471b1c-b7ef-5cac-89fb-fc58ec58266f",
+      "target_ref": "vulnerability--d8f8e55e-8a93-5884-a377-8c534c2b5e20"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--883531a5-4815-5d90-8a55-351bd19963da",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -117024,6 +117035,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--9aaabd7b-4338-571f-8675-ed80d155f3f9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--941ad805-1a35-5906-9388-478eaa017260",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T04:55:11.000Z",
+      "modified": "2026-11-21T04:55:11.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ae1e4730-571c-5937-8261-b435ef1bf31f",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -323499,6 +323521,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ae1e4730-571c-5937-8261-b435ef1bf31f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T04:55:11.000Z",
+      "modified": "2026-11-21T04:55:11.000Z",
+      "name": "WP Import Export Lite: Limited Code Injection (CVE-2026-19793)",
+      "description": "## Overview\n\nThe WP Import Export Lite plugin for WordPress is affected by a limited code injection vulnerability (CVE-2026-19793) in all versions up to, and including, 3.9.32. The vulnerability arises from a two-stage shortcode check that evaluates the raw mapping placeholder before data substitution, causing the neutralizer to be skipped when attacker-controlled comment content containing a malicious [wpie_function] shortcode is substituted at runtime.\n\n## Attack Chain\n\n1. An unauthenticated attacker submits a comment containing a malicious [wpie_function] shortcode to a comments-open post.\n2. The malicious comment is stored in the WordPress database.\n3. An administrator performs the standard 'Export With Settings For Import' operation followed by a 'New Import' migration workflow.\n4. During the migration, the stored comment content is processed, and the lack of proper neutralization allows the execution of the injected PHP callable.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to inject arbitrary PHP callables on the server. The execution of the payload requires an administrator to perform the specific 'Export With Settings For Import' and 'New Import' migration workflow.\n\n## Recommendation\n\nAs of the current reporting, no patch or fixed release is identified by the source. Administrators should monitor comment activity on the WordPress site for suspicious content, specifically checking for the presence of [wpie_function] strings, and consider disabling comments on public-facing posts to reduce exposure to untrusted input.",
+      "published": "2026-11-21T04:55:11.000Z",
+      "labels": [
+        "code-injection",
+        "plugin",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--02471b1c-b7ef-5cac-89fb-fc58ec58266f",
+        "vulnerability--d8f8e55e-8a93-5884-a377-8c534c2b5e20"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-wp-import-export-lite-rce-cve-2026-19793",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wp-import-export-lite-rce-cve-2026-19793/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-19793"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19793"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-wp-import-export-lite-rce-cve-2026-19793",
+      "x_craftedsignal_event_id": "brief-2026-11-21-wp-import-export-lite-rce-cve-2026-19793",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wp-import-export-lite-rce-cve-2026-19793/",
+      "x_craftedsignal_activity_at": "2026-11-21T04:55:11.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ae24f1ab-378c-501d-8d98-fc57f0bc48be",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T16:58:53.000Z",
@@ -384101,6 +384173,13 @@
       "id": "software--023a3e25-4ba5-5398-a40d-4d1839cb6a55",
       "name": "FL WLAN 2340",
       "vendor": "Phoenix Contact"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--02471b1c-b7ef-5cac-89fb-fc58ec58266f",
+      "name": "WP Import Export Lite (\u003c= 3.9.32)",
+      "vendor": "vjinfotech"
     },
     {
       "type": "software",
@@ -487654,6 +487733,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-64556",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64556"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d8f8e55e-8a93-5884-a377-8c534c2b5e20",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-19793",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-19793",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19793"
         }
       ]
     },
