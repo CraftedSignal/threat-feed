@@ -1,27 +1,53 @@
 ---
+brief_id: brief-2024-01-03-rdp-internet
+event_id: brief-2024-01-03-rdp-internet
+revision: 2
+activity_at: "2026-11-21T16:46:26Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-21T16:46:26Z"
+    checksum: sha256:0e1c925c6b30e2f11900cc54089565bc1ffd3a5cfc185faffddacfc53cadd192
+    summary: exploited:true; KEV CVE-2019-0708
+    changed_fields:
+      - affected_products
+      - affected_vendors
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_score
+      - priority_signals
+      - ttps
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: RDP (Remote Desktop Protocol) from the Internet
 slug: 2024-01-rdp-internet
 description: This rule detects network events indicative of RDP traffic originating from the internet, which poses a significant security risk due to its frequent exploitation as an initial access or backdoor vector.
 date: "2024-01-03T14:30:00Z"
-type: advisory
+lastmod: "2026-11-21T16:45:43Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - medium
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  observed_at: "2021-11-03T00:00:00Z"
+  confidence: high
 tags:
   - command-and-control
   - lateral-movement
   - initial-access
   - rdp
-vendors:
-  - Microsoft
-products:
-  - Remote Desktop Services
 mitre_ttps:
   - tactic_id: TA0011
     tactic_name: Command and Control
     technique_id: T1021
     technique_name: Remote Services
+    subtechnique_id: T1021.001
+    subtechnique_name: Remote Desktop Protocol
   - tactic_id: TA0008
     tactic_name: Lateral Movement
     technique_id: T1133
@@ -33,7 +59,9 @@ mitre_ttps:
 cves:
   - id: CVE-2019-0708
     cvss: 9.8
-    epss: 0.99999
+    epss: 0.94454
+    kev: true
+    kev_status: "true"
 references:
   - https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml
   - https://attack.mitre.org/tactics/TA0011/
@@ -67,7 +95,17 @@ rules:
       - network_connection
       - zeek
 rules_count: 2
+updates:
+  - at: "2026-11-21T16:45:43Z"
+    level: L3
+    summary: exploited:true; KEV CVE-2019-0708
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
+
+## Overview
 
 Remote Desktop Protocol (RDP) is a common tool for system administrators to remotely manage systems, however, exposing RDP directly to the internet creates a significant attack surface. Threat actors frequently target and exploit RDP for initial access, lateral movement, and establishing backdoors within compromised networks. This activity is detected by monitoring network traffic for RDP connections originating from outside the internal network (RFC1918 IP ranges). This is important because successful RDP compromise often leads to broader network infiltration and data exfiltration. This detection focuses on the network level characteristics of RDP connections from the internet to internal assets.
 
