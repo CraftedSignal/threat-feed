@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--fee8f729-6bc6-5a58-a979-7c9042f36aaa",
+  "id": "bundle--08d5eb25-db2e-55fd-9455-1517044354ed",
   "objects": [
     {
       "type": "attack-pattern",
@@ -65249,6 +65249,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--625f5530-b4ff-578c-a968-cca19871207c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T19:32:15.000Z",
+      "modified": "2026-11-21T19:32:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d1b18eea-9fb2-5114-a429-5aff1ea50a80",
+      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6262fee7-ce1a-5b85-a049-9d3518c12ab8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T15:53:37.000Z",
@@ -116773,6 +116784,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ba3cac2c-c303-5b61-b103-7a6838838573",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f1c3d69b-6a5d-5ef0-92b3-58b34ee5a91c",
+      "target_ref": "vulnerability--2641fd31-0301-5c0b-a8df-10ae39843945"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ba3fe083-0f56-5708-b672-cb78549b7e81",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T00:11:51.000Z",
@@ -126515,6 +126537,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--f55a48e6-aba4-5832-a3ee-a4a163af6441"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cb34134e-f1ff-571f-99a3-7ca9a4f78c99",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--adad38b4-db9f-586d-822d-d9dce6248bab",
+      "target_ref": "vulnerability--2641fd31-0301-5c0b-a8df-10ae39843945"
     },
     {
       "type": "relationship",
@@ -278184,6 +278217,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d1b18eea-9fb2-5114-a429-5aff1ea50a80",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T19:32:15.000Z",
+      "modified": "2026-11-21T19:32:15.000Z",
+      "name": "Web-Token jwt-framework and jwt-library uncontrolled resource consumption (CVE-2026-134461)",
+      "description": "## Overview\nWeb-Token jwt-framework and jwt-library contain an uncontrolled resource consumption vulnerability in the PBES2AESKW::unwrapKey() function. The issue stems from passing an attacker-controlled p2c JWE header value to the hash_pbkdf2() function without enforcing an upper bound. Unauthenticated attackers can send a JWE with a PBES2-HS*+A*KW algorithm and a large p2c iteration count to trigger exhaustive PBKDF2 calculations, resulting in a denial-of-service via CPU exhaustion.\n\n## Impact\nSuccessful exploitation leads to server-side CPU exhaustion and denial-of-service, affecting application availability.\n\n## Recommendation\n- Audit applications for dependency on affected versions of web-token/jwt-framework and web-token/jwt-library.\n- Update web-token/jwt-framework and web-token/jwt-library to version 3.4.10, 4.0.7, or 4.1.7 or later to ensure the iteration count is bounded.\n- Implement rate limiting on endpoints that process JWE tokens to mitigate potential exploitation attempts while patching.",
+      "published": "2026-11-21T19:32:15.000Z",
+      "object_refs": [
+        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--adad38b4-db9f-586d-822d-d9dce6248bab",
+        "software--f1c3d69b-6a5d-5ef0-92b3-58b34ee5a91c",
+        "vulnerability--2641fd31-0301-5c0b-a8df-10ae39843945"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-web-token-jwt-resource-exhaustion-cve-2026-134461",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-web-token-jwt-resource-exhaustion-cve-2026-134461/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134461"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134461"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-web-token-jwt-resource-exhaustion-cve-2026-134461",
+      "x_craftedsignal_event_id": "brief-2026-11-21-web-token-jwt-resource-exhaustion-cve-2026-134461",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-web-token-jwt-resource-exhaustion-cve-2026-134461/",
+      "x_craftedsignal_activity_at": "2026-11-21T19:32:15.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d1b266ac-fced-580f-b459-b09af158b2a8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T23:54:11.000Z",
@@ -319427,6 +319506,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--adad38b4-db9f-586d-822d-d9dce6248bab",
+      "name": "jwt-framework (\u003c 3.4.10, \u003e= 4.0.0 \u003c 4.0.7, \u003e= 4.1.0 \u003c 4.1.7)",
+      "vendor": "Web-Token"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ade54b19-8417-5d6a-995a-9c919ab63fba",
       "name": "Energy Support Library (EnSL)",
       "vendor": "Siemens"
@@ -325143,6 +325229,13 @@
       "id": "software--f1bd479c-11f2-5d69-84eb-c550f9e28eb1",
       "name": "C-Kermit (\u003c 11.1.515)",
       "vendor": "Kermit Project"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f1c3d69b-6a5d-5ef0-92b3-58b34ee5a91c",
+      "name": "jwt-library (\u003c 3.4.10, \u003e= 4.0.0 \u003c 4.0.7, \u003e= 4.1.0 \u003c 4.1.7)",
+      "vendor": "Web-Token"
     },
     {
       "type": "software",
@@ -337125,6 +337218,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-122306",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122306"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2641fd31-0301-5c0b-a8df-10ae39843945",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134461",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134461",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134461"
         }
       ]
     },
