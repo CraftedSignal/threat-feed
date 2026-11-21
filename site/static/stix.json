@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2b8e8424-e61a-58a6-974f-dd8b5451cf41",
+  "id": "bundle--be8cca1b-9483-5195-8f57-41c74b1a9dc7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -14906,6 +14906,17 @@
       "relationship_type": "has",
       "source_ref": "software--307435b4-8646-5514-aa5d-9349384bc366",
       "target_ref": "vulnerability--7d3f85a6-f205-510f-bf89-2cb51dd703e6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--078dc7aa-945d-5a2b-bd9a-f4bb590b3d54",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T22:06:16.000Z",
+      "modified": "2026-11-21T22:06:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7fd97ab1-015d-5e76-8fc9-1b7cd1cfce85",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -65147,6 +65158,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4d4b91d9-e9fe-5930-b567-064abb690d1b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T22:06:16.000Z",
+      "modified": "2026-11-21T22:06:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7fd97ab1-015d-5e76-8fc9-1b7cd1cfce85",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4d4becd0-7f12-56a9-8464-52b4e26e8d6d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -85691,6 +85713,17 @@
       "relationship_type": "uses",
       "source_ref": "report--48243295-8948-5b4d-9a65-2edf43b19b9c",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--69159291-d193-5e4c-8ec4-0f29563e0d90",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a8fd4043-b19f-5c00-af37-cee17e23af03",
+      "target_ref": "vulnerability--9230e93e-1fac-5b6a-a2d8-8d436fe10eeb"
     },
     {
       "type": "relationship",
@@ -290665,6 +290698,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--7fd97ab1-015d-5e76-8fc9-1b7cd1cfce85",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T22:06:16.000Z",
+      "modified": "2026-11-21T22:06:16.000Z",
+      "name": "goshs: Remote code execution vulnerability (CVE-2025-46816)",
+      "description": "## Overview\ngoshs, a SimpleHTTPServer written in Go, contains a critical remote code execution vulnerability (CVE-2025-46816). The vulnerability stems from the `dispatchReadPump` function failing to validate the `-c` command-line option when the application is launched without arguments. This allows an unauthenticated remote attacker to execute arbitrary commands on the host system via websockets. The issue is addressed in version 1.0.5.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to achieve remote code execution on the server with the privileges of the running goshs process. This poses a high risk to confidentiality, integrity, and availability.\n\n## Recommendation\n- Upgrade all instances of goshs to version 1.0.5 or later immediately.\n- If an upgrade is not immediately possible, restrict access to the goshs application via network controls (e.g., firewall) to prevent unauthorized network access to the server, especially the websocket interface.\n- Hunt for unauthorized process execution originating from the goshs application context.",
+      "published": "2026-11-21T22:06:16.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a8fd4043-b19f-5c00-af37-cee17e23af03",
+        "vulnerability--9230e93e-1fac-5b6a-a2d8-8d436fe10eeb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-goshs-rce-cve-2025-46816",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-goshs-rce-cve-2025-46816/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-46816"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-GUILHEM7-CVE-2025-46816\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-goshs-rce-cve-2025-46816",
+      "x_craftedsignal_event_id": "brief-2026-11-21-goshs-rce-cve-2025-46816",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-goshs-rce-cve-2025-46816/",
+      "x_craftedsignal_activity_at": "2026-11-21T22:06:16.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.4,
+      "x_craftedsignal_epss_max": 0.0075,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--7fef1ba1-250c-5d11-b21f-51c522907985",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T00:10:53.000Z",
@@ -406704,6 +406784,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a8fd4043-b19f-5c00-af37-cee17e23af03",
+      "name": "goshs (\u003e= 0.3.4, \u003c 1.0.5)",
+      "vendor": "patrickhener"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a8fdf402-e94f-54d9-8d01-fcc9222ef034",
       "name": "3ds Max (\u003e= 2027.0.0, \u003c 2027.3.0)",
       "vendor": "Autodesk"
@@ -466523,6 +466610,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118636",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118636"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9230e93e-1fac-5b6a-a2d8-8d436fe10eeb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-46816",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-46816",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-46816"
         }
       ]
     },
