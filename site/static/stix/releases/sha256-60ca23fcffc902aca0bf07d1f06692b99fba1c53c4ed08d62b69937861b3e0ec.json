@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f5b4a854-43fb-5579-89fb-e916eec1c459",
+  "id": "bundle--a950585f-5538-5aef-b806-8b6443837c4c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -50087,6 +50087,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--38f43bf3-5f56-5d0c-9b18-72a719cc5634",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T02:05:07.000Z",
+      "modified": "2026-11-21T02:05:07.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--f5dc8dc1-f698-5a11-bd39-33075917cbc1",
+      "target_ref": "threat-actor--2817035c-4158-527c-af27-83bd8c365634"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--38f6b43e-c7c3-5def-8242-88c2654ebd2d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T21:42:07.000Z",
@@ -61853,6 +61864,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--e848581c-3d1a-5d77-b963-9e575eb171b0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4965e1f0-a3ad-5360-b444-21882701bf72",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1c03de2b-813e-51dc-aa89-9637e8138185",
+      "target_ref": "vulnerability--14384a01-002e-542b-8a9f-bd1e762672a1"
     },
     {
       "type": "relationship",
@@ -263724,6 +263746,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5b8794a8-5e58-5c51-9272-9ba59aefa8a1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T02:05:33.000Z",
+      "modified": "2026-11-21T02:05:33.000Z",
+      "name": "Contao core-bundle Privilege Escalation via theme_import",
+      "description": "## Overview\nContao core-bundle contains a privilege escalation vulnerability where non-admin users with delegated user management permissions can grant themselves the 'theme_import' capability. While commit 2b83a60f7763 (introduced in v5.7.3) added `TemplateEditorModuleVoter` to restrict the 'tpl_editor' backend module, the 'theme_import' capability within the 'themes' checkbox field lacks corresponding voter logic. This allows a delegated user manager to grant themselves the 'theme_import' permission, which enables arbitrary PHP execution.\n\n## Attack Chain\n1. A non-admin backend user with delegated user management permissions (the 'user' or 'group' module) edits a group or account.\n2. The user adds 'themes' to the modules field and 'theme_import' to the themes field.\n3. The application accepts these permissions, as they are not restricted by the `TemplateEditorModuleVoter`.\n4. Upon re-authentication, the user gains access to 'theme_import', enabling arbitrary PHP execution.\n\n## Impact\nA delegated user/group manager can escalate privileges to execute arbitrary PHP code on the server, resulting in full system compromise. This bypasses the protections introduced in v5.7.3.\n\n## Recommendation\nUpgrade to the patched versions:\n- For branch 5.0.x: Upgrade to 5.3.50 or later.\n- For branch 5.4.x: Upgrade to 5.7.12 or later.",
+      "published": "2026-11-21T02:05:33.000Z",
+      "labels": [
+        "privilege-escalation",
+        "rce"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1c03de2b-813e-51dc-aa89-9637e8138185",
+        "vulnerability--14384a01-002e-542b-8a9f-bd1e762672a1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-contao-core-bundle-privilege-escalation-ghsa-r9qp-pqx5-8369",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-contao-core-bundle-privilege-escalation-ghsa-r9qp-pqx5-8369/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-r9qp-pqx5-8369"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-contao-core-bundle-privilege-escalation-ghsa-r9qp-pqx5-8369",
+      "x_craftedsignal_event_id": "brief-2026-11-21-contao-core-bundle-privilege-escalation-ghsa-r9qp-pqx5-8369",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-contao-core-bundle-privilege-escalation-ghsa-r9qp-pqx5-8369/",
+      "x_craftedsignal_activity_at": "2026-11-21T02:05:33.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5ba0b3bf-d749-5ae0-a7da-3c21faf3b2d5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T16:32:04.000Z",
@@ -376918,6 +376983,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f5dc8dc1-f698-5a11-bd39-33075917cbc1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T02:05:07.000Z",
+      "modified": "2026-11-21T02:05:07.000Z",
+      "name": "Com-Affiliated Vishing and Cloud Data Extortion Campaigns",
+      "description": "### Overview\nUnit 42 has tracked persistent vishing campaigns conducted by Com-affiliated threat actors since August 2026, targeting financial, healthcare, and legal sectors primarily in the U.S., UK, and Australia. The actors utilize social engineering and AiTM proxy infrastructure to bypass authentication and exfiltrate sensitive data from cloud collaboration platforms for extortion.\n\n### Attack Chain\n- **Initial Access:** Actors perform vishing, impersonating internal IT support to direct victims to organization-specific subdomains that serve as AiTM proxies.\n- **Credential Access:** The AiTM proxies intercept credentials and MFA approvals in real-time. Actors may enroll their own unauthorized MFA devices or replay persistent session tokens.\n- **Persistence:** Actors establish access through unauthorized MFA device enrollment, cloud infrastructure credentials, and the authorization of third-party OAuth applications.\n- **Exfiltration:** Data is exfiltrated from Microsoft 365, OneDrive, and SharePoint using native SaaS and REST APIs, scripted HTTP requests, or cloud storage tools.\n- **Browser Implantation:** Certain activity clusters deploy malicious Chromium-based browser extensions to perform keylogging, screen capture, and command-and-control functions via the Chrome DevTools Protocol.\n- **Extortion:** Actors send direct messages via internal email or Microsoft Teams to victims, notifying them of the data breach and directing them to Tor-hosted negotiation sites.\n\n### Impact\nVictims suffer unauthorized access to high-impact corporate data, including financial records, patient data, client agreements, and confidential casework, which are subsequently held for extortion.\n\n### Recommendation\n- Tighten help desk verification processes.\n- Transition to phishing-resistant MFA (FIDO2/passkeys).\n- Implement browser extension allowlists.\n- Establish visibility into identity actions and alert on unauthorized data exports.",
+      "published": "2026-11-21T02:05:07.000Z",
+      "labels": [
+        "extortion",
+        "social-engineering",
+        "vishing"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "threat-actor--2817035c-4158-527c-af27-83bd8c365634"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-com-vishing-extortion",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-com-vishing-extortion/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://unit42.paloaltonetworks.com/com-affiliate-vishing-attacks/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-com-vishing-extortion",
+      "x_craftedsignal_event_id": "brief-2026-11-21-com-vishing-extortion",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-com-vishing-extortion/",
+      "x_craftedsignal_activity_at": "2026-11-21T02:05:07.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://unit42.paloaltonetworks.com/com-affiliate-vishing-attacks/",
+        "observed_at": "2026-11-21T02:05:07.000Z",
+        "confidence": "medium"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f5dfa253-84f4-5547-9f5b-3f2ade642cec",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T10:05:07.000Z",
@@ -387771,6 +387882,13 @@
       "id": "software--1bfe8827-7425-5bb1-b1b4-c00912aba26e",
       "name": "PowerProtect Data Domain Virtual Edition (LTS2025 8.3.1.0 - 8.3.1.30)",
       "vendor": "Dell"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--1c03de2b-813e-51dc-aa89-9637e8138185",
+      "name": "composer/contao/core-bundle",
+      "vendor": "Contao"
     },
     {
       "type": "software",
@@ -413747,6 +413865,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "Midnight Blizzard"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--2817035c-4158-527c-af27-83bd8c365634",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Bling Libra"
     },
     {
       "type": "threat-actor",
