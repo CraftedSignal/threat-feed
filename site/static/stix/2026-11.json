@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--eea5c9f4-36bb-5876-b59c-480a2823fc61",
+  "id": "bundle--7e51f6ef-4a6e-53d8-bf4c-d5cec8df174e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -135861,7 +135861,7 @@
       "id": "relationship--db5e5eb2-1047-53fb-9ff0-97e9ed237cc0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T03:43:14.000Z",
-      "modified": "2026-11-17T04:18:15.000Z",
+      "modified": "2026-11-21T21:03:25.000Z",
       "relationship_type": "uses",
       "source_ref": "report--f78a8b30-0653-5386-a984-56c4990364d7",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -301059,7 +301059,7 @@
       "id": "report--f78a8b30-0653-5386-a984-56c4990364d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T03:43:14.000Z",
-      "modified": "2026-11-17T04:18:15.000Z",
+      "modified": "2026-11-21T21:03:25.000Z",
       "name": "AdminNeo: ClickHouse driver authentication bypass (CVE-2026-130366)",
       "description": "## Overview\nAdminNeo versions before 5.9.1 contain an authentication bypass vulnerability within the ClickHouse driver. This flaw enables remote attackers to gain unauthorized access to accounts intended to be passwordless. By submitting any non-empty password for a known ClickHouse 'no_password' account, the attacker triggers an improper authentication flow where the connect() method fails to invoke the necessary openPasswordless() check, granting the attacker the permissions associated with the targeted account.\n\n## Impact\nSuccessful exploitation allows an unauthenticated remote attacker to obtain a session with the privileges of a targeted account, potentially leading to full system compromise depending on the account's permissions.\n\n## Recommendation\n- Upgrade AdminNeo to version 5.9.1 or later immediately.\n- Review all accounts configured for use with the ClickHouse driver and ensure no accounts are inadvertently set to 'no_password' if they require authentication.\n- Monitor administrative logs for suspicious authentication attempts targeting accounts known or suspected to be configured as passwordless.",
       "published": "2026-11-17T03:43:14.000Z",
@@ -301091,9 +301091,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-17-adminneo-auth-bypass-cve-2026-130366",
       "x_craftedsignal_event_id": "brief-2026-11-17-adminneo-auth-bypass-cve-2026-130366",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-adminneo-auth-bypass-cve-2026-130366/",
-      "x_craftedsignal_activity_at": "2026-11-17T04:18:15.000Z",
+      "x_craftedsignal_activity_at": "2026-11-21T21:03:25.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
