@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5de81257-1bd2-51b5-a1a0-6513dd331f1f",
+  "id": "bundle--99464d75-017c-5f32-a37d-ce3b25d5e5d7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10388,6 +10388,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--e4bfd3ab-7d67-5a33-ad4e-e74cbfe48cb1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--049cc3d4-c052-50d6-86fd-a7560600b968",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b8a8e0d7-b911-5797-80a8-e977476f5ff4",
+      "target_ref": "vulnerability--51817e87-82fa-5c49-b732-4759d3fb2b39"
     },
     {
       "type": "relationship",
@@ -97189,6 +97200,17 @@
       "relationship_type": "has",
       "source_ref": "software--b0aa6069-5ada-5b46-b013-e05f1231160a",
       "target_ref": "vulnerability--5aba852b-5da2-55e8-a817-91966b0d788f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9921a161-57b9-5e38-b28b-bdd81c0568c7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T19:59:35.000Z",
+      "modified": "2026-11-21T19:59:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6cfda958-4740-5e5a-a340-0163c6b83497",
+      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
     },
     {
       "type": "relationship",
@@ -221239,6 +221261,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6cfda958-4740-5e5a-a340-0163c6b83497",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-21T19:59:35.000Z",
+      "modified": "2026-11-21T19:59:35.000Z",
+      "name": "WP BASE Booking: Information exposure via missing authorization (CVE-2024-12558)",
+      "description": "## Overview\nThe WP BASE Booking of Appointments, Services and Events plugin for WordPress is vulnerable to unauthorized access of data due to a missing capability check on the export_db function in all versions up to, and including, 4.9.2. \n\n## Attack Chain\nAuthenticated attackers with Subscriber-level access or higher can trigger the vulnerable app_export_db function, leading to the exposure of sensitive database information.\n\n## Impact\nSuccessful exploitation allows low-privileged authenticated attackers to expose sensitive information from the database, such as hashed administrator passwords.\n\n## Recommendation\nMonitor vendor updates for a security patch. No remediating version is specified in the current vulnerability disclosure.",
+      "published": "2026-11-21T19:59:35.000Z",
+      "labels": [
+        "information-disclosure",
+        "plugin",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b8a8e0d7-b911-5797-80a8-e977476f5ff4",
+        "vulnerability--51817e87-82fa-5c49-b732-4759d3fb2b39"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-21-wp-base-booking-exposure-cve-2024-12558",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wp-base-booking-exposure-cve-2024-12558/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2024-12558"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RANDOMROBBIEBF-CVE-2024-12558"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RANDOMROBBIEBF-CVE-2024-12558\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-21-wp-base-booking-exposure-cve-2024-12558",
+      "x_craftedsignal_event_id": "brief-2026-11-21-wp-base-booking-exposure-cve-2024-12558",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wp-base-booking-exposure-cve-2024-12558/",
+      "x_craftedsignal_activity_at": "2026-11-21T19:59:35.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.5,
+      "x_craftedsignal_epss_max": 0.01272,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--6cfe0a10-6b13-501d-a238-0ec09d148732",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T16:57:56.000Z",
@@ -321305,6 +321382,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b8a8e0d7-b911-5797-80a8-e977476f5ff4",
+      "name": "WP BASE Booking of Appointments, Services and Events (\u003c= 4.9.2)",
+      "vendor": "puckrobin"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b8b8917c-74a1-50b8-983f-25a65ec8c102",
       "name": "@ohif/extension-dicom-pdf (vulnerable: \u003e= 3.5.0-beta.0, \u003c 3.12.18)"
     },
@@ -349134,6 +349218,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-130740",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130740"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--51817e87-82fa-5c49-b732-4759d3fb2b39",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-12558",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-12558",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-12558"
         }
       ]
     },
