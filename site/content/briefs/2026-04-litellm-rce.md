@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-04-11-litellm-rce
 event_id: brief-2026-04-11-litellm-rce
-revision: 3
-activity_at: "2026-11-21T18:54:41Z"
+revision: 4
+activity_at: "2026-11-21T18:58:09Z"
 revision_history:
   - revision: 2
     at: "2026-11-21T18:51:38Z"
@@ -35,14 +35,22 @@ revision_history:
       - lastmod
       - summary
       - updates
+  - revision: 4
+    at: "2026-11-21T18:58:09Z"
+    checksum: sha256:0e16864c3da2859989d8bf57848be7ca85cf8118edfa651709c6ec5019f3f884
+    summary: Synchronized per-CVE KEV boolean with the catalog listing.
+    changed_fields:
+      - cves
+      - lastmod
+      - updates
 title: LiteLLM Remote Code Execution via Bytecode Rewriting (CVE-2026-40217)
 slug: 2026-04-litellm-rce
 description: LiteLLM 1.81.8 through versions before 1.83.10 contain a sandbox escape at /guardrails/test_custom_code that allows proxy-admin users to execute code in the proxy process.
 date: "2026-04-11T12:00:00Z"
-lastmod: "2026-11-21T18:54:02Z"
-type: advisory
+lastmod: "2026-11-21T18:57:34Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
 exploited: true
@@ -77,7 +85,8 @@ cves:
   - id: CVE-2026-40217
     cvss: 8.8
     epss: 0.00277
-    kev_status: unknown
+    kev: true
+    kev_status: "true"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-40217
   - https://www.x41-dsec.de/lab/advisories/x41-2026-001-litellm/
@@ -119,6 +128,11 @@ updates:
     summary: Corrected public summary to remove unsupported unauthenticated claim.
     sources:
       - BerriAI advisory
+  - at: "2026-11-21T18:58:00Z"
+    level: L2
+    summary: Synchronized per-CVE KEV boolean with the catalog listing.
+    sources:
+      - CISA KEV
 ---
 
 ## Overview
