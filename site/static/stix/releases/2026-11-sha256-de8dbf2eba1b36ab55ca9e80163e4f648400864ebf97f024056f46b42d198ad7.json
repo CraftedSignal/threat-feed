@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--950ab53c-0a2e-57b3-b066-be565e87131e",
+  "id": "bundle--30aba19f-1ccf-5ba7-8262-0e353e93ea3d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -29477,6 +29477,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--245c86df-e4cd-5dae-95da-5d31127ad9d5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b7ab7ae1-0501-58db-a860-1b0c8c150496",
+      "target_ref": "vulnerability--ed685822-660c-5d85-86dc-d12911d3fe6c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--245fd4d4-b238-501e-bca4-d0a8c799522f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -33411,6 +33422,17 @@
       "relationship_type": "uses",
       "source_ref": "report--b0ff6b4b-2752-50f8-ab04-e47e2e890918",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2ae5c1cd-e9e5-59f0-bfc0-34462e192f5b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--eca65687-9ad2-53f5-8916-b9477b8e54a9",
+      "target_ref": "vulnerability--ed685822-660c-5d85-86dc-d12911d3fe6c"
     },
     {
       "type": "relationship",
@@ -61219,6 +61241,17 @@
       "relationship_type": "has",
       "source_ref": "software--20bd90d2-b794-5e5a-9c11-1fa63ea65dfd",
       "target_ref": "vulnerability--fd29d8d9-a04e-5693-bd0c-b048305d13f8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5a86af55-21ea-5dca-827a-b7c5126cf17c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c0b68ee3-428d-51bd-ab81-fcb1edd6f15d",
+      "target_ref": "vulnerability--ed685822-660c-5d85-86dc-d12911d3fe6c"
     },
     {
       "type": "relationship",
@@ -121202,6 +121235,17 @@
       "relationship_type": "has",
       "source_ref": "software--2f0754b8-da5a-5822-aee9-74f14ade0095",
       "target_ref": "vulnerability--2898fbef-dd3a-5968-b5b0-3c5f834ed5a5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c060f917-cac8-56b6-a0a3-6cbbd8dbe8d5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8a8d34a4-f97e-59e5-abc9-1681679652e3",
+      "target_ref": "vulnerability--ed685822-660c-5d85-86dc-d12911d3fe6c"
     },
     {
       "type": "relationship",
@@ -304652,6 +304696,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f8249e40-00b5-598f-b766-93e53cb079c6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T15:47:55.000Z",
+      "modified": "2026-11-22T15:47:55.000Z",
+      "name": "Squid Cache: HTTP request smuggling vulnerability (CVE-2023-46846)",
+      "description": "## Overview\nSquid is affected by an HTTP request smuggling vulnerability (CVE-2023-46846) caused by chunked decoder lenience. This allows a remote attacker to perform request/response smuggling, bypassing firewalls and frontend security systems.\n\n## Impact\nThe vulnerability has a CVSS v3.1 base score of 9.3. It allows a remote attacker to subvert security controls without requiring authentication (Attack Vector: Network; Privileges Required: None; User Interaction: None).\n\n## Recommendation\nAdministrators should review vendor security bulletins for their specific distribution to identify affected package versions and apply available updates. The vulnerability is present in versions of Squid from 2.6 up to, but not including, 6.4. Note that various Red Hat Enterprise Linux releases (RHEL 6, 8, and 9) contain specific package versions marked as unaffected; verify the installed package version against current vendor guidance rather than assuming universal vulnerability.",
+      "published": "2026-11-22T15:47:55.000Z",
+      "labels": [
+        "cve-2023-46846",
+        "http-request-smuggling",
+        "squid"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8a8d34a4-f97e-59e5-abc9-1681679652e3",
+        "software--b7ab7ae1-0501-58db-a860-1b0c8c150496",
+        "software--c0b68ee3-428d-51bd-ab81-fcb1edd6f15d",
+        "software--eca65687-9ad2-53f5-8916-b9477b8e54a9",
+        "vulnerability--ed685822-660c-5d85-86dc-d12911d3fe6c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-squid-smuggling-cve-2023-46846",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-squid-smuggling-cve-2023-46846/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2023-46846"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-46846"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-squid-smuggling-cve-2023-46846",
+      "x_craftedsignal_event_id": "brief-2026-11-22-squid-smuggling-cve-2023-46846",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-squid-smuggling-cve-2023-46846/",
+      "x_craftedsignal_activity_at": "2026-11-22T15:47:55.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.3,
+      "x_craftedsignal_epss_max": 0.03009,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f836a218-f530-5084-9db5-754727cb3e6d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T03:46:48.000Z",
@@ -321089,6 +321186,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8a8d34a4-f97e-59e5-abc9-1681679652e3",
+      "name": "Red Hat Enterprise Linux 9"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8a9cc769-556a-5ae9-a523-c5bebde0979d",
       "name": "@tensei/auth (\u003c= 0.11.5)",
       "vendor": "tenseijs"
@@ -324847,6 +324950,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b7ab7ae1-0501-58db-a860-1b0c8c150496",
+      "name": "Squid (\u003e= 2.6, \u003c 6.4)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b7b75980-4cbc-5e16-8bd3-04a1c52ee8da",
       "name": "Engine DJ (\u003c 4.3.4)",
       "vendor": "InMusic Brands"
@@ -325657,6 +325766,12 @@
       "id": "software--c0a3ccd9-e1fb-502e-9c73-bac31261f2f9",
       "name": "750X Series",
       "vendor": "Arista Networks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c0b68ee3-428d-51bd-ab81-fcb1edd6f15d",
+      "name": "Red Hat Enterprise Linux 8"
     },
     {
       "type": "software",
@@ -329308,6 +329423,12 @@
       "id": "software--eca28be9-b320-5ab2-b203-961f46b5b8ce",
       "name": "InfoScan (\u003c 1.46)",
       "vendor": "Dorsett Controls"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--eca65687-9ad2-53f5-8916-b9477b8e54a9",
+      "name": "Red Hat Enterprise Linux 6"
     },
     {
       "type": "software",
@@ -397854,6 +397975,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-133553",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133553"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ed685822-660c-5d85-86dc-d12911d3fe6c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2023-46846",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2023-46846",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-46846"
         }
       ]
     },
