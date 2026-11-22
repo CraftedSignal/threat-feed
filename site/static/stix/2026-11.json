@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e05c6333-99e9-5746-83ac-9baf9e5ba789",
+  "id": "bundle--2afb559e-05f5-56e5-bf48-67d337b39968",
   "objects": [
     {
       "type": "attack-pattern",
@@ -91660,6 +91660,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8d5c3bab-c0a3-529e-ab0d-519e05271dea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T17:37:25.000Z",
+      "modified": "2026-11-22T17:37:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3502e34c-6e2b-5230-9c59-304876cebb43",
+      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8d6e43fe-9c0a-5b64-b538-455b2a1b08f6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -122368,6 +122379,17 @@
       "relationship_type": "has",
       "source_ref": "software--ba06daba-58c9-5e72-9e09-5054de6b9026",
       "target_ref": "vulnerability--a496daf7-358c-5d1b-b86b-ccbe7b40080d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c1589b7b-d816-5d83-ac6e-239717999c11",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+      "target_ref": "vulnerability--875bbd65-76d9-51bf-b380-64ec4595ca7d"
     },
     {
       "type": "relationship",
@@ -189790,6 +189812,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3502e34c-6e2b-5230-9c59-304876cebb43",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T17:37:25.000Z",
+      "modified": "2026-11-22T17:37:25.000Z",
+      "name": "Linux kernel: SMB Direct denial of service (CVE-2026-99563)",
+      "description": "## Overview\n\nThe Linux kernel's SMB Direct implementation (ksmbd) contains a flaw in its connection handling logic that leads to a resource leak. Specifically, failed incoming SMB-Direct connections - caused by timeouts, peer disconnects, or invalid negotiation requests - were not being correctly removed from the listener's internal 'listen.pending' list. These failed connections continue to count against the listener's backlog limit (defaulting to 10 for ksmbd). Once this limit is reached, the kernel rejects all subsequent incoming connection requests with an -EBUSY status, effectively disabling SMB Direct services for the host until the listener is destroyed.\n\n## Impact\n\nSuccessful exploitation results in a persistent denial-of-service condition for the affected ksmbd listener. Attackers can trigger this condition remotely without authentication. The issue is strictly contained within the kernel and does not result in memory corruption or arbitrary code execution.\n\n## Recommendation\n\nAs the primary evidence does not specify fixed versions, detection and security teams should perform the following actions:\n\n- Identify all servers running ksmbd with SMB Direct (RDMA) enabled on ports 445 or 5445.\n- Monitor kernel logs for -EBUSY errors related to ksmbd connection attempts, which may indicate either high load or active exploitation of this backlog exhaustion.\n- Coordinate with kernel maintainers or package vendors to confirm the availability of patches addressing this logic flaw in the smbdirect socket cleanup path.\n- Review the upstream Linux kernel commits associated with CVE-2026-99563 to verify if current production kernels incorporate the necessary logic changes to correctly move failed child sockets to a purge list.",
+      "published": "2026-11-22T17:37:25.000Z",
+      "object_refs": [
+        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+        "vulnerability--875bbd65-76d9-51bf-b380-64ec4595ca7d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-linux-kernel-smbdirect-dos-cve-2026-99563",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-smbdirect-dos-cve-2026-99563/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-99563"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99563"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-linux-kernel-smbdirect-dos-cve-2026-99563",
+      "x_craftedsignal_event_id": "brief-2026-11-22-linux-kernel-smbdirect-dos-cve-2026-99563",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-smbdirect-dos-cve-2026-99563/",
+      "x_craftedsignal_activity_at": "2026-11-22T17:37:25.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00155,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -370467,6 +370535,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-102894",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102894"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--875bbd65-76d9-51bf-b380-64ec4595ca7d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99563",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99563",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99563"
         }
       ]
     },
