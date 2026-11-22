@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ead6b349-45cf-5d2f-b6a2-84325e214a64",
+  "id": "bundle--339b69ab-97dd-5180-851d-dfb0689cfeda",
   "objects": [
     {
       "type": "attack-pattern",
@@ -24170,17 +24170,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--14d2b8f0-8a88-561d-ab49-3d7b8716d741",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--d261bf06-d0fd-56b0-b356-9bae39c1bbdc",
-      "target_ref": "vulnerability--a3445c1d-937b-5777-89d3-d5a69c3278a6"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--14d47fe5-3a33-51b3-a2ae-b34d72d391b6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T21:10:16.000Z",
@@ -42936,6 +42925,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2f0aa826-cd7d-5600-9603-10ef885892fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+      "target_ref": "vulnerability--bbc50614-2b82-5ad0-ba34-c5140232768e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2f0de86e-d61b-5e02-b4f1-b8bd2c8e8e1e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -51567,17 +51567,6 @@
       "relationship_type": "uses",
       "source_ref": "report--7782823b-53d3-5532-a916-6aa09982cce0",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--3ba8502b-8903-58bf-878b-ea09ef352605",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-23T18:43:16.000Z",
-      "modified": "2026-10-23T18:43:16.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--96c01384-8197-5b04-b60e-b654c38cbe6a",
-      "target_ref": "attack-pattern--80d9a00f-f83e-56c4-ba06-1abdbfa337ae"
     },
     {
       "type": "relationship",
@@ -84138,17 +84127,6 @@
       "relationship_type": "uses",
       "source_ref": "report--93256100-99d8-5e12-9f9a-a059ab8c1c82",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--68bd0045-d751-57dc-a733-9874ea054ec8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-23T18:43:16.000Z",
-      "modified": "2026-10-23T18:43:16.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--96c01384-8197-5b04-b60e-b654c38cbe6a",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -128633,6 +128611,17 @@
       "relationship_type": "has",
       "source_ref": "software--14eb439c-5918-5527-be0c-f870e2ad00d1",
       "target_ref": "vulnerability--e00ffb8b-3843-5844-8209-53e64d085a51"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a5aa28eb-3099-50cc-b4b9-21c47bd9a10a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T18:22:54.000Z",
+      "modified": "2026-11-22T18:22:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a0609fbb-defa-5305-bf67-24ee51835e84",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
     },
     {
       "type": "relationship",
@@ -304993,62 +304982,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--96c01384-8197-5b04-b60e-b654c38cbe6a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-23T18:43:16.000Z",
-      "modified": "2026-10-23T18:43:16.000Z",
-      "name": "Netdata: ndsudo local privilege escalation (CVE-2024-32019)",
-      "description": "## Overview\nNetdata’s `ndsudo` helper, which is installed with the SUID bit set, is vulnerable to local privilege escalation (CVE-2024-32019). The utility whitelists specific subcommands for execution but fails to use absolute paths when calling these commands, instead resolving them via the user-controlled `PATH` environment variable. An attacker can place a malicious binary with a whitelisted name (e.g., `nvme`) into a directory under their control, prepend that directory to the `PATH` variable, and invoke `ndsudo` to execute the malicious binary with root privileges.\n\n## Attack Chain\n1. Actor identifies a system running an affected version of Netdata with `ndsudo` installed as SUID-root.\n2. Actor identifies a command whitelisted by `ndsudo` that is not invoked via an absolute path (e.g., `nvme`).\n3. Actor creates a malicious binary and names it to match the targeted whitelisted command.\n4. Actor creates a writable directory (e.g., `/tmp/fakebin`) and places the malicious binary inside.\n5. Actor sets execution permissions on the malicious binary.\n6. Actor modifies the `PATH` environment variable to include the malicious directory at the beginning of the search path.\n7. Actor executes `ndsudo` with the target whitelisted subcommand, causing the utility to resolve and execute the malicious binary with root privileges.\n\n## Impact\nSuccessful exploitation grants a local, low-privileged user (typically members of the `netdata` group) full root access to the affected system.\n\n## Recommendation\n- Upgrade Netdata to version 1.45.3 (stable) or 1.45.0-169 (nightly) to address the insecure PATH resolution.\n- Audit systems for the presence of the `ndsudo` binary and ensure appropriate access controls are in place.\n- If immediate patching is not possible, ensure that users do not have access to execute `ndsudo` unless strictly required.\n",
-      "published": "2026-10-23T18:43:16.000Z",
-      "labels": [
-        "linux",
-        "local-exploitation",
-        "privilege-escalation"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--80d9a00f-f83e-56c4-ba06-1abdbfa337ae",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--d261bf06-d0fd-56b0-b356-9bae39c1bbdc",
-        "vulnerability--a3445c1d-937b-5777-89d3-d5a69c3278a6"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-23-netdata-ndsudo-privilege-escalation",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-netdata-ndsudo-privilege-escalation/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/netdata/netdata/security/advisories/GHSA-pmhq-4cxq-wj93"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-AYUB0X7-CVE-2024-32019-POC"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-AYUB0X7-CVE-2024-32019-POC\u0026utm_source=rss\u0026utm_medium=rss"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-23-netdata-ndsudo-privilege-escalation",
-      "x_craftedsignal_event_id": "brief-2026-10-23-netdata-ndsudo-privilege-escalation",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-netdata-ndsudo-privilege-escalation/",
-      "x_craftedsignal_activity_at": "2026-10-23T18:43:16.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_epss_max": 0.01165,
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--96c5eb24-7009-512b-80ed-7d356ff4ab06",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T16:16:33.000Z",
@@ -313008,6 +312941,66 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.73572,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a0609fbb-defa-5305-bf67-24ee51835e84",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T18:22:54.000Z",
+      "modified": "2026-11-22T18:22:54.000Z",
+      "name": "Linux Kernel: Information Disclosure in SMB Client (CVE-2026-99381)",
+      "description": "## Overview\nA vulnerability in the Linux kernel SMB client (CIFS) exists where the kernel fails to validate the length of parameters in TRANS2_FIND_FIRST2 or TRANS2_FIND_NEXT2 responses. An attacker controlling an SMB server can send a specially crafted response that triggers the client to read past the end of the expected parameter block, resulting in a two-byte buffer leak from the cifs_request allocation. This vulnerability is reachable when the client performs an explicit mount using the vers=1.0 protocol, which is not the default configuration.\n\n## Attack Chain\nAn attacker acting as a malicious SMB server provides a crafted response with an out-of-range ParameterOffset or an incorrect ParameterCount. The client processes this response using the vulnerable CIFSFindFirst() or CIFSFindNext() functions, resulting in the return of data from the cifs_request buffer that was not intended for the response.\n\n## Impact\nSuccessful exploitation results in the disclosure of two bytes of buffer memory per request. This leaked data is derived from the cifs_request allocation, which may contain remnants of previous network requests.\n\n## Recommendation\n- Disable the use of the 'vers=1.0' mount option for SMB shares where possible, as it is not negotiated by default.\n- Monitor for the use of 'vers=1.0' in mount configurations across the infrastructure.\n- The supplied primary record cannot be mapped safely to release-version ranges; verify the installed branch against current vendor guidance. Do not infer a fixed release from the commit records provided.",
+      "published": "2026-11-22T18:22:54.000Z",
+      "labels": [
+        "cve",
+        "information-disclosure",
+        "kernel",
+        "linux",
+        "smb"
+      ],
+      "object_refs": [
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+        "vulnerability--bbc50614-2b82-5ad0-ba34-c5140232768e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-linux-smb-info-leak-cve-2026-99381",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-smb-info-leak-cve-2026-99381/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-99381"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://git.kernel.org/stable/c/1374082f0897c95610190dfacce463904ec11ea2"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://git.kernel.org/stable/c/531aa4239b0d80d7146b102b98f7aa7da989ccdd"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-99381\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-linux-smb-info-leak-cve-2026-99381",
+      "x_craftedsignal_event_id": "brief-2026-11-22-linux-smb-info-leak-cve-2026-99381",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-smb-info-leak-cve-2026-99381/",
+      "x_craftedsignal_activity_at": "2026-11-22T18:22:54.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00213,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -407758,13 +407751,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--d261bf06-d0fd-56b0-b356-9bae39c1bbdc",
-      "name": "Netdata (\u003e= 1.44.0-60, \u003c 1.45.0-169 and \u003e= 1.45.0, \u003c 1.45.3)",
-      "vendor": "Netdata"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--d28a5d49-7efa-56bf-b1ca-b29fe437c879",
       "name": "Entra ID",
       "vendor": "Microsoft"
@@ -468447,22 +468433,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--a3445c1d-937b-5777-89d3-d5a69c3278a6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2024-32019",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2024-32019",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-32019"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--a35b90de-5732-5e62-857f-38a3921ec294",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -476681,6 +476651,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120539",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120539"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--bbc50614-2b82-5ad0-ba34-c5140232768e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99381",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99381",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99381"
         }
       ]
     },

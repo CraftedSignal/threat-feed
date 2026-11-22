@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--99ce6da1-dbc2-5dd4-be0b-7b17368a84ac",
+  "id": "bundle--ed718800-6c54-5f9c-9edd-83f94c230633",
   "objects": [
     {
       "type": "attack-pattern",
@@ -35831,6 +35831,17 @@
       "relationship_type": "has",
       "source_ref": "software--a7f09b54-f93e-5b97-8897-9b6aff7b146b",
       "target_ref": "vulnerability--407567b3-93bb-5772-90a1-3c07837c502a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2f0aa826-cd7d-5600-9603-10ef885892fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+      "target_ref": "vulnerability--bbc50614-2b82-5ad0-ba34-c5140232768e"
     },
     {
       "type": "relationship",
@@ -105505,6 +105516,17 @@
       "relationship_type": "has",
       "source_ref": "software--14eb439c-5918-5527-be0c-f870e2ad00d1",
       "target_ref": "vulnerability--e00ffb8b-3843-5844-8209-53e64d085a51"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a5aa28eb-3099-50cc-b4b9-21c47bd9a10a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T18:22:54.000Z",
+      "modified": "2026-11-22T18:22:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a0609fbb-defa-5305-bf67-24ee51835e84",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
     },
     {
       "type": "relationship",
@@ -254377,6 +254399,66 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a0609fbb-defa-5305-bf67-24ee51835e84",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T18:22:54.000Z",
+      "modified": "2026-11-22T18:22:54.000Z",
+      "name": "Linux Kernel: Information Disclosure in SMB Client (CVE-2026-99381)",
+      "description": "## Overview\nA vulnerability in the Linux kernel SMB client (CIFS) exists where the kernel fails to validate the length of parameters in TRANS2_FIND_FIRST2 or TRANS2_FIND_NEXT2 responses. An attacker controlling an SMB server can send a specially crafted response that triggers the client to read past the end of the expected parameter block, resulting in a two-byte buffer leak from the cifs_request allocation. This vulnerability is reachable when the client performs an explicit mount using the vers=1.0 protocol, which is not the default configuration.\n\n## Attack Chain\nAn attacker acting as a malicious SMB server provides a crafted response with an out-of-range ParameterOffset or an incorrect ParameterCount. The client processes this response using the vulnerable CIFSFindFirst() or CIFSFindNext() functions, resulting in the return of data from the cifs_request buffer that was not intended for the response.\n\n## Impact\nSuccessful exploitation results in the disclosure of two bytes of buffer memory per request. This leaked data is derived from the cifs_request allocation, which may contain remnants of previous network requests.\n\n## Recommendation\n- Disable the use of the 'vers=1.0' mount option for SMB shares where possible, as it is not negotiated by default.\n- Monitor for the use of 'vers=1.0' in mount configurations across the infrastructure.\n- The supplied primary record cannot be mapped safely to release-version ranges; verify the installed branch against current vendor guidance. Do not infer a fixed release from the commit records provided.",
+      "published": "2026-11-22T18:22:54.000Z",
+      "labels": [
+        "cve",
+        "information-disclosure",
+        "kernel",
+        "linux",
+        "smb"
+      ],
+      "object_refs": [
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+        "vulnerability--bbc50614-2b82-5ad0-ba34-c5140232768e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-linux-smb-info-leak-cve-2026-99381",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-smb-info-leak-cve-2026-99381/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-99381"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://git.kernel.org/stable/c/1374082f0897c95610190dfacce463904ec11ea2"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://git.kernel.org/stable/c/531aa4239b0d80d7146b102b98f7aa7da989ccdd"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-99381\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-linux-smb-info-leak-cve-2026-99381",
+      "x_craftedsignal_event_id": "brief-2026-11-22-linux-smb-info-leak-cve-2026-99381",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-smb-info-leak-cve-2026-99381/",
+      "x_craftedsignal_activity_at": "2026-11-22T18:22:54.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00213,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a077c8d2-1030-5c0d-8fef-c0ea3be293a6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:42:33.000Z",
@@ -384401,6 +384483,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120539",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120539"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--bbc50614-2b82-5ad0-ba34-c5140232768e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99381",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99381",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99381"
         }
       ]
     },
