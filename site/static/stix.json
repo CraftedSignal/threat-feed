@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--805b236e-72a6-5ff4-b65c-5757395df675",
+  "id": "bundle--aa105e10-846d-523d-8fcb-90f02f6bc9d0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -382580,6 +382580,44 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--fe414bf4-6058-5ecf-90d7-6ad57d028162",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T15:33:54.000Z",
+      "modified": "2026-11-22T15:33:54.000Z",
+      "name": "MongoDB Drivers: Multiple security vulnerabilities",
+      "description": "## Overview\n\nThe German Federal Office for Information Security (BSI) has reported multiple security vulnerabilities affecting MongoDB drivers. These flaws could be exploited by an attacker to bypass security measures, potentially resulting in the unauthorized disclosure or manipulation of sensitive data. Specific CVEs and affected version ranges have not been disclosed by the BSI in this initial alert.\n\n## Recommendation\n\n- Identify all applications and services within your environment that utilize MongoDB drivers.\n- Monitor official security advisories from MongoDB (https://www.mongodb.com/security/advisories) for the release of patches and specific details on affected versions.\n- Prioritize the update of any applications identified as using vulnerable MongoDB drivers once patches become available.",
+      "published": "2026-11-22T15:33:54.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--fc5e5054-de75-5db6-8ee9-2f96e0c32ac7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-mongodb-drivers",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mongodb-drivers/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4701"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-mongodb-drivers",
+      "x_craftedsignal_event_id": "brief-2026-11-22-mongodb-drivers",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mongodb-drivers/",
+      "x_craftedsignal_activity_at": "2026-11-22T15:33:54.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fe44ea08-3078-5fc5-8cc4-8f2609c1014f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T17:31:06.000Z",
@@ -413029,6 +413067,13 @@
       "id": "software--fc572272-71f9-562d-adb4-43b3bb5e610e",
       "name": "SIMATIC WinCC V7.5 / V8.0 / V8.1 (All versions)",
       "vendor": "Siemens"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--fc5e5054-de75-5db6-8ee9-2f96e0c32ac7",
+      "name": "MongoDB Drivers",
+      "vendor": "MongoDB"
     },
     {
       "type": "software",
