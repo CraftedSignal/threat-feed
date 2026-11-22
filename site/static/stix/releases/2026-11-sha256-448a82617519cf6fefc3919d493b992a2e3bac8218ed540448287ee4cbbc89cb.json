@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--cf0c723b-7e44-5d1f-9283-92c2c81b0792",
+  "id": "bundle--7ab20b44-dafc-5830-a58b-7035160cfda3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -72773,6 +72773,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6e118823-a65f-5652-9546-2fbd9cf83d67",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+      "target_ref": "vulnerability--60ca5326-dab5-539a-9a6e-6a7e590a6a7e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6e138ce9-e243-5d2d-9faf-d3aa6c21c1d2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -136261,6 +136272,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--86f2ec77-5797-5ca0-a905-11e8632f83ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--da657d3d-5335-50ea-9f1b-9ef42afc7615",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--32cc858b-2270-55d4-89be-2c79255556f5",
+      "target_ref": "vulnerability--6ece549f-5d97-5110-acd4-922d8cf9cbed"
     },
     {
       "type": "relationship",
@@ -249622,6 +249644,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--99a7a875-173d-5029-bb35-cfa0df6e158b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T13:15:32.000Z",
+      "modified": "2026-11-22T13:15:32.000Z",
+      "name": "Linux Kernel SMB Client Buffer Overflow (CVE-2026-99385)",
+      "description": "## Overview\nA vulnerability exists in the Linux kernel SMB client (cifs) within the SMB2_tcon() function, where a fixed 672-byte buffer is allocated for UNC paths. The function incorrectly passes a user-controlled UNC path length to cifs_strtoUTF16(), which assumes the destination buffer is sufficient and writes beyond the heap object. This issue was introduced by commit 62a1a439e0fd, which removed length checks on UNC mount options.\n\n## Attack Chain\nAn attacker acting as an SMB server can provide an oversized tree string in an FSCTL_DFS_GET_REFERRALS reply. This string is processed by SMB2_tcon(), causing cifs_strtoUTF16() to perform an out-of-bounds write to the heap. This can corrupt adjacent heap objects, potentially leading to kernel oops or control flow hijacking.\n\n## Impact\nSuccessful exploitation can result in kernel heap corruption, system crashes, or hijacking of control flow. The vulnerability does not cross a guest-to-host or IOMMU boundary.\n\n## Recommendation\nUsers should update to a patched kernel version. The vulnerability affects versions 3.8 and later. Fixed versions include 6.12.117, 6.18.61, 7.3.2, and 7.4-rc1.",
+      "published": "2026-11-22T13:15:32.000Z",
+      "labels": [
+        "CVE-2026-99385",
+        "Kernel",
+        "Linux",
+        "SMB"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--32cc858b-2270-55d4-89be-2c79255556f5",
+        "vulnerability--6ece549f-5d97-5110-acd4-922d8cf9cbed"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-linux-kernel-smb-overflow-cve-2026-99385",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-smb-overflow-cve-2026-99385/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-99385"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99385"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-linux-kernel-smb-overflow-cve-2026-99385",
+      "x_craftedsignal_event_id": "brief-2026-11-22-linux-kernel-smb-overflow-cve-2026-99385",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-smb-overflow-cve-2026-99385/",
+      "x_craftedsignal_activity_at": "2026-11-22T13:15:32.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00243,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--99a8edcd-ded8-5cb5-b9a4-e87acb592642",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:54:39.000Z",
@@ -303919,6 +303992,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f724c64b-22bd-5ab1-a65d-339bc031f949",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T13:16:13.000Z",
+      "modified": "2026-11-22T13:16:13.000Z",
+      "name": "Linux Kernel: XFS log recovery heap out-of-bounds write (CVE-2026-99395)",
+      "description": "## Overview\nA heap out-of-bounds write vulnerability exists in the Linux kernel XFS filesystem driver during log recovery. The function xlog_recover_inode_commit_pass2 copies inode log item data or attribute fork regions into the inode buffer without validating the on-log region length against the fork capacity. In production kernels, where ASSERT statements are disabled, an attacker providing a crafted filesystem image with a dirty log can trigger a heap overflow at mount time.\n\n## Attack Chain\n1. An attacker constructs a malicious filesystem image containing a dirty log, setting ilf_fields to XFS_ILOG_DDATA, XFS_ILOG_DEXT, XFS_ILOG_ADATA, or XFS_ILOG_AEXT and providing an oh_len larger than the destination fork size.\n2. A user mounts the crafted image. The mount process triggers xfs_log_mount, which reaches xlog_recover_inode_commit_pass2.\n3. The vulnerable function performs a memcpy operation using the attacker-controlled length, writing past the inode buffer into adjacent kernel memory.\n\n## Impact\nThe heap out-of-bounds write can be leveraged to disclose adjacent memory or corrupt the host kernel's inode buffer and surrounding allocations, causing kernel oops or panics. XFS is not mountable from a user namespace, and the impact remains contained within the host kernel memory. The mount and fsopen paths reach recovery only after mount_capable(), which demands init-namespace CAP_SYS_ADMIN.\n\n## Recommendation\nUpgrade the Linux kernel to a version that implements bounds checking for logged fork regions before performing the copy operation, rejecting the log item with -EFSCORRUPTED when it does not fit. As the vulnerability is triggered at mount time, avoid mounting untrusted XFS filesystem images.",
+      "published": "2026-11-22T13:16:13.000Z",
+      "labels": [
+        "Linux",
+        "XFS",
+        "kernel",
+        "memory-corruption"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+        "vulnerability--60ca5326-dab5-539a-9a6e-6a7e590a6a7e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-linux-kernel-xfs-oob-write-cve-2026-99395",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-xfs-oob-write-cve-2026-99395/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-99395"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99395"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-linux-kernel-xfs-oob-write-cve-2026-99395",
+      "x_craftedsignal_event_id": "brief-2026-11-22-linux-kernel-xfs-oob-write-cve-2026-99395",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-xfs-oob-write-cve-2026-99395/",
+      "x_craftedsignal_activity_at": "2026-11-22T13:16:13.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00224,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f7377575-fd3e-5699-80d0-7d30afdde47d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:43:18.000Z",
@@ -356964,6 +357088,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--60ca5326-dab5-539a-9a6e-6a7e590a6a7e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99395",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99395",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99395"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--60d78a14-3fd7-5191-8134-039f68c5fce9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -360766,6 +360906,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124222",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124222"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6ece549f-5d97-5110-acd4-922d8cf9cbed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99385",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99385",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99385"
         }
       ]
     },
