@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c8e06ff5-d126-5787-8f78-ed78910cdbcc",
+  "id": "bundle--5dca52fd-ad50-50ca-a399-a5ee08da163f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -138399,6 +138399,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--dde89e20-1ce6-51d6-aeed-b77eff46bc13",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--66551241-b990-59c0-bc80-d5b2217b6a28",
+      "target_ref": "vulnerability--c6390df0-5049-5d7e-b580-c1b00684ea4d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ddeeea5a-11c4-5d74-bbdc-fdbfd4b86196",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -229298,6 +229309,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--7798c7ba-248a-54fe-856f-915213bdee48",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T18:21:16.000Z",
+      "modified": "2026-11-22T18:21:16.000Z",
+      "name": "Awesomemotive Coming Soon Page, Under Construction \u0026 Maintenance Mode DOM-based XSS (CVE-2026-131726)",
+      "description": "## Overview\n\nAn improper neutralization of input during web page generation (Cross-site Scripting) vulnerability exists in the Awesomemotive Coming Soon Page, Under Construction \u0026 Maintenance Mode WordPress plugin, which allows for DOM-Based XSS. This issue affects versions from n/a through 6.20.12.\n\n## Impact\n\nThe vulnerability allows for DOM-based XSS. Successful exploitation requires user interaction and occurs over a network. The impact is characterized by a CVSS v3.1 base score of 7.1 (AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:L).\n\n## Recommendation\n\nVerify the installed version of the plugin against the vendor's guidance. The CVE Program records suggest that version 6.20.13 is listed as an unaffected version in the plugin's metadata, but users should consult official vendor advisories to confirm the appropriate remediation path for their environment.",
+      "published": "2026-11-22T18:21:16.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--66551241-b990-59c0-bc80-d5b2217b6a28",
+        "vulnerability--c6390df0-5049-5d7e-b580-c1b00684ea4d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-seedprod-xss-cve-2026-131726",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-seedprod-xss-cve-2026-131726/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-131726"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131726"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-seedprod-xss-cve-2026-131726",
+      "x_craftedsignal_event_id": "brief-2026-11-22-seedprod-xss-cve-2026-131726",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-seedprod-xss-cve-2026-131726/",
+      "x_craftedsignal_activity_at": "2026-11-22T18:21:16.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--77ba6946-4a85-57d9-9029-fcdd92f021f6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T06:16:38.000Z",
@@ -318962,6 +319017,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--66551241-b990-59c0-bc80-d5b2217b6a28",
+      "name": "Coming Soon Page, Under Construction \u0026 Maintenance Mode by SeedProd",
+      "vendor": "Awesomemotive"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--66582790-f163-5367-940e-2457a36aed54",
       "name": "ArubaOS (AOS) (10.7.0.0-10.7.2.6)",
       "vendor": "Hewlett Packard Enterprise"
@@ -387846,6 +387908,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-125398",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125398"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c6390df0-5049-5d7e-b580-c1b00684ea4d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-131726",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-131726",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131726"
         }
       ]
     },
