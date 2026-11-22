@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--397ebe20-98f5-501a-9e60-073ffb351054",
+  "id": "bundle--ead6b349-45cf-5d2f-b6a2-84325e214a64",
   "objects": [
     {
       "type": "attack-pattern",
@@ -98805,6 +98805,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7c1ae5ca-f5c5-56e6-b9f5-1f342fa6a4c3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--35696687-b71d-55a1-97e8-b6e096af2469",
+      "target_ref": "vulnerability--64d12235-a94c-50bf-9da2-b8bf21de0e21"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7c1bb50d-8810-5566-922a-73beca14a068",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -188818,6 +188829,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f9ab63c3-a878-506b-8602-ddc827cc04f9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a1bd5acd-6b25-579c-8d28-a9f07c6a2a6e",
+      "target_ref": "vulnerability--64d12235-a94c-50bf-9da2-b8bf21de0e21"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f9b0c8ed-eb1f-51b6-b769-e2bc313bdd5b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:43:09.000Z",
@@ -264280,6 +264302,59 @@
       "x_craftedsignal_cvss_max": 6.1,
       "x_craftedsignal_epss_max": 0.00582,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5e214798-48ef-5e76-9b8a-0b3545437452",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T18:41:36.000Z",
+      "modified": "2026-11-22T18:41:36.000Z",
+      "name": "PHP CGI Argument Injection (CVE-2024-4577)",
+      "description": "## Overview\nPHP versions 8.1.* before 8.1.29, 8.2.* before 8.2.20, and 8.3.* before 8.3.8 are affected by an argument injection vulnerability when running on Windows with Apache and PHP-CGI. The vulnerability stems from Windows \"Best-Fit\" behavior where certain characters in the command line are misinterpreted by the PHP-CGI module as options, allowing attackers to pass unintended arguments to the PHP binary.\n\n## Attack Chain\nAn attacker can exploit this by sending crafted requests to a vulnerable Windows server. The misinterpretation of characters (e.g., in specific code pages) allows for the injection of PHP options, enabling remote code execution (RCE) or the disclosure of sensitive script source code.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to execute arbitrary code on the target server, leading to full system compromise or information disclosure.\n\n## Recommendation\nAdministrators should review vendor guidance and update PHP installations to versions 8.1.29, 8.2.20, or 8.3.8 or later to address the vulnerable component usage in the specified Windows environments.",
+      "published": "2026-11-22T18:41:36.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--35696687-b71d-55a1-97e8-b6e096af2469",
+        "software--a1bd5acd-6b25-579c-8d28-a9f07c6a2a6e",
+        "vulnerability--64d12235-a94c-50bf-9da2-b8bf21de0e21"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-php-cgi-argument-injection-cve-2024-4577",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-php-cgi-argument-injection-cve-2024-4577/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2024-4577"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-GILL-SINGH-A-CVE-2024-4577-EXPLOIT"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-GILL-SINGH-A-CVE-2024-4577-EXPLOIT\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-php-cgi-argument-injection-cve-2024-4577",
+      "x_craftedsignal_event_id": "brief-2026-11-22-php-cgi-argument-injection-cve-2024-4577",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-php-cgi-argument-injection-cve-2024-4577/",
+      "x_craftedsignal_activity_at": "2026-11-22T18:41:36.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-11-22T18:41:36.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.99987,
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -389833,6 +389908,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--35696687-b71d-55a1-97e8-b6e096af2469",
+      "name": "XAMPP",
+      "vendor": "PHP Group"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3572b1a1-dd0c-53e1-adb1-31d6bf655a23",
       "name": "ER701-5G-Outdoor v1 (\u003c 1.0.3 Build 20260723 Rel.40931)",
       "vendor": "TP-Link"
@@ -402043,6 +402125,13 @@
       "id": "software--a1bd14c6-de5e-5281-9218-94c49ee9811f",
       "name": "EZ SQL Reports Shortcode Widget and DB Backup (\u003c= 5.25.25)",
       "vendor": "EZ SQL Reports"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a1bd5acd-6b25-579c-8d28-a9f07c6a2a6e",
+      "name": "PHP",
+      "vendor": "PHP Group"
     },
     {
       "type": "software",
@@ -446720,6 +446809,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-94511",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94511"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--64d12235-a94c-50bf-9da2-b8bf21de0e21",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-4577",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-4577",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-4577"
         }
       ]
     },
