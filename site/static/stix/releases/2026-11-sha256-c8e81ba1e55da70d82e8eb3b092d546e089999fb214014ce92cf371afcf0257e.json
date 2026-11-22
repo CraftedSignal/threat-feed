@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e9cba8fe-8e00-50c7-b60d-17d6e9bb4deb",
+  "id": "bundle--540bddbd-3c3a-5baf-9abc-5295de46fef2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -66393,6 +66393,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--63a1faad-ae2f-51f8-90ef-5b2f6d516aaa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T13:31:02.000Z",
+      "modified": "2026-11-22T13:31:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3998691c-bd6f-5eeb-995e-f440ce7ab9ce",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--63a8cb0a-f41d-5f1f-bc58-9a04915447f3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -92690,6 +92701,17 @@
       "relationship_type": "has",
       "source_ref": "software--9ae536da-76f1-5535-a00a-8c6e42deee9b",
       "target_ref": "vulnerability--76ef8e9f-6094-5242-99ba-aeaceb371bca"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8fb27c5d-60c3-583b-9004-5c2f7800a2a3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e6514099-33b2-5c57-bc9a-70fb86aa6d33",
+      "target_ref": "vulnerability--f93d2071-c9db-53b2-b991-56e1d334db85"
     },
     {
       "type": "relationship",
@@ -192393,6 +192415,52 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.00844,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3998691c-bd6f-5eeb-995e-f440ce7ab9ce",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T13:31:02.000Z",
+      "modified": "2026-11-22T13:31:02.000Z",
+      "name": "Linux kernel: Use-after-free in hugetlb subsystem (CVE-2026-99506)",
+      "description": "## Overview\nA use-after-free vulnerability exists in the Linux kernel hugetlb memory management subsystem. The issue occurs within the `hugetlb_no_page()` function when handling private memory mappings that lack a reservation map, such as those created with `MAP_NORESERVE`. A race condition allows `hugetlb_no_page()` to set flags and unlock a folio after the page table lock has been dropped, even if the folio has already been freed or reallocated due to concurrent operations such as `MADV_DONTNEED`. This leads to kernel memory corruption, as a folio can be unlocked or have bits modified while it is already owned by another process.\n\n## Impact\nSuccessful exploitation can result in a kernel crash (denial of service) or potential memory corruption. The vulnerability allows an unprivileged local user to manipulate memory pages within the kernel allocator, potentially affecting other files or processes.\n\n## Recommendation\n- Upgrade to a patched version of the Linux kernel. Affected users should track updates for the 6.1, 6.12, 6.18, and 7.3 stable branches, as the fix has been backported to various release streams.\n- Monitor kernel logs for \"Bad page state\" or \"kernel BUG at mm/filemap.c\" errors, which are indicative of exploitation attempts or instability related to this race condition.\n- Audit systems for processes utilizing `MAP_PRIVATE | MAP_NORESERVE` on hugetlb mappings, as these are the primary vectors for triggering the vulnerable code path.",
+      "published": "2026-11-22T13:31:02.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e6514099-33b2-5c57-bc9a-70fb86aa6d33",
+        "vulnerability--f93d2071-c9db-53b2-b991-56e1d334db85"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-linux-kernel-hugetlb-uaf-cve-2026-99506",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-hugetlb-uaf-cve-2026-99506/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-99506"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99506"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-linux-kernel-hugetlb-uaf-cve-2026-99506",
+      "x_craftedsignal_event_id": "brief-2026-11-22-linux-kernel-hugetlb-uaf-cve-2026-99506",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-hugetlb-uaf-cve-2026-99506/",
+      "x_craftedsignal_activity_at": "2026-11-22T13:31:02.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00174,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -327663,6 +327731,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e6514099-33b2-5c57-bc9a-70fb86aa6d33",
+      "name": "Linux kernel (6.1, 6.12, 6.18, 7.3)",
+      "vendor": "Linux"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e65b64c5-d777-5eee-b846-0b16b40dbdff",
       "name": "NextGEN Gallery (\u003c= 4.5.5)",
       "vendor": "Imagely"
@@ -399663,6 +399738,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-130631",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130631"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f93d2071-c9db-53b2-b991-56e1d334db85",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99506",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99506",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99506"
         }
       ]
     },
