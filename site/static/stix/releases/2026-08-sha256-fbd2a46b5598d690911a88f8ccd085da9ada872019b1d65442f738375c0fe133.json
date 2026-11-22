@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--295fdfda-8029-57a9-833b-62cfb08863d2",
+  "id": "bundle--40c0c123-d9fa-5a18-9c5a-c1c408d0beb6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8743,17 +8743,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--90c14907-aa89-54c4-a429-b3c2ba37a6f6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--210b8fae-2fe7-53e8-96c9-95525f7e8e00",
-      "target_ref": "vulnerability--331da4ef-fa1d-5bce-9a5c-3917c899c6de"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--90cfd293-60bb-5eff-964f-f34303ef2613",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T09:13:07.000Z",
@@ -11533,17 +11522,6 @@
       "relationship_type": "has",
       "source_ref": "software--dcc66fa7-009d-5e2e-953e-f84e8a6aa9ab",
       "target_ref": "vulnerability--ca56495c-c248-5c06-9de9-be4513debc3a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--cc2a9ff6-be26-5f41-b0c0-34e4869ff1bb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T13:56:09.000Z",
-      "modified": "2026-08-24T13:56:09.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ede7bfa9-fe9f-58cd-966e-3cc57beab111",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -31043,55 +31021,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--ede7bfa9-fe9f-58cd-966e-3cc57beab111",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T13:56:09.000Z",
-      "modified": "2026-08-24T13:56:09.000Z",
-      "name": "SQL Injection in itsourcecode Online Clinic Management System",
-      "description": "## Overview\n\nThe itsourcecode Online Clinic Management System version 1.0 contains a critical SQL injection vulnerability in the Admin Login component. The vulnerability resides in the `success/login.php` script, which fails to properly sanitize the `Username` input parameter before including it in database queries. This flaw allows remote, unauthenticated attackers to manipulate SQL commands, potentially leading to unauthorized data access, modification, or destruction within the backend database. Publicly available proof-of-concept exploits exist, increasing the risk of active exploitation. Organizations utilizing this software should restrict access to the administrative login portal and evaluate migration to a more secure platform.\n\n## Attack Chain\n\n1. Attacker performs reconnaissance to identify instances of the vulnerable Online Clinic Management System.\n2. Attacker navigates to the administrative login interface at `/success/login.php`.\n3. Attacker crafts an HTTP POST request targeting the `Username` parameter.\n4. Attacker injects malicious SQL syntax (e.g., `' OR '1'='1`) into the `Username` argument.\n5. The server-side script executes the unsanitized SQL query against the underlying database.\n6. The database returns unauthorized results or modifies internal records based on the injected commands.\n7. Attacker achieves the final objective, which may include credential theft, data exfiltration, or unauthorized administrative access.\n\n## Impact\n\nSuccessful exploitation allows remote, unauthenticated attackers to gain unauthorized access to the application database. Potential impacts include the exfiltration of sensitive patient or administrative information, modification of clinic records, and full compromise of the application's administrative functionality. Given the public availability of exploit code, the risk of automated or targeted attacks against exposed instances is high.\n\n## Recommendation\n\n* Deploy the provided Sigma rule to detect common SQL injection patterns targeting the administrative login page.\n* Audit web server logs for HTTP POST requests to `/success/login.php` that contain suspicious SQL metacharacters (e.g., single quotes, semi-colons, or UNION statements) in the `Username` parameter.\n* Implement strict input validation and parameterized queries for all user-supplied input fields in `success/login.php`.\n* Restrict access to the administrative login portal to authorized IP addresses or internal networks until a security patch is verified and applied.\n",
-      "published": "2026-08-24T13:56:09.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--210b8fae-2fe7-53e8-96c9-95525f7e8e00",
-        "vulnerability--331da4ef-fa1d-5bce-9a5c-3917c899c6de"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-online-clinic-sql-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-online-clinic-sql-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/microwaveabi/vul/issues/63"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78246"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://vuldb.com/vuln/394596"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-online-clinic-sql-injection",
-      "x_craftedsignal_event_id": "brief-2026-08-online-clinic-sql-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-online-clinic-sql-injection/",
-      "x_craftedsignal_activity_at": "2026-08-24T13:56:09.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--ee43bdd6-c80e-5ee6-83c9-0d6c572e9ba3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T21:13:13.000Z",
@@ -32684,13 +32613,6 @@
       "spec_version": "2.1",
       "id": "software--207a0d42-7381-5cde-9871-e34e6edd90c1",
       "name": "Bitbucket Data Center"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--210b8fae-2fe7-53e8-96c9-95525f7e8e00",
-      "name": "Online Clinic Management System (1.0)",
-      "vendor": "itsourcecode"
     },
     {
       "type": "software",
@@ -37105,22 +37027,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-82914",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82914"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--331da4ef-fa1d-5bce-9a5c-3917c899c6de",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-78246",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-78246",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78246"
         }
       ]
     },
