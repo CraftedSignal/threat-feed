@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5dca52fd-ad50-50ca-a399-a5ee08da163f",
+  "id": "bundle--25e5badf-3708-51f8-a2d2-98f2809777d7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -67104,6 +67104,17 @@
       "relationship_type": "has",
       "source_ref": "software--ffe2d80f-1297-5c1a-a819-d275cfd8933f",
       "target_ref": "vulnerability--4c6c4379-a2e0-5db4-b766-c0155d9cd083"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--64693c74-983e-5d20-b20c-7ae8b0ceb8cf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T19:49:05.000Z",
+      "modified": "2026-11-22T19:49:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--caeecb80-64f4-5e0e-a3f0-c1c45f386cf8",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -147954,6 +147965,17 @@
       "relationship_type": "uses",
       "source_ref": "report--253b959d-a92c-5729-a2d1-1776d6c5d61e",
       "target_ref": "attack-pattern--014a52b3-e1ec-5929-a194-236cf8cc7447"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--eeb97d7d-6895-52f0-bc45-032fc002d28e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b5eb676f-0b19-5d39-99e6-383cec4e5f33",
+      "target_ref": "vulnerability--f5e1a911-1c76-5f0f-b4e3-7510a73dbffd"
     },
     {
       "type": "relationship",
@@ -278393,6 +278415,62 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--caeecb80-64f4-5e0e-a3f0-c1c45f386cf8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T19:49:05.000Z",
+      "modified": "2026-11-22T19:49:05.000Z",
+      "name": "Remote Code Execution in Fortra FileCatalyst Workflow (CVE-2024-25153)",
+      "description": "## Overview\nFortra FileCatalyst Workflow contains a directory traversal vulnerability within its 'ftpservlet'. This flaw allows an unauthenticated attacker to upload files outside of the intended 'uploadtemp' directory using a specially crafted POST request. If a file is successfully uploaded to the web portal's DocumentRoot, malicious JSP files can be executed, leading to remote code execution (RCE).\n\n## Attack Chain\nAn attacker sends a crafted POST request to the 'ftpservlet' endpoint, bypassing standard directory constraints to write files to arbitrary locations within the web application root. Successful placement of executable JSP files enables remote code execution.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to execute arbitrary code with the privileges of the web portal application, potentially leading to full system compromise.\n\n## Recommendation\nUpgrade to FileCatalyst version 5.1.6 Build 114 or later to remediate this issue.",
+      "published": "2026-11-22T19:49:05.000Z",
+      "labels": [
+        "cve-2024-25153",
+        "directory-traversal",
+        "fortra",
+        "rce"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b5eb676f-0b19-5d39-99e6-383cec4e5f33",
+        "vulnerability--f5e1a911-1c76-5f0f-b4e3-7510a73dbffd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-cve-2024-25153",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-25153/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2024-25153"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://labs.nettitude.com/blog/cve-2024-25153-remote-code-execution-in-fortra-filecatalyst"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-NETTITUDE-CVE-2024-25153\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-cve-2024-25153",
+      "x_craftedsignal_event_id": "brief-2026-11-22-cve-2024-25153",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-25153/",
+      "x_craftedsignal_activity_at": "2026-11-22T19:49:05.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.41741,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--cb02aaff-a6e7-570d-8ca7-b1a9a8f906e1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T10:39:10.000Z",
@@ -325729,6 +325807,13 @@
       "id": "software--b5d84ba4-8707-5298-98d5-28774e7d88a1",
       "name": "Watson Speech Services Cartridge (4.0.0 through 5.4.0)",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b5eb676f-0b19-5d39-99e6-383cec4e5f33",
+      "name": "FileCatalyst (\u003c 5.1.6)",
+      "vendor": "Fortra"
     },
     {
       "type": "software",
@@ -401556,6 +401641,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-25854",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25854"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f5e1a911-1c76-5f0f-b4e3-7510a73dbffd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-25153",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-25153",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-25153"
         }
       ]
     },
