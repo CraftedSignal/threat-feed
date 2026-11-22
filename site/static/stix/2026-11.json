@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b79c9718-2a3a-5c8f-9786-19801da69904",
+  "id": "bundle--e05c6333-99e9-5746-83ac-9baf9e5ba789",
   "objects": [
     {
       "type": "attack-pattern",
@@ -60530,6 +60530,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--592b9e41-2f4f-54a9-bdc6-28d617f8aa02",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7ed98eff-ae54-5d02-af15-21815eb5423e",
+      "target_ref": "vulnerability--a2f094a2-e9d0-5d27-aa19-688dbd167a43"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--592c08be-5518-504d-bfa9-2af2f90842c2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -84026,6 +84037,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7fec5275-20e0-584c-b025-1a61b4e8b4ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--83e0cfe7-f5dc-5fb6-94b8-bbf5d82a69f3",
+      "target_ref": "vulnerability--01c0d17a-82ad-55b4-902e-8588f23817c7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7fee15fa-5673-5c9d-af65-2bcb53f08fc9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -87036,6 +87058,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--9d0e44b6-dbc8-5c29-9c26-b425ecc1893b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--85489924-cfc5-57a0-a343-5e93cb06e15e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T22:40:48.000Z",
+      "modified": "2026-11-22T22:40:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b6e15626-a50d-530b-bc33-f32f213f1807",
+      "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
     },
     {
       "type": "relationship",
@@ -106110,6 +106143,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--32dd75fa-b671-5650-a868-97503d31418c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a6578bec-4524-58db-9724-24cc036fa313",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T22:40:48.000Z",
+      "modified": "2026-11-22T22:40:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b6e15626-a50d-530b-bc33-f32f213f1807",
+      "target_ref": "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b"
     },
     {
       "type": "relationship",
@@ -267432,6 +267476,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b6e15626-a50d-530b-bc33-f32f213f1807",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T22:40:48.000Z",
+      "modified": "2026-11-22T22:40:48.000Z",
+      "name": "Dashy: Credential disclosure via isLocalRequest (CVE-2026-134836)",
+      "description": "## Overview\nDashy versions 4.0.0 up to 4.9.12 contain a credential disclosure vulnerability in the isLocalRequest function. The issue stems from insecure prefix-only origin checks that result in the application incorrectly attaching user credentials to lookalike hosts. \n\n## Attack Chain\n1. The attacker prepares a malicious infrastructure mimicking a trusted host.\n2. The attacker crafts a malicious URL containing a ?config= parameter pointing to the attacker-controlled host.\n3. The attacker lures an authenticated Dashy user to click the malicious link.\n4. The isLocalRequest function performs an insufficient origin check, allowing the browser to treat the attacker host as a valid origin.\n5. The application attaches the user's bearer tokens or HTTP authentication headers to the request directed at the attacker-controlled host.\n6. The attacker captures the transmitted credentials.\n7. The attacker uses the stolen credentials to access, read, or modify sensitive configuration and stored API keys.\n\n## Impact\nSuccessful exploitation allows unauthorized access to stored API keys and dashboard configuration. If the victim is an administrator, the attacker can modify configuration settings, potentially leading to full control over the affected Dashy instance.\n\n## Recommendation\nUpgrade Dashy to version 4.9.12 or later to include the patch for this vulnerability. As the vulnerability is triggered by user interaction with crafted links, organizations should advise users to exercise caution with unsolicited links targeting their dashboard environment. Monitor Dashy instance logs for unusual configuration access or modification patterns.",
+      "published": "2026-11-22T22:40:48.000Z",
+      "labels": [
+        "credential-disclosure",
+        "web-application-security"
+      ],
+      "object_refs": [
+        "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a",
+        "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--83e0cfe7-f5dc-5fb6-94b8-bbf5d82a69f3",
+        "vulnerability--01c0d17a-82ad-55b4-902e-8588f23817c7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-dashy-credential-disclosure-cve-2026-134836",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dashy-credential-disclosure-cve-2026-134836/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134836"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-dashy-credential-disclosure-cve-2026-134836",
+      "x_craftedsignal_event_id": "brief-2026-11-22-dashy-credential-disclosure-cve-2026-134836",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dashy-credential-disclosure-cve-2026-134836/",
+      "x_craftedsignal_activity_at": "2026-11-22T22:40:48.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b6e96273-911d-5f65-8def-9b3bf848addd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T02:18:37.000Z",
@@ -310483,6 +310573,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ff8edc15-cce6-567f-ae9d-3c249296271b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T22:40:39.000Z",
+      "modified": "2026-11-22T22:40:39.000Z",
+      "name": "Casdoor: Uncontrolled resource consumption in SAML processing (CVE-2026-134830)",
+      "description": "## Overview\nCasdoor versions prior to 4.27.1 contain an uncontrolled resource consumption vulnerability in the decodeSamlMessage function. This vulnerability allows an unauthenticated attacker to exhaust server memory by sending specially crafted, highly compressed DEFLATE SAML messages to the /api/saml/logout/:owner/:application endpoint. These messages inflate significantly upon processing, potentially leading to a server crash or service stall.\n\n## Impact\nExploitation of this vulnerability leads to a denial-of-service state for the Casdoor application. By sending small payloads that expand to gigabytes in memory, an attacker can crash the service, impacting the availability of the identity and access management system.\n\n## Recommendation\nUpgrade Casdoor to version 4.27.1 or later. Ensure that web application firewalls or API gateways are configured to inspect incoming SAML request payloads for excessive decompression ratios before they reach the backend service.",
+      "published": "2026-11-22T22:40:39.000Z",
+      "labels": [
+        "CVE-2026-134830",
+        "denial-of-service"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7ed98eff-ae54-5d02-af15-21815eb5423e",
+        "vulnerability--a2f094a2-e9d0-5d27-aa19-688dbd167a43"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-casdoor-saml-dos-cve-2026-134830",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-casdoor-saml-dos-cve-2026-134830/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134830"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134830"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-casdoor-saml-dos-cve-2026-134830",
+      "x_craftedsignal_event_id": "brief-2026-11-22-casdoor-saml-dos-cve-2026-134830",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-casdoor-saml-dos-cve-2026-134830/",
+      "x_craftedsignal_activity_at": "2026-11-22T22:40:39.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ff94c55c-4869-54bc-9638-3f56f3a7aa43",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T04:05:19.000Z",
@@ -321757,6 +321895,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7ed98eff-ae54-5d02-af15-21815eb5423e",
+      "name": "Casdoor (\u003c 4.27.1)",
+      "vendor": "Casdoor"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7ee16b82-f573-53e7-bf2a-5935ea24b571",
       "name": "FrankenPHP (\u003c 1.13.0)",
       "vendor": "FrankenPHP"
@@ -322252,6 +322397,13 @@
       "id": "software--83d96db1-fb9c-5814-97b9-0a29027ef9bf",
       "name": "Flying Images (\u003c= 2.4.15)",
       "vendor": "Gijo Varghese"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--83e0cfe7-f5dc-5fb6-94b8-bbf5d82a69f3",
+      "name": "Dashy (4.0.0 - 4.9.11)",
+      "vendor": "Lissy93"
     },
     {
       "type": "software",
@@ -333755,6 +333907,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108404",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108404"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--01c0d17a-82ad-55b4-902e-8588f23817c7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134836",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134836",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134836"
         }
       ]
     },
@@ -378555,6 +378723,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119893",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119893"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a2f094a2-e9d0-5d27-aa19-688dbd167a43",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134830",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134830",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134830"
         }
       ]
     },
