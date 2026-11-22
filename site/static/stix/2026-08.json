@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b79e835b-9f98-5daa-bee7-c3b471b90f39",
+  "id": "bundle--bdf3c2b5-47b0-59d8-a0ba-b92ebb2c8705",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9040,17 +9040,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--895864c2-7bea-57c2-ac04-5f7d701fb83e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--46f3fcd4-324e-5d5b-9595-1727dbc522b7",
-      "target_ref": "vulnerability--3f36aa4d-23ef-5f00-b041-ecc347ea806d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--8967148b-7066-5d4a-8ade-8fdca7c46433",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -12732,17 +12721,6 @@
       "relationship_type": "has",
       "source_ref": "software--e857f0b6-63ab-5972-95ae-a962d2aab460",
       "target_ref": "vulnerability--0e30ab7a-329d-52ee-b10b-df4b3b6a4566"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d4895c01-230b-5e3d-ab1c-b448a9276f3e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-23T23:39:21.000Z",
-      "modified": "2026-08-23T23:39:21.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5e370aa5-227b-5ddf-8f5c-822fb6008c4a",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -21843,56 +21821,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.6,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--5e370aa5-227b-5ddf-8f5c-822fb6008c4a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-23T23:39:21.000Z",
-      "modified": "2026-08-23T23:39:21.000Z",
-      "name": "SQL Injection in Barangay Resident Profiling Management System",
-      "description": "## Overview\n\nThe code-projects Barangay Resident Profiling Management System version 1.0 contains a critical SQL injection vulnerability (CVE-2026-78143) located within the 'Resident Search Functionality'. The flaw specifically resides in the residents.php script, where the 'Search' argument is not properly neutralized before being used in a database query. \n\nThis vulnerability is exploitable remotely by an unauthenticated attacker, potentially leading to unauthorized data exfiltration, database modification, or denial of service by disrupting the application's backend. Given that a public exploit for this vulnerability is already available, the risk of automated exploitation by threat actors is high for any organization running this management system.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to interact directly with the application database. Potential damage includes the theft of sensitive resident data, unauthorized administrative access, and system disruption. As the software is often used for municipal or organizational profiling, a breach could lead to the exposure of personally identifiable information (PII) for local residents.\n\n## Recommendation\n\n- Identify all instances of Barangay Resident Profiling Management System 1.0 in the environment and remove or disable the software until a security update is provided by the vendor.\n- Implement a Web Application Firewall (WAF) rule to inspect and block HTTP requests to 'residents.php' that contain SQL control characters (e.g., ' or --) within the 'Search' parameter.\n- Review web server access logs for anomalous GET or POST requests to 'residents.php' containing unexpected SQL syntax in the query string or body.\n- Deploy the provided Sigma rule to detect attempted exploitation of CVE-2026-78143.\n",
-      "published": "2026-08-23T23:39:21.000Z",
-      "labels": [
-        "cve-2026-78143",
-        "sql-injection",
-        "web-application-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--46f3fcd4-324e-5d5b-9595-1727dbc522b7",
-        "vulnerability--3f36aa4d-23ef-5f00-b041-ecc347ea806d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-cve-2026-78143",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2026-78143/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78143"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://vuldb.com/vuln/394526"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-cve-2026-78143",
-      "x_craftedsignal_event_id": "brief-2026-08-cve-2026-78143",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2026-78143/",
-      "x_craftedsignal_activity_at": "2026-08-23T23:39:21.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -35901,13 +35829,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--46f3fcd4-324e-5d5b-9595-1727dbc522b7",
-      "name": "Barangay Resident Profiling Management System (1.0)",
-      "vendor": "code-projects"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--46f78743-5012-5040-8f35-201955a0bc92",
       "name": "学生信息管理系统 (\u003c= e08f7f1d5015af407aa4cca0ada3dea189b4937e)",
       "vendor": "Soarkey"
@@ -40049,22 +39970,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-75807",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75807"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--3f36aa4d-23ef-5f00-b041-ecc347ea806d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-78143",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-78143",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78143"
         }
       ]
     },

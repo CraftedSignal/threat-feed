@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bed0d180-6032-51c1-8b5f-62d964c9dba1",
+  "id": "bundle--c3225cfa-47e5-5f14-b67e-816815d9448c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -23845,6 +23845,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1aac4d6b-8b4e-5468-82ff-239134bd2348",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T00:31:06.000Z",
+      "modified": "2026-11-22T00:31:06.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--999a16af-6f10-5ae4-8f1e-8e00d1cddfee",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1ab1260f-9040-5d20-8317-9040adbd22c5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29506,6 +29517,17 @@
       "relationship_type": "uses",
       "source_ref": "report--4aec8e50-9639-5957-9371-50be70b885d5",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--24a844ed-571e-5e48-ba0a-51f776bd5ff4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T00:30:56.000Z",
+      "modified": "2026-11-22T00:30:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--004dfd4b-0aae-5d59-a4da-aebef7927f58",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -79813,6 +79835,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7a87f189-78e6-5b8e-9c74-a4657575f3bf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4551b829-5c0b-579b-beaf-c04fb3261370",
+      "target_ref": "vulnerability--e8d049d6-540b-598f-921d-db069d042f65"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7a8b4d88-cc53-5d16-847e-2e6483d9b737",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -121624,6 +121657,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c1eb17c8-a140-5409-b6a4-867d118ff65b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9b14dc36-84ca-5339-8510-ff806aa8cd04",
+      "target_ref": "vulnerability--99e3033a-e05f-59d4-805b-0db82760d0fd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c1ec0b01-617c-5318-b6c6-1c75c1f482b3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -130673,6 +130717,17 @@
       "relationship_type": "has",
       "source_ref": "software--b1935622-ca6c-54a3-9ca9-2398b580a40b",
       "target_ref": "vulnerability--76ef8e9f-6094-5242-99ba-aeaceb371bca"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d15c5339-83b0-565a-b9fb-34b702ec700d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T00:31:06.000Z",
+      "modified": "2026-11-22T00:31:06.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--999a16af-6f10-5ae4-8f1e-8e00d1cddfee",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -156989,6 +157044,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--004dfd4b-0aae-5d59-a4da-aebef7927f58",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T00:30:56.000Z",
+      "modified": "2026-11-22T00:30:56.000Z",
+      "name": "Surya2Developer Online Shopping System SQL injection (CVE-2026-134541)",
+      "description": "## Overview\nSurya2Developer Online Shopping System 1.0 contains a SQL injection vulnerability in the 'product.php' file, specifically within the 'p' GET parameter. The flaw allows unauthenticated remote attackers to manipulate input to execute arbitrary SQL commands. Publicly available exploit code exists for this vulnerability. As of the current date, the vendor has not responded to the initial issue report, and no patch is known to be available.\n\n## Attack Chain\n1. Attacker identifies a public-facing instance of Surya2Developer Online Shopping System 1.0.\n2. Attacker interacts with 'product.php'.\n3. Attacker injects malicious SQL syntax into the 'p' GET parameter.\n4. The application processes the unsanitized input within the database query.\n5. Arbitrary SQL commands are executed in the backend database.\n\n## Impact\nSuccessful exploitation allows an unauthenticated remote attacker to manipulate database queries, potentially leading to unauthorized data disclosure, modification, or destruction within the application's database.\n\n## Recommendation\n- Inventory all instances of Surya2Developer Online Shopping System in your environment.\n- If the product is not required for business operations, disable or decommission it until a security update is provided by the developer.\n- Implement Web Application Firewall (WAF) rules to inspect incoming GET requests for SQL injection patterns targeting the 'p' parameter in 'product.php'.\n- Monitor web server logs for anomalous requests containing SQL keywords (e.g., SELECT, UNION, DROP, --) in the 'p' parameter string.",
+      "published": "2026-11-22T00:30:56.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9b14dc36-84ca-5339-8510-ff806aa8cd04",
+        "vulnerability--99e3033a-e05f-59d4-805b-0db82760d0fd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-surya2developer-online-shopping-sql-injection-cve-2026-134541",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-surya2developer-online-shopping-sql-injection-cve-2026-134541/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134541"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134541"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-surya2developer-online-shopping-sql-injection-cve-2026-134541",
+      "x_craftedsignal_event_id": "brief-2026-11-22-surya2developer-online-shopping-sql-injection-cve-2026-134541",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-surya2developer-online-shopping-sql-injection-cve-2026-134541/",
+      "x_craftedsignal_activity_at": "2026-11-22T00:30:56.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--00541835-e7d7-51b6-b001-bf4af31cc7a1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T11:21:06.000Z",
@@ -177095,6 +177194,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.03153,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -247942,6 +248042,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--999a16af-6f10-5ae4-8f1e-8e00d1cddfee",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T00:31:06.000Z",
+      "modified": "2026-11-22T00:31:06.000Z",
+      "name": "jprocms: OS command injection in Database Backup Module (CVE-2026-134543)",
+      "description": "## Overview\njprocms versions up to and including 1.7.7 contain an OS command injection vulnerability within the 'StrUtil.format' function of the Database Backup Module. By manipulating input parameters (host, port, username, password, or dbName), a remote attacker can achieve arbitrary OS command execution. The vulnerability is confirmed to have publicly available exploit code. The vendor has not responded to disclosure attempts, and no patched versions are currently confirmed.\n\n## Impact\nSuccessful exploitation allows for remote, unauthenticated OS command injection, potentially leading to full compromise of the underlying host running the jprocms instance.\n\n## Recommendation\nImmediate action is required to mitigate risk as no official patch exists. \n- Identify all jprocms instances within your environment and restrict access to these services to trusted internal networks only.\n- Implement strict egress filtering on servers hosting jprocms to prevent the execution of payloads that attempt to establish outbound command-and-control communication.\n- Monitor web server access logs for anomalous, unusually long, or encoded character strings within parameters associated with the Database Backup Module functions.",
+      "published": "2026-11-22T00:31:06.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4551b829-5c0b-579b-beaf-c04fb3261370",
+        "vulnerability--e8d049d6-540b-598f-921d-db069d042f65"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-jprocms-rce-cve-2026-134543",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-jprocms-rce-cve-2026-134543/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134543"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134543"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-jprocms-rce-cve-2026-134543",
+      "x_craftedsignal_event_id": "brief-2026-11-22-jprocms-rce-cve-2026-134543",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-jprocms-rce-cve-2026-134543/",
+      "x_craftedsignal_activity_at": "2026-11-22T00:31:06.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--99a8edcd-ded8-5cb5-b9a4-e87acb592642",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T05:54:39.000Z",
@@ -312418,6 +312564,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4551b829-5c0b-579b-beaf-c04fb3261370",
+      "name": "jprocms (\u003c= 1.7.7)",
+      "vendor": "jprocms"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--45994cf6-9d6d-5d04-a541-ca0be4b2c2f4",
       "name": "PHP (\u003e= 8.3.0, \u003c 8.3.37)",
       "vendor": "PHP Group"
@@ -319569,6 +319722,13 @@
       "id": "software--9b100b4b-ffda-5a40-9649-f662ad407b2d",
       "name": "Telerik Document Processing Libraries (\u003c 2026.3.1027)",
       "vendor": "Progress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--9b14dc36-84ca-5339-8510-ff806aa8cd04",
+      "name": "Online Shopping System (1.0)",
+      "vendor": "Surya2Developer"
     },
     {
       "type": "software",
@@ -370449,6 +370609,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--99e3033a-e05f-59d4-805b-0db82760d0fd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134541",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134541",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134541"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--99eaf878-574b-5c1c-9974-0c7dd3449a97",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -393019,6 +393195,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-130160",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130160"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e8d049d6-540b-598f-921d-db069d042f65",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134543",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134543",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134543"
         }
       ]
     },
