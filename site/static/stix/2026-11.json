@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6a97b339-2ea6-5245-b65e-ee0fbc327124",
+  "id": "bundle--efa576a7-0255-5edf-a5e9-d1aee1a16416",
   "objects": [
     {
       "type": "attack-pattern",
@@ -108376,6 +108376,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--6ae6521c-911c-579c-8b2c-c4958d2caa51"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--aa8a2465-9e65-5721-bffa-d2ca388f368f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4b7e8518-fe9b-5e02-ae1c-691e70d11c8d",
+      "target_ref": "vulnerability--ad6c0c20-cff2-5f0c-afce-89f53d74920f"
     },
     {
       "type": "relationship",
@@ -244956,6 +244967,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--91f36af6-767e-5046-87aa-f82e8c328579",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T18:19:33.000Z",
+      "modified": "2026-11-22T18:19:33.000Z",
+      "name": "Everest Forms: Stored Cross-site Scripting (CVE-2026-129066)",
+      "description": "## Overview\nA stored cross-site scripting (XSS) vulnerability exists in the Everest Forms plugin for WordPress, tracked as CVE-2026-129066. The vulnerability arises from the improper neutralization of input during web page generation, allowing the storage of malicious scripts.\n\n## Attack Chain\nThe vulnerability is defined by an improper neutralization flaw that enables stored XSS. According to CVSS metrics, the attack vector is network-based and requires user interaction. While the vulnerability is present in the application, the specific conditions required to trigger the injection depend on the implementation of input handling within the plugin.\n\n## Impact\nThe impact of successful exploitation includes the potential for execution of unauthorized scripts in the context of a victim's browser session. The CVSS v3.1 base score is 7.1, with a vector of CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:L.\n\n## Recommendation\nUsers should refer to vendor guidance regarding the resolution of this vulnerability. While the CVE record mentions version 3.6.5 as an unaffected version, administrators should verify the installed branch and update the plugin according to official manufacturer instructions.",
+      "published": "2026-11-22T18:19:33.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4b7e8518-fe9b-5e02-ae1c-691e70d11c8d",
+        "vulnerability--ad6c0c20-cff2-5f0c-afce-89f53d74920f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-everest-forms-xss-cve-2026-129066",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-everest-forms-xss-cve-2026-129066/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129066"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129066"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-everest-forms-xss-cve-2026-129066",
+      "x_craftedsignal_event_id": "brief-2026-11-22-everest-forms-xss-cve-2026-129066",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-everest-forms-xss-cve-2026-129066/",
+      "x_craftedsignal_activity_at": "2026-11-22T18:19:33.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--91fc0298-577e-54f1-b031-17733292c8a1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T04:01:51.000Z",
@@ -316187,6 +316242,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4b7e8518-fe9b-5e02-ae1c-691e70d11c8d",
+      "name": "Everest Forms",
+      "vendor": "Everest Forms"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4b901eab-0453-56f2-b319-42ae182f5cc9",
       "name": "Chrome (\u003c 157.0.8103.78)",
       "vendor": "Google"
@@ -379856,6 +379918,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-77315",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77315"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ad6c0c20-cff2-5f0c-afce-89f53d74920f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129066",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129066",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129066"
         }
       ]
     },
