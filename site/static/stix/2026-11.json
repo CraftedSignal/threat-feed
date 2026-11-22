@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7c5d13c5-7864-507a-8ee3-a5246837d053",
+  "id": "bundle--e1173ae4-761e-51cb-b7ce-47af3d4ae3c3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6197,7 +6197,7 @@
       "id": "indicator--af782061-44f1-573b-bfaa-c103ec98b634",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T23:29:44.000Z",
-      "modified": "2026-11-19T16:34:37.000Z",
+      "modified": "2026-11-22T18:30:43.000Z",
       "name": "url: https://files.xint.io/java4shell",
       "description": "Installer script endpoint for patching JVMs",
       "pattern": "[url:value = 'https://files.xint.io/java4shell']",
@@ -8866,7 +8866,7 @@
       "id": "relationship--02608da1-0611-5d64-bdb8-2d87d4bd3881",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T23:29:44.000Z",
-      "modified": "2026-11-19T16:34:37.000Z",
+      "modified": "2026-11-22T18:30:43.000Z",
       "relationship_type": "uses",
       "source_ref": "report--e9ef7bc2-d921-5a0b-b155-6068e2643f92",
       "target_ref": "indicator--af782061-44f1-573b-bfaa-c103ec98b634"
@@ -9420,6 +9420,17 @@
       "relationship_type": "has",
       "source_ref": "software--b88470e1-02ce-5af5-a603-2c68fbce2e45",
       "target_ref": "vulnerability--d53abe4d-a4f2-520d-ab36-f12c36fae6e5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--035ee36a-a503-5b31-872f-3e2d355f2b0b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f5a84f0a-01fb-55c4-bdbf-0347f305ec84",
+      "target_ref": "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
     },
     {
       "type": "relationship",
@@ -15375,17 +15386,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--0c662285-e487-5076-b5e3-990a61acfa49",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--4342a32a-c134-502a-a2aa-113143d5d779",
-      "target_ref": "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--0c6812a0-6838-5fa7-b086-323bfb20955c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T12:55:46.000Z",
@@ -18385,6 +18385,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--d365d676-bd85-5393-9038-6180d688b203"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--111d9f92-ae0a-5d96-8adb-e2ddbcebd2a0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e676f2d9-fac3-5cd5-b701-fb270f491d12",
+      "target_ref": "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
     },
     {
       "type": "relationship",
@@ -31985,6 +31996,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2850dbce-424b-507e-b223-6ad65af0bb1e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0e378e82-5e5a-52ae-bbe3-1d6b5229d7d8",
+      "target_ref": "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2851ab1f-0825-5b7b-ab0d-3d5830d9c103",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -33840,6 +33862,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--8564d7c9-5625-588c-9f9b-1d1db96fa9b5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2b8413a8-93b6-5d74-835a-9aff802f295a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--12a89a18-48da-5bd3-82cf-c63030a5c5c2",
+      "target_ref": "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
     },
     {
       "type": "relationship",
@@ -36924,17 +36957,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--30eaa204-5847-59ce-812a-c7077a6bb04a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--d63a4596-483c-50a3-af0c-5b6d68c9dc8b",
-      "target_ref": "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--30eaf846-d417-5b52-987b-b4ca36256293",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -38596,17 +38618,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--34202992-1923-5cef-aa5a-b11e10ca424c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--305d6fab-4974-52df-b7a0-935f47cb1bf1",
-      "target_ref": "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--342781a5-b9a9-5916-88ec-9d06fdde1f76",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -39879,6 +39890,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--934a9ccd-02bc-555b-9caa-68d130c829fb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--36b54b48-0f8b-57dd-97fa-b26f1a73bde3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--13da10d3-ea10-5f95-89c7-36d0500faa41",
+      "target_ref": "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
     },
     {
       "type": "relationship",
@@ -50399,6 +50421,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--48c7e823-25ec-5cb0-a491-290db90f2711",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--76ee82e6-3995-503b-9102-90a375bc3436",
+      "target_ref": "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--48c7f7c3-a3c6-584d-982b-e53bd5f7766c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -52727,6 +52760,17 @@
       "relationship_type": "uses",
       "source_ref": "report--db3ec46a-8ede-5b38-8b07-85603ff0f982",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4c71f3c1-48bb-53ca-b11b-9084d8f3b5bc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--80d54847-bf7b-517e-bb5d-71d55b47fd67",
+      "target_ref": "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
     },
     {
       "type": "relationship",
@@ -70496,6 +70540,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6a3fa5f6-b64a-5778-84cd-d13161dbb23e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a20fa48e-7d18-584d-bb85-ed0b2a1ffd36",
+      "target_ref": "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6a49d6e8-8b37-58f0-8853-87af17820161",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T22:01:51.000Z",
@@ -70965,6 +71020,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--4a823f0d-e424-5c4b-8148-6e8fcda8e508"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6b034df3-8371-5d93-b852-a597ad1d8728",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--144a4596-487c-5371-b6eb-f6841f7bf8e0",
+      "target_ref": "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
     },
     {
       "type": "relationship",
@@ -96665,6 +96731,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--96d24db5-6973-5eed-b29b-a1b0d1302b93",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c1c585e6-09bc-50d9-88e2-855430ef0354",
+      "target_ref": "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--96dc1efd-d32a-5005-b54a-378a24a1fe6e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -120315,6 +120392,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--be6046b1-516e-5525-81f4-66b00c0a3291",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2448c96a-b8ee-5066-b8cb-065fd2694106",
+      "target_ref": "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--be68c3fd-b95f-5a17-a900-bcf826e40884",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -130167,17 +130255,6 @@
       "relationship_type": "uses",
       "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
       "target_ref": "indicator--bb42b5d6-b16e-5347-a108-f676dbfeff60"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--cef8ede4-73a5-5803-8ab0-de9f1c3b6a2a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--6c566ee4-ddc7-5935-953a-f8e30bab0450",
-      "target_ref": "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
     },
     {
       "type": "relationship",
@@ -141897,6 +141974,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e4b649d8-5c13-59e0-9034-ae8f359351fc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e600eefe-b517-5fc6-8865-29f2e1f407ba",
+      "target_ref": "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e4bce871-0ff8-56bd-93c3-4f34fae5c8bc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -146297,17 +146385,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ec5a35e8-2336-5b71-903c-556c31df3680",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--715e793d-2f54-5a3a-9ba7-a4bdabbd9875",
-      "target_ref": "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ec60061f-e87b-54c0-b27b-b87cc7fc8084",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -149347,7 +149424,7 @@
       "id": "relationship--f1212aa7-4f02-54d5-8b84-59d8eb6f9b34",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T23:29:44.000Z",
-      "modified": "2026-11-19T16:34:37.000Z",
+      "modified": "2026-11-22T18:30:43.000Z",
       "relationship_type": "uses",
       "source_ref": "report--e9ef7bc2-d921-5a0b-b155-6068e2643f92",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
@@ -155786,6 +155863,17 @@
       "relationship_type": "uses",
       "source_ref": "report--2efffdcf-bf3a-5637-85e3-e009f3c375cb",
       "target_ref": "attack-pattern--af36256b-7f61-5622-8047-8836c263a2f6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fc294fc1-f891-5fde-ad13-52c239003627",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4b304c74-6a63-51d3-8fd2-2b613ca595e6",
+      "target_ref": "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
     },
     {
       "type": "relationship",
@@ -296697,7 +296785,7 @@
       "id": "report--e9ef7bc2-d921-5a0b-b155-6068e2643f92",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T23:29:44.000Z",
-      "modified": "2026-11-19T16:34:37.000Z",
+      "modified": "2026-11-22T18:30:43.000Z",
       "name": "Oracle Java SE: Out-of-Bounds Write via AVX-512 VBMI Base64 Intrinsic (CVE-2026-114938)",
       "description": "## Overview\nCVE-2026-114938 is an out-of-bounds write vulnerability in the Java Virtual Machine (JVM). The flaw specifically impacts the x86_64 AVX-512 VBMI implementation of the Base64 decode intrinsic. When the JIT compiler (C2) optimizes code using this intrinsic, it can trigger memory corruption, potentially leading to arbitrary code execution or service instability. The vulnerability affects multiple Oracle Java distributions, including Java SE and GraalVM. \n\n## Impact\nSuccessful exploitation can result in heap corruption and potentially arbitrary code execution. Because the vulnerability manifests within the JVM runtime, it is independent of the application logic and can be triggered by any remote input processed by affected Base64 decode methods.\n\n## Recommendation\nPrioritize updating affected JDK and JRE installations as soon as official vendor patches are available. For immediate protection, add the JVM startup flag `-XX:-UseBASE64Intrinsics` to your configurations, which disables the vulnerable intrinsic. Alternatively, runtime patching agents may be used to temporarily exclude the vulnerable `java/util/Base64$Decoder.decode0` method from C2 compilation in environments where immediate restarts are not feasible.",
       "published": "2026-11-17T23:29:44.000Z",
@@ -296711,11 +296799,19 @@
         "attack-pattern--745c9492-77e4-5572-9132-308959464536",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "indicator--af782061-44f1-573b-bfaa-c103ec98b634",
-        "software--305d6fab-4974-52df-b7a0-935f47cb1bf1",
-        "software--4342a32a-c134-502a-a2aa-113143d5d779",
-        "software--6c566ee4-ddc7-5935-953a-f8e30bab0450",
-        "software--715e793d-2f54-5a3a-9ba7-a4bdabbd9875",
-        "software--d63a4596-483c-50a3-af0c-5b6d68c9dc8b",
+        "software--0e378e82-5e5a-52ae-bbe3-1d6b5229d7d8",
+        "software--12a89a18-48da-5bd3-82cf-c63030a5c5c2",
+        "software--13da10d3-ea10-5f95-89c7-36d0500faa41",
+        "software--144a4596-487c-5371-b6eb-f6841f7bf8e0",
+        "software--2448c96a-b8ee-5066-b8cb-065fd2694106",
+        "software--4b304c74-6a63-51d3-8fd2-2b613ca595e6",
+        "software--76ee82e6-3995-503b-9102-90a375bc3436",
+        "software--80d54847-bf7b-517e-bb5d-71d55b47fd67",
+        "software--a20fa48e-7d18-584d-bb85-ed0b2a1ffd36",
+        "software--c1c585e6-09bc-50d9-88e2-855430ef0354",
+        "software--e600eefe-b517-5fc6-8865-29f2e1f407ba",
+        "software--e676f2d9-fac3-5cd5-b701-fb270f491d12",
+        "software--f5a84f0a-01fb-55c4-bdbf-0347f305ec84",
         "vulnerability--8d86feca-eccf-5d7f-a086-df10c13907e9"
       ],
       "external_references": [
@@ -296726,7 +296822,23 @@
         },
         {
           "source_name": "reference",
+          "url": "https://calif.io/java4shell/"
+        },
+        {
+          "source_name": "reference",
           "url": "https://cveawg.mitre.org/api/cve/CVE-2026-114938"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/application/http_base64_activity_with_jvm_errors.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://openjdk.org/groups/vulnerability/advisories/2026-11-17"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-nov2026-java-rce-eCa6ss9z?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Vulnerability%20in%20Oracle%20OpenJDK%20(Java4Shell)%20Affecting%20Cisco%20Products:%20November%202026%26vs_k=1"
         },
         {
           "source_name": "reference",
@@ -296738,11 +296850,23 @@
         },
         {
           "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/cisa-urges-immediate-patching-of.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.darkreading.com/vulnerabilities-threats/java4shell-flaw-threatens-global-java-application-ecosystem"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.greynoise.io/blog/global-event-java4shell-cve-2026-114938-live-activity-report"
         },
         {
           "source_name": "reference",
           "url": "https://www.rapid7.com/blog/post/etr-cve-2026-114938-reported-critical-pre-authentication-remote-code-execution-java-17"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/java4shell-exploitation-attempts-begin-as-vendors-rush-out-advisories/"
         },
         {
           "source_name": "reference",
@@ -296752,9 +296876,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-17-cve-2026-114938",
       "x_craftedsignal_event_id": "brief-2026-11-17-cve-2026-114938",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-114938/",
-      "x_craftedsignal_activity_at": "2026-11-19T16:34:37.000Z",
+      "x_craftedsignal_activity_at": "2026-11-22T18:30:43.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -296764,7 +296888,7 @@
         "confidence": "medium"
       },
       "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_epss_max": 0.45636,
+      "x_craftedsignal_epss_max": 0.00753,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -311076,6 +311200,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0e378e82-5e5a-52ae-bbe3-1d6b5229d7d8",
+      "name": "Oracle Java SE (= 25.0.5.0.3)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0e5c83d1-69db-57d7-8e7b-bf35c1bb9f36",
       "name": "Datalore (\u003c 2026.4)",
       "vendor": "JetBrains"
@@ -311528,6 +311658,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--12a89a18-48da-5bd3-82cf-c63030a5c5c2",
+      "name": "Oracle Java SE (= 17.0.21.0.3)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--130b9f4c-54fb-510f-9aa6-01a6df17fcf2",
       "name": "Active Products Tables for WooCommerce (n/a - 2.1.8)",
       "vendor": "PluginUs.Net"
@@ -311610,6 +311746,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--13da10d3-ea10-5f95-89c7-36d0500faa41",
+      "name": "Oracle GraalVM Enterprise Edition (21.3.20.0.3)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--13de47ec-f128-566e-b03a-f9c893da9753",
       "name": "nukeviet",
       "vendor": "nukeviet"
@@ -311633,6 +311775,12 @@
       "spec_version": "2.1",
       "id": "software--14288f8c-5aa7-54c2-9899-85f401cb86f1",
       "name": "NIKKE game launcher"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--144a4596-487c-5371-b6eb-f6841f7bf8e0",
+      "name": "Oracle GraalVM Enterprise Edition (= 21.3.20.0.3)"
     },
     {
       "type": "software",
@@ -312952,6 +313100,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2448c96a-b8ee-5066-b8cb-065fd2694106",
+      "name": "GraalVM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--24747cb8-7126-5da0-bf2b-17209e9ba1ff",
       "name": "Zen 4 CPUs"
     },
@@ -313949,13 +314103,6 @@
       "id": "software--302af34a-560a-5db3-949a-d77dcd447730",
       "name": "ONLYOFFICE Docs (9.4.0-129)",
       "vendor": "ONLYOFFICE"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--305d6fab-4974-52df-b7a0-935f47cb1bf1",
-      "name": "Oracle GraalVM Enterprise Edition (21.3.20.0.3)",
-      "vendor": "Oracle"
     },
     {
       "type": "software",
@@ -315585,13 +315732,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--4342a32a-c134-502a-a2aa-113143d5d779",
-      "name": "Oracle GraalVM for JDK (17.0.21.0.3, 21.0.13.0.3)",
-      "vendor": "Oracle"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--4360bba0-e88a-5e8f-8fea-5b708b693870",
       "name": "ESP-IDF (\u003e= 6.0.0, \u003c 6.0.3)",
       "vendor": "Espressif"
@@ -316336,6 +316476,12 @@
       "id": "software--4b28ee6a-1126-5798-a482-a373b11980dd",
       "name": "Home Assistant (2026.11.0)",
       "vendor": "Home Assistant"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4b304c74-6a63-51d3-8fd2-2b613ca595e6",
+      "name": "Oracle Java SE (= 21.0.13.0.3)"
     },
     {
       "type": "software",
@@ -319100,13 +319246,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--6c566ee4-ddc7-5935-953a-f8e30bab0450",
-      "name": "Java SE",
-      "vendor": "Oracle"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--6c5a4104-dbcb-54e4-93fa-cfee7280f91f",
       "name": "TeamCity (\u003c 2026.2, \u003c 2026.1.4, \u003c 2025.11.8)",
       "vendor": "JetBrains"
@@ -319501,13 +319640,6 @@
       "spec_version": "2.1",
       "id": "software--713c0f32-c74f-560c-b501-f6f4973173c3",
       "name": "JWT Auth WordPress Plugin (\u003c= 3.0.2)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--715e793d-2f54-5a3a-9ba7-a4bdabbd9875",
-      "name": "Oracle Java SE (8u511b33-perf, 17.0.21.0.3, 21.0.13.0.3, 25.0.5.0.3, 27.0.1.0.3)",
-      "vendor": "Oracle"
     },
     {
       "type": "software",
@@ -319976,6 +320108,12 @@
       "id": "software--76dba977-d46e-53c8-96b1-6147c5489dd9",
       "name": "ScreenConnect",
       "vendor": "ConnectWise"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--76ee82e6-3995-503b-9102-90a375bc3436",
+      "name": "Oracle GraalVM for JDK (= 21.0.13.0.3)"
     },
     {
       "type": "software",
@@ -320832,6 +320970,12 @@
       "id": "software--80bc45d6-9e60-57d0-b3b8-31c04ba5688e",
       "name": "SonicOS (Gen7 \u003c= 7.3.3-7015)",
       "vendor": "SonicWall"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--80d54847-bf7b-517e-bb5d-71d55b47fd67",
+      "name": "Oracle Java SE (8u511b33-perf, 17.0.21.0.3, 21.0.13.0.3, 25.0.5.0.3, 27.0.1.0.3)"
     },
     {
       "type": "software",
@@ -323575,6 +323719,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a20fa48e-7d18-584d-bb85-ed0b2a1ffd36",
+      "name": "Oracle GraalVM for JDK (17.0.21.0.3, 21.0.13.0.3)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a25d84d2-c7b6-55a2-afdf-d62752f01c90",
       "name": "FortiManager (8.0.0-8.0.1, 7.6.0-7.6.7, 7.4.0-7.4.11, 7.2.0-7.2.13)",
       "vendor": "Fortinet"
@@ -326313,6 +326463,12 @@
       "id": "software--c1ae6399-cf10-5680-9b0d-75e676e82f31",
       "name": "termux-sync",
       "vendor": "djunekz"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c1c585e6-09bc-50d9-88e2-855430ef0354",
+      "name": "Oracle Java SE (= 27.0.1.0.3)"
     },
     {
       "type": "software",
@@ -329274,6 +329430,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e600eefe-b517-5fc6-8865-29f2e1f407ba",
+      "name": "Oracle GraalVM for JDK (= 17.0.21.0.3)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e6230301-3925-5a1f-8cb8-78b3f56bab6d",
       "name": "Munshi (\u003c 2026-07-07)",
       "vendor": "Petpooja"
@@ -329305,6 +329467,12 @@
       "id": "software--e65b64c5-d777-5eee-b846-0b16b40dbdff",
       "name": "NextGEN Gallery (\u003c= 4.5.5)",
       "vendor": "Imagely"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e676f2d9-fac3-5cd5-b701-fb270f491d12",
+      "name": "Java SE"
     },
     {
       "type": "software",
@@ -330743,6 +330911,12 @@
       "id": "software--f595999b-4517-5413-b190-d4b51e329f11",
       "name": "APISIX (3.18.0 through 3.19.0)",
       "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f5a84f0a-01fb-55c4-bdbf-0347f305ec84",
+      "name": "Oracle Java SE (= 8u511b33-perf)"
     },
     {
       "type": "software",
