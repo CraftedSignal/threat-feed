@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1e692dbb-d321-5431-a4be-1ac349183d1e",
+  "id": "bundle--551bf73b-399e-5bd6-91ac-e05b3f485c22",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6587,17 +6587,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--5f7764ed-f80a-5088-a3ba-24c81a3c5121",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T07:42:10.000Z",
-      "modified": "2026-08-24T07:42:20.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d5ed051d-32d9-5ea8-be3d-46b3cb27e745",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--5f84edb0-55d6-576c-ac37-a98cbba3d823",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -12010,17 +11999,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--cb912e5f-4636-517f-a4e6-f08891e88931",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--81245ac0-3855-5835-8322-328161645efb",
-      "target_ref": "vulnerability--9c6307dd-df9f-5662-8d7b-11fd49c67d3a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--cbe10e8c-95e2-533b-a3ac-df5529daa5c8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T11:17:20.000Z",
@@ -13194,17 +13172,6 @@
       "relationship_type": "has",
       "source_ref": "software--a69dc7c2-ca06-59d2-8b63-cdb4339c497d",
       "target_ref": "vulnerability--6bff301e-6571-574f-97c0-26c3a2dc3c10"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e60b4377-d059-588a-a3c8-2f0af7c3ab9a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T07:42:10.000Z",
-      "modified": "2026-08-24T07:42:20.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d5ed051d-32d9-5ea8-be3d-46b3cb27e745",
-      "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
     },
     {
       "type": "relationship",
@@ -30908,60 +30875,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--d5ed051d-32d9-5ea8-be3d-46b3cb27e745",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T07:42:10.000Z",
-      "modified": "2026-08-24T07:42:20.000Z",
-      "name": "SQL Injection in itsourcecode Payroll System",
-      "description": "## Overview\n\nA critical SQL injection vulnerability has been identified in itsourcecode Payroll System version 1.0. The vulnerability resides within the login function of the admin_class.php file. By manipulating the 'Username' argument during the authentication process, a remote, unauthenticated attacker can inject arbitrary SQL commands. This flaw permits the execution of unauthorized queries against the application database, which may lead to sensitive data exfiltration, modification, or complete bypass of administrative authentication. The exploit is currently publicly available, increasing the risk of active exploitation. Security teams managing instances of this software should treat this as a high-priority risk and implement immediate mitigations or network-level blocking to prevent unauthorized access.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-78201 enables remote code or command execution via database interaction, potentially compromising the integrity and confidentiality of the entire payroll database. Given the nature of the application, this includes potential access to employee personal identifiable information (PII) and financial records.\n\n## Recommendation\n\n- Immediately restrict access to the web-based login interface of the Payroll System to trusted IP addresses only.\n- Implement a Web Application Firewall (WAF) rule to block common SQL injection patterns targeting the 'Username' field in HTTP POST requests.\n- Deploy the Sigma rule provided below to your web server logs to monitor for exploitation attempts.\n- Patch or disable the affected Payroll System instance if no official vendor update is available for version 1.0.\n",
-      "published": "2026-08-24T07:42:10.000Z",
-      "object_refs": [
-        "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--81245ac0-3855-5835-8322-328161645efb",
-        "vulnerability--9c6307dd-df9f-5662-8d7b-11fd49c67d3a"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-payroll-system-sqli",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-payroll-system-sqli/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/microwaveabi/vul/issues/12"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/microwaveabi/vul/issues/8"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78201"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78202"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-payroll-system-sqli",
-      "x_craftedsignal_event_id": "brief-2026-08-payroll-system-sqli",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-payroll-system-sqli/",
-      "x_craftedsignal_activity_at": "2026-08-24T07:42:20.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--d60bd1ae-156f-50c2-b568-93b01ac74c12",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-30T23:12:41.000Z",
@@ -35849,13 +35762,6 @@
       "id": "software--80b19b37-5961-5e08-bab4-908f263ece64",
       "name": "Pangolin (\u003c 1.22.0)",
       "vendor": "Pangolin"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--81245ac0-3855-5835-8322-328161645efb",
-      "name": "Payroll System (1.0)",
-      "vendor": "itsourcecode"
     },
     {
       "type": "software",
@@ -40812,22 +40718,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-81029",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81029"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--9c6307dd-df9f-5662-8d7b-11fd49c67d3a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-78201",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-78201",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78201"
         }
       ]
     },
