@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--692b5155-9d05-57ce-a935-c84706d77b16",
+  "id": "bundle--d2fb2a42-2b25-5aec-8035-f5b7781477da",
   "objects": [
     {
       "type": "attack-pattern",
@@ -23537,6 +23537,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--19f0e497-87e8-565c-b5ed-469e1913dd21",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0348d461-b37b-5fce-96b5-8f70f37f96b2",
+      "target_ref": "vulnerability--51cc114e-3536-57b5-9a7d-4f9cf02a7044"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1a022464-3d5b-5fe9-b181-d0fe209b92cf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -28289,6 +28300,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2283295d-9f1d-5a48-a524-2ae32a0d9a53",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--47dbdc50-eb83-5ad3-95b0-a1bab851fe4e",
+      "target_ref": "vulnerability--51cc114e-3536-57b5-9a7d-4f9cf02a7044"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--22856775-fa5f-558b-b028-e6224e3ece95",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -30496,6 +30518,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--406194f2-0db9-5a39-857d-6bdef9c6f25f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--26424425-e2f3-5718-85d1-21c90c60c1a1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4978289b-c43a-5a08-9b63-d6e7d7e8c417",
+      "target_ref": "vulnerability--51cc114e-3536-57b5-9a7d-4f9cf02a7044"
     },
     {
       "type": "relationship",
@@ -104295,6 +104328,17 @@
       "relationship_type": "has",
       "source_ref": "software--85475315-041c-542e-bcae-560f82ce7f95",
       "target_ref": "vulnerability--d56fa89c-c5d2-59b3-a314-df5d8a17e17d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a43ee36f-29ad-5be6-aafa-343de1d247e6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--964515c6-9e34-51a7-935c-a32037e45fa3",
+      "target_ref": "vulnerability--51cc114e-3536-57b5-9a7d-4f9cf02a7044"
     },
     {
       "type": "relationship",
@@ -245879,6 +245923,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--94e45986-5dd3-5cb9-8570-de3b949b1914",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T13:14:24.000Z",
+      "modified": "2026-11-22T13:14:24.000Z",
+      "name": "Linux kernel: SUNRPC control record processing heap corruption (CVE-2026-99356)",
+      "description": "## Overview\nA critical vulnerability exists in the Linux kernel's `svc_tcp_sock_recv_cmsg()` function related to the handling of control records in the SUNRPC implementation. When processing TLS records other than `TLS_RECORD_TYPE_ALERT`, the function incorrectly credits the record length octets to the RPC stream even though the data is not copied into the caller's buffer. This causes the RPC stream to advance over data it never received, leading to the use of stale `sk_marker` octets for fragment markers and the processing of uninitialized memory pages.\n\n## Impact\nAn attacker can trigger this vulnerability by sending a specifically crafted TLS KeyUpdate record over an nfsd TCP connection. Successful exploitation may result in kernel memory corruption, information disclosure of heap contents, or an oops (crash) of the nfsd thread, leading to a denial-of-service condition.\n\n## Recommendation\n- Audit kernel versions against the affected ranges and apply vendor-supplied patches as they become available.\n- While explicit patch versions for all distributions were not provided in the source, verify the deployment of fixes resolving the logic in `svc_tcp_sock_recv_cmsg` to return `-EAGAIN` for non-alert records.\n- Restrict network access to NFS services to trusted clients only to mitigate the potential for remote exploitation.",
+      "published": "2026-11-22T13:14:24.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0348d461-b37b-5fce-96b5-8f70f37f96b2",
+        "software--47dbdc50-eb83-5ad3-95b0-a1bab851fe4e",
+        "software--4978289b-c43a-5a08-9b63-d6e7d7e8c417",
+        "software--964515c6-9e34-51a7-935c-a32037e45fa3",
+        "vulnerability--51cc114e-3536-57b5-9a7d-4f9cf02a7044"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-linux-kernel-sunrpc-cve-2026-99356",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-sunrpc-cve-2026-99356/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-99356"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99356"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-linux-kernel-sunrpc-cve-2026-99356",
+      "x_craftedsignal_event_id": "brief-2026-11-22-linux-kernel-sunrpc-cve-2026-99356",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-sunrpc-cve-2026-99356/",
+      "x_craftedsignal_activity_at": "2026-11-22T13:14:24.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00209,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--95548ed7-0c8d-5f7f-ba7d-a96d3166dd89",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T20:04:08.000Z",
@@ -308224,6 +308316,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0348d461-b37b-5fce-96b5-8f70f37f96b2",
+      "name": "Linux kernel (6.6.102 and earlier)",
+      "vendor": "Linux"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0365f947-77ee-5172-b42f-b9e567e5a481",
       "name": "DataSketches C++",
       "vendor": "Apache"
@@ -314155,6 +314254,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--47dbdc50-eb83-5ad3-95b0-a1bab851fe4e",
+      "name": "Linux kernel (6.12.42-6.12.116)",
+      "vendor": "Linux"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--47e303f1-7cb6-572b-82de-ef80d7358d80",
       "name": "SIMATIC MTP CREATOR V2.x (\u003c V2.1)",
       "vendor": "Siemens"
@@ -314352,6 +314458,13 @@
       "id": "software--4972d500-f94e-5f3c-aadb-25985151a753",
       "name": "sa-exim",
       "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4978289b-c43a-5a08-9b63-d6e7d7e8c417",
+      "name": "Linux kernel (6.15.10 and earlier)",
+      "vendor": "Linux"
     },
     {
       "type": "software",
@@ -320661,6 +320774,13 @@
       "id": "software--96035e65-2652-5c88-bf56-6ba512c595a6",
       "name": "dbus",
       "vendor": "Freedesktop"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--964515c6-9e34-51a7-935c-a32037e45fa3",
+      "name": "Linux kernel (6.16.1 and earlier)",
+      "vendor": "Linux"
     },
     {
       "type": "software",
@@ -351665,6 +351785,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-95963",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95963"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--51cc114e-3536-57b5-9a7d-4f9cf02a7044",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99356",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99356",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99356"
         }
       ]
     },
