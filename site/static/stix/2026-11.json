@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c3225cfa-47e5-5f14-b67e-816815d9448c",
+  "id": "bundle--d6b20ab8-7923-5b49-be33-786ef061c3e0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -64039,6 +64039,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5fb6e895-1789-5a34-98b3-308d8fe75940",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a26203ed-0d20-5b25-be04-6932976a0233",
+      "target_ref": "vulnerability--e6c5ceda-f273-5d9f-aec9-1cc3aca013a0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5fb8d07d-089c-5370-a982-d6661f14d36c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -109821,6 +109832,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ae140369-7d3a-5a85-8a2d-b304309da79f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8ccb2f0a-1b72-5196-a393-d984b1440c88",
+      "target_ref": "vulnerability--d3386690-987c-5c18-a4d4-db4f93fcf286"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ae192f0d-7956-5798-bb73-3883f410695b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -113579,6 +113601,17 @@
       "relationship_type": "has",
       "source_ref": "software--85475315-041c-542e-bcae-560f82ce7f95",
       "target_ref": "vulnerability--c8aef42b-f180-589f-a572-5306828953c0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b4100274-7946-5dec-ba1a-40b48c8b8ebd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T02:57:11.000Z",
+      "modified": "2026-11-22T02:57:11.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3ee00130-2b17-5eea-b9a2-f0c3f4aa9942",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
     },
     {
       "type": "relationship",
@@ -139594,6 +139627,17 @@
       "relationship_type": "has",
       "source_ref": "software--85475315-041c-542e-bcae-560f82ce7f95",
       "target_ref": "vulnerability--3057b3be-407a-53c7-82f3-21696fab803d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e1b83b05-d4a2-57d2-8b64-17c0f02fedbd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T02:57:21.000Z",
+      "modified": "2026-11-22T02:57:21.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--60ea9880-5bb2-5830-90eb-fa455807814e",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -194780,6 +194824,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--3ee00130-2b17-5eea-b9a2-f0c3f4aa9942",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T02:57:11.000Z",
+      "modified": "2026-11-22T02:57:11.000Z",
+      "name": "WeddingShare: Missing authorization in MediaViewerController (CVE-2026-134679)",
+      "description": "## Overview\n\nWeddingShare through version 1.8.2 contains a missing authorization vulnerability in the anonymous MediaViewerController.GalleryItem action. This flaw allows unauthenticated attackers to retrieve item upload paths without the required gallery secret key. By enumerating sequential integer item IDs, an attacker can learn file paths and uploader names, subsequently downloading photos and videos from key-protected galleries served as static files. No remediation or fixed version has been disclosed by the vendor at this time.\n\n## Attack Chain\n\n1. Attacker identifies a public-facing instance of WeddingShare.\n2. Attacker interacts with the unauthenticated MediaViewerController.GalleryItem action.\n3. Attacker performs enumeration of sequential integer item IDs to identify valid file paths.\n4. Attacker extracts sensitive metadata, including file paths and uploader names, from the application response.\n5. Attacker uses the discovered paths to bypass the gallery secret key protection mechanism.\n6. Attacker downloads unauthorized photos and videos served as static files.\n\n## Impact\n\nSuccessful exploitation allows unauthorized access to private, key-protected media galleries, leading to the exfiltration of sensitive photos and videos, along with associated metadata such as uploader names.\n\n## Recommendation\n\n* Inventory all deployments of WeddingShare to identify instances running version 1.8.2 or earlier.\n* Monitor web server logs for high volumes of requests to the MediaViewerController.GalleryItem endpoint that exhibit sequential ID patterns.\n* Restrict network access to the application if possible until a vendor-supplied patch is available.",
+      "published": "2026-11-22T02:57:11.000Z",
+      "object_refs": [
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a26203ed-0d20-5b25-be04-6932976a0233",
+        "vulnerability--e6c5ceda-f273-5d9f-aec9-1cc3aca013a0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-weddingshare-auth-bypass-cve-2026-134679",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-weddingshare-auth-bypass-cve-2026-134679/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134679"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-weddingshare-auth-bypass-cve-2026-134679",
+      "x_craftedsignal_event_id": "brief-2026-11-22-weddingshare-auth-bypass-cve-2026-134679",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-weddingshare-auth-bypass-cve-2026-134679/",
+      "x_craftedsignal_activity_at": "2026-11-22T02:57:11.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--3ee6dd19-2c1e-5ced-8d62-ab64a5a4156f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T19:37:05.000Z",
@@ -214965,6 +215050,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--60ea9880-5bb2-5830-90eb-fa455807814e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T02:57:21.000Z",
+      "modified": "2026-11-22T02:57:21.000Z",
+      "name": "Gammapy: Code injection in WcsGeom.from_header (CVE-2026-134694)",
+      "description": "## Overview\nGammapy through 2.1 is vulnerable to code injection in the WcsGeom.from_header() method. The application passes the WCSSHAPE FITS header card directly to the Python eval() function. An attacker can create a specially crafted .fits file that includes an arbitrary Python expression within the WCSSHAPE field. When this file is processed by Map.read(), the embedded expression is executed with the permissions of the user running the library.\n\n## Attack Chain\n1. Attacker crafts a malicious .fits file containing a Python expression in the WCSSHAPE header card.\n2. Victim is induced to open the malicious .fits file using the Map.read() function in Gammapy.\n3. The application parses the file and calls WcsGeom.from_header().\n4. The library processes the WCSSHAPE header card and passes the contained string to eval().\n5. The Python interpreter executes the embedded expression, leading to code injection with the privileges of the victim user.\n\n## Impact\nSuccessful exploitation allows local arbitrary code execution as the user running the Gammapy application. This can lead to unauthorized data access, modification, or system compromise.\n\n## Recommendation\n- Inventory all environments using Gammapy versions 2.1 or earlier.\n- Restrict access to processing .fits files from untrusted sources.\n- Monitor for official patches or updates from the Gammapy project to address the unsafe use of eval() in WcsGeom.from_header().\n- Implement sandboxing for processes that handle user-supplied FITS files to limit the potential impact of code execution.",
+      "published": "2026-11-22T02:57:21.000Z",
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8ccb2f0a-1b72-5196-a393-d984b1440c88",
+        "vulnerability--d3386690-987c-5c18-a4d4-db4f93fcf286"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-gammapy-code-injection-cve-2026-134694",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-gammapy-code-injection-cve-2026-134694/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134694"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134694"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-gammapy-code-injection-cve-2026-134694",
+      "x_craftedsignal_event_id": "brief-2026-11-22-gammapy-code-injection-cve-2026-134694",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gammapy-code-injection-cve-2026-134694/",
+      "x_craftedsignal_activity_at": "2026-11-22T02:57:21.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -318627,6 +318757,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8ccb2f0a-1b72-5196-a393-d984b1440c88",
+      "name": "Gammapy (\u003c= 2.1)",
+      "vendor": "Gammapy"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8ccbb652-b1d0-5560-9481-17ad1b38aae1",
       "name": "Oracle Financial Services Applications",
       "vendor": "Oracle"
@@ -320280,6 +320417,13 @@
       "id": "software--a25d84d2-c7b6-55a2-afdf-d62752f01c90",
       "name": "FortiManager (8.0.0-8.0.1, 7.6.0-7.6.7, 7.4.0-7.4.11, 7.2.0-7.2.13)",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a26203ed-0d20-5b25-be04-6932976a0233",
+      "name": "WeddingShare (\u003c= 1.8.2)",
+      "vendor": "Cirx08"
     },
     {
       "type": "software",
@@ -386913,6 +387057,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--d3386690-987c-5c18-a4d4-db4f93fcf286",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134694",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134694",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134694"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--d33baa3b-90fb-5351-bdc7-cb6990254787",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -392587,6 +392747,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-131181",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131181"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e6c5ceda-f273-5d9f-aec9-1cc3aca013a0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134679",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134679",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134679"
         }
       ]
     },
