@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0f82840e-17ac-5c07-920c-b74f2d94c3da",
+  "id": "bundle--7c3d7073-cd1f-56ed-898e-9aac3537c3ed",
   "objects": [
     {
       "type": "attack-pattern",
@@ -94388,6 +94388,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9366fdd6-627f-57a2-afc6-23c84d6f662d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T06:17:43.000Z",
+      "modified": "2026-11-22T06:17:43.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--21f9f765-5ff9-5c34-8021-5bab2ef293ca",
+      "target_ref": "threat-actor--f478a665-081c-5c3e-bcf2-bef2b0163699"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--93673cae-e31f-5e84-ad66-e5ce548746fe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -139235,6 +139246,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e0d7ab11-c1d3-5e64-9223-c00bb4ff4094",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--350aa96a-2b63-54d5-b351-5edc1b3b9e3d",
+      "target_ref": "vulnerability--7fb2a214-c98b-588d-b409-71c84ebf5816"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e0e56a4d-a9fb-5e29-85a2-f9bac5ee4e71",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -176393,6 +176415,56 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--21f9f765-5ff9-5c34-8021-5bab2ef293ca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T06:17:43.000Z",
+      "modified": "2026-11-22T06:17:43.000Z",
+      "name": "Ollyo Helix3: Unauthenticated Arbitrary File Write (CVE-2026-49049)",
+      "description": "## Overview\nThe Helix3 plugin for Joomla, specifically the `plg_ajax_helix3` component, contains a vulnerability (CVE-2026-49049) that allows unauthenticated attackers to perform arbitrary file deletions, arbitrary JSON file writes, and updates to template parameters. The vulnerability exists within the `onAjaxHelix3()` handler reachable at `POST /index.php?option=com_ajax\u0026plugin=helix3\u0026format=json`.\n\n## Attack Chain\nThe `onAjaxHelix3()` handler processes `data[action]=save` requests without authentication checks, CSRF token validation, or path traversal filtering on the `data[layoutName]` parameter. By sending a POST request to the specified endpoint with a manipulated `data[layoutName]` containing directory traversal sequences, an attacker can write or overwrite files on the filesystem.\n\n## Impact\nSuccessful exploitation results in unauthorized arbitrary file write or deletion, potentially enabling site defacement or modification of template configurations. \n\n## Recommendation\n- Upgrade Helix3 to version 3.1.2 or later, which introduces administrator privilege checks, CSRF token validation, and sanitization of layout filenames.\n- As an interim mitigation, block POST requests to `index.php` where the query string contains both `option=com_ajax` and `plugin=helix3` at the WAF or web server level.\n- Audit template style Custom Code fields and the `/images` directory for unauthorized `.php` or `.json` files.",
+      "published": "2026-11-22T06:17:43.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--350aa96a-2b63-54d5-b351-5edc1b3b9e3d",
+        "threat-actor--f478a665-081c-5c3e-bcf2-bef2b0163699",
+        "vulnerability--7fb2a214-c98b-588d-b409-71c84ebf5816"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-helix3-rce-cve-2026-49049",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-helix3-rce-cve-2026-49049/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-49049"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-THEENDOFABBYS-CVE-2026-49049"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-THEENDOFABBYS-CVE-2026-49049\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-helix3-rce-cve-2026-49049",
+      "x_craftedsignal_event_id": "brief-2026-11-22-helix3-rce-cve-2026-49049",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-helix3-rce-cve-2026-49049/",
+      "x_craftedsignal_activity_at": "2026-11-22T06:17:43.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00992,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -311427,6 +311499,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--350aa96a-2b63-54d5-b351-5edc1b3b9e3d",
+      "name": "Helix3 extension for Joomla (= 1.0-3.1.1)",
+      "vendor": "joomshaper.com"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--353f2962-dcfd-50fc-b255-19165e07e8f0",
       "name": "yggdrasil-worker-package-manager"
     },
@@ -328700,6 +328779,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "Videostrong"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--f478a665-081c-5c3e-bcf2-bef2b0163699",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "AntonKill"
     },
     {
       "type": "vulnerability",
@@ -362954,6 +363042,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112322",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112322"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7fb2a214-c98b-588d-b409-71c84ebf5816",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-49049",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-49049",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49049"
         }
       ]
     },

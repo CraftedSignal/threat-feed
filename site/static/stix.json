@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--73c63aa4-ac45-5154-b1d3-097dbd9d4e37",
+  "id": "bundle--db9398ea-fe5b-5641-bfc7-8c288512734e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -23717,17 +23717,6 @@
       "relationship_type": "has",
       "source_ref": "software--731ef645-619c-5ce1-a92d-4b6e11596e3d",
       "target_ref": "vulnerability--ebf04e9b-2268-5582-a786-833b428c52fc"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--13b5e01a-faab-59d5-9dc1-7a79105220fc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-23T05:22:41.000Z",
-      "modified": "2026-10-23T05:22:41.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--10a2f6ad-e7a0-5172-897c-ae0930534b7e",
-      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
     },
     {
       "type": "relationship",
@@ -117023,6 +117012,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9366fdd6-627f-57a2-afc6-23c84d6f662d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T06:17:43.000Z",
+      "modified": "2026-11-22T06:17:43.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--21f9f765-5ff9-5c34-8021-5bab2ef293ca",
+      "target_ref": "threat-actor--f478a665-081c-5c3e-bcf2-bef2b0163699"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--93673cae-e31f-5e84-ad66-e5ce548746fe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -161001,17 +161001,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--cfb04093-c533-57d9-a6c7-314b5bf771ac",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--49228858-d988-5a70-8477-1a81eccf6717",
-      "target_ref": "vulnerability--28708266-054e-5a1d-b3c5-1a1423c514bc"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--cfb06fa5-e0b9-5cd5-9788-0b12a54194d3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -172991,6 +172980,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e0d7ab11-c1d3-5e64-9223-c00bb4ff4094",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--350aa96a-2b63-54d5-b351-5edc1b3b9e3d",
+      "target_ref": "vulnerability--7fb2a214-c98b-588d-b409-71c84ebf5816"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e0d8d101-c24f-5303-949a-a5346e15d4ac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -178971,17 +178971,6 @@
       "relationship_type": "has",
       "source_ref": "software--2b101cfb-0011-5a75-ac27-63ecd832b64c",
       "target_ref": "vulnerability--0cca141d-4f91-5b4f-b076-7919749a08a9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e96c4e18-1f4b-5e5f-b8de-cb34228c609c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--627a294f-9638-5d23-bca8-3220cf9293c7",
-      "target_ref": "vulnerability--28708266-054e-5a1d-b3c5-1a1423c514bc"
     },
     {
       "type": "relationship",
@@ -206970,63 +206959,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--10a2f6ad-e7a0-5172-897c-ae0930534b7e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-23T05:22:41.000Z",
-      "modified": "2026-10-23T05:22:41.000Z",
-      "name": "Myeventon Eventon: Unauthenticated User Email Disclosure (CVE-2024-0235)",
-      "description": "## Overview\nCVE-2024-0235 is a vulnerability in the Myeventon Eventon plugin for WordPress that allows unauthenticated users to access sensitive information. An attacker can trigger the 'eventon_get_virtual_users' AJAX action via a crafted request to '/wp-admin/admin-ajax.php' to retrieve a list of user emails. Publicly available exploit tools indicate that this vulnerability is being targeted for mass scanning and enumeration by security researchers and potentially threat actors. \n\n## Impact\nSuccessful exploitation leads to the unauthorized disclosure of user email addresses, which facilitates subsequent targeted phishing, credential stuffing, or social engineering attacks against the organization's user base.\n\n## Recommendation\n- Update Myeventon Eventon to version 2.2.8 or later for free editions, or 4.5.5 or later for premium editions.\n- Inspect web server access logs for repeated requests to '/wp-admin/admin-ajax.php' containing the parameter 'eventon_get_virtual_users'.\n- Restrict access to the WordPress administrative dashboard and associated AJAX endpoints to known, trusted IP ranges where possible.\n",
-      "published": "2026-10-23T05:22:41.000Z",
-      "labels": [
-        "eventon",
-        "information-disclosure",
-        "vulnerability",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--49228858-d988-5a70-8477-1a81eccf6717",
-        "software--627a294f-9638-5d23-bca8-3220cf9293c7",
-        "vulnerability--28708266-054e-5a1d-b3c5-1a1423c514bc"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-23-myeventon-eventon-cve-2024-0235",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-myeventon-eventon-cve-2024-0235/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-0235"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-CAPPRICIO-SECURITIES-CVE-2024-0235"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-CAPPRICIO-SECURITIES-CVE-2024-0235\u0026utm_source=rss\u0026utm_medium=rss"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-23-myeventon-eventon-cve-2024-0235",
-      "x_craftedsignal_event_id": "brief-2026-10-23-myeventon-eventon-cve-2024-0235",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-myeventon-eventon-cve-2024-0235/",
-      "x_craftedsignal_activity_at": "2026-10-23T05:22:41.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 5.3,
-      "x_craftedsignal_epss_max": 0.37957,
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--10b61507-6e05-535e-8009-1b804f660f65",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:02:43.000Z",
@@ -220358,6 +220290,56 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--21f9f765-5ff9-5c34-8021-5bab2ef293ca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T06:17:43.000Z",
+      "modified": "2026-11-22T06:17:43.000Z",
+      "name": "Ollyo Helix3: Unauthenticated Arbitrary File Write (CVE-2026-49049)",
+      "description": "## Overview\nThe Helix3 plugin for Joomla, specifically the `plg_ajax_helix3` component, contains a vulnerability (CVE-2026-49049) that allows unauthenticated attackers to perform arbitrary file deletions, arbitrary JSON file writes, and updates to template parameters. The vulnerability exists within the `onAjaxHelix3()` handler reachable at `POST /index.php?option=com_ajax\u0026plugin=helix3\u0026format=json`.\n\n## Attack Chain\nThe `onAjaxHelix3()` handler processes `data[action]=save` requests without authentication checks, CSRF token validation, or path traversal filtering on the `data[layoutName]` parameter. By sending a POST request to the specified endpoint with a manipulated `data[layoutName]` containing directory traversal sequences, an attacker can write or overwrite files on the filesystem.\n\n## Impact\nSuccessful exploitation results in unauthorized arbitrary file write or deletion, potentially enabling site defacement or modification of template configurations. \n\n## Recommendation\n- Upgrade Helix3 to version 3.1.2 or later, which introduces administrator privilege checks, CSRF token validation, and sanitization of layout filenames.\n- As an interim mitigation, block POST requests to `index.php` where the query string contains both `option=com_ajax` and `plugin=helix3` at the WAF or web server level.\n- Audit template style Custom Code fields and the `/images` directory for unauthorized `.php` or `.json` files.",
+      "published": "2026-11-22T06:17:43.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--350aa96a-2b63-54d5-b351-5edc1b3b9e3d",
+        "threat-actor--f478a665-081c-5c3e-bcf2-bef2b0163699",
+        "vulnerability--7fb2a214-c98b-588d-b409-71c84ebf5816"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-helix3-rce-cve-2026-49049",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-helix3-rce-cve-2026-49049/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-49049"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-THEENDOFABBYS-CVE-2026-49049"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-THEENDOFABBYS-CVE-2026-49049\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-helix3-rce-cve-2026-49049",
+      "x_craftedsignal_event_id": "brief-2026-11-22-helix3-rce-cve-2026-49049",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-helix3-rce-cve-2026-49049/",
+      "x_craftedsignal_activity_at": "2026-11-22T06:17:43.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00992,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -393007,6 +392989,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--350aa96a-2b63-54d5-b351-5edc1b3b9e3d",
+      "name": "Helix3 extension for Joomla (= 1.0-3.1.1)",
+      "vendor": "joomshaper.com"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--353f2962-dcfd-50fc-b255-19165e07e8f0",
       "name": "yggdrasil-worker-package-manager"
     },
@@ -395375,13 +395364,6 @@
       "id": "software--490e2615-7002-558d-a0f8-c165b26001e8",
       "name": "Network Agent (\u003c 14.0.0.20145)",
       "vendor": "Kaspersky"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--49228858-d988-5a70-8477-1a81eccf6717",
-      "name": "Eventon Free (\u003c 2.2.8)",
-      "vendor": "Myeventon"
     },
     {
       "type": "software",
@@ -398160,13 +398142,6 @@
       "id": "software--62789668-5cb6-5879-b319-383b858835c5",
       "name": "paicoding (1.0.3)",
       "vendor": "paicoding"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--627a294f-9638-5d23-bca8-3220cf9293c7",
-      "name": "Eventon Premium (\u003c 4.5.5)",
-      "vendor": "Myeventon"
     },
     {
       "type": "software",
@@ -416470,6 +416445,15 @@
       "name": "Videostrong"
     },
     {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--f478a665-081c-5c3e-bcf2-bef2b0163699",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "AntonKill"
+    },
+    {
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--00019ce6-5bd8-5a33-a999-2e2db2157185",
@@ -430258,22 +430242,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-123489",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123489"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--28708266-054e-5a1d-b3c5-1a1423c514bc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2024-0235",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2024-0235",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-0235"
         }
       ]
     },
@@ -459298,6 +459266,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112322",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112322"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7fb2a214-c98b-588d-b409-71c84ebf5816",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-49049",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-49049",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49049"
         }
       ]
     },
