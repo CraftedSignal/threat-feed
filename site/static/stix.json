@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--339b69ab-97dd-5180-851d-dfb0689cfeda",
+  "id": "bundle--589dddc9-b2f8-58cf-8525-df8ad65c4c4c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -118517,6 +118517,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--97c4a7e3-96e3-51b5-8314-67bbd71c59a5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b48c9213-1574-5f4b-b02c-133343b3727c",
+      "target_ref": "vulnerability--dd0374ba-04df-58f9-8804-c95dcc9b3ddb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--97c6f130-2d05-5652-831d-03970c58972f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -141305,6 +141316,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--5c35247d-67ed-5ae8-a988-82a8fbbfa732"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b6a436a6-b746-5cf9-94e7-aacf13f7b2e4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T18:51:16.000Z",
+      "modified": "2026-11-22T18:51:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--67c58223-8105-5c4f-88bc-0013e09fc7a6",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -271593,6 +271615,61 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--67c58223-8105-5c4f-88bc-0013e09fc7a6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T18:51:16.000Z",
+      "modified": "2026-11-22T18:51:16.000Z",
+      "name": "Laravel-File-Manager Authenticated Remote Code Execution (CVE-2025-56399)",
+      "description": "## Overview\nLaravel-File-Manager version 3.3.1 and before contains a vulnerability allowing an authenticated attacker to achieve Remote Code Execution (RCE). An attacker can upload a file with a .png extension containing PHP code via the file manager interface; although client-side validation may suggest failure, the file is saved to the server. The attacker can then use the rename API to change the file extension to .php, which executes the embedded code when accessed via a public URL.\n\n## Attack Chain\n1. Attacker authenticates to the application with access to the file manager.\n2. Attacker uploads a file (e.g., .png) containing PHP code.\n3. Attacker uses the rename API to change the file extension to .php.\n4. Attacker accesses the file via a public URL to trigger code execution.\n\n## Impact\nSuccessful exploitation results in Remote Code Execution (RCE) in the context of the web server.\n\n## Recommendation\nAdministrators should review vendor guidance. General defensive measures include validating file MIME-types and magic bytes, enforcing a strict allowlist for file extensions, restricting file renaming, and disabling PHP execution in user-uploaded file directories.",
+      "published": "2026-11-22T18:51:16.000Z",
+      "labels": [
+        "cve-2025-56399",
+        "laravel-file-manager",
+        "rce"
+      ],
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b48c9213-1574-5f4b-b02c-133343b3727c",
+        "vulnerability--dd0374ba-04df-58f9-8804-c95dcc9b3ddb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-laravel-file-manager-rce-cve-2025-56399",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-laravel-file-manager-rce-cve-2025-56399/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-56399"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-THEETHAT-THAMWASIN-CVE-2025-56399"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-THEETHAT-THAMWASIN-CVE-2025-56399\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-laravel-file-manager-rce-cve-2025-56399",
+      "x_craftedsignal_event_id": "brief-2026-11-22-laravel-file-manager-rce-cve-2025-56399",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-laravel-file-manager-rce-cve-2025-56399/",
+      "x_craftedsignal_activity_at": "2026-11-22T18:51:16.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00609,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -404254,6 +404331,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b48c9213-1574-5f4b-b02c-133343b3727c",
+      "name": "laravel-file-manager"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b4a50e8e-f240-533a-a329-5f436630687c",
       "name": "yudao-cloud (\u003c= 2026.09)",
       "vendor": "yudao-cloud"
@@ -488475,6 +488558,22 @@
           "source_name": "cve",
           "external_id": "CVE-2018-9995",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-9995"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--dd0374ba-04df-58f9-8804-c95dcc9b3ddb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-56399",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-56399",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-56399"
         }
       ]
     },
