@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--30aba19f-1ccf-5ba7-8262-0e353e93ea3d",
+  "id": "bundle--4a86f591-ccc5-5735-b0ec-df0777da0804",
   "objects": [
     {
       "type": "attack-pattern",
@@ -40374,6 +40374,17 @@
       "relationship_type": "has",
       "source_ref": "software--9df643b7-c8d9-5a97-b8c6-db158bd88f30",
       "target_ref": "vulnerability--55cf2324-347a-54bd-8eaf-1d211a7459a1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3794c20a-05f0-52ac-b48b-74c59ef95bf1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--81deb0e4-48ae-5fda-b586-56016a2c7df4",
+      "target_ref": "vulnerability--e516ddd6-f3c0-5664-94e5-633d0d112b33"
     },
     {
       "type": "relationship",
@@ -171665,7 +171676,7 @@
         "observed_at": "2026-11-10T00:00:00.000Z",
         "confidence": "high"
       },
-      "x_craftedsignal_epss_max": 0.00962,
+      "x_craftedsignal_epss_max": 0.068,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -177086,6 +177097,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.01008,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -186757,6 +186769,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.01446,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -191734,6 +191747,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.01062,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -195350,7 +195364,7 @@
       "id": "report--3e69a91d-5b0a-5d53-b578-6adfe28cdb2e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T00:51:25.000Z",
-      "modified": "2026-11-20T00:51:25.000Z",
+      "modified": "2026-11-22T16:11:57.000Z",
       "name": "NLTK ZIP Package Extraction Path Traversal (CVE-2026-128135)",
       "description": "## Overview\nNLTK (Natural Language Toolkit) versions 3.9.4 to 3.10.3 are vulnerable to a flaw during ZIP package extraction. A local attacker who can pre-place a hardlink within the extraction root that points to an external file can cause the NLTK extraction process to overwrite the target file, violating the pathsec containment boundary.\n\n## Attack Chain\nAn attacker with local access can prepare an extraction target (a hardlink) that resolves to a location outside the intended NLTK data root. During package extraction, the library follows this hardlink, resulting in an arbitrary file write.\n\n## Impact\nSuccessful exploitation allows a local attacker to overwrite files outside the data root, impacting system integrity and availability.\n\n## Recommendation\nUpgrade NLTK to version 3.10.4 or later, which contains the fix for this issue.",
       "published": "2026-11-20T00:51:25.000Z",
@@ -195375,21 +195389,30 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-wr3g-j6qj-xpgh"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128135"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=A929DB74-CB75-5BB5-95BA-5EA7FEF484C0\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-20-nltk-path-traversal-cve-2026-128135",
       "x_craftedsignal_event_id": "brief-2026-11-20-nltk-path-traversal-cve-2026-128135",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-path-traversal-cve-2026-128135/",
-      "x_craftedsignal_activity_at": "2026-11-20T00:51:25.000Z",
+      "x_craftedsignal_activity_at": "2026-11-22T16:11:57.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_epss_max": 0.00225,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -196916,7 +196939,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_epss_max": 0.29863,
+      "x_craftedsignal_epss_max": 0.27785,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -202429,7 +202452,7 @@
         "confidence": "medium"
       },
       "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_epss_max": 0.8768,
+      "x_craftedsignal_epss_max": 0.95538,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -215837,6 +215860,60 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5f6cfbd9-6cb7-5bcb-a999-46bdbca552b2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T16:09:46.000Z",
+      "modified": "2026-11-22T16:09:46.000Z",
+      "name": "dsniff: Integer underflow and out-of-bounds write in decode_sniffer (CVE-2026-134753)",
+      "description": "## Overview\n\nThe dsniff utility (hackerschoice fork) through version 2.5a2 contains an integer underflow vulnerability in the `decode_sniffer()` function within `decode_sniffer.c`. An attacker can send a malicious UDP datagram to port 2001, causing an integer underflow in the buffer size calculation. This failure in bounds checking permits an out-of-bounds write to the global `obuf` buffer.\n\n## Attack Chain\n\n1. The attacker transmits a crafted UDP datagram to the target system's UDP port 2001.\n2. The `trigger_udp()` function in `trigger.c` receives the packet and forwards the entire datagram to the `decode_sniffer()` decoder without `Opt_snaplen` validation.\n3. `decode_sniffer()` calculates a negative value for the remaining buffer size (`olen - len - 3`), which is passed to `base64_pton()` as an unsigned `size_t` parameter, bypassing bounds checks.\n4. The function performs an unrestricted out-of-bounds write starting at the end of the global `obuf` buffer, resulting in a `SIGSEGV` crash.\n\n## Impact\n\nConfirmed impact is limited to a remote, unauthenticated denial-of-service (DoS) via process crash. While memory corruption occurs, the author of the research report explicitly states this report does not claim a working Remote Code Execution (RCE) chain; while the researchers suggest RCE may be possible if sensitive dispatch tables are targeted, this remains unverified.\n\n## Recommendation\n\nNo patch is currently available for this vulnerability. As an interim measure, restrict access to UDP port 2001 using host-based firewalls. A systematic audit of the codebase for similar incremental write patterns (e.g., `decode_oracle.c`, `decode_tds.c`) is recommended.",
+      "published": "2026-11-22T16:09:46.000Z",
+      "labels": [
+        "CVE-2026-134753",
+        "denial-of-service",
+        "dsniff",
+        "memory-corruption"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--81deb0e4-48ae-5fda-b586-56016a2c7df4",
+        "vulnerability--e516ddd6-f3c0-5664-94e5-633d0d112b33"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-dsniff-oob-write-cve-2026-134753",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dsniff-oob-write-cve-2026-134753/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134753"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=1FEBF1DF-230F-5CFA-AB2C-12C5143C7A1A"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=1FEBF1DF-230F-5CFA-AB2C-12C5143C7A1A\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-dsniff-oob-write-cve-2026-134753",
+      "x_craftedsignal_event_id": "brief-2026-11-22-dsniff-oob-write-cve-2026-134753",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dsniff-oob-write-cve-2026-134753/",
+      "x_craftedsignal_activity_at": "2026-11-22T16:09:46.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -243616,7 +243693,7 @@
       "id": "report--9043d723-ef68-5bf6-907c-6b673c84b062",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-22T15:10:24.000Z",
-      "modified": "2026-11-22T15:10:24.000Z",
+      "modified": "2026-11-22T16:11:57.000Z",
       "name": "Themify Builder: Reflected Cross-Site Scripting (CVE-2026-131780)",
       "description": "## Overview\n\nThemify Builder (versions up to and including 7.8.5) is affected by an improper neutralization of input during web page generation vulnerability, classified as reflected cross-site scripting (XSS).\n\n## Attack Chain\n\nThe vulnerability allows an attacker to inject malicious scripts into web pages generated by the plugin, which are executed in the user's browser context. The vulnerability requires user interaction to execute. According to CVSS 3.1 metrics, the attack vector is network-based with low attack complexity, does not require privileges, and has a changed scope.\n\n## Impact\n\nSuccessful exploitation results in reflected XSS. The CVSS 3.1 metrics indicate low impact on confidentiality, integrity, and availability.\n\n## Recommendation\n\nUsers should update the WordPress Themify Builder plugin to version 7.8.6 or later, which is reported as unaffected.",
       "published": "2026-11-22T15:10:24.000Z",
@@ -243643,14 +243720,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131780"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-131780\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-22-themify-xss-cve-2026-131780",
       "x_craftedsignal_event_id": "brief-2026-11-22-themify-xss-cve-2026-131780",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-themify-xss-cve-2026-131780/",
-      "x_craftedsignal_activity_at": "2026-11-22T15:10:24.000Z",
+      "x_craftedsignal_activity_at": "2026-11-22T16:11:57.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -245457,6 +245538,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.01255,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -249916,6 +249998,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_epss_max": 0.01358,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -260752,7 +260835,7 @@
         "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_epss_max": 0.8768,
+      "x_craftedsignal_epss_max": 0.95538,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -265707,6 +265790,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.01077,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -289469,7 +289553,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_epss_max": 0.07248,
+      "x_craftedsignal_epss_max": 0.09341,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -320475,6 +320559,13 @@
       "spec_version": "2.1",
       "id": "software--81dd7cb5-2ff5-590b-baec-0e44ef4ca279",
       "name": "The Events Calendar (6.15.12 - 6.16.2)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--81deb0e4-48ae-5fda-b586-56016a2c7df4",
+      "name": "dsniff (\u003c= 2.5a2)",
+      "vendor": "hackerschoice"
     },
     {
       "type": "software",
@@ -395559,6 +395650,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121782",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121782"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e516ddd6-f3c0-5664-94e5-633d0d112b33",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134753",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134753",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134753"
         }
       ]
     },
