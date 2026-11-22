@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7a4088bc-8ccc-5345-866a-5fa56fe0f60c",
+  "id": "bundle--f7e5f113-4b11-5077-855d-831d52d6873f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -70339,6 +70339,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--54821a74-f261-55f3-bb49-8162071162ef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3f2b879f-1153-5786-b86c-aedcbe23a7c4",
+      "target_ref": "vulnerability--df2d14fe-c931-54d0-92c8-03d54fdc3dec"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5483ccd4-476a-504f-b932-6a72131530e0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -104879,6 +104890,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8263abc4-91d3-598a-b4a2-f842a5cf75be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--841a36fc-6b5d-5fd7-ab86-8e9059be4133",
+      "target_ref": "vulnerability--df2d14fe-c931-54d0-92c8-03d54fdc3dec"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--826e42a7-ae80-5301-8f4b-d53237ab0dc5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -111178,17 +111200,6 @@
       "relationship_type": "uses",
       "source_ref": "report--17814e8c-b416-50f7-9201-e6e8ed2248ba",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8b0639bd-edae-56dd-a729-dc46dd81bd67",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--e0fcf9f3-f78a-58ff-8e70-985c77fe90f3",
-      "target_ref": "vulnerability--df2d14fe-c931-54d0-92c8-03d54fdc3dec"
     },
     {
       "type": "relationship",
@@ -121401,17 +121412,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--9a203f9b-db5c-5d6b-a7b4-5c01beb9b49a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--58ee0bb2-229d-5b41-8c81-39421106e7d5",
-      "target_ref": "vulnerability--88ff8d3c-20de-5478-b2f2-959f573ddd74"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9a2271d1-e68d-5b47-8d4f-2c36a5498092",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:34:09.000Z",
@@ -130912,17 +130912,6 @@
       "relationship_type": "has",
       "source_ref": "software--2c807fd0-f524-5d59-9026-12d2823e3c75",
       "target_ref": "vulnerability--d8a0858c-47ba-514d-a255-3b8b74b61a4a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a6ef070c-c32d-5089-821f-ff5d35c3027f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-23T03:20:38.000Z",
-      "modified": "2026-10-23T03:20:38.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--0871d9ac-d567-5bf6-8df5-1dc22ec73b1d",
-      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -171385,6 +171374,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--de895b5a-7b46-56e4-aedc-d23d635b315b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T15:43:15.000Z",
+      "modified": "2026-11-22T03:25:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--19a88267-0c96-5db4-91c5-7e8afbba4918",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--de8d7fc7-d90d-55dd-86a4-8e6448d23c52",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -201113,63 +201113,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--0871d9ac-d567-5bf6-8df5-1dc22ec73b1d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-23T03:20:38.000Z",
-      "modified": "2026-10-23T03:20:38.000Z",
-      "name": "Hugging Face datasets: Arbitrary code execution via pickle deserialization (CVE-2026-57845)",
-      "description": "## Overview\nA vulnerability (CVE-2026-57845) exists in the Hugging Face `datasets` library, specifically within the `dataset_module_factory` pandas-based builder. The library uses `pandas.read_pickle()` to process data files without proper validation. An attacker can supply a malicious pickle file that executes arbitrary code during the deserialization process when `load_dataset()` is invoked. The PoC demonstrates successful code execution by triggering a local file write upon loading a malicious pickle object. There is currently no upstream fix, PR, or confirmed patched release.\n\n## Attack Chain\n1. Attacker prepares a malicious pickle object using the `__reduce__()` method to embed a payload.\n2. Attacker hosts or supplies the malicious file as an input to the `load_dataset()` function.\n3. Victim application invokes `datasets.load_dataset()` pointing to the malicious file.\n4. The `dataset_module_factory` identifies the file and routes it to the `pandas` packaged builder.\n5. The builder invokes `pandas.read_pickle()` on the untrusted input.\n6. The `pickle` module deserializes the object, triggering the attacker-supplied callable.\n7. Arbitrary code executes within the context of the application process.\n\n## Impact\nSuccessful exploitation results in arbitrary code execution on the system running the `datasets` library. The PoC confirms that code execution occurs before the library attempts to convert the data into an Arrow table, rendering post-deserialization validation ineffective.\n\n## Recommendation\n- Identify all instances of the Hugging Face `datasets` library in production and development environments using automated inventory tools.\n- Immediately stop using pickle-formatted datasets from untrusted or external sources.\n- Migrate all data exchange to secure formats such as Parquet, Arrow, CSV, or JSON.\n- If existing data must be moved, use `Dataset.from_pandas()` with a trusted, already-loaded DataFrame rather than loading from disk via the `pandas` builder.\n- Implement strict input validation or access controls to prevent the loading of pickle files from arbitrary or internet-accessible locations.\n- Monitor logs for the execution of Python processes that import the `datasets` module and perform file operations in untrusted directories.\n",
-      "published": "2026-10-23T03:20:38.000Z",
-      "object_refs": [
-        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--58ee0bb2-229d-5b41-8c81-39421106e7d5",
-        "vulnerability--88ff8d3c-20de-5478-b2f2-959f573ddd74"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-23-hugging-face-datasets-pickle-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-hugging-face-datasets-pickle-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/huggingface/datasets"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://pandas.pydata.org/docs/reference/api/pandas.read_pickle.html"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=F4E4EAEC-8A52-5213-893F-11BF7AC67BB6"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=F4E4EAEC-8A52-5213-893F-11BF7AC67BB6\u0026utm_source=rss\u0026utm_medium=rss"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://vulners.com/cve/CVE-2026-57845"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-23-hugging-face-datasets-pickle-rce",
-      "x_craftedsignal_event_id": "brief-2026-10-23-hugging-face-datasets-pickle-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-hugging-face-datasets-pickle-rce/",
-      "x_craftedsignal_activity_at": "2026-10-23T03:20:38.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_epss_max": 0.00553,
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--087231f0-42f8-5fa8-8563-90b1513fdadf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T18:05:58.000Z",
@@ -213817,13 +213760,20 @@
       "id": "report--19a88267-0c96-5db4-91c5-7e8afbba4918",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T15:43:15.000Z",
-      "modified": "2026-10-23T15:43:15.000Z",
-      "name": "Cacti: Input validation bypass in command blocklist (CVE-2026-39902)",
-      "description": "Cacti, an open source performance and fault management framework, contains an input validation bypass in versions prior to 1.2.31. The blocklist omitted single-quotes, double-quotes, redirect operators, subshell parentheses, and braces. An authenticated administrator could save an input_string containing single-quotes, redirect operators, or subshell parentheses, and pass the security check. This issue has been patched in version 1.2.31.\n",
+      "modified": "2026-11-22T03:25:51.000Z",
+      "name": "Cacti Authenticated Command Injection (CVE-2026-39902)",
+      "description": "## Overview\nCacti is an open source performance and fault management framework. In versions prior to 1.2.31, the application's input blocklist for `input_string` failed to adequately filter shell metacharacters, specifically omitting single-quotes, double-quotes, redirect operators, and subshell parentheses or braces.\n\n## Attack Chain\nAn authenticated administrator can submit a crafted `input_string` containing shell metacharacters that bypasses existing checks. This allows for the injection and execution of arbitrary OS commands on the host system.\n\n## Impact\nSuccessful exploitation results in OS command injection (CWE-78), enabling an authenticated administrator to execute arbitrary commands with the privileges of the Cacti application.\n\n## Recommendation\nUpgrade to Cacti version 1.2.31 or later, as this issue has been patched in this version.",
       "published": "2026-10-23T15:43:15.000Z",
+      "labels": [
+        "command-injection",
+        "cve",
+        "rce"
+      ],
       "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--e0fcf9f3-f78a-58ff-8e70-985c77fe90f3",
+        "software--3f2b879f-1153-5786-b86c-aedcbe23a7c4",
+        "software--841a36fc-6b5d-5fd7-ab86-8e9059be4133",
         "vulnerability--df2d14fe-c931-54d0-92c8-03d54fdc3dec"
       ],
       "external_references": [
@@ -213834,15 +213784,31 @@
         },
         {
           "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-39902"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/Cacti/cacti/security/advisories/GHSA-c4qp-j9r9-fq24#event-871227"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39902"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-KX00007-CVE-2026-39902"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-KX00007-CVE-2026-39902\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-23-cacti-command-injection",
       "x_craftedsignal_event_id": "brief-2026-10-23-cacti-command-injection",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cacti-command-injection/",
-      "x_craftedsignal_activity_at": "2026-10-23T15:43:15.000Z",
+      "x_craftedsignal_activity_at": "2026-11-22T03:25:51.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -394350,6 +394316,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3f2b879f-1153-5786-b86c-aedcbe23a7c4",
+      "name": "Cacti (\u003c 1.2.31)",
+      "vendor": "Cacti"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3f419098-3652-595f-8b20-6e6b6782bcf3",
       "name": "GrandPrix Core",
       "vendor": "Mikado-Themes"
@@ -397242,13 +397215,6 @@
       "id": "software--58d57950-6242-5c66-b48d-228cc09e440a",
       "name": "cms (\u003c 5.11.4)",
       "vendor": "craftcms"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--58ee0bb2-229d-5b41-8c81-39421106e7d5",
-      "name": "datasets (\u003c= 5.1.0)",
-      "vendor": "Hugging Face"
     },
     {
       "type": "software",
@@ -402361,6 +402327,13 @@
       "id": "software--840e8385-3835-56c7-9a36-1cfbb92a451e",
       "name": "eParakstītājs 3.0",
       "vendor": "Latvijas Valsts radio un televīzijas centrs (LVRTC)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--841a36fc-6b5d-5fd7-ab86-8e9059be4133",
+      "name": "cacti",
+      "vendor": "Cacti"
     },
     {
       "type": "software",
@@ -412721,12 +412694,6 @@
       "id": "software--e0e723a7-c659-5ebf-bbe7-4e5f76b39043",
       "name": "FortiManager 8.0.0",
       "vendor": "Fortinet"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--e0fcf9f3-f78a-58ff-8e70-985c77fe90f3",
-      "name": "Cacti (\u003c 1.2.31)"
     },
     {
       "type": "software",
@@ -462843,22 +462810,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17325",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17325"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--88ff8d3c-20de-5478-b2f2-959f573ddd74",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-57845",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-57845",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57845"
         }
       ]
     },

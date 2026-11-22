@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--80a5bd6b-9454-5b67-9992-35fdd33dd74f",
+  "id": "bundle--5b8fd75f-bd05-5ac8-bfaf-17e93f3adff5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -31995,6 +31995,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--54821a74-f261-55f3-bb49-8162071162ef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3f2b879f-1153-5786-b86c-aedcbe23a7c4",
+      "target_ref": "vulnerability--df2d14fe-c931-54d0-92c8-03d54fdc3dec"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--54832192-771e-57e1-a37f-be509f073e5f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -46900,6 +46911,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8263abc4-91d3-598a-b4a2-f842a5cf75be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--841a36fc-6b5d-5fd7-ab86-8e9059be4133",
+      "target_ref": "vulnerability--df2d14fe-c931-54d0-92c8-03d54fdc3dec"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8266fb40-645e-5dcf-bbc3-61134160d60c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -49888,17 +49910,6 @@
       "relationship_type": "uses",
       "source_ref": "report--47ae9199-8c8b-5f29-811b-32f00f2c5746",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8b0639bd-edae-56dd-a729-dc46dd81bd67",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--e0fcf9f3-f78a-58ff-8e70-985c77fe90f3",
-      "target_ref": "vulnerability--df2d14fe-c931-54d0-92c8-03d54fdc3dec"
     },
     {
       "type": "relationship",
@@ -76325,6 +76336,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--de895b5a-7b46-56e4-aedc-d23d635b315b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T15:43:15.000Z",
+      "modified": "2026-11-22T03:25:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--19a88267-0c96-5db4-91c5-7e8afbba4918",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--dea5fa37-72ad-5618-adf8-260e660339f6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -97435,13 +97457,20 @@
       "id": "report--19a88267-0c96-5db4-91c5-7e8afbba4918",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T15:43:15.000Z",
-      "modified": "2026-10-23T15:43:15.000Z",
-      "name": "Cacti: Input validation bypass in command blocklist (CVE-2026-39902)",
-      "description": "Cacti, an open source performance and fault management framework, contains an input validation bypass in versions prior to 1.2.31. The blocklist omitted single-quotes, double-quotes, redirect operators, subshell parentheses, and braces. An authenticated administrator could save an input_string containing single-quotes, redirect operators, or subshell parentheses, and pass the security check. This issue has been patched in version 1.2.31.\n",
+      "modified": "2026-11-22T03:25:51.000Z",
+      "name": "Cacti Authenticated Command Injection (CVE-2026-39902)",
+      "description": "## Overview\nCacti is an open source performance and fault management framework. In versions prior to 1.2.31, the application's input blocklist for `input_string` failed to adequately filter shell metacharacters, specifically omitting single-quotes, double-quotes, redirect operators, and subshell parentheses or braces.\n\n## Attack Chain\nAn authenticated administrator can submit a crafted `input_string` containing shell metacharacters that bypasses existing checks. This allows for the injection and execution of arbitrary OS commands on the host system.\n\n## Impact\nSuccessful exploitation results in OS command injection (CWE-78), enabling an authenticated administrator to execute arbitrary commands with the privileges of the Cacti application.\n\n## Recommendation\nUpgrade to Cacti version 1.2.31 or later, as this issue has been patched in this version.",
       "published": "2026-10-23T15:43:15.000Z",
+      "labels": [
+        "command-injection",
+        "cve",
+        "rce"
+      ],
       "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--e0fcf9f3-f78a-58ff-8e70-985c77fe90f3",
+        "software--3f2b879f-1153-5786-b86c-aedcbe23a7c4",
+        "software--841a36fc-6b5d-5fd7-ab86-8e9059be4133",
         "vulnerability--df2d14fe-c931-54d0-92c8-03d54fdc3dec"
       ],
       "external_references": [
@@ -97452,15 +97481,31 @@
         },
         {
           "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-39902"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/Cacti/cacti/security/advisories/GHSA-c4qp-j9r9-fq24#event-871227"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39902"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-KX00007-CVE-2026-39902"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-KX00007-CVE-2026-39902\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-23-cacti-command-injection",
       "x_craftedsignal_event_id": "brief-2026-10-23-cacti-command-injection",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cacti-command-injection/",
-      "x_craftedsignal_activity_at": "2026-10-23T15:43:15.000Z",
+      "x_craftedsignal_activity_at": "2026-11-22T03:25:51.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -203983,6 +204028,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3f2b879f-1153-5786-b86c-aedcbe23a7c4",
+      "name": "Cacti (\u003c 1.2.31)",
+      "vendor": "Cacti"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3f3095e8-f0b8-57f2-a1ac-16537864ac5e",
       "name": "PHP (affected versions not yet confirmed)",
       "vendor": "PHP Group"
@@ -209449,6 +209501,13 @@
       "id": "software--8417a287-0da3-538f-b008-950b714b9516",
       "name": "openchoreo (1.1.0-1.1.6)",
       "vendor": "OpenChoreo"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--841a36fc-6b5d-5fd7-ab86-8e9059be4133",
+      "name": "cacti",
+      "vendor": "Cacti"
     },
     {
       "type": "software",
@@ -216381,12 +216440,6 @@
       "id": "software--e0d4b588-b3a8-5d68-8f85-a85e4fa9c132",
       "name": "Edge (\u003c 154.0.4258.62)",
       "vendor": "Microsoft"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--e0fcf9f3-f78a-58ff-8e70-985c77fe90f3",
-      "name": "Cacti (\u003c 1.2.31)"
     },
     {
       "type": "software",
