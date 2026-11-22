@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4a86f591-ccc5-5735-b0ec-df0777da0804",
+  "id": "bundle--6a97b339-2ea6-5245-b65e-ee0fbc327124",
   "objects": [
     {
       "type": "attack-pattern",
@@ -87843,6 +87843,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--87252324-790e-505a-8071-d9337f5cffe5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--32cc858b-2270-55d4-89be-2c79255556f5",
+      "target_ref": "vulnerability--76ebb787-430a-5d9a-bdd0-03c72c2a3cb1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--872aee86-44ef-5fcf-976e-422c773b5486",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -92998,6 +93009,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--14846285-12bf-5b61-b910-f2e8ae5ed6ea"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8ff6451e-e3de-5a5f-9115-223db5d2a7b3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+      "target_ref": "vulnerability--2a30b9ad-a529-5d39-a326-cd0b6bdad11b"
     },
     {
       "type": "relationship",
@@ -102909,6 +102931,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c4b44638-ccbf-5d32-8743-2a12b50b3f29",
       "target_ref": "attack-pattern--7fbd6d58-7528-54d9-a63e-ba73ac098f89"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a1b3005e-7d78-5a83-a4fb-dfdf362c05d9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bdce15c4-23ec-5abb-b98b-d317bc4beeb7",
+      "target_ref": "vulnerability--e9df6a35-e351-5f2f-84a0-fead416412f8"
     },
     {
       "type": "relationship",
@@ -228220,6 +228253,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--763efcae-f04b-5314-ac3e-d11bbed917d9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T17:38:35.000Z",
+      "modified": "2026-11-22T17:38:35.000Z",
+      "name": "Linux Kernel: Memory Management Use-After-Free (CVE-2026-99707)",
+      "description": "## Overview\nA vulnerability in the Linux kernel memory management subsystem (mm/khugepaged) involves improper flushing of deferred TLB unmaps. The issue exists within the collapse_file() function, which can fail reference-count or dirty-folio checks after an unmap operation that uses TTU_BATCH_FLUSH. When this occurs, the function may release the folio and drop locks before flushing the TLB, allowing a CPU to retain a translation to a freed folio.\n\n## Attack Chain\nThe vulnerability is reachable by an unprivileged local user calling memfd_create(), mmap(), and madvise(MADV_COLLAPSE) on a mapping they own. When collapse_file() fails, it drops the folio reference and releases the lock without a flush, leading to a race condition where another task can free the folio. A stale TLB entry can then point to the freed folio, which the buddy allocator may have reused.\n\n## Impact\nSuccessful exploitation leads to memory corruption, where a remote CPU may read from or write to a physical memory page after it has been freed and reallocated, resulting in kernel oops or unauthorized access to sensitive memory structures within the same kernel security authority.\n\n## Recommendation\nAdministrators should verify the status of the fix within their specific Linux distribution and kernel branch. The provided source data does not map securely to specific release versions; consult vendor guidance regarding the integration of the patch addressing the folio reference-count failure in collapse_file().",
+      "published": "2026-11-22T17:38:35.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--32cc858b-2270-55d4-89be-2c79255556f5",
+        "vulnerability--76ebb787-430a-5d9a-bdd0-03c72c2a3cb1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-linux-khugepaged-uaf-cve-2026-99707",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-khugepaged-uaf-cve-2026-99707/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-99707"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99707"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-linux-khugepaged-uaf-cve-2026-99707",
+      "x_craftedsignal_event_id": "brief-2026-11-22-linux-khugepaged-uaf-cve-2026-99707",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-khugepaged-uaf-cve-2026-99707/",
+      "x_craftedsignal_activity_at": "2026-11-22T17:38:35.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00168,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--765ee88d-881a-53cd-9def-8ed262e148f1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T10:42:08.000Z",
@@ -285415,6 +285493,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d815eb12-cb38-5227-8ec5-2156ee12bc19",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T17:39:02.000Z",
+      "modified": "2026-11-22T17:39:02.000Z",
+      "name": "WPKoi Templates for Elementor: Stored Cross-site Scripting (CVE-2026-129083)",
+      "description": "## Overview\nWPKoi Templates for Elementor versions up to and including 3.7.5 contain a vulnerability involving improper neutralization of user-supplied input during web page generation. This flaw permits Stored Cross-Site Scripting (XSS), where malicious scripts can be injected and stored within the application to be executed when other users view the affected content.\n\n## Impact\nExploitation of this vulnerability may allow an attacker to execute arbitrary scripts in the browsers of victim users. This can lead to unauthorized actions performed on behalf of the user, potential session hijacking, or the theft of sensitive information within the WordPress environment.\n\n## Recommendation\nUpgrade the WPKoi Templates for Elementor plugin to version 3.7.6 or later. This update addresses the improper input neutralization identified in previous releases. Administrators should verify the version currently installed via the WordPress dashboard and apply the update immediately.",
+      "published": "2026-11-22T17:39:02.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--bdce15c4-23ec-5abb-b98b-d317bc4beeb7",
+        "vulnerability--e9df6a35-e351-5f2f-84a0-fead416412f8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-wpkoi-templates-xss-cve-2026-129083",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wpkoi-templates-xss-cve-2026-129083/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129083"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129083"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-wpkoi-templates-xss-cve-2026-129083",
+      "x_craftedsignal_event_id": "brief-2026-11-22-wpkoi-templates-xss-cve-2026-129083",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wpkoi-templates-xss-cve-2026-129083/",
+      "x_craftedsignal_activity_at": "2026-11-22T17:39:02.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d82d3421-afd6-5ddf-93e4-22c372333d66",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:34:41.000Z",
@@ -288312,6 +288434,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--dc8504da-793f-54a0-8a25-4a467156d9d8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T17:36:54.000Z",
+      "modified": "2026-11-22T17:36:54.000Z",
+      "name": "Linux Kernel: SMB Direct RDMA buffer length underflow (CVE-2026-99388)",
+      "description": "## Overview\nAn integer underflow vulnerability exists in the Linux kernel's `smbdirect` implementation during RDMA transfers. When a remote buffer descriptor exceeds the remaining local buffer capacity, the `smbdirect_connection_rdma_xmit()` function incorrectly handles length clamping, causing `buf_len` to underflow. Subsequent descriptors are then processed with an invalid length, enabling out-of-bounds access to adjacent kernel memory.\n\n## Impact\nSuccessful exploitation allows an authenticated attacker to perform out-of-bounds kernel memory reads (via SMB READ) or writes (via SMB WRITE). This can lead to information disclosure or system instability, potentially resulting in a kernel panic.\n\n## Recommendation\n- Audit and update Linux kernel environments to the latest stable versions as directed by your distribution vendor.\n- Given the complexity of the vulnerability, review kernel commit history for specific fixes related to `smbdirect` and `buf_len` handling.\n- Restrict access to SMB Direct services to trusted clients only to minimize the attack surface.",
+      "published": "2026-11-22T17:36:54.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+        "vulnerability--2a30b9ad-a529-5d39-a326-cd0b6bdad11b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-linux-smbdirect-rdma-underflow-cve-2026-99388",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-smbdirect-rdma-underflow-cve-2026-99388/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-99388"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99388"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-linux-smbdirect-rdma-underflow-cve-2026-99388",
+      "x_craftedsignal_event_id": "brief-2026-11-22-linux-smbdirect-rdma-underflow-cve-2026-99388",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-smbdirect-rdma-underflow-cve-2026-99388/",
+      "x_craftedsignal_activity_at": "2026-11-22T17:36:54.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00224,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -325613,6 +325780,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--bdce15c4-23ec-5abb-b98b-d317bc4beeb7",
+      "name": "WPKoi Templates for Elementor (\u003c= 3.7.5)",
+      "vendor": "WPKoi WordPress Themes"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--bde6401c-ed77-5d0c-9994-713fc4457238",
       "name": "iSTAR Edge G2 (\u003c 6.9.2.CU02)",
       "vendor": "Johnson Controls"
@@ -343154,6 +343328,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111244",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111244"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2a30b9ad-a529-5d39-a326-cd0b6bdad11b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99388",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99388",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99388"
         }
       ]
     },
@@ -363698,6 +363888,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-74762",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74762"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--76ebb787-430a-5d9a-bdd0-03c72c2a3cb1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99707",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99707",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99707"
         }
       ]
     },
@@ -397122,6 +397328,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124446",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124446"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e9df6a35-e351-5f2f-84a0-fead416412f8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129083",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129083",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129083"
         }
       ]
     },
