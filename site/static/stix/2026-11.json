@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8a0e9d22-60e8-5340-a7f7-32c52eaee074",
+  "id": "bundle--47e92adf-9c18-5e91-a25f-59eb5088c0ac",
   "objects": [
     {
       "type": "attack-pattern",
@@ -120425,6 +120425,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bec5a56a-7fd8-5ad1-99f7-3c20966ad32c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ae1c8221-26d7-5851-bf6f-b5a441eb8471",
+      "target_ref": "vulnerability--b189a24f-88cf-5faa-89cd-2561ae6aad42"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bec657b5-58a6-5afe-9c0f-76d1128353de",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T21:28:01.000Z",
@@ -207589,6 +207600,56 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--511b7851-16b2-5cfd-aa58-4e8c7967e4ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T13:52:37.000Z",
+      "modified": "2026-11-22T13:52:37.000Z",
+      "name": "Kaliforms Kali Forms: Reflected cross-site scripting (CVE-2026-131714)",
+      "description": "## Overview\nThe Kaliforms Kali Forms plugin (kali-forms) for WordPress is affected by an Improper Neutralization of Input During Web Page Generation vulnerability, which enables Reflected Cross-Site Scripting (XSS). This issue affects all versions of the plugin from n/a through 2.4.32.\n\n## Attack Chain\nThe vulnerability carries a CVSS v3.1 score of 7.1. It is exploitable over the network with low attack complexity, requiring no specific privileges but necessitating user interaction to trigger.\n\n## Impact\nSuccessful exploitation may result in low impact to confidentiality, integrity, and availability. The attack involves a scope change.\n\n## Recommendation\nUsers should update the WordPress Kali Forms plugin to version 2.4.33 or later, which is confirmed to be unaffected by this vulnerability.",
+      "published": "2026-11-22T13:52:37.000Z",
+      "labels": [
+        "cross-site-scripting",
+        "plugin",
+        "wordpress",
+        "xss"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ae1c8221-26d7-5851-bf6f-b5a441eb8471",
+        "vulnerability--b189a24f-88cf-5faa-89cd-2561ae6aad42"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-kali-forms-xss-cve-2026-131714",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-kali-forms-xss-cve-2026-131714/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-131714"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131714"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-kali-forms-xss-cve-2026-131714",
+      "x_craftedsignal_event_id": "brief-2026-11-22-kali-forms-xss-cve-2026-131714",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-kali-forms-xss-cve-2026-131714/",
+      "x_craftedsignal_activity_at": "2026-11-22T13:52:37.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -323841,6 +323902,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ae1c8221-26d7-5851-bf6f-b5a441eb8471",
+      "name": "Kali Forms",
+      "vendor": "Kaliforms"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ae357742-4173-5fb5-aca1-96712581f1d8",
       "name": "Linux kernel (\u003e= 4.9, \u003c fix commits)",
       "vendor": "Linux"
@@ -380602,6 +380670,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119945",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119945"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b189a24f-88cf-5faa-89cd-2561ae6aad42",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-131714",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-131714",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131714"
         }
       ]
     },
