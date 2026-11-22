@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a8241f7a-3ae0-532b-80c8-3cd1cbc0f2ac",
+  "id": "bundle--d2a22d4b-330c-5ffa-8155-ef997b143898",
   "objects": [
     {
       "type": "attack-pattern",
@@ -27162,17 +27162,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--19064920-6777-5cf1-9d9f-454a2ec22c31",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--f7831b55-68c0-58ec-bbef-3a8dc032f316",
-      "target_ref": "vulnerability--56a8120a-366f-5697-b92f-5aef621ff7d7"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--1909b390-bc8d-5a9a-987c-fc526604fb4e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T14:40:43.000Z",
@@ -39434,17 +39423,6 @@
       "relationship_type": "has",
       "source_ref": "software--99e3a45a-7161-51e1-adde-83a06dbf4e22",
       "target_ref": "vulnerability--f54fa43f-26b4-5ecf-b992-6dd33715bddd"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--2a0175c5-e191-54ca-8d00-847671f9a0fb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--df8b1049-3b35-5f49-bb5d-957201d926f6",
-      "target_ref": "vulnerability--ebfc5a68-9ce2-5092-8ed7-593fce9545b5"
     },
     {
       "type": "relationship",
@@ -56154,17 +56132,6 @@
       "relationship_type": "has",
       "source_ref": "software--ddde8800-d8d8-5812-b7e1-55a4d7e7912b",
       "target_ref": "vulnerability--5a8e72ab-0cfd-5d43-ae3f-b53171a6b86b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--426a3279-fc41-5873-b96c-cfbd0c18e8ab",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--ae50c15d-7b0a-5799-a998-b8d0a41c5039",
-      "target_ref": "vulnerability--9749133f-b93d-5ab0-9213-e9905213885a"
     },
     {
       "type": "relationship",
@@ -81091,6 +81058,17 @@
       "relationship_type": "has",
       "source_ref": "software--ce4be323-2f25-5612-8b29-13b034585041",
       "target_ref": "vulnerability--ae5e6cc0-2ed4-5eb8-b25f-1d801829301c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--64a4e450-4f36-51a4-9f44-5596936c5695",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9555ce49-18f6-5629-b461-a1ff23f9d08d",
+      "target_ref": "vulnerability--75f7d3ac-b826-524c-bbd4-d332b0817df2"
     },
     {
       "type": "relationship",
@@ -142295,17 +142273,6 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--c52aa8ce-ce3d-5041-8b72-e16b88ce33f8"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--b813ef3b-833e-5abc-8196-0ed8220d04bc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-23T19:50:52.000Z",
-      "modified": "2026-10-23T19:50:52.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--151d3b13-22dc-5394-bcc9-16bd6f390760",
-      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
     },
     {
       "type": "relationship",
@@ -205355,46 +205322,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--113cfe8d-a605-531a-b2d3-f31b490e73b1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-23T19:51:12.000Z",
-      "modified": "2026-10-23T19:51:12.000Z",
-      "name": "ConnMan: Stack-based buffer overflow in DHCPv6 (CVE-2026-115863)",
-      "description": "## Overview\n\nConnMan versions up to and including 2.0 are vulnerable to a stack-based buffer overflow in the DHCPv6 implementation. The vulnerability resides in the `get_domains` function within `gdhcp/client.c`. Improper handling of the DOMAIN_LIST (option 24) in DHCPv6 Reply messages allows for memory corruption during DNS label parsing. The flaw is triggered when the client processes a crafted Reply message containing a DOMAIN_LIST option exceeding 1025 bytes, resulting in out-of-bounds reads and writes.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated, on-link attacker to crash the `connmand` service. Because `connmand` typically operates with root privileges, this results in a denial-of-service condition for the affected system's network management functionality.\n\n## Recommendation\n\nIdentify systems running `connmand` versions 2.0 or earlier. Monitor vendor security channels for the release of a patched version of ConnMan and schedule upgrades accordingly. As this is an on-link network attack, segment vulnerable systems where possible until patches are applied.\n",
-      "published": "2026-10-23T19:51:12.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--f7831b55-68c0-58ec-bbef-3a8dc032f316",
-        "vulnerability--56a8120a-366f-5697-b92f-5aef621ff7d7"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-23-connman-dhcpv6-overflow",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-connman-dhcpv6-overflow/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115863"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-23-connman-dhcpv6-overflow",
-      "x_craftedsignal_event_id": "brief-2026-10-23-connman-dhcpv6-overflow",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-connman-dhcpv6-overflow/",
-      "x_craftedsignal_activity_at": "2026-10-23T19:51:12.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.6,
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--11713737-6b6b-50b5-8f12-5146bf21d317",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T07:59:32.000Z",
@@ -208643,53 +208570,6 @@
       },
       "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_epss_max": 0.00241,
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--151d3b13-22dc-5394-bcc9-16bd6f390760",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-23T19:50:52.000Z",
-      "modified": "2026-10-23T19:50:52.000Z",
-      "name": "Kruize Autotune: REST API authentication bypass and credential exposure (CVE-2026-110975)",
-      "description": "## Overview\nA vulnerability in Kruize Autotune (CVE-2026-110975) allows unauthenticated users to access sensitive datasource configuration details. Specifically, the endpoints '/datasources' and 'datasource-metadata' fail to implement authentication checks. Due to insecure default Gson serialization settings, the application returns datasource objects containing plain-text secrets, including basic-auth passwords, bearer tokens, API keys, and OAuth2 client secrets. An attacker with network reach to the Autotune API can retrieve these credentials to gain unauthorized access to the connected monitoring stack.\n\n## Impact\nSuccessful exploitation results in the unauthorized disclosure of cleartext credentials used to access connected monitoring systems. This impact is limited to the credentials managed and stored within the Kruize Autotune datasource configuration.\n\n## Recommendation\n- Inventory all Kruize Autotune deployments and restrict network access to the REST API to trusted IP ranges only via network segmentation or firewall rules.\n- Audit the monitoring stack for any anomalous access or credential usage following potential exposure via the Autotune service.\n- Monitor for and apply vendor-provided security patches once available to remediate the insecure API endpoints and serialization logic.\n",
-      "published": "2026-10-23T19:50:52.000Z",
-      "labels": [
-        "authentication-bypass",
-        "credential-exposure",
-        "cve-2026-110975",
-        "webserver"
-      ],
-      "object_refs": [
-        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--ae50c15d-7b0a-5799-a998-b8d0a41c5039",
-        "vulnerability--9749133f-b93d-5ab0-9213-e9905213885a"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-23-kruize-autotune-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-kruize-autotune-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110975"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-23-kruize-autotune-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-10-23-kruize-autotune-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-kruize-autotune-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-10-23T19:50:52.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.4,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -271693,6 +271573,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--67f44130-366c-55bf-9e8a-1326530eb2be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T20:06:47.000Z",
+      "modified": "2026-11-22T20:06:47.000Z",
+      "name": "Drupal File Entity: Information disclosure (CVE-2024-13276)",
+      "description": "## Overview\nThe File Entity (fieldable files) module for Drupal 7 contains an information disclosure vulnerability (CVE-2024-13276) due to improper destination directory validation. When the module attempts to write a file to a private destination, it does not confirm the subfolder exists. If the destination path is invalid, the module defaults to writing the file to a publicly accessible directory, potentially exposing private data.\n\nThis issue exclusively affects Drupal sites that have private file storage configured.\n\n## Impact\nSuccessful exploitation allows for the disclosure of sensitive files intended for private storage by enabling forceful browsing of the publicly exposed directory where the file was inadvertently stored.\n\n## Recommendation\nUpgrade the File Entity (fieldable files) module to version 7.x-2.39 or newer as documented in the Drupal security advisory SA-CONTRIB-2024-040. There are no known workarounds; patching is the required remediation.",
+      "published": "2026-11-22T20:06:47.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9555ce49-18f6-5629-b461-a1ff23f9d08d",
+        "vulnerability--75f7d3ac-b826-524c-bbd4-d332b0817df2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-drupal-file-entity-cve-2024-13276",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-drupal-file-entity-cve-2024-13276/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-13276"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.drupal.org/sa-contrib-2024-040"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-drupal-file-entity-cve-2024-13276",
+      "x_craftedsignal_event_id": "brief-2026-11-22-drupal-file-entity-cve-2024-13276",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-drupal-file-entity-cve-2024-13276/",
+      "x_craftedsignal_activity_at": "2026-11-22T20:06:47.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00379,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -368506,46 +368431,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--ec85d843-e705-57a7-945f-f3ce2a79ea2b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-23T19:51:00.000Z",
-      "modified": "2026-10-23T19:51:00.000Z",
-      "name": "Amazon Web Services Multi Model Server: Relative path traversal (CVE-2026-115812)",
-      "description": "## Overview\nAmazon Web Services Multi Model Server (MMS) versions 1.1.11 and earlier contain a relative path traversal vulnerability. An attacker can exploit this during model archive extraction to potentially execute arbitrary code. Multi Model Server is end of life and no fixed version is available.\n\n## Impact\nThe vulnerability has been assigned a CVSS v3.1 base score of 9.8.\n\n## Recommendation\n- Discontinue use of Multi Model Server.\n- Migrate to a supported model serving solution.\n",
-      "published": "2026-10-23T19:51:00.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--df8b1049-3b35-5f49-bb5d-957201d926f6",
-        "vulnerability--ebfc5a68-9ce2-5092-8ed7-593fce9545b5"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-23-aws-multi-model-server-path-traversal",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-aws-multi-model-server-path-traversal/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115812"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-23-aws-multi-model-server-path-traversal",
-      "x_craftedsignal_event_id": "brief-2026-10-23-aws-multi-model-server-path-traversal",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-aws-multi-model-server-path-traversal/",
-      "x_craftedsignal_activity_at": "2026-10-23T19:51:00.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--ecafc25e-a4be-5930-aaac-1529e1e78d78",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T00:11:51.000Z",
@@ -400849,6 +400734,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9555ce49-18f6-5629-b461-a1ff23f9d08d",
+      "name": "File Entity (fieldable files) (\u003c 7.x-2.39)",
+      "vendor": "Drupal"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--95587188-5354-5e34-87e9-8228a858acff",
       "name": "Axis Camera Station",
       "vendor": "Axis"
@@ -403593,13 +403485,6 @@
       "spec_version": "2.1",
       "id": "software--ae4a677c-2c7c-59ca-8847-05e524b2baee",
       "name": "xwayland (\u003e= 22.1.3, \u003c 24.1.10)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--ae50c15d-7b0a-5799-a998-b8d0a41c5039",
-      "name": "Autotune",
-      "vendor": "Kruize"
     },
     {
       "type": "software",
@@ -409060,13 +408945,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--df8b1049-3b35-5f49-bb5d-957201d926f6",
-      "name": "Multi Model Server (\u003c= 1.1.11)",
-      "vendor": "Amazon"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--df8b39ae-b763-5abd-916f-bbaae2658abd",
       "name": "@intlify/core (= 9.14.5)",
       "vendor": "Intlify"
@@ -411859,13 +411737,6 @@
       "spec_version": "2.1",
       "id": "software--f77f91e9-c303-5707-999a-b44fb6901d1b",
       "name": "Qode Membership (\u003c= 2.0.6.2)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--f7831b55-68c0-58ec-bbef-3a8dc032f316",
-      "name": "ConnMan (\u003c= 2.0)",
-      "vendor": "ConnMan"
     },
     {
       "type": "software",
@@ -442010,22 +441881,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--56a8120a-366f-5697-b92f-5aef621ff7d7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-115863",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-115863",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115863"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--56ac12b9-14af-575a-acc0-0f0ddd2a0136",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -452388,6 +452243,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-104373",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104373"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--75f7d3ac-b826-524c-bbd4-d332b0817df2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-13276",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-13276",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-13276"
         }
       ]
     },
@@ -464196,22 +464067,6 @@
           "source_name": "cve",
           "external_id": "CVE-2024-29510",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-29510"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--9749133f-b93d-5ab0-9213-e9905213885a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-110975",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-110975",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110975"
         }
       ]
     },
@@ -493860,22 +493715,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-77800",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77800"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--ebfc5a68-9ce2-5092-8ed7-593fce9545b5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-115812",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-115812",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115812"
         }
       ]
     },
