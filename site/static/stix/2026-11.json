@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--04dfcb26-5be2-5b5f-86b2-435dd5253484",
+  "id": "bundle--ff0718a4-d504-552b-b0d8-b242e0c180ac",
   "objects": [
     {
       "type": "attack-pattern",
@@ -18759,6 +18759,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--cba99715-28ef-543b-a0da-835d85f62e88"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--11f21508-5b7a-5648-abe9-4b6e62e1cbaa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T10:20:34.000Z",
+      "modified": "2026-11-22T10:20:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--259c537b-9658-57f3-b69d-e03b4f80c3da",
+      "target_ref": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3"
     },
     {
       "type": "relationship",
@@ -48107,6 +48118,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--12293be7-5c1a-582d-bb60-21f21171f5af"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--452b63e5-d4d4-5b24-9698-c919e1bafd3f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T10:20:50.000Z",
+      "modified": "2026-11-22T10:20:50.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a9f876b1-bd1e-5f09-b7a5-28e1ce358345",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -102099,6 +102121,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a0f7159d-f486-5b50-9f29-fa091e2f3974",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--31cdcec7-faac-5b2c-8afb-23983a590395",
+      "target_ref": "vulnerability--01d374d5-78a0-54c1-bad6-9dd0c56a4969"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a0ff009f-7feb-5be5-b560-2123f092b7af",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T02:20:48.000Z",
@@ -110400,6 +110433,17 @@
       "relationship_type": "uses",
       "source_ref": "report--02590fbd-a22a-5e0b-89ec-2cf9bd499733",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--aeac0328-57eb-55cb-b3f2-172e06f67bb7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--95394ee0-6523-5ada-9f8d-d8cacd3cffd1",
+      "target_ref": "vulnerability--47b5fc86-cf66-519a-985a-2f2c19b49394"
     },
     {
       "type": "relationship",
@@ -153491,6 +153535,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f955e782-af1b-5995-b832-cb1a2ffb1302",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--31cdcec7-faac-5b2c-8afb-23983a590395",
+      "target_ref": "vulnerability--9776e2f1-f016-5341-af3f-7238255a802c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f956f1c8-76c3-5cfe-b9b8-e610629859fb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -178831,6 +178886,57 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_epss_max": 0.00719,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--259c537b-9658-57f3-b69d-e03b4f80c3da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T10:20:34.000Z",
+      "modified": "2026-11-22T10:20:34.000Z",
+      "name": "Guard Core Protection Mechanism Failure (CVE-2026-129303)",
+      "description": "## Overview\nGuard Core is an API security core engine for the FastAPI-Guard, FlaskAPI Guard, and DjAPI Guard adapters. A vulnerability (CVE-2026-129303) exists in guard-core versions 1.0.0 through 3.12.0 where ContentPreprocessor.preprocess() collapses all whitespace before pattern matching in default enhanced mode. This preprocessing step strips carriage returns and newlines, which are required for the 'http_split' and 'newline-anchored cmd_injection' detectors to function. Consequently, these detectors become unable to match, allowing framework-decoded CRLF signals to pass through the security engine unflagged. This issue is fixed in version 3.13.0.\n\n## Attack Chain\n1. SecurityConfig is enabled in the guard-core engine (triggering default enhanced mode).\n2. Malicious input containing newline characters is passed to the engine.\n3. ContentPreprocessor.preprocess() removes the newline and carriage return characters.\n4. Downstream 'http_split' and 'cmd_injection' detectors fail to match due to missing anchors.\n5. The downstream application receives the raw input, potentially allowing CRLF-tolerant response or command injection if the application persists or re-emits the data.\n\n## Impact\nSecurity inspection bypass is possible for malicious payloads relying on newline sequences, such as HTTP request smuggling or command injection, provided the downstream application environment is susceptible to processing the injected sequences.\n\n## Recommendation\nUpgrade the guard-core component to version 3.13.0, which introduces a signal-preserving path to correctly scan values while maintaining aggressive preprocessing for other detectors.",
+      "published": "2026-11-22T10:20:34.000Z",
+      "labels": [
+        "cve-2026-129303",
+        "defense-evasion",
+        "protection-mechanism-failure"
+      ],
+      "object_refs": [
+        "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--31cdcec7-faac-5b2c-8afb-23983a590395",
+        "vulnerability--01d374d5-78a0-54c1-bad6-9dd0c56a4969"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-guard-core-bypass-cve-2026-129303",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-guard-core-bypass-cve-2026-129303/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129303"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=F7A6EBA3-DAFB-5B26-9D52-0AA73E177AAB\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-guard-core-bypass-cve-2026-129303",
+      "x_craftedsignal_event_id": "brief-2026-11-22-guard-core-bypass-cve-2026-129303",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-guard-core-bypass-cve-2026-129303/",
+      "x_craftedsignal_activity_at": "2026-11-22T10:20:34.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 3.7,
+      "x_craftedsignal_epss_max": 0.00324,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -258142,6 +258248,66 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a9f876b1-bd1e-5f09-b7a5-28e1ce358345",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T10:20:50.000Z",
+      "modified": "2026-11-22T10:20:50.000Z",
+      "name": "Guard Core: Redis key injection via X-Forwarded-For header (CVE-2026-129304)",
+      "description": "## Overview\nGuard Core, an API security engine developed by rennf93 for FastAPI-Guard, FlaskAPI Guard, and DjAPI Guard, contains a vulnerability in `_extract_from_forwarded_header()` (guard_core/utils.py). From version 1.0.0 until 3.13.0, the component fails to validate that entries from the `X-Forwarded-For` header are legitimate IP addresses. \n\n## Attack Chain\nIn deployments configured with `trusted_proxies` where `proxy_depth` is at least 1, an attacker-controlled `X-Forwarded-For` header entry reaches the `BehaviorTracker` in `guard_core/handlers/behavior_handler.py`. This string is interpolated into Redis key names and blocking `KEYS` glob patterns. An attacker can supply glob metacharacters (e.g., '*', '?', '[', ']', '\\') to cause the tracker to scan the entire Redis keyspace, spoof or shadow other clients' usage counters, or create unbounded keys while rotating identities.\n\n## Impact\nSuccessful exploitation can result in the manipulation of behavioral tracking data, such as the unauthorized shadowing or spoofing of usage counters. Furthermore, the injection can trigger a denial-of-service (DoS) condition via glob-expansion in the Redis keyspace. A non-IP identity can also trigger an uncaught validation error during the ban action.\n\n## Recommendation\nThis issue is fixed in guard-core version 3.13.0, which introduces IP address parsing, metacharacter refusal, and hashing of identity segments within `BehaviorTracker` to prevent verbatim string interpolation.",
+      "published": "2026-11-22T10:20:50.000Z",
+      "labels": [
+        "cve",
+        "injection",
+        "redis",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--31cdcec7-faac-5b2c-8afb-23983a590395",
+        "vulnerability--9776e2f1-f016-5341-af3f-7238255a802c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-guard-core-injection-cve-2026-129304",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-guard-core-injection-cve-2026-129304/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129304"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/Guard-Core/guard-core/security/advisories/GHSA-gm9r-hvc9-96gv"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=2D9AA562-0E86-568E-84B2-2AA7F040BA1E"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=2D9AA562-0E86-568E-84B2-2AA7F040BA1E\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-guard-core-injection-cve-2026-129304",
+      "x_craftedsignal_event_id": "brief-2026-11-22-guard-core-injection-cve-2026-129304",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-guard-core-injection-cve-2026-129304/",
+      "x_craftedsignal_activity_at": "2026-11-22T10:20:50.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.4,
+      "x_craftedsignal_epss_max": 0.00244,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--aa2956cc-9f0c-5fec-906b-ba2cb54481a1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T20:32:41.000Z",
@@ -290150,6 +290316,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e2c15a52-41c2-5b4c-bab4-57ef33529d3b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T10:21:37.000Z",
+      "modified": "2026-11-22T10:21:37.000Z",
+      "name": "LaborOfficeFree: MySQL root credential derivation (CVE-2024-1346)",
+      "description": "## Overview\nLaborOfficeFree version 19.10 is vulnerable to an issue where its MySQL database root password can be calculated using two constants. While the issue was explicitly tested on version 19.10, there are reports that versions prior to 19.10 are also affected.\n\n## Attack Chain\nAn attacker can use a reverse-engineered algorithm - which utilizes a license string extracted from memory and a static constant - to calculate the MySQL root password. The application incorrectly assumes that checking for administrator privileges is sufficient to secure the backup process, but this check is ineffective because the application can trigger database actions using the derived password regardless of the current user's privilege level.\n\n## Impact\nThis vulnerability allows a local attacker to calculate the MySQL database root password, granting them high confidentiality over the database content. No specific availability or integrity impact beyond the unauthorized database access is noted in the source.\n\n## Recommendation\nReview the vendor documentation or contact the supplier regarding potential patches for LaborOfficeFree version 19.10 and earlier versions. Restrict access to systems running this software to prevent unauthorized local memory inspection.",
+      "published": "2026-11-22T10:21:37.000Z",
+      "labels": [
+        "credential-access",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--95394ee0-6523-5ada-9f8d-d8cacd3cffd1",
+        "vulnerability--47b5fc86-cf66-519a-985a-2f2c19b49394"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-laborofficefree-cve-2024-1346",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-laborofficefree-cve-2024-1346/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2024-1346"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-PETERGABALDON-CVE-2024-1346"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-PETERGABALDON-CVE-2024-1346\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-laborofficefree-cve-2024-1346",
+      "x_craftedsignal_event_id": "brief-2026-11-22-laborofficefree-cve-2024-1346",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-laborofficefree-cve-2024-1346/",
+      "x_craftedsignal_activity_at": "2026-11-22T10:21:37.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.8,
+      "x_craftedsignal_epss_max": 0.00392,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e2d0bedf-aa94-50e8-8225-b98f83f70201",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T14:04:31.000Z",
@@ -311520,6 +311739,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--31cdcec7-faac-5b2c-8afb-23983a590395",
+      "name": "guard-core",
+      "vendor": "rennf93"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--31de7955-a66e-5a13-ac35-dfd1431b70dc",
       "name": "FortiAnalyzer Cloud (8.0.0 through 8.0.1)",
       "vendor": "Fortinet"
@@ -319892,6 +320118,13 @@
       "spec_version": "2.1",
       "id": "software--95377f18-2d6b-5c5f-93bc-b3f414971374",
       "name": "JSON::XS (\u003c 4.05)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--95394ee0-6523-5ada-9f8d-d8cacd3cffd1",
+      "name": "LaborOfficeFree (= 19.10)",
+      "vendor": "LaborOfficeFree"
     },
     {
       "type": "software",
@@ -329808,6 +330041,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112182",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112182"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--01d374d5-78a0-54c1-bad6-9dd0c56a4969",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129303",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129303",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129303"
         }
       ]
     },
@@ -348480,6 +348729,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-125059",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125059"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--47b5fc86-cf66-519a-985a-2f2c19b49394",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-1346",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-1346",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-1346"
         }
       ]
     },
@@ -370640,6 +370905,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119723",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119723"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9776e2f1-f016-5341-af3f-7238255a802c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129304",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129304",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129304"
         }
       ]
     },
