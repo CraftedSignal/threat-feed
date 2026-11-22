@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b13d22c2-76df-501c-a114-be9938f4c8ea",
+  "id": "bundle--c5c20625-3b95-59e8-bd4f-30e283e1943e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -66686,6 +66686,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--d3c2382f-6a94-5d59-8fe8-c08b9dc13359"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--504da39e-3231-5621-80fe-1179a7669afe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+      "target_ref": "vulnerability--24e7a48a-d4ab-51df-9e28-28e4fc3532af"
     },
     {
       "type": "relationship",
@@ -211076,6 +211087,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 2.7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--17cd9380-3584-573e-acee-abc0d2cff2dd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T13:50:26.000Z",
+      "modified": "2026-11-22T13:50:26.000Z",
+      "name": "Linux kernel iSCSI Target ISID Null-Termination Vulnerability (CVE-2026-99754)",
+      "description": "## Overview\n\nIn the Linux kernel, the iSCSI target implementation fails to verify that the ISID field of a FORMAT CODE 01b TransportID is null-terminated. The function `iscsi_parse_pr_out_transport_id()` returns a pointer into the PERSISTENT RESERVE OUT parameter list without verifying the presence of a NULL character. This allows an initiator to provide a non-conforming, non-null-terminated ISID.\n\n## Attack Chain\n\nAuthorized iSCSI initiators, including those connected via vhost-scsi, can send a specially crafted PERSISTENT RESERVE OUT SCSI Command PDU. \n- When the parameter list spans more than one page, the kernel `strcmp()` or `snprintf()` calls consume the unterminated string and over-read into the vmalloc() guard page, triggering a kernel oops.\n- With a single-page parameter list, the over-read accesses physically adjacent memory. This data can be echoed back to the initiator via subsequent PR IN READ FULL STATUS commands, resulting in an information leak of kernel heap contents.\n\n## Impact\n\n- Denial of Service: An initiator can crash the kernel iSCSI target thread via a memory access fault.\n- Information Disclosure: An initiator can leak portions of the kernel heap memory, disclosing up to 11 bytes per command.\n\n## Recommendation\n\nThe vulnerability is addressed by requiring 8 bytes to remain after the separator and verifying a NUL inside the descriptor before the ISID pointer is returned. Users should apply the upstream kernel patch provided in the commit history.",
+      "published": "2026-11-22T13:50:26.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+        "vulnerability--24e7a48a-d4ab-51df-9e28-28e4fc3532af"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-linux-kernel-iscsi-vuln-cve-2026-99754",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-iscsi-vuln-cve-2026-99754/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-99754"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99754"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-linux-kernel-iscsi-vuln-cve-2026-99754",
+      "x_craftedsignal_event_id": "brief-2026-11-22-linux-kernel-iscsi-vuln-cve-2026-99754",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-iscsi-vuln-cve-2026-99754/",
+      "x_craftedsignal_activity_at": "2026-11-22T13:50:26.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_epss_max": 0.00168,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -427898,6 +427954,22 @@
           "source_name": "cve",
           "external_id": "CVE-2024-6648",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-6648"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--24e7a48a-d4ab-51df-9e28-28e4fc3532af",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99754",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99754",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99754"
         }
       ]
     },
