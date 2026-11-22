@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--540bddbd-3c3a-5baf-9abc-5295de46fef2",
+  "id": "bundle--ec0782cd-b5aa-57dd-b198-05914a1570b9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8320,6 +8320,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--8185cd41-b95c-5d44-b40f-c8c0ce6bae33"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0173b716-affd-5fac-9560-ef7baccffe53",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--32cc858b-2270-55d4-89be-2c79255556f5",
+      "target_ref": "vulnerability--cde98b86-e964-5941-bf1f-78ba6a7509c7"
     },
     {
       "type": "relationship",
@@ -155757,6 +155768,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--fc993520-b5be-56ff-99ac-2f05e30f438e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f6e54ecb-98b1-5a8b-9700-ab57ef605294",
+      "target_ref": "vulnerability--db1a396a-0886-5d3a-a812-470a262b7076"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--fca3fc5f-f828-5ad3-9417-8ca4b1e4bf7e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -197836,6 +197858,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--42a1382c-de12-5d95-bc37-2aa8d88428c9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T13:39:13.000Z",
+      "modified": "2026-11-22T13:39:13.000Z",
+      "name": "Linux Kernel: Integer truncation in mm/mmu_gather (CVE-2026-99659)",
+      "description": "## Overview\n\nThe Linux kernel's `mm/mmu_gather` subsystem contains an integer truncation vulnerability within the `__tlb_adjust_range()` function. This function incorrectly accepts the memory range size as an `unsigned int` instead of an `unsigned long`, causing truncation when processing ranges of 4 GiB or larger.\n\nOn arm64 architectures, this vulnerability impacts scenarios involving large pages, such as 16 GiB hugetlb folios or 64 GiB PUD ranges, where the truncated range size may result in a zero-length flush operation. This leads to incomplete TLB invalidation, where physical pages may be reallocated and accessed while stale TLB entries persist.\n\n## Impact\n\nSuccessful exploitation requires a local user to allocate and munmap large hugetlb pages. The failure to invalidate TLB entries enables a use-after-free scenario where an attacker can read or modify physical memory after it has been returned to the system pool. The vulnerability is limited to the local host address space and does not support remote exploitation.\n\n## Recommendation\n\n1. Identify and update Linux kernel versions affected by the truncation issue in `mm/mmu_gather`. \n2. Review downstream vendor security advisories for patched kernels that replace `unsigned int` with `unsigned long` for the `range_size` parameter in `__tlb_adjust_range()`.\n3. Monitor system audit logs for local processes triggering large memory unmapping operations that align with high-memory page management.",
+      "published": "2026-11-22T13:39:13.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f6e54ecb-98b1-5a8b-9700-ab57ef605294",
+        "vulnerability--db1a396a-0886-5d3a-a812-470a262b7076"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-linux-kernel-integer-truncation-cve-2026-99659",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-integer-truncation-cve-2026-99659/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-99659"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99659"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-linux-kernel-integer-truncation-cve-2026-99659",
+      "x_craftedsignal_event_id": "brief-2026-11-22-linux-kernel-integer-truncation-cve-2026-99659",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-integer-truncation-cve-2026-99659/",
+      "x_craftedsignal_activity_at": "2026-11-22T13:39:13.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7,
+      "x_craftedsignal_epss_max": 0.00168,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -278484,6 +278551,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--cd8e550c-6b8c-53c4-a06a-10443a8ab96d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T13:40:12.000Z",
+      "modified": "2026-11-22T13:40:12.000Z",
+      "name": "Linux Kernel: CAN XL buffer overflow (CVE-2026-99674)",
+      "description": "## Overview\nA buffer overflow vulnerability exists in the Linux kernel CAN subsystem. The issue occurs when the CAN driver's transmission path fails to validate ETH_P_CANXL frames on devices that lack CAN_CAP_XL capability. An unprivileged user can send a PF_PACKET or use a PF_CAN socket (e.g., via CAN_BCM) to bypass logic and reach the driver's xmit() function with a malformed frame. Drivers that do not verify frame length before copying data interpret the CAN XL flags field as a length, resulting in a buffer overflow.\n\n## Attack Chain\nThe vulnerability is reachable by an unprivileged user connecting a BCM socket and issuing TX_SEND to an existing, active non-XL CAN interface. The payload is copied into the host kernel memory, where it can overflow stack buffers or heap/DMA objects.\n\n## Impact\nThe overflow results in host kernel memory corruption. This can lead to kernel oops, system panics, or denial of service. The vulnerability does not result in guest-to-host or IOMMU crossing.\n\n## Recommendation\nUpgrade the Linux kernel to address the issue. The vulnerability is resolved in git commits 2de9c3df452e159f82ef14ca497e5be407c66493 and 0fce44e29fce4b07642491b098afb41bd571e4f2. Systems running versions prior to these patches are potentially affected.",
+      "published": "2026-11-22T13:40:12.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--32cc858b-2270-55d4-89be-2c79255556f5",
+        "vulnerability--cde98b86-e964-5941-bf1f-78ba6a7509c7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-linux-can-xl-overflow-cve-2026-99674",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-can-xl-overflow-cve-2026-99674/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-99674"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99674"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-linux-can-xl-overflow-cve-2026-99674",
+      "x_craftedsignal_event_id": "brief-2026-11-22-linux-can-xl-overflow-cve-2026-99674",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-can-xl-overflow-cve-2026-99674/",
+      "x_craftedsignal_activity_at": "2026-11-22T13:40:12.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00196,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--cd9aa4ad-fd11-5310-b0bb-1991cb95236b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T21:58:44.000Z",
@@ -329241,6 +329353,13 @@
       "id": "software--f6caa88d-0610-5d48-b01d-fac11f2a7398",
       "name": "Craft CMS (4.0.0 through 4.18.8)",
       "vendor": "Craft CMS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f6e54ecb-98b1-5a8b-9700-ab57ef605294",
+      "name": "Linux Kernel (4.10 to \u003c 7.4-rc2)",
+      "vendor": "Linux"
     },
     {
       "type": "software",
@@ -387648,6 +387767,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--cde98b86-e964-5941-bf1f-78ba6a7509c7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99674",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99674",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99674"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--cdfc7746-ba6b-5538-ba40-b170e871d321",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -391306,6 +391441,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124002",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124002"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--db1a396a-0886-5d3a-a812-470a262b7076",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99659",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99659",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99659"
         }
       ]
     },
