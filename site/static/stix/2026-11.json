@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7c3d7073-cd1f-56ed-898e-9aac3537c3ed",
+  "id": "bundle--4343f95a-64a3-5f05-97f3-fbccbbff7fe5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -66943,6 +66943,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--64b7153d-f845-5099-8568-0d04930cd65c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T07:00:16.000Z",
+      "modified": "2026-11-22T07:00:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8a5af7f7-dee4-5d89-b1a8-634f4263da9d",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--64beb65d-fe66-5bb0-9531-d6e22ae8c1db",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -109674,6 +109685,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--ed582b13-69f9-5e58-849f-caab3875c0b3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--adc4499b-8427-5b81-b194-44c944c983fc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f50d1d1e-2f7d-522a-be58-47aeb13b5b50",
+      "target_ref": "vulnerability--42178da5-13ff-5694-b56e-d7a343823c0b"
     },
     {
       "type": "relationship",
@@ -239337,6 +239359,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8a5af7f7-dee4-5d89-b1a8-634f4263da9d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T07:00:16.000Z",
+      "modified": "2026-11-22T07:00:16.000Z",
+      "name": "Microweber: Improper access control in UserManager (CVE-2026-134623)",
+      "description": "## Overview\n\nA flaw has been identified in Microweber versions up to 2.0.20 within the Generic API Dispatcher component. The vulnerability exists in the UserManager::make_logged function in src/MicroweberPackages/App/Http/Controllers/ApiController.php. This flaw enables improper access controls. Remote exploitation of the attack is possible, and the exploit has been published and may be used.\n\n## Impact\n\nThe vulnerability allows for remote manipulation of access controls, potentially allowing unauthorized actors to circumvent security measures.\n\n## Recommendation\n\nUpgrade the affected component to version 2.0.21. This release includes patch e639d26e61b989b100f8b6f6bb78c0cecca79b99 to address the issue.",
+      "published": "2026-11-22T07:00:16.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f50d1d1e-2f7d-522a-be58-47aeb13b5b50",
+        "vulnerability--42178da5-13ff-5694-b56e-d7a343823c0b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-microweber-access-control-cve-2026-134623",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-microweber-access-control-cve-2026-134623/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134623"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134623"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-microweber-access-control-cve-2026-134623",
+      "x_craftedsignal_event_id": "brief-2026-11-22-microweber-access-control-cve-2026-134623",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-microweber-access-control-cve-2026-134623/",
+      "x_craftedsignal_activity_at": "2026-11-22T07:00:16.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--8aaaac1d-e8f9-52e9-a949-1226fa85eb87",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T22:05:01.000Z",
@@ -327597,6 +327664,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--f50d1d1e-2f7d-522a-be58-47aeb13b5b50",
+      "name": "Microweber",
+      "vendor": "Microweber"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f52ec866-a1a8-5f0e-ad72-bad9bea84baf",
       "name": "hMailServer (6.3.4 through 6.3.7)"
     },
@@ -346786,6 +346860,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17322",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17322"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--42178da5-13ff-5694-b56e-d7a343823c0b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134623",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134623",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134623"
         }
       ]
     },
