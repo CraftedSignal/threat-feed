@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ac478b0c-007d-54d6-9300-a6e3dda9256d",
+  "id": "bundle--4c250865-abc5-5ad3-9739-2992390c5c9b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -28593,6 +28593,17 @@
       "relationship_type": "has",
       "source_ref": "software--85475315-041c-542e-bcae-560f82ce7f95",
       "target_ref": "vulnerability--18a225ae-2141-53d1-acf0-ec357d947be6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--22ed4517-414c-500b-befc-9af204975c12",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T22:00:02.000Z",
+      "modified": "2026-11-22T22:00:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--30296b41-0369-5444-810c-07d1d2d9e424",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -63210,6 +63221,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--8200db8f-c79b-5673-becf-d937b8d8a481"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5dca0cd3-cc5f-5bc8-a35f-7f2a040ebf95",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1058c5aa-545b-50ba-a5e9-a4e0a451df5a",
+      "target_ref": "vulnerability--ae8bc867-2f9f-5c2c-bdaa-9eeeef384ecc"
     },
     {
       "type": "relationship",
@@ -106433,6 +106455,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a73d1d13-4e7e-5156-b3ff-377701ca15f2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T22:01:06.000Z",
+      "modified": "2026-11-22T22:01:06.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d3fcceba-5b71-50eb-bf6f-e3bedeb9014a",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a7484eea-0b7b-5feb-ad35-88d262fd331f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -138285,6 +138318,17 @@
       "relationship_type": "has",
       "source_ref": "software--70f0029f-4101-53d3-8c27-cfedc2d49a61",
       "target_ref": "vulnerability--e6df76f6-f75d-5476-acae-e626d8443fb7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ddad00ff-d049-53ac-849e-7c2555d9c459",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ab9ec273-6e77-5836-86a5-1502d6e41370",
+      "target_ref": "vulnerability--c6a7e22c-9037-501a-a1a9-eebc6fb4356e"
     },
     {
       "type": "relationship",
@@ -186054,6 +186098,61 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--30296b41-0369-5444-810c-07d1d2d9e424",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T22:00:02.000Z",
+      "modified": "2026-11-22T22:00:02.000Z",
+      "name": "Abacre Retail Point of Sale: Blind SQL injection (CVE-2025-67261)",
+      "description": "## Overview\nAbacre Retail Point of Sale version 14.0.0.396 contains a content-based blind SQL injection vulnerability in the search function of the Orders page. An unauthenticated remote attacker can inject arbitrary SQL commands into the search parameter to query the backend Firebird database. Successful exploitation allows for the enumeration of database tables and the exfiltration of sensitive records. As of the current assessment, no patch information has been provided by the vendor.\n\n## Attack Chain\n1. Attacker identifies a target instance of Abacre Retail Point of Sale version 14.0.0.396.\n2. Attacker navigates to the 'Orders' page search interface.\n3. Attacker injects a malicious SQL payload (e.g., ') OR EXISTS(SELECT 1 FROM Client)--') into the search parameter.\n4. The application processes the tainted input and returns a boolean-based result based on the database content.\n5. Attacker observes the application output to confirm the existence of target tables or data counts.\n6. Attacker iteratively exfiltrates database content using blind SQL injection techniques.\n\n## Impact\nThis vulnerability allows unauthenticated attackers to perform unauthorized data exfiltration from the application's backend Firebird database, potentially exposing customer or transactional data.\n\n## Recommendation\n- Identify and inventory all instances of Abacre Retail Point of Sale version 14.0.0.396 within your environment.\n- Monitor network traffic for anomalous search queries containing SQL injection patterns (e.g., OR, EXISTS, SELECT) directed at the Point of Sale interface.\n- Reach out to the vendor for an official security update or mitigation guidance regarding CVE-2025-67261.",
+      "published": "2026-11-22T22:00:02.000Z",
+      "labels": [
+        "cve",
+        "data-exfiltration",
+        "sqli"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ab9ec273-6e77-5836-86a5-1502d6e41370",
+        "vulnerability--c6a7e22c-9037-501a-a1a9-eebc6fb4356e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-abacre-pos-sqli-cve-2025-67261",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-abacre-pos-sqli-cve-2025-67261/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-67261"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SMARTTFOXX-CVE-2025-67261"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SMARTTFOXX-CVE-2025-67261\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-abacre-pos-sqli-cve-2025-67261",
+      "x_craftedsignal_event_id": "brief-2026-11-22-abacre-pos-sqli-cve-2025-67261",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-abacre-pos-sqli-cve-2025-67261/",
+      "x_craftedsignal_activity_at": "2026-11-22T22:00:02.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.5,
+      "x_craftedsignal_epss_max": 0.00213,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -283841,6 +283940,66 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d3fcceba-5b71-50eb-bf6f-e3bedeb9014a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T22:01:06.000Z",
+      "modified": "2026-11-22T22:01:06.000Z",
+      "name": "Next.js: Authorization bypass via middleware (CVE-2025-29927)",
+      "description": "## Overview\nNext.js contains a critical authorization bypass vulnerability (CVE-2025-29927) affecting multiple versions. The flaw exists in the middleware layer, where an attacker can manipulate requests to circumvent intended security checks. Publicly available exploit proof-of-concepts confirm that the vulnerability allows unauthenticated access to restricted resources like administrative pages. This vulnerability has been assigned a CVSS score of 9.1 (Critical).\n\n## Impact\nSuccessful exploitation permits an unauthenticated attacker to bypass authorization controls, potentially leading to full unauthorized access to protected application functionality, data, and sensitive administrative interfaces.\n\n## Recommendation\n- Upgrade Next.js applications to the following fixed versions: 12.3.5, 13.5.9, 14.2.25, or 15.2.3.\n- If immediate patching is not possible, implement a WAF or load balancer rule to block incoming HTTP requests containing the header 'x-middleware-subrequest'.\n- Perform an audit of applications using Next.js middleware to verify the effectiveness of current access controls against bypass attempts.",
+      "published": "2026-11-22T22:01:06.000Z",
+      "labels": [
+        "authorization-bypass",
+        "cve",
+        "middleware",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1058c5aa-545b-50ba-a5e9-a4e0a451df5a",
+        "vulnerability--ae8bc867-2f9f-5c2c-bdaa-9eeeef384ecc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-nextjs-middleware-bypass-cve-2025-29927",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nextjs-middleware-bypass-cve-2025-29927/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-29927"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-POURIAM23-NEXT.JS-MIDDLEWARE-BYPASS-CVE-2025-29927-\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.assetnote.io/resources/research/doing-the-due-diligence-analyzing-the-next-js-middleware-bypass-cve-2025-29927"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://zhero-web-sec.github.io/research-and-things/nextjs-and-the-corrupt-middleware"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-nextjs-middleware-bypass-cve-2025-29927",
+      "x_craftedsignal_event_id": "brief-2026-11-22-nextjs-middleware-bypass-cve-2025-29927",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nextjs-middleware-bypass-cve-2025-29927/",
+      "x_craftedsignal_activity_at": "2026-11-22T22:01:06.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.99225,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d48ea7f8-0bac-58b1-b57e-40cc19ccd7ce",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T10:00:42.000Z",
@@ -297311,7 +297470,7 @@
         "confidence": "medium"
       },
       "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_epss_max": 0.00753,
+      "x_craftedsignal_epss_max": 0.45636,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -311823,6 +311982,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1058c5aa-545b-50ba-a5e9-a4e0a451df5a",
+      "name": "Next.js (\u003e= 11.1.4 \u003c 12.3.5, \u003e= 13.0.0 \u003c 13.5.9, \u003e= 14.0.0 \u003c 14.2.25, \u003e= 15.0.0 \u003c 15.2.3)",
+      "vendor": "Vercel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1063644a-335c-5522-a681-cf29cf77b360",
       "name": "DIR-600L (2.17b02)",
       "vendor": "D-Link"
@@ -324991,6 +325157,13 @@
       "id": "software--ab72303e-97eb-5466-bb94-551e937a039d",
       "name": "http-client (\u003c 5.4.56, 6.4.50, 7.4.23, 8.1.11)",
       "vendor": "Symfony"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ab9ec273-6e77-5836-86a5-1502d6e41370",
+      "name": "Abacre Retail Point of Sale (14.0.0.396)",
+      "vendor": "Abacre"
     },
     {
       "type": "software",
@@ -381118,6 +381291,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--ae8bc867-2f9f-5c2c-bdaa-9eeeef384ecc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-29927",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-29927",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-29927"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--ae9b7731-869b-5377-89cc-64d85e67c4ab",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -388216,6 +388405,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115066",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115066"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c6a7e22c-9037-501a-a1a9-eebc6fb4356e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-67261",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-67261",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-67261"
         }
       ]
     },
