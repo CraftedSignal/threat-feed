@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--69d14baa-4247-5cf7-90aa-177743b71b8f",
+  "id": "bundle--b13d22c2-76df-501c-a114-be9938f4c8ea",
   "objects": [
     {
       "type": "attack-pattern",
@@ -73583,6 +73583,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--b7a1ddc8-edd4-5790-8692-a028841d36ed"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--59789821-0fff-5255-9182-c5ff9ead6b9a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--32cc858b-2270-55d4-89be-2c79255556f5",
+      "target_ref": "vulnerability--c488e319-e6d8-5094-992a-851ab5392411"
     },
     {
       "type": "relationship",
@@ -263294,6 +263305,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5aa0ff26-783e-52b8-9041-07f9919155b6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T13:37:15.000Z",
+      "modified": "2026-11-22T13:37:15.000Z",
+      "name": "Linux Kernel: MPTCP use-after-free in endpoint listener",
+      "description": "## Overview\nA use-after-free vulnerability exists in the Linux kernel MPTCP subsystem within mptcp_pm_nl_create_listen_socket(). The function fails to set the SOCK_RCU_FREE flag on the parent MPTCP socket, leading to improper reference handling. An attacker with CAP_NET_ADMIN privileges can exploit this by racing an authenticated MP_JOIN with endpoint teardown or specific ADD_ADDR error paths. The vulnerability is limited to the local kernel and does not cross KVM guest/host or IOMMU isolation boundaries.\n\n## Impact\nSuccessful exploitation can result in a kernel oops (denial of service).\n\n## Recommendation\nUsers should update to kernel versions that include the fix. Fixed releases include 6.12.118, 6.18.64, 7.3.5, and 7.4-rc2.",
+      "published": "2026-11-22T13:37:15.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--32cc858b-2270-55d4-89be-2c79255556f5",
+        "vulnerability--c488e319-e6d8-5094-992a-851ab5392411"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-linux-kernel-use-after-free-cve-2026-99603",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-use-after-free-cve-2026-99603/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-99603"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99603"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-linux-kernel-use-after-free-cve-2026-99603",
+      "x_craftedsignal_event_id": "brief-2026-11-22-linux-kernel-use-after-free-cve-2026-99603",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-use-after-free-cve-2026-99603/",
+      "x_craftedsignal_activity_at": "2026-11-22T13:37:15.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00168,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -482498,6 +482554,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-85749",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85749"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c488e319-e6d8-5094-992a-851ab5392411",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99603",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99603",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99603"
         }
       ]
     },
