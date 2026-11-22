@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d2fb2a42-2b25-5aec-8035-f5b7781477da",
+  "id": "bundle--e9cba8fe-8e00-50c7-b60d-17d6e9bb4deb",
   "objects": [
     {
       "type": "attack-pattern",
@@ -18506,6 +18506,17 @@
       "relationship_type": "has",
       "source_ref": "software--5836dbb0-b1e2-53d3-9d2e-004878c3254a",
       "target_ref": "vulnerability--35ebd5a2-3c1e-52b6-9636-7717a4a2890e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--11737022-624e-58de-a03a-6fe420f135c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--51631950-4efb-5d2c-8df4-10802a7bc310",
+      "target_ref": "vulnerability--5e9e01f5-9696-5cb2-9ae7-a146dc06c7fc"
     },
     {
       "type": "relationship",
@@ -67955,6 +67966,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6652a7bf-8288-5ba8-beea-65435d56a989",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--32cc858b-2270-55d4-89be-2c79255556f5",
+      "target_ref": "vulnerability--91609230-d41b-58db-8f0b-83794435d063"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--66575206-dca3-5b93-b7d6-622dd1aa18a5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -80385,6 +80407,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7b251a7d-345a-504e-b6ed-db2c964e9abb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c757c025-6ea0-5a82-ad38-65cd8c95a69c",
+      "target_ref": "vulnerability--056bd458-f974-5a84-8f42-17b863702d82"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7b290dfe-cd24-5558-96cf-8839e0041d5b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -88499,6 +88532,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--3583ee9d-34dc-54b5-9326-16cd24d44dda"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--888f245a-78a6-574b-9ac5-209b0497b96f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--32cc858b-2270-55d4-89be-2c79255556f5",
+      "target_ref": "vulnerability--d03400db-fa7d-5c2f-9aed-1caf3ec1b660"
     },
     {
       "type": "relationship",
@@ -164185,6 +164229,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--0c58f9d2-0701-5c04-975b-a65e1e42e856",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T13:26:42.000Z",
+      "modified": "2026-11-22T13:26:42.000Z",
+      "name": "Linux kernel: UFS filesystem out-of-bounds read and write (CVE-2026-99448)",
+      "description": "## Overview\nA vulnerability exists in the Linux kernel UFS filesystem driver where `ufs_last_byte()` truncates an on-disk 64-bit directory size to an unsigned integer. A directory size of exactly 4 GiB is truncated to zero, causing `ufs_find_entry()` to calculate an endpoint 4 GiB beyond the mapped folio, resulting in out-of-bounds memory access. The vulnerability is present in versions including v6.6.111, v6.12.95, v6.18.38, v7.1, and v7.2-rc3.\n\n## Attack Chain\nThe vulnerability is reachable when a privileged user or service mounts a crafted UFS filesystem. The read primitive is reachable with read-only UFS2. A write primitive requires UFS1 to be mounted with `CONFIG_UFS_FS_WRITE` enabled; in this scenario, `ufs_delete_entry()` may clear the `d_ino` field of an adjacent memory page.\n\n## Impact\nSuccessful exploitation results in KASAN-detected use-after-free conditions (out-of-folio reads) or out-of-bounds writes if the filesystem is mounted with `CONFIG_UFS_FS_WRITE` enabled. The write operation can modify kernel memory.\n\n## Recommendation\nUpgrade the Linux kernel to versions unaffected by this vulnerability. Versions 6.12.117, 6.18.61, 7.3.2, and 7.4-rc1 (and later) are noted as unaffected.",
+      "published": "2026-11-22T13:26:42.000Z",
+      "labels": [
+        "cve-2026-99448",
+        "linux-kernel",
+        "ufs"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--32cc858b-2270-55d4-89be-2c79255556f5",
+        "vulnerability--d03400db-fa7d-5c2f-9aed-1caf3ec1b660"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-linux-kernel-ufs-oob-r-w-cve-2026-99448",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-ufs-oob-r-w-cve-2026-99448/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-99448"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99448"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-linux-kernel-ufs-oob-r-w-cve-2026-99448",
+      "x_craftedsignal_event_id": "brief-2026-11-22-linux-kernel-ufs-oob-r-w-cve-2026-99448",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-ufs-oob-r-w-cve-2026-99448/",
+      "x_craftedsignal_activity_at": "2026-11-22T13:26:42.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00176,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--0c6a89c4-ac3c-5106-897e-72a762e9bfb3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T14:08:09.000Z",
@@ -201231,6 +201325,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--48008684-fd0e-5e64-86cf-4a5006afe29c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T13:25:44.000Z",
+      "modified": "2026-11-22T13:25:44.000Z",
+      "name": "Linux Kernel: OCFS2 use-after-free in refcount tree handling (CVE-2026-99429)",
+      "description": "## Overview\nA use-after-free vulnerability in the Linux kernel's OCFS2 filesystem, identified as CVE-2026-99429, occurs due to improper synchronization in `ocfs2_get_refcount_tree()`. The vulnerability allows a race condition where a cached refcount tree pointer is returned after the `osb_lock` is dropped, but before the caller takes a `kref` reference, failing to prevent concurrent removal. \n\n## Attack Chain\nAn attacker on a local system can trigger this condition by racing filesystem operations (such as pwrite64 and setxattr) on inodes that share a refcount root. When one node frees the refcount tree while another node retains a stale pointer, the subsequent `kref_get()` access of the freed `rf_getcnt` results in a use-after-free event.\n\n## Impact\nThis vulnerability can cause kernel oops, system instability, and memory corruption. An attacker may potentially leverage the use-after-free to interact with kernel memory slots for arbitrary writes or to redirect kernel execution via pointer manipulation.\n\n## Recommendation\nThis issue is resolved in the Linux kernel via specific commits; however, canonical release versions are not explicitly defined in the available source metadata. Administrators should apply the upstream kernel patches identified as `ce7b46556af15642a1e9f8d0c596022dd7cfb4a7`, `7ff4f020f7b03fddd529735f0b61ac0a8dd92c9e`, `2d9e864c234469dc7f56ea974f8269d251441e6a`, or `8c714a074074af7ae59233c1fa6ef9d7aa710462` to address the flaw.",
+      "published": "2026-11-22T13:25:44.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--32cc858b-2270-55d4-89be-2c79255556f5",
+        "vulnerability--91609230-d41b-58db-8f0b-83794435d063"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-linux-kernel-ocfs2-uaf-cve-2026-99429",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-ocfs2-uaf-cve-2026-99429/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-99429"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99429"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-linux-kernel-ocfs2-uaf-cve-2026-99429",
+      "x_craftedsignal_event_id": "brief-2026-11-22-linux-kernel-ocfs2-uaf-cve-2026-99429",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-ocfs2-uaf-cve-2026-99429/",
+      "x_craftedsignal_activity_at": "2026-11-22T13:25:44.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.0021,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -255699,6 +255838,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a46d5433-f1cc-5acc-9b78-18d76b9f062b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T13:26:22.000Z",
+      "modified": "2026-11-22T13:26:22.000Z",
+      "name": "Linux Kernel: OCFS2 Distributed Lock Manager use-after-free (CVE-2026-99433)",
+      "description": "## Overview\nA race condition exists in the OCFS2 DLM component of the Linux kernel where a newly granted remote lock can be freed prematurely. When a peer node disconnects, the node-down cleanup thread can free a lock structure while a concurrent receive worker is still processing a grant AST for that same lock. This results in a use-after-free read during __dlm_queue_ast, leading to potential kernel oops or memory corruption. The vulnerability is reachable over the network by a domain-joined peer capable of sending O2NET messages.\n\n## Attack Chain\n1. A peer node initiates a cluster connection and buffers a DLM_CREATE_LOCK_MSG on its O2NET TCP socket.\n2. The peer node simultaneously stops its O2HB heartbeat, triggering local node-down cleanup on the victim.\n3. The victim's O2NET thread flushes existing work, but a new O2NET receive worker thread processes the previously buffered CREATE message.\n4. The victim's DLM node-down cleanup thread executes dlm_free_dead_locks(), which unlinks the lock and frees the associated memory object.\n5. The concurrently running receive worker executes dlmlock_master(), which publishes the lock and subsequently calls __dlm_queue_ast().\n6. The __dlm_queue_ast() function reads the freed lock structure (use-after-free), leading to an oops or list corruption during the AST queuing process.\n\n## Impact\nSuccessful exploitation causes a kernel crash (oops) on the affected node. The memory corruption could potentially be leveraged for higher-level impacts, though current evidence centers on system instability and denial of service.\n\n## Recommendation\n- Audit environments utilizing OCFS2 to identify exposure to domain-joined peers.\n- Monitor kernel logs for \"BUG: KASAN: slab-use-after-free in __dlm_queue_ast\" reports, which indicate an exploitation attempt or a triggered race condition.\n- Patch the Linux kernel to include the fix that forces a temporary lock reference under the resource spinlock, ensuring the lock remains alive until the AST queuing process completes.",
+      "published": "2026-11-22T13:26:22.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--51631950-4efb-5d2c-8df4-10802a7bc310",
+        "vulnerability--5e9e01f5-9696-5cb2-9ae7-a146dc06c7fc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-linux-kernel-ocfs2-uaf-cve-2026-99433",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-ocfs2-uaf-cve-2026-99433/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99433"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-linux-kernel-ocfs2-uaf-cve-2026-99433",
+      "x_craftedsignal_event_id": "brief-2026-11-22-linux-kernel-ocfs2-uaf-cve-2026-99433",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-ocfs2-uaf-cve-2026-99433/",
+      "x_craftedsignal_activity_at": "2026-11-22T13:26:22.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00176,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a4761341-149e-5b7d-9cba-1fccb2d4807e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T22:19:59.000Z",
@@ -292225,6 +292405,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e5672e35-ecdb-5db3-8bd7-8b3145c1f879",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T13:28:10.000Z",
+      "modified": "2026-11-22T13:28:10.000Z",
+      "name": "Linux Kernel: KVM PPC Book3S HV use-after-free (CVE-2026-99471)",
+      "description": "## Overview\nA use-after-free vulnerability exists in the Linux kernel KVM (Kernel-based Virtual Machine) for PowerPC Book3S HV. The flaw occurs because certain HPT (Hash Page Table) hypercall handlers, specifically H_ENTER, H_REMOVE, H_BULK_REMOVE, H_CLEAR_REF, H_CLEAR_MOD, H_READ, and H_PROTECT, fail to acquire the necessary SRCU (Sleepable Read-Copy-Update) read lock when executing in virtual mode. An attacker can exploit this by triggering a race condition where a memory slot is freed via KVM_SET_USER_MEMORY_REGION while an HPT hypercall handler is still accessing it, leading to memory corruption and potential system instability.\n\n## Impact\nExploitation can result in host kernel memory corruption, system oops, or full system panic. Because the vulnerability involves corrupting the kernel freelist or existing kernel objects, it poses a significant risk to host integrity and availability.\n\n## Recommendation\n- Upgrade the Linux kernel to a version incorporating the fix. The fix involves wrapping the affected HPT hcall handler sites within `srcu_read_lock` and `srcu_read_unlock` to ensure memory slot validity during execution.\n- Audit systems running KVM on PowerPC hardware, specifically those utilizing Book3S HV, as they are primarily exposed to this vulnerability.\n- Monitor kernel logs for recurring stability issues or unexpected panics, which may indicate attempted exploitation.",
+      "published": "2026-11-22T13:28:10.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c757c025-6ea0-5a82-ad38-65cd8c95a69c",
+        "vulnerability--056bd458-f974-5a84-8f42-17b863702d82"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-linux-kernel-kvm-uaf-cve-2026-99471",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-kvm-uaf-cve-2026-99471/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-99471"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99471"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-linux-kernel-kvm-uaf-cve-2026-99471",
+      "x_craftedsignal_event_id": "brief-2026-11-22-linux-kernel-kvm-uaf-cve-2026-99471",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-kvm-uaf-cve-2026-99471/",
+      "x_craftedsignal_activity_at": "2026-11-22T13:28:10.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00177,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e57520c3-2ac5-5695-91cc-49ad1da66cf0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:19:18.000Z",
@@ -312403,6 +312628,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--32cc858b-2270-55d4-89be-2c79255556f5",
+      "name": "Linux",
+      "vendor": "Linux"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--32dfe3d8-ddbd-52a2-a265-9ce6d66e3f4f",
       "name": "Mosquitto (1.5-1.6.13)",
       "vendor": "Eclipse"
@@ -315120,6 +315352,13 @@
       "id": "software--5149e3ab-ad3b-5eab-86a9-a412186a446c",
       "name": "Scriptables (through v2-dev)",
       "vendor": "im3x"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--51631950-4efb-5d2c-8df4-10802a7bc310",
+      "name": "Linux Kernel (\u003e= 2.6.25, \u003c 7.4-rc1)",
+      "vendor": "Linux"
     },
     {
       "type": "software",
@@ -324972,6 +325211,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c757c025-6ea0-5a82-ad38-65cd8c95a69c",
+      "name": "Linux kernel (5.14 through \u003c 7.4-rc1)",
+      "vendor": "Linux"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c770a687-ee32-5296-b5cb-458054e75259",
       "name": "Give - Peer-to-Peer (\u003c= 2.9.3)",
       "vendor": "GiveWP"
@@ -331865,6 +332111,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-12574",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12574"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--056bd458-f974-5a84-8f42-17b863702d82",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99471",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99471",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99471"
         }
       ]
     },
@@ -355295,6 +355557,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--5e9e01f5-9696-5cb2-9ae7-a146dc06c7fc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99433",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99433",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99433"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--5ea1181c-1283-5f4a-ac9a-12404ac01f6c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -369657,6 +369935,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-127090",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127090"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--91609230-d41b-58db-8f0b-83794435d063",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99429",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99429",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99429"
         }
       ]
     },
@@ -387865,6 +388159,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-129007",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129007"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d03400db-fa7d-5c2f-9aed-1caf3ec1b660",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99448",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99448",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99448"
         }
       ]
     },
