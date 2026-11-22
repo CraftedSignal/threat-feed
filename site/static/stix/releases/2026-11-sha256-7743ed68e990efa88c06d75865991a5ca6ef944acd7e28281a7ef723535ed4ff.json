@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c3a36096-2d45-50fb-bb65-13ce4034d92f",
+  "id": "bundle--692b5155-9d05-57ce-a935-c84706d77b16",
   "objects": [
     {
       "type": "attack-pattern",
@@ -59158,7 +59158,7 @@
       "id": "relationship--573eedd1-e06c-532c-9227-20bb6f1a58a2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T22:52:20.000Z",
-      "modified": "2026-11-17T22:52:20.000Z",
+      "modified": "2026-11-22T12:20:23.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d3b7c96a-3ee9-5ca1-8686-d1a65a2da3a2",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
@@ -281699,7 +281699,7 @@
       "id": "report--d3b7c96a-3ee9-5ca1-8686-d1a65a2da3a2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T22:52:20.000Z",
-      "modified": "2026-11-17T22:52:20.000Z",
+      "modified": "2026-11-22T12:20:23.000Z",
       "name": "fzf: Command injection in fzf-tmux (CVE-2026-121716)",
       "description": "## Overview\n\nfzf, a command-line fuzzy finder, contains a vulnerability in the bin/fzf-tmux script that fails to properly validate layout size values and popup geometry options before processing. Specifically, the -l and -u layout values are subjected to unsafe Bash arithmetic expansion, and geometry options (-x, -y, -w, -h, -p) are passed to an unquoted tmux string without adequate sanitization. This allows for command substitution or the injection of unauthorized tmux flags. An attacker must supply a poisoned value through a wrapper, plugin, or less-trusted project configuration for successful exploitation.\n\n## Impact\n\nSuccessful exploitation allows an attacker to execute arbitrary commands as the user invoking the fzf-tmux script or inject arbitrary tmux flags to alter the behavior of the tmux session.\n\n## Recommendation\n\n1. Upgrade fzf to version 0.74.5 or later.\n2. Audit configurations, wrappers, or plugins that utilize the fzf-tmux script to ensure they do not pass untrusted input into the geometry or layout parameters.\n3. Note that the fzf-tmux script has been largely superseded by built-in tmux options; consider migrating away from the fzf-tmux wrapper entirely.",
       "published": "2026-11-17T22:52:20.000Z",
@@ -281718,20 +281718,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121716"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=72C3AB54-7B3B-55C9-BF59-1A4C248E54AB\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-17-fzf-command-injection-cve-2026-121716",
       "x_craftedsignal_event_id": "brief-2026-11-17-fzf-command-injection-cve-2026-121716",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fzf-command-injection-cve-2026-121716/",
-      "x_craftedsignal_activity_at": "2026-11-17T22:52:20.000Z",
+      "x_craftedsignal_activity_at": "2026-11-22T12:20:23.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7,
+      "x_craftedsignal_epss_max": 0.00262,
       "x_craftedsignal_kev_status": "false"
     },
     {
