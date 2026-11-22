@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--76882608-98ea-574b-a22e-32a4051c9f38",
+  "id": "bundle--94713627-8d4e-5d32-ae89-2031c440878c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10371,17 +10371,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--a7707352-f30c-515d-98e5-24ae513cf5e6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T03:40:56.000Z",
-      "modified": "2026-08-24T03:40:56.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--af5d7d5d-6d69-58ac-9536-be2c9d29e548",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--a776f0ec-6ab0-5e5b-9d9f-538c7a075017",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -11269,17 +11258,6 @@
       "relationship_type": "uses",
       "source_ref": "report--6b752ae1-4b6a-58b5-a31f-6ea3c325d42b",
       "target_ref": "attack-pattern--2abc160d-3dcc-5d32-b005-58ec7b18bb46"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--bafaf67e-fe02-58f2-a0c7-aead239aec8e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--8d4d5c1e-aab3-5e41-9969-cc61cd566dbc",
-      "target_ref": "vulnerability--7dac5697-ae8c-57a0-9898-886b4010e521"
     },
     {
       "type": "relationship",
@@ -27963,51 +27941,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--af5d7d5d-6d69-58ac-9536-be2c9d29e548",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-24T03:40:56.000Z",
-      "modified": "2026-08-24T03:40:56.000Z",
-      "name": "SQL Injection in itsourcecode Sales and Inventory System",
-      "description": "## Overview\n\nThe itsourcecode Sales and Inventory System version 1.0 is susceptible to an SQL injection vulnerability located within the /pages/processlogin.php file. This vulnerability arises from improper neutralization of special elements used in SQL commands when processing the 'User' argument. An unauthenticated remote attacker can exploit this flaw to inject malicious SQL syntax, potentially leading to unauthorized data access, modification, or bypass of authentication mechanisms. Publicly available exploit disclosures indicate that this vulnerability is accessible remotely, increasing the risk for deployments of this software that remain exposed to the internet. Defenders should prioritize auditing web application traffic for anomalous SQL injection patterns targeting this specific login endpoint.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows unauthenticated attackers to execute arbitrary SQL queries against the underlying database. This can lead to full database compromise, unauthorized data exfiltration, or complete account takeover within the affected Sales and Inventory System application. Given the nature of the application, the impact likely involves the exposure of sensitive sales and inventory records.\n\n## Recommendation\n\nPrioritize the identification of any public-facing instances of itsourcecode Sales and Inventory System 1.0 within the environment. If the software cannot be patched or removed, implement strict input validation at the web application firewall (WAF) level to block SQL injection payloads targeting the 'User' parameter in /pages/processlogin.php. Enable detailed logging of HTTP requests to this endpoint to facilitate the detection of exploitation attempts.\n",
-      "published": "2026-08-24T03:40:56.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--8d4d5c1e-aab3-5e41-9969-cc61cd566dbc",
-        "vulnerability--7dac5697-ae8c-57a0-9898-886b4010e521"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-cve-2026-78171",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2026-78171/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78171"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://vuldb.com/vuln/394560"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-cve-2026-78171",
-      "x_craftedsignal_event_id": "brief-2026-08-cve-2026-78171",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2026-78171/",
-      "x_craftedsignal_activity_at": "2026-08-24T03:40:56.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--af7289b3-ecd3-500c-9710-4feb1aecd3e5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-30T13:10:23.000Z",
@@ -36505,13 +36438,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--8d4d5c1e-aab3-5e41-9969-cc61cd566dbc",
-      "name": "Sales and Inventory System (1.0)",
-      "vendor": "itsourcecode"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--8db63615-5a8f-53e7-b2a1-006c60851483",
       "name": "AWX",
       "vendor": "Ansible"
@@ -40632,22 +40558,6 @@
           "source_name": "cve",
           "external_id": "CVE-2023-38646",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-38646"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--7dac5697-ae8c-57a0-9898-886b4010e521",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-78171",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-78171",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78171"
         }
       ]
     },

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d6b20ab8-7923-5b49-be33-786ef061c3e0",
+  "id": "bundle--0f82840e-17ac-5c07-920c-b74f2d94c3da",
   "objects": [
     {
       "type": "attack-pattern",
@@ -54509,6 +54509,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--70a3a462-f982-5319-a6ed-f9f6043cc3fc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4fcec2f9-8320-5657-9e1e-86727c19003e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a6f75eca-249e-5f0e-9072-19635e6b16ab",
+      "target_ref": "vulnerability--38f285ab-9e3a-5e99-a7a0-42ff60f1fe84"
     },
     {
       "type": "relationship",
@@ -146953,6 +146964,17 @@
       "relationship_type": "uses",
       "source_ref": "report--4cb414e2-20c5-5341-baa8-690e71f0c14b",
       "target_ref": "attack-pattern--49352fa6-0e34-56e8-89b7-aa09aee8e00a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ee973041-4513-51d9-b85c-b69f489cd124",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T05:13:17.000Z",
+      "modified": "2026-11-22T05:13:17.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--faae6727-9499-5faf-b29c-7e62e7e10366",
+      "target_ref": "attack-pattern--c08aa517-a62c-5afd-9c53-b3465a60a42e"
     },
     {
       "type": "relationship",
@@ -303648,6 +303670,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--faae6727-9499-5faf-b29c-7e62e7e10366",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T05:13:17.000Z",
+      "modified": "2026-11-22T05:13:17.000Z",
+      "name": "User Toolkit: Authentication bypass (CVE-2024-9890)",
+      "description": "## Overview\n\nThe User Toolkit WordPress plugin in versions 1.2.3 and below is vulnerable to an authentication bypass (CVE-2024-9890). An improper capability check in the switchUser function allows an attacker with low-level subscriber permissions to impersonate any other user on the site, including administrators. A public proof-of-concept (PoC) exploit exists, which utilizes a direct request to wp-login.php with specific query parameters to perform account takeover.\n\n## Impact\n\nSuccessful exploitation allows an attacker to escalate privileges to administrative levels, potentially leading to full site compromise, arbitrary code execution, and data theft.\n\n## Recommendation\n\nCurrently, there is no disclosed vendor patch. Organizations using the User Toolkit plugin should immediately audit their environment for the plugin and consider disabling or removing it until a security update is released. Monitor WordPress access logs for suspicious requests to wp-login.php containing the action switch_user.",
+      "published": "2026-11-22T05:13:17.000Z",
+      "object_refs": [
+        "attack-pattern--c08aa517-a62c-5afd-9c53-b3465a60a42e",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a6f75eca-249e-5f0e-9072-19635e6b16ab",
+        "vulnerability--38f285ab-9e3a-5e99-a7a0-42ff60f1fe84"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-cve-2024-9890",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-9890/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2024-9890"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RANDOMROBBIEBF-CVE-2024-9890"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RANDOMROBBIEBF-CVE-2024-9890\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-cve-2024-9890",
+      "x_craftedsignal_event_id": "brief-2026-11-22-cve-2024-9890",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-9890/",
+      "x_craftedsignal_activity_at": "2026-11-22T05:13:17.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.01054,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fac06453-22ad-5285-b635-433a677ce0b9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T00:25:52.000Z",
@@ -320817,6 +320889,13 @@
       "id": "software--a6e77ed4-4d3e-51ef-bf4f-0a7e37a28bbb",
       "name": "SIMATIC eaSie Core Package (6DL5424-0AX00-0AV8)",
       "vendor": "Siemens"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a6f75eca-249e-5f0e-9072-19635e6b16ab",
+      "name": "User Toolkit (\u003c= 1.2.3)",
+      "vendor": "deryck"
     },
     {
       "type": "software",
@@ -344283,6 +344362,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-11768",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11768"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--38f285ab-9e3a-5e99-a7a0-42ff60f1fe84",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-9890",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-9890",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-9890"
         }
       ]
     },
