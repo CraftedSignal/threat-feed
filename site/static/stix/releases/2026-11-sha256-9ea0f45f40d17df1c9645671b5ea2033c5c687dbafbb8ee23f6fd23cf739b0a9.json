@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--fcae82cb-4c27-5ea2-a4ca-32ec7cf299d2",
+  "id": "bundle--2ea3fa17-180b-570d-aa9d-3375acbbe3ea",
   "objects": [
     {
       "type": "attack-pattern",
@@ -67692,6 +67692,17 @@
       "relationship_type": "has",
       "source_ref": "software--0460b71e-9900-5b9e-90e5-a0925fb2d2d6",
       "target_ref": "vulnerability--935ac1a7-70c6-5c6a-a7a2-73741b64313d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6348aaa4-c66f-5110-b4d4-7bf475e3f231",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4195aaa0-9328-5d05-bac3-96314481151a",
+      "target_ref": "vulnerability--43a7880c-98ea-5950-9ed3-70e46f3c3c49"
     },
     {
       "type": "relationship",
@@ -194417,6 +194428,69 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--355f4ca3-4eb9-5600-a831-f9ba5f085e26",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T15:57:10.000Z",
+      "modified": "2026-11-23T22:59:49.000Z",
+      "name": "N-able MailAssure SSRF Vulnerability (CVE-2026-134624)",
+      "description": "## Overview\nN-able MailAssure (SpamExperts) contains a Server-Side Request Forgery (SSRF) vulnerability identified as CVE-2026-134624. The vulnerability exists in the LDAP synchronization connection check function when a relay is configured. An authenticated API user can cause the server to connect to arbitrary internal hosts and ports, determine reachability, and send crafted data to internal services.\n\n## Impact\nAn authenticated API user can leverage this vulnerability to interact with internal infrastructure and services, potentially accessing internal network segments or interacting with services not otherwise reachable from the public internet.\n\n## Recommendation\nAdministrators should monitor the official N-able status page and security advisory links for information regarding updates and remediation guidance.",
+      "published": "2026-11-23T15:57:10.000Z",
+      "labels": [
+        "n-able",
+        "ssrf",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4195aaa0-9328-5d05-bac3-96314481151a",
+        "vulnerability--43a7880c-98ea-5950-9ed3-70e46f3c3c49"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-n-able-ssrf-cve-2026-134624",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-n-able-ssrf-cve-2026-134624/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134624"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/n-able-security-advisory-av26-1191"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://me.n-able.com/s/security-advisory/aArVy0000002mrlKAA/cve2026134624-mailassure-ldap-sync-connection-check-ssrf"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-134624"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/n-able-patches-critical-flaw-disclosed-after-mail-assure-cyberattack/"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-n-able-ssrf-cve-2026-134624",
+      "x_craftedsignal_event_id": "brief-2026-11-23-n-able-ssrf-cve-2026-134624",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-n-able-ssrf-cve-2026-134624/",
+      "x_craftedsignal_activity_at": "2026-11-23T22:59:49.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-11-23T22:59:44.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -325226,6 +325300,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4195aaa0-9328-5d05-bac3-96314481151a",
+      "name": "MailAssure (\u003c 20261121.1943)",
+      "vendor": "N-able"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4197e7a7-897f-587f-a008-a09fc46a493a",
       "name": "FortiSASE 23.1 all versions",
       "vendor": "Fortinet"
@@ -361590,6 +361671,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-95968",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95968"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--43a7880c-98ea-5950-9ed3-70e46f3c3c49",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134624",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134624",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134624"
         }
       ]
     },
