@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--30164203-318d-54dd-b84f-b9089edcb835",
+  "id": "bundle--6dbe2e07-2daa-5d11-a155-ddd1fd4a3264",
   "objects": [
     {
       "type": "attack-pattern",
@@ -150423,17 +150423,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--c2550b5f-9ab1-51c4-b46c-5d5deb9e8724",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--9e042dd6-4042-5342-932c-966cebccaa49",
-      "target_ref": "vulnerability--51e04ab1-e4d1-54a8-a119-7a153d4bfaf0"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--c257d71a-4386-5b9b-b782-910b16eb8185",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -162200,6 +162189,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--94aa0e35-89a2-58c9-bdb1-bf8e5f8cad70"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d2b7f782-576c-5015-841f-d050682ab480",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c6c5f70e-9a63-59c5-a4fb-3768a020fe95",
+      "target_ref": "vulnerability--51e04ab1-e4d1-54a8-a119-7a153d4bfaf0"
     },
     {
       "type": "relationship",
@@ -272077,13 +272077,13 @@
       "id": "report--651f107e-fb60-5a31-b752-f3a7d326a858",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T20:14:26.000Z",
-      "modified": "2026-11-20T20:14:26.000Z",
+      "modified": "2026-11-23T18:28:06.000Z",
       "name": "pip: Compromised eMudhra root certificates via certifi bundle (CVE-2026-133949)",
       "description": "## Overview\nPython pip versions prior to 26.2.2 include a bundled version of the certifi library containing compromised root certificates from the certificate authority eMudhra.\n\n## Impact\nThe vulnerability is rated as critical (CVSS 9.3). The CVSS 4.0 vector (CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:N/SC:N/SI:N/SA:N) indicates potential for high impact to confidentiality and integrity with no requirements for privileges or user interaction.\n\n## Recommendation\nUpgrade to pip version 26.2.2 or later to address the inclusion of the compromised certificates.",
       "published": "2026-11-20T20:14:26.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--9e042dd6-4042-5342-932c-966cebccaa49",
+        "software--c6c5f70e-9a63-59c5-a4fb-3768a020fe95",
         "vulnerability--51e04ab1-e4d1-54a8-a119-7a153d4bfaf0"
       ],
       "external_references": [
@@ -272098,20 +272098,25 @@
         },
         {
           "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133949"
+        },
+        {
+          "source_name": "reference",
           "url": "https://seclists.org/oss-sec/2026/q4/803"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-20-pip-certifi-vulnerability-cve-2026-133949",
       "x_craftedsignal_event_id": "brief-2026-11-20-pip-certifi-vulnerability-cve-2026-133949",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-pip-certifi-vulnerability-cve-2026-133949/",
-      "x_craftedsignal_activity_at": "2026-11-20T20:14:26.000Z",
+      "x_craftedsignal_activity_at": "2026-11-23T18:28:06.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.00531,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -409407,6 +409412,13 @@
       "id": "software--c69238db-5520-57cc-b3db-e0451314a2c8",
       "name": "gradle-core",
       "vendor": "Gradle"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c6c5f70e-9a63-59c5-a4fb-3768a020fe95",
+      "name": "pip (\u003c 26.2.2)",
+      "vendor": "Python Software Foundation"
     },
     {
       "type": "software",
