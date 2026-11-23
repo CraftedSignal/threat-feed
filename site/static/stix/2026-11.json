@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--33afa1df-003a-511a-96f7-91d9d7166ea7",
+  "id": "bundle--243da2e1-c9f0-5d08-ae65-d669cef90e7c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -28509,6 +28509,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2291fdbb-cf12-5818-bbbd-f81674ca7a83",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--69ea35e8-5044-596e-9a94-b7d335052369",
+      "target_ref": "vulnerability--cee8e797-882c-57dd-a4f6-d1c5a79af456"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2295627b-2160-5917-94e9-8756c51a9220",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -53607,6 +53618,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--c53d9050-59bb-540c-ad09-6ead9236ee96"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4d5945fa-f93a-5794-9a9f-0577a3e4f437",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T10:50:16.000Z",
+      "modified": "2026-11-23T10:50:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--27dec3a6-6451-59b4-a2f1-3021af62f36b",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -107247,6 +107269,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a7ae218d-4a74-5088-b2fa-849e27ac53e1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T10:50:16.000Z",
+      "modified": "2026-11-23T10:50:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--27dec3a6-6451-59b4-a2f1-3021af62f36b",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a7b45576-150a-5cbe-aa16-3bf7046df045",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -119178,6 +119211,17 @@
       "relationship_type": "uses",
       "source_ref": "report--fe48888f-6e1e-5237-add4-ebe841a76c5f",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bb22fab1-300f-5b44-978b-78c46b04e104",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d0fbfff0-b1cc-5170-b963-7f6c4e9a2d86",
+      "target_ref": "vulnerability--bf3f2077-9cd4-5b6f-a17c-50be5e14d132"
     },
     {
       "type": "relationship",
@@ -154635,6 +154679,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f899324a-8769-52ef-b786-2423362ceb2f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T10:51:31.000Z",
+      "modified": "2026-11-23T10:51:31.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--42b3287e-e958-56d5-b104-6a079f11c58b",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f89b3663-5641-50fa-8cd7-ab03bf7cf5ee",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -182088,6 +182143,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--27dec3a6-6451-59b4-a2f1-3021af62f36b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T10:50:16.000Z",
+      "modified": "2026-11-23T10:50:16.000Z",
+      "name": "Idunno.AntiCsrf: Insecure deserialization remote code execution (CVE-2026-131914)",
+      "description": "## Overview\n\nThe legacy ASP.NET anti-CSRF library Idunno.AntiCsrf (versions 0.9.1.0 and 0.9.1 Beta) is vulnerable to unauthenticated remote code execution (RCE) due to insecure deserialization. The library, which is defunct and unmaintained, performs deserialization of untrusted CSRF form token data using System.Web.UI.ObjectStateFormatter without implementing any cryptographic signature or MAC verification. This flaw allows an attacker to supply a Base64-encoded .NET gadget chain in the CSRF form field to execute code in the context of the IIS worker process (w3wp.exe). Mandiant has observed active exploitation in the wild.\n\n## Attack Chain\n\n1. Attacker identifies a target ASP.NET WebForms application utilizing the Idunno.AntiCsrf.AntiCsrfModule HTTP module.\n2. Attacker crafts an HTTP POST request targeted at an .aspx endpoint.\n3. Attacker inserts a non-empty value into the configured CSRF cookie.\n4. Attacker inserts a malicious, Base64-encoded .NET ObjectStateFormatter gadget chain into the configured CSRF form field.\n5. The vulnerable module deserializes the untrusted form data without validation.\n6. The .NET framework instantiates the malicious object chain, leading to arbitrary code execution within the w3wp.exe process.\n\n## Impact\n\nSuccessful exploitation results in full server compromise, including the potential for unauthorized file access, persistence, and lateral movement from the web application server. Observed exploitation has been confirmed in the wild.\n\n## Recommendation\n\n- Immediately discontinue the use of Idunno.AntiCsrf and remove references to it from Web.config and bin/ directories.\n- Replace the library with actively supported alternatives such as System.Web.Helpers.AntiForgery, native ViewState MAC/encryption, or ASP.NET Core IAntiforgery.\n- In environments where exploitation is suspected, perform a full secret rotation (machineKey, encryption, database credentials) and audit the web root for unauthorized files.\n- Monitor IIS logs for anomalous POST requests to .aspx endpoints that return HTTP 302 or HTTP 500 status codes with unusually high byte counts.",
+      "published": "2026-11-23T10:50:16.000Z",
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d0fbfff0-b1cc-5170-b963-7f6c4e9a2d86",
+        "vulnerability--bf3f2077-9cd4-5b6f-a17c-50be5e14d132"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-aspnet-anticrsf-rce-cve-2026-131914",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-aspnet-anticrsf-rce-cve-2026-131914/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-131914"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-aspnet-anti.html"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-aspnet-anticrsf-rce-cve-2026-131914",
+      "x_craftedsignal_event_id": "brief-2026-11-23-aspnet-anticrsf-rce-cve-2026-131914",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-aspnet-anticrsf-rce-cve-2026-131914/",
+      "x_craftedsignal_activity_at": "2026-11-23T10:50:16.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00614,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--2816e73d-9a70-54bb-b68e-a9c48f98261d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T08:33:51.000Z",
@@ -199849,6 +199950,46 @@
       },
       "x_craftedsignal_cvss_max": 7,
       "x_craftedsignal_epss_max": 0.00168,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--42b3287e-e958-56d5-b104-6a079f11c58b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T10:51:31.000Z",
+      "modified": "2026-11-23T10:51:31.000Z",
+      "name": "Apache IoTDB: Authenticated heap-exhaustion denial-of-service (CVE-2026-60078)",
+      "description": "## Overview\n\nApache IoTDB is susceptible to a resource management vulnerability (CVE-2026-60078) that enables heap-exhaustion. Authenticated Grafana clients can bypass internal row-limit caps, forcing the system to allocate excessive memory. This condition leads to a denial-of-service (DoS) for the impacted instance.\n\n## Impact\n\nSuccessful exploitation results in a denial-of-service condition due to heap memory exhaustion, which potentially impacts availability for all users of the affected IoTDB instance.\n\n## Recommendation\n\nUpgrade Apache IoTDB to version 2.0.12 or later to address the heap-exhaustion vulnerability identified in CVE-2026-60078.",
+      "published": "2026-11-23T10:51:31.000Z",
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--69ea35e8-5044-596e-9a94-b7d335052369",
+        "vulnerability--cee8e797-882c-57dd-a4f6-d1c5a79af456"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-iotdb-dos-cve-2026-60078",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-iotdb-dos-cve-2026-60078/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/833"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-iotdb-dos-cve-2026-60078",
+      "x_craftedsignal_event_id": "brief-2026-11-23-iotdb-dos-cve-2026-60078",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-iotdb-dos-cve-2026-60078/",
+      "x_craftedsignal_activity_at": "2026-11-23T10:51:31.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -322182,6 +322323,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--69ea35e8-5044-596e-9a94-b7d335052369",
+      "name": "IoTDB (0.13.0-2.0.11)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--69f24168-c50a-5d9c-94cc-d4e2e7b92b8e",
       "name": "Apache TomEE (org.apache.openejb:openejb-derbynet 4.0.0-beta-1 to 4.7.5)",
       "vendor": "Apache"
@@ -331107,6 +331255,13 @@
       "id": "software--d0d300bb-2332-5322-a5d9-c0a23717bd0f",
       "name": "Craft CMS (\u003c 5.11.2)",
       "vendor": "Craft CMS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d0fbfff0-b1cc-5170-b963-7f6c4e9a2d86",
+      "name": "Idunno.AntiCsrf (0.9.1.0, 0.9.1 Beta)",
+      "vendor": "Idunno"
     },
     {
       "type": "software",
@@ -389094,6 +389249,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--bf3f2077-9cd4-5b6f-a17c-50be5e14d132",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-131914",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-131914",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131914"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--bf458974-7da4-51b5-af93-06edf42bfec4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -393696,6 +393867,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114880",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114880"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--cee8e797-882c-57dd-a4f6-d1c5a79af456",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-60078",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-60078",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60078"
         }
       ]
     },
