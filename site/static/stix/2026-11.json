@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d277c8aa-1437-591f-b6ca-919600abaa65",
+  "id": "bundle--18fa80ad-39da-5bdc-a102-bf1410271631",
   "objects": [
     {
       "type": "attack-pattern",
@@ -41896,6 +41896,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--399f9dfa-9e7c-5006-a782-c18a69356f2c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4e246a74-1379-5a99-8ce7-3f3dbfcf67a3",
+      "target_ref": "vulnerability--f1ead003-20d5-5a68-ab3f-1c4f9d1ba551"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--39a10aed-3172-54bf-9f85-a4f320a66c02",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -42343,6 +42354,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--e61757c6-88f2-5fcc-80d5-c348d818d472"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3a72e336-d9b7-5a5d-af02-0ac5f4451f6f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T11:00:01.000Z",
+      "modified": "2026-11-23T11:00:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--088d7652-7bd9-5ac9-8dc0-21dbb63d203a",
+      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
     },
     {
       "type": "relationship",
@@ -73972,6 +73994,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6eeea662-89f9-5515-9f49-8e61656113e4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T11:00:16.000Z",
+      "modified": "2026-11-23T11:00:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9ca73537-5cda-5689-88fe-55d44cfa5689",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6efc6937-c411-599c-919e-12c1714581ba",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -86259,6 +86292,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8350c5ab-c21b-5e81-b013-167655859f1f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T11:00:47.000Z",
+      "modified": "2026-11-23T11:00:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c864ac6e-2e4c-5f2e-a690-1c7c27604ecb",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--835104df-bbd3-5d9a-8489-63d5a02f1627",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-21T18:44:39.000Z",
@@ -96170,6 +96214,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9493b06a-8e01-544b-853f-696a86d50d70",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--edc65f9a-f3ae-58e8-90ab-cea2a2403720",
+      "target_ref": "vulnerability--bd18ef23-bdd4-50b2-a95e-dfb5411ffbd3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--94a48a54-6c1e-5165-8928-f5b47671aaf9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:09:08.000Z",
@@ -99906,6 +99961,17 @@
       "relationship_type": "uses",
       "source_ref": "report--0c1aa1dc-e822-50d4-af41-604c92b37250",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9b5caebf-50d5-5d79-a545-57f00fe992b7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4e246a74-1379-5a99-8ce7-3f3dbfcf67a3",
+      "target_ref": "vulnerability--62c3aec6-c6a1-5c0c-8bd8-dbe3bc5764c9"
     },
     {
       "type": "relationship",
@@ -109784,6 +109850,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--8f3ce27f-054c-5d1b-a09d-c6cce81a6966"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ab88eeb1-b56e-5280-b8ff-7f7dda0edebb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T11:00:01.000Z",
+      "modified": "2026-11-23T11:00:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--088d7652-7bd9-5ac9-8dc0-21dbb63d203a",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -123413,6 +123490,17 @@
       "relationship_type": "has",
       "source_ref": "software--9e042dd6-4042-5342-932c-966cebccaa49",
       "target_ref": "vulnerability--51e04ab1-e4d1-54a8-a119-7a153d4bfaf0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c257d71a-4386-5b9b-b782-910b16eb8185",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4e246a74-1379-5a99-8ce7-3f3dbfcf67a3",
+      "target_ref": "vulnerability--107e6a7b-4773-5adf-ae89-cf7beb075dbd"
     },
     {
       "type": "relationship",
@@ -138586,6 +138674,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--dca97c71-c231-50e4-91ce-5823fad3bdbf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T11:01:04.000Z",
+      "modified": "2026-11-23T11:01:04.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--63250662-c849-576f-991d-84360b799d2f",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--dcaf7c61-403c-5c67-885f-9aad0d2f9ec2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -148178,6 +148277,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--edcd260c-b949-50b4-b7bd-b636fb79d7ba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T11:00:47.000Z",
+      "modified": "2026-11-23T11:00:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c864ac6e-2e4c-5f2e-a690-1c7c27604ecb",
+      "target_ref": "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--edd487c2-ff39-52a5-9acc-083a3fbaee67",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -157528,6 +157638,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--fd41c5be-30f1-591a-941a-086b34b1ad30",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4e246a74-1379-5a99-8ce7-3f3dbfcf67a3",
+      "target_ref": "vulnerability--4d677b1a-fff3-5ae4-9e72-574cc5a4b021"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--fd461088-b9c7-502e-9ffc-be52f69696d6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -163564,6 +163685,57 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--088d7652-7bd9-5ac9-8dc0-21dbb63d203a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T11:00:01.000Z",
+      "modified": "2026-11-23T11:00:01.000Z",
+      "name": "Cribl Stream: Remote code execution in Leader API (CVE-2026-115873)",
+      "description": "## Overview\n\nCribl Stream contains a critical remote code execution vulnerability (CVE-2026-115873) in its Leader API. A remote attacker with existing Read Only (GroupRead) access to at least one Worker Group can send a crafted expression that exploits the nested compiler, effectively bypassing security restrictions. This allows for code execution with the privileges of the Leader service account.\n\n## Attack Chain\n\n1. Attacker obtains valid low-privileged credentials (Read Only / GroupRead) for at least one Worker Group.\n2. Attacker interacts with the Leader API.\n3. Attacker submits a crafted expression designed to exploit the nested compiler.\n4. Vulnerable compiler fails to enforce expression restrictions, permitting the malicious payload.\n5. Arbitrary code is executed on the Leader node under the context of the Leader service account.\n\n## Impact\n\nSuccessful exploitation grants an attacker the ability to execute arbitrary code on the Leader node with the permissions of the Leader service account. This may lead to a full compromise of the Cribl Stream management plane.\n\n## Recommendation\n\n- Upgrade all instances of Cribl Stream to v4.21 or later to remediate the vulnerability. \n- Conduct an audit of existing accounts with Read Only (GroupRead) access to ensure adherence to the principle of least privilege, as these accounts are sufficient to trigger the exploitation path.",
+      "published": "2026-11-23T11:00:01.000Z",
+      "labels": [
+        "attack.execution",
+        "attack.initial-access",
+        "attack.t1059"
+      ],
+      "object_refs": [
+        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4e246a74-1379-5a99-8ce7-3f3dbfcf67a3",
+        "vulnerability--f1ead003-20d5-5a68-ab3f-1c4f9d1ba551"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-cribl-stream-rce-cve-2026-115873",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cribl-stream-rce-cve-2026-115873/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-115873"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115873"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-cribl-stream-rce-cve-2026-115873",
+      "x_craftedsignal_event_id": "brief-2026-11-23-cribl-stream-rce-cve-2026-115873",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cribl-stream-rce-cve-2026-115873/",
+      "x_craftedsignal_activity_at": "2026-11-23T11:00:01.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -220100,6 +220272,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--62abf06f-a839-5c4b-9142-0a038a01c259",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T11:00:31.000Z",
+      "modified": "2026-11-23T11:00:31.000Z",
+      "name": "Cribl Stream: Authentication Bypass in Leader Distribution",
+      "description": "## Overview\nCVE-2026-115900 is an authentication bypass vulnerability in Cribl Stream. Successful exploitation requires an attacker to possess valid Worker distribution credentials and reach the Leader distribution listener to send crafted authenticated Worker heartbeats. In environments where mTLS client authentication is enforced, an accepted client certificate and its private key are also required.\n\n## Attack Chain\nAn attacker sends crafted authenticated Worker heartbeats to the Leader distribution listener. This process bypasses Leader REST authentication, resulting in unauthorized administrative API access.\n\n## Impact\nSuccessful exploitation grants an attacker administrative API access to the target system.\n\n## Recommendation\nUpgrade Cribl Stream to version 4.21 to remediate this vulnerability.",
+      "published": "2026-11-23T11:00:31.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4e246a74-1379-5a99-8ce7-3f3dbfcf67a3",
+        "vulnerability--4d677b1a-fff3-5ae4-9e72-574cc5a4b021"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-cribl-stream-auth-bypass-cve-2026-115900",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cribl-stream-auth-bypass-cve-2026-115900/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-115900"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115900"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-cribl-stream-auth-bypass-cve-2026-115900",
+      "x_craftedsignal_event_id": "brief-2026-11-23-cribl-stream-auth-bypass-cve-2026-115900",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cribl-stream-auth-bypass-cve-2026-115900/",
+      "x_craftedsignal_activity_at": "2026-11-23T11:00:31.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--62aeb8de-910c-5737-9dd9-655214ca6855",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T22:48:58.000Z",
@@ -220558,6 +220774,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--63250662-c849-576f-991d-84360b799d2f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T11:01:04.000Z",
+      "modified": "2026-11-23T11:01:04.000Z",
+      "name": "OTRS: SQL Injection in Survey Endpoint (CVE-2026-93584)",
+      "description": "## Overview\n\nOTRS versions 2024.3.1 through 2026.8.1 are vulnerable to an unauthenticated SQL injection vulnerability. The flaw exists in the Kernel::System::Survey::Request::RequestGet() method, which fails to use parameterized statements when incorporating an attacker-controlled survey key into a SQL query. The vulnerability is exploitable via the external-facing Survey endpoint.\n\n## Impact\n\nAn unauthenticated remote attacker can leverage this vulnerability to retrieve ticket information and execute boolean-based or time-based blind SQL injection attacks. This allows for the extraction of any data accessible to the OTRS database account without requiring authentication or valid survey requests.\n\n## Recommendation\n\nUpgrade OTRS instances to version 2026.8.2 or later immediately. Ensure that the external survey frontend is restricted or monitored if patching is delayed.",
+      "published": "2026-11-23T11:01:04.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--edc65f9a-f3ae-58e8-90ab-cea2a2403720",
+        "vulnerability--bd18ef23-bdd4-50b2-a95e-dfb5411ffbd3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-otrs-sql-injection-cve-2026-93584",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-otrs-sql-injection-cve-2026-93584/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-93584"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93584"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-otrs-sql-injection-cve-2026-93584",
+      "x_craftedsignal_event_id": "brief-2026-11-23-otrs-sql-injection-cve-2026-93584",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-otrs-sql-injection-cve-2026-93584/",
+      "x_craftedsignal_activity_at": "2026-11-23T11:01:04.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.6,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -254309,6 +254570,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9ca73537-5cda-5689-88fe-55d44cfa5689",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T11:00:16.000Z",
+      "modified": "2026-11-23T11:00:16.000Z",
+      "name": "Cribl Stream: Remote code execution via REST Collector (CVE-2026-115899)",
+      "description": "## Overview\nCribl Stream contains a critical remote code execution vulnerability (CVE-2026-115899) affecting its REST Collector functionality. The vulnerability is triggered when a REST Collector processes crafted pagination data returned from an upstream API or service. An attacker with control over the upstream response can achieve code execution under the permissions of the Worker service account during a collector job run.\n\n## Impact\nSuccessful exploitation results in arbitrary code execution with the privileges of the Worker service account. The vulnerability carries a CVSS v3.1 base score of 9.8 (Critical).\n\n## Recommendation\nUpgrade all instances of Cribl Stream to version 4.21 or later to address the vulnerable response-based pagination processing logic.",
+      "published": "2026-11-23T11:00:16.000Z",
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4e246a74-1379-5a99-8ce7-3f3dbfcf67a3",
+        "vulnerability--62c3aec6-c6a1-5c0c-8bd8-dbe3bc5764c9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-cribl-stream-rce-cve-2026-115899",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cribl-stream-rce-cve-2026-115899/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-115899"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115899"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-cribl-stream-rce-cve-2026-115899",
+      "x_craftedsignal_event_id": "brief-2026-11-23-cribl-stream-rce-cve-2026-115899",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cribl-stream-rce-cve-2026-115899/",
+      "x_craftedsignal_activity_at": "2026-11-23T11:00:16.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9cc3d75e-e5c4-59d1-b744-a0645ba6599a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T22:31:32.000Z",
@@ -279664,6 +279970,57 @@
         "status": "not_observed"
       },
       "x_craftedsignal_epss_max": 0.01874,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--c864ac6e-2e4c-5f2e-a690-1c7c27604ecb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T11:00:47.000Z",
+      "modified": "2026-11-23T11:00:47.000Z",
+      "name": "Cribl Stream: OIDC session token disclosure via cross-site scripting (CVE-2026-115901)",
+      "description": "## Overview\nCVE-2026-115901 is a critical vulnerability in Cribl Stream (versions up to and including 4.20.4) that allows an attacker to execute scripts within the Cribl origin. Successful exploitation leads to the disclosure of a victim's session token, permitting the attacker to gain access with the victim's privileges.\n\n## Attack Chain\n1. The attacker must possess an identity admitted to a configured trusted IdP application.\n2. The attacker gains control of claims selected as the OIDC user identifier and satisfies configured SSO filters.\n3. The attacker induces a victim with an active Cribl session to follow a crafted authentication link.\n4. Malicious script executes in the Cribl origin, disclosing the victim's session token.\n\n## Impact\nAn attacker can impersonate the victim, inheriting their access privileges. If the victim holds administrative privileges, the attacker gains full administrative control over the Cribl Stream instance. The vulnerability has a CVSS v3.1 base score of 9.0.\n\n## Recommendation\nUpgrade Cribl Stream to version 4.21 or later to remediate the vulnerability.",
+      "published": "2026-11-23T11:00:47.000Z",
+      "labels": [
+        "CWE-79",
+        "OIDC",
+        "authentication"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4e246a74-1379-5a99-8ce7-3f3dbfcf67a3",
+        "vulnerability--107e6a7b-4773-5adf-ae89-cf7beb075dbd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-cribl-stream-xss-cve-2026-115901",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cribl-stream-xss-cve-2026-115901/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-115901"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115901"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-cribl-stream-xss-cve-2026-115901",
+      "x_craftedsignal_event_id": "brief-2026-11-23-cribl-stream-xss-cve-2026-115901",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cribl-stream-xss-cve-2026-115901/",
+      "x_craftedsignal_activity_at": "2026-11-23T11:00:47.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -320053,6 +320410,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4e246a74-1379-5a99-8ce7-3f3dbfcf67a3",
+      "name": "Cribl Stream (\u003c= 4.20.4)",
+      "vendor": "Cribl"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4e2ac1a8-44f8-5472-a377-15a0579d9296",
       "name": "NocoDB (\u003c 2026.10.1)",
       "vendor": "NocoDB"
@@ -333655,6 +334019,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--edc65f9a-f3ae-58e8-90ab-cea2a2403720",
+      "name": "OTRS (2024.3.1 through 2026.8.1)",
+      "vendor": "EasyVista-OTRS GmbH"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--edcdb0f5-3fba-5437-a12a-f0a26294cb6d",
       "name": "guard-core (\u003e= 3.5.0, \u003c 3.13.0)",
       "vendor": "rennf93"
@@ -340356,6 +340727,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96077",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96077"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--107e6a7b-4773-5adf-ae89-cf7beb075dbd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115901",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115901",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115901"
         }
       ]
     },
@@ -356522,6 +356909,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--4d677b1a-fff3-5ae4-9e72-574cc5a4b021",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115900",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115900",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115900"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--4d87f307-8a19-549d-9e30-0a7badf51f48",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -362580,6 +362983,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-129349",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129349"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--62c3aec6-c6a1-5c0c-8bd8-dbe3bc5764c9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115899",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115899",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115899"
         }
       ]
     },
@@ -388842,6 +389261,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--bd18ef23-bdd4-50b2-a95e-dfb5411ffbd3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-93584",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-93584",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93584"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--bd1ac7c3-b31e-500f-9524-a89489aeb7e6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -404356,6 +404791,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-125764",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125764"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f1ead003-20d5-5a68-ab3f-1c4f9d1ba551",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115873",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115873",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115873"
         }
       ]
     },
