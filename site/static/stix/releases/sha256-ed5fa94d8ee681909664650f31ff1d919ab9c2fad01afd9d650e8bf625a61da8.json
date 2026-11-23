@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a9be9f93-5af6-5442-b6b2-2541acc5becc",
+  "id": "bundle--8c3acd7c-1151-5fe9-95de-7651b0a9d03f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2047,6 +2047,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1218.010",
           "url": "https://attack.mitre.org/techniques/T1218/010"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--9d6de9ca-c127-5a88-a5f8-975f04ba0874",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Create Account",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1136",
+          "url": "https://attack.mitre.org/techniques/T1136"
         }
       ]
     },
@@ -27313,6 +27329,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--0492fa58-9f5e-5a5a-9549-ce507c2b4b9a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1927a073-351f-528d-b570-396a29631a99",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T17:15:56.000Z",
+      "modified": "2026-11-23T17:15:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ced57856-8973-5cc3-8501-7fd4447efeac",
+      "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
     },
     {
       "type": "relationship",
@@ -129463,6 +129490,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a66bd47a-2c10-5f0d-b487-547d44177d74",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--42f9dffa-8868-5ce6-ae17-31160de4128c",
+      "target_ref": "vulnerability--46e2e5ea-7d98-5506-bd76-6d1f3d12e9aa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a66ce003-5939-575d-bc39-93bc226be9d4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -145695,6 +145733,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--495b5e16-12a7-5d76-917b-178e75f64ac3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bc2f013b-828f-5ad4-aa4c-7bf5fad15f08",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T17:16:12.000Z",
+      "modified": "2026-11-23T17:16:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f5f24193-59c6-5a81-9d9d-48fa38d01c4f",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -172583,6 +172632,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e28b2043-c9ad-5401-8471-b041c49a4a47",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T17:15:56.000Z",
+      "modified": "2026-11-23T17:15:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ced57856-8973-5cc3-8501-7fd4447efeac",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e2902b2c-9923-5759-b896-55d52c34df2c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -188808,6 +188868,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f934c12b-68cd-59a9-b29f-6dd995a5da8c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--78e0bd39-8748-59d5-b8bd-43b5f3e5ed6c",
+      "target_ref": "vulnerability--e60089c2-63e0-559d-b8cc-754eae0ecacc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f934e0a8-08b3-5946-82c4-a23bb837a51d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -188815,6 +188886,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--becd6248-d9ab-54a5-9332-23c15f502a7c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f935abe7-f2ec-5cc8-9728-46253821933e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T17:15:56.000Z",
+      "modified": "2026-11-23T17:15:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ced57856-8973-5cc3-8501-7fd4447efeac",
+      "target_ref": "attack-pattern--9d6de9ca-c127-5a88-a5f8-975f04ba0874"
     },
     {
       "type": "relationship",
@@ -347547,6 +347629,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ced57856-8973-5cc3-8501-7fd4447efeac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T17:15:56.000Z",
+      "modified": "2026-11-23T17:15:56.000Z",
+      "name": "Future AGI authentication bypass (CVE-2026-135157)",
+      "description": "## Overview\nFuture AGI versions prior to 1.51.0 are affected by an authentication bypass vulnerability located in the ACSView.post component. This flaw allows an authenticated member of any organization to conduct an account takeover of users within different organizations by asserting arbitrary email addresses. Furthermore, an attacker can leverage the IDPUploadViews component to register a controlled identity provider, enabling the creation of sessions as cross-tenant users and allowing the unauthorized modification or deletion of identity-provider configurations belonging to other organizations.\n\n## Impact\nExploitation of this vulnerability allows unauthorized access to arbitrary user accounts across different organizations (cross-tenant) and provides the ability to modify or delete identity-provider configurations, leading to significant loss of confidentiality, integrity, and administrative control over multi-tenant environments.\n\n## Recommendation\n- Upgrade all Future AGI instances to version 1.51.0 or later immediately to resolve this authentication bypass.\n- Audit existing identity-provider configurations for unexpected changes or the addition of unauthorized providers.\n- Monitor logs for unusual authentication patterns involving cross-tenant access or administrative modifications performed via the ACSView or IDPUploadViews components.",
+      "published": "2026-11-23T17:15:56.000Z",
+      "labels": [
+        "authentication-bypass",
+        "cloud-security"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--9d6de9ca-c127-5a88-a5f8-975f04ba0874",
+        "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--42f9dffa-8868-5ce6-ae17-31160de4128c",
+        "vulnerability--46e2e5ea-7d98-5506-bd76-6d1f3d12e9aa"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-future-agi-auth-bypass-cve-2026-135157",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-future-agi-auth-bypass-cve-2026-135157/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135157"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-future-agi-auth-bypass-cve-2026-135157",
+      "x_craftedsignal_event_id": "brief-2026-11-23-future-agi-auth-bypass-cve-2026-135157",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-future-agi-auth-bypass-cve-2026-135157/",
+      "x_craftedsignal_activity_at": "2026-11-23T17:15:56.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--cee2a949-96dc-50b5-a94b-f47d1dd7ab8b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T21:11:42.000Z",
@@ -377307,6 +377436,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f5f24193-59c6-5a81-9d9d-48fa38d01c4f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T17:16:12.000Z",
+      "modified": "2026-11-23T17:16:12.000Z",
+      "name": "Wing FTP Server predictable session identifier vulnerability (CVE-2026-135171)",
+      "description": "## Overview\n\nWing FTP Server before 8.2.8 contains a predictable session identifier vulnerability. This flaw allows unauthenticated attackers to hijack administrator sessions by deriving identifiers from process, time, ServerID, and client IP state. Attackers can enumerate candidate identifiers using the service_get_license.html endpoint as a validity oracle.\n\n## Attack Chain\n\nAttackers leverage the service_get_license.html endpoint to identify valid session tokens through oracle-based enumeration. Once a valid session identifier is derived, attackers can perform a session replay attack to gain administrative control over the target application.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to hijack administrator sessions, resulting in full administrative control, including access to the Lua console.\n\n## Recommendation\n\nUpgrade to Wing FTP Server 8.2.8 or later.",
+      "published": "2026-11-23T17:16:12.000Z",
+      "labels": [
+        "session-hijacking",
+        "web-vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--78e0bd39-8748-59d5-b8bd-43b5f3e5ed6c",
+        "vulnerability--e60089c2-63e0-559d-b8cc-754eae0ecacc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-wing-ftp-server-session-hijacking-cve-2026-135171",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wing-ftp-server-session-hijacking-cve-2026-135171/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-135171"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135171"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-wing-ftp-server-session-hijacking-cve-2026-135171",
+      "x_craftedsignal_event_id": "brief-2026-11-23-wing-ftp-server-session-hijacking-cve-2026-135171",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wing-ftp-server-session-hijacking-cve-2026-135171/",
+      "x_craftedsignal_activity_at": "2026-11-23T17:16:12.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f5fc2252-f3b7-59d0-a9e7-719e16debe4c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T07:44:05.000Z",
@@ -392785,6 +392963,13 @@
       "id": "software--42f0bd58-5f60-5fb9-8cee-6a859aa6682f",
       "name": "Fleet",
       "vendor": "Fleet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--42f9dffa-8868-5ce6-ae17-31160de4128c",
+      "name": "Future AGI (\u003c 1.51.0)",
+      "vendor": "Future AGI"
     },
     {
       "type": "software",
@@ -438353,6 +438538,22 @@
           "source_name": "cve",
           "external_id": "CVE-2024-34474",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-34474"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--46e2e5ea-7d98-5506-bd76-6d1f3d12e9aa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-135157",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-135157",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135157"
         }
       ]
     },
@@ -493617,6 +493818,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-15315",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15315"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e60089c2-63e0-559d-b8cc-754eae0ecacc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-135171",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-135171",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135171"
         }
       ]
     },

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9c07de3b-f87b-5019-bada-0f1d5d530b24",
+  "id": "bundle--c969913d-4a9c-5cd7-ae0e-b89dcda63486",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2829,17 +2829,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--1f94cd71-a6b1-58f3-87d5-6ef55727d641",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-25T17:17:14.000Z",
-      "modified": "2026-08-25T17:17:14.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a049f53e-4f6f-5505-a08d-2b681c7d0851",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--1fe29873-d8b7-5b2d-9be2-ea79efbecd37",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T13:13:17.000Z",
@@ -4530,17 +4519,6 @@
       "relationship_type": "uses",
       "source_ref": "report--719acdec-322c-5c18-b682-8f59a243032a",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--49a1d0a2-297c-5a3b-afee-17dbddc702a8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--818d7c7c-c77c-5378-9d46-903db8d2167e",
-      "target_ref": "vulnerability--b43fa787-d229-5868-8e05-ded786261bcf"
     },
     {
       "type": "relationship",
@@ -8644,17 +8622,6 @@
       "relationship_type": "has",
       "source_ref": "software--b359987e-ab65-5abd-9ebf-3ed014aa5176",
       "target_ref": "vulnerability--e450936f-299b-5f53-acd9-8871a5a1f5db"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ba9cca83-c0c9-5cf6-bd92-c140246336f9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-25T17:17:14.000Z",
-      "modified": "2026-08-25T17:17:14.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a049f53e-4f6f-5505-a08d-2b681c7d0851",
-      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
     },
     {
       "type": "relationship",
@@ -20351,55 +20318,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--a049f53e-4f6f-5505-a08d-2b681c7d0851",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-25T17:17:14.000Z",
-      "modified": "2026-08-25T17:17:14.000Z",
-      "name": "Public Exploit Released for Android Zygote CVE-2024-31317",
-      "description": "## Overview\n\nA publicly available proof-of-concept (PoC) deployment kit has been released targeting CVE-2024-31317, a high-severity vulnerability (CVSS 7.8) affecting the Android Zygote process. The vulnerability allows an attacker with low-level privileges and the WRITE_SECURE_SETTINGS permission to perform command injection, leading to full system compromise. The released tool automates the process of generating a reverse shell and injecting it into the Zygote process through the manipulation of the 'hidden_api_blacklist_exemptions' global setting. This affects Android versions 9 through 13. Systems are considered protected if they have applied the June 2024 security patch level or later. The availability of this automated deployment script significantly lowers the barrier for exploitation by malicious actors targeting unpatched Android devices.\n\n## Attack Chain\n\n1. Attacker gains initial access to an Android device with low-level privileges.\n2. Attacker obtains or already possesses the WRITE_SECURE_SETTINGS permission on the device.\n3. Attacker pushes a malicious `payload.txt` containing the injection string to the `/data/local/tmp/` directory.\n4. Attacker invokes `am force-stop com.android.settings` to clear existing settings state.\n5. Attacker executes `settings put global hidden_api_blacklist_exemptions \"$(cat payload.txt)\"` to trigger the injection vulnerability within the Zygote process context.\n6. Attacker executes `am start -n com.android.settings/.Settings` to force the Zygote process to process the malicious configuration.\n7. The reverse shell connects back to the attacker-controlled listener, granting arbitrary command execution with elevated privileges.\n8. Attacker reverts the global setting by executing `settings put global hidden_api_blacklist_exemptions \"null\"` to attempt to hide the persistence or modification.\n\n## Impact\n\nSuccessful exploitation results in full device compromise, allowing an attacker to bypass security restrictions, access sensitive user data, and execute arbitrary code with elevated system privileges. The vulnerability affects a wide range of Android versions (9-13), placing a large install base at risk if they have not applied the June 2024 security updates.\n\n## Recommendation\n\n* Prioritize the deployment of the June 2024 Android Security Patch Level or higher across the device fleet to mitigate CVE-2024-31317.\n* Audit devices for applications or processes that have been granted the 'android.permission.WRITE_SECURE_SETTINGS' permission, as this is a core requirement for exploitation.\n* Monitor for unexpected execution of shell commands from within `/data/local/tmp/`, which is a common staging area for exploit payloads on Android.\n* Use Mobile Device Management (MDM) solutions to enforce patch compliance and restrict the installation of unauthorized applications or tools that can execute arbitrary shell commands.\n",
-      "published": "2026-08-25T17:17:14.000Z",
-      "labels": [
-        "android",
-        "privilege-escalation",
-        "vulnerability",
-        "zygote"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--818d7c7c-c77c-5378-9d46-903db8d2167e",
-        "vulnerability--b43fa787-d229-5868-8e05-ded786261bcf"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-cve-2024-31317-android-zygote",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2024-31317-android-zygote/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-WEBLDIX-CVE-2024-31317-POC-DEPLOYER"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-cve-2024-31317-android-zygote",
-      "x_craftedsignal_event_id": "brief-2026-08-cve-2024-31317-android-zygote",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2024-31317-android-zygote/",
-      "x_craftedsignal_activity_at": "2026-08-25T17:17:14.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.8,
-      "x_craftedsignal_epss_max": 0.00779,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--a0c9b477-f966-5192-acc1-1b87c799d19b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-25T18:10:16.000Z",
@@ -26929,13 +26847,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--818d7c7c-c77c-5378-9d46-903db8d2167e",
-      "name": "Android (9.0-13.0)",
-      "vendor": "Google"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--82658a10-4c29-5964-a237-93788f56e61b",
       "name": "OpenSSL 3.6"
     },
@@ -31210,22 +31121,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-55175",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55175"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--b43fa787-d229-5868-8e05-ded786261bcf",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2024-31317",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2024-31317",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-31317"
         }
       ]
     },
