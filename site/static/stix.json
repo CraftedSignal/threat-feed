@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6dbe2e07-2daa-5d11-a155-ddd1fd4a3264",
+  "id": "bundle--54c07df8-a011-5fa3-a19d-9959ff98a5fc",
   "objects": [
     {
       "type": "attack-pattern",
@@ -46381,6 +46381,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--9a4e800c-7e4f-5bc3-9683-f516ffc0aeec"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--33d87d4b-9316-5900-adbf-3f629967e270",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T18:35:34.000Z",
+      "modified": "2026-11-23T18:35:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f6dff601-3d9f-5ed9-8eff-c96686814975",
+      "target_ref": "attack-pattern--296fc6f2-dbef-543a-8261-6c7285c5fff8"
     },
     {
       "type": "relationship",
@@ -143412,6 +143423,17 @@
       "relationship_type": "has",
       "source_ref": "software--153ca1d4-f4ed-5bf4-93b9-48ed2e502a43",
       "target_ref": "vulnerability--109e0f54-3cda-5a3f-9fc6-f8ddfeabc31d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b876adfe-729c-51d5-bdbd-c79cd1c6f01a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--37dc151c-fcbc-5a8b-81bc-46151446e229",
+      "target_ref": "vulnerability--b2926a02-415d-5925-b689-f27826a6e198"
     },
     {
       "type": "relationship",
@@ -379525,6 +379547,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f6dff601-3d9f-5ed9-8eff-c96686814975",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T18:35:34.000Z",
+      "modified": "2026-11-23T18:35:34.000Z",
+      "name": "Okou API: Authentication bypass in OAuth integrations (CVE-2026-135163)",
+      "description": "## Overview\nOkou API versions prior to 1.762.0 contain an authentication bypass vulnerability within its Microsoft Teams, legacy Slack, and GitHub App integration OAuth flows. The vulnerability arises because the API implicitly trusts caller-supplied userId and orgId values during the OAuth process.\n\n## Impact\nAn unauthenticated attacker who possesses knowledge of a target's user or organization identifiers can complete the OAuth integration flow using their own external account. This allows the attacker to bind their account or installation to the victim's Okou user profile or organization, potentially resulting in unauthorized access or identity impersonation.\n\n## Recommendation\nUpgrade the Okou API to version 1.762.0 or later to remediate this vulnerability. Until an upgrade is possible, audit existing third-party integration associations for any unauthorized accounts or unexpected organization bindings.",
+      "published": "2026-11-23T18:35:34.000Z",
+      "labels": [
+        "api",
+        "authentication",
+        "oauth"
+      ],
+      "object_refs": [
+        "attack-pattern--296fc6f2-dbef-543a-8261-6c7285c5fff8",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--37dc151c-fcbc-5a8b-81bc-46151446e229",
+        "vulnerability--b2926a02-415d-5925-b689-f27826a6e198"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-okou-api-auth-bypass-cve-2026-135163",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-okou-api-auth-bypass-cve-2026-135163/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-135163"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135163"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-okou-api-auth-bypass-cve-2026-135163",
+      "x_craftedsignal_event_id": "brief-2026-11-23-okou-api-auth-bypass-cve-2026-135163",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-okou-api-auth-bypass-cve-2026-135163/",
+      "x_craftedsignal_activity_at": "2026-11-23T18:35:34.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.4,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f6e768e0-eee7-572b-8926-364a38bd077d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T16:19:36.000Z",
@@ -392716,6 +392788,13 @@
       "id": "software--37b2fa3b-8a5f-5d90-9ea1-fa73a0410bcd",
       "name": ".NET 10.x (\u003c 10.0.14)",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--37dc151c-fcbc-5a8b-81bc-46151446e229",
+      "name": "okou (\u003c 1.762.0)",
+      "vendor": "okou-ai"
     },
     {
       "type": "software",
@@ -476985,6 +477064,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108407",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108407"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b2926a02-415d-5925-b689-f27826a6e198",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-135163",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-135163",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135163"
         }
       ]
     },
