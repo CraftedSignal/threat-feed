@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--38c20d7a-d5e2-5b58-9aeb-c5aa2af4f381",
+  "id": "bundle--bd9f66ad-4409-5565-a3a5-dcf43336fe1f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -15611,6 +15611,17 @@
       "relationship_type": "uses",
       "source_ref": "report--aa45d808-ef80-5529-9827-5bc99f349eea",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--08d89aa0-445f-5934-8714-3c5c5d5ac959",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--59c0eb0b-4693-517f-9023-0ad46930df89",
+      "target_ref": "vulnerability--0d62e9f8-d42e-5ba6-b71f-f3dea1bafc0e"
     },
     {
       "type": "relationship",
@@ -89487,6 +89498,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--eb01a33d-388c-50dc-bb08-168bbf7756ed"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6fd5044a-4e14-5678-9713-9a10d4a727a0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T10:56:39.000Z",
+      "modified": "2026-11-23T10:56:39.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7684d8de-b695-55b6-a5fb-522e5f52c172",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -280804,6 +280826,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--7684d8de-b695-55b6-a5fb-522e5f52c172",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T10:56:39.000Z",
+      "modified": "2026-11-23T10:56:39.000Z",
+      "name": "osCommerce: Improper authentication in MultiSafepay Payment Success Callback (CVE-2026-134885)",
+      "description": "## Overview\nA security flaw exists in osCommerce up to version 4.14.63493. The vulnerability resides in the actionSuccess function within the lib/frontend/controllers/MultisafeController.php file, which is part of the MultiSafepay Payment Success Callback component. Remote attackers can exploit this by manipulating the customer_id argument to achieve improper authentication.\n\n## Impact\nSuccessful exploitation allows remote attackers to bypass authentication mechanisms within the impacted payment callback function. The vendor has not responded to disclosure attempts, and no remediation or fixed version is currently available.\n\n## Recommendation\n- Identify all instances of osCommerce running within your environment.\n- Monitor logs for HTTP requests targeting the file lib/frontend/controllers/MultisafeController.php.\n- Since no vendor patch is available, implement network-level access controls to restrict access to the affected callback endpoint to authorized payment gateway IP addresses only.",
+      "published": "2026-11-23T10:56:39.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--59c0eb0b-4693-517f-9023-0ad46930df89",
+        "vulnerability--0d62e9f8-d42e-5ba6-b71f-f3dea1bafc0e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-oscommerce-improper-authentication-cve-2026-134885",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-oscommerce-improper-authentication-cve-2026-134885/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134885"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134885"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-oscommerce-improper-authentication-cve-2026-134885",
+      "x_craftedsignal_event_id": "brief-2026-11-23-oscommerce-improper-authentication-cve-2026-134885",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-oscommerce-improper-authentication-cve-2026-134885/",
+      "x_craftedsignal_activity_at": "2026-11-23T10:56:39.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--76a645ad-9fe3-5f3d-9d56-ed3f7d74c1b5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T16:07:00.000Z",
@@ -392939,6 +393006,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--59c0eb0b-4693-517f-9023-0ad46930df89",
+      "name": "osCommerce (\u003c= 4.14.63493)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--59c49836-00fd-56f2-9c15-b89b0bd33920",
       "name": "macOS",
       "vendor": "Apple"
@@ -416880,6 +416953,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126885",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126885"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0d62e9f8-d42e-5ba6-b71f-f3dea1bafc0e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134885",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134885",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134885"
         }
       ]
     },
