@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1c7404c1-4f89-550a-8a1d-1ed342b84525",
+  "id": "bundle--7a6880ae-68b0-5701-880c-e4c691e1aad5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -97150,6 +97150,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--78ced3cb-12ff-5224-8bf2-3e6f56111ebd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--50cf6e3f-c1f8-5fbb-8d1e-454b201b2a1a",
+      "target_ref": "vulnerability--862aaf42-fddc-5cde-96a8-e3256a0b12b2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--78d5565a-c7ae-5a09-a8be-9eef02531aad",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -149528,6 +149539,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--327894af-3948-5f96-8652-e88dfb2627d6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c0ca2dda-c779-5c98-8d0d-5bc21eb52138",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c12342a2-18ac-5614-b896-3d959fda4585",
+      "target_ref": "vulnerability--862aaf42-fddc-5cde-96a8-e3256a0b12b2"
     },
     {
       "type": "relationship",
@@ -273566,6 +273588,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6687d551-6b87-5122-ad22-7c5ba097d7ef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T19:16:24.000Z",
+      "modified": "2026-11-23T19:16:24.000Z",
+      "name": "TP-Link Kasa and Tapo smart plugs: MQTT broker device impersonation (CVE-2024-46549)",
+      "description": "## Overview\nCVE-2024-46549 is a vulnerability in the TP-Link MQTT Broker and API gateway of TP-Link Kasa KP125M version 1.0.3 and Tapo P125M version 1.0.2. The issue allows attackers to impersonate devices owned by other users to establish connections. The vulnerability has a CVSS v3.1 base score of 7.6.\n\n## Impact\nAttackers can establish unauthorized connections by impersonating devices owned by other users, bypassing intended access controls.\n\n## Recommendation\nThe supplied source does not provide specific remediation or fixed version information. Users should contact the vendor for guidance regarding firmware updates or security configurations for these devices.",
+      "published": "2026-11-23T19:16:24.000Z",
+      "labels": [
+        "authentication-bypass",
+        "cve-2024-46549",
+        "iot"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--50cf6e3f-c1f8-5fbb-8d1e-454b201b2a1a",
+        "software--c12342a2-18ac-5614-b896-3d959fda4585",
+        "vulnerability--862aaf42-fddc-5cde-96a8-e3256a0b12b2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-tp-link-kasa-tapo-auth-bypass-cve-2024-46549",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-tp-link-kasa-tapo-auth-bypass-cve-2024-46549/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2024-46549"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-46549"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-tp-link-kasa-tapo-auth-bypass-cve-2024-46549",
+      "x_craftedsignal_event_id": "brief-2026-11-23-tp-link-kasa-tapo-auth-bypass-cve-2024-46549",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tp-link-kasa-tapo-auth-bypass-cve-2024-46549/",
+      "x_craftedsignal_activity_at": "2026-11-23T19:16:24.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.6,
+      "x_craftedsignal_epss_max": 0.00361,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--66a683ad-a229-5580-9c48-50d32ecd540e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T21:25:39.000Z",
@@ -396566,6 +396639,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--50cf6e3f-c1f8-5fbb-8d1e-454b201b2a1a",
+      "name": "Kasa KP125M (v1.0.3)",
+      "vendor": "TP-Link"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--50e5e306-8afe-5f1a-93d9-2ccc391c3e97",
       "name": "hMailServer (6.0.0-B1 through 6.3.7)"
     },
@@ -409545,6 +409625,13 @@
       "id": "software--c0fc56a7-8634-5ec1-a820-9005d4fc1f66",
       "name": "Telco Cloud Platform (= 5.0.x)",
       "vendor": "VMware"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c12342a2-18ac-5614-b896-3d959fda4585",
+      "name": "Tapo P125M (v1.0.2)",
+      "vendor": "TP-Link"
     },
     {
       "type": "software",
@@ -462369,6 +462456,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-10631",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10631"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--862aaf42-fddc-5cde-96a8-e3256a0b12b2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-46549",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-46549",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-46549"
         }
       ]
     },
