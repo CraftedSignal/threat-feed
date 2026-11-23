@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--45651886-d58e-5742-9695-0b77d6afbb77",
+  "id": "bundle--3ea79a7f-c088-5183-84b3-b5d158012115",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6649,7 +6649,7 @@
       "id": "relationship--77386abb-a5a2-5287-9c59-9c02ce643947",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T21:15:04.000Z",
-      "modified": "2026-08-28T21:15:04.000Z",
+      "modified": "2026-11-23T09:25:53.000Z",
       "relationship_type": "uses",
       "source_ref": "report--6e8e08bc-b226-53df-9bd5-5ea47c6ff487",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -18787,7 +18787,7 @@
       "id": "report--6e8e08bc-b226-53df-9bd5-5ea47c6ff487",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T21:15:04.000Z",
-      "modified": "2026-08-28T21:15:04.000Z",
+      "modified": "2026-11-23T09:25:53.000Z",
       "name": "Incus Custom Volume Authorization Bypass",
       "description": "## Overview\n\nThe Incus storage volume creation handler is susceptible to an authorization bypass vulnerability identified as CVE-2026-55621. This flaw allows an authenticated but restricted user to copy custom storage volumes from projects they are not authorized to access into a project under their control. The issue arises because the system verifies authorization for the target project but fails to perform an entitlement check, such as a 'CanView' verification, on the source volume or project before passing the user-controlled source parameter to the copy function. An attacker only requires knowledge of the target project name and the specific custom volume name to trigger the unauthorized copy. While the operation is restricted to the local server, the resulting copy can subsequently be moved to external infrastructure. This vulnerability impacts Incus versions v7 prior to 7.2.0, v6 through 6.23.0, and baseline versions up to 0.7.0.\n\n## Attack Chain\n\n1. Attacker authenticates to the Incus API using an existing user certificate with restricted project access.\n2. Attacker identifies the name of a target project and a sensitive custom volume residing within that project.\n3. Attacker initiates an HTTP POST request to the `/1.0/storage-pools/{pool}/volumes/custom` endpoint.\n4. The request payload includes the attacker-controlled `source.project` and `source.name` fields.\n5. The Incus storage volume creation handler validates the authorization for the destination project.\n6. The handler fails to perform an entitlement or `CanView` check on the source project and volume.\n7. The system creates a copy of the unauthorized custom volume in the attacker-controlled project.\n8. Attacker accesses the copied volume to exfiltrate sensitive data or credentials.\n\n## Impact\n\nSuccessful exploitation allows unauthorized access to sensitive data stored in custom volumes. If the volume contains system secrets, database files, or configuration data, the attacker can leverage this information for further lateral movement or privilege escalation within the environment.\n\n## Recommendation\n\nPrioritize the upgrade of all Incus instances to the patched versions as indicated by the vendor. For v7, upgrade to 7.2.0 or later; for v6, move to a patched release beyond 6.23.0. In the interim, restrict access to the Incus API to known, trusted certificates and perform regular audits of storage volume access logs to identify attempts to copy volumes across projects.\n",
       "published": "2026-08-28T21:15:04.000Z",
@@ -18812,22 +18812,26 @@
         {
           "source_name": "reference",
           "url": "https://github.com/advisories/GHSA-64f3-v33m-w89f"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=94E49F0D-5921-5713-A632-404085581298\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-08-incus-bypass",
       "x_craftedsignal_event_id": "brief-2026-08-incus-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-incus-bypass/",
-      "x_craftedsignal_activity_at": "2026-08-28T21:15:04.000Z",
+      "x_craftedsignal_activity_at": "2026-11-23T09:25:53.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.7,
-      "x_craftedsignal_epss_max": 0.00201,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00415,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",

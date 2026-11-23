@@ -1,13 +1,41 @@
 ---
+brief_id: brief-2026-05-tmlmobilidade-prototype-pollution
+event_id: brief-2026-05-tmlmobilidade-prototype-pollution
+revision: 2
+activity_at: "2026-11-23T09:25:53Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-23T09:25:53Z"
+    checksum: sha256:77c0d136587bd081e83995346e4961e9176d7ca5442c7ccda7694c60a96dfcb0
+    summary: poc_available; added CVE-2026-45325
+    changed_fields:
+      - cpes
+      - cve_verification
+      - cves
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=8A8D5EBB-208C-5789-BC23-FCE7BFDB0F5E&utm_source=rss&utm_medium=rss
 title: Prototype Pollution Vulnerability in @tmlmobilidade/utils setValueAtPath Function
 slug: 2026-05-tmlmobilidade-prototype-pollution
 description: A prototype pollution vulnerability exists in the @tmlmobilidade/utils package before version 20260509.0340.15, specifically affecting the setValueAtPath() function, potentially leading to denial of service or arbitrary code execution.
 date: "2026-05-18T17:08:10Z"
+lastmod: "2026-11-23T09:25:26Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+cpes:
+  - cpe:2.3:a:github:tmlmobilidade_utils:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=8A8D5EBB-208C-5789-BC23-FCE7BFDB0F5E&utm_source=rss&utm_medium=rss
 tags:
   - prototype-pollution
   - javascript
@@ -22,9 +50,20 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
+cve_verification:
+  CVE-2026-45325:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-23T09:25:26.315545714Z
+cves:
+  - id: CVE-2026-45325
+    cvss: 8.2
+    epss: 0.00464
+    kev_status: "false"
 references:
   - https://github.com/advisories/GHSA-cmxg-94mg-jq94
   - https://github.com/tmlmobilidade/go/blob/prd/packages/utils/src/generic/value-at-path.ts
+  - https://sploitus.com/exploit?id=8A8D5EBB-208C-5789-BC23-FCE7BFDB0F5E&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect Prototype Pollution via setValueAtPath
     description: Detects attempts to exploit prototype pollution vulnerabilities via the setValueAtPath function in web applications.
@@ -47,7 +86,17 @@ rules:
     data_sources:
       - webserver
 rules_count: 2
+updates:
+  - at: "2026-11-23T09:25:26Z"
+    level: L2
+    summary: poc_available; added CVE-2026-45325
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=8A8D5EBB-208C-5789-BC23-FCE7BFDB0F5E&utm_source=rss&utm_medium=rss
 ---
+
+## Overview
 
 A prototype pollution vulnerability has been identified in the `@tmlmobilidade/utils` npm package, specifically within the `setValueAtPath()` function. This vulnerability affects versions prior to `20260509.0340.15`. Prototype pollution occurs when an attacker can manipulate the properties of JavaScript object prototypes. This can lead to various security issues, including denial of service, arbitrary code execution (in certain environments), or information disclosure. The vulnerability was reported on May 13, 2026, and a patched version was released on May 18, 2026. This vulnerability is tracked as CVE-2026-45325. Defenders should ensure they are running the patched version to prevent potential exploitation.
 
