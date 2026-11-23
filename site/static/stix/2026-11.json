@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8899d7a0-ddc2-59db-a260-ab1971aa9dc2",
+  "id": "bundle--a92c0669-93d8-5076-ba72-989fb80c51d5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -140116,6 +140116,17 @@
       "relationship_type": "has",
       "source_ref": "software--b0aa6069-5ada-5b46-b013-e05f1231160a",
       "target_ref": "vulnerability--26e8f20a-dd49-5697-aaba-8453f51388ad"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--db9c5a48-b976-5f79-a969-0e1cf1e959be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b10d4e22-39c9-5241-9c10-d64f89033ae6",
+      "target_ref": "vulnerability--996a3471-4997-5fe6-b600-739663d0173d"
     },
     {
       "type": "relationship",
@@ -303587,6 +303598,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e71a3012-d3c6-5bcb-ba1c-1ed6a9c219d2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T21:14:22.000Z",
+      "modified": "2026-11-23T21:14:22.000Z",
+      "name": "DreameHome cloud API device reassignment (CVE-2026-49965)",
+      "description": "## Overview\n\nThe DreameHome cloud API, specifically the POST /smart-app/meari-cloud/bindDevice endpoint, contained an insecure direct object reference (IDOR) vulnerability prior to 2026-11-19. This flaw allowed authenticated attackers to supply camera identifiers and their own user identity to reassign a target camera to their account.\n\n## Attack Chain\n\n1. Attacker authenticates to the DreameHome service.\n2. Attacker interacts with the vulnerable /smart-app/meari-cloud/bindDevice endpoint.\n3. Attacker provides target camera identifiers and their own user identity.\n4. Attacker becomes the device's masterUid, causing the device to be removed from the original owner's account.\n\n## Impact\n\nSuccessful exploitation allows an attacker to gain status as the device's masterUid and removes the camera from the owner's device list, resulting in a denial of access for the legitimate owner.\n\n## Recommendation\n\nDreameHome cloud API instances prior to 2026-11-19 are affected. Users should monitor for official updates or communications from Dreame Innovation Technology (Suzhou) Co., Ltd. regarding remediated versions.",
+      "published": "2026-11-23T21:14:22.000Z",
+      "labels": [
+        "IDOR",
+        "cloud-api"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b10d4e22-39c9-5241-9c10-d64f89033ae6",
+        "vulnerability--996a3471-4997-5fe6-b600-739663d0173d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-dreamehome-idore-cve-2026-49965",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dreamehome-idore-cve-2026-49965/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-49965"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49965"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-dreamehome-idore-cve-2026-49965",
+      "x_craftedsignal_event_id": "brief-2026-11-23-dreamehome-idore-cve-2026-49965",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dreamehome-idore-cve-2026-49965/",
+      "x_craftedsignal_activity_at": "2026-11-23T21:14:22.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e73729cb-9c75-55de-b6d4-f88c2ed40a38",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T23:50:58.000Z",
@@ -335028,6 +335087,13 @@
       "id": "software--b0ea19c5-ca26-502f-a990-b65e6403762d",
       "name": "CMS (\u003c 5.11.5)",
       "vendor": "Craft CMS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b10d4e22-39c9-5241-9c10-d64f89033ae6",
+      "name": "DreameHome (\u003c 2026-11-19)",
+      "vendor": "Dreame Innovation Technology (Suzhou) Co., Ltd."
     },
     {
       "type": "software",
@@ -385901,6 +385967,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-133021",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133021"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--996a3471-4997-5fe6-b600-739663d0173d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-49965",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-49965",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49965"
         }
       ]
     },
