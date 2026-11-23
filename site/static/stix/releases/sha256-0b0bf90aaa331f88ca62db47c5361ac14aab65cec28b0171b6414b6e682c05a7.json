@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ef98b683-1e42-5f86-aec7-e0a3321611d4",
+  "id": "bundle--3c759f1b-eba4-5609-8487-d75205020e8d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -32791,6 +32791,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--f281fbc8-5136-5ef4-867b-f38e797f376e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--20d9305f-1cf3-5937-8ca8-4d465a4424aa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9f587378-e311-5f17-a5f0-db2b46bb7f7d",
+      "target_ref": "vulnerability--18f01b75-fa66-5ea9-ba53-ca156b035a6b"
     },
     {
       "type": "relationship",
@@ -104610,6 +104621,17 @@
       "relationship_type": "has",
       "source_ref": "software--a0c400cf-8e63-5f5a-882a-80331a674f97",
       "target_ref": "vulnerability--63e7a7d7-53a0-55d4-8989-39796631e36c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--84360762-b832-568d-b483-86a17b0fca41",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T13:03:24.000Z",
+      "modified": "2026-11-23T13:03:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e6de962f-8025-5783-b39f-ca90bcd7d552",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -363617,6 +363639,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e6de962f-8025-5783-b39f-ca90bcd7d552",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T13:03:24.000Z",
+      "modified": "2026-11-23T13:03:24.000Z",
+      "name": "Fast Velocity Minify: Unauthenticated Cross Site Scripting (CVE-2026-48201)",
+      "description": "## Overview\nFast Velocity Minify versions 3.5.7 and earlier contain an unauthenticated Cross Site Scripting (XSS) vulnerability.\n\n## Attack Chain\nThe vulnerability is characterized by unauthenticated access. The CVSS 3.1 vector is CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:L, which specifies the following: Network attack vector, Low attack complexity, No privileges required, and User interaction required.\n\n## Impact\nThe vulnerability has a base score of 7.1 and is reported to cause low confidentiality, integrity, and availability impact.\n\n## Recommendation\nUpdate to version 3.5.8 or a higher version.",
+      "published": "2026-11-23T13:03:24.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9f587378-e311-5f17-a5f0-db2b46bb7f7d",
+        "vulnerability--18f01b75-fa66-5ea9-ba53-ca156b035a6b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-fast-velocity-minify-xss-cve-2026-48201",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fast-velocity-minify-xss-cve-2026-48201/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-48201"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48201"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-fast-velocity-minify-xss-cve-2026-48201",
+      "x_craftedsignal_event_id": "brief-2026-11-23-fast-velocity-minify-xss-cve-2026-48201",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fast-velocity-minify-xss-cve-2026-48201/",
+      "x_craftedsignal_activity_at": "2026-11-23T13:03:24.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_epss_max": 0.00228,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e6f485d3-8982-5db9-888a-bb16c25ca837",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T17:03:25.000Z",
@@ -401697,6 +401765,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9f587378-e311-5f17-a5f0-db2b46bb7f7d",
+      "name": "Fast Velocity Minify",
+      "vendor": "Raul P."
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9f5c34a7-3d42-5d88-820c-e09b6e1de308",
       "name": "SIMATIC Control Function Library (CFL) V2.x",
       "vendor": "Siemens"
@@ -421775,6 +421850,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17295",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17295"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--18f01b75-fa66-5ea9-ba53-ca156b035a6b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-48201",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-48201",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48201"
         }
       ]
     },
