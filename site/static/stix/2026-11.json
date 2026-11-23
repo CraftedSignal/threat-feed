@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9c55ec0b-599b-5f52-adf2-231e6dfe97d3",
+  "id": "bundle--8493743e-6c80-56c3-b991-5d2c597b3b5a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -216630,6 +216630,44 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5a093056-da5d-59c0-ba1d-67c2a031a3d6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T16:43:13.000Z",
+      "modified": "2026-11-23T16:43:13.000Z",
+      "name": "Red Hat JBoss Enterprise Application Platform: Multiple vulnerabilities",
+      "description": "## Overview\n\nThe BSI has identified multiple vulnerabilities in Red Hat JBoss Enterprise Application Platform. These flaws allow unauthenticated or remote attackers to perform a variety of malicious actions, including bypassing security restrictions, executing arbitrary code, disclosing sensitive information, performing denial-of-service attacks, and manipulating data. No specific CVEs were cited in the initial advisory.\n\n## Recommendation\n\n- Immediately audit current deployments of Red Hat JBoss Enterprise Application Platform to identify installed versions.\n- Monitor Red Hat Security Advisories (RHSA) and the JBoss product portal for specific version-level remediation paths and official patches.\n- Implement strict access controls and network segmentation for JBoss instances to limit exposure to untrusted networks while patches are prepared.",
+      "published": "2026-11-23T16:43:13.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b331c19d-a601-54fd-9f5a-038da0e46552"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-redhat-jboss-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-redhat-jboss-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4715"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-redhat-jboss-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-23-redhat-jboss-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-redhat-jboss-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-23T16:43:13.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5a2cc7fa-624c-5bf5-b6ec-34d33937cba2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-23T12:27:21.000Z",
@@ -331590,6 +331628,13 @@
       "id": "software--b32cf4cf-f191-5e1b-a589-da4c3ac7c080",
       "name": "wisp (\u003e= 2.1.1, \u003c 2.2.1)",
       "vendor": "gleam-wisp"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b331c19d-a601-54fd-9f5a-038da0e46552",
+      "name": "JBoss Enterprise Application Platform",
+      "vendor": "Red Hat"
     },
     {
       "type": "software",
