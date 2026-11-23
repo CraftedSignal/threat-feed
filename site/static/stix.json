@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1f914e4a-cc33-519d-b9d2-17d293476553",
+  "id": "bundle--b0975f67-8e87-53ee-8d1b-2639eafbd6ae",
   "objects": [
     {
       "type": "attack-pattern",
@@ -52916,6 +52916,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3dd80a36-0124-54f6-a6eb-8d36056b352e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1bd9da1b-cdf9-5d45-ac5c-219111eefa02",
+      "target_ref": "vulnerability--d87dd6d2-ac11-5871-b82b-fbc9f4ce61c2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3ddb509e-9d8c-5261-a337-6cfe73a9413a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -84130,6 +84141,17 @@
       "relationship_type": "has",
       "source_ref": "software--51100cbc-507c-53d1-9cc6-22200a8ad243",
       "target_ref": "vulnerability--bfa288a1-72ed-52ce-9bbb-9d3bfd011efb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--68e8c856-d3d2-5080-95bf-3cae3b12c356",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T09:14:11.000Z",
+      "modified": "2026-11-23T09:14:11.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6892bd5f-ed35-54b0-baf4-a1b83530bad8",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -271692,6 +271714,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6892bd5f-ed35-54b0-baf4-a1b83530bad8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T09:14:11.000Z",
+      "modified": "2026-11-23T09:14:11.000Z",
+      "name": "Omarchy dell-xps-touchpad-haptics local privilege escalation (CVE-2026-134935)",
+      "description": "## Overview\nThe dell-xps-touchpad-haptics package before 1.0.0-4 for Omarchy contains a vulnerability that allows a local user to change the ownership of a root-owned file by creating a symbolic link at .config/omarchy/dell-haptic.conf pointing to a target file. \n\n## Impact\nA local user with low privileges may gain ownership of arbitrary system files. The vulnerability requires local access, low privileges, and no user interaction, but possesses high attack complexity.\n\n## Recommendation\nUsers should monitor for updates from the vendor, Omarchy. The available source material does not specify if a fixed release is available beyond the acknowledgment that versions prior to 1.0.0-4 are affected.",
+      "published": "2026-11-23T09:14:11.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1bd9da1b-cdf9-5d45-ac5c-219111eefa02",
+        "vulnerability--d87dd6d2-ac11-5871-b82b-fbc9f4ce61c2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-omarchy-dell-xps-touchpad-haptics-symlink-privesc-cve-2026-134935",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-omarchy-dell-xps-touchpad-haptics-symlink-privesc-cve-2026-134935/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134935"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134935"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-omarchy-dell-xps-touchpad-haptics-symlink-privesc-cve-2026-134935",
+      "x_craftedsignal_event_id": "brief-2026-11-23-omarchy-dell-xps-touchpad-haptics-symlink-privesc-cve-2026-134935",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-omarchy-dell-xps-touchpad-haptics-symlink-privesc-cve-2026-134935/",
+      "x_craftedsignal_activity_at": "2026-11-23T09:14:11.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--689ee00e-81a4-5114-9873-512e31b8cd80",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:10:59.000Z",
@@ -385758,6 +385825,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1bd9da1b-cdf9-5d45-ac5c-219111eefa02",
+      "name": "dell-xps-touchpad-haptics (\u003c 1.0.0-4)",
+      "vendor": "Omarchy"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1be9c7ba-23b1-5cf1-bd6d-e5ab3aac37bb",
       "name": "Import and export users and customers (\u003c= 2.5.11)",
       "vendor": "WordPress"
@@ -485515,6 +485589,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109445",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109445"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d87dd6d2-ac11-5871-b82b-fbc9f4ce61c2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134935",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134935",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134935"
         }
       ]
     },
