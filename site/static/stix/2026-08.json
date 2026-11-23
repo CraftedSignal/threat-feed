@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1bbe4b8e-4f30-542b-8142-5d586c44ad9c",
+  "id": "bundle--1df409d9-8a5e-55e7-b3c7-17f9cd3327d6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -127,22 +127,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1555",
           "url": "https://attack.mitre.org/techniques/T1555"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--123affda-6f11-58dc-8db2-3ea6a4c43493",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Modify Authentication Process",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1556",
-          "url": "https://attack.mitre.org/techniques/T1556"
         }
       ]
     },
@@ -351,22 +335,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1530",
           "url": "https://attack.mitre.org/techniques/T1530"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--3ba4e8d6-70aa-58bd-aaf5-69f3e9ec101e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Sharepoint",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1213.002",
-          "url": "https://attack.mitre.org/techniques/T1213/002"
         }
       ]
     },
@@ -6976,17 +6944,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--8d6f1d80-8d21-54a1-83c2-484558d67822",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-25T18:44:32.000Z",
-      "modified": "2026-08-25T18:44:32.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a6c56caa-f85a-586e-97a8-9cd1056cb0c5",
-      "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--8eb45be4-8277-5e52-a8d1-54dc73275456",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T17:46:48.000Z",
@@ -9143,17 +9100,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--c8e8781c-a356-5e67-acbb-10d22a3c2967",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-25T18:44:17.000Z",
-      "modified": "2026-08-25T18:44:17.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3b9b58fd-0708-5174-809e-8145b92aa33c",
-      "target_ref": "attack-pattern--123affda-6f11-58dc-8db2-3ea6a4c43493"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--c934a5e7-821b-5610-be33-283b029d488d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-27T16:05:55.000Z",
@@ -10584,17 +10530,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--efc60e8b-c327-57cc-84e0-30f84318fd1d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-25T18:44:32.000Z",
-      "modified": "2026-08-25T18:44:32.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a6c56caa-f85a-586e-97a8-9cd1056cb0c5",
-      "target_ref": "attack-pattern--3ba4e8d6-70aa-58bd-aaf5-69f3e9ec101e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--efe4febb-f24f-5a97-8eb4-b07793240d3f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -10679,17 +10614,6 @@
       "relationship_type": "has",
       "source_ref": "software--221e582c-b9d0-568e-8a11-fb99b185009a",
       "target_ref": "vulnerability--48c60dd2-ae08-5d02-9b16-381b42d6da14"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f1f6b1d8-6f76-5b38-a2e9-b87f92ccfe0c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-25T18:44:17.000Z",
-      "modified": "2026-08-25T18:44:17.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3b9b58fd-0708-5174-809e-8145b92aa33c",
-      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
     },
     {
       "type": "relationship",
@@ -14155,48 +14079,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--3b9b58fd-0708-5174-809e-8145b92aa33c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-25T18:44:17.000Z",
-      "modified": "2026-08-25T18:44:17.000Z",
-      "name": "Detection of Anomalous Entra ID Authentication Methods",
-      "description": "## Overview\n\nThis detection brief addresses the risk of adversaries leveraging stolen credentials to authenticate to Microsoft Entra ID using non-standard or previously unseen authentication methods. By utilizing authentication flows that diverge from a user's historical baseline, attackers attempt to bypass Conditional Access Policies (CAP) and multi-factor authentication (MFA) requirements. \n\nThis technique is significant for defenders because it targets the gap between standard user behavior and the configuration of authentication requirements. The detection focuses on successful sign-in events where the authentication method has not been recorded for a specific user within the previous 14 days, particularly in environments where MFA was not triggered. Organizations should investigate these events to distinguish between legitimate user onboarding or policy changes and malicious attempts to circumvent identity security controls.\n\n## Impact\n\nSuccessful exploitation of this technique allows adversaries to establish unauthorized access to cloud resources using valid identities. This bypasses security mechanisms intended to verify user identity, potentially leading to unauthorized data exfiltration, persistent access, and compromise of sensitive cloud assets. The scale of impact is dependent on the privileges assigned to the compromised account and the effectiveness of secondary monitoring controls.\n\n## Recommendation\n\n* Deploy the provided detection logic to identify the first occurrence of unusual authentication methods for Entra ID users.\n* Investigate alerts by verifying the `source.ip` against known malicious infrastructure and reviewing the user's recent sign-in history.\n* Verify if the authentication protocol recorded in `azure.signinlogs.properties.authentication_protocol` aligns with expected business applications.\n* Ensure MFA is enforced via Conditional Access Policies for all users, particularly those with high-privileged roles.\n* Restrict the use of legacy authentication protocols that do not support modern MFA requirements.\n",
-      "published": "2026-08-25T18:44:17.000Z",
-      "labels": [
-        "authentication",
-        "cloud",
-        "entra-id",
-        "identity"
-      ],
-      "object_refs": [
-        "attack-pattern--123affda-6f11-58dc-8db2-3ea6a4c43493",
-        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--d28a5d49-7efa-56bf-b1ca-b29fe437c879"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-entra-id-unusual-auth",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-entra-id-unusual-auth/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-entra-id-unusual-auth",
-      "x_craftedsignal_event_id": "brief-2026-08-entra-id-unusual-auth",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-entra-id-unusual-auth/",
-      "x_craftedsignal_activity_at": "2026-08-25T18:44:17.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -20309,62 +20191,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--a6c56caa-f85a-586e-97a8-9cd1056cb0c5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-25T18:44:32.000Z",
-      "modified": "2026-08-25T18:44:32.000Z",
-      "name": "Detection of Unusual OAuth Application Access to SharePoint and OneDrive",
-      "description": "## Overview\n\nAdversaries increasingly leverage malicious OAuth applications to gain persistent, unauthorized access to organizational data without traditional credential theft. By tricking users into granting consent to seemingly benign or productivity-focused applications, threat actors secure OAuth tokens that permit access to Microsoft SharePoint Online and OneDrive for Business. This activity persists even if the user's password is changed or MFA is enforced. This detection targets the 'first-time' access signal, identifying new or anomalous application identifiers (AppIDs) appearing within a tenant's sign-in logs. Defenders must distinguish between legitimate third-party SaaS integrations and malicious applications used for data exfiltration or reconnaissance.\n\n## Impact\n\nSuccessful exploitation allows attackers to bypass MFA and bypass conditional access policies, leading to large-scale data exfiltration, unauthorized document discovery, and long-term persistence within a target environment. This technique is frequently utilized in organized phishing campaigns to automate the harvesting of sensitive intellectual property or business communications.\n\n## Recommendation\n\n- Implement the detection of new, unseen AppIDs interacting with SharePoint Online and OneDrive for Business to baseline and alert on anomalous consent grants.\n- Review and prune high-privilege OAuth permissions such as 'Files.ReadWrite.All' or 'Sites.ReadWrite.All' that exceed organizational requirements.\n- Strengthen Conditional Access policies to mandate admin consent for risky applications and block unverified publishers from accessing sensitive resources.\n- Audit existing enterprise application consents to identify and revoke access for suspicious, unused, or unverified applications.\n",
-      "published": "2026-08-25T18:44:32.000Z",
-      "labels": [
-        "cloud",
-        "collection",
-        "identity",
-        "oauth",
-        "phishing"
-      ],
-      "object_refs": [
-        "attack-pattern--3ba4e8d6-70aa-58bd-aaf5-69f3e9ec101e",
-        "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--57f54a74-5820-5ca1-8a60-c9709c477dfc",
-        "software--709f6146-493c-5660-a201-1402c8765699"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-entra-oauth-abuse",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-entra-oauth-abuse/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/manage-consent-requests"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.microsoft.com/en-us/security/blog/2022/09/22/malicious-oauth-applications-used-to-compromise-email-servers-and-spread-spam/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.volexity.com/blog/2025/04/22/phishing-for-codes-russian-threat-actors-target-microsoft-365-oauth-workflows/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-entra-oauth-abuse",
-      "x_craftedsignal_event_id": "brief-2026-08-entra-oauth-abuse",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-entra-oauth-abuse/",
-      "x_craftedsignal_activity_at": "2026-08-25T18:44:32.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--a79795dc-2a72-57c0-aa04-6c9b1c829284",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T21:13:43.000Z",
@@ -25966,13 +25792,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--57f54a74-5820-5ca1-8a60-c9709c477dfc",
-      "name": "SharePoint Online",
-      "vendor": "Microsoft"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--58e2ae4b-b406-5700-8beb-88c31a36706c",
       "name": "RESTEasy",
       "vendor": "Red Hat"
@@ -26355,13 +26174,6 @@
       "id": "software--709d4524-ae03-5c1b-907d-52d3407c824d",
       "name": "Red Hat Enterprise Linux 8",
       "vendor": "Red Hat"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--709f6146-493c-5660-a201-1402c8765699",
-      "name": "OneDrive for Business",
-      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -27509,13 +27321,6 @@
       "id": "software--d1b2925c-f7c4-5116-92b5-893cd2116f76",
       "name": "Snipe-IT (\u003c 8.6.0)",
       "vendor": "Snipe-IT"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--d28a5d49-7efa-56bf-b1ca-b29fe437c879",
-      "name": "Entra ID",
-      "vendor": "Microsoft"
     },
     {
       "type": "software",

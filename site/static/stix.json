@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f61a4ec3-d99e-5920-9f5c-cc36b7517fce",
+  "id": "bundle--50d547f7-c648-58fb-a650-14ea3cd75e47",
   "objects": [
     {
       "type": "attack-pattern",
@@ -37918,7 +37918,7 @@
       "id": "relationship--27a84acd-470d-520d-90c6-765d4741f22b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T18:43:22.000Z",
-      "modified": "2026-11-19T18:43:22.000Z",
+      "modified": "2026-11-23T18:50:43.000Z",
       "relationship_type": "uses",
       "source_ref": "report--f6fe03f2-0e3c-5fd7-899a-6f40c76af0f3",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -43004,6 +43004,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--0a1eb245-3043-5744-823f-ae9feb6afb99"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2ee51015-17c4-572a-af38-8e34205922e1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T18:50:19.000Z",
+      "modified": "2026-11-23T18:50:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--cf437aaa-b67b-5397-a971-1ffdde72aaba",
+      "target_ref": "attack-pattern--0856bd82-6dcb-584e-bbac-9f484aa79d34"
     },
     {
       "type": "relationship",
@@ -55698,6 +55709,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--11c16400-1604-5805-9abb-ce7d11373260"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4174a4cd-87c9-5eb9-82ad-226723404d86",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T18:50:19.000Z",
+      "modified": "2026-11-23T18:50:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--cf437aaa-b67b-5397-a971-1ffdde72aaba",
+      "target_ref": "attack-pattern--fef861e9-3ac4-50b1-aa1a-3ff772ca094e"
     },
     {
       "type": "relationship",
@@ -89200,7 +89222,7 @@
       "id": "relationship--6e664085-b8d0-584c-a3e2-32cdefbac835",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T18:43:22.000Z",
-      "modified": "2026-11-19T18:43:22.000Z",
+      "modified": "2026-11-23T18:50:43.000Z",
       "relationship_type": "uses",
       "source_ref": "report--f6fe03f2-0e3c-5fd7-899a-6f40c76af0f3",
       "target_ref": "attack-pattern--e36dde55-a247-51ae-915b-0aac12302837"
@@ -114849,6 +114871,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--91549cdc-80db-565c-bab6-5120c47e40f4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T18:50:19.000Z",
+      "modified": "2026-11-23T18:50:19.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--cf437aaa-b67b-5397-a971-1ffdde72aaba",
+      "target_ref": "threat-actor--3c550d10-7c9f-5abe-9e84-da22d7d47404"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9157b92e-c758-5272-8c4b-31fce84f9313",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -116242,6 +116275,17 @@
       "relationship_type": "has",
       "source_ref": "software--8e63c670-81e1-55f6-a8f0-0d9e5e734cd6",
       "target_ref": "vulnerability--a1c784ab-d9ef-5aba-9851-994d1e31129f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--935afd79-0ec3-526e-91d5-0246e3baf8a9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T18:50:19.000Z",
+      "modified": "2026-11-23T18:50:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--cf437aaa-b67b-5397-a971-1ffdde72aaba",
+      "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
     },
     {
       "type": "relationship",
@@ -349106,6 +349150,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--cf437aaa-b67b-5397-a971-1ffdde72aaba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T18:50:19.000Z",
+      "modified": "2026-11-23T18:50:19.000Z",
+      "name": "Webworm Group Modifies SoftEther VPN for Evasion",
+      "description": "## Overview\n\nWebworm, a China-aligned nation-state threat actor, has been observed using a custom-built, modified version of the open-source SoftEther VPN Bridge tool. The modifications focus on stealth and detection evasion rather than adding new functional capabilities. The actor compiles the tool from source and rebrands the binary as 'NtMonitor VPN', masquerading as 'Network Monitor Software' from a fictional entity called Network Systems Solutions Inc. The tool's configuration files are encrypted using a custom algorithm starting with the 'RCEN' magic bytes, and the application's internal HTTP communication endpoints and protocol handshake watermarks have been altered to avoid signature-based detection.\n\n## Impact\n\nThe use of this modified VPN tool allows the actor to establish and maintain covert remote access to compromised networks while bypassing traditional security signatures and indicators related to standard SoftEther VPN deployments.\n\n## Recommendation\n\n- Audit environments for the presence of 'netcapa.exe' or binaries masquerading as network monitoring software that share the internal structure of SoftEther VPN.\n- Investigate systems for unexpected network communication to unknown endpoints using custom protocol handshakes that deviate from the standard SoftEther VPN traffic baseline.\n- Monitor for the creation of configuration files on disk with the 'RCEN' magic byte header.\n- Implement detection for the presence of renamed SoftEther binaries where registry keys or internal metadata may still contain references to 'SoftEther Project'.",
+      "published": "2026-11-23T18:50:19.000Z",
+      "labels": [
+        "espionage",
+        "evasion",
+        "malware",
+        "vpn",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--0856bd82-6dcb-584e-bbac-9f484aa79d34",
+        "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
+        "attack-pattern--fef861e9-3ac4-50b1-aa1a-3ff772ca094e",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6d530f36-bd4a-5609-80eb-4da250f7e7cd",
+        "threat-actor--3c550d10-7c9f-5abe-9e84-da22d7d47404"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-webworm-softether",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-webworm-softether/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/webworm-suspected-of-modifying.html"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-webworm-softether",
+      "x_craftedsignal_event_id": "brief-2026-11-23-webworm-softether",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-webworm-softether/",
+      "x_craftedsignal_activity_at": "2026-11-23T18:50:19.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--cf48a725-6744-5755-b68f-15ae25a0c87d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T15:17:21.000Z",
@@ -379779,7 +379872,7 @@
       "id": "report--f6fe03f2-0e3c-5fd7-899a-6f40c76af0f3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T18:43:22.000Z",
-      "modified": "2026-11-19T18:43:22.000Z",
+      "modified": "2026-11-23T18:50:43.000Z",
       "name": "Tandoor Recipes: Server-side request forgery (CVE-2026-133235)",
       "description": "## Overview\nTandoor Recipes before version 2.7.4 contains a server-side request forgery (SSRF) vulnerability. The issue arises because the `Nextcloud.get_client` function constructs WebDAV clients using the `Storage.url` field without invoking `safe_request`. This vulnerability allows an authenticated space admin to configure a malicious NEXTCLOUD storage endpoint that directs the application to interact with unintended internal resources.\n\n## Attack Chain\n1. Attacker authenticates as a user with space admin privileges.\n2. Attacker sends a POST request to `/api/storage/` to create a new storage entry with a malicious `NEXTCLOUD` URL pointing to an internal host or cloud metadata service.\n3. Attacker triggers an import operation using the created storage configuration.\n4. Attacker sends a GET request to `/api/get_recipe_file/\u0026lt;id\u003e/`.\n5. The application performs a server-side request to the attacker-supplied URL via the compromised WebDAV client.\n6. The application returns the response from the targeted internal resource to the attacker, potentially exposing cloud metadata or internal service information.\n\n## Impact\nSuccessful exploitation allows authenticated attackers with space admin privileges to perform SSRF, leading to the unauthorized access of internal services or cloud metadata endpoints that are not exposed to the public network.\n\n## Recommendation\nUpgrade Tandoor Recipes to version 2.7.4 or later as soon as it becomes available to ensure the application correctly invokes `safe_request` for URL inputs. In the interim, restrict access to the Tandoor Recipes administrative interface to trusted users only and monitor API requests to the `/api/storage/` and `/api/get_recipe_file/` endpoints for suspicious URLs.",
       "published": "2026-11-19T18:43:22.000Z",
@@ -379807,20 +379900,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133235"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=6E190B22-8EEE-52F4-BB9F-B258BE169648\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-19-tandoor-recipes-ssrf-cve-2026-133235",
       "x_craftedsignal_event_id": "brief-2026-11-19-tandoor-recipes-ssrf-cve-2026-133235",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tandoor-recipes-ssrf-cve-2026-133235/",
-      "x_craftedsignal_activity_at": "2026-11-19T18:43:22.000Z",
+      "x_craftedsignal_activity_at": "2026-11-23T18:50:43.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.7,
+      "x_craftedsignal_epss_max": 0.0044,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -399225,6 +399323,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--6d530f36-bd4a-5609-80eb-4da250f7e7cd",
+      "name": "SoftEther VPN Bridge (4.44 build 9807)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--6d5a4040-3bea-5783-a3cc-cd300cdc67cf",
       "name": "altcha-lib-go",
       "vendor": "altcha-org"
@@ -416064,6 +416168,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "Multiple"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--3c550d10-7c9f-5abe-9e84-da22d7d47404",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Webworm"
     },
     {
       "type": "threat-actor",
