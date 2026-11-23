@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d03f876d-87b1-52b5-8969-ac72468d94fd",
+  "id": "bundle--6a4973e0-fcb3-5371-9035-483ec5b550cc",
   "objects": [
     {
       "type": "attack-pattern",
@@ -13930,6 +13930,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--2a9c4e43-7905-5de7-80ae-f28b9653ebf0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--09ffce52-3cae-5238-bf5a-caeeb60248f8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a642bd70-57d1-55a5-adea-ab84630a93db",
+      "target_ref": "vulnerability--82e2e458-b262-522c-aafd-dd5d5b199bc9"
     },
     {
       "type": "relationship",
@@ -31596,6 +31607,17 @@
       "relationship_type": "has",
       "source_ref": "software--85475315-041c-542e-bcae-560f82ce7f95",
       "target_ref": "vulnerability--db7bcf20-9cf7-5138-8e07-6c9c6892e552"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--27843b81-2076-5f12-9400-8ae72f97dc14",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--147b1c70-0dfd-5601-ac83-85ec51032c62",
+      "target_ref": "vulnerability--82e2e458-b262-522c-aafd-dd5d5b199bc9"
     },
     {
       "type": "relationship",
@@ -240180,6 +240202,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--82e68bc7-ed27-5a32-95d0-4d285065edd4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T04:34:58.000Z",
+      "modified": "2026-11-23T04:34:58.000Z",
+      "name": "Apache Solr: Ping endpoint authorization bypass (CVE-2026-86312)",
+      "description": "## Overview\n\nApache Solr (org.apache.solr:solr-core) contains a vulnerability identified as CVE-2026-86312 that allows low-privileged users to trigger unintended functionality through the ping health-check endpoint. This issue specifically affects deployments that rely on Solr's rule-based authorization. The vulnerability allows an authenticated user with limited privileges to perform actions beyond the scope of a standard health check.\n\n## Impact\n\nSuccessful exploitation can allow an attacker with low-level access to trigger functionality that should be restricted, potentially leading to unauthorized operations within the Solr environment. The CVSS 3.1 score is 8.8 (High).\n\n## Recommendation\n\n- Identify all instances of Apache Solr within your environment.\n- Upgrade affected installations to Apache Solr version 9.11.0 or later for the 9.x branch, or version 10.1.0 or later for the 10.x branch.\n- Review rule-based authorization configurations to ensure they do not inadvertently permit access to sensitive internal functionality via the ping endpoint.",
+      "published": "2026-11-23T04:34:58.000Z",
+      "labels": [
+        "apache-solr",
+        "authorization-bypass",
+        "cve-2026-86312"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--147b1c70-0dfd-5601-ac83-85ec51032c62",
+        "software--a642bd70-57d1-55a5-adea-ab84630a93db",
+        "vulnerability--82e2e458-b262-522c-aafd-dd5d5b199bc9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-solr-ping-auth-cve-2026-86312",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-solr-ping-auth-cve-2026-86312/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/830"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-solr-ping-auth-cve-2026-86312",
+      "x_craftedsignal_event_id": "brief-2026-11-23-solr-ping-auth-cve-2026-86312",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-solr-ping-auth-cve-2026-86312/",
+      "x_craftedsignal_activity_at": "2026-11-23T04:34:58.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--831cf3e7-26b2-5a83-9ca4-1834acc21713",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T15:51:48.000Z",
@@ -316339,6 +316406,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--147b1c70-0dfd-5601-ac83-85ec51032c62",
+      "name": "Solr (10.0.0 before 10.1.0)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--148a730b-5a3c-5a47-95ef-27c26a1e404c",
       "name": "pam_usb (\u003e= 0.8.0, \u003c 0.9.3)",
       "vendor": "pam_usb"
@@ -328890,6 +328964,13 @@
       "id": "software--a63d981f-8310-56fe-85b7-e49b34c20886",
       "name": "Broadcast Live Video (n/a through 7.3.14)",
       "vendor": "VideoWhisper"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a642bd70-57d1-55a5-adea-ab84630a93db",
+      "name": "Solr (9.0.0 before 9.11.0)",
+      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -373293,6 +373374,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-107950",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107950"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--82e2e458-b262-522c-aafd-dd5d5b199bc9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-86312",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-86312",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86312"
         }
       ]
     },
