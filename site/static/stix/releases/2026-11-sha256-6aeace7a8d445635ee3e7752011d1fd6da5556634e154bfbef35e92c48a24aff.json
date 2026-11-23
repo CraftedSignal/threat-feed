@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--839f6be4-34ad-5e6d-982a-37429575867b",
+  "id": "bundle--c013fe73-1c8d-5da9-9720-1f5b4b242034",
   "objects": [
     {
       "type": "attack-pattern",
@@ -13347,6 +13347,17 @@
       "relationship_type": "has",
       "source_ref": "software--b4580fb4-d54b-58eb-a16c-da440cb345fc",
       "target_ref": "vulnerability--815f68b9-d3d6-56a6-9047-69ac5507c2d8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--09080e65-666c-537d-a45b-e9a013e924d3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5791074f-22bf-53a2-96ce-b7340f823634",
+      "target_ref": "vulnerability--4737cb7a-58a1-536d-904b-97bcc111be8c"
     },
     {
       "type": "relationship",
@@ -117004,6 +117015,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b7153dbd-4b4a-56fc-99ae-9df1a3750ed7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T13:01:25.000Z",
+      "modified": "2026-11-23T13:01:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--265ad98b-0585-5063-ad9f-5cf4b177cc77",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b719dfcb-7381-5791-99f0-10af453cd101",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -181898,6 +181920,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--265ad98b-0585-5063-ad9f-5cf4b177cc77",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T13:01:25.000Z",
+      "modified": "2026-11-23T13:01:25.000Z",
+      "name": "GiveWP: Incorrect privilege assignment (CVE-2026-104405)",
+      "description": "## Overview\nAn incorrect privilege assignment vulnerability exists in the GiveWP plugin for WordPress, identified as CVE-2026-104405. The vulnerability allows for privilege escalation.\n\n## Impact\nSuccessful exploitation of this vulnerability allows for privilege escalation. The vulnerability has a CVSS v3.1 base score of 8.1, with an attack vector categorized as network and high attack complexity.\n\n## Recommendation\nThe CVE Program indicates that users should update the WordPress GiveWP plugin to the latest available version (at least 4.18.0). Verify the installed version against current vendor guidance.",
+      "published": "2026-11-23T13:01:25.000Z",
+      "labels": [
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5791074f-22bf-53a2-96ce-b7340f823634",
+        "vulnerability--4737cb7a-58a1-536d-904b-97bcc111be8c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-givewp-privilege-escalation-cve-2026-104405",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-givewp-privilege-escalation-cve-2026-104405/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-104405"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104405"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-givewp-privilege-escalation-cve-2026-104405",
+      "x_craftedsignal_event_id": "brief-2026-11-23-givewp-privilege-escalation-cve-2026-104405",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-givewp-privilege-escalation-cve-2026-104405/",
+      "x_craftedsignal_activity_at": "2026-11-23T13:01:25.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.00274,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -321799,6 +321870,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5791074f-22bf-53a2-96ce-b7340f823634",
+      "name": "GiveWP"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--579335bd-eb93-55cf-b6e4-aba8e6137f99",
       "name": "Azure"
     },
@@ -356257,6 +356334,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109469",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109469"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4737cb7a-58a1-536d-904b-97bcc111be8c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-104405",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-104405",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104405"
         }
       ]
     },
