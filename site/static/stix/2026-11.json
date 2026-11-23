@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2ea3fa17-180b-570d-aa9d-3375acbbe3ea",
+  "id": "bundle--f35eb6c8-2a27-58b1-8527-bf734267f664",
   "objects": [
     {
       "type": "attack-pattern",
@@ -33119,6 +33119,17 @@
       "relationship_type": "has",
       "source_ref": "software--344b3470-231d-5622-9cf4-f8c8bdeacded",
       "target_ref": "vulnerability--75d4a19d-98df-5dc8-a960-3f69d227738a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2973378f-b2c2-5791-b5c6-bba5892c1283",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--363c0f57-8b21-5551-b866-22ead6914bbc",
+      "target_ref": "vulnerability--294b9809-b084-59fa-a2e6-dcd4ae943fdb"
     },
     {
       "type": "relationship",
@@ -177901,6 +177912,56 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1b86031d-1309-51c0-ad5a-e28584c16a76",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T23:43:17.000Z",
+      "modified": "2026-11-23T23:43:17.000Z",
+      "name": "Debian debbugs: Arbitrary file read in versions.cgi (CVE-2026-132147)",
+      "description": "## Overview\nAn arbitrary file read vulnerability exists in debbugs, a bug tracking system based on the active Debian BTS. The vulnerability exists within versions.cgi, which fails to correctly sanitize package name inputs in the 'found' and 'fixed' query parameters. \n\n## Impact\nCrafted query parameters can cause versions.cgi to output any lines of a target file that contain spaces. The source material does not confirm the ability to read arbitrary files in their entirety, nor does it explicitly detail the impact on specific system data types such as credentials.\n\n## Recommendation\nNo specific remediation is provided in the current source. The vendor has provided a git commit reference (2fbf06866c9322090675a37aa55e4e7fa560bce0) associated with the vulnerability. Users should consult official Debian security guidance regarding the status of this issue and potential updates.",
+      "published": "2026-11-23T23:43:17.000Z",
+      "labels": [
+        "arbitrary-file-read",
+        "cve-2026-132147",
+        "debbugs"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--363c0f57-8b21-5551-b866-22ead6914bbc",
+        "vulnerability--294b9809-b084-59fa-a2e6-dcd4ae943fdb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-debbugs-arbitrary-file-read-cve-2026-132147",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-debbugs-arbitrary-file-read-cve-2026-132147/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-132147"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132147"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-debbugs-arbitrary-file-read-cve-2026-132147",
+      "x_craftedsignal_event_id": "brief-2026-11-23-debbugs-arbitrary-file-read-cve-2026-132147",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-debbugs-arbitrary-file-read-cve-2026-132147/",
+      "x_craftedsignal_activity_at": "2026-11-23T23:43:17.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00422,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -324286,6 +324347,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--363c0f57-8b21-5551-b866-22ead6914bbc",
+      "name": "debbugs",
+      "vendor": "Debian"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--36521d42-93fd-5103-a74c-5a5d8df18c45",
       "name": "PowerStore 5200T (\u003c 5.1.0.0-2798105 or 4.3.1.3-2800620)",
       "vendor": "Dell"
@@ -354439,6 +354507,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-130841",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130841"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--294b9809-b084-59fa-a2e6-dcd4ae943fdb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-132147",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-132147",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132147"
         }
       ]
     },
