@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--41397052-deed-54e5-a877-93765e1f21f3",
+  "id": "bundle--c94aa3e2-4afc-5d8e-9092-4b125e769e65",
   "objects": [
     {
       "type": "attack-pattern",
@@ -40990,6 +40990,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2c2d2b7e-96d2-5e06-8e57-8d0a89b787ef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--eea05bea-cefd-5158-86bc-2d76fe36861d",
+      "target_ref": "vulnerability--0e466b03-c675-51af-a9c8-88ac92a4da2f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2c31949e-efd7-553b-b06b-8b704cf8c868",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -48785,6 +48796,17 @@
       "relationship_type": "uses",
       "source_ref": "report--0b9e61c5-64cb-5713-a7af-8f7343368d4b",
       "target_ref": "indicator--af4ceaf4-d54c-54a0-ad23-1e9d9e2c4fef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--37bf5beb-f663-5928-a2a0-4b83e9482020",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d14a7ef8-46c0-5b20-ac28-867c36994064",
+      "target_ref": "vulnerability--0e466b03-c675-51af-a9c8-88ac92a4da2f"
     },
     {
       "type": "relationship",
@@ -122331,6 +122353,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--e61757c6-88f2-5fcc-80d5-c348d818d472"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9d31abd6-c38d-571d-a310-dedc339ee32b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b2d393d6-a184-5980-882a-f0b5c16621d5",
+      "target_ref": "vulnerability--0e466b03-c675-51af-a9c8-88ac92a4da2f"
     },
     {
       "type": "relationship",
@@ -379903,6 +379936,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--fa5d7570-8b9b-51c4-bdd9-853816c40ba6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T15:43:22.000Z",
+      "modified": "2026-11-23T15:43:22.000Z",
+      "name": "EasyVista EV Reach: Improper Authorization Vulnerability (CVE-2026-93585)",
+      "description": "## Overview\nEasyVista EV Reach is affected by an improper authorization vulnerability (CVE-2026-93585) in the Client Agent. This flaw allows authenticated users with low privileges to execute arbitrary commands on a remote Windows endpoint with LocalSystem privileges. The agent service fails to properly enforce authorization restrictions for specific privileged remote management operations, bypassing intended user impersonation mechanisms. This vulnerability does not require administrative credentials or user interaction after authentication.\n\n## Attack Chain\nAn authenticated attacker can leverage the management interface (TCP port 22000) to supply commands that the agent service executes within its own security context (NT AUTHORITY\\SYSTEM) due to improper authorization enforcement.\n\n## Impact\nSuccessful exploitation may lead to complete compromise of the affected endpoint, including unauthorized access to sensitive information, modification of system configurations, installation of malicious software, or disruption of system availability.\n\n## Recommendation\nAdministrators should update their installations to the following versions or later:\n- EV Reach Console: 11.0.14.1127\n- EV Reach Agent: 11.0.16\n- EV Reach Server: 11.0.14.1274\n\nUntil updates are deployed, administrators should restrict network access to the agent's remote management interface (TCP port 22000) to explicitly authorized management systems. If the agent is not required, disabling or removing the service can reduce exposure.",
+      "published": "2026-11-23T15:43:22.000Z",
+      "labels": [
+        "authorization-bypass",
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b2d393d6-a184-5980-882a-f0b5c16621d5",
+        "software--d14a7ef8-46c0-5b20-ac28-867c36994064",
+        "software--eea05bea-cefd-5158-86bc-2d76fe36861d",
+        "vulnerability--0e466b03-c675-51af-a9c8-88ac92a4da2f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-ev-reach-privilege-escalation-cve-2026-93585",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ev-reach-privilege-escalation-cve-2026-93585/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-93585"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93585"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-ev-reach-privilege-escalation-cve-2026-93585",
+      "x_craftedsignal_event_id": "brief-2026-11-23-ev-reach-privilege-escalation-cve-2026-93585",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ev-reach-privilege-escalation-cve-2026-93585/",
+      "x_craftedsignal_activity_at": "2026-11-23T15:43:22.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fa62459c-8073-5568-8e9c-b7e47f96c7cf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:15:42.000Z",
@@ -405163,6 +405246,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b2d393d6-a184-5980-882a-f0b5c16621d5",
+      "name": "EV Reach Agent",
+      "vendor": "EasyVista SAS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b2f799d3-3da1-57f2-b768-7a29529af480",
       "name": "7060X/X2/X4/X5/X6/XE7 Series",
       "vendor": "Arista Networks"
@@ -408688,6 +408778,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d14a7ef8-46c0-5b20-ac28-867c36994064",
+      "name": "EV Reach Console",
+      "vendor": "EasyVista SAS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d14d4f44-7431-542e-90e9-2edb2a259fa7",
       "name": "Erlang/ssl (\u003e= 11.7, \u003c 11.7.4)",
       "vendor": "Erlang"
@@ -411885,6 +411982,13 @@
       "id": "software--ee9a71b3-1b93-510d-b364-7f13ccadb87e",
       "name": "PowerStore 9500",
       "vendor": "Dell"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--eea05bea-cefd-5158-86bc-2d76fe36861d",
+      "name": "EV Reach Server",
+      "vendor": "EasyVista SAS"
     },
     {
       "type": "software",
@@ -419338,6 +419442,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-103769",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103769"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0e466b03-c675-51af-a9c8-88ac92a4da2f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-93585",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-93585",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93585"
         }
       ]
     },
