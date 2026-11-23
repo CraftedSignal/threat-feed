@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--968f5e26-7b31-5ae7-8072-2c3beabc2b06",
+  "id": "bundle--53cc76f4-60b1-5600-8dfb-0a2506b6accb",
   "objects": [
     {
       "type": "attack-pattern",
@@ -25029,6 +25029,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--164a8801-49e9-514e-aa06-4ff4af7f4b71",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T13:31:16.000Z",
+      "modified": "2026-11-23T13:31:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c788bdb1-9c87-5a74-8de3-9cfde49d4f2f",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--164bacc0-768a-5ce2-a315-ed2dfbc167aa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T21:42:43.000Z",
@@ -32780,6 +32791,17 @@
       "relationship_type": "has",
       "source_ref": "software--e3719b0e-c49d-5853-9833-c941358887d2",
       "target_ref": "vulnerability--a862e26d-abb8-51ae-8cda-4998d4e36807"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--20ced384-9d73-53c1-abf9-212cc29a09ea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--471d89ae-9865-5bac-af98-81e6bfd4002e",
+      "target_ref": "vulnerability--423d8544-3bb4-5624-aae0-daddc3268621"
     },
     {
       "type": "relationship",
@@ -81140,6 +81162,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--64b4e40d-b813-520b-9961-e89556118df4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T13:31:44.000Z",
+      "modified": "2026-11-23T13:31:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--de181688-d8f3-534f-a1f5-461c38f161f6",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--64b7153d-f845-5099-8568-0d04930cd65c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-22T07:00:16.000Z",
@@ -126625,6 +126658,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a3606bcc-ea2a-5f01-8e6e-5a7f29249b46",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T13:31:55.000Z",
+      "modified": "2026-11-23T13:31:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--64755e02-97a7-5c37-864a-52beef32941d",
+      "target_ref": "attack-pattern--aafc6e56-00f6-56b2-8fd2-cc0e966553df"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a362a544-708a-56c7-b9c6-7171fb4158c1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -153388,6 +153432,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c7bbb926-eb7f-5a33-9def-93dac330eeaf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T13:31:44.000Z",
+      "modified": "2026-11-23T13:31:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--de181688-d8f3-534f-a1f5-461c38f161f6",
+      "target_ref": "attack-pattern--003dd11e-6b72-5943-8a73-a2bc6954b663"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c7bbf0d6-a8ac-58ea-a2a4-2b3d8901bd6d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -164311,6 +164366,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d743fecb-6784-5d85-a83d-26f27b6f2187",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--03c8d009-e130-5b44-b70d-b60405a76274",
+      "target_ref": "vulnerability--a8d034d8-d7e8-5e1b-9aea-1c4bb3b60b54"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d744eaa8-cf7f-53df-b93d-b952c6b021c2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:32:57.000Z",
@@ -171237,6 +171303,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--bc203924-a28a-5658-bc1d-ae0224b2519c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e176f52f-ba52-5e34-a635-337351b0f381",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--842a5c45-30bd-5aac-8fdb-6b716793097c",
+      "target_ref": "vulnerability--5ad3c92f-2b86-5539-aafb-0e5e3be198e8"
     },
     {
       "type": "relationship",
@@ -269795,6 +269872,64 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--64755e02-97a7-5c37-864a-52beef32941d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T13:31:55.000Z",
+      "modified": "2026-11-23T13:31:55.000Z",
+      "name": "Sustainsys.Saml2: Signature verification bypass (CVE-2026-134822)",
+      "description": "## Overview\nSustainsys.Saml2 versions before 1.0.4 and 2.x before 2.11.1 are vulnerable to a signature verification bypass due to incorrect handling of query-string parameters. The Saml2RedirectBinding.CheckSignature() method uses an overly permissive string split operation that truncates parameters at the second equal sign. Attackers who intercept or replay a signed SAML Redirect-binding message can append data (e.g., RelayState=abc=evil) to a parameter; because the truncation occurs after the first two segments for signature verification, the application accepts the signature as valid while processing the tampered value.\n\n## Attack Chain\n1. Attacker intercepts a legitimate, signed SAML Redirect-binding URL.\n2. Attacker modifies the query string of the intercepted URL by appending malicious data to a parameter using an extra equals sign (e.g., RelayState=abc=evil).\n3. The application receives the modified URL and initiates the Saml2RedirectBinding.CheckSignature() process.\n4. The library incorrectly parses the query string, truncating at the second equals sign.\n5. The library computes the signature against the truncated, original-looking value, which successfully validates.\n6. The application proceeds to consume and trust the tampered parameter value.\n\n## Impact\nAttackers can manipulate parameters within SAML Redirect-binding messages, potentially leading to unauthorized authentication states or redirection, provided they can intercept or replay the signed initial message.\n\n## Recommendation\n- Upgrade Sustainsys.Saml2 to version 1.0.4 or 2.11.1 immediately.\n- Review application logs for unusual Redirect-binding URL formats containing multiple '=' characters in single parameters.\n- Implement strict validation of SAML response parameters if immediate patching is not feasible.",
+      "published": "2026-11-23T13:31:55.000Z",
+      "labels": [
+        "authentication-bypass",
+        "saml",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--aafc6e56-00f6-56b2-8fd2-cc0e966553df",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--471d89ae-9865-5bac-af98-81e6bfd4002e",
+        "vulnerability--423d8544-3bb4-5624-aae0-daddc3268621"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-saml2-bypass-cve-2026-134822",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-saml2-bypass-cve-2026-134822/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-134822"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/Sustainsys/Saml2/commit/5586ddf5b7007abe2f6db15d722a420cb5469e99"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/Sustainsys/Saml2/security/advisories/GHSA-j732-g8vg-mq9c"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=0E063D59-B2FB-5B8D-BB28-FB1BE31B69E9\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-saml2-bypass-cve-2026-134822",
+      "x_craftedsignal_event_id": "brief-2026-11-23-saml2-bypass-cve-2026-134822",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-saml2-bypass-cve-2026-134822/",
+      "x_craftedsignal_activity_at": "2026-11-23T13:31:55.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 3.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--647d7246-4e52-5763-b5c7-a0f4be99a090",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T21:52:04.000Z",
@@ -341254,6 +341389,69 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c788bdb1-9c87-5a74-8de3-9cfde49d4f2f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T13:31:16.000Z",
+      "modified": "2026-11-23T13:31:16.000Z",
+      "name": "Langfuse: Server-side request forgery in GitHub Enterprise SSO configuration (CVE-2026-134835)",
+      "description": "## Overview\nLangfuse contains a server-side request forgery (SSRF) vulnerability due to improper validation of the GitHub Enterprise SSO `baseUrl`. Organization administrators can modify this parameter to point to internal network addresses, such as loopback, RFC1918, or cloud metadata endpoints (e.g., 169.254.169.254). Because the application fails to perform outbound-URL validation for this configuration branch, subsequent user sign-in attempts trigger server-side requests to the attacker-specified host, potentially exposing OAuth client credentials.\n\n## Attack Chain\n1. Attacker obtains organization administrator privileges within the Langfuse platform.\n2. Attacker navigates to the SSO configuration settings for GitHub Enterprise.\n3. Attacker sets the `baseUrl` parameter to a malicious target (e.g., a metadata service or internal host).\n4. Application fails to validate the provided URL due to early return logic in `validateSsoConfig.ts`.\n5. A legitimate user attempts to sign in via SSO.\n6. Langfuse server-side logic initiates an outbound request to the malicious `baseUrl` as part of the authentication fetch chain.\n7. Request carries sensitive OAuth client credentials, delivering them to the attacker-controlled endpoint.\n\n## Impact\nSuccessful exploitation allows an attacker to perform SSRF attacks against internal network infrastructure and potentially intercept OAuth client credentials during the SSO sign-in process.\n\n## Recommendation\nUpgrade Langfuse to version 4.82.0 or later, which introduces a mandatory validator for the GitHub Enterprise `baseUrl`.",
+      "published": "2026-11-23T13:31:16.000Z",
+      "labels": [
+        "cve",
+        "langfuse",
+        "sso",
+        "ssrf"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--842a5c45-30bd-5aac-8fdb-6b716793097c",
+        "vulnerability--5ad3c92f-2b86-5539-aafb-0e5e3be198e8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-langfuse-ssrf-cve-2026-134835",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-langfuse-ssrf-cve-2026-134835/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134835"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/langfuse/langfuse/commit/5ffd41280461c4728075173b50b38650a820b1f2"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/langfuse/langfuse/security/advisories/GHSA-x63j-8x93-j642"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=72E7025A-E4C8-5A98-90D9-27FA55B0E33C"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=72E7025A-E4C8-5A98-90D9-27FA55B0E33C\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-langfuse-ssrf-cve-2026-134835",
+      "x_craftedsignal_event_id": "brief-2026-11-23-langfuse-ssrf-cve-2026-134835",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-langfuse-ssrf-cve-2026-134835/",
+      "x_craftedsignal_activity_at": "2026-11-23T13:31:16.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c78e96b1-a9fc-558d-a95c-a5ff81268f37",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:47.000Z",
@@ -358024,6 +358222,71 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--de181688-d8f3-534f-a1f5-461c38f161f6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T13:31:44.000Z",
+      "modified": "2026-11-23T13:31:44.000Z",
+      "name": "RSSHub: Unauthenticated JAVDB session cookie exfiltration (CVE-2026-134833)",
+      "description": "## Overview\n\nRSSHub versions prior to 2026.11.01-8521.e529e9b contain a domain validation bypass vulnerability (CVE-2026-134833) within the `javdb` route. An attacker can manipulate the `domain` query parameter to point to an arbitrary host while providing a valid absolute URL for a category, causing the application to include sensitive `_jdb_session` cookies in outgoing requests to the attacker-controlled server. This flaw effectively allows for unauthenticated credential exfiltration and server-side request forgery (SSRF).\n\n## Attack Chain\n\n1. Attacker identifies a public-facing RSSHub instance configured with a `JAVDB_SESSION` cookie.\n2. Attacker crafts a malicious request to the `javdb` route.\n3. The request includes a legitimate absolute category URL for `javdb.com` but sets the `domain` query parameter to an attacker-controlled host.\n4. RSSHub validates the listing URL host but fails to validate the `domain` parameter used to generate link URLs.\n5. RSSHub fetches the item links, attaching the stored `_jdb_session` cookie to the request sent to the attacker-controlled server.\n6. The attacker receives the sensitive session cookie from the incoming request headers.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to capture the `_jdb_session` cookie from the target RSSHub instance, granting them unauthorized access to the session associated with the JAVDB service.\n\n## Recommendation\n\nUpgrade RSSHub to version 2026.11.01-8521.e529e9b or later to apply the necessary dual-host validation logic.",
+      "published": "2026-11-23T13:31:44.000Z",
+      "labels": [
+        "cookie-leak",
+        "cve-2026-134833",
+        "rsshub",
+        "ssrf",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--003dd11e-6b72-5943-8a73-a2bc6954b663",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--03c8d009-e130-5b44-b70d-b60405a76274",
+        "vulnerability--a8d034d8-d7e8-5e1b-9aea-1c4bb3b60b54"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-rsshub-cookie-leak-cve-2026-134833",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-rsshub-cookie-leak-cve-2026-134833/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134833"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/DIYgod/RSSHub/commit/e529e9b8cf3d529e405022d86e8a21da50c7e32b"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/DIYgod/RSSHub/security/advisories/GHSA-9rjj-q3cf-6p7r"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=00962C28-96A7-5598-87A2-099ECA84FBB7"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=00962C28-96A7-5598-87A2-099ECA84FBB7\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-rsshub-cookie-leak-cve-2026-134833",
+      "x_craftedsignal_event_id": "brief-2026-11-23-rsshub-cookie-leak-cve-2026-134833",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-rsshub-cookie-leak-cve-2026-134833/",
+      "x_craftedsignal_activity_at": "2026-11-23T13:31:44.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.3,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -384111,6 +384374,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--03c8d009-e130-5b44-b70d-b60405a76274",
+      "name": "RSSHub (\u003c 2026.11.01-8521.e529e9b)",
+      "vendor": "DIYgod"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--03d155bc-e171-5a32-b79f-41ecc7f6139f",
       "name": "phpMyFAQ (\u003c 4.1.12)",
       "vendor": "phpMyFAQ"
@@ -392035,6 +392305,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--471d89ae-9865-5bac-af98-81e6bfd4002e",
+      "name": "Sustainsys.Saml2 (\u003c 1.0.4, 2.0.0 - 2.11.0)",
+      "vendor": "Sustainsys"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4728efeb-35be-5cd9-891b-a7913141f718",
       "name": "NextScan (1.1.0 through 1.2.0)",
       "vendor": "NextScan"
@@ -399143,6 +399420,13 @@
       "id": "software--840e8385-3835-56c7-9a36-1cfbb92a451e",
       "name": "eParakstītājs 3.0",
       "vendor": "Latvijas Valsts radio un televīzijas centrs (LVRTC)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--842a5c45-30bd-5aac-8fdb-6b716793097c",
+      "name": "Langfuse (\u003c 4.82.0)",
+      "vendor": "Langfuse"
     },
     {
       "type": "software",
@@ -435557,6 +435841,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--423d8544-3bb4-5624-aae0-daddc3268621",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134822",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134822",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134822"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--4252fb61-f13b-527d-9ccf-5d8fc3d6c646",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -443535,6 +443835,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126846",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126846"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5ad3c92f-2b86-5539-aafb-0e5e3be198e8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134835",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134835",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134835"
         }
       ]
     },
@@ -470687,6 +471003,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114713",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114713"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a8d034d8-d7e8-5e1b-9aea-1c4bb3b60b54",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134833",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134833",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134833"
         }
       ]
     },
