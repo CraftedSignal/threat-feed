@@ -1,13 +1,41 @@
 ---
+brief_id: brief-2026-05-02-wordpress-auth-bypass
+event_id: brief-2026-05-02-wordpress-auth-bypass
+revision: 2
+activity_at: "2026-11-23T10:28:26Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-23T10:28:26Z"
+    checksum: sha256:93d5759caa36bee82b801309a55d5178cde392c1d82171b17a44cb051d7b05a5
+    summary: poc_available
+    changed_fields:
+      - cpes
+      - cve_verification
+      - cves
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SANGSENIMANWARTEFAK-CVE-2026-7458&utm_source=rss&utm_medium=rss
 title: WordPress User Verification Plugin Authentication Bypass Vulnerability
 slug: 2026-05-wordpress-auth-bypass
 description: The User Verification by PickPlugins plugin for WordPress is vulnerable to authentication bypass in versions up to 2.0.46 due to a loose PHP comparison, allowing unauthenticated attackers to log in as any verified user by submitting a 'true' OTP value.
 date: "2026-05-02T05:16:01Z"
+lastmod: "2026-11-23T10:28:11Z"
 type: threat
 types:
   - threat
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
+cpes:
+  - cpe:2.3:a:pickplugins:user_verification_by_pickplugins_plugin_for_wordpress_2_0_46:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SANGSENIMANWARTEFAK-CVE-2026-7458&utm_source=rss&utm_medium=rss
 tags:
   - wordpress
   - authentication bypass
@@ -21,13 +49,21 @@ mitre_ttps:
     tactic_name: Credential Access
     technique_id: T1555
     technique_name: Credentials from Password Stores
+cve_verification:
+  CVE-2026-7458:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-23T10:28:11.421789458Z
 cves:
   - id: CVE-2026-7458
     cvss: 9.8
+    epss: 0.00578
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-7458
   - https://www.wordfence.com/threat-intel/vulnerabilities/id/35b86488-8f68-4738-a9a8-76d0b7976165?source=cve
   - https://plugins.trac.wordpress.org/changeset/3519113/user-verification
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SANGSENIMANWARTEFAK-CVE-2026-7458&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect Attempted Authentication Bypass via True OTP
     description: Detects attempts to exploit the authentication bypass vulnerability (CVE-2026-7458) by submitting 'true' as an OTP value in WordPress logs.
@@ -54,7 +90,17 @@ rules:
       - webserver
       - linux
 rules_count: 2
+updates:
+  - at: "2026-11-23T10:28:11Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SANGSENIMANWARTEFAK-CVE-2026-7458&utm_source=rss&utm_medium=rss
 ---
+
+## Overview
 
 The User Verification by PickPlugins plugin, a popular WordPress plugin, contains a critical authentication bypass vulnerability (CVE-2026-7458) affecting all versions up to and including 2.0.46. The flaw resides within the `user_verification_form_wrap_process_otpLogin` function, where a loose PHP comparison operator is used to validate OTP codes. This weakness allows unauthenticated attackers to bypass the OTP verification process and log in as any user with a verified email address, potentially gaining administrative access. Successful exploitation requires the attacker to submit the string "true" as the OTP value. This vulnerability poses a significant risk to WordPress sites using the affected plugin, potentially leading to complete site compromise.
 

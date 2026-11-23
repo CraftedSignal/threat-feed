@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8e0e84f8-9214-5f26-a4d1-01bd0dcf25cd",
+  "id": "bundle--cc33994e-ad19-5f3a-874e-8dc4cedcd115",
   "objects": [
     {
       "type": "attack-pattern",
@@ -23599,6 +23599,17 @@
       "relationship_type": "uses",
       "source_ref": "report--61e6b2d8-884c-53c5-9e92-cf0fe79f0a0e",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--19cf4e81-0884-5e12-a1b2-3c3f0b1b48ce",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--79aeb8d2-cd30-5cee-bfab-7ad2297ad855",
+      "target_ref": "vulnerability--78114eda-b3ff-5460-8f22-543ae8a1022d"
     },
     {
       "type": "relationship",
@@ -87351,7 +87362,7 @@
       "id": "relationship--85489924-cfc5-57a0-a343-5e93cb06e15e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-22T22:40:48.000Z",
-      "modified": "2026-11-22T22:40:48.000Z",
+      "modified": "2026-11-23T10:28:26.000Z",
       "relationship_type": "uses",
       "source_ref": "report--b6e15626-a50d-530b-bc33-f32f213f1807",
       "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
@@ -104013,6 +104024,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a23a657b-d279-508d-9af6-458f15d627db",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--45f5111d-ee25-54fb-8f63-7676f843d7e9",
+      "target_ref": "vulnerability--78114eda-b3ff-5460-8f22-543ae8a1022d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a23e7dee-504d-59bb-9617-123b54b9d4be",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T10:27:02.000Z",
@@ -106513,7 +106535,7 @@
       "id": "relationship--a6578bec-4524-58db-9724-24cc036fa313",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-22T22:40:48.000Z",
-      "modified": "2026-11-22T22:40:48.000Z",
+      "modified": "2026-11-23T10:28:26.000Z",
       "relationship_type": "uses",
       "source_ref": "report--b6e15626-a50d-530b-bc33-f32f213f1807",
       "target_ref": "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b"
@@ -141039,6 +141061,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e14e9b02-9ef6-5326-94dc-d8d92fb6bd59",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5d0b644e-cd43-535a-9a31-0f98eae2d8d1",
+      "target_ref": "vulnerability--6f6e8a41-5357-5d97-a5f4-0809037737b4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e158d265-5c09-5a98-a6de-2eb110ad3c26",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T22:33:12.000Z",
@@ -154833,6 +154866,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f9055bbf-15e5-5711-a369-10fcb8c3f286",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T10:27:42.000Z",
+      "modified": "2026-11-23T10:27:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--09d912e5-acaf-5da7-8486-710b0cb53559",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f908104f-33a5-57bf-842b-bf5548127631",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T14:34:29.000Z",
@@ -163996,6 +164040,64 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--09d912e5-acaf-5da7-8486-710b0cb53559",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T10:27:42.000Z",
+      "modified": "2026-11-23T10:27:42.000Z",
+      "name": "Linkwarden: Incorrect authorization in archive upload handler (CVE-2026-134839)",
+      "description": "## Overview\nLinkwarden before version 2.17.0 contains an incorrect authorization vulnerability in the archive upload handler. The vulnerability, identified as CVE-2026-134839, stems from the use of a permission helper that incorrectly granted authorization based on general collection-level creation privileges rather than specific ownership or update privileges of the target link. This allows an authenticated collection member with 'canCreate' permission to modify links belonging to other users by sending a POST request to /api/v1/archives/\u0026lt;linkId\u003e.\n\n## Attack Chain\n1. Authenticated collection member with only 'canCreate' permission identifies a target link ID owned by another user.\n2. Attacker sends a POST request to /api/v1/archives/\u0026lt;linkId\u003e containing malicious archive content.\n3. The vulnerable archive upload handler permits the request, replacing the existing stored screenshot, PDF, readable, or HTML archive with the attacker-supplied content.\n\n## Impact\nAn authenticated collection member with restricted permissions can replace stored archive content (screenshots, PDFs, readables, or HTML) associated with links owned by other users. This results in the loss of data integrity for the affected archives.\n\n## Recommendation\nUpgrade Linkwarden to version 2.17.0 or later. This version contains the fix in commit ce14bce, which implements a link-aware authorization check ensuring that only authorized users (owners, those with update permissions, or the original creator) can replace archive content.",
+      "published": "2026-11-23T10:27:42.000Z",
+      "labels": [
+        "auth-bypass",
+        "cve",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5d0b644e-cd43-535a-9a31-0f98eae2d8d1",
+        "vulnerability--6f6e8a41-5357-5d97-a5f4-0809037737b4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-linkwarden-auth-bypass-cve-2026-134839",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linkwarden-auth-bypass-cve-2026-134839/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134839"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/linkwarden/linkwarden/commit/ce14bceccb1df77aa9b18a87a8584f87feeaa188"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/linkwarden/linkwarden/security/advisories/GHSA-475h-82h8-768x"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=01DF2545-745A-57D5-B341-978D22AB2D34\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-linkwarden-auth-bypass-cve-2026-134839",
+      "x_craftedsignal_event_id": "brief-2026-11-23-linkwarden-auth-bypass-cve-2026-134839",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linkwarden-auth-bypass-cve-2026-134839/",
+      "x_craftedsignal_activity_at": "2026-11-23T10:27:42.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 4.3,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -181560,6 +181662,64 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--27510c27-b1a7-5fb8-add2-0e46763f6ca0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T10:27:58.000Z",
+      "modified": "2026-11-23T10:27:58.000Z",
+      "name": "Frappe Dashboard Chart Widget Prototype Pollution",
+      "description": "## Overview\nFrappe before 15.126.0 and 16.x before 16.55.0 contains a prototype pollution vulnerability in the dashboard chart widget. An attacker with Dashboard Manager privileges can store __proto__ keys in custom_options. When a dashboard rendering the chart is viewed, Object.assign merges attacker properties into Object.prototype, altering Frappe desk client behavior for that session.\n\n## Attack Chain\n1. Authenticated user with Dashboard Manager role accesses dashboard chart widget settings.\n2. Malicious JSON input containing __proto__ key is stored in custom_options.\n3. Victim (including administrators) views the dashboard.\n4. Vulnerable merge loop executes, polluting the global Object.prototype in the victim's session.\n\n## Impact\nSuccessful exploitation alters Frappe desk client behavior for the victim's session by polluting the global Object.prototype.\n\n## Recommendation\nUpgrade Frappe to version 15.126.0 or 16.55.0, or apply the fix from commit 537ee17.",
+      "published": "2026-11-23T10:27:58.000Z",
+      "labels": [
+        "cve-2026-134837",
+        "frappe",
+        "prototype-pollution"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--45f5111d-ee25-54fb-8f63-7676f843d7e9",
+        "software--79aeb8d2-cd30-5cee-bfab-7ad2297ad855",
+        "vulnerability--78114eda-b3ff-5460-8f22-543ae8a1022d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-frappe-prototype-pollution-cve-2026-134837",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-frappe-prototype-pollution-cve-2026-134837/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134837"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/frappe/frappe/commit/537ee178ebbbd54ac1ee97883ff447e187c3a23c"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/frappe/frappe/security/advisories/GHSA-7xmv-238m-4ggp"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=2D5AB8A3-9102-5C78-A014-A72FA009B39B\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-frappe-prototype-pollution-cve-2026-134837",
+      "x_craftedsignal_event_id": "brief-2026-11-23-frappe-prototype-pollution-cve-2026-134837",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-frappe-prototype-pollution-cve-2026-134837/",
+      "x_craftedsignal_activity_at": "2026-11-23T10:27:58.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 4.6,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -268970,7 +269130,7 @@
       "id": "report--b6e15626-a50d-530b-bc33-f32f213f1807",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-22T22:40:48.000Z",
-      "modified": "2026-11-22T22:40:48.000Z",
+      "modified": "2026-11-23T10:28:26.000Z",
       "name": "Dashy: Credential disclosure via isLocalRequest (CVE-2026-134836)",
       "description": "## Overview\nDashy versions 4.0.0 up to 4.9.12 contain a credential disclosure vulnerability in the isLocalRequest function. The issue stems from insecure prefix-only origin checks that result in the application incorrectly attaching user credentials to lookalike hosts. \n\n## Attack Chain\n1. The attacker prepares a malicious infrastructure mimicking a trusted host.\n2. The attacker crafts a malicious URL containing a ?config= parameter pointing to the attacker-controlled host.\n3. The attacker lures an authenticated Dashy user to click the malicious link.\n4. The isLocalRequest function performs an insufficient origin check, allowing the browser to treat the attacker host as a valid origin.\n5. The application attaches the user's bearer tokens or HTTP authentication headers to the request directed at the attacker-controlled host.\n6. The attacker captures the transmitted credentials.\n7. The attacker uses the stolen credentials to access, read, or modify sensitive configuration and stored API keys.\n\n## Impact\nSuccessful exploitation allows unauthorized access to stored API keys and dashboard configuration. If the victim is an administrator, the attacker can modify configuration settings, potentially leading to full control over the affected Dashy instance.\n\n## Recommendation\nUpgrade Dashy to version 4.9.12 or later to include the patch for this vulnerability. As the vulnerability is triggered by user interaction with crafted links, organizations should advise users to exercise caution with unsolicited links targeting their dashboard environment. Monitor Dashy instance logs for unusual configuration access or modification patterns.",
       "published": "2026-11-22T22:40:48.000Z",
@@ -268994,14 +269154,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134836"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=3C759B0C-A54E-5BB9-9B56-6FBB838A7BEA\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-22-dashy-credential-disclosure-cve-2026-134836",
       "x_craftedsignal_event_id": "brief-2026-11-22-dashy-credential-disclosure-cve-2026-134836",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dashy-credential-disclosure-cve-2026-134836/",
-      "x_craftedsignal_activity_at": "2026-11-22T22:40:48.000Z",
+      "x_craftedsignal_activity_at": "2026-11-23T10:28:26.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -318796,6 +318960,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--45f5111d-ee25-54fb-8f63-7676f843d7e9",
+      "name": "Frappe (\u003c 15.126.0)",
+      "vendor": "Frappe"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--45f94eba-282d-5afb-b8af-824b8de0b61e",
       "name": "MongoDB Node.js driver",
       "vendor": "MongoDB"
@@ -320734,6 +320905,13 @@
       "id": "software--5cee76d7-c9e2-5f6c-8e42-95f0c13bddcb",
       "name": "Telco Cloud Platform (= 5.1.x)",
       "vendor": "VMware"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--5d0b644e-cd43-535a-9a31-0f98eae2d8d1",
+      "name": "Linkwarden (\u003c 2.17.0)",
+      "vendor": "Linkwarden"
     },
     {
       "type": "software",
@@ -323251,6 +323429,13 @@
       "id": "software--7983e565-60b0-58fc-9054-14cef3413099",
       "name": "Apache Iggy (\u003c 0.9.0)",
       "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--79aeb8d2-cd30-5cee-bfab-7ad2297ad855",
+      "name": "Frappe (\u003e= 16.0.0, \u003c 16.55.0)",
+      "vendor": "Frappe"
     },
     {
       "type": "software",
@@ -365624,6 +365809,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--6f6e8a41-5357-5d97-a5f4-0809037737b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134839",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134839",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134839"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--6f6f1b38-e8fa-5bc8-bfeb-cb3456a49d00",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -368018,6 +368219,22 @@
           "source_name": "cve",
           "external_id": "CVE-2024-46670",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-46670"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--78114eda-b3ff-5460-8f22-543ae8a1022d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134837",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134837",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134837"
         }
       ]
     },
