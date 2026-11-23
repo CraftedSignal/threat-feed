@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--19e31e93-4d34-56ea-9d00-6ccbfb81d466",
+  "id": "bundle--12b737c5-e0ce-5ca2-96c1-30360c105b97",
   "objects": [
     {
       "type": "attack-pattern",
@@ -47555,6 +47555,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--18a225ae-2141-53d1-acf0-ec357d947be6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3651df4d-c9bb-50fc-b6e5-0e41c159eb52",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T07:57:46.000Z",
+      "modified": "2026-11-23T07:57:46.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9a09dace-1a05-57a6-905d-b0c8e0aa2e71",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -172075,6 +172086,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--7151d340-81d2-5feb-8c87-024105d080b2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e367bfe9-0af9-5708-9def-2adb106b8aad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c18f895c-cae8-5e02-97a8-7b2c44e01848",
+      "target_ref": "vulnerability--b09e4bff-0f3b-501c-a85f-bd43078112e6"
     },
     {
       "type": "relationship",
@@ -306635,6 +306657,70 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9a09dace-1a05-57a6-905d-b0c8e0aa2e71",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T07:57:46.000Z",
+      "modified": "2026-11-23T07:57:46.000Z",
+      "name": "Bolt CMS: Authenticated Server-Side Request Forgery (CVE-2026-77380)",
+      "description": "## Overview\nBolt CMS versions prior to 6.1.5 contain an SSRF vulnerability in the /bolt/async/upload-url and /bolt/async/embed endpoints. The application validates the initial submitted URL but fails to re-validate subsequent redirect targets during the fetch process. An authenticated attacker can supply a malicious URL that redirects to internal-only resources, such as 127.0.0.1 or 169.254.169.254, bypassing existing security controls.\n\n## Attack Chain\n1. Attacker authenticates as an editor on the target Bolt instance.\n2. Attacker initiates a POST request to /bolt/async/upload-url or /bolt/async/embed with a controlled public URL.\n3. Bolt CMS performs an initial UrlSafetyChecker check on the attacker-supplied URL, which passes.\n4. Bolt CMS initiates a network fetch for the URL.\n5. The remote server responds with an HTTP 302 redirect to an internal or link-local address.\n6. The Bolt CMS fetcher follows the redirect blindly without re-validating the new destination against the UrlSafetyChecker.\n7. The application fetches the internal resource, exposing sensitive internal data or cloud metadata to the attacker.\n\n## Impact\nSuccessful exploitation allows an authenticated attacker to perform SSRF, potentially reading internal services, local loopback data, or cloud instance metadata (e.g., 169.254.169.254), which could lead to credential theft or further unauthorized access within the environment.\n\n## Recommendation\nUpgrade Bolt CMS to version 6.1.5 or later. The fix introduces a client that re-validates the address of every redirect hop using a policy that rejects internal and non-public IP addresses.",
+      "published": "2026-11-23T07:57:46.000Z",
+      "labels": [
+        "cve-2026-77380",
+        "ssrf",
+        "vulnerability",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c18f895c-cae8-5e02-97a8-7b2c44e01848",
+        "vulnerability--b09e4bff-0f3b-501c-a85f-bd43078112e6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-bolt-ssrf-cve-2026-77380",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-bolt-ssrf-cve-2026-77380/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-77380"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/bolt/core/commit/41d7aaf73f7b75c70819208cde513da70f0d2055"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/bolt/core/security/advisories/GHSA-3xjf-9q55-vxw4"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=D5FEDBB7-52AC-5CA4-A5A8-6AFA9780B047"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=D5FEDBB7-52AC-5CA4-A5A8-6AFA9780B047\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-bolt-ssrf-cve-2026-77380",
+      "x_craftedsignal_event_id": "brief-2026-11-23-bolt-ssrf-cve-2026-77380",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-bolt-ssrf-cve-2026-77380/",
+      "x_craftedsignal_activity_at": "2026-11-23T07:57:46.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.2,
+      "x_craftedsignal_epss_max": 0.00366,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9a0b0052-ba3d-5f61-8bd0-9fd2ae240fde",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T23:06:23.000Z",
@@ -404019,6 +404105,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c18f895c-cae8-5e02-97a8-7b2c44e01848",
+      "name": "Bolt CMS (\u003c 6.1.5)",
+      "vendor": "Bolt"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c1994208-9033-527f-a973-513420f6ae69",
       "name": "GeoNode (\u003c 5.1.0)",
       "vendor": "GeoNode"
@@ -471147,6 +471240,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118112",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118112"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b09e4bff-0f3b-501c-a85f-bd43078112e6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-77380",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-77380",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77380"
         }
       ]
     },
