@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--38f60ae6-2ba4-5759-9085-e1f39e29c6dc",
+  "id": "bundle--79d19dec-421c-584d-a976-ea05a2baea89",
   "objects": [
     {
       "type": "attack-pattern",
@@ -58863,6 +58863,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--55029cc5-df08-5eda-b398-11342fcb4cba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T18:37:26.000Z",
+      "modified": "2026-11-23T18:37:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1707d937-0c7c-5baf-8b88-33034b53375a",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--550b02f3-8f91-50c2-badc-0761e04c322c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -73511,6 +73522,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--8580d7f8-6a8c-562e-99a8-2cc0855a80ea"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6ce5e345-b086-5a5e-bd33-e17ba1c7793c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--eb0d10e9-6ada-5e50-b5d4-fea267859dc0",
+      "target_ref": "vulnerability--0bec724e-a12d-5ab7-8af4-390fd9ab4da7"
     },
     {
       "type": "relationship",
@@ -106185,6 +106207,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a3940cae-33e9-5aae-8f9a-be745ac56ae0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--03586afc-9b39-5840-ba58-14aa7f592398",
+      "target_ref": "vulnerability--e6eaba2d-3303-5309-b558-08ede1540269"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a3942a11-7ee0-50a8-9e6f-20b7e59c29fd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -131272,6 +131305,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--5333ac3f-a65f-5aee-9400-9efcaa7724a4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cce027c5-bf11-5b1e-b292-9e7650843a1f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T18:37:41.000Z",
+      "modified": "2026-11-23T18:37:41.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--fd5d9d93-e4f7-5491-87c9-be5277ad9c31",
+      "target_ref": "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88"
     },
     {
       "type": "relationship",
@@ -173889,6 +173933,56 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1707d937-0c7c-5baf-8b88-33034b53375a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T18:37:26.000Z",
+      "modified": "2026-11-23T18:37:26.000Z",
+      "name": "Dell Enterprise Sonic Distribution: Argument Injection Vulnerability (CVE-2026-103782)",
+      "description": "## Overview\nDell Enterprise Sonic Distribution, in versions prior to 4.6.1, contains an argument injection vulnerability. The vulnerability is assigned a CVSS v3.1 base score of 9.9.\n\n## Attack Chain\nA low-privileged remote attacker can potentially exploit this vulnerability, which, if successful, leads to arbitrary command execution and unauthorized access to filesystem resources.\n\n## Impact\nExploitation may result in arbitrary command execution and unauthorized access to filesystem resources on the affected network device.\n\n## Recommendation\n- Inventory all deployments of Dell Enterprise Sonic Distribution to identify versions prior to 4.6.1.\n- Monitor network device administrative logs for anomalous command execution patterns or unauthorized attempts to access filesystem paths. Note that while 4.6.1 is identified as a boundary version, official documentation confirming it as a remediated release is currently pending.",
+      "published": "2026-11-23T18:37:26.000Z",
+      "labels": [
+        "argument-injection",
+        "cve-2026-103782",
+        "rce"
+      ],
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--03586afc-9b39-5840-ba58-14aa7f592398",
+        "vulnerability--e6eaba2d-3303-5309-b558-08ede1540269"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-dell-sonic-argument-injection-cve-2026-103782",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dell-sonic-argument-injection-cve-2026-103782/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-103782"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103782"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-dell-sonic-argument-injection-cve-2026-103782",
+      "x_craftedsignal_event_id": "brief-2026-11-23-dell-sonic-argument-injection-cve-2026-103782",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dell-sonic-argument-injection-cve-2026-103782/",
+      "x_craftedsignal_activity_at": "2026-11-23T18:37:26.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -315958,6 +316052,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--fd5d9d93-e4f7-5491-87c9-be5277ad9c31",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T18:37:41.000Z",
+      "modified": "2026-11-23T18:37:41.000Z",
+      "name": "Astronomer astro-airflow-mcp arbitrary code execution (CVE-2026-133632)",
+      "description": "## Overview\nIn astronomer astro-airflow-mcp versions 0.5.0 through 0.9.1, the 'af' CLI and the MCP server send telemetry from a Python subprocess that can import modules from the current working directory. If a user runs an 'af' command or an MCP tool call from inside a project that contains an attacker-supplied json.py, that file runs with the user's privileges.\n\n## Impact\nSuccessful exploitation allows an attacker to execute arbitrary code with the same privileges as the user invoking the affected tools. Users who only run the tool in projects they trust are not affected.\n\n## Recommendation\n- Upgrade to version 0.9.2 or later, where this issue is fixed.\n- In earlier versions, setting the environment variable AF_TELEMETRY_DISABLED=1 prevents the issue.",
+      "published": "2026-11-23T18:37:41.000Z",
+      "labels": [
+        "rce"
+      ],
+      "object_refs": [
+        "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--eb0d10e9-6ada-5e50-b5d4-fea267859dc0",
+        "vulnerability--0bec724e-a12d-5ab7-8af4-390fd9ab4da7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-astro-airflow-mcp-rce-cve-2026-133632",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-astro-airflow-mcp-rce-cve-2026-133632/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-133632"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133632"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-astro-airflow-mcp-rce-cve-2026-133632",
+      "x_craftedsignal_event_id": "brief-2026-11-23-astro-airflow-mcp-rce-cve-2026-133632",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-astro-airflow-mcp-rce-cve-2026-133632/",
+      "x_craftedsignal_activity_at": "2026-11-23T18:37:41.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fd907132-814b-5cf5-9fdf-6e85a2059bc5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T19:20:34.000Z",
@@ -317951,6 +318093,13 @@
       "id": "software--0348d461-b37b-5fce-96b5-8f70f37f96b2",
       "name": "Linux kernel (6.6.102 and earlier)",
       "vendor": "Linux"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--03586afc-9b39-5840-ba58-14aa7f592398",
+      "name": "Enterprise Sonic Distribution",
+      "vendor": "Dell"
     },
     {
       "type": "software",
@@ -338565,6 +338714,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--eb0d10e9-6ada-5e50-b5d4-fea267859dc0",
+      "name": "astro-airflow-mcp (\u003e= 0.5.0, \u003c 0.9.2)",
+      "vendor": "astronomer"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--eb10a5bf-fb40-56d0-bb72-ca8a144d7dae",
       "name": "AIX",
       "vendor": "IBM"
@@ -344432,6 +344588,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-85776",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85776"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0bec724e-a12d-5ab7-8af4-390fd9ab4da7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-133632",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-133632",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133632"
         }
       ]
     },
@@ -406976,6 +407148,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116945",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116945"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e6eaba2d-3303-5309-b558-08ede1540269",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-103782",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-103782",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103782"
         }
       ]
     },
