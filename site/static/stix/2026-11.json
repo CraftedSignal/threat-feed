@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ae60f43e-41a0-5d0a-8f39-84f575608b98",
+  "id": "bundle--fcdc14d6-3ae1-5335-965f-89e92e607c3d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -30846,6 +30846,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--26108383-a184-5393-a816-327e3488ac2a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T18:09:33.000Z",
+      "modified": "2026-11-23T18:09:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--07188438-d5db-56a6-b354-a900514e1483",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--261157e7-d970-5cc3-b068-3492a1eca48c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -53792,6 +53803,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4cddb7b3-3beb-56d7-8380-5c8756b4ba1c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T18:10:22.000Z",
+      "modified": "2026-11-23T18:10:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b6afbd21-4603-5b96-970a-e503c59b12d5",
+      "target_ref": "attack-pattern--c3fae9c5-3a60-5c38-bcca-0af495891397"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4ce136b0-d487-5c81-a7c4-0e888ef3b393",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -62632,6 +62654,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--43fbd3c1-fea6-5fb1-ad19-ca63475ece49"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5b4945d7-ba9a-5268-a372-f4999f0aa2c7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--944673ee-a1a9-56fe-9fa9-16fd769d5b0b",
+      "target_ref": "vulnerability--e4da5897-bb6c-5224-9677-1016038d5efd"
     },
     {
       "type": "relationship",
@@ -78839,6 +78872,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--75f93552-eac5-5d5b-956e-adbcd04738f0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e5a49726-6bcf-5c68-b5cc-24b060c1bb7a",
+      "target_ref": "vulnerability--e2796e87-5834-589f-8361-0218962e0d2c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--75fc8397-7d86-54b0-8709-84c338e05bff",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -78879,6 +78923,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--aad7ff9c-43fd-5d4a-a966-0de955edac75"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--760a027d-ff2d-5fe7-b857-a9f8eb47fc58",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--18fe30a4-f5e2-5f5c-b305-eb53d800f113",
+      "target_ref": "vulnerability--d4096b99-f187-537d-95ce-c13edb837daf"
     },
     {
       "type": "relationship",
@@ -79253,6 +79308,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--6697036d-9074-5295-9e31-f0eb740db93f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--76b232c5-39e9-5e70-842e-54878179b2fd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--944673ee-a1a9-56fe-9fa9-16fd769d5b0b",
+      "target_ref": "vulnerability--d4096b99-f187-537d-95ce-c13edb837daf"
     },
     {
       "type": "relationship",
@@ -113104,6 +113170,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--af032683-b6f0-5221-95b1-9ecf88af6195",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ad4b2761-3888-535f-bfd7-95e24b77a98a",
+      "target_ref": "vulnerability--e2796e87-5834-589f-8361-0218962e0d2c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--af04a282-6c99-5637-b08c-e5d2d7d21594",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -135984,6 +136061,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d572a83f-2b25-5d8c-8045-a36480aa473e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4f43e7cf-232b-5a04-8f10-4a0e04ee57b1",
+      "target_ref": "vulnerability--e4da5897-bb6c-5224-9677-1016038d5efd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d5752ec8-93b9-58df-92e5-96108413d301",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -138818,6 +138906,17 @@
       "relationship_type": "has",
       "source_ref": "software--2eda771b-54c6-51e3-a2fb-770cf2a716d6",
       "target_ref": "vulnerability--83dc72c4-1878-540d-9929-2b61a9db04a2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--daa8f399-0098-5b31-94b7-226c93d8df8b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T18:10:13.000Z",
+      "modified": "2026-11-23T18:10:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7ad208ac-6461-5d43-91d4-9e2f62c73cf9",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -151384,6 +151483,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f056310a-1d06-5b54-bbbc-07e7dd20309a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--18fe30a4-f5e2-5f5c-b305-eb53d800f113",
+      "target_ref": "vulnerability--e4da5897-bb6c-5224-9677-1016038d5efd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f0587a6a-22aa-57ad-bd9e-aeb0777840b5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -152095,6 +152205,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--f82d5911-ccf9-5ba7-ba16-7ea53d5ae1ff"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f170ac1c-0b70-50cd-b6cb-bca370fc6e33",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--754ea5cb-c6fb-5868-a9af-54ff8180b699",
+      "target_ref": "vulnerability--e2796e87-5834-589f-8361-0218962e0d2c"
     },
     {
       "type": "relationship",
@@ -159205,6 +159326,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--fd465cf0-7a77-5010-a9b6-7518d0119b59",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4f43e7cf-232b-5a04-8f10-4a0e04ee57b1",
+      "target_ref": "vulnerability--d4096b99-f187-537d-95ce-c13edb837daf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--fd4961e2-2d62-5ec7-884a-4b3c288fe0ae",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -164460,6 +164592,54 @@
       },
       "x_craftedsignal_cvss_max": 5.3,
       "x_craftedsignal_epss_max": 0.00315,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--07188438-d5db-56a6-b354-a900514e1483",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T18:09:33.000Z",
+      "modified": "2026-11-23T18:09:33.000Z",
+      "name": "F5 BIG-IP Traffic Management Microkernel denial of service (CVE-2026-121812)",
+      "description": "## Overview\nA vulnerability exists in F5 BIG-IP when the APM module is provisioned and specific configurations are active. If an APM access profile and a per-request policy are configured on a virtual server, and the 'tmm.access.policytrace' database key is enabled, an attacker can trigger a termination of the Traffic Management Microkernel (TMM). The 'tmm.access.policytrace' key is disabled by default.\n\n## Impact\nSuccessful exploitation results in a denial-of-service condition as the TMM process terminates and restarts, disrupting traffic. This issue is limited to the data plane and does not provide control plane access.\n\n## Recommendation\nEnsure the 'tmm.access.policytrace' database key is set to disabled, which is the default configuration. Upgrade to the following versions or later to resolve the underlying vulnerability:\n- BIG-IP 21.1.0: upgrade to 21.1.0.3\n- BIG-IP 17.5.0: upgrade to 17.5.1.10\n- BIG-IP 17.1.0: upgrade to 17.1.3.6",
+      "published": "2026-11-23T18:09:33.000Z",
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--18fe30a4-f5e2-5f5c-b305-eb53d800f113",
+        "software--4f43e7cf-232b-5a04-8f10-4a0e04ee57b1",
+        "software--944673ee-a1a9-56fe-9fa9-16fd769d5b0b",
+        "vulnerability--d4096b99-f187-537d-95ce-c13edb837daf"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-f5-big-ip-dos-cve-2026-121812",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-f5-big-ip-dos-cve-2026-121812/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-121812"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121812"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-f5-big-ip-dos-cve-2026-121812",
+      "x_craftedsignal_event_id": "brief-2026-11-23-f5-big-ip-dos-cve-2026-121812",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-f5-big-ip-dos-cve-2026-121812/",
+      "x_craftedsignal_activity_at": "2026-11-23T18:09:33.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00513,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -236331,6 +236511,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--7ad208ac-6461-5d43-91d4-9e2f62c73cf9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T18:10:13.000Z",
+      "modified": "2026-11-23T18:10:13.000Z",
+      "name": "F5 BIG-IP: Access Policy Manager denial-of-service (CVE-2026-126336)",
+      "description": "## Overview\nA vulnerability in F5 BIG-IP Access Policy Manager (APM) exists when an APM Access profile is configured with a SAML Service Provider (SP) agent and encrypted assertions. Undisclosed, specifically crafted requests to this configuration cause the Traffic Management Microkernel (TMM) to terminate, leading to a denial-of-service. This is a data plane issue and does not provide control plane access.\n\n## Impact\nSuccessful exploitation results in the disruption of traffic while the TMM process restarts. The vulnerability is exploitable by an unauthenticated remote attacker.\n\n## Recommendation\n- Upgrade F5 BIG-IP to the following patched versions or later:\n - For 21.1.0 branch: 21.1.0.3\n - For 17.5.0 branch: 17.5.1.10\n - For 17.1.0 branch: 17.1.3.6\n- As a temporary mitigation, F5 recommends configuring High Availability (HA) to minimize the impact of TMM restarts.",
+      "published": "2026-11-23T18:10:13.000Z",
+      "labels": [
+        "CVE-2026-126336",
+        "attack.impact"
+      ],
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--18fe30a4-f5e2-5f5c-b305-eb53d800f113",
+        "software--4f43e7cf-232b-5a04-8f10-4a0e04ee57b1",
+        "software--944673ee-a1a9-56fe-9fa9-16fd769d5b0b",
+        "vulnerability--e4da5897-bb6c-5224-9677-1016038d5efd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-big-ip-apm-dos-cve-2026-126336",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-big-ip-apm-dos-cve-2026-126336/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126336"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126336"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-big-ip-apm-dos-cve-2026-126336",
+      "x_craftedsignal_event_id": "brief-2026-11-23-big-ip-apm-dos-cve-2026-126336",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-big-ip-apm-dos-cve-2026-126336/",
+      "x_craftedsignal_activity_at": "2026-11-23T18:10:13.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00448,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--7aeb2757-a7f9-5df1-95b6-d788e620efc7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:43:12.000Z",
@@ -272684,6 +272916,58 @@
         "status": "unknown"
       },
       "x_craftedsignal_epss_max": 0.00531,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b6afbd21-4603-5b96-970a-e503c59b12d5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T18:10:22.000Z",
+      "modified": "2026-11-23T18:10:22.000Z",
+      "name": "F5 BIG-IP: Denial of service in Access Policy Manager (CVE-2026-126822)",
+      "description": "## Overview\n\nWhen the F5 BIG-IP Access Policy Manager (APM) is provisioned with an Access Profile configured as a SAML Service Provider (SP) and applied to a virtual server, specific undisclosed requests can cause the Traffic Management Microkernel (TMM) to terminate. This vulnerability affects the data plane and does not expose the control plane.\n\n## Impact\n\nExploitation results in a denial-of-service (DoS) condition on the affected BIG-IP system. Network traffic is disrupted while the TMM process restarts. The vulnerability is exploitable by a remote, unauthenticated attacker.\n\n## Recommendation\n\n- If SAML SP functionality is not required, remove the SAML Auth agent from the APM access policy.\n- Restrict network access to the virtual server hosting the SAML SP to only trusted client networks.\n- Monitor BIG-IP system logs for recurring TMM process restarts or service unavailability associated with SAML-configured virtual servers.",
+      "published": "2026-11-23T18:10:22.000Z",
+      "labels": [
+        "denial-of-service",
+        "network"
+      ],
+      "object_refs": [
+        "attack-pattern--c3fae9c5-3a60-5c38-bcca-0af495891397",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--754ea5cb-c6fb-5868-a9af-54ff8180b699",
+        "software--ad4b2761-3888-535f-bfd7-95e24b77a98a",
+        "software--e5a49726-6bcf-5c68-b5cc-24b060c1bb7a",
+        "vulnerability--e2796e87-5834-589f-8361-0218962e0d2c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-f5-big-ip-cve-2026-126822",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-f5-big-ip-cve-2026-126822/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126822"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126822"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-f5-big-ip-cve-2026-126822",
+      "x_craftedsignal_event_id": "brief-2026-11-23-f5-big-ip-cve-2026-126822",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-f5-big-ip-cve-2026-126822/",
+      "x_craftedsignal_activity_at": "2026-11-23T18:10:22.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00485,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -319432,6 +319716,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--18fe30a4-f5e2-5f5c-b305-eb53d800f113",
+      "name": "BIG-IP (21.1.0 \u003c 21.1.0.3)",
+      "vendor": "F5"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--190495bb-2ff2-5d4e-a452-eeab3c53f039",
       "name": "panel",
       "vendor": "Ctrlpanel-gg"
@@ -324262,6 +324553,13 @@
       "id": "software--4f0b9ade-7090-5267-ac6b-d6dc318b8d12",
       "name": "Prisma Access (\u003c 10.2.10-h43)",
       "vendor": "Palo Alto Networks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4f43e7cf-232b-5a04-8f10-4a0e04ee57b1",
+      "name": "BIG-IP (17.5.0 \u003c 17.5.1.10)",
+      "vendor": "F5"
     },
     {
       "type": "software",
@@ -330287,6 +330585,13 @@
       "id": "software--943e47af-e941-5ac3-b554-9a5e2d70f939",
       "name": "Sound Blaster Audigy 5/Rx driver",
       "vendor": "Creative Labs"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--944673ee-a1a9-56fe-9fa9-16fd769d5b0b",
+      "name": "BIG-IP (17.1.0 \u003c 17.1.3.6)",
+      "vendor": "F5"
     },
     {
       "type": "software",
@@ -400635,6 +400940,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--d4096b99-f187-537d-95ce-c13edb837daf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121812",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121812",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121812"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--d4186433-bedf-538e-8a63-290f4f9ad6c7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -404811,6 +405132,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--e2796e87-5834-589f-8361-0218962e0d2c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126822",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126822",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126822"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--e27d4fb1-0315-5fe9-89ad-aaf15c20c437",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -405493,6 +405830,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-129811",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129811"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e4da5897-bb6c-5224-9677-1016038d5efd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126336",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126336",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126336"
         }
       ]
     },
