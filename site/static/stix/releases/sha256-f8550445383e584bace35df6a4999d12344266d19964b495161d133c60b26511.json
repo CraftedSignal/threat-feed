@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1d45e36f-5239-542c-abd7-c14833f062f0",
+  "id": "bundle--ec8706eb-c775-5cda-b6f3-2bf8261add6c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -232692,6 +232692,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--35dd3619-3800-5ea7-ac25-a79db63c2c4a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T10:42:28.000Z",
+      "modified": "2026-11-23T10:42:28.000Z",
+      "name": "ClamAV and Cisco Secure Endpoint Connector: Multiple vulnerabilities",
+      "description": "## Overview\n\nThe BSI has reported multiple vulnerabilities affecting ClamAV and the Cisco Secure Endpoint Connector. These flaws allow a remote, anonymous attacker to bypass existing security controls, perform data manipulation, and cause a denial-of-service condition within the affected software. Specific CVE identifiers and technical details for these vulnerabilities are currently undisclosed in the primary advisory. Administrators are advised to monitor the vendor security portals for upcoming patches and remediation steps.\n\n## Impact\n\nSuccessful exploitation could result in the compromise of security control integrity, unauthorized data manipulation, and system instability leading to a denial-of-service (DoS) state.\n\n## Recommendation\n\n1. Inventory all instances of ClamAV and Cisco Secure Endpoint Connector within the environment.\n2. Monitor vendor security advisories from Cisco for specific version releases and patch guidance to remediate these vulnerabilities.\n3. Implement network segmentation and access controls to limit remote exposure of instances running affected software until security updates are applied.",
+      "published": "2026-11-23T10:42:28.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--79e54f42-b73d-5ded-9f72-e49f4988818e",
+        "software--b7e860e8-4896-515e-98f2-babf832b19ba"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-clamav-cisco-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-clamav-cisco-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4662"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-clamav-cisco-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-23-clamav-cisco-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-clamav-cisco-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-23T10:42:28.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--35e091f5-1da5-5c4f-9557-20b18fc15f1a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T21:51:26.000Z",
@@ -396486,6 +396525,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--79e54f42-b73d-5ded-9f72-e49f4988818e",
+      "name": "Secure Endpoint Connector",
+      "vendor": "Cisco"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--79fbfbe1-df36-55f9-83df-be231b2bf3c6",
       "name": "OpenManage Ansible Modules (2.1.2-10.0.3)",
       "vendor": "Dell"
@@ -403480,6 +403526,13 @@
       "id": "software--b7c0b5e9-27e3-535c-9137-89938b6c7983",
       "name": "Linux kernel (\u003e= 4.7.1, \u003c 5.10.271)",
       "vendor": "Linux"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b7e860e8-4896-515e-98f2-babf832b19ba",
+      "name": "ClamAV",
+      "vendor": "Cisco"
     },
     {
       "type": "software",
