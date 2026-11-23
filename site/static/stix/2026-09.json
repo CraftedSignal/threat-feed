@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6ddcda52-8ec2-5f2c-9137-cd030538e35a",
+  "id": "bundle--1355e7dd-468a-50b9-996d-f063b81d25c7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -34211,7 +34211,7 @@
       "id": "relationship--9c0a04eb-958e-567a-929a-e245531c778e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-01T07:03:52.000Z",
-      "modified": "2026-09-19T20:58:41.000Z",
+      "modified": "2026-11-23T19:44:21.000Z",
       "relationship_type": "uses",
       "source_ref": "report--821c8bbe-f750-5d5b-84f1-78abf0e4a634",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -91391,14 +91391,16 @@
       "id": "report--821c8bbe-f750-5d5b-84f1-78abf0e4a634",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-01T07:03:52.000Z",
-      "modified": "2026-09-19T20:58:41.000Z",
-      "name": "Arbitrary File Deletion in Frontend Admin Plugin for WordPress",
-      "description": "## Overview\n\nThe Frontend Admin by DynamiApps plugin for WordPress, in versions up to and including 3.29.12, contains a critical security flaw in the 'move_folders' function. The vulnerability arises from insufficient validation of file paths, which permits an attacker to delete arbitrary files on the underlying server. \n\nThis flaw is particularly dangerous because it is exploitable by unauthenticated users when a form is configured with public visibility settings (who_can_see='all'). In such cases, the nonce required to perform the action is exposed within the rendered form, allowing attackers to bypass standard authorization checks. Successful exploitation involves sending a crafted request to the plugin's endpoint, which, if successful, can lead to the deletion of sensitive files such as 'wp-config.php'. The removal of such core configuration files can trigger re-installation flows or expose database credentials, ultimately enabling an attacker to gain remote code execution or complete system compromise.\n\n## Impact\n\nThe vulnerability poses a severe risk to WordPress installations utilizing the Frontend Admin plugin. If exploited, an attacker can delete arbitrary files, leading to site defacement, service disruption, or total system compromise via remote code execution. The exploit is accessible to unauthenticated remote attackers, making it a high-priority target for automated scanning and mass exploitation efforts.\n\n## Recommendation\n\n- Update the Frontend Admin plugin to a version released after 3.29.12 immediately to incorporate necessary input validation patches.\n- Audit all forms configured within the Frontend Admin plugin and restrict visibility settings from 'all' to authenticated roles until the update is applied.\n- Monitor web server access logs for anomalous POST requests targeting the plugin's path and 'move_folders' related parameters.\n- Verify file system integrity for critical WordPress files such as 'wp-config.php' and '.htaccess'.\n",
+      "modified": "2026-11-23T19:44:21.000Z",
+      "name": "Frontend Admin by DynamiApps: Arbitrary File Deletion (CVE-2026-19952)",
+      "description": "## Overview\n\nThe Frontend Admin by DynamiApps WordPress plugin is vulnerable to arbitrary file deletion due to insufficient path validation in the move_folders function. Versions up to and including 3.29.12 are affected. An attacker can exploit this by submitting a crafted post title containing directory traversal sequences, which the plugin processes via the [acf:post_title] merge tag. When a form is configured with public visibility (who_can_see='all'), this action can be performed without authentication, as the required nonce is publicly accessible. Successful deletion of critical files such as wp-config.php or index.php can result in remote code execution.\n\n## Attack Chain\n\n1. Attacker identifies a WordPress site using Frontend Admin with a publicly accessible form (who_can_see='all').\n2. Attacker retrieves the required nonce from the rendered form HTML.\n3. Attacker crafts a POST request to the plugin endpoint.\n4. Attacker includes a post title parameter containing a directory traversal payload (e.g., ../poc19952).\n5. The move_folders function processes the payload using the [acf:post_title] merge tag without adequate path sanitization.\n6. The plugin deletes the specified file or directory path relative to the WordPress upload base directory.\n7. Attacker repeats the process to delete security-sensitive files to achieve remote code execution or application compromise.\n\n## Impact\n\nConfirmed impact includes the ability for an unauthenticated user to delete arbitrary files on the WordPress server. This can lead to total application compromise, including remote code execution, if critical configuration or core files are removed.\n\n## Recommendation\n\nUpdate the Frontend Admin by DynamiApps plugin to version 3.29.13 or later immediately. This version introduces get_safe_upload_dir to properly sanitize file paths.",
       "published": "2026-09-01T07:03:52.000Z",
       "labels": [
         "arbitrary-file-deletion",
         "cve-2026-19952",
+        "rce",
         "remote-code-execution",
+        "vulnerability",
         "wordpress"
       ],
       "object_refs": [
@@ -91416,19 +91418,35 @@
         },
         {
           "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-19952"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-3rrx-59q7-9g4m"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19952"
         },
         {
           "source_name": "reference",
           "url": "https://sploitus.com/exploit?id=717ED617-F5D0-5276-A354-94701E253E14\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ABRAXAS-CVE-2026-19952\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/55ec5101-6494-4180-9492-03863e839ad2"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-09-01-cve-2026-19952",
       "x_craftedsignal_event_id": "brief-2026-09-01-cve-2026-19952",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-cve-2026-19952/",
-      "x_craftedsignal_activity_at": "2026-09-19T20:58:41.000Z",
+      "x_craftedsignal_activity_at": "2026-11-23T19:44:21.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -91436,7 +91454,7 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_epss_max": 0.0078,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
