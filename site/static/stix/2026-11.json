@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3905405a-2613-55f5-aef4-1134f76dc2e2",
+  "id": "bundle--38f22d9a-bcbc-58b5-bc04-e9f7bee3656b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20706,6 +20706,17 @@
       "relationship_type": "has",
       "source_ref": "software--31fc8df9-4ace-589e-9da6-30d22cdb9347",
       "target_ref": "vulnerability--740e59ad-9dce-58bb-8dcc-ee11942201bf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--156fc33b-ff1a-5fb4-8853-b4e38cc93855",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5fd6fb46-f491-554a-a55e-f5acd3b10fd6",
+      "target_ref": "vulnerability--712b902c-88cb-5656-b943-5ed841811437"
     },
     {
       "type": "relationship",
@@ -121580,6 +121591,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bfe98620-c074-5363-8935-80a2ebaf2579",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T04:48:10.000Z",
+      "modified": "2026-11-23T04:48:10.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--46aa4531-245a-55ea-af83-74ba016ac147",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c00192f7-1ad1-5a53-b664-9befcb563db7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -124931,6 +124953,17 @@
       "relationship_type": "has",
       "source_ref": "software--e9bdc42d-8dcc-53c3-a52b-da1865dafd95",
       "target_ref": "vulnerability--807b5e13-863b-5eef-bb4e-66debaa20686"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c5e5ffd2-68ae-5635-a807-8678b1453e34",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6a9e2d22-0489-59ae-b31a-dbea70dca15f",
+      "target_ref": "vulnerability--87f02050-c198-5496-884f-b68eb555ea2f"
     },
     {
       "type": "relationship",
@@ -175984,6 +176017,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--1e5e3701-3863-565c-bdfb-7bae4cc1da92",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T04:48:03.000Z",
+      "modified": "2026-11-23T04:48:03.000Z",
+      "name": "DumbWareio DumbAssets Settings API manipulation (CVE-2026-134789)",
+      "description": "## Overview\nA vulnerability exists in the Settings API component of DumbWareio DumbAssets, specifically within the server.js file. An attacker can remotely manipulate the appriseUrl argument, which may lead to dynamically-determined object attributes. The vendor has not responded to disclosure attempts, and no fixed version is currently available.\n\n## Impact\nSuccessful exploitation allows a remote, unauthenticated attacker to influence object attributes, potentially leading to unauthorized logic execution or other unintended behavior within the application.\n\n## Recommendation\n- Inventory all instances of DumbWareio DumbAssets within the environment.\n- Monitor network traffic directed toward the Settings API endpoint for requests containing the appriseUrl argument.\n- Restrict network access to the application if possible, as the vendor has not provided a patch.",
+      "published": "2026-11-23T04:48:03.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6a9e2d22-0489-59ae-b31a-dbea70dca15f",
+        "vulnerability--87f02050-c198-5496-884f-b68eb555ea2f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-dumbassets-cve-2026-134789",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dumbassets-cve-2026-134789/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134789"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134789"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-dumbassets-cve-2026-134789",
+      "x_craftedsignal_event_id": "brief-2026-11-23-dumbassets-cve-2026-134789",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dumbassets-cve-2026-134789/",
+      "x_craftedsignal_activity_at": "2026-11-23T04:48:03.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--1e607fc0-a0ab-5e1e-af9d-aa466fdbc85f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:19:57.000Z",
@@ -201655,6 +201732,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.4,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--46aa4531-245a-55ea-af83-74ba016ac147",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T04:48:10.000Z",
+      "modified": "2026-11-23T04:48:10.000Z",
+      "name": "aceberg WatchYourLAN: Server-side request forgery (CVE-2026-134850)",
+      "description": "## Overview\nA vulnerability exists in the getPortState function within the Web API component of aceberg WatchYourLAN (up to version 2.1.4). An attacker can supply a crafted addr argument to the backend API, resulting in a server-side request forgery (SSRF). The vendor was notified but did not provide a response or patch at the time of disclosure.\n\n## Impact\nSuccessful exploitation allows an unauthenticated, remote attacker to perform requests on behalf of the application, potentially leading to unauthorized access to internal network resources.\n\n## Recommendation\n- Inventory all instances of WatchYourLAN versions 2.1.4 and earlier.\n- Since no vendor fix is currently available, implement network-level segmentation or restrict access to the Web API to trusted internal IP addresses only.\n- Monitor network traffic originating from the WatchYourLAN host for unauthorized or unexpected outbound connections to internal systems.",
+      "published": "2026-11-23T04:48:10.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5fd6fb46-f491-554a-a55e-f5acd3b10fd6",
+        "vulnerability--712b902c-88cb-5656-b943-5ed841811437"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-watchyourlan-ssrf-cve-2026-134850",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-watchyourlan-ssrf-cve-2026-134850/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134850"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134850"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-watchyourlan-ssrf-cve-2026-134850",
+      "x_craftedsignal_event_id": "brief-2026-11-23-watchyourlan-ssrf-cve-2026-134850",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-watchyourlan-ssrf-cve-2026-134850/",
+      "x_craftedsignal_activity_at": "2026-11-23T04:48:10.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -319510,6 +319632,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5fd6fb46-f491-554a-a55e-f5acd3b10fd6",
+      "name": "WatchYourLAN (\u003c= 2.1.4)",
+      "vendor": "aceberg"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5fd8b0d6-23f7-51a4-8667-63127a7ed8d7",
       "name": "Universal Profiling"
     },
@@ -320513,6 +320642,13 @@
       "id": "software--6a72588f-c593-5e8d-a37c-e45747db2740",
       "name": "FlexPLM",
       "vendor": "PTC"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6a9e2d22-0489-59ae-b31a-dbea70dca15f",
+      "name": "DumbAssets (\u003c= 1.0.11)",
+      "vendor": "DumbWareio"
     },
     {
       "type": "software",
@@ -364411,6 +364547,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--712b902c-88cb-5656-b943-5ed841811437",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134850",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134850",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134850"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--7136517e-fcf3-5dde-84ad-19c85884fb09",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -370853,6 +371005,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124216",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124216"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--87f02050-c198-5496-884f-b68eb555ea2f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134789",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134789",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134789"
         }
       ]
     },
