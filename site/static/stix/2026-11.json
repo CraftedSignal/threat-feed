@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7d874bb9-2818-5814-a315-d3c15c7940d5",
+  "id": "bundle--2f30f68a-48fb-5f9b-a74b-48a03f44436b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -39109,6 +39109,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--85054252-8778-5768-94db-5df92e1015c7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3505d101-5a95-5093-9d4e-20a3810c85f3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T05:58:40.000Z",
+      "modified": "2026-11-23T05:58:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a4f54920-e8d6-532b-8a11-eced35f223ee",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -117928,6 +117939,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b97bdb2c-d5db-59c4-8305-2c442a5d971c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T05:58:40.000Z",
+      "modified": "2026-11-23T05:58:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a4f54920-e8d6-532b-8a11-eced35f223ee",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b97d3863-78c7-546f-8419-e2a2d903c0cc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:42:52.000Z",
@@ -131938,6 +131960,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--6dac0643-0ce6-524b-90bf-0090a1e44232"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d152856d-62e1-53e1-9142-f544c0afa2ef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--60bedc87-d9b6-54cf-979c-e8e91a4a479c",
+      "target_ref": "vulnerability--c378ab00-4070-5eb1-9a55-fe18345b7183"
     },
     {
       "type": "relationship",
@@ -258608,6 +258641,67 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a4f54920-e8d6-532b-8a11-eced35f223ee",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T05:58:40.000Z",
+      "modified": "2026-11-23T05:58:40.000Z",
+      "name": "Veeam Backup and Replication deserialization remote code execution (CVE-2024-40711)",
+      "description": "## Overview\n\nVeeam Backup and Replication contains a critical deserialization vulnerability (CVE-2024-40711) that allows unauthenticated remote attackers to execute arbitrary code. The issue resides in the handling of untrusted data via the BinaryFormatter gadget, which can be leveraged to trigger remote code execution without user interaction. Exploitation has been documented, with public proof-of-concept code available.\n\n## Attack Chain\n\n1. The attacker identifies an internet-exposed Veeam Backup and Replication instance.\n2. The attacker initiates a request to the service that triggers the vulnerable deserialization process.\n3. A malicious payload, wrapped in a CDbCryptoKeyInfo custom gadget, is sent to the target.\n4. The target service deserializes the untrusted payload via the vulnerable BinaryFormatter.\n5. The payload executes arbitrary commands on the underlying system, such as spawning mspaint.exe or other malicious binaries.\n\n## Impact\n\nSuccessful exploitation results in full, unauthenticated remote code execution on the affected Veeam Backup and Replication server, providing the attacker with system-level control over backup infrastructure.\n\n## Recommendation\n\n1. Immediately audit the environment to inventory all Veeam Backup and Replication instances and identify versions prior to 12.2.0.334.\n2. Upgrade all instances to Veeam Backup and Replication 12.2.0.334 or later to remediate the vulnerability as documented in KB4649.\n3. Implement strict network segmentation to restrict access to the Veeam management service to authorized administrative networks only.\n4. Monitor endpoint process execution logs for anomalous child processes spawned by Veeam services.",
+      "published": "2026-11-23T05:58:40.000Z",
+      "labels": [
+        "cve-2024-40711",
+        "rce",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--60bedc87-d9b6-54cf-979c-e8e91a4a479c",
+        "vulnerability--c378ab00-4070-5eb1-9a55-fe18345b7183"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-veeam-cve-2024-40711",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-veeam-cve-2024-40711/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2024-40711"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://labs.watchtowr.com/veeam-backup-response-rce-with-auth-but-mostly-without-auth-cve-2024-40711-2/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-WATCHTOWRLABS-CVE-2024-40711\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.veeam.com/kb4649"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-veeam-cve-2024-40711",
+      "x_craftedsignal_event_id": "brief-2026-11-23-veeam-cve-2024-40711",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-veeam-cve-2024-40711/",
+      "x_craftedsignal_activity_at": "2026-11-23T05:58:40.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-11-23T05:58:40.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_kev_status": "true"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a4f84348-d1b3-5e99-8832-3fca772ec0c8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T03:35:45.000Z",
@@ -319896,6 +319990,13 @@
       "id": "software--60bca116-ee86-5b01-b4a6-75c5f69c7590",
       "name": "Microsoft Office LTSC 2021 (\u003c 16.0.14334.21048)",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--60bedc87-d9b6-54cf-979c-e8e91a4a479c",
+      "name": "Backup and Replication (\u003c 12.2.0.334)",
+      "vendor": "Veeam"
     },
     {
       "type": "software",
