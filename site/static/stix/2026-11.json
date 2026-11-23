@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--18fa80ad-39da-5bdc-a102-bf1410271631",
+  "id": "bundle--7f3f192a-ccf6-5cf3-b155-fadcc2344efe",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16838,6 +16838,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0ed0df9d-250b-5031-b3b5-4eb3a56fafba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d121b4c6-6df5-5707-ba23-2f9ce080654e",
+      "target_ref": "vulnerability--c3993ef5-c42c-5d51-9018-6ea36a361838"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0ed56954-2e44-5cff-bf8f-8c3a32e43b48",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18077,6 +18088,17 @@
       "relationship_type": "uses",
       "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
       "target_ref": "indicator--697f1973-915b-581c-840f-79039d1ef276"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--108f0e29-2390-5f84-b47b-3d68505f2537",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e2c69551-a753-5ce7-a6bf-d370d73b8bf4",
+      "target_ref": "vulnerability--1fea713a-7d76-59ea-b9e4-bdf19691dace"
     },
     {
       "type": "relationship",
@@ -40620,6 +40642,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--379bedab-b75d-5531-a361-5e5f6675c05d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--54f4aac2-b414-582e-b247-9d8a5ce0e965",
+      "target_ref": "vulnerability--7cec0a85-1172-5a4c-b601-c00445a3e1e6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--379cea38-41d9-500b-92ff-15bf757ff3e0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -52364,6 +52397,17 @@
       "relationship_type": "has",
       "source_ref": "software--7ccc1751-3f28-5098-a697-b9f899b1ee6f",
       "target_ref": "vulnerability--d6906d7e-e7ba-5dca-a174-124e40e18bd5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4b5fc349-86db-532e-ab06-9b6355745e49",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0e8eb884-a47d-5ab9-a8d5-3d0a9be2300e",
+      "target_ref": "vulnerability--f85f5eaf-d627-5ad9-86f2-b45622b08651"
     },
     {
       "type": "relationship",
@@ -81738,6 +81782,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7bf3d0f8-83a6-5ab8-b09a-e26f825584c6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T22:39:55.000Z",
+      "modified": "2026-11-23T12:27:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--01d5ac3c-2e9f-5630-ad01-748b551ef3bd",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7bf8ccb0-b184-5a34-aaf9-0bea754d1693",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -85452,6 +85507,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--d8192f32-9210-5da2-b8a7-db8c77c24a7c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--81c154f5-76f7-57bd-9224-ce033be36745",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c6771f85-d348-5057-a056-6ab906e28ce0",
+      "target_ref": "vulnerability--7cec0a85-1172-5a4c-b601-c00445a3e1e6"
     },
     {
       "type": "relationship",
@@ -122757,6 +122823,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c1031bcb-c384-55f5-a3b4-e4bf9b9360b1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T12:27:21.000Z",
+      "modified": "2026-11-23T12:27:21.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5a2cc7fa-624c-5bf5-b6ec-34d33937cba2",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c1042e93-8be4-5bf3-83c1-34f6f19dbb85",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -124139,6 +124216,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--4a823f0d-e424-5c4b-8148-6e8fcda8e508"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c3596688-1f23-5596-99a4-7a30fc2752c4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T22:39:55.000Z",
+      "modified": "2026-11-23T12:27:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--01d5ac3c-2e9f-5630-ad01-748b551ef3bd",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -131249,6 +131337,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--cf2b506f-f3fe-5d4c-bf4e-6ba506d56f73",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T12:27:52.000Z",
+      "modified": "2026-11-23T12:27:52.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3c369396-ad38-5c6a-837f-09f4a897580e",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--cf311172-0456-5ad1-b749-e992b5e719bc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T10:18:11.000Z",
@@ -131949,6 +132048,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--b4b5048a-96d5-5488-bec9-d98c1caa562d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d0779dc3-7ffb-5f85-9cef-a7ea2f4b418d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T12:27:33.000Z",
+      "modified": "2026-11-23T12:27:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--21d64d6e-ef51-5847-9183-b4ee79a697ce",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -142146,6 +142256,17 @@
       "relationship_type": "has",
       "source_ref": "software--85475315-041c-542e-bcae-560f82ce7f95",
       "target_ref": "vulnerability--b0463acb-5b43-5927-b3ee-ac5baf666329"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e2c569ca-59d3-50d6-be18-e858f0d9d4d4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4eadc659-be2f-52bb-a841-00450ec55036",
+      "target_ref": "vulnerability--c0effc81-5634-59cc-83cf-187884a37d9c"
     },
     {
       "type": "relationship",
@@ -156439,6 +156560,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--fb63d2fa-ce0c-57f1-87b9-6cfe62e2f766",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T12:28:41.000Z",
+      "modified": "2026-11-23T12:28:41.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--84d344d2-d4fc-5e7f-9e6c-1b536c7f4c4d",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--fb707e9b-bf51-54c0-a27d-bb7e686aecc5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -160167,6 +160299,70 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--01d5ac3c-2e9f-5630-ad01-748b551ef3bd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-22T22:39:55.000Z",
+      "modified": "2026-11-23T12:27:15.000Z",
+      "name": "Flux159 mcp-server-kubernetes: Argument injection via kubectl flags (CVE-2026-134817)",
+      "description": "## Overview\n\nmcp-server-kubernetes versions before 4.2.0 are vulnerable to an argument injection flaw (CVE-2026-134817) occurring during the construction of kubectl command-line arguments. The application fails to sanitize positional operands, such as pod or resource names, passed from MCP clients. By supplying dash-prefixed strings, a remote attacker can force the underlying kubectl process to interpret these inputs as command-line flags. This vulnerability is reachable over SSE or Streamable HTTP transports.\n\n## Impact\n\nSuccessful exploitation allows remote attackers to bypass file-read restrictions. By injecting flags such as --filename, an attacker can cause the server to read arbitrary files from the host filesystem. No Kubernetes credentials are required to reach the vulnerable validation logic.\n\n## Recommendation\n\nUpgrade mcp-server-kubernetes to version 4.2.0 or later immediately to incorporate the `assertNotFlagLike()` validator, which rejects dash-prefixed positional operands.",
+      "published": "2026-11-22T22:39:55.000Z",
+      "labels": [
+        "argument-injection",
+        "cloud",
+        "cve",
+        "kubernetes"
+      ],
+      "object_refs": [
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e2c69551-a753-5ce7-a6bf-d370d73b8bf4",
+        "vulnerability--1fea713a-7d76-59ea-b9e4-bdf19691dace"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-22-mcp-server-kubernetes-argument-injection-cve-2026-134817",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mcp-server-kubernetes-argument-injection-cve-2026-134817/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134817"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/Flux159/mcp-server-kubernetes/security/advisories/GHSA-8v48-c263-r637"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134817"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=68744EBA-18DC-5801-BFC3-A96C5B774BB2"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=68744EBA-18DC-5801-BFC3-A96C5B774BB2\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-22-mcp-server-kubernetes-argument-injection-cve-2026-134817",
+      "x_craftedsignal_event_id": "brief-2026-11-22-mcp-server-kubernetes-argument-injection-cve-2026-134817",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mcp-server-kubernetes-argument-injection-cve-2026-134817/",
+      "x_craftedsignal_activity_at": "2026-11-23T12:27:15.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -178640,6 +178836,68 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--21d64d6e-ef51-5847-9183-b4ee79a697ce",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T12:27:33.000Z",
+      "modified": "2026-11-23T12:27:33.000Z",
+      "name": "binary-parser: Code injection vulnerability (CVE-2026-134814)",
+      "description": "## Overview\n\nbinary-parser versions before 2.3.1 are vulnerable to a code injection vulnerability. The issue arises because string-typed options, including length, lengthInBytes, key, tag, offset, or namely() aliases, are passed unvalidated to the Context.generateOption() function. These values are interpolated verbatim into the generated JavaScript code during parser compilation, allowing for arbitrary code execution in the Node.js process if an application uses these options based on attacker-controlled inputs.\n\n## Attack Chain\n\n1. An application using binary-parser constructs parser definitions based on untrusted input.\n2. An attacker provides a malicious string as a parser option (e.g., length: \"x+(globalThis.INJECTED=1,0)\").\n3. The library compiles the resulting parser, incorporating the malicious expression as executable JavaScript code.\n4. During data parsing, the application executes the injected code within its process context.\n\n## Impact\n\nSuccessful exploitation allows attackers to execute arbitrary JavaScript in the context of the application parsing the data, potentially leading to unauthorized operations or application compromise.\n\n## Recommendation\n\nUpgrade binary-parser to version 2.3.1 or later. This version introduces sanitization that ensures string options are valid dotted JavaScript identifiers.",
+      "published": "2026-11-23T12:27:33.000Z",
+      "labels": [
+        "code-injection",
+        "cve",
+        "node.js"
+      ],
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4eadc659-be2f-52bb-a841-00450ec55036",
+        "vulnerability--c0effc81-5634-59cc-83cf-187884a37d9c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-binary-parser-injection-cve-2026-134814",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-binary-parser-injection-cve-2026-134814/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134814"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/keichi/binary-parser/commit/110206bb126a80071158fb0e2e3d7cc658f2bfe4"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/keichi/binary-parser/security/advisories/GHSA-hhq6-2gpv-hrf4"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=89F056E0-E03B-5E77-87E7-A8FD79D8A494"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=89F056E0-E03B-5E77-87E7-A8FD79D8A494\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-binary-parser-injection-cve-2026-134814",
+      "x_craftedsignal_event_id": "brief-2026-11-23-binary-parser-injection-cve-2026-134814",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-binary-parser-injection-cve-2026-134814/",
+      "x_craftedsignal_activity_at": "2026-11-23T12:27:33.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--21dc7fbf-586c-5ea6-8d70-0d71580b636b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T18:46:35.000Z",
@@ -196034,6 +196292,70 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_epss_max": 0.0051,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3c369396-ad38-5c6a-837f-09f4a897580e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T12:27:52.000Z",
+      "modified": "2026-11-23T12:27:52.000Z",
+      "name": "Gogs: Path traversal via NTFS aliases in repository uploads (CVE-2026-134808)",
+      "description": "## Overview\n\nGogs versions before 0.14.4 running on Windows contain a path equivalence vulnerability in the `isRepositoryGitPath` function. The application attempts to block uploads into `.git` directories, but the filtering logic only performed literal comparison after trimming trailing dots and spaces. An attacker can use NTFS-specific aliases such as 8.3 short names (`git~1`) or alternate data streams (`.git::$INDEX_ALLOCATION`) to bypass this check. Successfully bypassing the filter allows an attacker to overwrite sensitive files within the repository's `.git` directory, such as `config` or hooks, leading to command execution as the Gogs process.\n\n## Attack Chain\n\n1. Attacker authenticates to a Gogs instance with write access to a repository.\n2. Attacker crafts a file upload request with a destination path containing an NTFS alias, such as `repo/git~1/config`.\n3. Gogs processes the upload and passes the path to the vulnerable `isRepositoryGitPath` check.\n4. The check fails to normalize the NTFS alias and incorrectly identifies the path as benign.\n5. The application proceeds with the write operation, effectively targeting the real `.git/config` file instead of the intended location.\n6. The overwritten file is utilized by the Git service or system, resulting in unauthorized configuration changes or arbitrary code execution.\n\n## Impact\n\nSuccessful exploitation allows authenticated users to achieve arbitrary file overwrite within the repository metadata. This can lead to full compromise of the repository, unauthorized configuration changes, and execution of arbitrary code with the privileges of the Gogs service.\n\n## Recommendation\n\nUpgrade Gogs to version 0.14.4 or later immediately. This version introduces an NTFS-aware path matcher (`isDotGit`) that correctly handles 8.3 short names, alternate data streams, and case-insensitive variants, mitigating the path traversal vulnerability.",
+      "published": "2026-11-23T12:27:52.000Z",
+      "labels": [
+        "cve-2026-134808",
+        "gogs",
+        "path-traversal",
+        "rce",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d121b4c6-6df5-5707-ba23-2f9ce080654e",
+        "vulnerability--c3993ef5-c42c-5d51-9018-6ea36a361838"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-gogs-path-traversal-cve-2026-134808",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-gogs-path-traversal-cve-2026-134808/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134808"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/gogs/gogs/commit/43017045492c85e201536bfc7af49fa9f74b0069"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/gogs/gogs/security/advisories/GHSA-2jh3-23vq-6j44"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=1AABA198-7140-5123-BC1B-D22CF17AFB3C"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=1AABA198-7140-5123-BC1B-D22CF17AFB3C\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-gogs-path-traversal-cve-2026-134808",
+      "x_craftedsignal_event_id": "brief-2026-11-23-gogs-path-traversal-cve-2026-134808",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gogs-path-traversal-cve-2026-134808/",
+      "x_craftedsignal_activity_at": "2026-11-23T12:27:52.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -215120,6 +215442,70 @@
       },
       "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_epss_max": 0.01411,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5a2cc7fa-624c-5bf5-b6ec-34d33937cba2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T12:27:21.000Z",
+      "modified": "2026-11-23T12:27:21.000Z",
+      "name": "simple-git: Argument injection via --exec option (CVE-2026-134815)",
+      "description": "## Overview\n\nsimple-git versions before 4.1.0 contain an argument injection vulnerability (CVE-2026-134815) caused by insufficient validation of the --exec command-line option. While the library previously restricted the use of --exec for push operations, it failed to extend this security guard to other pack-related operations such as ls-remote, archive, fetch-pack, and send-pack. An attacker who can influence the arguments passed to the listRemote() or raw() APIs can inject --exec to force the underlying Git binary to execute an attacker-specified program on the host.\n\n## Attack Chain\n\n1. Attacker identifies an application using a vulnerable version of simple-git (\u003c 4.1.0) that accepts user-supplied input.\n2. Attacker influences arguments passed to the simple-git listRemote() or raw() methods.\n3. Attacker injects the --exec argument, for example: git.raw('ls-remote', '--exec=/path/to/attacker-program', 'origin').\n4. The application passes these arguments to the underlying Git binary without validation.\n5. The Git binary executes the specified malicious program on the host system during the pack operation.\n\n## Impact\n\nSuccessful exploitation allows for remote command execution on the host system where the application utilizing simple-git is running. This can lead to full system compromise, data exfiltration, or unauthorized lateral movement within the network.\n\n## Recommendation\n\n1. Upgrade all instances of simple-git to version 4.1.0 or later immediately.\n2. Audit application code that passes user-controlled input into simple-git APIs, specifically listRemote() and raw(), to ensure proper input sanitization.\n3. Review environment configurations to limit the execution of unauthorized binaries by the user account running the Node.js application.",
+      "published": "2026-11-23T12:27:21.000Z",
+      "labels": [
+        "argument-injection",
+        "command-injection",
+        "cve",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--54f4aac2-b414-582e-b247-9d8a5ce0e965",
+        "software--c6771f85-d348-5057-a056-6ab906e28ce0",
+        "vulnerability--7cec0a85-1172-5a4c-b601-c00445a3e1e6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-simple-git-injection-cve-2026-134815",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-simple-git-injection-cve-2026-134815/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134815"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/steveukx/git-js/commit/c8ee6bb4dd0c1259af31da821dc68d74ff5d6f10"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/steveukx/git-js/security/advisories/GHSA-24pq-g7mp-w876"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CF806081-B219-5DEC-85A3-C0F1AB636785"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CF806081-B219-5DEC-85A3-C0F1AB636785\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-simple-git-injection-cve-2026-134815",
+      "x_craftedsignal_event_id": "brief-2026-11-23-simple-git-injection-cve-2026-134815",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-simple-git-injection-cve-2026-134815/",
+      "x_craftedsignal_activity_at": "2026-11-23T12:27:21.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -240690,6 +241076,62 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--84d344d2-d4fc-5e7f-9e6c-1b536c7f4c4d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T12:28:41.000Z",
+      "modified": "2026-11-23T12:28:41.000Z",
+      "name": "Jordy Meow AI Engine: ChatGPT Chatbot arbitrary file upload (CVE-2023-51409)",
+      "description": "## Overview\nCVE-2023-51409 is a critical vulnerability affecting the AI Engine: ChatGPT Chatbot plugin for WordPress (versions \u003c= 1.9.98). The flaw resides in an unauthenticated REST API endpoint that permits the upload of arbitrary files. Attackers can leverage this to upload web shells and achieve remote code execution (RCE) on the underlying web server.\n\n## Attack Chain\n1. Attacker identifies a target running a vulnerable version of the AI Engine plugin.\n2. Attacker sends a crafted HTTP POST request to the REST API endpoint /wp-json/mwai-ui/v1/files/upload.\n3. The application accepts the multipart/form-data request without requiring authentication.\n4. A malicious PHP file is written to the WordPress uploads directory.\n5. Attacker accesses the uploaded file via a direct HTTP request to the uploads directory path.\n6. The web server executes the malicious PHP script, providing the attacker with a remote shell.\n\n## Impact\nSuccessful exploitation leads to full remote code execution on the WordPress host. Attackers can achieve unauthorized access, data theft, and persistence within the affected environment.\n\n## Recommendation\n- Immediate action: Update the AI Engine: ChatGPT Chatbot plugin to version 1.9.99 or higher.\n- If patching is not immediately feasible, restrict access to the /wp-json/mwai-ui/v1/files/upload endpoint at the web application firewall (WAF) or server level.",
+      "published": "2026-11-23T12:28:41.000Z",
+      "labels": [
+        "cve-2023-51409",
+        "file-upload",
+        "rce",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0e8eb884-a47d-5ab9-a8d5-3d0a9be2300e",
+        "vulnerability--f85f5eaf-d627-5ad9-86f2-b45622b08651"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-cve-2023-51409",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2023-51409/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2023-51409"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JOSHUAPROVOSTE-0-CLICK-RCE-EXPLOIT-FOR-CVE-2023-51409"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JOSHUAPROVOSTE-0-CLICK-RCE-EXPLOIT-FOR-CVE-2023-51409\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-cve-2023-51409",
+      "x_craftedsignal_event_id": "brief-2026-11-23-cve-2023-51409",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2023-51409/",
+      "x_craftedsignal_activity_at": "2026-11-23T12:28:41.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.63077,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -314788,6 +315230,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0e8eb884-a47d-5ab9-a8d5-3d0a9be2300e",
+      "name": "AI Engine: ChatGPT Chatbot (\u003c 1.9.99)",
+      "vendor": "Jordy Meow"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0e9bc008-2ca2-5741-857f-b80120c04a51",
       "name": "WP ERP (n/a through 1.17.11)",
       "vendor": "weDevs"
@@ -320445,6 +320894,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4eadc659-be2f-52bb-a841-00450ec55036",
+      "name": "binary-parser (\u003c 2.3.1)",
+      "vendor": "keichi"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4ed9c429-85c8-55b3-800d-64b31bb37d87",
       "name": "RG-ES206GC-P (ESW_1.0(1)B1P48)",
       "vendor": "Ruijie"
@@ -320896,6 +321352,13 @@
       "id": "software--54eb6d77-095f-532d-9fc1-ec132ad572f1",
       "name": "BroadWorks Application Server",
       "vendor": "Cisco"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--54f4aac2-b414-582e-b247-9d8a5ce0e965",
+      "name": "@simple-git/argv-parser (\u003c 3.0.0)",
+      "vendor": "steveukx"
     },
     {
       "type": "software",
@@ -330838,6 +331301,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c6771f85-d348-5057-a056-6ab906e28ce0",
+      "name": "simple-git (\u003c 4.1.0)",
+      "vendor": "steveukx"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c6d66205-3f65-5636-8a5f-5ac9ef27570d",
       "name": "Cloud Service Mesh",
       "vendor": "Google"
@@ -331706,6 +332176,13 @@
       "id": "software--d1188ea0-7145-5a87-9204-e9958e89c5b2",
       "name": "Apache TomEE (11.0.0-M1 to \u003c11.0.0-M2)",
       "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d121b4c6-6df5-5707-ba23-2f9ce080654e",
+      "name": "Gogs (\u003c 0.14.4)",
+      "vendor": "Gogs"
     },
     {
       "type": "software",
@@ -333032,6 +333509,13 @@
       "spec_version": "2.1",
       "id": "software--e2b5646e-b488-50fe-bd79-8ffd4e160216",
       "name": "Splunk Enterprise"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e2c69551-a753-5ce7-a6bf-d370d73b8bf4",
+      "name": "mcp-server-kubernetes (\u003c 4.2.0)",
+      "vendor": "Flux159"
     },
     {
       "type": "software",
@@ -344983,6 +345467,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120142",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120142"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--1fea713a-7d76-59ea-b9e4-bdf19691dace",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134817",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134817",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134817"
         }
       ]
     },
@@ -370157,6 +370657,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--7cec0a85-1172-5a4c-b601-c00445a3e1e6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134815",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134815",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134815"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--7cee1404-6f06-5b78-9d91-896f40b714dd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -390317,6 +390833,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--c0effc81-5634-59cc-83cf-187884a37d9c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134814",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134814",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134814"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--c0ff2931-9e57-58df-a840-2a49ac56c83b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -391047,6 +391579,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116306",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116306"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c3993ef5-c42c-5d51-9018-6ea36a361838",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134808",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134808",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134808"
         }
       ]
     },
@@ -406391,6 +406939,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126274",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126274"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f85f5eaf-d627-5ad9-86f2-b45622b08651",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2023-51409",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2023-51409",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-51409"
         }
       ]
     },
