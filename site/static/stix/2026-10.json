@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--80449bf2-9646-5410-baf2-8602cd9ae1c0",
+  "id": "bundle--96c529e4-d36c-598a-b726-8c3f70e69aa2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -28310,6 +28310,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--48c7fbee-55ab-5a16-a371-676cfbcd6cb7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8b28618e-258f-50f6-91be-159f2d2e0557",
+      "target_ref": "vulnerability--58a27c02-5430-5c8d-abc9-e0300af10ffc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--48cc3173-aa1d-50c1-b147-2c286b791825",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T22:06:41.000Z",
@@ -48638,17 +48649,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--872d5900-ea0e-57aa-a735-575e84794be0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--f8ad178d-b6f2-5642-a4d1-5134f66fc32f",
-      "target_ref": "vulnerability--58a27c02-5430-5c8d-abc9-e0300af10ffc"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--87349b8c-d80f-51bc-9f86-7de11d6423a5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T03:49:38.000Z",
@@ -53540,6 +53540,17 @@
       "relationship_type": "uses",
       "source_ref": "report--33fbb970-ab05-5364-a6c3-64da574ab076",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--970578fa-3cd6-5dd5-8dc3-16a6a653a756",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--77801261-e710-56f6-8640-73601b35b09d",
+      "target_ref": "vulnerability--58a27c02-5430-5c8d-abc9-e0300af10ffc"
     },
     {
       "type": "relationship",
@@ -81887,6 +81898,17 @@
       "relationship_type": "has",
       "source_ref": "software--328ce522-bb1c-5600-a7a3-b71ef190171e",
       "target_ref": "vulnerability--d816a85f-6840-551c-a708-050953d76e01"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--edfd39fe-7bc3-53d7-9cba-26bc77279b15",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T17:43:39.000Z",
+      "modified": "2026-11-23T22:43:30.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a5cdc5dd-4725-5ee2-a1fd-d4f8462c88f8",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -159102,13 +159124,20 @@
       "id": "report--a5cdc5dd-4725-5ee2-a1fd-d4f8462c88f8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T17:43:39.000Z",
-      "modified": "2026-10-26T16:14:36.000Z",
-      "name": "PHP: Session Upload Progress Injection (CVE-2026-115560)",
-      "description": "Public proof-of-concept exploit code for CVE-2026-115560 has been released on Sploitus. The vulnerability is described as a PHP Session Upload Progress Injection.\n",
+      "modified": "2026-11-23T22:43:30.000Z",
+      "name": "PHP: Remote code execution via session serializer mismatch (CVE-2026-115560)",
+      "description": "## Overview\nPHP is vulnerable to a remote code execution vulnerability (CVE-2026-115560) arising from a mismatch between session serializers. When session upload progress is enabled, an attacker can store data in a session key using the php_binary or php_serialize handlers. If a subsequent request reads the same session key using the standard php serializer, the content is passed to the unserializer. This process allows remote attackers who can trigger a multipart upload to perform object injection, which can lead to code execution when applications possess compatible gadget chains.\n\n## Impact\nSuccessful exploitation can lead to remote code execution, session corruption, or denial of service on affected PHP web servers.\n\n## Recommendation\nUpgrade PHP to the following versions or later: 8.2.36, 8.3.37, 8.4.28, or 8.5.13. In addition to patching, deploy telemetry to monitor for serialized object markers in HTTP POST bodies, which may indicate exploitation attempts. Inspect application session handling configurations to ensure consistent session serializers are used across all endpoints sharing a session store.",
       "published": "2026-10-23T17:43:39.000Z",
+      "labels": [
+        "cve-2026-115560",
+        "remote-code-execution",
+        "web-vulnerability"
+      ],
       "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--f8ad178d-b6f2-5642-a4d1-5134f66fc32f",
+        "software--77801261-e710-56f6-8640-73601b35b09d",
+        "software--8b28618e-258f-50f6-91be-159f2d2e0557",
         "vulnerability--58a27c02-5430-5c8d-abc9-e0300af10ffc"
       ],
       "external_references": [
@@ -159116,6 +159145,18 @@
           "source_name": "craftedsignal",
           "external_id": "brief-2026-10-23-php-session-injection",
           "url": "https://feed.craftedsignal.io/briefs/2026-10-php-session-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-115560"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/php/php-src/security/advisories/GHSA-658j-r8rw-q6mx"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/web/php_serialized_object_in_post_body.yml"
         },
         {
           "source_name": "reference",
@@ -159128,20 +159169,23 @@
         {
           "source_name": "reference",
           "url": "https://sploitus.com/exploit?id=21ECC387-5A3C-5E76-A26E-F5872215776E\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.php.net/ChangeLog-8.php#8.3.37"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-10-23-php-session-injection",
       "x_craftedsignal_event_id": "brief-2026-10-23-php-session-injection",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-php-session-injection/",
-      "x_craftedsignal_activity_at": "2026-10-26T16:14:36.000Z",
+      "x_craftedsignal_activity_at": "2026-11-23T22:43:30.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_epss_max": 0.73107,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -208505,6 +208549,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--77801261-e710-56f6-8640-73601b35b09d",
+      "name": "PHP (\u003c 8.2.36, 8.3.* \u003c 8.3.37, 8.4.* \u003c 8.4.28, 8.5.* \u003c 8.5.13)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7785fb38-869a-5889-981b-da64f86ca6c4",
       "name": "danmu_api (\u003c 1.21.7)"
     },
@@ -210101,6 +210151,12 @@
       "spec_version": "2.1",
       "id": "software--8b154025-dcf2-5052-9166-6b155f6644bd",
       "name": "Internal OpenAI AI models"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8b28618e-258f-50f6-91be-159f2d2e0557",
+      "name": "PHP"
     },
     {
       "type": "software",

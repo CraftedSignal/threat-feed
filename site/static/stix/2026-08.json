@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d93bdc11-cf55-5e39-9e6c-b03d180a66a0",
+  "id": "bundle--8e105b90-23be-5c0b-82a9-e4d8ab8032cc",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5817,17 +5817,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--6dd40b8d-a6ec-5fd8-9a84-85c71fa23bc9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-25T22:00:24.000Z",
-      "modified": "2026-08-25T22:00:24.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c2cbe09a-74ac-5b8a-b37b-3b8bb1715708",
-      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--6de700cb-19d0-5037-939b-90f9400a0d9f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -6429,17 +6418,6 @@
       "relationship_type": "uses",
       "source_ref": "report--7c1ff61a-cff4-583a-b28a-8b2b1740008a",
       "target_ref": "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7e7433bb-549c-5250-9473-7b6df0a05f6b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-25T22:00:24.000Z",
-      "modified": "2026-08-25T22:00:24.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c2cbe09a-74ac-5b8a-b37b-3b8bb1715708",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -7804,17 +7782,6 @@
       "relationship_type": "uses",
       "source_ref": "report--1d8d2e4a-2485-5130-a1dd-37879d797b9c",
       "target_ref": "attack-pattern--a5bc0f33-ef58-5323-a61c-2016fbebf975"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a81a5809-973c-56b6-ba1b-34d40e8af122",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--1a4831bb-3651-55fa-97d2-36fa0c1b6221",
-      "target_ref": "vulnerability--0e6ef093-b99a-5e66-86c5-26dc90ac4caf"
     },
     {
       "type": "relationship",
@@ -21651,57 +21618,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--c2cbe09a-74ac-5b8a-b37b-3b8bb1715708",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-25T22:00:24.000Z",
-      "modified": "2026-08-25T22:00:24.000Z",
-      "name": "Apache Commons BeanUtils Information Leak and RCE Chain",
-      "description": "## Overview\n\nCVE-2025-48734 affects Apache Commons BeanUtils versions prior to 1.11.0 (and 2.0.0-M2), allowing unauthenticated attackers to access the 'declaringClass' property of Java enums. By exploiting PropertyUtilsBean to access nested properties like 'enum.declaringClass.classLoader', an attacker can leak the application's ClassLoader. This vulnerability does not provide RCE directly; however, it functions as a critical reconnaissance pivot for identifying vulnerable gadget libraries (e.g., Commons Collections 3.x) within the classpath. When an application also exposes an unsafe Java deserialization endpoint, this information leak allows an attacker to reliably trigger an RCE chain. The vulnerability is highly relevant to enterprise environments utilizing legacy Java applications or shared middleware.\n\n## Attack Chain\n\n1. Attacker identifies an endpoint accepting property path inputs processed by PropertyUtilsBean (e.g., /api/property?path=...).\n2. Attacker injects a malicious property path targeting 'status.declaringClass' to verify access to the enum internal class.\n3. Attacker pivots to 'status.declaringClass.classLoader' to obtain a reference to the application ClassLoader.\n4. Attacker iterates through the ClassLoader URL array to enumerate all loaded JAR files, identifying presence of vulnerable gadget libraries like Commons Collections 3.2.2.\n5. Attacker fuzzes application endpoints (e.g., /api/data/import) to identify a target supporting Java deserialization by sending the '0xACED0005' magic header.\n6. Attacker utilizes ysoserial to generate a gadget-based payload (e.g., CommonsCollections6) specific to the identified environment.\n7. Attacker delivers the serialized payload via HTTP POST to the identified deserialization endpoint.\n8. Remote code execution occurs during the object reconstruction process, executing the attacker-provided command on the target host.\n\n## Impact\n\nSuccessful exploitation leads to full remote code execution, granting the attacker arbitrary command execution capabilities with the privileges of the web application service account. This allows for total system compromise, data exfiltration, or lateral movement within the network. The vulnerability impacts any application using affected versions of Apache Commons BeanUtils that exposes property path manipulation combined with unsafe deserialization.\n\n## Recommendation\n\n* Upgrade Apache Commons BeanUtils to version 1.11.0 or 2.0.0-M2 immediately to patch CVE-2025-48734.\n* Implement strict Java ObjectInputFilter controls on all deserialization endpoints to permit only necessary classes.\n* Audit application code for usage of PropertyUtilsBean where the 'path' parameter is derived from untrusted user input.\n* Use the CVE-2025-48734 remediation to prevent classpath enumeration reconnaissance, breaking the RCE chain at the initial discovery phase.\n",
-      "published": "2026-08-25T22:00:24.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--1a4831bb-3651-55fa-97d2-36fa0c1b6221",
-        "vulnerability--0e6ef093-b99a-5e66-86c5-26dc90ac4caf"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-beanutils-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-beanutils-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-wxr5-93ph-8wr9"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/frohoff/ysoserial"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-H3RAKLEZ-CVE-2025-48734"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-beanutils-rce",
-      "x_craftedsignal_event_id": "brief-2026-08-beanutils-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-beanutils-rce/",
-      "x_craftedsignal_activity_at": "2026-08-25T22:00:24.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_epss_max": 0.01699,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--c410f710-cec4-527c-979c-14e91097cd58",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-27T12:40:00.000Z",
@@ -24789,13 +24705,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--1a4831bb-3651-55fa-97d2-36fa0c1b6221",
-      "name": "Commons Beanutils",
-      "vendor": "Apache"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--1b8dd91b-6a18-5067-af89-f60d2a428d29",
       "name": "CC-Link IE TSN Remote I/O module (\u003c=09)",
       "vendor": "Mitsubishi Electric"
@@ -27807,22 +27716,6 @@
           "source_name": "cve",
           "external_id": "CVE-2025-2399",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-2399"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--0e6ef093-b99a-5e66-86c5-26dc90ac4caf",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2025-48734",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2025-48734",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-48734"
         }
       ]
     },
