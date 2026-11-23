@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--34642bfd-169d-50bc-b587-1038e37db1d1",
+  "id": "bundle--8899d7a0-ddc2-59db-a260-ab1971aa9dc2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -22031,6 +22031,17 @@
       "relationship_type": "has",
       "source_ref": "software--dc282487-fc8d-517e-9e20-297ef2f27c5f",
       "target_ref": "vulnerability--58741c29-635d-5798-aa5a-7eb9f777134c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1710cc61-020e-5ff9-8c73-3ccb50314a12",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--536cb42c-2eac-5e23-8e50-c7eeca15e254",
+      "target_ref": "vulnerability--74624463-5df3-5155-9a4f-ada9134f5d91"
     },
     {
       "type": "relationship",
@@ -69166,6 +69177,17 @@
       "relationship_type": "has",
       "source_ref": "software--bfaffa40-5845-5381-b9ce-9ebc91b6c289",
       "target_ref": "vulnerability--e470b911-f3a8-5e7f-8ccb-37857443bd62"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--65bd08ab-8f8d-54b4-92de-8a14ba73b3eb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T20:57:52.000Z",
+      "modified": "2026-11-23T20:57:52.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5691de4e-6a2f-5d03-8d77-6037cbf37beb",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -216687,6 +216709,66 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5691de4e-6a2f-5d03-8d77-6037cbf37beb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T20:57:52.000Z",
+      "modified": "2026-11-23T20:57:52.000Z",
+      "name": "Git: Path traversal via unborn HEAD symref (CVE-2026-113408)",
+      "description": "## Overview\n\nGit is affected by a path traversal vulnerability (CVE-2026-113408) occurring when a client clones from a malicious server using Git protocol v2. An attacker can advertise an unborn HEAD with a symref-target containing path-traversal components (e.g., ../../../), which the client copies verbatim into the local .git/HEAD file. Subsequent ref updates can then resolve this path outside the intended directory, allowing for arbitrary file writes on the victim's machine.\n\n## Attack Chain\n\n1. Attacker hosts a malicious Git server configured to use protocol v2.\n2. Attacker configures the server to advertise an unborn HEAD with a malicious symref-target (e.g., refs/heads/../../../TARGET).\n3. Victim initiates a 'git clone' operation from the attacker-controlled server.\n4. Git client processes the advertisement, receiving the malicious symref-target in connect.c::process_ref_v2().\n5. The client writes the malicious symref-target into the local .git/HEAD file without path validation.\n6. During later ref update operations, the client resolves the malformed symref-target into a filesystem path outside the local repository.\n7. The client writes files to the target location on the filesystem based on the attacker's input.\n\n## Impact\n\nSuccessful exploitation allows an attacker to write arbitrary files on the client's system during the cloning process, potentially leading to remote code execution depending on the file and location targeted.\n\n## Recommendation\n\n1. Upgrade all Git installations to versions 2.50.2, 2.51.3, 2.52.1, 2.53.1, 2.54.1, 2.55.1, or 2.56.1 or later to implement proper refname validation.\n2. Audit current clone workflows to ensure that repositories are only fetched from trusted, verified internal or external sources until updates are applied.",
+      "published": "2026-11-23T20:57:52.000Z",
+      "labels": [
+        "cve",
+        "git",
+        "path-traversal",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--536cb42c-2eac-5e23-8e50-c7eeca15e254",
+        "vulnerability--74624463-5df3-5155-9a4f-ada9134f5d91"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-git-path-traversal-cve-2026-113408",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-git-path-traversal-cve-2026-113408/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-113408"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/git/git/commit/b371db812524aa7831d3c3a9aed782defd1dcfb2"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://gitlab.com/gitlab-org/git/-/work_items/809"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=F2EA8D54-A738-5141-97AD-16ECE8B0CCC6\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-git-path-traversal-cve-2026-113408",
+      "x_craftedsignal_event_id": "brief-2026-11-23-git-path-traversal-cve-2026-113408",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-git-path-traversal-cve-2026-113408/",
+      "x_craftedsignal_activity_at": "2026-11-23T20:57:52.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 3.3,
+      "x_craftedsignal_epss_max": 0.00178,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--569338da-1569-502e-a74b-323af033cefc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T06:07:01.000Z",
@@ -326695,6 +326777,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--536cb42c-2eac-5e23-8e50-c7eeca15e254",
+      "name": "Git (\u003c 2.50.2, \u003c 2.51.3, \u003c 2.52.1, \u003c 2.53.1, \u003c 2.54.1, \u003c 2.55.1, \u003c 2.56.1)",
+      "vendor": "Git"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--536f1d8b-98d3-5d89-a1a1-81cf4a13c79c",
       "name": "Optim (1.0.0, 1.1.0, 1.2.0)",
       "vendor": "IBM"
@@ -374548,6 +374637,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-131177",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131177"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--74624463-5df3-5155-9a4f-ada9134f5d91",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113408",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113408",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113408"
         }
       ]
     },

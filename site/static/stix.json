@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7bb27792-07d2-521e-ba8f-5b3b3ffb318a",
+  "id": "bundle--3e180812-9b4a-544f-b778-11230eea5fc4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -25903,6 +25903,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1710cc61-020e-5ff9-8c73-3ccb50314a12",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--536cb42c-2eac-5e23-8e50-c7eeca15e254",
+      "target_ref": "vulnerability--74624463-5df3-5155-9a4f-ada9134f5d91"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1711ca02-f371-5b49-9953-27882f2f41d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -46308,17 +46319,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--338a1f5b-d982-5e25-b7e8-e946e0a91f3c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--2b9e0d4a-71f6-522b-a343-e341de0fedaf",
-      "target_ref": "vulnerability--389c6585-8b00-5b11-b314-045a2f26d403"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--338d9616-ed11-588e-a5d2-e0ecb32df7a6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -66086,17 +66086,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--4f157e0c-6ad0-571e-a14b-8c28783a7d11",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--bc58393a-0e09-5dc4-95b9-7d2ed1fefb38",
-      "target_ref": "vulnerability--2db618bc-aa61-59a3-9692-79572facd64d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--4f20316d-9872-5b96-b783-e5becc1bb978",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -82560,6 +82549,17 @@
       "relationship_type": "has",
       "source_ref": "software--bfaffa40-5845-5381-b9ce-9ebc91b6c289",
       "target_ref": "vulnerability--e470b911-f3a8-5e7f-8ccb-37857443bd62"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--65bd08ab-8f8d-54b4-92de-8a14ba73b3eb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T20:57:52.000Z",
+      "modified": "2026-11-23T20:57:52.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5691de4e-6a2f-5d03-8d77-6037cbf37beb",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -120323,17 +120323,6 @@
       "relationship_type": "has",
       "source_ref": "software--e393aab9-2382-57fb-bbc2-7c8bf4809025",
       "target_ref": "vulnerability--a2a0e04a-443b-5a84-943f-894df13dc2d1"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--991236e2-c7a1-51b2-864b-2a02da0fdc68",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--bc58393a-0e09-5dc4-95b9-7d2ed1fefb38",
-      "target_ref": "vulnerability--9780e373-0f46-57a6-ab59-9efb2fb3dad2"
     },
     {
       "type": "relationship",
@@ -236318,59 +236307,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--36b6494e-3294-5a60-b737-4f6d003a9b29",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-24T20:28:11.000Z",
-      "modified": "2026-10-24T20:28:11.000Z",
-      "name": "ThroughTek TUTK SDK: Heap Overflow and Out-of-Bounds Read (CVE-2026-38698 and CVE-2026-38699)",
-      "description": "## Overview\n\nThroughTek (TUTK) SDK versions 3.1.10.0 through 4.3.8.1 contain two distinct vulnerabilities: a heap overflow (CVE-2026-38698) and an out-of-bounds read (CVE-2026-38699). CVE-2026-38698 occurs within the tutk_packet_alloc function when processing an oversized AV packet sent to UDP port 32761, requiring an authenticated attacker. CVE-2026-38699 exists in the __Fill_ReadBuf function and can be triggered by a local attacker sending a UDP packet with an invalid payload offset. These SDK vulnerabilities affect various IoT products, including the Wyze Cam Pan. Proof-of-concept code has been publicly released.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-38698 may result in memory corruption via heap overflow, potentially leading to arbitrary code execution. CVE-2026-38699 may cause memory access issues, likely resulting in service crashes or unauthorized memory exposure.\n\n## Recommendation\n\n- Identify IoT devices within the environment utilizing the affected TUTK SDK versions (3.1.10.0 to 4.3.8.1).\n- Prioritize firmware updates from device manufacturers that incorporate patched versions of the TUTK SDK.\n- Implement network segmentation to restrict access to IoT device communication ports, specifically UDP port 32761, from untrusted segments.\n",
-      "published": "2026-10-24T20:28:11.000Z",
-      "labels": [
-        "cve",
-        "iot",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--bc58393a-0e09-5dc4-95b9-7d2ed1fefb38",
-        "vulnerability--2db618bc-aa61-59a3-9692-79572facd64d",
-        "vulnerability--9780e373-0f46-57a6-ab59-9efb2fb3dad2"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-24-tutk-sdk-vulnerabilities",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-tutk-sdk-vulnerabilities/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/blasty/unwyze"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-VITAL-INFORMATION-RESOURCE-UNDER-SIEGE-CVE-2026-38698-AND-CVE-2026-38699"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-VITAL-INFORMATION-RESOURCE-UNDER-SIEGE-CVE-2026-38698-AND-CVE-2026-38699\u0026utm_source=rss\u0026utm_medium=rss"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-24-tutk-sdk-vulnerabilities",
-      "x_craftedsignal_event_id": "brief-2026-10-24-tutk-sdk-vulnerabilities",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-tutk-sdk-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-10-24T20:28:11.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--36c2da37-e2f3-59e5-b53a-cc1e3220fa15",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-23T15:14:13.000Z",
@@ -262082,6 +262018,66 @@
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_epss_max": 0.03269,
       "x_craftedsignal_kev_status": "true"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5691de4e-6a2f-5d03-8d77-6037cbf37beb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T20:57:52.000Z",
+      "modified": "2026-11-23T20:57:52.000Z",
+      "name": "Git: Path traversal via unborn HEAD symref (CVE-2026-113408)",
+      "description": "## Overview\n\nGit is affected by a path traversal vulnerability (CVE-2026-113408) occurring when a client clones from a malicious server using Git protocol v2. An attacker can advertise an unborn HEAD with a symref-target containing path-traversal components (e.g., ../../../), which the client copies verbatim into the local .git/HEAD file. Subsequent ref updates can then resolve this path outside the intended directory, allowing for arbitrary file writes on the victim's machine.\n\n## Attack Chain\n\n1. Attacker hosts a malicious Git server configured to use protocol v2.\n2. Attacker configures the server to advertise an unborn HEAD with a malicious symref-target (e.g., refs/heads/../../../TARGET).\n3. Victim initiates a 'git clone' operation from the attacker-controlled server.\n4. Git client processes the advertisement, receiving the malicious symref-target in connect.c::process_ref_v2().\n5. The client writes the malicious symref-target into the local .git/HEAD file without path validation.\n6. During later ref update operations, the client resolves the malformed symref-target into a filesystem path outside the local repository.\n7. The client writes files to the target location on the filesystem based on the attacker's input.\n\n## Impact\n\nSuccessful exploitation allows an attacker to write arbitrary files on the client's system during the cloning process, potentially leading to remote code execution depending on the file and location targeted.\n\n## Recommendation\n\n1. Upgrade all Git installations to versions 2.50.2, 2.51.3, 2.52.1, 2.53.1, 2.54.1, 2.55.1, or 2.56.1 or later to implement proper refname validation.\n2. Audit current clone workflows to ensure that repositories are only fetched from trusted, verified internal or external sources until updates are applied.",
+      "published": "2026-11-23T20:57:52.000Z",
+      "labels": [
+        "cve",
+        "git",
+        "path-traversal",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--536cb42c-2eac-5e23-8e50-c7eeca15e254",
+        "vulnerability--74624463-5df3-5155-9a4f-ada9134f5d91"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-git-path-traversal-cve-2026-113408",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-git-path-traversal-cve-2026-113408/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-113408"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/git/git/commit/b371db812524aa7831d3c3a9aed782defd1dcfb2"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://gitlab.com/gitlab-org/git/-/work_items/809"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=F2EA8D54-A738-5141-97AD-16ECE8B0CCC6\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-git-path-traversal-cve-2026-113408",
+      "x_craftedsignal_event_id": "brief-2026-11-23-git-path-traversal-cve-2026-113408",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-git-path-traversal-cve-2026-113408/",
+      "x_craftedsignal_activity_at": "2026-11-23T20:57:52.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 3.3,
+      "x_craftedsignal_epss_max": 0.00178,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -355725,46 +355721,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--d75b8a09-b8bf-5328-80c2-427a4b11ee07",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-24T20:17:47.000Z",
-      "modified": "2026-10-24T20:17:47.000Z",
-      "name": "Faveo Helpdesk: Weak password recovery (CVE-2026-115973)",
-      "description": "A vulnerability (CVE-2026-115973) has been identified in Faveo Helpdesk 2.0.3. The issue involves the `ForgotPasswordController::sendResetLinkEmail` and `PasswordController::reset` functions within `app/Http/Controllers/Auth/ForgotPasswordController.php`. This manipulation results in weak password recovery and can be initiated remotely. The vendor was contacted early about this disclosure.\n",
-      "published": "2026-10-24T20:17:47.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--2b9e0d4a-71f6-522b-a343-e341de0fedaf",
-        "vulnerability--389c6585-8b00-5b11-b314-045a2f26d403"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-24-faveo-helpdesk-password-reset",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-faveo-helpdesk-password-reset/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115973"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-24-faveo-helpdesk-password-reset",
-      "x_craftedsignal_event_id": "brief-2026-10-24-faveo-helpdesk-password-reset",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-faveo-helpdesk-password-reset/",
-      "x_craftedsignal_activity_at": "2026-10-24T20:17:47.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--d7808816-df27-5d59-899a-13cd9fca0a27",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T21:34:45.000Z",
@@ -392860,13 +392816,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--2b9e0d4a-71f6-522b-a343-e341de0fedaf",
-      "name": "Faveo Helpdesk 2.0.3",
-      "vendor": "FaveoSuite"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--2bb383d7-d6bb-5d2c-8462-22d37ef2c88f",
       "name": "Windows 10 22h2 (\u003c 10.0.19045.6093)",
       "vendor": "Microsoft"
@@ -397541,6 +397490,13 @@
       "id": "software--536532bb-3ed8-5e37-859f-cfccecd41bab",
       "name": "ChatWiki (\u003c 2.10.0)",
       "vendor": "ChatWiki"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--536cb42c-2eac-5e23-8e50-c7eeca15e254",
+      "name": "Git (\u003c 2.50.2, \u003c 2.51.3, \u003c 2.52.1, \u003c 2.53.1, \u003c 2.54.1, \u003c 2.55.1, \u003c 2.56.1)",
+      "vendor": "Git"
     },
     {
       "type": "software",
@@ -409722,13 +409678,6 @@
       "id": "software--bc441219-cdf1-50d1-9f9a-0ffc08a9341d",
       "name": "OwnPay (\u003c= 0.2.0)",
       "vendor": "OwnPay"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--bc58393a-0e09-5dc4-95b9-7d2ed1fefb38",
-      "name": "TUTK SDK (v.3.1.10.0 through v.4.3.8.1)",
-      "vendor": "ThroughTek"
     },
     {
       "type": "software",
@@ -433474,22 +433423,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--2db618bc-aa61-59a3-9692-79572facd64d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-38698",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-38698",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-38698"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--2db6f692-f47b-5872-951e-14a5004cf12e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -437084,22 +437017,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126659",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126659"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--389c6585-8b00-5b11-b314-045a2f26d403",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-115973",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-115973",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115973"
         }
       ]
     },
@@ -456706,6 +456623,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--74624463-5df3-5155-9a4f-ada9134f5d91",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113408",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113408",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113408"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--7469a82e-3552-569e-8f60-4b2f857bab4c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -469228,22 +469161,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-129304",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129304"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--9780e373-0f46-57a6-ab59-9efb2fb3dad2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-38699",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-38699",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-38699"
         }
       ]
     },

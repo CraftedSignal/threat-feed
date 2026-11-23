@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1df409d9-8a5e-55e7-b3c7-17f9cd3327d6",
+  "id": "bundle--d93bdc11-cf55-5e39-9e6c-b03d180a66a0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -319,22 +319,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1059.001",
           "url": "https://attack.mitre.org/techniques/T1059/001"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--3866e24b-251c-5409-b390-26f7184d1897",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Data from Cloud Storage",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1530",
-          "url": "https://attack.mitre.org/techniques/T1530"
         }
       ]
     },
@@ -5437,17 +5421,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--6500b924-dbd4-519e-8347-620e90f9e1dd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-25T20:49:15.000Z",
-      "modified": "2026-08-25T20:49:15.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5561a91a-4398-5629-8a46-12140b2a4027",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--653412bd-0f53-5f4e-a10c-e8f1cb5e045c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -5602,17 +5575,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--67f93772-05fc-56ad-b933-a33e3c7f14e6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-25T20:49:23.000Z",
-      "modified": "2026-08-25T20:49:23.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7603e749-9aeb-5d6a-81e9-f1d21bf09d7e",
-      "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--681702cd-642b-578c-82c0-ab3448731c02",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -5664,17 +5626,6 @@
       "relationship_type": "uses",
       "source_ref": "report--00a89ef7-70ad-5540-a2e0-47f2a94c4d3f",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--697aec14-2b27-54c2-b257-6437bcbe60d9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--0d7b0ef5-e821-526c-9e6c-ae40d5e675d2",
-      "target_ref": "vulnerability--5e8b28f6-e260-5581-9f22-619ef2499490"
     },
     {
       "type": "relationship",
@@ -5961,17 +5912,6 @@
       "relationship_type": "has",
       "source_ref": "software--b7a8ea10-f5b8-5c0d-9f06-e310ee785f76",
       "target_ref": "vulnerability--48485c84-fe72-536c-a693-0cde819e5f00"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--721fac5b-5480-5e93-a707-0a02fb53a670",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-25T20:49:31.000Z",
-      "modified": "2026-08-25T20:49:31.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--cfc24ada-a681-5317-9daa-5bdddd0a7a27",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -6955,17 +6895,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--8ecbabe2-09d6-5f78-ada3-ece1622eb048",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-25T20:49:23.000Z",
-      "modified": "2026-08-25T20:49:23.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7603e749-9aeb-5d6a-81e9-f1d21bf09d7e",
-      "target_ref": "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--8f57394f-37f5-5c0d-84ad-76abe00f58da",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T17:40:42.000Z",
@@ -7083,17 +7012,6 @@
       "relationship_type": "uses",
       "source_ref": "report--e39e14e2-3d5d-5487-ba27-9488e0e5dfc5",
       "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--919a3a0a-80b0-5150-aee8-58529f5eb43f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-25T20:49:31.000Z",
-      "modified": "2026-08-25T20:49:31.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--cfc24ada-a681-5317-9daa-5bdddd0a7a27",
-      "target_ref": "attack-pattern--3866e24b-251c-5409-b390-26f7184d1897"
     },
     {
       "type": "relationship",
@@ -7622,17 +7540,6 @@
       "relationship_type": "has",
       "source_ref": "software--6d7cad5c-51c3-56ae-a613-cce241152c92",
       "target_ref": "vulnerability--176e4d40-bf60-5b0a-8f65-b230805fa038"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a10316c1-3bc3-5758-8f11-dbbf6758df7f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--b3204113-42ec-5d2e-82f1-68cc0ce89228",
-      "target_ref": "vulnerability--5350a9e5-8c3f-56c1-b73e-40c87fc3dbf9"
     },
     {
       "type": "relationship",
@@ -10284,17 +10191,6 @@
       "relationship_type": "uses",
       "source_ref": "report--9b394abc-60d4-5622-a558-d8f444316bb2",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--eb7af13c-4b23-5ab5-9f96-b519f422a7e0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--369d13df-5299-5cb2-b710-b46c099c5bad",
-      "target_ref": "vulnerability--2200103e-7397-5515-9182-e06963de649f"
     },
     {
       "type": "relationship",
@@ -15533,60 +15429,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--5561a91a-4398-5629-8a46-12140b2a4027",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-25T20:49:15.000Z",
-      "modified": "2026-08-25T20:49:15.000Z",
-      "name": "Authentication Bypass in Alluxio S3 REST Proxy",
-      "description": "## Overview\n\nAlluxio's S3 REST proxy, used in versions 2.9.5 and earlier, is vulnerable to an authentication bypass due to a failure to verify AWS Signature Version 4 (SigV4) signatures in its default configuration. This flaw allows unauthenticated remote attackers to impersonate any user or service account by manipulating the Authorization header. Because the proxy does not validate the integrity or authenticity of the provided credentials, attackers can supply arbitrary usernames to gain unauthorized access to the underlying storage resources. This allows for full read, write, and delete operations on data managed by Alluxio. Given that this component is often used in data platform architectures, the impact of unauthorized data manipulation or exfiltration is severe. Organizations should prioritize updating Alluxio instances to the recommended patched versions once available to prevent unauthorized access.\n\n## Attack Chain\n\n1. Attacker performs reconnaissance on the Alluxio deployment to identify the S3 REST proxy endpoint.\n2. Attacker crafts an HTTP request to the target S3 proxy endpoint.\n3. Attacker inserts a malformed or arbitrary \"Authorization\" header containing a target username into the request.\n4. The Alluxio S3 REST proxy receives the request and parses the Authorization header.\n5. The proxy fails to cryptographically verify the signature associated with the provided identity.\n6. The proxy incorrectly authenticates the request based solely on the user-provided identity in the header.\n7. The proxy executes the requested data operation (read, write, or delete) with the permissions of the impersonated user.\n8. The final objective is reached: unauthorized access, modification, or exfiltration of sensitive data stored within the Alluxio system.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated remote attackers to gain full administrative control over data managed by the S3 REST proxy. This includes reading sensitive datasets, overwriting or corrupting existing data, and deleting critical information. The vulnerability affects all Alluxio deployments using the default S3 REST proxy configuration up to and including version 2.9.5.\n\n## Recommendation\n\n* Audit all Alluxio deployments to confirm version usage; upgrade to a patched version immediately upon release (CVE-2026-79787).\n* Implement strict network access control lists (ACLs) to restrict access to the Alluxio S3 REST proxy endpoint to trusted internal networks only.\n* Enable verbose access logging for the S3 REST proxy and alert on any requests containing suspicious or non-standard Authorization headers, as the application logic currently fails to validate them.\n* Deploy the Sigma rules in this brief to monitor for unauthorized requests targeting the S3 proxy endpoint (see rule below).\n",
-      "published": "2026-08-25T20:49:15.000Z",
-      "labels": [
-        "alluxio",
-        "authentication-bypass",
-        "cve-2026-79787"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--b3204113-42ec-5d2e-82f1-68cc0ce89228",
-        "vulnerability--5350a9e5-8c3f-56c1-b73e-40c87fc3dbf9"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-alluxio-s3-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-alluxio-s3-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/Alluxio/alluxio/issues/18755"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79787"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.vulncheck.com/advisories/alluxio-through-2.9.5-s3-rest-proxy-authentication-bypass-via-unverified-request-signature"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-alluxio-s3-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-08-alluxio-s3-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-alluxio-s3-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-08-25T20:49:15.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--55f38009-0690-5fc8-a590-fcb6e3737977",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-26T14:19:57.000Z",
@@ -17800,56 +17642,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--7603e749-9aeb-5d6a-81e9-f1d21bf09d7e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-25T20:49:23.000Z",
-      "modified": "2026-08-25T20:49:23.000Z",
-      "name": "Unauthenticated OAuth Client Registration in Coroot",
-      "description": "## Overview\n\nCoroot, an open-source observability tool, contains a critical vulnerability (CVE-2026-79786) in its MCP (Machine Configuration Profile) OAuth dynamic client registration endpoint. This endpoint does not perform validation on the redirect URI provided during the client registration process, allowing an unauthenticated attacker to register an arbitrary redirect URI. By sending a crafted authorization URL to a legitimate user, an attacker can trick the user into consenting to access. Upon approval, the application redirects the user's authorization code to an attacker-controlled server. The attacker can then exchange this code for an access token, enabling full session hijacking of the user's MCP session. This vulnerability affects Coroot versions 1.20.2 through 1.24.5.\n\n## Attack Chain\n\n1. Attacker identifies the unauthenticated MCP OAuth dynamic client registration endpoint in the target Coroot instance.\n2. Attacker sends an HTTP request to the registration endpoint containing an arbitrary, attacker-controlled redirect URI.\n3. The Coroot application registers the malicious client and returns a client identifier to the attacker.\n4. Attacker constructs a malicious authorization URL using the obtained client identifier and sends it to a logged-in victim via social engineering.\n5. Victim clicks the URL and is presented with an OAuth consent screen within the Coroot interface.\n6. Victim approves the request, causing the Coroot server to redirect the victim's browser to the attacker-controlled URI with the valid authorization code in the query parameters.\n7. Attacker captures the authorization code from their server logs.\n8. Attacker exchanges the authorization code for an access token to gain unauthorized access to the victim's MCP session.\n\n## Impact\n\nSuccessful exploitation leads to unauthorized access to the victim's MCP sessions. This allows attackers to potentially modify monitoring configurations, access sensitive observability data, or move laterally within the infrastructure monitored by Coroot.\n\n## Recommendation\n\nPrioritized, concrete actions for detection engineering teams:\n* Patch Coroot to a version beyond 1.24.5 immediately to remediate CVE-2026-79786.\n* Monitor webserver access logs for POST requests to the MCP OAuth registration endpoint originating from unauthorized or external IP ranges.\n* Audit existing OAuth client registrations for suspicious redirect URIs pointing to unknown or external domains.\n* Restrict access to internal management interfaces to trusted networks to reduce the surface area for unauthenticated API exploitation.\n",
-      "published": "2026-08-25T20:49:23.000Z",
-      "object_refs": [
-        "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c",
-        "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--369d13df-5299-5cb2-b710-b46c099c5bad",
-        "vulnerability--2200103e-7397-5515-9182-e06963de649f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-coroot-mcp-oauth-hijack",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-coroot-mcp-oauth-hijack/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/coroot/coroot/issues/929"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79786"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.vulncheck.com/advisories/coroot-1.20.2-through-1.24.5-unvalidated-redirect-uri-in-mcp-oauth-client-registration"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-coroot-mcp-oauth-hijack",
-      "x_craftedsignal_event_id": "brief-2026-08-coroot-mcp-oauth-hijack",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-coroot-mcp-oauth-hijack/",
-      "x_craftedsignal_activity_at": "2026-08-25T20:49:23.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -22502,54 +22294,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--cfc24ada-a681-5317-9daa-5bdddd0a7a27",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-25T20:49:31.000Z",
-      "modified": "2026-08-25T20:49:31.000Z",
-      "name": "Authorization Bypass and SSRF in Dradis Community Edition",
-      "description": "## Overview\n\nDradis Community Edition contains an authorization bypass vulnerability (CVE-2026-79788) within the ProvidersController and AgentsController. The application improperly gates the `admin_required` before_action by checking for the `Dradis::Pro` constant, which is never defined in the Community Edition. This failure causes the authorization check to be skipped entirely, allowing any authenticated, non-privileged user to modify AI provider and agent configurations. Attackers can leverage this to create malicious AI providers that point to internal or cloud-local network addresses, including metadata services such as 169.254.169.254. When an AI interaction is subsequently triggered, the application performs an outbound request to the attacker-defined URL. Because the application reflects response bodies of non-2xx status codes via ActionCable/Turbo Stream, an attacker can read the content of internal network resources, leading to potential data exfiltration.\n\n## Impact\n\nSuccessful exploitation allows authenticated users to perform server-side request forgery against internal resources or cloud metadata services. This can result in unauthorized access to sensitive internal configuration data, cloud environment credentials, or metadata, facilitating deeper compromise of the environment.\n\n## Recommendation\n\n- Monitor web server and application logs for unexpected outbound connections from the Dradis server, particularly to private IP ranges (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, and 169.254.169.254).\n- Review access logs for non-administrative users interacting with the `/providers` and `/agents` controller endpoints.\n- Apply security patches or updates provided by the vendor to address CVE-2026-79788.\n- Implement egress filtering at the network level to restrict the Dradis server from initiating requests to internal or metadata-related IP addresses.\n",
-      "published": "2026-08-25T20:49:31.000Z",
-      "labels": [
-        "authorization-bypass",
-        "ssrf",
-        "vulnerability",
-        "web-application"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--3866e24b-251c-5409-b390-26f7184d1897",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--0d7b0ef5-e821-526c-9e6c-ae40d5e675d2",
-        "vulnerability--5e8b28f6-e260-5581-9f22-619ef2499490"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-dradis-ssrf",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-dradis-ssrf/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79788"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-dradis-ssrf",
-      "x_craftedsignal_event_id": "brief-2026-08-dradis-ssrf",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-dradis-ssrf/",
-      "x_craftedsignal_activity_at": "2026-08-25T20:49:31.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--d02f8c90-f690-5a06-826d-4994c694031b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T17:40:36.000Z",
@@ -24954,13 +24698,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--0d7b0ef5-e821-526c-9e6c-ae40d5e675d2",
-      "name": "Dradis Community Edition",
-      "vendor": "Dradis"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--0ebfe3a1-91fe-551c-a2e7-3b02bc9a0fc4",
       "name": "nltk (\u003c= 3.10.2)",
       "vendor": "NLTK"
@@ -25382,13 +25119,6 @@
       "spec_version": "2.1",
       "id": "software--361b0134-ac4c-552e-8bb9-7c24b4dfa70b",
       "name": "LangChain"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--369d13df-5299-5cb2-b710-b46c099c5bad",
-      "name": "coroot",
-      "vendor": "Coroot"
     },
     {
       "type": "software",
@@ -26940,13 +26670,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--b3204113-42ec-5d2e-82f1-68cc0ce89228",
-      "name": "alluxio",
-      "vendor": "Alluxio"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--b359987e-ab65-5abd-9ebf-3ed014aa5176",
       "name": "Cockpit CMS (\u003c= 2.6.3)",
       "vendor": "Agentejo"
@@ -28410,22 +28133,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--2200103e-7397-5515-9182-e06963de649f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-79786",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-79786",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79786"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--22b8c29b-960c-5e3a-8980-f66a5cb86ec6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29114,22 +28821,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--5350a9e5-8c3f-56c1-b73e-40c87fc3dbf9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-79787",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-79787",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79787"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--53dd49f0-6f65-5ac5-8a68-f2673452073d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29316,22 +29007,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-79804",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79804"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--5e8b28f6-e260-5581-9f22-619ef2499490",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-79788",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-79788",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79788"
         }
       ]
     },
