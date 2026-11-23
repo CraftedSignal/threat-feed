@@ -1,12 +1,28 @@
 ---
 brief_id: brief-2026-11-20-containerd-daemon-crash-ghsa-vwhp-8p66-mq4f
 event_id: brief-2026-11-20-containerd-daemon-crash-ghsa-vwhp-8p66-mq4f
-revision: 1
-activity_at: "2026-11-20T02:05:43Z"
+revision: 2
+activity_at: "2026-11-23T05:05:23Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-23T05:05:23Z"
+    checksum: sha256:75c25fc67ab99a79909015f4cba7a5003b872b6ef48d395c3c92417d57093f7d
+    summary: poc_available
+    changed_fields:
+      - cve_verification
+      - cves
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=AC7B0315-C36A-5C9B-9864-5663A3737467&utm_source=rss&utm_medium=rss
 title: 'containerd: Image manifest processing denial-of-service (CVE-2026-95839)'
 slug: 2026-11-containerd-daemon-crash-ghsa-vwhp-8p66-mq4f
 description: A malformed digest in a child descriptor with an 'io.containerd.manifest.subject' annotation triggers an unrecovered panic in the containerd daemon, resulting in a denial-of-service.
 date: "2026-11-20T02:05:43Z"
+lastmod: "2026-11-23T05:03:44Z"
 type: advisory
 types:
   - advisory
@@ -20,6 +36,9 @@ source_assessment:
   likelihood: likely
 cpes:
   - cpe:2.3:a:containerd:containerd:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=AC7B0315-C36A-5C9B-9864-5663A3737467&utm_source=rss&utm_medium=rss
 vendors:
   - containerd
 products:
@@ -30,6 +49,11 @@ mitre_ttps:
     technique_id: T1499
     technique_name: Endpoint Denial of Service
     evidence: Pulling or importing such an image, including through a default CRI PullImage request, can trigger an unrecovered panic and crash the containerd daemon.
+cve_verification:
+  CVE-2026-95839:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-23T05:03:43.908712045Z
 cves:
   - id: CVE-2026-95839
     epss: 0.00398
@@ -37,6 +61,7 @@ cves:
 references:
   - https://github.com/advisories/GHSA-vwhp-8p66-mq4f
   - https://cveawg.mitre.org/api/cve/CVE-2026-95839
+  - https://sploitus.com/exploit?id=AC7B0315-C36A-5C9B-9864-5663A3737467&utm_source=rss&utm_medium=rss
 action_plan:
   hunt_leads:
     - lead: Identify repeated container daemon crash events or restarts that correlate with kubelet image pull requests, specifically looking for nodes where image pull failures occur immediately prior to daemon termination.
@@ -49,6 +74,14 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: Pulling or importing such an image, including through a default CRI PullImage request, can trigger an unrecovered panic and crash the containerd daemon. In Kubernetes environments, kubelet retries failed image pulls with backoff, allowing a pod referencing an untrusted image to repeatedly crash containerd.
+updates:
+  - at: "2026-11-23T05:03:44Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=AC7B0315-C36A-5C9B-9864-5663A3737467&utm_source=rss&utm_medium=rss
 ---
 
 ## Overview

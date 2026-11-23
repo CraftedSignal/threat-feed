@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--38f22d9a-bcbc-58b5-bc04-e9f7bee3656b",
+  "id": "bundle--7d874bb9-2818-5814-a315-d3c15c7940d5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -56438,6 +56438,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5264467f-abe4-56bc-bc05-5fa8d20deee8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3757bec4-7675-5917-b0e9-3ed8d2e72a83",
+      "target_ref": "vulnerability--8b0a91ca-930a-5490-9999-8983d312d777"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--52650826-fc6b-5d74-b185-d0d19e2a42c4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -60082,7 +60093,7 @@
       "id": "relationship--5850d5c8-8d8b-571d-b84a-769463a9593e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T02:05:43.000Z",
-      "modified": "2026-11-20T02:05:43.000Z",
+      "modified": "2026-11-23T05:05:23.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d5c16710-f808-5536-b86c-2576cd1cfdc9",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
@@ -61824,6 +61835,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--02f62681-52a4-5ca3-a948-81672e6d2b2b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5b428e88-182f-532a-8950-0b9e77158318",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T05:04:06.000Z",
+      "modified": "2026-11-23T05:04:06.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f4b27ffe-bb9b-52d9-b40c-bfa9b9c47f73",
+      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
     },
     {
       "type": "relationship",
@@ -71724,6 +71746,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--5c35247d-67ed-5ae8-a988-82a8fbbfa732"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6bf5301a-6bd7-5f9e-9f17-ed67ac338900",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f6c99948-9d0b-5938-ba3e-92eb6c18c721",
+      "target_ref": "vulnerability--76df8e9d-4fd8-5ccc-a1ff-c4e3ace16777"
     },
     {
       "type": "relationship",
@@ -169662,6 +169695,69 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--143aa638-d573-5258-8ba7-ea78155c3a0c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T05:04:58.000Z",
+      "modified": "2026-11-23T05:04:58.000Z",
+      "name": "NLTK: ARFF schema injection via WekaClassifier (CVE-2026-129221)",
+      "description": "### Overview\nNLTK (Natural Language Toolkit) is a suite of open source Python modules. Prior to 3.10.4, the component `nltk.classify.weka.ARFF_Formatter` is susceptible to an ARFF schema injection vulnerability. Attackers able to contribute class labels to a training dataset can inject unintended directives, such as `@ATTRIBUTE` or `@DATA`, into the generated ARFF file because labels are written without safe formatting.\n\n### Attack Chain\nAn attacker provides a crafted class label (e.g., containing `}`, `@ATTRIBUTE`, or `@DATA`) to a training process using `WekaClassifier.train()` or `ARFF_Formatter.from_train()`. The formatter embeds these labels directly into the ARFF header. Because the labels are not quoted or escaped, the injected directives break the nominal schema structure.\n\n### Impact\nThis vulnerability may lead to processing failure or integrity loss in downstream systems that ingest the generated ARFF files, as the injected directives alter the expected schema or data records.\n\n### Recommendation\nUpgrade to NLTK 3.10.4, which introduces the `_sanitize_arff_label` function and updates type formatting to prevent injection.",
+      "published": "2026-11-23T05:04:58.000Z",
+      "labels": [
+        "cve-2026-129221",
+        "injection",
+        "python",
+        "supply-chain"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f6c99948-9d0b-5938-ba3e-92eb6c18c721",
+        "vulnerability--76df8e9d-4fd8-5ccc-a1ff-c4e3ace16777"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-nltk-arff-injection-cve-2026-129221",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-arff-injection-cve-2026-129221/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129221"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/nltk/nltk/commit/56031eabc1ac6e5a109cb78bb18d10e0b7589594"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/nltk/nltk/security/advisories/GHSA-9ffx-rrgx-mhgx"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=607080D0-9AFC-5A15-B850-C2AE10F175E6"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=607080D0-9AFC-5A15-B850-C2AE10F175E6\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-nltk-arff-injection-cve-2026-129221",
+      "x_craftedsignal_event_id": "brief-2026-11-23-nltk-arff-injection-cve-2026-129221",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-arff-injection-cve-2026-129221/",
+      "x_craftedsignal_activity_at": "2026-11-23T05:04:58.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.4,
+      "x_craftedsignal_epss_max": 0.00439,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -285603,7 +285699,7 @@
       "id": "report--d5c16710-f808-5536-b86c-2576cd1cfdc9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T02:05:43.000Z",
-      "modified": "2026-11-20T02:05:43.000Z",
+      "modified": "2026-11-23T05:05:23.000Z",
       "name": "containerd: Image manifest processing denial-of-service (CVE-2026-95839)",
       "description": "## Overview\ncontainerd is vulnerable to a daemon-crashing denial-of-service vulnerability during image manifest processing. When the transfer service encounters a child descriptor containing the 'io.containerd.manifest.subject' annotation and a malformed digest, it triggers an unrecovered panic.\n\n## Attack Chain\nPulling or importing an image with a malformed digest through the transfer service, including via default CRI PullImage requests, causes the containerd daemon to crash. In Kubernetes environments, kubelet retries can repeatedly trigger this crash loop, disrupting container operations on the worker node.\n\n## Impact\nSuccessful exploitation causes the containerd daemon to crash, disrupting container operations and availability on the affected node.\n\n## Recommendation\nThis issue is fixed in containerd versions 2.2.10, 2.3.7, and 2.4.2. Users should update to these versions. As a workaround, restrict pod image references to trusted registries (for example, using a Kubernetes ValidatingAdmissionPolicy or admission webhook) and only pull or import images from trusted sources.",
       "published": "2026-11-20T02:05:43.000Z",
@@ -285626,14 +285722,18 @@
         {
           "source_name": "reference",
           "url": "https://github.com/advisories/GHSA-vwhp-8p66-mq4f"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=AC7B0315-C36A-5C9B-9864-5663A3737467\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-20-containerd-daemon-crash-ghsa-vwhp-8p66-mq4f",
       "x_craftedsignal_event_id": "brief-2026-11-20-containerd-daemon-crash-ghsa-vwhp-8p66-mq4f",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-containerd-daemon-crash-ghsa-vwhp-8p66-mq4f/",
-      "x_craftedsignal_activity_at": "2026-11-20T02:05:43.000Z",
+      "x_craftedsignal_activity_at": "2026-11-23T05:05:23.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -304718,6 +304818,64 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f4b27ffe-bb9b-52d9-b40c-bfa9b9c47f73",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T05:04:06.000Z",
+      "modified": "2026-11-23T05:04:06.000Z",
+      "name": "OMEC AMF: Denial of Service via malformed NGAP PathSwitchRequest (CVE-2026-102945)",
+      "description": "## Overview\n\nCVE-2026-102945 affects the OMEC Access and Mobility Management Function (AMF) prior to version 3.1.6. The vulnerability resides in the ngap/handler.go file within the HandlePathSwitchRequest function, which fails to properly validate the length of the UESecurityCapabilities information element. An attacker capable of communicating as a rogue or compromised gNB on the N2 interface can trigger an unrecovered panic, leading to a service crash by sending a malformed NGAP PathSwitchRequest with a zero-length bit string. This attack requires knowledge of a registered user's AMF-UE-NGAP-ID and cannot be triggered by a standard over-the-air UE.\n\n## Impact\n\nSuccessful exploitation results in the immediate termination of the AMF service, causing a denial-of-service condition for mobile network operations managed by the affected AMF.\n\n## Recommendation\n\nUpgrade all deployments of the OMEC AMF to version 3.1.6 or later, which includes the necessary validation checks for the UESecurityCapabilities bit string. For environments unable to patch immediately, monitor the N2 interface for malformed NGAP PathSwitchRequest packets, particularly those with anomalous or empty UESecurityCapabilities elements.",
+      "published": "2026-11-23T05:04:06.000Z",
+      "object_refs": [
+        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3757bec4-7675-5917-b0e9-3ed8d2e72a83",
+        "vulnerability--8b0a91ca-930a-5490-9999-8983d312d777"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-omec-amf-dos-cve-2026-102945",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-omec-amf-dos-cve-2026-102945/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-102945"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/omec-project/amf/commit/d28042aaaea0221c5ea93c3e069a1dd5e7436f4c"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/omec-project/amf/security/advisories/GHSA-v6w5-38cf-pcv8"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=A09C222A-95F2-5539-AA54-9B2BEB4E5412"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=A09C222A-95F2-5539-AA54-9B2BEB4E5412\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-omec-amf-dos-cve-2026-102945",
+      "x_craftedsignal_event_id": "brief-2026-11-23-omec-amf-dos-cve-2026-102945",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-omec-amf-dos-cve-2026-102945/",
+      "x_craftedsignal_activity_at": "2026-11-23T05:04:06.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 4.9,
+      "x_craftedsignal_epss_max": 0.00361,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f4b6a122-c45a-5216-9e83-71ac5b9bed32",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:32:50.000Z",
@@ -316150,6 +316308,13 @@
       "id": "software--37497bdb-6ffa-58f1-ab98-e9b158316e1b",
       "name": "Red Hat OpenStack Platform 17.1",
       "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3757bec4-7675-5917-b0e9-3ed8d2e72a83",
+      "name": "amf (\u003c 3.1.6)",
+      "vendor": "OMEC"
     },
     {
       "type": "software",
@@ -366003,6 +366168,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--76df8e9d-4fd8-5ccc-a1ff-c4e3ace16777",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129221",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129221",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129221"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--76e41a67-ebb0-5fcc-aebf-0e3b5089a1c5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -371885,6 +372066,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115139",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115139"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8b0a91ca-930a-5490-9999-8983d312d777",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-102945",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-102945",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102945"
         }
       ]
     },
