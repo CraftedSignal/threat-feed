@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2afb559e-05f5-56e5-bf48-67d337b39968",
+  "id": "bundle--3905405a-2613-55f5-aef4-1134f76dc2e2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -29689,7 +29689,7 @@
       "id": "relationship--24a844ed-571e-5e48-ba0a-51f776bd5ff4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-22T00:30:56.000Z",
-      "modified": "2026-11-22T00:30:56.000Z",
+      "modified": "2026-11-23T01:00:14.000Z",
       "relationship_type": "uses",
       "source_ref": "report--004dfd4b-0aae-5d59-a4da-aebef7927f58",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -33994,6 +33994,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--b8e48ea7-7dab-590e-b904-aaea9eca6cce"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2b950971-cd02-5665-8708-9a80550c5d1a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T00:59:25.000Z",
+      "modified": "2026-11-23T00:59:25.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--7415086b-9f74-5fb5-a1e9-acb83caae508",
+      "target_ref": "threat-actor--6f7ff008-9d27-5b74-9b67-bb095a98af61"
     },
     {
       "type": "relationship",
@@ -51455,6 +51466,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4a343af2-e467-5714-bcfb-6e3faf01f8c7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T00:58:40.000Z",
+      "modified": "2026-11-23T00:58:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--64ba8c89-e10b-5927-9a58-bea87aa4576b",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4a3597cb-b520-551b-9f20-d354ac29a26d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T14:03:36.000Z",
@@ -61215,7 +61237,7 @@
       "id": "relationship--5a341838-7326-50c7-8f54-720a8ae52275",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T01:04:06.000Z",
-      "modified": "2026-11-20T01:04:06.000Z",
+      "modified": "2026-11-23T01:00:14.000Z",
       "relationship_type": "uses",
       "source_ref": "report--9be109fb-7a67-5310-8686-2fe34977ba67",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -82361,6 +82383,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--cd73fed5-e969-532c-b26c-75a33c8c8658"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7d721ef9-ce0b-5897-93df-a282a6507ebb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T00:59:25.000Z",
+      "modified": "2026-11-23T00:59:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7415086b-9f74-5fb5-a1e9-acb83caae508",
+      "target_ref": "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb"
     },
     {
       "type": "relationship",
@@ -103650,6 +103683,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a23918bf-69fe-5232-9dd5-ed2ab628485b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1f558f60-d617-5ae4-a3f9-6a6282ebfe55",
+      "target_ref": "vulnerability--ed803dfc-b12f-5dfa-9e1e-28b0d17ebdc6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a23941a8-e518-5ef7-ae74-dcac08536a55",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -114587,7 +114631,7 @@
       "id": "relationship--b4100274-7946-5dec-ba1a-40b48c8b8ebd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-22T02:57:11.000Z",
-      "modified": "2026-11-22T02:57:11.000Z",
+      "modified": "2026-11-23T01:00:14.000Z",
       "relationship_type": "uses",
       "source_ref": "report--3ee00130-2b17-5eea-b9a2-f0c3f4aa9942",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
@@ -127751,6 +127795,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ca6d7b36-cf26-522b-9a24-324d0bfd895d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3c2cfcd8-bcac-57a3-82f7-06efabc7221d",
+      "target_ref": "vulnerability--61fd235e-c36a-5434-ac9c-a45cd6960c68"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ca7f3df6-5874-5bfa-9cb7-fa9c1d8812fa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -136683,6 +136738,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--da1dc161-c62a-5b52-a6e8-bed2ab27ac3c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T00:59:25.000Z",
+      "modified": "2026-11-23T00:59:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7415086b-9f74-5fb5-a1e9-acb83caae508",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--da1f977b-4795-544e-b9e1-af9fe607fba2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -140756,7 +140822,7 @@
       "id": "relationship--e1b83b05-d4a2-57d2-8b64-17c0f02fedbd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-22T02:57:21.000Z",
-      "modified": "2026-11-22T02:57:21.000Z",
+      "modified": "2026-11-23T01:00:14.000Z",
       "relationship_type": "uses",
       "source_ref": "report--60ea9880-5bb2-5830-90eb-fa455807814e",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -158323,7 +158389,7 @@
       "id": "report--004dfd4b-0aae-5d59-a4da-aebef7927f58",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-22T00:30:56.000Z",
-      "modified": "2026-11-22T00:30:56.000Z",
+      "modified": "2026-11-23T01:00:14.000Z",
       "name": "Surya2Developer Online Shopping System SQL injection (CVE-2026-134541)",
       "description": "## Overview\nSurya2Developer Online Shopping System 1.0 contains a SQL injection vulnerability in the 'product.php' file, specifically within the 'p' GET parameter. The flaw allows unauthenticated remote attackers to manipulate input to execute arbitrary SQL commands. Publicly available exploit code exists for this vulnerability. As of the current date, the vendor has not responded to the initial issue report, and no patch is known to be available.\n\n## Attack Chain\n1. Attacker identifies a public-facing instance of Surya2Developer Online Shopping System 1.0.\n2. Attacker interacts with 'product.php'.\n3. Attacker injects malicious SQL syntax into the 'p' GET parameter.\n4. The application processes the unsanitized input within the database query.\n5. Arbitrary SQL commands are executed in the backend database.\n\n## Impact\nSuccessful exploitation allows an unauthenticated remote attacker to manipulate database queries, potentially leading to unauthorized data disclosure, modification, or destruction within the application's database.\n\n## Recommendation\n- Inventory all instances of Surya2Developer Online Shopping System in your environment.\n- If the product is not required for business operations, disable or decommission it until a security update is provided by the developer.\n- Implement Web Application Firewall (WAF) rules to inspect incoming GET requests for SQL injection patterns targeting the 'p' parameter in 'product.php'.\n- Monitor web server logs for anomalous requests containing SQL keywords (e.g., SELECT, UNION, DROP, --) in the 'p' parameter string.",
       "published": "2026-11-22T00:30:56.000Z",
@@ -158346,19 +158412,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134541"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=AC911C83-6BCE-5225-A3BC-EE97E5901B42\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-22-surya2developer-online-shopping-sql-injection-cve-2026-134541",
       "x_craftedsignal_event_id": "brief-2026-11-22-surya2developer-online-shopping-sql-injection-cve-2026-134541",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-surya2developer-online-shopping-sql-injection-cve-2026-134541/",
-      "x_craftedsignal_activity_at": "2026-11-22T00:30:56.000Z",
+      "x_craftedsignal_activity_at": "2026-11-23T01:00:14.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_epss_max": 0.0036,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -196418,7 +196490,7 @@
       "id": "report--3ee00130-2b17-5eea-b9a2-f0c3f4aa9942",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-22T02:57:11.000Z",
-      "modified": "2026-11-22T02:57:11.000Z",
+      "modified": "2026-11-23T01:00:14.000Z",
       "name": "WeddingShare: Missing authorization in MediaViewerController (CVE-2026-134679)",
       "description": "## Overview\n\nWeddingShare through version 1.8.2 contains a missing authorization vulnerability in the anonymous MediaViewerController.GalleryItem action. This flaw allows unauthenticated attackers to retrieve item upload paths without the required gallery secret key. By enumerating sequential integer item IDs, an attacker can learn file paths and uploader names, subsequently downloading photos and videos from key-protected galleries served as static files. No remediation or fixed version has been disclosed by the vendor at this time.\n\n## Attack Chain\n\n1. Attacker identifies a public-facing instance of WeddingShare.\n2. Attacker interacts with the unauthenticated MediaViewerController.GalleryItem action.\n3. Attacker performs enumeration of sequential integer item IDs to identify valid file paths.\n4. Attacker extracts sensitive metadata, including file paths and uploader names, from the application response.\n5. Attacker uses the discovered paths to bypass the gallery secret key protection mechanism.\n6. Attacker downloads unauthorized photos and videos served as static files.\n\n## Impact\n\nSuccessful exploitation allows unauthorized access to private, key-protected media galleries, leading to the exfiltration of sensitive photos and videos, along with associated metadata such as uploader names.\n\n## Recommendation\n\n* Inventory all deployments of WeddingShare to identify instances running version 1.8.2 or earlier.\n* Monitor web server logs for high volumes of requests to the MediaViewerController.GalleryItem endpoint that exhibit sequential ID patterns.\n* Restrict network access to the application if possible until a vendor-supplied patch is available.",
       "published": "2026-11-22T02:57:11.000Z",
@@ -196437,20 +196509,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134679"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=3D0E45DC-0687-5987-A105-3DAD6EB399D7\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-22-weddingshare-auth-bypass-cve-2026-134679",
       "x_craftedsignal_event_id": "brief-2026-11-22-weddingshare-auth-bypass-cve-2026-134679",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-weddingshare-auth-bypass-cve-2026-134679/",
-      "x_craftedsignal_activity_at": "2026-11-22T02:57:11.000Z",
+      "x_craftedsignal_activity_at": "2026-11-23T01:00:14.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00496,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -217321,7 +217398,7 @@
       "id": "report--60ea9880-5bb2-5830-90eb-fa455807814e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-22T02:57:21.000Z",
-      "modified": "2026-11-22T02:57:21.000Z",
+      "modified": "2026-11-23T01:00:14.000Z",
       "name": "Gammapy: Code injection in WcsGeom.from_header (CVE-2026-134694)",
       "description": "## Overview\nGammapy through 2.1 is vulnerable to code injection in the WcsGeom.from_header() method. The application passes the WCSSHAPE FITS header card directly to the Python eval() function. An attacker can create a specially crafted .fits file that includes an arbitrary Python expression within the WCSSHAPE field. When this file is processed by Map.read(), the embedded expression is executed with the permissions of the user running the library.\n\n## Attack Chain\n1. Attacker crafts a malicious .fits file containing a Python expression in the WCSSHAPE header card.\n2. Victim is induced to open the malicious .fits file using the Map.read() function in Gammapy.\n3. The application parses the file and calls WcsGeom.from_header().\n4. The library processes the WCSSHAPE header card and passes the contained string to eval().\n5. The Python interpreter executes the embedded expression, leading to code injection with the privileges of the victim user.\n\n## Impact\nSuccessful exploitation allows local arbitrary code execution as the user running the Gammapy application. This can lead to unauthorized data access, modification, or system compromise.\n\n## Recommendation\n- Inventory all environments using Gammapy versions 2.1 or earlier.\n- Restrict access to processing .fits files from untrusted sources.\n- Monitor for official patches or updates from the Gammapy project to address the unsafe use of eval() in WcsGeom.from_header().\n- Implement sandboxing for processes that handle user-supplied FITS files to limit the potential impact of code execution.",
       "published": "2026-11-22T02:57:21.000Z",
@@ -217344,20 +217421,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134694"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=19F171CF-4AEE-5EB3-8BDA-CCB0C8FF469C\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-22-gammapy-code-injection-cve-2026-134694",
       "x_craftedsignal_event_id": "brief-2026-11-22-gammapy-code-injection-cve-2026-134694",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gammapy-code-injection-cve-2026-134694/",
-      "x_craftedsignal_activity_at": "2026-11-22T02:57:21.000Z",
+      "x_craftedsignal_activity_at": "2026-11-23T01:00:14.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00276,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -219856,6 +219938,56 @@
         "status": "unknown"
       },
       "x_craftedsignal_epss_max": 0.00192,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--64ba8c89-e10b-5927-9a58-bea87aa4576b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T00:58:40.000Z",
+      "modified": "2026-11-23T00:58:40.000Z",
+      "name": "Sourcecodester Online Computer and Laptop Store privilege escalation (CVE-2023-31704)",
+      "description": "## Overview\n\nSourcecodester Online Computer and Laptop Store 1.0 contains an Incorrect Access Control vulnerability in the \"Users.php\" file, specifically within the \"save\" function (f=save). This flaw allows remote attackers to elevate privileges or modify administrative credentials, resulting in unauthorized administrative access. Successful exploitation exposes all administrative functions, including the modification of product pricing and direct alteration of site content. \n\n## Attack Chain\n\n1. Attacker interacts with the \"My Account\" update feature in the administrative panel.\n2. Attacker initiates an update to account credentials while intercepting the request with a proxy.\n3. Attacker captures the POST request directed at the \"/php-ocls/classes/Users.php?f=save\" endpoint.\n4. Attacker modifies the password or other user parameters within the request body to change administrative settings.\n5. Attacker successfully overrides account credentials without proper validation.\n6. Attacker authenticates to the application using the modified administrative credentials.\n7. Attacker gains full administrative control over the application, including site settings and product configurations.\n\n## Impact\n\nAttackers can achieve full administrative access, allowing for the manipulation of site data, including product prices, and the ability to modify the source code or site structure, potentially leading to further exploitation or defacement.\n\n## Recommendation\n\n- Inventory all instances of \"Online Computer and Laptop Store\" in the environment.\n- If the application is deemed non-essential, decommission it, as it appears to be legacy or unmaintained source code.\n- Restrict access to the administrative management endpoints (specifically \"/classes/Users.php\") via network-level controls or web application firewalls if the application must remain online.\n- Implement strict monitoring on requests to \"/classes/Users.php\" to detect attempts to manipulate administrative account settings.",
+      "published": "2026-11-23T00:58:40.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3c2cfcd8-bcac-57a3-82f7-06efabc7221d",
+        "vulnerability--61fd235e-c36a-5434-ac9c-a45cd6960c68"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-cve-2023-31704",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2023-31704/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2023-31704"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-D34DUN1C02N-CVE-2023-31704"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-D34DUN1C02N-CVE-2023-31704\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-cve-2023-31704",
+      "x_craftedsignal_event_id": "brief-2026-11-23-cve-2023-31704",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2023-31704/",
+      "x_craftedsignal_activity_at": "2026-11-23T00:58:40.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.01312,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -228027,6 +228159,61 @@
         "confidence": "high"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--7415086b-9f74-5fb5-a1e9-acb83caae508",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T00:59:25.000Z",
+      "modified": "2026-11-23T00:59:25.000Z",
+      "name": "OpenShot Video Editor: Unsafe Deserialization Remote Code Execution (CVE-2026-134704)",
+      "description": "## Overview\nOpenShot Video Editor (openshot-qt) through version 4.1.1 contains an unsafe deserialization vulnerability in ProjectDataStore.load() and read_legacy_project_file(). The application insecurely uses the Python pickle.load() method to process data from .osp project files without proper validation. An attacker can craft a malicious .osp file containing a pickle __reduce__ gadget, which, when opened by a user in an affected version of the software, results in arbitrary command execution under the context of the user running the application.\n\n## Attack Chain\n1. Attacker crafts a malicious .osp archive using the documented Python pickle gadget technique.\n2. Malicious .osp file is delivered to the target through social engineering (e.g., email, shared file transfer).\n3. Victim opens the crafted .osp file using OpenShot.\n4. OpenShot reads the malicious project data using the vulnerable ProjectDataStore.load() or read_legacy_project_file() functions.\n5. The application triggers pickle.loads() on the embedded project payload.\n6. The payload executes arbitrary OS commands in the user's security context.\n7. Attacker achieves remote code execution or system persistence.\n\n## Impact\nSuccessful exploitation results in full remote code execution in the context of the user running OpenShot. This allows for unauthorized access to sensitive files, data exfiltration, or installation of persistent malware on the victim's host.\n\n## Recommendation\n- Immediately upgrade OpenShot to version 4.1.2 or later to mitigate the vulnerability.\n- Advise users against opening .osp project files from untrusted or unknown sources.\n- Deploy hunting leads to identify unauthorized execution of shell commands spawned by the OpenShot process.",
+      "published": "2026-11-23T00:59:25.000Z",
+      "labels": [
+        "cve-2026-134704",
+        "deserialization",
+        "linux",
+        "macos",
+        "openshot",
+        "rce",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1f558f60-d617-5ae4-a3f9-6a6282ebfe55",
+        "threat-actor--6f7ff008-9d27-5b74-9b67-bb095a98af61",
+        "vulnerability--ed803dfc-b12f-5dfa-9e1e-28b0d17ebdc6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-openshot-deserialization-cve-2026-134704",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openshot-deserialization-cve-2026-134704/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134704"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=C3B7B677-0E6D-52B4-AE82-E423E75D325B\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-openshot-deserialization-cve-2026-134704",
+      "x_craftedsignal_event_id": "brief-2026-11-23-openshot-deserialization-cve-2026-134704",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openshot-deserialization-cve-2026-134704/",
+      "x_craftedsignal_activity_at": "2026-11-23T00:59:25.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -252095,7 +252282,7 @@
       "id": "report--9be109fb-7a67-5310-8686-2fe34977ba67",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T01:04:06.000Z",
-      "modified": "2026-11-20T01:04:06.000Z",
+      "modified": "2026-11-23T01:00:14.000Z",
       "name": "Fabio: Authentication bypass via path normalization (CVE-2026-104099)",
       "description": "## Overview\n\nFabio, an HTTP(S) and TCP router for applications managed by Consul, contains an authentication bypass vulnerability in versions prior to 1.7.3. The vulnerability stems from how the router selects targets using raw request paths while applying per-route ACL and basic-auth checks. Attackers can use dot-segment, encoded-dot, or repeated-slash variants to bypass these checks. If a less restrictive fallback route exists that reaches the same backend as a protected resource, the backend can normalize the path and serve the resource without the intended security controls.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated users to access protected resources on backend services, resulting in a high impact on confidentiality and integrity. If no less restrictive fallback route exists that reaches the same backend, the request is blocked and returns a 404 error.\n\n## Recommendation\n\n* Upgrade all deployments of Fabio to version 1.7.3 or later immediately to resolve the path normalization issue.\n* Perform an audit of your Fabio routing configuration to ensure that fallback routes do not inadvertently expose protected backend resources when path normalization is applied.",
       "published": "2026-11-20T01:04:06.000Z",
@@ -252118,20 +252305,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104099"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=17A61CF0-706E-5500-B1C6-6C1DB8C61942\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-20-fabio-path-traversal-cve-2026-104099",
       "x_craftedsignal_event_id": "brief-2026-11-20-fabio-path-traversal-cve-2026-104099",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fabio-path-traversal-cve-2026-104099/",
-      "x_craftedsignal_activity_at": "2026-11-20T01:04:06.000Z",
+      "x_craftedsignal_activity_at": "2026-11-23T01:00:14.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.00569,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -313848,6 +314040,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1f558f60-d617-5ae4-a3f9-6a6282ebfe55",
+      "name": "OpenShot (\u003c 4.1.2)",
+      "vendor": "OpenShot Studios"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1f979dd4-bd46-5fd0-99d0-001066cdbd13",
       "name": "Area Species Management Research Program",
       "vendor": "U.S. Geological Survey"
@@ -316313,6 +316512,13 @@
       "id": "software--3c2ac8cf-d1d2-5a8c-87fe-601472037365",
       "name": "FortiManager (8.0.0-8.0.1, 7.6.0-7.6.7, 7.4.0-7.4.11, 7.2.0-7.2.12)",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3c2cfcd8-bcac-57a3-82f7-06efabc7221d",
+      "name": "Online Computer and Laptop Store (1.0)",
+      "vendor": "Sourcecodester"
     },
     {
       "type": "software",
@@ -359821,6 +360027,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--61fd235e-c36a-5434-ac9c-a45cd6960c68",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2023-31704",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2023-31704",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-31704"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--61fe67c4-c45a-5a97-90b3-42e10b799308",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -400295,6 +400517,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112734",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112734"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ed803dfc-b12f-5dfa-9e1e-28b0d17ebdc6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134704",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134704",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134704"
         }
       ]
     },
