@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a92c0669-93d8-5076-ba72-989fb80c51d5",
+  "id": "bundle--f5f35b3e-b452-56a3-ac12-0f598d4254fc",
   "objects": [
     {
       "type": "attack-pattern",
@@ -38381,6 +38381,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--323614c5-6f84-55aa-87e6-3fd9a28f7915",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T21:19:30.000Z",
+      "modified": "2026-11-23T21:19:30.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--561d78d4-9c6d-5576-a98e-a0d8264ab4cc",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--32399332-60d7-56eb-9f01-67450a219492",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -71487,6 +71498,17 @@
       "relationship_type": "has",
       "source_ref": "software--1dd8105b-3700-5709-94ef-ffb7187acdfd",
       "target_ref": "vulnerability--61c457d0-eb97-5052-a5c1-dfbec3b21102"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--698e1de4-1dd4-56c0-92c6-d646f8fec512",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--48cc935f-46f8-5c4d-95e1-289a43f1440e",
+      "target_ref": "vulnerability--421ff6d0-3617-59cb-bbb8-2f36cb1c2929"
     },
     {
       "type": "relationship",
@@ -216667,6 +216689,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--561d78d4-9c6d-5576-a98e-a0d8264ab4cc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T21:19:30.000Z",
+      "modified": "2026-11-23T21:19:30.000Z",
+      "name": "DreameHome cloud API insecure direct object reference (CVE-2026-49964)",
+      "description": "## Overview\n\nThe DreameHome cloud API, specifically the POST /dreame-user-iot/token/rtc2 endpoint, contained an insecure direct object reference (IDOR) vulnerability prior to October 14, 2026. This vulnerability allows an authenticated attacker to supply a target device ID (DID) and owner user ID (UID) to retrieve an Agora RTC token for that device. \n\n## Impact\n\nSuccessful exploitation allows an unauthorized party to join the live-video channel of a targeted device. This enables the attacker to view the video stream and potentially publish video content under the identity of the targeted device. No evidence of a patch is provided in the primary CNA evidence.\n\n## Recommendation\n\n- Audit API access logs for the endpoint 'POST /dreame-user-iot/token/rtc2' to identify requests where the requester UID does not match the owner UID associated with the requested DID.\n- If your organization is a DreameHome customer, contact the vendor to confirm if your cloud-hosted environment has received a patch since the October 14, 2026, remediation threshold.\n- Implement strict server-side authorization checks for all API endpoints that handle device-specific tokens.",
+      "published": "2026-11-23T21:19:30.000Z",
+      "object_refs": [
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--48cc935f-46f8-5c4d-95e1-289a43f1440e",
+        "vulnerability--421ff6d0-3617-59cb-bbb8-2f36cb1c2929"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-dreamehome-api-idor-cve-2026-49964",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dreamehome-api-idor-cve-2026-49964/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-49964"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49964"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-dreamehome-api-idor-cve-2026-49964",
+      "x_craftedsignal_event_id": "brief-2026-11-23-dreamehome-api-idor-cve-2026-49964",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dreamehome-api-idor-cve-2026-49964/",
+      "x_craftedsignal_activity_at": "2026-11-23T21:19:30.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--56560be0-e83d-5191-be6f-b0c6dae3484a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T16:51:17.000Z",
@@ -325930,6 +325997,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--48cc935f-46f8-5c4d-95e1-289a43f1440e",
+      "name": "DreameHome cloud API (\u003c 2026-10-14)",
+      "vendor": "Dreame"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--49021319-b3ac-51d2-aba8-6022b3cf95e2",
       "name": "FV Flowplayer Video Player (\u003c= 7.5.57.7212)",
       "vendor": "foliovision"
@@ -361071,6 +361145,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-42647",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42647"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--421ff6d0-3617-59cb-bbb8-2f36cb1c2929",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-49964",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-49964",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49964"
         }
       ]
     },
