@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-17-optimizely-supply-chain
 event_id: brief-2026-11-17-optimizely-supply-chain
-revision: 4
-activity_at: "2026-11-19T16:34:37Z"
+revision: 5
+activity_at: "2026-11-23T19:15:02Z"
 revision_history:
   - revision: 2
     at: "2026-11-18T07:01:58Z"
@@ -58,11 +58,25 @@ revision_history:
       - updates
     source_urls:
       - https://krebsonsecurity.com/2026/11/attackers-used-optimizely-to-a-b-test-malware-on-top-websites/
+  - revision: 5
+    at: "2026-11-23T19:15:02Z"
+    checksum: sha256:a492b6d9859a57df5327ac36fdc879b27f1257e6e8fdc0cc10ba345890c4aa44
+    summary: added CVE-2026-132224
+    changed_fields:
+      - cpes
+      - cve_verification
+      - cves
+      - iocs
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-132224
 title: 'Optimizely: Malicious JavaScript injection via supply chain attack'
 slug: 2026-11-optimizely-supply-chain
 description: An unauthorized party exploited a vulnerability in the Optimizely Experimentation platform to inject malicious JavaScript into 178 customer websites, enabling the distribution of a multi-purpose malware kit to visitors.
 date: "2026-11-17T20:54:45Z"
-lastmod: "2026-11-19T16:32:42Z"
+lastmod: "2026-11-23T19:13:11Z"
 type: threat
 types:
   - threat
@@ -81,6 +95,8 @@ source_assessment:
 qa_status:
   verdict: pass
   validation_status: Verified against Sophos X-Ops advisory.
+cpes:
+  - cpe:2.3:a:optimizely:web_experimentation:*:*:*:*:*:*:*:*
 has_poc: true
 tags:
   - supply-chain
@@ -123,6 +139,16 @@ mitre_ttps:
     technique_name: Drive-by Compromise
     evidence: Hundreds of websites using the Optimizely website personalization platform served unsuspecting visitors a potent malware cocktail.
     confidence_band: high
+cve_verification:
+  CVE-2026-132224:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-23T19:13:11.401586726Z
+cves:
+  - id: CVE-2026-132224
+    cvss: 8.7
+    epss: 0.00426
+    kev_status: "false"
 references:
   - https://www.sophos.com/en-us/blog/hijacked-optimizely-snippets-served-malicious-code
   - https://arstechnica.com/security/2026/11/malicious-code-delivered-through-optimizely-hits-visitors-to-hundreds-of-sites/
@@ -132,6 +158,7 @@ references:
   - https://unit42.paloaltonetworks.com/optimjack-supply-chain-attack/
   - https://krebsonsecurity.com/2026/11/attackers-used-optimizely-to-a-b-test-malware-on-top-websites/
   - https://pages.optimizely.com/rs/947-RKE-048/images/Security%20Incident%20Report%20-%20Optimizely%20Web%20Experimentation%20-%20Nov%2017%202026.pdf
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-132224
 iocs:
   - type: url
     value: https://1688360.cc/card.php
@@ -216,6 +243,13 @@ updates:
       - krebs-breaches
     source_urls:
       - https://krebsonsecurity.com/2026/11/attackers-used-optimizely-to-a-b-test-malware-on-top-websites/
+  - at: "2026-11-23T19:13:11Z"
+    level: L2
+    summary: added CVE-2026-132224
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-132224
 ---
 
 ## Overview
