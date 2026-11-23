@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--50d547f7-c648-58fb-a650-14ea3cd75e47",
+  "id": "bundle--2097d9b5-e4bb-5b41-8a27-945ac8bbdb78",
   "objects": [
     {
       "type": "attack-pattern",
@@ -58411,7 +58411,7 @@
       "id": "relationship--4517beb1-dbc7-579d-8a51-4d7fe1bc0d57",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T02:04:48.000Z",
-      "modified": "2026-11-10T16:31:37.000Z",
+      "modified": "2026-11-23T18:52:43.000Z",
       "relationship_type": "uses",
       "source_ref": "report--254b7f3b-71ed-519f-ab98-27db2984a0d7",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -221915,7 +221915,7 @@
       "id": "report--254b7f3b-71ed-519f-ab98-27db2984a0d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T02:04:48.000Z",
-      "modified": "2026-11-10T16:31:37.000Z",
+      "modified": "2026-11-23T18:52:43.000Z",
       "name": "Ghostscript: -dSAFER bypass in .putgstringcopy procedure (CVE-2026-125396)",
       "description": "## Overview\nGhostscript before version 10.08.0 is vulnerable to a -dSAFER bypass in the .putgstringcopy procedure located in gs_fonts.ps. The vulnerability arises because the procedure calls the privileged .forceput operator without validating operand types. An attacker can supply a specially crafted PostScript or PDF document that triggers a deliberate type error. By recovering the .forceput operator through a custom error handler, an attacker can manipulate memory to trigger a use-after-free condition during save and restore operations, leading to arbitrary code execution within the context of the Ghostscript interpreter.\n\n## Impact\nSuccessful exploitation allows for arbitrary code execution in the context of the user or service running the Ghostscript interpreter. This is critical for applications that process untrusted user-supplied PostScript or PDF files (e.g., print servers, document converters, or automated imaging pipelines).\n\n## Recommendation\n- Update all installations of Ghostscript to version 10.08.0 or later immediately.\n- Audit applications that integrate Ghostscript to identify and isolate processing of untrusted document inputs.\n- Implement sandboxing for the Ghostscript process to limit the impact of potential code execution if immediate patching is not possible.\n",
       "published": "2026-11-10T02:04:48.000Z",
@@ -221937,21 +221937,30 @@
         },
         {
           "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=1E4F8989-96F8-5CCC-908E-35A5149361F1\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4424"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.sophos.com/en-us/blog/proof-of-concept-available-for-ghostscript-upload2shell"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-10-ghostscript-dsafer-bypass",
       "x_craftedsignal_event_id": "brief-2026-11-10-ghostscript-dsafer-bypass",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ghostscript-dsafer-bypass/",
-      "x_craftedsignal_activity_at": "2026-11-10T16:31:37.000Z",
+      "x_craftedsignal_activity_at": "2026-11-23T18:52:43.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00347,
       "x_craftedsignal_kev_status": "false"
     },
     {
