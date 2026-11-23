@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8f215ed3-2251-5d6d-85ee-cd1f8908d2d7",
+  "id": "bundle--9c55ec0b-599b-5f52-adf2-231e6dfe97d3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -19166,6 +19166,17 @@
       "relationship_type": "has",
       "source_ref": "software--b00b01db-cb08-58c2-9980-b17e68252f1a",
       "target_ref": "vulnerability--3eb814b2-fd74-51ee-ba37-e5bdef51e101"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--124d4268-2937-5030-ad0a-cc18a11b3311",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--416536da-33e9-5487-837c-b6e4a51ed522",
+      "target_ref": "vulnerability--7c22a5b2-c589-5d70-97f3-fc44b4bb3dd0"
     },
     {
       "type": "relationship",
@@ -74023,6 +74034,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--945895ec-763b-58d5-91e4-7d8fce19bb0b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6e506465-64df-5751-8b39-c6252fcbed21",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T15:46:43.000Z",
+      "modified": "2026-11-23T15:46:43.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ebbc2d8d-63f0-51c4-a1dd-c9ca42923eb8",
+      "target_ref": "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b"
     },
     {
       "type": "relationship",
@@ -303316,6 +303338,68 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ebbc2d8d-63f0-51c4-a1dd-c9ca42923eb8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T15:46:43.000Z",
+      "modified": "2026-11-23T15:46:43.000Z",
+      "name": "QEMU NBD Server: Denial of Service via extended BLOCK_STATUS (CVE-2026-124559)",
+      "description": "## Overview\n\nA flaw in the QEMU NBD server (CVE-2026-124559) allows an unauthenticated or low-privileged remote attacker to trigger an assertion failure, leading to a process crash. The issue originates in 'nbd/server.c' due to incorrect ordering of operations, where an assertion intended to validate metadata context is executed before payload validation. An attacker can exploit this by forcing the server to process an extended 'BLOCK_STATUS' request containing a stale or zero-count metadata context following an export switch, triggering a SIGABRT.\n\n## Attack Chain\n\n1. Attacker identifies a target running a multi-export QEMU NBD server.\n2. Attacker establishes a connection to the NBD service.\n3. Attacker triggers an export switch on the server.\n4. Attacker maintains a stale or zero-count metadata context associated with the previous export.\n5. Attacker issues an extended BLOCK_STATUS request to the server.\n6. The server process executes an assertion check on the stale context before validating the payload.\n7. The assertion fails, causing the NBD server process (e.g., qemu-nbd, qemu-storage-daemon) to abort (Denial of Service).\n\n## Impact\n\nSuccessful exploitation results in the immediate termination of the affected QEMU-based NBD server processes, impacting availability for all connected clients or virtual machines utilizing these storage exports.\n\n## Recommendation\n\nUpdate QEMU to a version incorporating the fix for commit 3ec7bb19, which ensures payload validation occurs before metadata assertions. As a temporary workaround, restrict network access to the NBD service to trusted clients or configure the NBD server to support only a single export per listener. If TLS is configured on the NBD connection, valid credentials are required to reach the vulnerable code path.",
+      "published": "2026-11-23T15:46:43.000Z",
+      "labels": [
+        "cve-2026-124559",
+        "denial-of-service",
+        "qemu"
+      ],
+      "object_refs": [
+        "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--416536da-33e9-5487-837c-b6e4a51ed522",
+        "vulnerability--7c22a5b2-c589-5d70-97f3-fc44b4bb3dd0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-23-qemu-nbd-dos-cve-2026-124559",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-qemu-nbd-dos-cve-2026-124559/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-124559"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-76cf-rmfq-c9m8"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/sailfishos-mirror/qemu/commit/3ec7bb19359c9368ac3e1556ffb156ab5f915ea3"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://gitlab.com/qemu-project/qemu/-/work_items/3796"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=8EFF8769-9E79-5436-A049-796698305BC4\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-23-qemu-nbd-dos-cve-2026-124559",
+      "x_craftedsignal_event_id": "brief-2026-11-23-qemu-nbd-dos-cve-2026-124559",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-qemu-nbd-dos-cve-2026-124559/",
+      "x_craftedsignal_activity_at": "2026-11-23T15:46:43.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ebd87ab9-26b4-5add-ba6a-6bf9b529b7da",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T10:13:20.000Z",
@@ -321500,6 +321584,13 @@
       "id": "software--41462e7c-d0c0-5e2d-8b03-95e75dff4dc5",
       "name": "WP BASE Booking",
       "vendor": "WP BASE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--416536da-33e9-5487-837c-b6e4a51ed522",
+      "name": "QEMU (\u003c 3ec7bb19)",
+      "vendor": "QEMU"
     },
     {
       "type": "software",
@@ -372792,6 +372883,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109496",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109496"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7c22a5b2-c589-5d70-97f3-fc44b4bb3dd0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124559",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124559",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124559"
         }
       ]
     },
