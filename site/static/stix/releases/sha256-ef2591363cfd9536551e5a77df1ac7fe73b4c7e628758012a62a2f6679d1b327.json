@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--de5a7762-0c49-59f9-aa7b-ed0d98529dcb",
+  "id": "bundle--40a28f84-ed58-56c9-a1c3-022473920b77",
   "objects": [
     {
       "type": "attack-pattern",
@@ -21732,17 +21732,6 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--0a03cd72-fd5f-5df6-bdda-f1b0be39fffa"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--10f899b1-d63d-58db-a275-859242111b1c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-25T20:30:02.000Z",
-      "modified": "2026-10-29T20:03:29.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6ccf1393-4f2a-5310-9f68-28662e8d8da4",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -107140,6 +107129,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--86058789-cf0b-5060-b60b-bbf00e538034",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T20:30:13.000Z",
+      "modified": "2026-11-24T20:30:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f2ec9849-76fc-57dc-b12c-d29ba2f286b5",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8607d97e-8a73-5ada-b860-65add876d513",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -179157,17 +179157,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ea1815d5-acbe-5ebf-a527-27fc0658cfd6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--a88c419b-7f71-5043-9c6e-2f5dca3c1236",
-      "target_ref": "vulnerability--0d17a695-41ba-5058-b44c-46792ab7fe49"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ea199f1c-d7c4-5d9a-9f64-711bb5fcbbe2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -183073,17 +183062,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ef37fd6b-1bbc-5f14-a18a-53cb1ffbf90c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--a88c419b-7f71-5043-9c6e-2f5dca3c1236",
-      "target_ref": "vulnerability--2cbeb825-3005-5c80-8e64-7f06c9e9ce00"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ef39abfd-3723-5b45-9d79-61f4f00f4428",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -183135,6 +183113,17 @@
       "relationship_type": "has",
       "source_ref": "software--a3f7316c-60af-5276-a5f9-26433c5cd6a7",
       "target_ref": "vulnerability--961d5fe2-ade6-5bac-a0e7-ed92d118bba0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ef3f4136-4a90-5f36-ad4a-6cdbd43f323c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c73c9b9b-e277-5d71-bd21-9bda1557572c",
+      "target_ref": "vulnerability--79f5b394-a267-59c7-97e7-4c402b15f848"
     },
     {
       "type": "relationship",
@@ -198556,6 +198545,57 @@
       },
       "x_craftedsignal_cvss_max": 5.9,
       "x_craftedsignal_epss_max": 0.00233,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0544ae93-b530-5057-99bb-ea7d0a5e3b11",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T20:29:45.000Z",
+      "modified": "2026-11-24T20:29:45.000Z",
+      "name": "MISP: Insufficient session expiration in CLI (CVE-2026-135233)",
+      "description": "## Overview\nMISP versions prior to 2.5.52 contain a vulnerability in the interactive CLI shell where edit or disable operations on user accounts do not update the `date_modified` field in the user record. Because the application's session validation logic relies on this timestamp to detect changes and force a reload of the user's state, modifications made via the CLI are not reflected in existing active sessions.\n\n## Impact\nWhen an administrator modifies or disables a user account through the MISP interactive CLI, the affected user retains their previous access and privileges in all currently active web sessions until the session naturally expires. This occurs because the application fails to detect the account change, allowing unauthorized continued access for disabled accounts or unauthorized privilege levels for demoted accounts.\n\n## Preconditions\n- An administrator performs a user edit or disable action via the MISP interactive CLI shell rather than the web interface.\n- The targeted user has one or more active web sessions at the time of the CLI operation.\n\n## Recommendation\nUpgrade to MISP version 2.5.52 or later. This release ensures the `date_modified` field is correctly included in save operations triggered by the CLI, forcing active sessions to reload the user's updated state.",
+      "published": "2026-11-24T20:29:45.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c73c9b9b-e277-5d71-bd21-9bda1557572c",
+        "vulnerability--79f5b394-a267-59c7-97e7-4c402b15f848"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-24-misp-cli-session-invalidation-cve-2026-135233",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-misp-cli-session-invalidation-cve-2026-135233/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-135233"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/MISP/MISP/commit/af3f35fd6cc8fe05b23d14a3c82c91a2b6"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=9B6EF731-62CE-5AF8-969D-D3C6EDB2E7FC"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=9B6EF731-62CE-5AF8-969D-D3C6EDB2E7FC\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-24-misp-cli-session-invalidation-cve-2026-135233",
+      "x_craftedsignal_event_id": "brief-2026-11-24-misp-cli-session-invalidation-cve-2026-135233",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-misp-cli-session-invalidation-cve-2026-135233/",
+      "x_craftedsignal_activity_at": "2026-11-24T20:29:45.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -278073,57 +278113,6 @@
       },
       "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_epss_max": 0.01626,
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--6ccf1393-4f2a-5310-9f68-28662e8d8da4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-25T20:30:02.000Z",
-      "modified": "2026-10-29T20:03:29.000Z",
-      "name": "SourceCodester Performance Indicator System: SQL Injection in Contact argument (CVE-2026-116060)",
-      "description": "A vulnerability has been identified in SourceCodester Performance Indicator System 1.0. The flaw exists in the '/opils/staff/adddealer.php' file. Manipulation of the 'Contact' argument can lead to SQL injection. The vulnerability can be exploited remotely, and the exploit has been publicly disclosed.\n",
-      "published": "2026-10-25T20:30:02.000Z",
-      "labels": [
-        "sqli",
-        "web-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--a88c419b-7f71-5043-9c6e-2f5dca3c1236",
-        "vulnerability--0d17a695-41ba-5058-b44c-46792ab7fe49",
-        "vulnerability--2cbeb825-3005-5c80-8e64-7f06c9e9ce00"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-25-sourcecodester-sqli",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-sourcecodester-sqli/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116060"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116061"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-25-sourcecodester-sqli",
-      "x_craftedsignal_event_id": "brief-2026-10-25-sourcecodester-sqli",
-      "x_craftedsignal_revision": 2,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-sourcecodester-sqli/",
-      "x_craftedsignal_activity_at": "2026-10-29T20:03:29.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_epss_max": 0.00263,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -378224,6 +378213,64 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f2ec9849-76fc-57dc-b12c-d29ba2f286b5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T20:30:13.000Z",
+      "modified": "2026-11-24T20:30:13.000Z",
+      "name": "FontForge: Command injection vulnerabilities (CVE-2024-25081, CVE-2024-25082)",
+      "description": "## Overview\nFontForge versions through 20230101 contain command injection vulnerabilities within the Splinefont component. These flaws occur because the software fails to sanitize filenames when processing font files or during the extraction of compressed archive formats. Attackers can leverage this to execute arbitrary shell commands.\n\n## Attack Chain\nAn attacker provides a crafted font file or archive containing a malicious filename (e.g., embedding a semicolon-delimited payload). When FontForge processes the file or extracts the archive, the unsanitized filename is passed to the system shell, leading to command execution.\n\n## Impact\nSuccessful exploitation can result in remote code execution on the target system with the privileges of the user running FontForge.\n\n## Recommendation\nRefer to upstream FontForge guidance regarding PR #5367. The supplied source references a fix in releases post-20230101, but users should verify their installed branch against current vendor guidance.",
+      "published": "2026-11-24T20:30:13.000Z",
+      "labels": [
+        "command-injection",
+        "remote-code-execution"
+      ],
+      "object_refs": [
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--e6b9d8fd-1a36-5841-9549-2991897adb5a",
+        "vulnerability--f83b72c7-57a5-5a75-b08c-c6f6d80a1f74"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-24-fontforge-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fontforge-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2024-25081"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2024-25082"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/fontforge/fontforge/pull/5367"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ALIELKHATTEB-CVE-2024-25082_CVE-2024-25081\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-24-fontforge-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-24-fontforge-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fontforge-rce/",
+      "x_craftedsignal_activity_at": "2026-11-24T20:30:13.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.5,
+      "x_craftedsignal_epss_max": 0.01854,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f2ee545d-7651-52de-938d-c0467abcdfe5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T14:16:26.000Z",
@@ -408377,13 +408424,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--a88c419b-7f71-5043-9c6e-2f5dca3c1236",
-      "name": "Performance Indicator System (1.0)",
-      "vendor": "SourceCodester"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--a88fc9c6-9970-593f-b5b5-29f05affef33",
       "name": "TeamViewer Full Client (\u003c 15.83)",
       "vendor": "TeamViewer"
@@ -423605,22 +423645,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--0d17a695-41ba-5058-b44c-46792ab7fe49",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-116060",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-116060",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116060"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--0d1dc1c0-aeb5-5cb3-a097-36f54e87ec66",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -434255,22 +434279,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-128139",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128139"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--2cbeb825-3005-5c80-8e64-7f06c9e9ce00",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-116061",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-116061",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116061"
         }
       ]
     },
@@ -459727,6 +459735,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118683",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118683"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--79f5b394-a267-59c7-97e7-4c402b15f848",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-135233",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-135233",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135233"
         }
       ]
     },
@@ -498405,6 +498429,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--e6b9d8fd-1a36-5841-9549-2991897adb5a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-25082",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-25082",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-25082"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--e6ba1590-fda5-5bc7-a9f7-41bfbef0b434",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -504303,6 +504343,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-133250",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133250"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f83b72c7-57a5-5a75-b08c-c6f6d80a1f74",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-25081",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-25081",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-25081"
         }
       ]
     },
