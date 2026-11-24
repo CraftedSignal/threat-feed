@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--59c0322e-2398-5676-a2ad-a8527fdf5f4d",
+  "id": "bundle--3ffb20f3-3cdb-5177-9ed1-067d12de64c4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -23237,6 +23237,17 @@
       "relationship_type": "uses",
       "source_ref": "report--3f5c5226-602c-59c6-aa5e-ed440625bb91",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--18a8bfec-d1bc-5154-bb1a-2b9e0e0052d7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--708f4b9d-9517-5538-b6c7-2455da56415c",
+      "target_ref": "vulnerability--06773cc6-21d2-57f9-8f10-593332852003"
     },
     {
       "type": "relationship",
@@ -87213,6 +87224,17 @@
       "relationship_type": "has",
       "source_ref": "software--8b700896-b820-562e-abab-7f6372d13633",
       "target_ref": "vulnerability--16cf7e68-8dce-55e2-a814-11fd53f0d491"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--819308ae-38e5-5a2c-a6b8-e402ba5f0510",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T17:24:10.000Z",
+      "modified": "2026-11-24T17:24:10.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8d3c7d67-ebfb-59aa-bba0-98a29cfbb647",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -251965,6 +251987,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8d3c7d67-ebfb-59aa-bba0-98a29cfbb647",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T17:24:10.000Z",
+      "modified": "2026-11-24T17:24:10.000Z",
+      "name": "Danfoss AK-SM 8xxA Series: Stack-based buffer overflow (CVE-2026-129713)",
+      "description": "## Overview\n\nA stack-based buffer overflow vulnerability exists in the unauthenticated CGI handler of Danfoss AK-SM 8xxA Series controllers (CVE-2026-129713). Remote, unauthenticated attackers can send specially crafted HTTP/S POST requests to trigger memory corruption, causing a webserver restart or potentially leading to arbitrary code execution with the privileges of the webserver.\n\n## Impact\n\nSuccessful exploitation could allow an attacker to execute arbitrary code with webserver privileges. Current evidence does not show active exploitation in the wild.\n\n## Recommendation\n\nUntil a patch is available in version 5.5.x, implement the following mitigations immediately:\n* Isolate control system networks by removing direct internet exposure and public IP assignments.\n* Restrict remote access to devices by utilizing secure VPNs or protected network architectures.\n* Configure all devices to 'Strict Mode' to enforce higher security levels.\n* Enforce the use of strong, unique passwords for all administrative and user accounts.\n* Monitor logs for unusual HTTP/S POST activity targeting the web server components.",
+      "published": "2026-11-24T17:24:10.000Z",
+      "labels": [
+        "cve",
+        "ics",
+        "rce",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--708f4b9d-9517-5538-b6c7-2455da56415c",
+        "vulnerability--06773cc6-21d2-57f9-8f10-593332852003"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-24-danfoss-ak-sm8xxa-cve-2026-129713",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-danfoss-ak-sm8xxa-cve-2026-129713/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129713"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-328-03"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.danfoss.com/en/service-and-support/downloads/dcs/adap-kool-software/ak-sm-800a/#tab-overview"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-24-danfoss-ak-sm8xxa-cve-2026-129713",
+      "x_craftedsignal_event_id": "brief-2026-11-24-danfoss-ak-sm8xxa-cve-2026-129713",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-danfoss-ak-sm8xxa-cve-2026-129713/",
+      "x_craftedsignal_activity_at": "2026-11-24T17:24:10.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00964,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--8d407518-f20c-5e27-ad2e-5f6338f96315",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T22:35:37.000Z",
@@ -333001,6 +333078,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--708f4b9d-9517-5538-b6c7-2455da56415c",
+      "name": "AK-SM 8xxA Series (\u003c= 5.4.0)",
+      "vendor": "Danfoss"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--709b99f4-eb4f-5942-ba32-bc3c7cbd028b",
       "name": "Kyverno (1.17.0 - 1.19.1)",
       "vendor": "Kyverno"
@@ -348715,6 +348799,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112754",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112754"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--06773cc6-21d2-57f9-8f10-593332852003",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129713",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129713",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129713"
         }
       ]
     },
