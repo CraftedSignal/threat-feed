@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--eda81449-f1af-56ac-8d1b-027096af17fb",
+  "id": "bundle--db0a8721-f631-50f5-ad8b-1f6cf8d0cd61",
   "objects": [
     {
       "type": "attack-pattern",
@@ -85903,6 +85903,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7fa79d80-ea52-57c9-8fae-3d83d61acfcc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T10:48:54.000Z",
+      "modified": "2026-11-24T10:48:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1d5e1f0c-f01a-5a0f-a32c-dbab4152432a",
+      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7faa5099-b6e6-544d-ab8f-e3e98d0427df",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -131663,6 +131674,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--cbbc442e-d88f-59c1-b37a-47355de2ad61",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T10:48:54.000Z",
+      "modified": "2026-11-24T10:48:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1d5e1f0c-f01a-5a0f-a32c-dbab4152432a",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--cbc101bf-1172-53ee-b502-44138c1ae32c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -132407,6 +132429,17 @@
       "relationship_type": "has",
       "source_ref": "software--5efcfa5e-c9d8-5608-9b9b-ade3273dd2fe",
       "target_ref": "vulnerability--5837ddf8-bd62-5a71-8005-0b40f5343efa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ccec9e53-585c-587b-8aeb-52e0ea24a0c3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T10:48:54.000Z",
+      "modified": "2026-11-24T10:48:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1d5e1f0c-f01a-5a0f-a32c-dbab4152432a",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -180168,6 +180201,52 @@
       },
       "x_craftedsignal_cvss_max": 8.2,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1d5e1f0c-f01a-5a0f-a32c-dbab4152432a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T10:48:54.000Z",
+      "modified": "2026-11-24T10:48:54.000Z",
+      "name": "Defending against agentic offensive frameworks",
+      "description": "## Overview\n\nSince September 2026, the NCSC has observed a rise in AI-assisted cyber attacks utilizing 'agentic offensive frameworks'. These tools, originally intended for authorized red teaming, are being repurposed by threat actors to automate the discovery and exploitation of internet-facing assets. Rather than exploiting novel vulnerabilities, these agents target known misconfigurations, technical debt, and weak authentication, including credentials left in code repositories and poorly secured APIs. The primary threat uplift is not new capability, but the speed, persistence, and low-cost nature of the automation, which allows agents to iterate rapidly based on feedback from system error messages.\n\n## Attack Chain\n\n1. Reconnaissance: Agents map all internet-reachable devices and services to identify potential entry points.\n2. Vulnerability Discovery: Agents test for common weaknesses, including unpatched services, legacy equipment, and default credentials.\n3. Initial Exploitation: Agents target misconfigurations (e.g., in infrastructure as code) or exposed credentials to gain a foothold.\n4. Feedback Loop: Agents read error messages and system responses to learn from failed attempts and refine subsequent attack steps.\n5. Post-Exploitation: Agents explore internal network segments, leveraging over-privileged credentials.\n6. Persistence/Action: Agents maintain presence or conduct further actions using human-driven or automated methods.\n\n## Recommendation\n\n- Perform comprehensive asset discovery to identify and decommission legacy or forgotten internet-facing services.\n- Restrict internet access to services by placing them behind identity-aware proxies using phishing-resistant authentication.\n- Improve logging and correlation to detect non-human traffic patterns, specifically looking for bursts of requests followed by short thinking phases, high error rates, and requests across diverse endpoints.\n- Sanitize error messages returned to users to prevent agents from using system feedback to tune their attacks.\n- Deploy bot challenges on high-priority assets such as account login and inventory checkout flows.\n- Enforce API-level rate limiting that considers behavioral signals (e.g., rapid failures or retries) rather than relying solely on IP-based blocking.",
+      "published": "2026-11-24T10:48:54.000Z",
+      "labels": [
+        "ai",
+        "automation",
+        "defensive-strategy",
+        "threat-intelligence"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-24-agentic-frameworks",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-agentic-frameworks/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.ncsc.gov.uk/blogs/familiar-weaknesses-exploited-faster-defending-against-agentic-cyber-attacks"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-24-agentic-frameworks",
+      "x_craftedsignal_event_id": "brief-2026-11-24-agentic-frameworks",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-agentic-frameworks/",
+      "x_craftedsignal_activity_at": "2026-11-24T10:48:54.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
