@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b0246949-80be-526c-bc36-3b997d1907c9",
+  "id": "bundle--86664b4a-da0b-5ba6-bfb6-4de0f8c5da97",
   "objects": [
     {
       "type": "attack-pattern",
@@ -14479,7 +14479,7 @@
       "id": "relationship--074ce15d-93ed-51eb-aa39-2961270ceaaf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T21:26:13.000Z",
-      "modified": "2026-11-20T21:26:13.000Z",
+      "modified": "2026-11-24T02:11:36.000Z",
       "relationship_type": "uses",
       "source_ref": "report--f142adf4-9fd1-5bbc-9f71-23c13dbc4df4",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -32930,6 +32930,17 @@
       "relationship_type": "has",
       "source_ref": "software--efb33559-4863-5b74-9f34-6b354f4e5b10",
       "target_ref": "vulnerability--807e7b12-e09f-5d82-9a1c-c345ef6c6a18"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--208479fc-fcd7-543a-9789-30b5e9c8b965",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7549c4e0-a866-5655-8121-77d00beff424",
+      "target_ref": "vulnerability--475fb57a-9878-52d8-bfc7-ca158358817c"
     },
     {
       "type": "relationship",
@@ -51725,7 +51736,7 @@
       "id": "relationship--3b265a30-aca6-5ae9-99d3-55ca1eb3179d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T21:26:13.000Z",
-      "modified": "2026-11-20T21:26:13.000Z",
+      "modified": "2026-11-24T02:11:36.000Z",
       "relationship_type": "uses",
       "source_ref": "report--f142adf4-9fd1-5bbc-9f71-23c13dbc4df4",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -140855,6 +140866,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b3db2143-a869-55e5-9ca9-30ba377334d5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e02e96aa-2bd1-59d1-b77d-5bdc3dbda08f",
+      "target_ref": "vulnerability--3eb29f16-e35d-5780-847a-6a2a3a2af0cf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b3dea6f2-2454-5292-9e9e-4bc7729e1a8a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -195954,7 +195976,7 @@
       "id": "report--00ec4548-842e-5bc7-8064-176aae1d7e37",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T11:37:02.000Z",
-      "modified": "2026-11-19T11:37:02.000Z",
+      "modified": "2026-11-24T02:11:36.000Z",
       "name": "Revmakx WP Duplicate: Remote Code Execution (CVE-2026-14492)",
       "description": "## Overview\nThe WP Duplicate - WordPress Migration Plugin for WordPress is vulnerable to remote code execution in all versions up to and including 1.1.11. The vulnerability exists within the save_single_batch_file function, caused by a PHP type-juggling authentication bypass via loose != comparison and unsanitized base64-decoded path construction that lacks directory traversal containment.\n\n## Attack Chain\nExploitation requires that the site owner has completed the plugin's initial setup so that the site_type and prod_key_random_id options are non-empty, though any non-empty secret value is bypassable. Authenticated attackers with custom-level access and above can leverage the type-juggling flaw to bypass authentication and execute code on the server.\n\n## Impact\nSuccessful exploitation allows authenticated attackers with custom-level access or higher to execute code on the server.\n\n## Recommendation\nRemediation is currently unknown as no vendor-supplied patch or fixed version is explicitly identified in the available vulnerability evidence. Users should monitor for official updates from the vendor.",
       "published": "2026-11-19T11:37:02.000Z",
@@ -195980,14 +196002,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14492"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=76CF5A67-987F-593A-A90D-9558F0A2CC6D\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-19-wp-duplicate-rce-cve-2026-14492",
       "x_craftedsignal_event_id": "brief-2026-11-19-wp-duplicate-rce-cve-2026-14492",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wp-duplicate-rce-cve-2026-14492/",
-      "x_craftedsignal_activity_at": "2026-11-19T11:37:02.000Z",
+      "x_craftedsignal_activity_at": "2026-11-24T02:11:36.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -235959,6 +235985,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3571a18f-f93f-50ac-a0f1-8c7029c70704",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T02:09:34.000Z",
+      "modified": "2026-11-24T02:09:34.000Z",
+      "name": "Postgres Enterprise Manager Security Vulnerabilities (CVE-2026-132660)",
+      "description": "## Overview\nEDB Postgres Enterprise Manager (PEM) is affected by a security flaw involving improper management of the search_path for SECURITY DEFINER functions in the PEM backend database. An attacker with the ability to connect to the backend database can create malicious objects in the pem or public schema, which these functions may execute in place of intended objects, leading to superuser privilege escalation. Publicly available exploit code has been linked to this identifier in some sources, though it describes an IDOR-based job manipulation vulnerability distinct from the search_path issue.\n\n## Attack Chain\n1. Attacker establishes a connection to the PEM backend database as a low-privileged user.\n2. Attacker creates malicious objects in the pem schema (or public schema on specific PostgreSQL versions).\n3. Attacker triggers a vulnerable SECURITY DEFINER function.\n4. The function executes the attacker-controlled object, resulting in arbitrary SQL execution with superuser privileges.\n\n## Impact\nSuccessful exploitation allows unauthorized users to execute arbitrary SQL commands with superuser privileges, potentially leading to a complete compromise of the affected PEM environment.\n\n## Recommendation\nUpgrade EDB PEM to a version where these functions execute with a fixed search_path. Note that the CNA evidence identifies versions prior to 10.6.1 as affected.",
+      "published": "2026-11-24T02:09:34.000Z",
+      "labels": [
+        "cve",
+        "database-security",
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e02e96aa-2bd1-59d1-b77d-5bdc3dbda08f",
+        "vulnerability--3eb29f16-e35d-5780-847a-6a2a3a2af0cf"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-24-cve-2026-132660-pem-idor",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-132660-pem-idor/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-132660"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=EBBC8731-55A8-5438-AA66-8E8BFA983C04\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-24-cve-2026-132660-pem-idor",
+      "x_craftedsignal_event_id": "brief-2026-11-24-cve-2026-132660-pem-idor",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-132660-pem-idor/",
+      "x_craftedsignal_activity_at": "2026-11-24T02:09:34.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00536,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -363589,7 +363664,7 @@
       "id": "report--df505cfc-af59-58cb-a2e3-707d717eeedc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T13:56:29.000Z",
-      "modified": "2026-11-19T21:27:52.000Z",
+      "modified": "2026-11-24T02:11:36.000Z",
       "name": "Apache Iggy Go SDK: Insufficient Session Expiration (CVE-2026-132079)",
       "description": "## Overview\n\nApache Iggy Go SDK is vulnerable to an insufficient session expiration issue due to a data handling error in the CreatePersonalAccessToken method. The Go TCP client incorrectly encodes a 32-bit expiry value into the upper half of a 64-bit field, which the server interprets as a value 2^32 times larger than intended. This results in personal access tokens that persist for an unexpectedly long duration. This issue affects versions 0.5.0 through 0.9.x.\n\n## Impact\n\nTokens created using the affected versions of the SDK remain valid on the server for much longer than the intended expiration period. These tokens do not automatically shorten their duration after the SDK is upgraded.\n\n## Recommendation\n\n- Update the Apache Iggy Go SDK to version 0.10.0 or later to address the root cause of the incorrect token expiration.\n- Manually delete all existing personal access tokens generated by versions 0.5.0 through 0.9.x of the SDK on the server, as upgrading the client will not affect tokens already issued with long expiration times.\n- Re-issue new tokens after upgrading the client and purging existing ones.",
       "published": "2026-11-18T13:56:29.000Z",
@@ -363616,20 +363691,25 @@
         {
           "source_name": "reference",
           "url": "https://seclists.org/oss-sec/2026/q4/768"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=54D0620A-5ADC-5932-AED5-E52BE61480CA\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 40,
       "x_craftedsignal_brief_id": "brief-2026-11-18-apache-iggy-go-sdk-session-expiration-cve-2026-132079",
       "x_craftedsignal_event_id": "brief-2026-11-18-apache-iggy-go-sdk-session-expiration-cve-2026-132079",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-iggy-go-sdk-session-expiration-cve-2026-132079/",
-      "x_craftedsignal_activity_at": "2026-11-19T21:27:52.000Z",
+      "x_craftedsignal_activity_at": "2026-11-24T02:11:36.000Z",
       "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_epss_max": 0.00215,
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00483,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -377290,7 +377370,7 @@
       "id": "report--f142adf4-9fd1-5bbc-9f71-23c13dbc4df4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T21:26:13.000Z",
-      "modified": "2026-11-20T21:26:13.000Z",
+      "modified": "2026-11-24T02:11:36.000Z",
       "name": "NukeViet CMS: Stored Cross-Site Scripting via SVG upload (CVE-2026-94567)",
       "description": "## Overview\nNukeViet CMS versions prior to 4.5.12 and 4.6.02 are susceptible to a stored Cross-Site Scripting (XSS) vulnerability. An attacker can bypass the sanitization process during SVG file uploads by embedding a script element within an internal DTD entity. The `check_svg_tmpfile()` function fails to expand entities, and the `sanitize_svg_dom()` function only inspects element nodes, allowing the hidden script to remain intact when saved to disk. When the file is later served with an `image/svg+xml` content type, the browser expands the DTD entity, triggering the script. \n\n## Impact\nThe vulnerability can lead to same-origin script execution in the session of any user viewing the malicious SVG, including administrators. Depending on configuration, this can be exploited by unauthenticated users via comment attachment features or by authenticated administrators via the file manager.\n\n## Recommendation\nUpgrade to NukeViet CMS versions 4.5.12 or 4.6.02 immediately. Administrators should audit existing SVG uploads for suspicious internal DTD references until patches are applied.",
       "published": "2026-11-20T21:26:13.000Z",
@@ -377298,6 +377378,7 @@
         "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7549c4e0-a866-5655-8121-77d00beff424",
         "software--b09bf214-d8a9-5e84-8d50-e7f47f9846ef",
         "vulnerability--475fb57a-9878-52d8-bfc7-ca158358817c"
       ],
@@ -377314,20 +377395,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94567"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=528E4CC7-9258-5621-9738-13FE8A8589CD\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-20-nukeviet-cms-xss-cve-2026-94567",
       "x_craftedsignal_event_id": "brief-2026-11-20-nukeviet-cms-xss-cve-2026-94567",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nukeviet-cms-xss-cve-2026-94567/",
-      "x_craftedsignal_activity_at": "2026-11-20T21:26:13.000Z",
+      "x_craftedsignal_activity_at": "2026-11-24T02:11:36.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.3,
+      "x_craftedsignal_epss_max": 0.00881,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -380345,7 +380431,7 @@
       "id": "report--f4b2787e-9ccf-5e72-b7f6-a5b762f29ca7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T00:00:29.000Z",
-      "modified": "2026-11-20T00:00:29.000Z",
+      "modified": "2026-11-24T02:11:36.000Z",
       "name": "Apache SeaTunnel Web Improper Authentication (CVE-2026-128981)",
       "description": "## Overview\n\nApache SeaTunnel Web 1.0.2 contains an improper authentication vulnerability (CVE-2026-128981) where the application login process fails to verify if an account has been disabled. A user possessing valid credentials for a disabled account can successfully authenticate and receive a new, functional login token, thereby gaining access to protected APIs. \n\nThis product is no longer maintained and the 1.0.2 release lacks the account-status check that was subsequently introduced in the project's main branch (pull request #264). No official patch exists for this component.\n\n## Impact\n\nSuccessful exploitation allows users to maintain unauthorized access to protected resources despite their accounts being marked as disabled within the system. This vulnerability does not provide an authentication bypass for users who do not have valid credentials.\n\n## Recommendation\n\n- Discontinue the use of Apache SeaTunnel Web 1.0.2 immediately, as the product is end-of-life and lacks maintained security updates.\n- Audit existing user access controls and authentication logs to identify any sessions initiated by users whose accounts were intended to be disabled.\n- Migrate to an actively maintained data integration platform.",
       "published": "2026-11-20T00:00:29.000Z",
@@ -380363,19 +380449,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128981"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=B71A1400-2D6D-56E6-9D9F-871F5373ED0E\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-20-apache-seatunnel-web-auth-bypass-cve-2026-128981",
       "x_craftedsignal_event_id": "brief-2026-11-20-apache-seatunnel-web-auth-bypass-cve-2026-128981",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-seatunnel-web-auth-bypass-cve-2026-128981/",
-      "x_craftedsignal_activity_at": "2026-11-20T00:00:29.000Z",
+      "x_craftedsignal_activity_at": "2026-11-24T02:11:36.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.0063,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -415178,6 +415270,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e02e96aa-2bd1-59d1-b77d-5bdc3dbda08f",
+      "name": "Postgres Enterprise Manager (\u003e= 7.6.0, \u003c 10.6.1)",
+      "vendor": "EnterpriseDB"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e036696f-530e-529e-b5ed-ca9f06cbae49",
       "name": "linux_kernel",
       "vendor": "linux"
@@ -440622,6 +440721,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109594",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109594"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3eb29f16-e35d-5780-847a-6a2a3a2af0cf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-132660",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-132660",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132660"
         }
       ]
     },
