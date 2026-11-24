@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-22-incus-path-traversal
 event_id: brief-2026-10-22-incus-path-traversal
-revision: 3
-activity_at: "2026-10-29T19:58:58Z"
+revision: 4
+activity_at: "2026-11-24T10:15:40Z"
 revision_history:
   - revision: 2
     at: "2026-10-22T22:32:13Z"
@@ -31,11 +31,25 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-115376
+  - revision: 4
+    at: "2026-11-24T10:15:40Z"
+    checksum: sha256:771bbe810d3537933d3d02759a7e48a4280982d8b379ab1d4f4de202f4f4e747
+    summary: poc_available
+    changed_fields:
+      - cve_verification
+      - cves
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=07C00EDE-D43D-590B-A3A5-7A2006333E21&utm_source=rss&utm_medium=rss
 title: 'Incus: Path traversal vulnerability (CVE-2026-115375)'
 slug: 2026-10-incus-path-traversal
 description: Incus versions 7.0.0 through 7.0.1 and 7.1.0 through 7.4.0 contain a path traversal vulnerability in instance backup processing that allows authenticated attackers to write files to the host filesystem, resulting in full host compromise.
 date: "2026-10-22T20:27:23Z"
-lastmod: "2026-10-29T19:56:51Z"
+lastmod: "2026-11-24T10:14:55Z"
 type: advisory
 types:
   - advisory
@@ -55,6 +69,9 @@ cpes:
   - cpe:2.3:a:incus:incus:*:*:*:*:*:*:*:*
   - cpe:2.3:a:incus:incus:7.0.1:*:*:*:*:*:*:*
   - cpe:2.3:a:incus:incus:7.2.0:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=07C00EDE-D43D-590B-A3A5-7A2006333E21&utm_source=rss&utm_medium=rss
 tags:
   - vulnerability
   - privilege-escalation
@@ -62,12 +79,19 @@ tags:
 vendors:
   - Incus
 products:
-  - Incus (7.0.0-7.0.1, 7.1.0-7.4.0)
-  - Incus (< 6.0.7)
-  - Incus (>= 6.1.0, < 7.0.2)
-  - Incus (>= 7.1.0, < 7.5.0)
-  - Incus (6.0.3-6.0.6, 6.6.0-7.0.1, 7.1.0-7.4.x)
+  - Incus
   - Incus (7.0.1 before 7.0.2, 7.2.0 before 7.5.0)
+product_versions:
+  - product: Incus
+    range: 6.0.3-6.0.6, 6.6.0-7.0.1, 7.1.0-7.4.x
+  - product: Incus
+    range: 7.0.0-7.0.1, 7.1.0-7.4.0
+  - product: Incus
+    range: < 6.0.7
+  - product: Incus
+    range: '>= 6.1.0, < 7.0.2'
+  - product: Incus
+    range: '>= 7.1.0, < 7.5.0'
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -83,9 +107,27 @@ mitre_ttps:
     subtechnique_name: Credentials In Files
     evidence: Attackers can query the bucket keys endpoints to obtain S3 access and secret keys
     confidence_band: high
+cve_verification:
+  CVE-2026-115371:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-24T10:14:54.107587698Z
+  CVE-2026-115375:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-24T10:14:54.887138294Z
+  CVE-2026-115376:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-24T10:14:55.204220448Z
+  CVE-2026-115377:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-24T10:14:55.513738573Z
 cves:
   - id: CVE-2026-115375
     cvss: 9.9
+    epss: 0.00405
     kev_status: "false"
   - id: CVE-2026-115376
     cvss: 7.7
@@ -100,6 +142,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-115377
   - https://nvd.nist.gov/vuln/detail/CVE-2026-115371
   - https://nvd.nist.gov/vuln/detail/CVE-2026-115376
+  - https://sploitus.com/exploit?id=07C00EDE-D43D-590B-A3A5-7A2006333E21&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -152,7 +195,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-115376
+  - at: "2026-11-24T10:14:55Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=07C00EDE-D43D-590B-A3A5-7A2006333E21&utm_source=rss&utm_medium=rss
 ---
+
+## Overview
 
 Incus versions 7.0.0 before 7.0.2 and 7.1.0 before 7.5.0 are affected by a path traversal vulnerability (CVE-2026-115375) in the processing of instance backup files. The vulnerability exists due to improper validation of dependent custom volume names within the index.yaml file of an instance backup. An attacker with authorization to create instances can provide a crafted backup file containing directory traversal sequences (../) in these volume names to write files to arbitrary locations on the host filesystem. Successful exploitation allows an attacker to create root-owned directories and write arbitrary content, leading to full host compromise.
 

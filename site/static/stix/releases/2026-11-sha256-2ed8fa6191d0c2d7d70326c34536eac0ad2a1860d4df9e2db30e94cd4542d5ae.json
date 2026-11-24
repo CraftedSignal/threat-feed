@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a88850e1-2c76-57c2-b78b-1c1c7cafefeb",
+  "id": "bundle--eda81449-f1af-56ac-8d1b-027096af17fb",
   "objects": [
     {
       "type": "attack-pattern",
@@ -103415,6 +103415,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9de298ee-b908-5877-8d01-b64861964590",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e6893713-489d-5b8c-8592-f6557b9c392c",
+      "target_ref": "vulnerability--a6feae81-67d1-5c1a-b836-fbf30eff4aba"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9de70347-a442-5b17-8d5d-8b6c0ad8096b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -149116,6 +149127,17 @@
       "relationship_type": "has",
       "source_ref": "software--db1cfc46-aa48-5ad8-8985-c16112b6be52",
       "target_ref": "vulnerability--fe9291c4-3e16-5a90-9344-5c5b02d9b519"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ea4d31d1-5630-58bb-b86c-a4fd073ed50b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--531b15b3-83a4-57e6-8087-a60b4ce1c0f9",
+      "target_ref": "vulnerability--a6feae81-67d1-5c1a-b836-fbf30eff4aba"
     },
     {
       "type": "relationship",
@@ -221432,7 +221454,7 @@
       "id": "report--5caadba2-364b-5ebb-a93d-8b9e22c57144",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T22:14:31.000Z",
-      "modified": "2026-11-20T22:14:31.000Z",
+      "modified": "2026-11-24T10:15:40.000Z",
       "name": "GnuPG GPGME: Critical security vulnerability (CVE-2026-129975)",
       "description": "## Overview\n\nThe GnuPG project has released GPGME version 2.3.1 to address a critical security vulnerability identified in all prior versions. The vulnerability is tracked as CVE-2026-129975. The advisory confirms the vulnerability exists but does not currently disclose technical details regarding the exploit path or the specific impact of the flaw. Users and developers relying on the GPGME library should prioritize updating to version 2.3.1 as the primary remediation.\n\n## Recommendation\n\n- Update the GPGME library to version 2.3.1 on all systems and within all applications that bundle or utilize the library.\n- Perform an inventory of all software products and local build environments that include GPGME to identify instances of affected versions.",
       "published": "2026-11-20T22:14:31.000Z",
@@ -221450,19 +221472,24 @@
         {
           "source_name": "reference",
           "url": "https://seclists.org/oss-sec/2026/q4/804"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=D5418DD7-02ED-515E-A7BF-7629E3939EA5\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-20-gpgme-vulnerability-cve-2026-129975",
       "x_craftedsignal_event_id": "brief-2026-11-20-gpgme-vulnerability-cve-2026-129975",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gpgme-vulnerability-cve-2026-129975/",
-      "x_craftedsignal_activity_at": "2026-11-20T22:14:31.000Z",
+      "x_craftedsignal_activity_at": "2026-11-24T10:15:40.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -243954,6 +243981,70 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--819d5fad-1279-509c-b87d-31cbbc2aa021",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T10:15:01.000Z",
+      "modified": "2026-11-24T10:15:01.000Z",
+      "name": "Wireshark: OpenWire Dissector Denial of Service (CVE-2026-130453)",
+      "description": "## Overview\n\nWireshark versions 4.4.0 through 4.4.19 and 4.6.0 through 4.6.9 are vulnerable to a denial-of-service condition due to unbounded recursion in the OpenWire protocol dissector. An attacker can trigger this condition by providing a capture file or live traffic containing deeply nested complex types, causing the dissector to exhaust the stack and crash the Wireshark or tshark process. A proof-of-concept exploit has been publicly disclosed.\n\n## Impact\n\nSuccessful exploitation results in the abnormal termination (crash) of the Wireshark or tshark process, leading to a denial-of-service condition for the user analyzing the traffic.\n\n## Recommendation\n\nImmediately update all Wireshark installations to version 4.4.20 or 4.6.10, which introduce depth-guarded recursion in the OpenWire dissector to prevent stack exhaustion.",
+      "published": "2026-11-24T10:15:01.000Z",
+      "labels": [
+        "cve-2026-130453",
+        "denial-of-service",
+        "vulnerability",
+        "wireshark"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--531b15b3-83a4-57e6-8087-a60b4ce1c0f9",
+        "software--e6893713-489d-5b8c-8592-f6557b9c392c",
+        "vulnerability--a6feae81-67d1-5c1a-b836-fbf30eff4aba"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-24-wireshark-openwire-dos-cve-2026-130453",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wireshark-openwire-dos-cve-2026-130453/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-130453"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/wireshark/wireshark/commit/3823253aaa88f9fb482501538d4b33ba465d9179"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=EB2A83B0-4426-5B72-8EBF-584431CAEF81"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=EB2A83B0-4426-5B72-8EBF-584431CAEF81\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.wireshark.org/security/wnpa-sec-2026-130"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-24-wireshark-openwire-dos-cve-2026-130453",
+      "x_craftedsignal_event_id": "brief-2026-11-24-wireshark-openwire-dos-cve-2026-130453",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wireshark-openwire-dos-cve-2026-130453/",
+      "x_craftedsignal_activity_at": "2026-11-24T10:15:01.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.5,
+      "x_craftedsignal_epss_max": 0.00186,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -329023,6 +329114,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--531b15b3-83a4-57e6-8087-a60b4ce1c0f9",
+      "name": "Wireshark (4.4.0–4.4.19)",
+      "vendor": "Wireshark"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5322db92-277b-54cc-a989-016a998ad32c",
       "name": "Orphans (\u003c= 3.4.5)",
       "vendor": "iworks"
@@ -342268,6 +342366,13 @@
       "spec_version": "2.1",
       "id": "software--e676f2d9-fac3-5cd5-b701-fb270f491d12",
       "name": "Java SE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e6893713-489d-5b8c-8592-f6557b9c392c",
+      "name": "Wireshark (4.6.0–4.6.9)",
+      "vendor": "Wireshark"
     },
     {
       "type": "software",
@@ -392697,6 +392802,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108358",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108358"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a6feae81-67d1-5c1a-b836-fbf30eff4aba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-130453",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-130453",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130453"
         }
       ]
     },
