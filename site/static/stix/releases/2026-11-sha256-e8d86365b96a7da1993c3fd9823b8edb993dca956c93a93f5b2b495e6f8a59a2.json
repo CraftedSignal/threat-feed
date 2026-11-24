@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1c5c03e9-638b-5429-828f-162b2b718710",
+  "id": "bundle--a596c4fd-2360-5f0c-98ee-b36165142f36",
   "objects": [
     {
       "type": "attack-pattern",
@@ -50755,7 +50755,7 @@
       "id": "relationship--4727711d-100a-512d-83af-56ade567620c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-24T05:36:02.000Z",
-      "modified": "2026-11-24T05:36:02.000Z",
+      "modified": "2026-11-24T15:22:17.000Z",
       "relationship_type": "uses",
       "source_ref": "report--13978ad7-0f75-5d1e-b520-f2f10bcf0e51",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -86821,6 +86821,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--80e4b3b1-6eee-5066-8510-dd15a4fe209b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7f9bf3c3-9562-504a-9463-2fc43a4398f1",
+      "target_ref": "vulnerability--d2cb5454-8137-584f-912e-9b366e4aff19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--80edd9a8-5306-57a1-a535-ffbc01b1a8d9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -89391,6 +89402,17 @@
       "relationship_type": "uses",
       "source_ref": "report--ce723ad6-8322-56a5-9ef2-10b208621e32",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--857d4f14-1c04-5ed4-bcfa-c7e0498bbff5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8c70a93c-2766-5882-ae54-952fc452a08c",
+      "target_ref": "vulnerability--26544d5d-a417-5486-9f5c-3f1ee66daad9"
     },
     {
       "type": "relationship",
@@ -148113,6 +148135,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e8302009-c4d9-5030-8d25-51941e999f01",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a90ad8d8-b549-53f7-a97a-04ceafcb4b1a",
+      "target_ref": "vulnerability--26544d5d-a417-5486-9f5c-3f1ee66daad9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e8374537-4000-5480-8f79-6fe791dea1f0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -151244,6 +151277,17 @@
       "relationship_type": "has",
       "source_ref": "software--27467af6-c4f2-526d-be33-2548f7b79e39",
       "target_ref": "vulnerability--b68e0b0e-7e7f-54a9-9fb8-89420c2db44e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ed6896da-d0a1-5c36-8b72-9acd916bcd50",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T15:21:54.000Z",
+      "modified": "2026-11-24T15:21:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2ba48f4c-4c6e-50b9-b409-16773d1d72d6",
+      "target_ref": "attack-pattern--aafc6e56-00f6-56b2-8fd2-cc0e966553df"
     },
     {
       "type": "relationship",
@@ -173719,7 +173763,7 @@
       "id": "report--13978ad7-0f75-5d1e-b520-f2f10bcf0e51",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-24T05:36:02.000Z",
-      "modified": "2026-11-24T05:36:02.000Z",
+      "modified": "2026-11-24T15:22:17.000Z",
       "name": "FFmpeg: Heap out-of-bounds write in deflicker filter (CVE-2026-135734)",
       "description": "## Overview\nFFmpeg versions before 9.1 contain a heap out-of-bounds write vulnerability in the deflicker filter. An attacker can supply crafted video files with luma values exceeding the nominal depth, causing the calc_avgy16() function to increment counters past the histogram allocation.\n\n## Impact\nSuccessful exploitation can lead to heap memory corruption, resulting in application crashes or potentially arbitrary code execution.\n\n## Recommendation\nUsers are advised to monitor official project communications for available security patches or remediation guidance, as none are currently confirmed in the available source data.",
       "published": "2026-11-24T05:36:02.000Z",
@@ -173746,14 +173790,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135734"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=6D7B0CBD-E4FF-56E1-BF16-D8C04B04E970\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-24-ffmpeg-heap-overflow-cve-2026-135734",
       "x_craftedsignal_event_id": "brief-2026-11-24-ffmpeg-heap-overflow-cve-2026-135734",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-heap-overflow-cve-2026-135734/",
-      "x_craftedsignal_activity_at": "2026-11-24T05:36:02.000Z",
+      "x_craftedsignal_activity_at": "2026-11-24T15:22:17.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -188057,6 +188105,65 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2ba48f4c-4c6e-50b9-b409-16773d1d72d6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T15:21:54.000Z",
+      "modified": "2026-11-24T15:21:54.000Z",
+      "name": "Google Chrome: VariationsService insecure HTTP fallback (CVE-2026-134401)",
+      "description": "## Overview\nGoogle Chrome versions before 158.0.8127.88 contain a flaw in the VariationsService where a failed HTTPS fetch for A/B testing configuration (variations seed) triggers an automatic fallback to unencrypted HTTP. An attacker positioned to disrupt the HTTPS connection, such as via a hostile Wi-Fi network, can force this fallback and provide malicious configuration data. This data is processed by the browser process outside of the sandbox. Google has rated this vulnerability as critical. Proof-of-concept code has been published that demonstrates the transport fallback and the ability to persist an attacker-supplied seed in the browser profile.\n\n## Impact\nA successful exploitation allows an attacker to inject arbitrary configuration data into the browser process. While researchers have not published an RCE payload, the vulnerability facilitates the configuration of the browser in ways that could be combined with other vectors to achieve arbitrary code execution outside the sandbox.\n\n## Recommendation\n- Patch all Chrome installations to version 158.0.8127.88 or later (156.0.8078.114 for Extended Stable) immediately.\n- Monitor network traffic for unencrypted HTTP requests targeting known Google variations configuration endpoints, specifically following periods of connectivity issues or failures to reach Google update services.",
+      "published": "2026-11-24T15:21:54.000Z",
+      "labels": [
+        "active-exploitation-potential",
+        "browser",
+        "cve-2026-134401",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--aafc6e56-00f6-56b2-8fd2-cc0e966553df",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8c70a93c-2766-5882-ae54-952fc452a08c",
+        "software--a90ad8d8-b549-53f7-a97a-04ceafcb4b1a",
+        "vulnerability--26544d5d-a417-5486-9f5c-3f1ee66daad9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-24-chrome-variations-fallback-cve-2026-134401",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-chrome-variations-fallback-cve-2026-134401/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://chromereleases.googleblog.com/2026/11/stable-channel-update-for-desktop_01734282054.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134401"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://issues.chromium.org/issues/554051967"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=746B3AFC-CD05-5445-929B-6E037BEDB9A2\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-24-chrome-variations-fallback-cve-2026-134401",
+      "x_craftedsignal_event_id": "brief-2026-11-24-chrome-variations-fallback-cve-2026-134401",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-chrome-variations-fallback-cve-2026-134401/",
+      "x_craftedsignal_activity_at": "2026-11-24T15:21:54.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -280767,6 +280874,63 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--bd3d4ba2-3810-5c51-b37c-95228990210a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T15:21:38.000Z",
+      "modified": "2026-11-24T15:21:38.000Z",
+      "name": "FFmpeg: Out-of-bounds read in lut1d filter (CVE-2026-135744)",
+      "description": "## Overview\nFFmpeg before 9.1 contains an out-of-bounds read vulnerability in the lut1d filter in libavfilter/vf_lut3d.c. The vulnerability arises because the interpolator uses raw sample values as indices into a fixed-size LUT without clipping samples that exceed the nominal pixel depth. An attacker can craft 9, 10, 12, or 14-bit planar RGB video processed with a large 1D LUT to read memory past the table, leading to heap memory disclosure or application crashes. The vulnerability is resolved in version 9.1 via commit 0138072.\n\n## Attack Chain\nThe vulnerability is triggered by supplying crafted high-bit-depth planar RGB video processed through the lut3d filter. According to CVSS 4.0 scoring, the attack requires local access, high complexity, and passive user interaction.\n\n## Impact\nSuccessful exploitation results in application crashes or the disclosure of heap memory contents via output pixels.\n\n## Recommendation\nUpgrade FFmpeg to version 9.1 or later to apply the fix that clips samples to the appropriate factor before LUT indexing.",
+      "published": "2026-11-24T15:21:38.000Z",
+      "labels": [
+        "ffmpeg",
+        "heap-read",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7f9bf3c3-9562-504a-9463-2fc43a4398f1",
+        "vulnerability--d2cb5454-8137-584f-912e-9b366e4aff19"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-24-ffmpeg-lut1d-oob-cve-2026-135744",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-lut1d-oob-cve-2026-135744/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-135744"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/FFmpeg/FFmpeg/commit/01380721ab8c23c6d378b5b83"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=2083148E-620F-5AC5-BC6F-3C112DB6CF0C"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=2083148E-620F-5AC5-BC6F-3C112DB6CF0C\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-24-ffmpeg-lut1d-oob-cve-2026-135744",
+      "x_craftedsignal_event_id": "brief-2026-11-24-ffmpeg-lut1d-oob-cve-2026-135744",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-lut1d-oob-cve-2026-135744/",
+      "x_craftedsignal_activity_at": "2026-11-24T15:21:38.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--bd43f10f-7db1-5288-a620-b149e138a759",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T04:02:55.000Z",
@@ -335070,6 +335234,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8c70a93c-2766-5882-ae54-952fc452a08c",
+      "name": "Chrome Extended Stable (\u003c 156.0.8078.114)",
+      "vendor": "Google"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8c7e1087-53e9-5435-98c9-5e513696714d",
       "name": "Jira Service Management Server (5.12.16 to 5.12.42)",
       "vendor": "Atlassian"
@@ -337610,6 +337781,13 @@
       "id": "software--a8fdf402-e94f-54d9-8d01-fcc9222ef034",
       "name": "3ds Max (\u003e= 2027.0.0, \u003c 2027.3.0)",
       "vendor": "Autodesk"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a90ad8d8-b549-53f7-a97a-04ceafcb4b1a",
+      "name": "Chrome (\u003c 158.0.8127.88)",
+      "vendor": "Google"
     },
     {
       "type": "software",
@@ -356833,6 +357011,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109459",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109459"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--26544d5d-a417-5486-9f5c-3f1ee66daad9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134401",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134401",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134401"
         }
       ]
     },
@@ -406673,6 +406867,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-80095",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80095"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d2cb5454-8137-584f-912e-9b366e4aff19",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-135744",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-135744",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135744"
         }
       ]
     },
