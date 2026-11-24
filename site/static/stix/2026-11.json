@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--33d12479-43f1-5ed3-92db-289d10f49a34",
+  "id": "bundle--41c15252-e2c4-550f-aa1b-7ababc845e03",
   "objects": [
     {
       "type": "attack-pattern",
@@ -57539,6 +57539,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5a4d08d0-80f2-5b31-bb38-ee734aa84a11",
       "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5260901d-4e1a-5fc8-bbd1-1e5224e0f1fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T01:19:01.000Z",
+      "modified": "2026-11-24T01:19:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8863774f-edbc-5f09-bc3e-035a8cdc3fee",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
     },
     {
       "type": "relationship",
@@ -128401,6 +128412,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--5b737b8e-dc7e-57a1-af9b-f8629b65ec12"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c72d978a-cfd1-5468-af7b-5d638990f91c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--897bee85-2dad-5e18-ba5d-6125b6bc1e49",
+      "target_ref": "vulnerability--099d706e-73ee-5381-9642-156254bd7c68"
     },
     {
       "type": "relationship",
@@ -247360,6 +247382,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8863774f-edbc-5f09-bc3e-035a8cdc3fee",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T01:19:01.000Z",
+      "modified": "2026-11-24T01:19:01.000Z",
+      "name": "Apache Pinot: Controller local file disclosure (CVE-2026-134858)",
+      "description": "## Overview\n\nApache Pinot versions 0.7.1 through 1.5.1 are affected by a local file disclosure vulnerability (CVE-2026-134858). A user with the ability to submit URI ingestion jobs can reference arbitrary local files that are readable by the Pinot controller process. If the target file content can be parsed against the destination table schema and format, any user with read query access to that table can retrieve the contents of the file.\n\n## Impact\n\nSuccessful exploitation allows unauthorized users to read sensitive local system files readable by the service account running the Apache Pinot controller process, potentially exposing configuration files, credentials, or other system data.\n\n## Recommendation\n\nUpgrade Apache Pinot to version 1.6.0 or later immediately to mitigate the vulnerability.",
+      "published": "2026-11-24T01:19:01.000Z",
+      "labels": [
+        "cve",
+        "data-disclosure",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--897bee85-2dad-5e18-ba5d-6125b6bc1e49",
+        "vulnerability--099d706e-73ee-5381-9642-156254bd7c68"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-24-apache-pinot-cve-2026-134858",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-pinot-cve-2026-134858/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/859"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-24-apache-pinot-cve-2026-134858",
+      "x_craftedsignal_event_id": "brief-2026-11-24-apache-pinot-cve-2026-134858",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-pinot-cve-2026-134858/",
+      "x_craftedsignal_activity_at": "2026-11-24T01:19:01.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--886ecd7e-5f30-5e51-8495-5507563036d2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T20:05:24.000Z",
@@ -332460,6 +332527,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--897bee85-2dad-5e18-ba5d-6125b6bc1e49",
+      "name": "Apache Pinot (0.7.1 through 1.5.1)",
+      "vendor": "Apache Software Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--898240a5-0c2c-5eb1-a8b9-579de518eb4a",
       "name": "DSL-AC55",
       "vendor": "ASUS"
@@ -346608,6 +346682,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-133306",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133306"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--099d706e-73ee-5381-9642-156254bd7c68",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134858",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134858",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134858"
         }
       ]
     },

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c24830bf-a916-5d7f-95bd-1f902c50d23f",
+  "id": "bundle--f2ed494a-9869-5a37-9a6b-82163d25cd2b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3338,17 +3338,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--2efe7421-d493-58da-815d-1b79e09b4146",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T01:00:39.000Z",
-      "modified": "2026-08-26T01:00:39.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f38d0745-67e1-5c75-97c7-a8a37ed87105",
-      "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--2f04cd1c-0d5b-5b21-b91a-050202d4a6cd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -4764,17 +4753,6 @@
       "relationship_type": "uses",
       "source_ref": "report--e4546148-207e-579c-b5bc-a80275820322",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5c45e935-776a-585b-8a2a-1be122a961c6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--77b7ce1b-2a32-5a1b-b695-326ed9a43ed1",
-      "target_ref": "vulnerability--c7e67f09-2300-5ae1-a622-b3ea65213772"
     },
     {
       "type": "relationship",
@@ -23080,52 +23058,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--f38d0745-67e1-5c75-97c7-a8a37ed87105",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T01:00:39.000Z",
-      "modified": "2026-08-26T01:00:39.000Z",
-      "name": "Reflected Cross-Site Scripting Vulnerability in 2ClickPortal",
-      "description": "## Overview\n\nCVE-2024-5961 describes a reflected cross-site scripting (XSS) vulnerability affecting 2ClickPortal versions 7.2.31 through 7.6.4. The flaw resides within the application's search functionality, specifically in the 'string' parameter of the '/szukaj/' endpoint. By injecting malicious JavaScript into this parameter, an attacker can cause the application to reflect the script back to the user's browser, where it executes in the context of the user's session. This vulnerability is rated with a CVSS 5.3 (Medium) and requires passive user interaction, such as clicking a crafted link, to achieve exploitation. As a proof-of-concept exploit is now public, it is critical for administrators to audit instances of 2ClickPortal and apply necessary patches to mitigate the risk of session hijacking or further client-side exploitation.\n\n## Impact\n\nSuccessful exploitation of CVE-2024-5961 allows an unauthenticated attacker to execute arbitrary JavaScript in the browser of a victim who clicks a malicious link. This can lead to unauthorized actions performed on behalf of the user, theft of session cookies, or redirection to malicious sites. The vulnerability affects a specific range of 2ClickPortal versions, making any installation within the 7.2.31 to 7.6.4 version window susceptible to this attack vector.\n\n## Recommendation\n\n- Upgrade 2ClickPortal instances to a version outside the affected range (7.2.31-7.6.4).\n- Implement Content Security Policy (CSP) headers on the web server to restrict the execution of unauthorized inline scripts.\n- Deploy detection rules to identify anomalous HTTP requests targeting the '/szukaj/' endpoint with character sequences commonly used for XSS injection.\n",
-      "published": "2026-08-26T01:00:39.000Z",
-      "labels": [
-        "2clickportal",
-        "web-vulnerability",
-        "xss"
-      ],
-      "object_refs": [
-        "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--77b7ce1b-2a32-5a1b-b695-326ed9a43ed1",
-        "vulnerability--c7e67f09-2300-5ae1-a622-b3ea65213772"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-cve-2024-5961-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2024-5961-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-KAC89-CVE-2024-5961"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-cve-2024-5961-xss",
-      "x_craftedsignal_event_id": "brief-2026-08-cve-2024-5961-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2024-5961-xss/",
-      "x_craftedsignal_activity_at": "2026-08-26T01:00:39.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_epss_max": 0.01281,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--f3aa5dde-4380-5f7d-970e-844c2b4b7bca",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T15:09:52.000Z",
@@ -25065,13 +24997,6 @@
       "id": "software--77b6f4d5-b010-5be3-a07b-e45ee7bedb51",
       "name": "WE5926",
       "vendor": "Zbtlink"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--77b7ce1b-2a32-5a1b-b695-326ed9a43ed1",
-      "name": "2ClickPortal (7.2.31-7.6.4)",
-      "vendor": "2ClickPortal"
     },
     {
       "type": "software",
@@ -29388,22 +29313,6 @@
           "source_name": "cve",
           "external_id": "CVE-2025-3464",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-3464"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--c7e67f09-2300-5ae1-a622-b3ea65213772",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2024-5961",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2024-5961",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-5961"
         }
       ]
     },
