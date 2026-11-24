@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b914262c-42e5-5f55-948b-7c47185f5dd0",
+  "id": "bundle--430a2007-3d26-5f39-a286-fabcb1ad4915",
   "objects": [
     {
       "type": "attack-pattern",
@@ -24469,6 +24469,17 @@
       "relationship_type": "has",
       "source_ref": "software--d6fca091-e00f-5b33-8e59-8b3bb4c1749b",
       "target_ref": "vulnerability--f8b95457-c514-52be-959e-3b5e02e08400"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1aa451fd-22d1-575b-be18-b9d0609b0ac9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ec18da90-c60f-579a-9a5e-8747791ffbb0",
+      "target_ref": "vulnerability--2c72deb6-ee7d-5123-88ca-58ef6000120e"
     },
     {
       "type": "relationship",
@@ -182333,13 +182344,14 @@
       "id": "report--202163d3-d40f-5d91-8ae6-508d1c0b6eb9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-23T16:50:00.000Z",
-      "modified": "2026-11-23T16:50:00.000Z",
+      "modified": "2026-11-24T17:00:06.000Z",
       "name": "Gradle: Dependency resolution repository traversal vulnerability (CVE-2026-22865)",
       "description": "## Overview\nGradle is a build automation tool that facilitates the retrieval of dependencies from multiple repositories defined in a project. When resolving dependencies, Gradle iterates through configured repositories in a specific order. In affected versions, some exceptions, such as NoHttpResponseException, were not treated as fatal errors and would not cause a repository to be disabled after the maximum number of retries. This behavior allows Gradle to proceed to the next repository in the list.\n\n## Attack Chain\nAn attacker capable of disrupting a primary repository can force Gradle to continue to the next repository in the defined list. If an attacker controls a subsequent repository, they may leverage this behavior to serve malicious artifacts instead of the intended dependencies. This attack requires the attacker to have control over a repository that is searched after the disrupted repository.\n\n## Impact\nThis behavior allows an attacker to manipulate the dependency resolution process, potentially leading to the injection of malicious artifacts into a build. The security implications stem from the failure to fail-fast on repository connection errors, preventing intended verification and reproducibility mechanisms.\n\n## Recommendation\n- Upgrade to Gradle 8.14.4 or 9.3.0 or later to ensure the build fails correctly when encountering persistent repository connection errors.\n- If updating is not immediately feasible, configure dependency verification and strict repository content filtering to ensure only expected dependencies are resolved.\n- Audit existing repository declarations in your builds to identify and remove unused or outdated repository endpoints.",
       "published": "2026-11-23T16:50:00.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--c69238db-5520-57cc-b3db-e0451314a2c8",
+        "software--ec18da90-c60f-579a-9a5e-8747791ffbb0",
         "vulnerability--2c72deb6-ee7d-5123-88ca-58ef6000120e"
       ],
       "external_references": [
@@ -182355,14 +182367,18 @@
         {
           "source_name": "reference",
           "url": "https://github.com/advisories/GHSA-mqwm-5m85-gmcv"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4766"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-23-gradle-repository-handling-ghsa-mqwm-5m85-gmcv",
       "x_craftedsignal_event_id": "brief-2026-11-23-gradle-repository-handling-ghsa-mqwm-5m85-gmcv",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gradle-repository-handling-ghsa-mqwm-5m85-gmcv/",
-      "x_craftedsignal_activity_at": "2026-11-23T16:50:00.000Z",
+      "x_craftedsignal_activity_at": "2026-11-24T17:00:06.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -344197,6 +344213,13 @@
       "id": "software--ec157b76-b3a6-5c82-b241-32c7391de806",
       "name": "Electron desktop build (v1.11.2 through v1.11.6.1)",
       "vendor": "noname"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ec18da90-c60f-579a-9a5e-8747791ffbb0",
+      "name": "Gradle",
+      "vendor": "Gradle"
     },
     {
       "type": "software",
