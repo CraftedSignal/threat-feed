@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b4aaa45b-84cc-5f37-b270-e2679504317f",
+  "id": "bundle--fe57512e-4798-5f71-b58e-748a2e355781",
   "objects": [
     {
       "type": "attack-pattern",
@@ -50710,6 +50710,17 @@
       "relationship_type": "has",
       "source_ref": "software--13623b62-9ee7-57c7-a4eb-c2374236b972",
       "target_ref": "vulnerability--45ff7d94-0dc6-58b8-9982-3f1549d63a7c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4727711d-100a-512d-83af-56ade567620c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T05:36:02.000Z",
+      "modified": "2026-11-24T05:36:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--13978ad7-0f75-5d1e-b520-f2f10bcf0e51",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -115702,6 +115713,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b1a0e411-c3b0-5b54-939e-16a53c6df2df",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7f9bf3c3-9562-504a-9463-2fc43a4398f1",
+      "target_ref": "vulnerability--737d218e-b0d1-5f64-8328-49373c72eb69"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b1a28056-a783-584d-bbce-151d23d19dee",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -127303,6 +127325,17 @@
       "relationship_type": "uses",
       "source_ref": "report--3298c861-1108-5c7c-9579-5a95394719f8",
       "target_ref": "attack-pattern--3f9163d1-482c-5aeb-b396-d70a5cf9d27b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c515320e-af16-52de-be91-60e26b726050",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T05:36:14.000Z",
+      "modified": "2026-11-24T05:36:14.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9bcf0c32-a48e-5043-bcb7-3f828adf7ccd",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -145629,6 +145662,17 @@
       "relationship_type": "uses",
       "source_ref": "report--965ec9c5-aacb-5c89-878e-1ba3777bb356",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e47ad2d7-639e-59a4-835f-55b30a7a1825",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--48cc95d0-7678-570a-bc88-d69be86d1418",
+      "target_ref": "vulnerability--34bae676-f9c4-520f-8a57-29673a85445b"
     },
     {
       "type": "relationship",
@@ -173273,6 +173317,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--13978ad7-0f75-5d1e-b520-f2f10bcf0e51",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T05:36:02.000Z",
+      "modified": "2026-11-24T05:36:02.000Z",
+      "name": "FFmpeg: Heap out-of-bounds write in deflicker filter (CVE-2026-135734)",
+      "description": "## Overview\nFFmpeg versions before 9.1 contain a heap out-of-bounds write vulnerability in the deflicker filter. An attacker can supply crafted video files with luma values exceeding the nominal depth, causing the calc_avgy16() function to increment counters past the histogram allocation.\n\n## Impact\nSuccessful exploitation can lead to heap memory corruption, resulting in application crashes or potentially arbitrary code execution.\n\n## Recommendation\nUsers are advised to monitor official project communications for available security patches or remediation guidance, as none are currently confirmed in the available source data.",
+      "published": "2026-11-24T05:36:02.000Z",
+      "labels": [
+        "cve-2026-135734",
+        "memory-corruption"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7f9bf3c3-9562-504a-9463-2fc43a4398f1",
+        "vulnerability--737d218e-b0d1-5f64-8328-49373c72eb69"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-24-ffmpeg-heap-overflow-cve-2026-135734",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-heap-overflow-cve-2026-135734/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-135734"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135734"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-24-ffmpeg-heap-overflow-cve-2026-135734",
+      "x_craftedsignal_event_id": "brief-2026-11-24-ffmpeg-heap-overflow-cve-2026-135734",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-heap-overflow-cve-2026-135734/",
+      "x_craftedsignal_activity_at": "2026-11-24T05:36:02.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -259948,6 +260041,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9bcf0c32-a48e-5043-bcb7-3f828adf7ccd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T05:36:14.000Z",
+      "modified": "2026-11-24T05:36:14.000Z",
+      "name": "FFmpeg: Heap out-of-bounds read and write in libavfilter (CVE-2026-135736)",
+      "description": "## Overview\nFFmpeg versions 4.4 through 9.0 contain a heap out-of-bounds read and write vulnerability in the 'libavfilter/vf_deband.c' component. An attacker can exploit this by sending a 'deband coupling 1' command via 'sendcmd' or an unauthenticated ZMQ filter. This causes the application to process chroma planes using luma dimensions, resulting in heap memory corruption.\n\n## Impact\nSuccessful exploitation can cause an application crash or lead to arbitrary code execution. The vulnerability is triggered by sending crafted commands to the affected filter.\n\n## Recommendation\n- Identify all applications and services within your environment that bundle or depend on FFmpeg 4.4 through 9.0.\n- Monitor network traffic and process communications for unusual commands directed toward ZMQ filters or media processing services. \n- While a specific fixed release is not currently disclosed in the primary evidence, monitor the FFmpeg project for updates addressing CVE-2026-135736 and prepare to patch immediately upon availability.",
+      "published": "2026-11-24T05:36:14.000Z",
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--48cc95d0-7678-570a-bc88-d69be86d1418",
+        "vulnerability--34bae676-f9c4-520f-8a57-29673a85445b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-24-ffmpeg-heap-oob-cve-2026-135736",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-heap-oob-cve-2026-135736/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-135736"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135736"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-24-ffmpeg-heap-oob-cve-2026-135736",
+      "x_craftedsignal_event_id": "brief-2026-11-24-ffmpeg-heap-oob-cve-2026-135736",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ffmpeg-heap-oob-cve-2026-135736/",
+      "x_craftedsignal_activity_at": "2026-11-24T05:36:14.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9be109fb-7a67-5310-8686-2fe34977ba67",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T01:04:06.000Z",
@@ -327704,6 +327842,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--48cc95d0-7678-570a-bc88-d69be86d1418",
+      "name": "FFmpeg (4.4 - 9.0)",
+      "vendor": "FFmpeg"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--49021319-b3ac-51d2-aba8-6022b3cf95e2",
       "name": "FV Flowplayer Video Player (\u003c= 7.5.57.7212)",
       "vendor": "foliovision"
@@ -332583,6 +332728,13 @@
       "id": "software--7f9281f5-3561-55b4-98ae-0b03926cb885",
       "name": "traQ (\u003c 3.28.3)",
       "vendor": "Digital Creators Club traP"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--7f9bf3c3-9562-504a-9463-2fc43a4398f1",
+      "name": "FFmpeg (\u003c 9.1)",
+      "vendor": "FFmpeg"
     },
     {
       "type": "software",
@@ -359583,6 +359735,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--34bae676-f9c4-520f-8a57-29673a85445b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-135736",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-135736",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135736"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--34c0792c-576a-540e-910e-03acb0453719",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -376665,6 +376833,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120306",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120306"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--737d218e-b0d1-5f64-8328-49373c72eb69",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-135734",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-135734",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135734"
         }
       ]
     },
