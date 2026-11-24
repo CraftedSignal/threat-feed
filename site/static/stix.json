@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2cb1bd63-7760-5bbd-ac52-c0def049dfec",
+  "id": "bundle--de5a7762-0c49-59f9-aa7b-ed0d98529dcb",
   "objects": [
     {
       "type": "attack-pattern",
@@ -38518,6 +38518,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--ed96ca05-a0f7-5c88-90fd-70b05a9a9580"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2839197e-cc22-5fe9-aad3-c6b0def3e0c8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T19:22:29.000Z",
+      "modified": "2026-11-24T19:22:29.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--dd6a8d72-69ce-5e71-a596-ce07c3cb2876",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -83776,6 +83787,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--67384fe9-5bb9-5481-b933-119051d334ba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8feafb94-ebb7-5ade-80b4-c1f0ea2b62aa",
+      "target_ref": "vulnerability--071aa7d9-570d-5688-aa5e-39ea3d73fd17"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--673be273-198c-5dd6-89ce-3c31a2511912",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T08:41:25.000Z",
@@ -84586,6 +84608,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--99cd680c-315f-5a18-8225-66cb3ff398d8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6844dbf7-a2d1-50f4-b338-367aca83f0de",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c73c9b9b-e277-5d71-bd21-9bda1557572c",
+      "target_ref": "vulnerability--2dd0071e-c38b-5d40-ad7f-8e3554f6dab0"
     },
     {
       "type": "relationship",
@@ -121084,6 +121117,17 @@
       "relationship_type": "has",
       "source_ref": "software--f16ec787-a97d-5480-bc31-489e07201a05",
       "target_ref": "vulnerability--ca6b0e64-ae2b-52cf-a9b6-778ac49e2def"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9a4ba053-9941-5e20-839c-a7ba95402652",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T19:22:10.000Z",
+      "modified": "2026-11-24T19:22:10.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--58d17a84-9bb1-51e5-9df3-ac6bce049ed4",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -264100,6 +264144,64 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--58d17a84-9bb1-51e5-9df3-ac6bce049ed4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T19:22:10.000Z",
+      "modified": "2026-11-24T19:22:10.000Z",
+      "name": "MISP Type Confusion in API Key Creation Endpoint (CVE-2026-135259)",
+      "description": "## Overview\nMISP is affected by a type confusion vulnerability in the authentication key creation endpoint. Due to inconsistent handling of floating-point inputs, the application's authorization check and persistence layer interpret the same user identifier value differently. An attacker can supply a carefully crafted floating-point value that passes the authorization check (truncated to the attacker's own integer ID) but is rounded to a different integer by the persistence layer (the target victim's ID), resulting in the creation of an API key for the victim.\n\n## Attack Chain\n- Precondition: The attacker must be an authenticated MISP user with permission to create authentication keys.\n- Execution: The attacker submits a floating-point value for the target user identifier in an API key creation request.\n- Impact: An API key is successfully generated for the target user, granting the attacker unauthorized access to that user's data and operations.\n\n## Impact\nSuccessful exploitation grants an attacker the ability to impersonate another user via an API key, leading to potential unauthorized data access and operations within the MISP instance.\n\n## Recommendation\n- Upgrade to MISP version 2.5.52 or later, which implements strict type validation to ensure only integers or digit-only strings are accepted for user identifiers.",
+      "published": "2026-11-24T19:22:10.000Z",
+      "labels": [
+        "auth-key",
+        "cwe-843",
+        "misp",
+        "type-confusion"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c73c9b9b-e277-5d71-bd21-9bda1557572c",
+        "vulnerability--2dd0071e-c38b-5d40-ad7f-8e3554f6dab0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-24-misp-auth-key-type-confusion-cve-2026-135259",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-misp-auth-key-type-confusion-cve-2026-135259/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-135259"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/MISP/MISP/commit/6298e281ea5c35ba134dd13c1d37f1098c"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=C9705AAB-4040-55D2-A6A9-A426B93AA3AB"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=C9705AAB-4040-55D2-A6A9-A426B93AA3AB\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-24-misp-auth-key-type-confusion-cve-2026-135259",
+      "x_craftedsignal_event_id": "brief-2026-11-24-misp-auth-key-type-confusion-cve-2026-135259",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-misp-auth-key-type-confusion-cve-2026-135259/",
+      "x_craftedsignal_activity_at": "2026-11-24T19:22:10.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--58fffddf-6bfc-5af6-9931-1297738459f2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T07:14:00.000Z",
@@ -361868,6 +361970,65 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--dd6a8d72-69ce-5e71-a596-ce07c3cb2876",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T19:22:29.000Z",
+      "modified": "2026-11-24T19:22:29.000Z",
+      "name": "PyTables: Remote code execution via HDF5 attribute deserialization (CVE-2026-134019)",
+      "description": "## Overview\n\nPyTables versions 3.11.1 and earlier contain a critical remote code execution vulnerability (CVE-2026-134019) arising from the unsafe handling of NumPy bytes scalars within HDF5 files. The package's `AttributeSet` class, specifically in `tables/attributeset.py`, incorrectly treats specific bytes scalars ending in a period as pickled Python objects. When an application reads metadata attributes from an untrusted HDF5 file using `AttributeSet.__getattr__` or `AttributeSet.__getitem__`, the library calls `pickle.loads()` on the attacker-controlled data, leading to arbitrary code execution within the process context.\n\n## Impact\n\nSuccessful exploitation allows an attacker to execute arbitrary code with the privileges of the application processing the malicious HDF5 file. Given the library's common use in data-heavy environments, this could lead to full system compromise or lateral movement within a data processing pipeline.\n\n## Recommendation\n\n- Immediately audit environments that process externally supplied or untrusted HDF5 files using PyTables.\n- Monitor for the availability of security updates from the PyTables maintainers via the official GitHub repository.\n- Until a patch is available, implement strict input validation or sandboxing for any process that parses HDF5 files containing metadata attributes handled by PyTables.",
+      "published": "2026-11-24T19:22:29.000Z",
+      "labels": [
+        "data-processing",
+        "deserialization",
+        "python",
+        "remote-code-execution"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8feafb94-ebb7-5ade-80b4-c1f0ea2b62aa",
+        "vulnerability--071aa7d9-570d-5688-aa5e-39ea3d73fd17"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-24-pytables-rce-cve-2026-134019",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-pytables-rce-cve-2026-134019/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-134019"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/PyTables/PyTables/security/advisories/GHSA-3r7g-mq96-7hhc"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-134019"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-134019\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-24-pytables-rce-cve-2026-134019",
+      "x_craftedsignal_event_id": "brief-2026-11-24-pytables-rce-cve-2026-134019",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-pytables-rce-cve-2026-134019/",
+      "x_craftedsignal_activity_at": "2026-11-24T19:22:29.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--dd80f43c-a1ad-5ea6-a32d-5bd7efe62713",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T22:07:43.000Z",
@@ -405407,6 +405568,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8feafb94-ebb7-5ade-80b4-c1f0ea2b62aa",
+      "name": "PyTables (\u003c= 3.11.1)",
+      "vendor": "PyTables"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8fefdc13-e1da-5e27-9c35-f380acab5d3c",
       "name": "hMailServer (6.3.6, 6.3.7)",
       "vendor": "Progressive Robot"
@@ -421357,6 +421525,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--071aa7d9-570d-5688-aa5e-39ea3d73fd17",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134019",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134019",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134019"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--0731409e-a6ef-5c2a-afc5-c58ccaf20c96",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -434407,6 +434591,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-133307",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133307"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2dd0071e-c38b-5d40-ad7f-8e3554f6dab0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-135259",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-135259",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135259"
         }
       ]
     },
