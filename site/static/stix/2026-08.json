@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c07d12ce-7ce7-5288-a704-4e89c0df7a01",
+  "id": "bundle--c24830bf-a916-5d7f-95bd-1f902c50d23f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -63,22 +63,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1557",
           "url": "https://attack.mitre.org/techniques/T1557"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--07538141-dfb0-5ce8-b875-f1a51246a3a8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Encrypted Channel",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1573",
-          "url": "https://attack.mitre.org/techniques/T1573"
         }
       ]
     },
@@ -431,22 +415,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1102.001",
           "url": "https://attack.mitre.org/techniques/T1102/001"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Application Layer Protocol",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1071",
-          "url": "https://attack.mitre.org/techniques/T1071"
         }
       ]
     },
@@ -831,22 +799,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1566.001",
           "url": "https://attack.mitre.org/techniques/T1566/001"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--a5740393-cbb7-519d-96a3-ea93fe91d681",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Protocol Tunneling",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1572",
-          "url": "https://attack.mitre.org/techniques/T1572"
         }
       ]
     },
@@ -2528,17 +2480,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--183b9cfa-59ef-563a-b6fc-29f1cdb0b0f3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T00:44:13.000Z",
-      "modified": "2026-08-26T00:44:13.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5341efa2-e068-5bab-97ac-20506bb8a29b",
-      "target_ref": "attack-pattern--a5740393-cbb7-519d-96a3-ea93fe91d681"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--1886c91c-34b6-5608-afcb-a260d7a732c0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2656,17 +2597,6 @@
       "relationship_type": "has",
       "source_ref": "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d",
       "target_ref": "vulnerability--7568e985-c665-5db2-be15-81bdb5acaeca"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1c4ab4bd-40c7-54cd-acda-b1d686440d79",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T00:44:29.000Z",
-      "modified": "2026-08-26T00:44:29.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f48b416c-430d-5a91-a876-998b01f77f7b",
-      "target_ref": "attack-pattern--07538141-dfb0-5ce8-b875-f1a51246a3a8"
     },
     {
       "type": "relationship",
@@ -4508,28 +4438,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--4e22e756-011f-582f-967a-872e39bd18f2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T00:51:23.000Z",
-      "modified": "2026-08-26T00:51:23.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--4d57c441-6f93-5ab0-a89f-cf01d9f0e2b5",
-      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--4e388109-7859-5b4b-9d5f-71bb369f4b6c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T00:50:55.000Z",
-      "modified": "2026-08-26T00:50:55.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e683067f-70ca-53db-a351-8defe0d402c1",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--4e671ef2-bcdc-549c-8c49-7de4036c4b21",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T09:16:28.000Z",
@@ -5157,17 +5065,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--60ef061e-7119-5f84-9dbe-2037b81961bc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T00:44:13.000Z",
-      "modified": "2026-08-26T00:44:13.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5341efa2-e068-5bab-97ac-20506bb8a29b",
-      "target_ref": "attack-pattern--6ef3c5ca-94f5-57f2-924a-8c2f91b71d40"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--614fdd79-2c9f-5da5-88e6-a5a17e765666",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -5516,17 +5413,6 @@
       "relationship_type": "has",
       "source_ref": "software--5657ce1a-a4c1-50ca-9d02-395bff5bcd4d",
       "target_ref": "vulnerability--0aeeea9c-fdce-5802-9310-3953675e864d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--683385db-ff4e-55fb-b53c-65bafcb2f7c0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--1cdf981d-5d60-5a71-b712-60c2b9a94bb8",
-      "target_ref": "vulnerability--c905dee1-56d0-5a88-a88b-f7116694b784"
     },
     {
       "type": "relationship",
@@ -5934,17 +5820,6 @@
       "relationship_type": "has",
       "source_ref": "software--06a38527-45a1-5730-a257-725679e08e41",
       "target_ref": "vulnerability--e3ea5919-4220-5185-8db2-da65fe8033ef"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--749e3636-efef-54cd-abe1-910517f54b7d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T00:51:12.000Z",
-      "modified": "2026-08-26T00:51:12.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3a8a79e9-4404-58d0-9a40-44c388548fbb",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -6642,17 +6517,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--88884347-73a1-510a-af54-ea6a31d758a6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T00:44:29.000Z",
-      "modified": "2026-08-26T00:44:29.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f48b416c-430d-5a91-a876-998b01f77f7b",
-      "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--88cd4ad6-52f3-51b5-bbdc-db912b23662c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -7181,17 +7045,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--9bd6cc0a-13f1-50dc-b24c-deb1cd64763d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--36f8395b-c1c5-50e7-8330-127393420fc4",
-      "target_ref": "vulnerability--ccc11a41-c1b7-5083-8044-85d1e4940422"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9ceaa092-70ee-58c2-9852-91be73a8b908",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -7258,17 +7111,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--9d928902-38a0-567d-b561-0e9aa3cfc002",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T00:51:03.000Z",
-      "modified": "2026-08-26T00:51:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5952f9ff-c261-513b-a98c-e894eac0f3ff",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9daa3547-7ff9-5e4c-99b9-cb0216f69379",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -7298,17 +7140,6 @@
       "relationship_type": "has",
       "source_ref": "software--e14797ae-cf53-5368-a432-d40fe5db44c9",
       "target_ref": "vulnerability--b82f301d-e81d-56f2-bff2-5a50be511977"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--9e5c2ca8-69f3-5cfb-929e-c1f8009d9ff8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T00:51:23.000Z",
-      "modified": "2026-08-26T00:51:23.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--4d57c441-6f93-5ab0-a89f-cf01d9f0e2b5",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -8413,17 +8244,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--be3e49a4-0af5-5916-808d-f92f14299d73",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--64e331d2-4c1a-5559-bc62-fb99ce3f7eaf",
-      "target_ref": "vulnerability--c961a2d6-21c3-5d83-90a6-4cfea3410fe1"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--bebded09-49bb-5d5b-a850-94ddf562dedf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9117,17 +8937,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--cfc30c0c-ce45-5426-b452-c5d56d1778a7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--bad04e7d-3c32-540a-adaa-854837dc5625",
-      "target_ref": "vulnerability--b19256f1-826d-5d3e-8514-c9a0ab462dc5"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--cfe7c3d9-b30a-527c-8df7-b0f033aed378",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T21:18:53.000Z",
@@ -9707,17 +9516,6 @@
       "relationship_type": "uses",
       "source_ref": "report--7c1ff61a-cff4-583a-b28a-8b2b1740008a",
       "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e140f571-fc52-5b6a-aeb5-08174df34ee1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T00:44:13.000Z",
-      "modified": "2026-08-26T00:44:13.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5341efa2-e068-5bab-97ac-20506bb8a29b",
-      "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
     },
     {
       "type": "relationship",
@@ -10312,17 +10110,6 @@
       "relationship_type": "has",
       "source_ref": "software--c362dc3e-9205-5664-a9be-1e24ad8bd4b4",
       "target_ref": "vulnerability--e5eb605a-bd01-552b-820c-ebdde7276f50"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f12c69fb-4c42-5619-9e42-3fc8f07a3e5c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T00:44:21.000Z",
-      "modified": "2026-08-26T00:44:21.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7c99f4d9-0165-57f8-b981-39ef164ccb70",
-      "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
     },
     {
       "type": "relationship",
@@ -13742,44 +13529,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--3a8a79e9-4404-58d0-9a40-44c388548fbb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T00:51:12.000Z",
-      "modified": "2026-08-26T00:51:12.000Z",
-      "name": "Stack-Based Buffer Overflow in TOTOLINK N600R",
-      "description": "## Overview\n\nA critical security vulnerability (CVE-2026-79911) affects the TOTOLINK N600R router, specifically firmware version 4.3.0cu.7647_B20210106. The vulnerability resides within the setSystemConfig function of the /cgi-bin/cstecgi.cgi component, which serves as the router's CGI handler. Attackers can remotely trigger a stack-based buffer overflow by sending a crafted request that manipulates the 'Hostname' argument. Due to the lack of proper bounds checking in the underlying memory operation, the payload can overwrite stack memory, potentially leading to arbitrary code execution or a denial of service (DoS) state. Publicly available exploit material exists, making this a high-risk exposure for any internet-facing N600R devices.\n\n## Attack Chain\n\n1. Attacker performs reconnaissance to identify internet-exposed TOTOLINK N600R devices.\n2. Attacker crafts a malicious HTTP request targeting the /cgi-bin/cstecgi.cgi endpoint.\n3. The request includes a specially crafted, oversized value for the 'Hostname' parameter.\n4. The router receives the request and passes the input to the setSystemConfig function.\n5. The function fails to perform adequate bounds checking on the 'Hostname' argument before copying it to a stack buffer.\n6. The buffer overflow occurs, overwriting adjacent memory on the stack with the attacker's payload.\n7. The system's execution flow is diverted to the attacker's instructions.\n8. Final objective is achieved, such as establishing persistent access or executing remote commands on the device.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-79911 results in full system compromise, allowing an unauthenticated remote attacker to execute arbitrary code with the privileges of the web service. This could lead to total control over the network traffic passing through the device, unauthorized access to the internal network, or permanent denial of service. The vulnerability has a CVSS base score of 10.0, reflecting the maximum severity for remote exploitation.\n\n## Recommendation\n\nPrioritized actions for security and network teams:\n- Immediately identify all TOTOLINK N600R devices exposed to the internet.\n- Apply the latest firmware patches provided by TOTOLINK if available.\n- If patching is not possible, restrict access to the web management interface to known, trusted internal IP addresses only.\n- Implement network-level blocking of inbound traffic to /cgi-bin/cstecgi.cgi on edge firewalls.\n- Monitor logs for unusual HTTP POST requests containing exceptionally long 'Hostname' values in the query or body.\n",
-      "published": "2026-08-26T00:51:12.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--36f8395b-c1c5-50e7-8330-127393420fc4",
-        "vulnerability--ccc11a41-c1b7-5083-8044-85d1e4940422"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-totolink-n600r-buffer-overflow",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-totolink-n600r-buffer-overflow/"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-totolink-n600r-buffer-overflow",
-      "x_craftedsignal_event_id": "brief-2026-08-totolink-n600r-buffer-overflow",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-totolink-n600r-buffer-overflow/",
-      "x_craftedsignal_activity_at": "2026-08-26T00:51:12.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 10,
-      "x_craftedsignal_epss_max": 0.01096,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--3b86edda-af4d-58d2-ac3b-1daedc24249e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T15:39:54.000Z",
@@ -14872,61 +14621,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--4d57c441-6f93-5ab0-a89f-cf01d9f0e2b5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T00:51:23.000Z",
-      "modified": "2026-08-26T00:51:23.000Z",
-      "name": "OS Command Injection in ClipBucket V5 Installer",
-      "description": "## Overview\n\nClipBucket V5 (versions 5.5.1 through 5.5.3-#153) contains a critical OS command injection vulnerability (CVE-2026-80138) within its web-based installation script. The vulnerability resides in the handling of the 'php_cli_filepath' parameter, which is processed by the installer's 'cb_install/functions_install.php' file. Because the application fails to perform adequate validation or sanitization of this user-supplied input before passing it to system-level shell execution functions, an unauthenticated attacker can supply crafted input to execute arbitrary OS commands. \n\nSuccessful exploitation results in command execution with the privileges of the web server user. This vulnerability is particularly dangerous because it affects the initial setup phase of the application, potentially allowing an attacker to compromise the host before the administrator completes the installation process. Defenders should prioritize auditing web installer access and ensuring that software deployment instances are not exposed to the public internet during the configuration phase.\n\n## Attack Chain\n\n1. Attacker identifies a target server running an unconfigured or accessible ClipBucket V5 installer.\n2. Attacker initiates an HTTP POST request to the web installer endpoint (typically located in the /cb_install/ directory).\n3. Attacker injects shell metacharacters (e.g., ;, |, \u0026\u0026, `) into the 'php_cli_filepath' POST parameter.\n4. The 'cb_install/functions_install.php' script receives the malicious input without validation.\n5. The application passes the unsanitized string directly to a system shell execution function.\n6. The underlying web server process (e.g., www-data, apache, or iis apppool) executes the injected commands.\n7. Attacker achieves remote code execution to drop a web shell, exfiltrate data, or pivot within the environment.\n\n## Impact\n\nSuccessful exploitation grants an unauthenticated remote attacker full control over the web server process. In a typical web hosting environment, this facilitates unauthorized access to the application source code, configuration files (containing database credentials), and potentially the ability to move laterally into the internal network. Given the critical CVSS 9.8 score, this vulnerability represents a high risk of total system compromise for any organization running affected versions of ClipBucket.\n\n## Recommendation\n\n* Immediately restrict public access to the ClipBucket installation directory (/cb_install/) using web server authentication or network-level firewall controls.\n* Upgrade to a version of ClipBucket V5 that incorporates the fix provided in commit 36e7c6cfd81f62a091d2aeef96a8fc2fc2d85dc4.\n* Audit web server access logs for anomalous POST requests directed at the installer file path, specifically looking for shell-related special characters in the 'php_cli_filepath' parameter.\n* Deploy the provided detection rule to monitor for exploitation attempts targeting the identified installer vulnerability.\n",
-      "published": "2026-08-26T00:51:23.000Z",
-      "labels": [
-        "remote-code-execution",
-        "web-application-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--64e331d2-4c1a-5559-bc62-fb99ce3f7eaf",
-        "vulnerability--c961a2d6-21c3-5d83-90a6-4cfea3410fe1"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-clipbucket-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-clipbucket-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/MacWarrior/clipbucket-v5/commit/36e7c6cfd81f62a091d2aeef96a8fc2fc2d85dc4"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80138"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.vulncheck.com/advisories/clipbucket-v5-5.5.1-through-5.5.3-153-os-command-injection-via-installer-php-cli-filepath-parameter"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-clipbucket-rce",
-      "x_craftedsignal_event_id": "brief-2026-08-clipbucket-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-clipbucket-rce/",
-      "x_craftedsignal_activity_at": "2026-08-26T00:51:23.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.01197,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--4d7519e1-d7c7-5c95-9cde-a29bc3e3759f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-27T16:05:45.000Z",
@@ -15132,48 +14826,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--5341efa2-e068-5bab-97ac-20506bb8a29b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T00:44:13.000Z",
-      "modified": "2026-08-26T00:44:13.000Z",
-      "name": "Detection of DNS Tunneling via Long and Unique Subdomains",
-      "description": "## Overview\n\nDNS tunneling is a technique employed by adversaries to bypass network security controls by encoding data within DNS query labels, enabling covert command-and-control (C2) communication or unauthorized data exfiltration. Because DNS queries are frequently permitted through firewalls and proxies, they provide an ideal covert channel for attackers. This detection strategy focuses on identifying the behavioral artifacts associated with this activity, specifically the generation of numerous, unique, and unusually long subdomains (50+ characters) directed at a single registered apex domain within a five-minute window. \n\nDefenders must differentiate this malicious pattern from legitimate traffic, as cloud-based services, content delivery networks (CDNs), and telemetry reporting mechanisms often utilize dynamic and lengthy hostnames. Effective implementation requires baseline tuning to exclude known-good infrastructure while prioritizing investigations of workstation-to-resolver traffic that demonstrates the characteristic high ratio of unique queries.\n\n## Impact\n\nSuccessful DNS tunneling allows attackers to maintain persistent C2 access and exfiltrate sensitive data while remaining invisible to traditional network monitoring that focuses on common protocols like HTTP or HTTPS. If left undetected, this technique can lead to long-term environment compromise, unauthorized data egress, and the establishment of reliable backdoors that are difficult to disrupt without impacting legitimate DNS resolution services.\n\n## Recommendation\n\n* Deploy the ESQL detection logic provided below to Elastic environments observing endpoint-to-resolver DNS traffic.\n* Establish baselines for internal DNS usage to identify and exclude legitimate traffic from CDNs, cloud providers, and internal network appliances.\n* Investigate alerts by pivoting on `Esql.client_ip` and `Esql.dns_registered_domain` to determine if the activity originates from a single workstation or a shared recursive resolver.\n* Inspect `Esql.dns_question_type_values` for high counts of TXT, NULL, CNAME, or MX records, which are frequently used in tunneling implementations.\n",
-      "published": "2026-08-26T00:44:13.000Z",
-      "labels": [
-        "command-and-control",
-        "exfiltration",
-        "network-security",
-        "threat-detection"
-      ],
-      "object_refs": [
-        "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
-        "attack-pattern--6ef3c5ca-94f5-57f2-924a-8c2f91b71d40",
-        "attack-pattern--a5740393-cbb7-519d-96a3-ea93fe91d681",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-dns-tunneling-detection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-dns-tunneling-detection/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-dns-tunneling-detection",
-      "x_craftedsignal_event_id": "brief-2026-08-dns-tunneling-detection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-dns-tunneling-detection/",
-      "x_craftedsignal_activity_at": "2026-08-26T00:44:13.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -15391,56 +15043,6 @@
       "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_epss_max": 0.0996,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--5952f9ff-c261-513b-a98c-e894eac0f3ff",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T00:51:03.000Z",
-      "modified": "2026-08-26T00:51:03.000Z",
-      "name": "Unauthenticated SSRF in Chainlit MCP Component",
-      "description": "## Overview\n\nChainlit, an open-source framework for building LLM chat interfaces, is vulnerable to a severe Server-Side Request Forgery (SSRF) flaw when the Model Context Protocol (MCP) feature is enabled. The vulnerability exists in the `POST /mcp` endpoint, which handles `sse` and `streamable-http` transports. When enabled via `features.mcp.enabled = true`, the application fails to validate the `url` parameter and improperly forwards a user-supplied `headers` dictionary to the internal HTTP client.\n\nAn unauthenticated remote attacker can force the Chainlit server to execute arbitrary outbound HTTP requests. Because the server forwards attacker-supplied headers, including `Authorization` and `Cookie`, this vulnerability allows for unauthorized state-changing operations against internal services and provides a mechanism to probe sensitive cloud metadata endpoints (e.g., 169.254.169.254). The issue impacts all versions from 2.4.0rc0 up to, but not including, 2.12.0. Chainlit has addressed this by introducing a strict allowlist-based configuration model in version 2.12.0.\n\n## Attack Chain\n\n1. Attacker establishes a connection to the target Chainlit server via Socket.IO or direct HTTP POST to `/mcp`.\n2. Attacker crafts a JSON payload for the `/mcp` endpoint specifying `clientType` as `sse` or `streamable-http`.\n3. Attacker injects a malicious `url` parameter (e.g., pointing to an internal admin API or metadata service).\n4. Attacker includes a `headers` dictionary in the JSON payload containing sensitive authentication tokens or forged cookies.\n5. Chainlit backend receives the request and directly invokes the internal `sse_client` or `streamablehttp_client` using the unsanitized parameters.\n6. The server initiates an outbound HTTP request from its local context to the specified internal target.\n7. Internal service processes the forged request, effectively bypassing intended authentication/authorization constraints.\n8. Attacker achieves unauthorized state change or sensitive data exfiltration against internal infrastructure.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to bypass perimeter security to reach internal networks, probe cloud metadata endpoints, and perform state-changing operations against internal APIs. The lack of validation on both the target URL and the forwarded headers means an attacker can authenticate requests as the Chainlit server itself to downstream services. The impact is critical for deployments running in trusted internal network zones or cloud environments where the server instance holds identity-based permissions (e.g., IAM roles).\n\n## Recommendation\n\n* Upgrade all Chainlit deployments to version 2.12.0 immediately to implement the new strict allowlist-based MCP configuration.\n* If immediate patching is not possible, set `features.mcp.enabled = false` in `.chainlit/config.toml` to disable the vulnerable component.\n* Restrict outbound network egress for the host running the Chainlit process, specifically blocking access to private IP ranges and the cloud metadata service (169.254.169.254).\n* Monitor server-side web logs for `POST` requests to the `/mcp` endpoint originating from unexpected or untrusted sources.\n* Enable authentication callbacks for the application to ensure that `/mcp` endpoints are not accessible to unauthenticated sessions.\n",
-      "published": "2026-08-26T00:51:03.000Z",
-      "labels": [
-        "cve-2026-45019",
-        "mcp",
-        "ssrf"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--1cdf981d-5d60-5a71-b712-60c2b9a94bb8",
-        "vulnerability--c905dee1-56d0-5a88-a88b-f7116694b784"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-chainlit-ssrf",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-chainlit-ssrf/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-hvfh-5mj3-5f3j"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45019"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-chainlit-ssrf",
-      "x_craftedsignal_event_id": "brief-2026-08-chainlit-ssrf",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-chainlit-ssrf/",
-      "x_craftedsignal_activity_at": "2026-08-26T00:51:03.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -17692,46 +17294,6 @@
       "x_craftedsignal_activity_at": "2026-08-27T11:39:31.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--7c99f4d9-0165-57f8-b981-39ef164ccb70",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T00:44:21.000Z",
-      "modified": "2026-08-26T00:44:21.000Z",
-      "name": "Detection of DNS Rebinding via Public-to-Private Resolution Patterns",
-      "description": "## Overview\n\nDNS rebinding is an attack technique used to circumvent browser-based security controls, such as the Same-Origin Policy, by manipulating the DNS resolution process. An attacker-controlled, publicly registered domain is initially configured to resolve to an attacker-owned public IP address to establish trust or deliver malicious payloads. Subsequently, the DNS record is updated to resolve to an internal, private, loopback, or link-local address (RFC1918, etc.). When a victim's client - typically a browser - attempts to connect, the resolution shifts to the internal address, effectively allowing the attacker's code to interact with internal resources, probe services, or perform unauthorized actions as if it were operating from within the trusted network. This behavior is highly effective for pivoting through browsers or applications to reach services that assume they are only accessible to local users. Defenders must monitor for rapid shifts between public and private IP responses to prevent unauthorized internal service exploitation.\n\n## Attack Chain\n\n1. Attacker registers a public domain name and sets up an authoritative DNS server.\n2. Attacker configures the domain to resolve to an attacker-controlled public IP address.\n3. Victim's browser or application is lured to the attacker-controlled domain, typically via phishing or drive-by compromise.\n4. The victim's client performs a DNS query for the attacker's domain and receives the public IP address.\n5. The attacker updates the DNS record on the authoritative server to point to an internal or loopback address (e.g., 127.0.0.1 or 192.168.x.x).\n6. The victim's client performs a subsequent DNS query or the original resolution's TTL expires, forcing a re-query.\n7. The client receives the internal IP address and attempts to connect, bypassing browser security policies.\n8. The internal service receives the request, potentially leaking sensitive data or allowing state modification due to the implied trust of a local origin.\n\n## Impact\n\nDNS rebinding allows attackers to perform unauthorized actions against internal services, bypass firewall perimeters, and exfiltrate data from protected internal network segments. By successfully rebinding a domain, an attacker can turn a victim's web browser into a proxy for internal scanning, service exploitation, or sensitive data retrieval. This impact is significant in environments relying on IP-based trust or lacking robust authentication for internal web-based services.\n\n## Recommendation\n\n- Deploy DNS telemetry monitoring to detect rapid public-to-private IP resolution transitions as defined in the detection criteria.\n- Establish a baseline for split-horizon DNS, VPN, and service discovery traffic to tune out legitimate internal infrastructure naming conventions.\n- Ensure that internal web-based services validate the 'Host' header to reject requests that do not match the expected internal hostname.\n- Implement outbound DNS filtering to prevent clients from resolving arbitrary external domains if direct egress is not required for business operations.\n- Validate that DNS sensor placement is positioned to see endpoint-to-resolver traffic rather than upstream recursive resolver activity to ensure client-specific attribution.\n",
-      "published": "2026-08-26T00:44:21.000Z",
-      "labels": [
-        "dns-security",
-        "initial-access",
-        "network-monitoring",
-        "threat-detection"
-      ],
-      "object_refs": [
-        "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-dns-rebinding-detection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-dns-rebinding-detection/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-dns-rebinding-detection",
-      "x_craftedsignal_event_id": "brief-2026-08-dns-rebinding-detection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-dns-rebinding-detection/",
-      "x_craftedsignal_activity_at": "2026-08-26T00:44:21.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
@@ -22901,51 +22463,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--e683067f-70ca-53db-a351-8defe0d402c1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T00:50:55.000Z",
-      "modified": "2026-08-26T00:50:55.000Z",
-      "name": "Denial of Service Vulnerability in icalendar Python Library",
-      "description": "## Overview\n\nThe Python library `icalendar` (versions 7.1.0 through 7.1.2) contains an algorithmic complexity vulnerability in its `Component.__eq__` method, which is used for comparing iCalendar objects. The vulnerability exists because the library performs recursive equality checks on nested subcomponents with an O(2^n) time complexity. By supplying a specially crafted iCalendar file containing deeply nested components, an attacker can trigger a denial-of-service condition, causing the application to consume excessive CPU resources and hang indefinitely during equality or membership comparison operations. \n\nThis issue is significant for any application that processes untrusted iCalendar data and subsequently performs comparison operations such as `==`, `!=`, or membership tests (e.g., in sets or dictionaries), including services that perform deduplication, calendar synchronization, or normalization checks. The vulnerability is triggered only when comparison logic is executed on the parsed structure, not during the parsing phase itself.\n\n## Impact\n\nThe vulnerability results in an algorithmic-complexity denial of service (CWE-407). A malicious actor can execute this attack without authentication by submitting an iCalendar file of less than 1KB. This single request can pin a CPU core for minutes, resulting in service unavailability. The impact is widespread among applications relying on the `icalendar` library for handling invites or calendar imports, particularly if the application performs automatic round-trip normalization or deduplication.\n\n## Recommendation\n\n* Update the `icalendar` package to version 7.1.3 or later where the equality logic has been refactored to use an explicit stack to walk components, reducing complexity to linear time.\n* Audit applications that use the `icalendar` library to identify code paths where `Component` objects are compared for equality, added to sets, or used in membership tests using input from untrusted sources.\n* Implement input validation to restrict the depth of nested components in incoming iCalendar files before passing them to the library for processing.\n",
-      "published": "2026-08-26T00:50:55.000Z",
-      "object_refs": [
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--bad04e7d-3c32-540a-adaa-854837dc5625",
-        "vulnerability--b19256f1-826d-5d3e-8514-c9a0ab462dc5"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-icalendar-algorithmic-complexity",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-icalendar-algorithmic-complexity/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-cv84-9p8j-fj68"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55099"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-08-icalendar-algorithmic-complexity",
-      "x_craftedsignal_event_id": "brief-2026-08-icalendar-algorithmic-complexity",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-icalendar-algorithmic-complexity/",
-      "x_craftedsignal_activity_at": "2026-08-26T00:50:55.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--e72e1847-5060-553f-b11f-01b82e4a48f1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T13:04:26.000Z",
@@ -23711,51 +23228,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--f48b416c-430d-5a91-a876-998b01f77f7b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T00:44:29.000Z",
-      "modified": "2026-08-26T00:44:29.000Z",
-      "name": "Detection of Potential C2 via Recently Issued Self-Signed TLS Certificates",
-      "description": "## Overview\n\nCommand-and-control (C2) frameworks frequently utilize freshly generated, self-signed TLS certificates to encrypt communication between compromised hosts and attacker-controlled infrastructure. Unlike publicly trusted certificates, these ephemeral credentials often share an identical issuer and subject distinguished name (DN).\n\nThis detection logic monitors outbound TLS traffic from internal network segments to external destinations. By correlating the certificate's `not_before` date (within the last 30 days) and the equality of the issuer and subject DNs, security teams can identify potentially unauthorized, custom-built C2 infrastructure that evades signature-based detection. This capability is intended to complement existing hash-based rules, such as those targeting default Cobalt Strike team-server certificates. It is highly effective for identifying rotated or unique C2 infrastructure that does not reuse known malicious certificates.\n\n## Impact\n\nSuccessful detection and investigation of these signals allow defenders to identify unauthorized outbound C2 communication. If left unmitigated, attackers can maintain persistent access and exfiltrate data from compromised internal hosts via encrypted channels. The primary risk involves the use of ephemeral, non-standard TLS configurations to bypass traditional reputation-based network filtering.\n\n## Recommendation\n\n- Deploy network traffic monitoring to capture TLS handshake metadata, specifically `issuer.distinguished_name`, `subject.distinguished_name`, and `not_before` timestamps.\n- Prioritize the investigation of connections that exhibit a mismatch between SNI values and the presented certificate subject.\n- Maintain an allowlist of known legitimate destinations that utilize self-signed certificates, such as internal development environments or authorized vendor appliances, to minimize false positives.\n- Correlate alerts triggered by this logic with endpoint telemetry or existing C2 indicators to increase the confidence of incident response actions.\n",
-      "published": "2026-08-26T00:44:29.000Z",
-      "labels": [
-        "command-and-control",
-        "network-security",
-        "threat-detection",
-        "tls"
-      ],
-      "object_refs": [
-        "attack-pattern--07538141-dfb0-5ce8-b875-f1a51246a3a8",
-        "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-self-signed-tls-c2",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-self-signed-tls-c2/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.elastic.co/security-labs/collecting-cobalt-strike-beacons-with-the-elastic-stack"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-self-signed-tls-c2",
-      "x_craftedsignal_event_id": "brief-2026-08-self-signed-tls-c2",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-self-signed-tls-c2/",
-      "x_craftedsignal_activity_at": "2026-08-26T00:44:29.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--f5d23488-b3f5-5d0d-b911-cd62980439f5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T15:12:38.000Z",
@@ -24443,12 +23915,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--1cdf981d-5d60-5a71-b712-60c2b9a94bb8",
-      "name": "Chainlit (2.4.0rc0 - 2.11.1)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--1cfc9346-03fd-5818-b2eb-451c2624c8a7",
       "name": "Veeam Backup \u0026 Replication (13.x)",
       "vendor": "Veeam"
@@ -24752,13 +24218,6 @@
       "spec_version": "2.1",
       "id": "software--361b0134-ac4c-552e-8bb9-7c24b4dfa70b",
       "name": "LangChain"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--36f8395b-c1c5-50e7-8330-127393420fc4",
-      "name": "N600R",
-      "vendor": "TOTOLINK"
     },
     {
       "type": "software",
@@ -25301,13 +24760,6 @@
       "id": "software--64631817-ea08-527d-809f-5b0a2532fe9c",
       "name": "UniFi Network Application",
       "vendor": "Ubiquiti"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--64e331d2-4c1a-5559-bc62-fb99ce3f7eaf",
-      "name": "clipbucket-v5",
-      "vendor": "MacWarrior"
     },
     {
       "type": "software",
@@ -26340,12 +25792,6 @@
       "id": "software--ba7a2a2b-0ada-51aa-8c36-8191d3d54d6a",
       "name": "PS3111-S11 (\u003c= SBFQT1.3)",
       "vendor": "Phison"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--bad04e7d-3c32-540a-adaa-854837dc5625",
-      "name": "icalendar (7.1.0 to 7.1.2)"
     },
     {
       "type": "software",
@@ -29756,22 +29202,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--b19256f1-826d-5d3e-8514-c9a0ab462dc5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-55099",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-55099",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55099"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--b1d3d502-c7da-5b5b-b22a-b30aeb32694a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29980,38 +29410,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--c905dee1-56d0-5a88-a88b-f7116694b784",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-45019",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-45019",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45019"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--c961a2d6-21c3-5d83-90a6-4cfea3410fe1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-80138",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-80138",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80138"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--c965bea0-ce58-5c91-bdaf-47694d0f4358",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -30070,22 +29468,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-54563",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54563"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--ccc11a41-c1b7-5083-8044-85d1e4940422",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-79911",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-79911",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79911"
         }
       ]
     },
