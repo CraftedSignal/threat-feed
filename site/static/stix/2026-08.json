@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b75c57e5-74bd-5864-a85f-68c5316828db",
+  "id": "bundle--0c6a52c2-a0f5-5a51-8420-8e6f669a9d42",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2358,17 +2358,6 @@
       "relationship_type": "has",
       "source_ref": "software--68a9a6ef-073e-5a7b-85ef-fa2899643811",
       "target_ref": "vulnerability--70d5d2f4-115e-5fe9-802d-8c7c801ff0ab"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--22fb9abc-9417-57a4-a269-adaab5a649bd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T23:09:49.000Z",
-      "modified": "2026-08-26T23:09:49.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--4b3190d5-f628-5698-be5f-cec2c8401366",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -5812,17 +5801,6 @@
       "relationship_type": "has",
       "source_ref": "software--07af9320-e125-5b11-987c-d0cae5c6910f",
       "target_ref": "vulnerability--2b9af3b9-1e11-59cb-8d12-f1813942ab1a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--9aacd699-e4e0-5528-b403-50e753547906",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--be6c9266-0a48-5fe5-ac1b-21b4ca2ce625",
-      "target_ref": "vulnerability--6fd27695-2347-5d86-b8b4-9c50ad4d79f0"
     },
     {
       "type": "relationship",
@@ -11791,60 +11769,6 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--4b3190d5-f628-5698-be5f-cec2c8401366",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T23:09:49.000Z",
-      "modified": "2026-08-26T23:09:49.000Z",
-      "name": "CVE-2021-23758 - Ajax.NET Professional Deserialization Vulnerability",
-      "description": "## Overview\n\nAjax.NET Professional (AjaxPro), an open-source library used to integrate AJAX functionality into .NET applications, is vulnerable to a deserialization of untrusted data flaw identified as CVE-2021-23758. An attacker can exploit this vulnerability by sending crafted input that triggers the deserialization of arbitrary .NET classes, potentially leading to remote code execution (RCE) on the host server. The component is currently considered end-of-life and end-of-service, leaving it without official security maintenance. CISA has added this vulnerability to the Known Exploited Vulnerabilities (KEV) catalog and mandates that organizations prioritize patching or discontinue use of the component as per BOD 26-04 guidelines. Given the nature of the library as a third-party dependency, it may be embedded within various proprietary and legacy applications, making discovery and inventory critical for defense.\n\n## Impact\n\nSuccessful exploitation allows remote, unauthenticated attackers to execute arbitrary code within the context of the application server. This could lead to full system compromise, data exfiltration, or lateral movement within the network. Because the library is often used as a hidden dependency in older web applications, the total number of exposed instances across critical sectors is unknown but poses a significant risk to legacy infrastructure.\n\n## Recommendation\n\n* Conduct an immediate inventory of all applications within the environment to identify the presence of the Ajax.NET Professional library.\n* As the component is EoL/EoS, discontinue use of the library and migrate to supported alternatives immediately.\n* If immediate removal is not possible, implement strict network ingress filtering to block access to application paths utilizing AjaxPro until the application can be decommissioned or the dependency removed.\n* Ensure compliance with CISA BOD 26-04 by evaluating internet-exposed assets for the presence of this vulnerability and implementing compensating controls where patching is not possible.\n* Review web server access logs for anomalous POST requests directed at application endpoints that rely on AjaxPro, as this is the primary vector for delivering the malicious payload.\n",
-      "published": "2026-08-26T23:09:49.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--be6c9266-0a48-5fe5-ac1b-21b4ca2ce625",
-        "vulnerability--6fd27695-2347-5d86-b8b4-9c50ad4d79f0"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-26-ajaxnet-deserialization",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-ajaxnet-deserialization/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/michaelschwarz/Ajax.NET-Professional/commit/b0e63be5f0bb20dfce507cb8a1a9568f6e73de57"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-23758"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2021-23758"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-26-ajaxnet-deserialization",
-      "x_craftedsignal_event_id": "brief-2026-08-26-ajaxnet-deserialization",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-ajaxnet-deserialization/",
-      "x_craftedsignal_activity_at": "2026-08-26T23:09:49.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_epss_max": 0.82578,
-      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -21320,12 +21244,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--be6c9266-0a48-5fe5-ac1b-21b4ca2ce625",
-      "name": "Ajax.NET Professional"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--be887787-0d8b-516a-b9ce-21c99d5d18e6",
       "name": "Pimcore (\u003c= v2026.1.4, \u003c= v12.3.8)",
       "vendor": "Pimcore"
@@ -23176,22 +23094,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-81203",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81203"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--6fd27695-2347-5d86-b8b4-9c50ad4d79f0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2021-23758",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2021-23758",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-23758"
         }
       ]
     },

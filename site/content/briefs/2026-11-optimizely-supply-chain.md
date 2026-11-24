@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-17-optimizely-supply-chain
 event_id: brief-2026-11-17-optimizely-supply-chain
-revision: 5
-activity_at: "2026-11-23T19:15:02Z"
+revision: 6
+activity_at: "2026-11-24T23:25:33Z"
 revision_history:
   - revision: 2
     at: "2026-11-18T07:01:58Z"
@@ -72,11 +72,22 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-132224
+  - revision: 6
+    at: "2026-11-24T23:25:33Z"
+    checksum: sha256:98c9a1cc7adb2e6abaee81513f70d354c0a5cb89729d7fe33e63a48ed2a9c1fa
+    summary: KEV CVE-2026-132224
+    changed_fields:
+      - cves
+      - iocs
+      - lastmod
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: 'Optimizely: Malicious JavaScript injection via supply chain attack'
 slug: 2026-11-optimizely-supply-chain
 description: An unauthorized party exploited a vulnerability in the Optimizely Experimentation platform to inject malicious JavaScript into 178 customer websites, enabling the distribution of a multi-purpose malware kit to visitors.
 date: "2026-11-17T20:54:45Z"
-lastmod: "2026-11-23T19:13:11Z"
+lastmod: "2026-11-24T23:24:59Z"
 type: threat
 types:
   - threat
@@ -148,7 +159,8 @@ cves:
   - id: CVE-2026-132224
     cvss: 8.7
     epss: 0.00426
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://www.sophos.com/en-us/blog/hijacked-optimizely-snippets-served-malicious-code
   - https://arstechnica.com/security/2026/11/malicious-code-delivered-through-optimizely-hits-visitors-to-hundreds-of-sites/
@@ -250,6 +262,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-132224
+  - at: "2026-11-24T23:24:59Z"
+    level: L3
+    summary: KEV CVE-2026-132224
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
 
 ## Overview
