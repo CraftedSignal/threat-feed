@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2fb08e03-1b67-53ed-afcc-61cfb6554478",
+  "id": "bundle--228edfa5-5758-5f06-9856-822849febf16",
   "objects": [
     {
       "type": "attack-pattern",
@@ -125429,6 +125429,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--097cf51d-dac1-5132-b117-82ca5c6209fd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a035f4ae-016e-56ca-bce3-d0b6a55519f5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ddaea54a-1bab-578c-8c09-ee36132a2253",
+      "target_ref": "vulnerability--fb7ff572-cffa-5ed0-b968-794befc19883"
     },
     {
       "type": "relationship",
@@ -373871,6 +373882,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ede441a1-7915-5cb9-827f-d9705d8a714e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T09:25:32.000Z",
+      "modified": "2026-11-24T09:25:32.000Z",
+      "name": "Facebook Zstandard: Information disclosure vulnerability (CVE-2026-124851)",
+      "description": "## Overview\nAn information disclosure vulnerability (CVE-2026-124851) affects Facebook Zstandard versions 1.5.1 through 1.5.7. A specially crafted compressed payload can force the decompression engine to expose the contents of an internal 64 KiB buffer. This buffer, in the default configuration, may contain uninitialized memory or literals from earlier decompressions performed using the same decompression context.\n\n## Attack Chain\nAn attacker who can submit compressed data and observe the resulting output can recover the contents of the internal buffer. The vulnerability relies on the reuse of a decompression context across operations.\n\n## Impact\nSuccessful exploitation allows an attacker to recover contents from the internal buffer, which may include sensitive information from previous decompression operations performed within the same context.\n\n## Recommendation\n- Monitor vendor communications for remediation updates. Currently, there is no disclosed fix.\n- Evaluate application reliance on Zstandard decompression contexts, noting that the vulnerability occurs when the same context is used across multiple operations.",
+      "published": "2026-11-24T09:25:32.000Z",
+      "labels": [
+        "information-disclosure"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ddaea54a-1bab-578c-8c09-ee36132a2253",
+        "vulnerability--fb7ff572-cffa-5ed0-b968-794befc19883"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-24-zstd-info-disclosure-cve-2026-124851",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-zstd-info-disclosure-cve-2026-124851/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-124851"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/861"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-24-zstd-info-disclosure-cve-2026-124851",
+      "x_craftedsignal_event_id": "brief-2026-11-24-zstd-info-disclosure-cve-2026-124851",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-zstd-info-disclosure-cve-2026-124851/",
+      "x_craftedsignal_activity_at": "2026-11-24T09:25:32.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ee0408e7-9cf0-503b-bebd-b7e50e35dbde",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T23:22:06.000Z",
@@ -414431,6 +414488,13 @@
       "id": "software--dd449656-d527-5516-a648-f03f06b49d6b",
       "name": "Tomcat (9.0.0-M11 to 9.0.108)",
       "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ddaea54a-1bab-578c-8c09-ee36132a2253",
+      "name": "Zstandard (\u003e= v1.5.1, \u003c= v1.5.7)",
+      "vendor": "Facebook"
     },
     {
       "type": "software",
@@ -505412,6 +505476,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116418",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116418"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fb7ff572-cffa-5ed0-b968-794befc19883",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-124851",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-124851",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124851"
         }
       ]
     },
