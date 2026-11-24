@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--59ffb174-bfa7-5489-9dc8-e37489f5f914",
+  "id": "bundle--f9ab2c1e-2440-5ff8-bd10-de53abadd473",
   "objects": [
     {
       "type": "attack-pattern",
@@ -84882,6 +84882,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--68a7b861-89ee-5cba-8bd0-ea9085ef9ce0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7cfb5ccf-0176-5baa-9bcd-eca0bfa2ae20",
+      "target_ref": "vulnerability--23fe5954-676d-5933-acb4-81408cd7da68"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--68ad4470-45c0-5cab-af7d-26a8b67e841e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -133938,6 +133949,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5f12b581-c539-5b6c-b7ba-93284b9420be",
       "target_ref": "attack-pattern--ef980860-aadc-5ec2-8069-fdbcef869da6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ab43a8e9-1dab-5ab5-b343-a1431cc9004c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T12:15:59.000Z",
+      "modified": "2026-11-24T12:15:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2ad1e5d7-5ee7-5481-9b14-d94083e9ff17",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -226076,6 +226098,68 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2ad1e5d7-5ee7-5481-9b14-d94083e9ff17",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T12:15:59.000Z",
+      "modified": "2026-11-24T12:15:59.000Z",
+      "name": "Symfony @symfony/stimulus-bridge: Build-time arbitrary code execution (CVE-2026-133780)",
+      "description": "## Overview\nThe @symfony/stimulus-bridge npm package includes a lazy-controller-loader that supports 'magic comments' to control Stimulus controller lazy loading. Historically, this loader extracted the text of stimulus* comments and evaluated them as JavaScript using Node's `vm.runInNewContext()`. Because the `node:vm` module is not a security sandbox, a crafted comment can break out of the VM context to execute arbitrary Node.js code.\n\n## Attack Chain\nThis is a build-time vulnerability occurring on developer machines or CI/CD servers during Webpack or Symfony Encore builds. An attacker may trigger code execution by introducing a crafted Stimulus controller through a compromised dependency or a pull request containing a malicious magic comment. If the build process executes the loader, the injected code runs with the privileges of the build user.\n\n## Impact\nSuccessful exploitation allows the execution of arbitrary code during the build process, potentially enabling the reading of files, access to environment variables, exfiltration of CI secrets, tampering with build artifacts, or running commands with build-process permissions. This vulnerability does not affect browsers or end users.\n\n## Recommendation\nMaintainers have implemented a fix that parses comments as object expressions and accepts only literal values; any non-literal value, such as a function call, is rejected as a build error. Users are advised to ensure they are using versions of @symfony/stimulus-bridge that do not process untrusted comment content as JavaScript.",
+      "published": "2026-11-24T12:15:59.000Z",
+      "labels": [
+        "build-process",
+        "cve",
+        "rce",
+        "supply-chain"
+      ],
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7cfb5ccf-0176-5baa-9bcd-eca0bfa2ae20",
+        "vulnerability--23fe5954-676d-5933-acb4-81408cd7da68"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-24-symfony-stimulus-bridge-rce-cve-2026-133780",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-symfony-stimulus-bridge-rce-cve-2026-133780/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-133780"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/symfony/stimulus-bridge/commit/25f1ff0bc4b2c2aaf87bca4d67b41bbc1c25fcdc"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=C891808C-1D90-5A73-A906-763F0E672B71"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=C891808C-1D90-5A73-A906-763F0E672B71\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://symfony.com/cve-2026-133780"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-24-symfony-stimulus-bridge-rce-cve-2026-133780",
+      "x_craftedsignal_event_id": "brief-2026-11-24-symfony-stimulus-bridge-rce-cve-2026-133780",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-symfony-stimulus-bridge-rce-cve-2026-133780/",
+      "x_craftedsignal_activity_at": "2026-11-24T12:15:59.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -403439,6 +403523,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7cfb5ccf-0176-5baa-9bcd-eca0bfa2ae20",
+      "name": "@symfony/stimulus-bridge (\u003c 4.0.3)",
+      "vendor": "Symfony"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7d026b76-3065-59a1-9124-0dc034158f83",
       "name": "OpenSSL 1.0.2",
       "vendor": "OpenSSL"
@@ -431399,6 +431490,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-118269",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118269"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--23fe5954-676d-5933-acb4-81408cd7da68",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-133780",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-133780",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133780"
         }
       ]
     },
