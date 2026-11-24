@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7e4530c6-efd9-5dcb-bb97-49d0d3dc5657",
+  "id": "bundle--a7528ade-c5c3-596b-bebb-092078889b86",
   "objects": [
     {
       "type": "attack-pattern",
@@ -69524,6 +69524,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--659af4e3-7b54-519f-a9a3-97aeaba281d0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T09:16:58.000Z",
+      "modified": "2026-11-24T09:16:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9d1db808-e0a9-5dc4-ad8a-4a0d9201e326",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--65a2d6fe-4dd6-518d-be96-15601067d5b9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -88715,6 +88726,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--1bcce65c-180b-5402-b7be-1ddd542959c3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--849c6f84-91b0-5228-bb7a-c430f7d69ea0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b68eee89-b866-53eb-880d-c4e161c1a0e7",
+      "target_ref": "vulnerability--dbd0403b-2de0-5ba2-a534-35963c1636b0"
     },
     {
       "type": "relationship",
@@ -260965,6 +260987,62 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9d1db808-e0a9-5dc4-ad8a-4a0d9201e326",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T09:16:58.000Z",
+      "modified": "2026-11-24T09:16:58.000Z",
+      "name": "isomorphic-git: Denial of Service via Unbounded Resource Consumption",
+      "description": "## Overview\nisomorphic-git, a JavaScript implementation of Git, is vulnerable to an uncontrolled resource consumption flaw (CWE-400). In versions prior to 1.38.6, the library processes packfile deltas by reading a server-provided 'targetSize' and invoking 'Buffer.alloc(targetSize)' before validating the actual delta output. A malicious or man-in-the-middle-controlled remote can exploit this by sending a crafted delta header that forces the allocation of large amounts of memory (e.g., approximately 2 GB).\n\n## Attack Chain\n1. A victim initiates a 'git.clone()' or 'git.fetch()' operation with an untrusted remote.\n2. The remote responds with a malicious Git packfile delta header containing an oversized 'targetSize'.\n3. The library performs an unvalidated memory allocation based on the header.\n4. If memory resources are constrained, the host may terminate the process, resulting in a denial-of-service.\n\n## Impact\nSuccessful exploitation results in process termination, particularly on memory-constrained hosts such as containers, serverless functions, and small virtual machines. Node.js heap limits do not mitigate this off-heap allocation. 'GitPackIndex.fromPack' does not effectively catch the size-mismatch until after the resource has been allocated.\n\n## Recommendation\nUpgrade to isomorphic-git version 1.38.6 or later.",
+      "published": "2026-11-24T09:16:58.000Z",
+      "labels": [
+        "CWE-400",
+        "denial-of-service",
+        "git",
+        "memory-allocation"
+      ],
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b68eee89-b866-53eb-880d-c4e161c1a0e7",
+        "vulnerability--dbd0403b-2de0-5ba2-a534-35963c1636b0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-24-isomorphic-git-dos-cve-2026-63476",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-isomorphic-git-dos-cve-2026-63476/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-63476"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-9x82-4j54-863h"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=B961677A-0A85-562C-8E3B-945EE6530C11\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-24-isomorphic-git-dos-cve-2026-63476",
+      "x_craftedsignal_event_id": "brief-2026-11-24-isomorphic-git-dos-cve-2026-63476",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-isomorphic-git-dos-cve-2026-63476/",
+      "x_craftedsignal_activity_at": "2026-11-24T09:16:58.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 4.3,
+      "x_craftedsignal_epss_max": 0.00398,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9d27e152-8a09-5dcc-8f10-915cff599801",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T16:33:02.000Z",
@@ -408235,6 +408313,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110066",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110066"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--dbd0403b-2de0-5ba2-a534-35963c1636b0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-63476",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-63476",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63476"
         }
       ]
     },
