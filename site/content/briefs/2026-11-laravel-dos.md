@@ -1,12 +1,26 @@
 ---
 brief_id: brief-2026-11-23-laravel-dos
 event_id: brief-2026-11-23-laravel-dos
-revision: 1
-activity_at: "2026-11-23T16:49:41Z"
+revision: 2
+activity_at: "2026-11-24T17:05:36Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-24T17:05:36Z"
+    checksum: sha256:b7bc264418b255e955228f127efb4cd2e499da12e8eea4d256bc0fb35612ff57
+    summary: added coverage for laravel/framework (12.x < 12.73.0, 13.x < 13.43.0)
+    changed_fields:
+      - action_plan
+      - affected_products
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1609/
 title: 'Laravel: Remote denial of service vulnerability'
 slug: 2026-11-laravel-dos
 description: A vulnerability in the Laravel framework allows a remote attacker to cause a denial of service (DoS) in affected versions of the 12.x and 13.x branches.
 date: "2026-11-23T16:49:41Z"
+lastmod: "2026-11-24T17:04:23Z"
 type: advisory
 types:
   - advisory
@@ -29,6 +43,7 @@ tags:
 vendors:
   - Laravel
 products:
+  - laravel/framework (12.x < 12.73.0, 13.x < 13.43.0)
   - laravel/framework (versions 12.x prior to 12.74.0)
   - laravel/framework (versions 13.x prior to 13.38.0)
 mitre_ttps:
@@ -41,6 +56,8 @@ mitre_ttps:
 references:
   - https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1601/
   - https://github.com/laravel/framework/security/advisories/GHSA-8h64-cpq2-9h2g
+  - https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1609/
+  - https://github.com/laravel/framework/security/advisories/GHSA-cq3g-fj94-c8p3
 action_plan:
   priority: elevated
   owners:
@@ -51,6 +68,14 @@ action_plan:
       owner: IT Operations
       due: 48h
       evidence: Vendor security advisory GHSA-8h64-cpq2-9h2g
+    - action: Inventory all internal applications utilizing Laravel framework
+      owner: IT Operations
+      due: 48h
+      evidence: Vulnerability affects laravel/framework versions 12.x < 12.73.0 and 13.x < 13.43.0
+    - action: Upgrade affected Laravel installations to 12.73.0 or 13.43.0
+      owner: IT Operations
+      due: 72h
+      evidence: Vendor advisory GHSA-cq3g-fj94-c8p3
   hunt_leads:
     - lead: Identify spikes in HTTP 500 error codes or sudden process crashes specifically targeting Laravel application endpoints, potentially indicating exploitation attempts for the disclosed remote denial of service vulnerability.
       technique_id: T1499
@@ -62,12 +87,33 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: Une vulnérabilité a été découverte dans Laravel. Elle permet à un attaquant de provoquer un déni de service à distance.
+    - lead: Investigate web access logs for suspicious unauthorized access attempts to endpoints that typically require authentication or specific roles.
+      data_needed:
+        - Web server access logs
+        - Application access logs
+      priority: medium
+      confidence: medium
+      disposition: hunt_now
+      evidence: Vulnerability involves a security policy bypass
   mitigation_plan:
     - priority: immediate
       action: Patch Laravel to version 12.74.0 or 13.38.0
       owner: IT Operations
       addresses: Laravel framework remote DoS
       evidence: Vendor advisory GHSA-8h64-cpq2-9h2g
+    - priority: immediate
+      action: Patch Laravel framework to 12.73.0 or 13.43.0
+      owner: IT Operations
+      addresses: laravel/framework versions 12.x < 12.73.0 and 13.x < 13.43.0
+      evidence: Official advisory GHSA-cq3g-fj94-c8p3
+updates:
+  - at: "2026-11-24T17:04:23Z"
+    level: L1
+    summary: added coverage for laravel/framework (12.x < 12.73.0, 13.x < 13.43.0)
+    sources:
+      - anssi
+    source_urls:
+      - https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1609/
 ---
 
 ## Overview

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--19262312-b4a3-5018-a5a9-b7d335e6c42b",
+  "id": "bundle--8b6bec29-610c-5fab-a161-3a2b221df9ec",
   "objects": [
     {
       "type": "attack-pattern",
@@ -127053,7 +127053,7 @@
       "id": "relationship--a26a86ad-522d-5493-8b66-785f4856dd58",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-23T16:49:41.000Z",
-      "modified": "2026-11-23T16:49:41.000Z",
+      "modified": "2026-11-24T17:05:36.000Z",
       "relationship_type": "uses",
       "source_ref": "report--10a90d0d-6ac2-52e4-8196-55ff34500a84",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
@@ -206762,7 +206762,7 @@
       "id": "report--10a90d0d-6ac2-52e4-8196-55ff34500a84",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-23T16:49:41.000Z",
-      "modified": "2026-11-23T16:49:41.000Z",
+      "modified": "2026-11-24T17:05:36.000Z",
       "name": "Laravel: Remote denial of service vulnerability",
       "description": "## Overview\n\nA remote denial of service (DoS) vulnerability has been identified in the Laravel framework, specifically affecting versions 12.x before 12.74.0 and 13.x before 13.38.0. The vulnerability is tracked under GitHub Advisory GHSA-8h64-cpq2-9h2g. Detailed exploitation mechanics remain undisclosed in the public advisory, requiring users to rely on the vendor's patch documentation.\n\n## Impact\n\nSuccessful exploitation of this vulnerability results in a remote denial of service, rendering the affected Laravel application unavailable to legitimate users.\n\n## Recommendation\n\nAdministrators must update their Laravel framework installations immediately to the patched versions: 12.74.0 or higher for the 12.x branch, and 13.38.0 or higher for the 13.x branch. Review the official Laravel security advisory at https://github.com/laravel/framework/security/advisories/GHSA-8h64-cpq2-9h2g for specific patch instructions and dependencies.",
       "published": "2026-11-23T16:49:41.000Z",
@@ -206774,6 +206774,7 @@
       "object_refs": [
         "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--06075939-a155-5f04-960a-97b2754d2924",
         "software--678df017-9016-57e3-ae45-98279d620c91",
         "software--8cae7170-f467-5057-b3ac-c6a3a18ccd2b"
       ],
@@ -206789,15 +206790,23 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/laravel/framework/security/advisories/GHSA-cq3g-fj94-c8p3"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1601/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1609/"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-23-laravel-dos",
       "x_craftedsignal_event_id": "brief-2026-11-23-laravel-dos",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-laravel-dos/",
-      "x_craftedsignal_activity_at": "2026-11-23T16:49:41.000Z",
+      "x_craftedsignal_activity_at": "2026-11-24T17:05:36.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -385705,6 +385714,44 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--fcee5bfc-bfbc-5229-8314-f06e9d94a11b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T17:03:03.000Z",
+      "modified": "2026-11-24T17:03:03.000Z",
+      "name": "MISP: Multiple Vulnerabilities",
+      "description": "## Overview\n\nMultiple security vulnerabilities have been identified in the MISP (Malware Information Sharing Platform) software. According to the BSI security advisory, these flaws allow an unauthenticated or authenticated attacker to perform various malicious actions, including triggering denial of service conditions, accessing sensitive information, manipulating files, executing cross-site scripting (XSS) attacks, and bypassing existing security controls. The advisory does not currently detail the specific underlying mechanisms or CVE identifiers for these vulnerabilities.\n\n## Impact\n\nSuccessful exploitation could lead to a loss of availability (Denial of Service), compromise of sensitive intelligence data (Information Disclosure), loss of system integrity (File Manipulation), execution of malicious scripts in user browsers (XSS), and full or partial bypass of security mechanisms depending on the specific vulnerability targeted.",
+      "published": "2026-11-24T17:03:03.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--91dc875e-12d7-56d4-b973-ce0e21665539"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-24-misp-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-misp-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4751"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-24-misp-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-24-misp-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-misp-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-24T17:03:03.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fd07b7fc-237f-51f9-ac11-527bc7e581f9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-21T18:44:01.000Z",
@@ -388865,6 +388912,13 @@
       "id": "software--05e5182d-04ab-5dbf-99dd-0057cb16c555",
       "name": "End-User Notifications",
       "vendor": "Tanium"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--06075939-a155-5f04-960a-97b2754d2924",
+      "name": "laravel/framework (12.x \u003c 12.73.0, 13.x \u003c 13.43.0)",
+      "vendor": "Laravel"
     },
     {
       "type": "software",
@@ -405497,6 +405551,13 @@
       "id": "software--91db8e8b-b3f0-52d5-b966-8ee3b6765f03",
       "name": "Erlang OTP (\u003e= 29.0, \u003c 29.0.2)",
       "vendor": "Erlang"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--91dc875e-12d7-56d4-b973-ce0e21665539",
+      "name": "MISP",
+      "vendor": "MISP Project"
     },
     {
       "type": "software",
