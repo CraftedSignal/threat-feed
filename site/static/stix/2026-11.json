@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3ffb20f3-3cdb-5177-9ed1-067d12de64c4",
+  "id": "bundle--ed3d8b31-a6de-5346-a265-7bd86c732ba3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -72334,6 +72334,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6a0e68a8-4436-5a7f-a8be-befeaa63b8b5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d42cc60d-b5eb-5bf3-8ddf-7275b0c3b8d4",
+      "target_ref": "vulnerability--9c24b7ff-4025-5248-ba41-40682a5ce9ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6a130b04-60b0-5eb9-b476-1229ff05f10c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -123198,6 +123209,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bd75fae0-edf6-58aa-b455-f9fdf5091d7e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T18:29:52.000Z",
+      "modified": "2026-11-24T18:29:52.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d7a18f61-6b49-5591-9a36-53ea8207830f",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bd7edf4b-68f5-5b5a-bfd0-7b928ed27a74",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -158669,6 +158691,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--3057b3be-407a-53c7-82f3-21696fab803d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f947690f-6d0f-54db-bc47-ae7dd2550451",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c73c9b9b-e277-5d71-bd21-9bda1557572c",
+      "target_ref": "vulnerability--ec680461-d608-562c-b8d7-c0e52d77e44f"
     },
     {
       "type": "relationship",
@@ -297106,6 +297139,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d7a18f61-6b49-5591-9a36-53ea8207830f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T18:29:52.000Z",
+      "modified": "2026-11-24T18:29:52.000Z",
+      "name": "MISP: Zeek intelligence export line injection (CVE-2026-135257)",
+      "description": "## Overview\n\nMISP contains an improper output sanitization vulnerability (CVE-2026-135257) within its Zeek/Bro intelligence export functionality. The sanitization routine intended to strip tab, newline, and carriage-return characters from user-controlled fields applied character replacement before HTML entity decoding. Consequently, HTML-encoded separators such as \u0026#9; (tab), \u0026#10; (newline), and \u0026#13; (carriage return) are decoded into actual functional separators, bypassing the security filter. This allows an authenticated attacker to inject forged intelligence lines into the exported Zeek feeds, potentially causing downstream security systems to process malicious data or trigger incorrect blocking and alerting actions. The issue is addressed in MISP version 2.5.52 by re-applying the separator stripping pass after entity decoding and sanitizing organisation names.\n\n## Impact\n\n- Integrity of exported Zeek intelligence data is compromised.\n- Downstream Zeek/Bro systems may process malformed or split entries, leading to operational disruption or security decision bypasses.\n\n## Recommendation\n\n- Update all MISP instances to version 2.5.52 or later immediately to apply the required sanitization patches.\n- Audit existing Zeek intelligence feeds for malformed entries if MISP instances were operating prior to the patch.\n- Review access controls for event and attribute creation to minimize the pool of users capable of injecting malicious data into export modules.",
+      "published": "2026-11-24T18:29:52.000Z",
+      "labels": [
+        "cve-2026-135257",
+        "integrity",
+        "line-injection",
+        "misp",
+        "zeek"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c73c9b9b-e277-5d71-bd21-9bda1557572c",
+        "vulnerability--ec680461-d608-562c-b8d7-c0e52d77e44f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-24-misp-zeek-injection-cve-2026-135257",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-misp-zeek-injection-cve-2026-135257/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-135257"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/MISP/MISP/commit/0cb1dd8eb4ba1f7bc82f670827da0"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=A41664AB-0871-5D54-BCAB-AE4DA076ECA5\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-24-misp-zeek-injection-cve-2026-135257",
+      "x_craftedsignal_event_id": "brief-2026-11-24-misp-zeek-injection-cve-2026-135257",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-misp-zeek-injection-cve-2026-135257/",
+      "x_craftedsignal_activity_at": "2026-11-24T18:29:52.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d7ac6dfe-70a8-5055-842a-2c829c36c1f5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T22:43:54.000Z",
@@ -320704,13 +320792,14 @@
       "id": "report--fcee5bfc-bfbc-5229-8314-f06e9d94a11b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-24T17:03:03.000Z",
-      "modified": "2026-11-24T17:03:03.000Z",
+      "modified": "2026-11-24T18:31:34.000Z",
       "name": "MISP: Multiple Vulnerabilities",
       "description": "## Overview\n\nMultiple security vulnerabilities have been identified in the MISP (Malware Information Sharing Platform) software. According to the BSI security advisory, these flaws allow an unauthenticated or authenticated attacker to perform various malicious actions, including triggering denial of service conditions, accessing sensitive information, manipulating files, executing cross-site scripting (XSS) attacks, and bypassing existing security controls. The advisory does not currently detail the specific underlying mechanisms or CVE identifiers for these vulnerabilities.\n\n## Impact\n\nSuccessful exploitation could lead to a loss of availability (Denial of Service), compromise of sensitive intelligence data (Information Disclosure), loss of system integrity (File Manipulation), execution of malicious scripts in user browsers (XSS), and full or partial bypass of security mechanisms depending on the specific vulnerability targeted.",
       "published": "2026-11-24T17:03:03.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--91dc875e-12d7-56d4-b973-ce0e21665539"
+        "software--d42cc60d-b5eb-5bf3-8ddf-7275b0c3b8d4",
+        "vulnerability--9c24b7ff-4025-5248-ba41-40682a5ce9ef"
       ],
       "external_references": [
         {
@@ -320720,21 +320809,25 @@
         },
         {
           "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=85CFA9C4-FCD3-5A05-9C5A-349AA987B0B7\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4751"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-24-misp-vulnerabilities",
       "x_craftedsignal_event_id": "brief-2026-11-24-misp-vulnerabilities",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-misp-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-11-24T17:03:03.000Z",
+      "x_craftedsignal_activity_at": "2026-11-24T18:31:34.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -336198,13 +336291,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--91dc875e-12d7-56d4-b973-ce0e21665539",
-      "name": "MISP",
-      "vendor": "MISP Project"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--91e4f579-d449-57dd-a962-be1624a27249",
       "name": "Red Hat Enterprise Linux 10"
     },
@@ -341145,6 +341231,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c73c9b9b-e277-5d71-bd21-9bda1557572c",
+      "name": "MISP (\u003c 2.5.52)",
+      "vendor": "MISP"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c757c025-6ea0-5a82-ad38-65cd8c95a69c",
       "name": "Linux kernel (5.14 through \u003c 7.4-rc1)",
       "vendor": "Linux"
@@ -342264,6 +342357,13 @@
       "id": "software--d4223c16-ab5d-5157-b0cd-c46e375fa3d6",
       "name": "Alienware Command Center (AWCC)",
       "vendor": "Dell"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d42cc60d-b5eb-5bf3-8ddf-7275b0c3b8d4",
+      "name": "MISP (\u003c 2.5.52)",
+      "vendor": "MISP Project"
     },
     {
       "type": "software",
@@ -391189,6 +391289,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--9c24b7ff-4025-5248-ba41-40682a5ce9ef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-135239",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-135239",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135239"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--9c36231f-d0e9-5f12-b670-f4e102129de7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -415215,6 +415331,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115159",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115159"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ec680461-d608-562c-b8d7-c0e52d77e44f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-135257",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-135257",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135257"
         }
       ]
     },
