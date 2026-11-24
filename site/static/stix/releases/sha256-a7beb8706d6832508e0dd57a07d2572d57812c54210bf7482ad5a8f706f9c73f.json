@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8c5dcc37-c553-5a13-bb56-18e1c04843ab",
+  "id": "bundle--1120dfdf-6e80-5a40-990f-d4e1d620dd8c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -69357,6 +69357,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--693d78c8-748a-56b7-afdb-efb113b1ff55"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5390724e-2363-5550-b0e8-aff2fd335a34",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a941b76b-9006-5e4d-b17f-429aabef035c",
+      "target_ref": "vulnerability--b658c188-0635-56c4-a071-037253bdd7ae"
     },
     {
       "type": "relationship",
@@ -146064,6 +146075,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bb4a7221-2eb5-594f-b46c-c3139333025a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8e725e1c-aec1-57c5-857a-36c0f058e81c",
+      "target_ref": "vulnerability--b658c188-0635-56c4-a071-037253bdd7ae"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bb4d6f0f-1b7c-517a-99a0-c86518d59947",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -171217,6 +171239,17 @@
       "relationship_type": "has",
       "source_ref": "software--0e6b0ea8-057b-5010-aee3-d0487cbbc799",
       "target_ref": "vulnerability--5620f7b0-3864-57b7-a408-0ef32a149488"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--dec01337-65fd-5203-809e-1939e37e114f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T11:18:38.000Z",
+      "modified": "2026-11-24T11:18:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6d2cfdcf-3c81-5cfc-b1b7-2682e9f5ec14",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -278834,6 +278867,65 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.4,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--6d2cfdcf-3c81-5cfc-b1b7-2682e9f5ec14",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T11:18:38.000Z",
+      "modified": "2026-11-24T11:18:38.000Z",
+      "name": "ASUSTOR ADM File Explorer Arbitrary File Creation and Truncation",
+      "description": "## Overview\nA vulnerability exists in the File Explorer component of ASUSTOR ADM that allows for arbitrary file creation and truncation. Authenticated, low-privileged users can upload files with crafted path components containing quote and redirection characters. During audio playback operations, the 'music.cgi' component fails to properly escape the path string, which subsequently causes the system execution helper to open the attacker-specified path with root privileges using O_TRUNC.\n\n## Attack Chain\nAn authenticated user provides a crafted file path to the File Explorer. When 'music.cgi' processes this entry for audio playback, the unescaped path string breaks out of the intended argument context, resulting in the system execution helper performing unauthorized file operations with root-level privileges.\n\n## Impact\nSuccessful exploitation allows an authenticated, low-privileged attacker to create or truncate arbitrary system files, leading to a loss of file integrity and potential system disruption.\n\n## Recommendation\n- Review ASUSTOR security advisory ID 78 for status updates regarding this vulnerability.\n- Restrict access to the File Explorer component to trusted, authenticated users only, as authentication is a required prerequisite for exploitation.",
+      "published": "2026-11-24T11:18:38.000Z",
+      "labels": [
+        "ADM",
+        "ASUSTOR",
+        "CVE-2026-120936",
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8e725e1c-aec1-57c5-857a-36c0f058e81c",
+        "software--a941b76b-9006-5e4d-b17f-429aabef035c",
+        "vulnerability--b658c188-0635-56c4-a071-037253bdd7ae"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-24-asustor-adm-file-explorer-vulnerability-cve-2026-120936",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-asustor-adm-file-explorer-vulnerability-cve-2026-120936/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-120936"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-120936"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-120936\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.asustor.com/security/security_advisory_detail?id=78"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-24-asustor-adm-file-explorer-vulnerability-cve-2026-120936",
+      "x_craftedsignal_event_id": "brief-2026-11-24-asustor-adm-file-explorer-vulnerability-cve-2026-120936",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-asustor-adm-file-explorer-vulnerability-cve-2026-120936/",
+      "x_craftedsignal_activity_at": "2026-11-24T11:18:38.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -405468,6 +405560,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8e725e1c-aec1-57c5-857a-36c0f058e81c",
+      "name": "ADM (\u003e= 4.1.0, \u003c= 4.3.3.RY62)",
+      "vendor": "ASUSTOR Inc."
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8e7b6fa1-e85b-5e40-9fcf-431155256f0d",
       "name": "Jira Service Management Data Center (\u003c= 10.3.27, \u003c= 11.3.13)",
       "vendor": "Atlassian"
@@ -408492,6 +408591,13 @@
       "id": "software--a93b2227-7a9c-567e-8a32-01adf4a0579d",
       "name": "Dynamic QR Code - generator (\u003c= 1.0.1)",
       "vendor": "WordPress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a941b76b-9006-5e4d-b17f-429aabef035c",
+      "name": "ADM (\u003e= 5.0.0, \u003c= 5.1.4.RM62)",
+      "vendor": "ASUSTOR Inc."
     },
     {
       "type": "software",
@@ -481076,6 +481182,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126169",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126169"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b658c188-0635-56c4-a071-037253bdd7ae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120936",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120936",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120936"
         }
       ]
     },
