@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0cc0923e-b53f-50a1-877c-6bc9ee9e0a95",
+  "id": "bundle--02ff1b08-47c4-559f-a653-20ca0497e257",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6868,6 +6868,19 @@
       "pattern": "[url:value = 'https://pluginstopsyka.com/']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:43:09.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--d5c78f38-f2b6-57eb-a6f7-c4e335c0967d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T10:50:16.000Z",
+      "modified": "2026-11-24T02:08:17.000Z",
+      "name": "hash_sha256: da1efcfed182597ee946a9ef2895dfdfeab2bdff16855aeef01656d8158ead06",
+      "description": "Vulnerable Idunno.AntiCSRF.dll (official 2008 release build)",
+      "pattern": "[file:hashes.'SHA-256' = 'da1efcfed182597ee946a9ef2895dfdfeab2bdff16855aeef01656d8158ead06']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-23T10:50:16.000Z"
     },
     {
       "type": "indicator",
@@ -24605,6 +24618,17 @@
       "relationship_type": "has",
       "source_ref": "software--8da530a7-bda0-55e6-9d59-b637b3aa7da7",
       "target_ref": "vulnerability--50d6ff7b-761d-56cb-b448-0abd415856f8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1aef882d-5991-56a1-9bff-be3159652165",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-23T10:50:16.000Z",
+      "modified": "2026-11-24T02:08:17.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--27dec3a6-6451-59b4-a2f1-3021af62f36b",
+      "target_ref": "indicator--d5c78f38-f2b6-57eb-a6f7-c4e335c0967d"
     },
     {
       "type": "relationship",
@@ -54675,7 +54699,7 @@
       "id": "relationship--4d5945fa-f93a-5794-9a9f-0577a3e4f437",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-23T10:50:16.000Z",
-      "modified": "2026-11-23T10:50:16.000Z",
+      "modified": "2026-11-24T02:08:17.000Z",
       "relationship_type": "uses",
       "source_ref": "report--27dec3a6-6451-59b4-a2f1-3021af62f36b",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -109334,7 +109358,7 @@
       "id": "relationship--a7ae218d-4a74-5088-b2fa-849e27ac53e1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-23T10:50:16.000Z",
-      "modified": "2026-11-23T10:50:16.000Z",
+      "modified": "2026-11-24T02:08:17.000Z",
       "relationship_type": "uses",
       "source_ref": "report--27dec3a6-6451-59b4-a2f1-3021af62f36b",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -128078,7 +128102,7 @@
       "id": "relationship--c67dfe6d-4626-59d3-89d1-eb8ad3c64115",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-21T19:26:42.000Z",
-      "modified": "2026-11-21T19:26:42.000Z",
+      "modified": "2026-11-24T02:08:17.000Z",
       "relationship_type": "uses",
       "source_ref": "report--3894d5d7-e7c5-5a19-baa0-5c08b065a786",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -186292,7 +186316,7 @@
       "id": "report--27dec3a6-6451-59b4-a2f1-3021af62f36b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-23T10:50:16.000Z",
-      "modified": "2026-11-23T10:50:16.000Z",
+      "modified": "2026-11-24T02:08:17.000Z",
       "name": "Idunno.AntiCsrf: Insecure deserialization remote code execution (CVE-2026-131914)",
       "description": "## Overview\n\nThe legacy ASP.NET anti-CSRF library Idunno.AntiCsrf (versions 0.9.1.0 and 0.9.1 Beta) is vulnerable to unauthenticated remote code execution (RCE) due to insecure deserialization. The library, which is defunct and unmaintained, performs deserialization of untrusted CSRF form token data using System.Web.UI.ObjectStateFormatter without implementing any cryptographic signature or MAC verification. This flaw allows an attacker to supply a Base64-encoded .NET gadget chain in the CSRF form field to execute code in the context of the IIS worker process (w3wp.exe). Mandiant has observed active exploitation in the wild.\n\n## Attack Chain\n\n1. Attacker identifies a target ASP.NET WebForms application utilizing the Idunno.AntiCsrf.AntiCsrfModule HTTP module.\n2. Attacker crafts an HTTP POST request targeted at an .aspx endpoint.\n3. Attacker inserts a non-empty value into the configured CSRF cookie.\n4. Attacker inserts a malicious, Base64-encoded .NET ObjectStateFormatter gadget chain into the configured CSRF form field.\n5. The vulnerable module deserializes the untrusted form data without validation.\n6. The .NET framework instantiates the malicious object chain, leading to arbitrary code execution within the w3wp.exe process.\n\n## Impact\n\nSuccessful exploitation results in full server compromise, including the potential for unauthorized file access, persistence, and lateral movement from the web application server. Observed exploitation has been confirmed in the wild.\n\n## Recommendation\n\n- Immediately discontinue the use of Idunno.AntiCsrf and remove references to it from Web.config and bin/ directories.\n- Replace the library with actively supported alternatives such as System.Web.Helpers.AntiForgery, native ViewState MAC/encryption, or ASP.NET Core IAntiforgery.\n- In environments where exploitation is suspected, perform a full secret rotation (machineKey, encryption, database credentials) and audit the web root for unauthorized files.\n- Monitor IIS logs for anomalous POST requests to .aspx endpoints that return HTTP 302 or HTTP 500 status codes with unusually high byte counts.",
       "published": "2026-11-23T10:50:16.000Z",
@@ -186300,6 +186324,7 @@
         "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--d5c78f38-f2b6-57eb-a6f7-c4e335c0967d",
         "software--d0fbfff0-b1cc-5170-b963-7f6c4e9a2d86",
         "vulnerability--bf3f2077-9cd4-5b6f-a17c-50be5e14d132"
       ],
@@ -186315,15 +186340,23 @@
         },
         {
           "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=77DDE921-103F-5B30-9EFA-871C57F34127\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
           "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-aspnet-anti.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4735"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-23-aspnet-anticrsf-rce-cve-2026-131914",
       "x_craftedsignal_event_id": "brief-2026-11-23-aspnet-anticrsf-rce-cve-2026-131914",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-aspnet-anticrsf-rce-cve-2026-131914/",
-      "x_craftedsignal_activity_at": "2026-11-23T10:50:16.000Z",
+      "x_craftedsignal_activity_at": "2026-11-24T02:08:17.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -197834,7 +197867,7 @@
       "id": "report--3894d5d7-e7c5-5a19-baa0-5c08b065a786",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-21T19:26:42.000Z",
-      "modified": "2026-11-21T19:26:42.000Z",
+      "modified": "2026-11-24T02:08:17.000Z",
       "name": "POSIMYTH Nexter Blocks Pro Privilege Escalation (CVE-2026-125294)",
       "description": "## Overview\nThe POSIMYTH Nexter Blocks Pro plugin for WordPress is vulnerable to privilege escalation (CVE-2026-125294) in all versions up to and including 5.0.10. The `tpgb_ajax_register_user()` function utilizes a byte-level denylist for the `tpgb_acf_key[]` and `tpgb_acf[]` parameters that fails to account for Unicode look-alike characters. Due to the default accent-insensitive database collation (such as `utf8mb4_unicode_ci`), these character sequences are interpreted as equivalent to the canonical `wp_capabilities` row, leading to an unauthorized privilege assignment.\n\n## Attack Chain\nThe vulnerability is exploitable by unauthenticated users on installations where user registration is enabled. The required nonce is publicly available on any page featuring the `tp-login-register` block. By submitting a crafted POST request to the `tpgb_ajax_register_user()` handler using Unicode-decorated keys (e.g., `ẇp_çapabilities`), an attacker can cause `update_user_meta()` to overwrite their account role to 'administrator'.\n\n## Impact\nSuccessful exploitation grants an unauthenticated attacker full Administrator privileges on the affected WordPress site, enabling functions such as plugin installation, file modification, and arbitrary code execution.\n\n## Recommendation\nAdministrators should disable user registration if it is not required for site functionality. No patch or version release is currently documented in the provided source material.",
       "published": "2026-11-21T19:26:42.000Z",
@@ -197862,20 +197895,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125294"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CC6BB2CB-23C0-5D74-BC46-34439CF568E3\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-21-nexter-blocks-pro-privilege-escalation-cve-2026-125294",
       "x_craftedsignal_event_id": "brief-2026-11-21-nexter-blocks-pro-privilege-escalation-cve-2026-125294",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nexter-blocks-pro-privilege-escalation-cve-2026-125294/",
-      "x_craftedsignal_activity_at": "2026-11-21T19:26:42.000Z",
+      "x_craftedsignal_activity_at": "2026-11-24T02:08:17.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00801,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -226617,7 +226655,7 @@
       "id": "report--651f107e-fb60-5a31-b752-f3a7d326a858",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T20:14:26.000Z",
-      "modified": "2026-11-23T18:28:06.000Z",
+      "modified": "2026-11-24T02:08:17.000Z",
       "name": "pip: Compromised eMudhra root certificates via certifi bundle (CVE-2026-133949)",
       "description": "## Overview\nPython pip versions prior to 26.2.2 include a bundled version of the certifi library containing compromised root certificates from the certificate authority eMudhra.\n\n## Impact\nThe vulnerability is rated as critical (CVSS 9.3). The CVSS 4.0 vector (CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:N/SC:N/SI:N/SA:N) indicates potential for high impact to confidentiality and integrity with no requirements for privileges or user interaction.\n\n## Recommendation\nUpgrade to pip version 26.2.2 or later to address the inclusion of the compromised certificates.",
       "published": "2026-11-20T20:14:26.000Z",
@@ -226643,14 +226681,18 @@
         {
           "source_name": "reference",
           "url": "https://seclists.org/oss-sec/2026/q4/803"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=0DDA2C0C-96B6-5C70-BA7C-106794B54C6A\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-20-pip-certifi-vulnerability-cve-2026-133949",
       "x_craftedsignal_event_id": "brief-2026-11-20-pip-certifi-vulnerability-cve-2026-133949",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-pip-certifi-vulnerability-cve-2026-133949/",
-      "x_craftedsignal_activity_at": "2026-11-23T18:28:06.000Z",
+      "x_craftedsignal_activity_at": "2026-11-24T02:08:17.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
