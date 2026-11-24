@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9711692a-7a40-525b-a39f-ff744df7f9a0",
+  "id": "bundle--6c12acdb-28a2-51fc-a03d-db73dacb55a3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -17011,6 +17011,17 @@
       "relationship_type": "has",
       "source_ref": "software--94688329-fff8-5270-aee3-4a8bbdb53ecd",
       "target_ref": "vulnerability--d3e947ea-65cf-5ef5-8d11-604bce23a939"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0ea6b898-30c5-556e-ac1a-5bad074f1918",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8ba4460a-0f5b-5794-8172-b958b87f4b54",
+      "target_ref": "vulnerability--af175d7d-77a8-566e-88d6-3fde6019307e"
     },
     {
       "type": "relationship",
@@ -44038,6 +44049,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--78886842-0b22-5ffc-875d-35ef148a0858"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3bbcb1d6-8a09-53a3-adb0-50f2b51d12ff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T22:35:19.000Z",
+      "modified": "2026-11-24T22:35:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--409e4686-4afb-53f2-b0cc-febec990aa6b",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
     },
     {
       "type": "relationship",
@@ -94407,6 +94429,17 @@
       "relationship_type": "uses",
       "source_ref": "report--f6b0d5c5-93d7-5ed9-9a06-003e63dcd965",
       "target_ref": "attack-pattern--3d68445d-540f-51c3-b6d4-10fb30d8d08e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8decb383-db7a-5ca1-87dd-45c7928e1574",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T22:35:19.000Z",
+      "modified": "2026-11-24T22:35:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--409e4686-4afb-53f2-b0cc-febec990aa6b",
+      "target_ref": "attack-pattern--80d9a00f-f83e-56c4-ba06-1abdbfa337ae"
     },
     {
       "type": "relationship",
@@ -203744,6 +203777,67 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--409e4686-4afb-53f2-b0cc-febec990aa6b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T22:35:19.000Z",
+      "modified": "2026-11-24T22:35:19.000Z",
+      "name": "App-Auto-Patch: Local privilege escalation and arbitrary code execution (CVE-2025-70341)",
+      "description": "## Overview\nApp-Auto-Patch versions 3.4.2 and earlier contain two vulnerabilities that allow an unprivileged local attacker to achieve root-level arbitrary code execution. First, the application creates its working directory with insecure world-writable permissions (chmod 777), enabling a Time-of-Check-Time-of-Use (TOCTOU) race condition during the package installation process. Second, the software uses unsanitized input when parsing Installomator labels via an 'eval' statement, leading to potential command injection. This issue is tracked as CVE-2025-70341.\n\n## Attack Chain\n1. App-Auto-Patch creates a working directory with world-writable permissions (chmod 777).\n2. Installomator downloads a software package to the temporary directory.\n3. Installomator performs a signature verification on the downloaded package.\n4. An attacker identifies the time window between signature verification and package installation.\n5. The attacker swaps the verified legitimate package with a malicious package containing a custom post-install script.\n6. The installer executes the malicious package with root privileges.\n7. Alternatively, an attacker injects malicious input into Installomator labels that the application processes via 'eval'.\n\n## Impact\nAn unprivileged local attacker can escalate privileges to root on affected macOS systems. The vulnerability facilitates full system compromise by allowing the execution of arbitrary commands during the installation of software packages.\n\n## Recommendation\nUpgrade App-Auto-Patch to version 3.5.0 or later immediately. This update corrects the directory permissions from chmod 777 to chmod 755, which prevents the described race condition.",
+      "published": "2026-11-24T22:35:19.000Z",
+      "labels": [
+        "code-execution",
+        "cve",
+        "macos",
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "attack-pattern--80d9a00f-f83e-56c4-ba06-1abdbfa337ae",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8ba4460a-0f5b-5794-8172-b958b87f4b54",
+        "vulnerability--af175d7d-77a8-566e-88d6-3fde6019307e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-24-app-auto-patch-rce-cve-2025-70341",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-app-auto-patch-rce-cve-2025-70341/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-70341"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/App-Auto-Patch/App-Auto-Patch/pull/202"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MALVECTOR-CVE-2025-70341"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MALVECTOR-CVE-2025-70341\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-24-app-auto-patch-rce-cve-2025-70341",
+      "x_craftedsignal_event_id": "brief-2026-11-24-app-auto-patch-rce-cve-2025-70341",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-app-auto-patch-rce-cve-2025-70341/",
+      "x_craftedsignal_activity_at": "2026-11-24T22:35:19.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00239,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -336013,6 +336107,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8ba4460a-0f5b-5794-8172-b958b87f4b54",
+      "name": "App-Auto-Patch (\u003c= 3.4.2)",
+      "vendor": "App-Auto-Patch"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8bc3e8cc-5f5c-512b-884d-a56042c3fb5b",
       "name": "Th Shop Mania (\u003c= 1.4.9)",
       "vendor": "themehunk"
@@ -397374,6 +397475,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-107632",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107632"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--af175d7d-77a8-566e-88d6-3fde6019307e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-70341",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-70341",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-70341"
         }
       ]
     },

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e4d13de6-5b13-5148-aff5-d1fa128945f6",
+  "id": "bundle--b75c57e5-74bd-5864-a85f-68c5316828db",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5695,17 +5695,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--9301bfe0-4c3b-5d0b-b73e-1c04e5aefd30",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T22:24:21.000Z",
-      "modified": "2026-08-26T22:24:21.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--8c145055-49fd-540d-b506-884370d98e06",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--93471163-5673-5013-a2c1-274b0cb2bcfd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8375,17 +8364,6 @@
       "relationship_type": "has",
       "source_ref": "software--06ecf3cc-e145-5f56-b302-65695160b57c",
       "target_ref": "vulnerability--63511c17-c260-539f-956e-ef2cc01c9948"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--efe4febb-f24f-5a97-8eb4-b07793240d3f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--a53d3f91-93a8-5686-9f86-cb24de42343e",
-      "target_ref": "vulnerability--99ab5068-94fa-5d23-8cdb-6622124a6138"
     },
     {
       "type": "relationship",
@@ -14619,47 +14597,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--8c145055-49fd-540d-b506-884370d98e06",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T22:24:21.000Z",
-      "modified": "2026-08-26T22:24:21.000Z",
-      "name": "StarRocks Privilege Bypass in Legacy Materialized View Deletion",
-      "description": "## Overview\n\nStarRocks contains a critical privilege escalation vulnerability, tracked as CVE-2026-80346, affecting the authorization logic for dropping legacy synchronous materialized views. Within the StarRocks codebase, most statement types are routed through the `AuthorizerStmtVisitor` to enforce access controls before execution. However, the `visitDropMaterializedViewStatement` method bypasses this mechanism for legacy synchronous views.\n\nBecause legacy synchronous materialized views are stored as rollup indexes within an `OlapTable` object rather than as standalone `MaterializedView` objects, the system fails to trigger the `Authorizer.checkMaterializedViewAction` logic. Instead, the process proceeds through `AlterJobMgr.processDropMaterializedView` and `MaterializedViewHandler`, neither of which contains authorization checks. Consequently, any authenticated user can successfully execute a command to drop a legacy synchronous materialized view in any database, regardless of their actual permission set. This issue presents a significant availability risk, as an attacker can silently remove materialized views, causing downstream query failures and data inconsistencies.\n\n## Impact\n\nSuccessful exploitation allows any authenticated account to delete legacy materialized views belonging to any database, despite lacking the necessary grants on the views, the underlying base tables, or the target databases. This results in unauthorized data modification and potential service disruption for users relying on those views for reporting or query performance.\n\n## Recommendation\n\nPrioritize patching StarRocks to a version where privilege checks are correctly implemented in `MaterializedViewHandler` for legacy objects. In the interim, restrict access to the StarRocks environment to strictly authorized users, as any authenticated account currently possesses the ability to drop these materialized views. Audit current database schemas to identify all legacy synchronous materialized views to assess the potential impact of potential deletion attempts.\n",
-      "published": "2026-08-26T22:24:21.000Z",
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--a53d3f91-93a8-5686-9f86-cb24de42343e",
-        "vulnerability--99ab5068-94fa-5d23-8cdb-6622124a6138"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-starrocks-privilege-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-starrocks-privilege-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80346"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-starrocks-privilege-bypass",
-      "x_craftedsignal_event_id": "brief-2026-08-starrocks-privilege-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-starrocks-privilege-bypass/",
-      "x_craftedsignal_activity_at": "2026-08-26T22:24:21.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -21158,13 +21095,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--a53d3f91-93a8-5686-9f86-cb24de42343e",
-      "name": "StarRocks",
-      "vendor": "StarRocks"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--a60bbf1d-8f4f-5e3c-ac33-a1243e3ff1d0",
       "name": "LiteSpeed Cache (\u003c= 7.8.1)",
       "vendor": "LiteSpeed Technologies"
@@ -23822,22 +23752,6 @@
           "source_name": "cve",
           "external_id": "CVE-2024-5223",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-5223"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--99ab5068-94fa-5d23-8cdb-6622124a6138",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-80346",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-80346",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80346"
         }
       ]
     },
