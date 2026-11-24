@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--fe57512e-4798-5f71-b58e-748a2e355781",
+  "id": "bundle--7e4530c6-efd9-5dcb-bb97-49d0d3dc5657",
   "objects": [
     {
       "type": "attack-pattern",
@@ -37932,6 +37932,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3103a947-4374-55e7-8a9f-ed676f9a1b1e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2e2b81a6-bef5-553b-9ebb-a755b76181fe",
+      "target_ref": "vulnerability--40ebf0ab-a36d-537d-b199-37eef5f123db"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--310ee4c5-382e-5b67-b484-96ae91d5b724",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -59140,6 +59151,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--54b706a7-a378-5057-b534-850414d8ddbf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T05:50:43.000Z",
+      "modified": "2026-11-24T05:50:43.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--de0a6515-4dfa-558b-9b96-0c1cb2717e40",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--54b941c7-d16f-5d6d-8241-676c1b9cff49",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T23:24:35.000Z",
@@ -64361,6 +64383,17 @@
       "relationship_type": "has",
       "source_ref": "software--dca4de2c-c0d9-53c5-8c6d-0e13fde3cc4a",
       "target_ref": "vulnerability--5aba852b-5da2-55e8-a817-91966b0d788f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5d36e6fc-3a37-5e48-85ad-294f5d0cbad2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T05:50:59.000Z",
+      "modified": "2026-11-24T05:50:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bb91dcb4-4aed-55a4-a05a-39bf16062d9a",
+      "target_ref": "attack-pattern--625bcfd0-9318-5abf-8fe9-295efe008e12"
     },
     {
       "type": "relationship",
@@ -116380,6 +116413,17 @@
       "relationship_type": "uses",
       "source_ref": "report--445566e7-212b-546d-83c1-c086b35ba0a3",
       "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b2d6830a-c9c7-541d-b1a1-9fd27ab7fd2d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--845b1cb8-642f-5328-9271-c7557dcfc577",
+      "target_ref": "vulnerability--966af482-d2cc-50b6-b5fe-46d1094c28f2"
     },
     {
       "type": "relationship",
@@ -278844,6 +278888,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--bb91dcb4-4aed-55a4-a05a-39bf16062d9a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T05:50:59.000Z",
+      "modified": "2026-11-24T05:50:59.000Z",
+      "name": "Ueberauth Guardian: Improper cryptographic signature verification (CVE-2026-55735)",
+      "description": "## Overview\n\nThe Ueberauth Guardian library, a popular authentication solution for the Elixir language, contains a vulnerability in its 'Guardian.revoke/3' function. This function uses 'peek/1' to decode JWTs, which performs no signature verification. Consequently, the library accepts and processes unverified claims provided by the caller. An attacker can forge a JWT containing a target user's identifying information, such as the 'jti' (JWT ID) or 'sub' (Subject), and pass it to the revocation endpoint to terminate the victim's session. This allows for a remote, unauthenticated denial of service against user sessions.\n\n## Impact\n\nSuccessful exploitation results in the unauthorized termination of user sessions. Attackers can perform a denial of service against specific users by guessing identifying claim values, without needing access to the signing secret or valid authentication credentials.\n\n## Recommendation\n\nUpgrade to Ueberauth Guardian version 2.4.1 or later. For applications where immediate upgrades are not possible, implement a workaround at the application boundary: perform manual signature verification using 'decode_and_verify' (or an equivalent non-expiring validation check) on all tokens passed to the session-revocation logic, and reject any token that fails validation before the library processes the claims.",
+      "published": "2026-11-24T05:50:59.000Z",
+      "labels": [
+        "denial-of-service",
+        "impact"
+      ],
+      "object_refs": [
+        "attack-pattern--625bcfd0-9318-5abf-8fe9-295efe008e12",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2e2b81a6-bef5-553b-9ebb-a755b76181fe",
+        "vulnerability--40ebf0ab-a36d-537d-b199-37eef5f123db"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-24-ueberauth-guardian-signature-verification-cve-2026-55735",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ueberauth-guardian-signature-verification-cve-2026-55735/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-55735"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55735"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-24-ueberauth-guardian-signature-verification-cve-2026-55735",
+      "x_craftedsignal_event_id": "brief-2026-11-24-ueberauth-guardian-signature-verification-cve-2026-55735",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ueberauth-guardian-signature-verification-cve-2026-55735/",
+      "x_craftedsignal_activity_at": "2026-11-24T05:50:59.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.0046,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--bb924559-1aec-59ad-8907-4a2fd4c157bb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T19:12:21.000Z",
@@ -300088,6 +300182,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--de0a6515-4dfa-558b-9b96-0c1cb2717e40",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-24T05:50:43.000Z",
+      "modified": "2026-11-24T05:50:43.000Z",
+      "name": "Ueberauth Guardian: Denial of Service via Atom Table Exhaustion (CVE-2026-55733)",
+      "description": "## Overview\n\nA vulnerability in the Elixir `ueberauth/guardian` library allows for a denial-of-service (DoS) attack via the exhaustion of the BEAM virtual machine's atom table. The `Guardian.Permissions.AtomEncoding` module incorrectly uses `String.to_atom/1` on input binaries without performing any allow-list checks. Because atoms in the BEAM virtual machine are not subject to garbage collection, an attacker can crash a node by sending a stream of unique strings. Once the atom table reaches its default capacity of approximately 1,048,576 entries, the node triggers a `system_limit` and terminates.\n\n## Impact\n\nSuccessful exploitation causes a denial-of-service, crashing the entire BEAM node and impacting all applications running on it. The attack can be executed by an unauthenticated user if they can control the input funneled into the `encode/3` function (e.g., via JWT claims or request bodies).\n\n## Recommendation\n\n- Update `ueberauth/guardian` to version 2.4.1 or later to remediate this vulnerability.\n- If an immediate update is not feasible, switch the permission encoder from `Guardian.Permissions.AtomEncoding` to `Guardian.Permissions.BitwiseEncoding` or `Guardian.Permissions.TextEncoding`.\n- Alternatively, implement validation on all permission values against a strict allow-list before passing them to the encoder to prevent unbounded atom creation.",
+      "published": "2026-11-24T05:50:43.000Z",
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--845b1cb8-642f-5328-9271-c7557dcfc577",
+        "vulnerability--966af482-d2cc-50b6-b5fe-46d1094c28f2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-24-guardian-dos-cve-2026-55733",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-guardian-dos-cve-2026-55733/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-55733"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55733"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-24-guardian-dos-cve-2026-55733",
+      "x_craftedsignal_event_id": "brief-2026-11-24-guardian-dos-cve-2026-55733",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-guardian-dos-cve-2026-55733/",
+      "x_craftedsignal_activity_at": "2026-11-24T05:50:43.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00476,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -325269,6 +325409,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2e2b81a6-bef5-553b-9ebb-a755b76181fe",
+      "name": "Guardian (\u003e= 1.0.0, \u003c 2.4.1)",
+      "vendor": "Ueberauth"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2e2ffb39-dae3-58a3-bbbd-b24b702c895f",
       "name": "Conditional Fields for Contact Form 7 (\u003c 2.7.3)"
     },
@@ -333241,6 +333388,13 @@
       "id": "software--84445b95-329d-5327-8f26-587b8ede29f0",
       "name": "FortiSASE 26.1 all versions",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--845b1cb8-642f-5328-9271-c7557dcfc577",
+      "name": "Guardian (\u003e= 2.0.0, \u003c 2.4.1)",
+      "vendor": "Ueberauth"
     },
     {
       "type": "software",
@@ -363095,6 +363249,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--40ebf0ab-a36d-537d-b199-37eef5f123db",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-55735",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-55735",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55735"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--4114376f-1db5-516c-91eb-8a45f787b5b5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -387377,6 +387547,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121931",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121931"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--966af482-d2cc-50b6-b5fe-46d1094c28f2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-55733",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-55733",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55733"
         }
       ]
     },
