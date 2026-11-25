@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--340b28ba-8360-57d8-9bd6-d543ea91ed3c",
+  "id": "bundle--636e7cb1-2e64-562c-9a62-52cdffbeff44",
   "objects": [
     {
       "type": "attack-pattern",
@@ -13656,6 +13656,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--08c120cf-835d-504f-92f2-9bb949f8ac56",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--af22b395-acf2-5796-84b4-b8eee3d6ed02",
+      "target_ref": "vulnerability--ddc36405-3e9e-5fb1-a5d8-0336ef9815f1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--08c26e2f-7245-5ad2-9313-17f970d78abd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -25312,6 +25323,17 @@
       "relationship_type": "uses",
       "source_ref": "report--06b2e204-c65e-5a55-b4a7-36d7544e724a",
       "target_ref": "indicator--784158f8-abca-57b8-bd51-f8f46fc33e34"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1b5d2c3f-4b38-5d74-bec6-6c17768a426a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--af22b395-acf2-5796-84b4-b8eee3d6ed02",
+      "target_ref": "vulnerability--95cc9c3e-e958-52ac-81ce-aae3841508ef"
     },
     {
       "type": "relationship",
@@ -113638,7 +113660,7 @@
       "id": "relationship--ab97d4a5-a951-553c-89d4-1157919ca631",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T22:01:28.000Z",
-      "modified": "2026-11-19T22:01:28.000Z",
+      "modified": "2026-11-25T23:01:46.000Z",
       "relationship_type": "uses",
       "source_ref": "report--b7fe3a35-b4aa-5229-9c40-26174963a310",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -115875,6 +115897,17 @@
       "relationship_type": "uses",
       "source_ref": "report--502efa93-cb7a-5adf-ad93-452010de40a4",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--af24fe7d-cae6-5823-9539-546c2169abf4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--af22b395-acf2-5796-84b4-b8eee3d6ed02",
+      "target_ref": "vulnerability--30a12a3b-71ab-5b1e-b1b0-77e932db0b52"
     },
     {
       "type": "relationship",
@@ -149674,7 +149707,7 @@
       "id": "relationship--e7d60574-84e1-54a8-ae3b-c4d8b003641a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T22:01:28.000Z",
-      "modified": "2026-11-19T22:01:28.000Z",
+      "modified": "2026-11-25T23:01:46.000Z",
       "relationship_type": "uses",
       "source_ref": "report--b7fe3a35-b4aa-5229-9c40-26174963a310",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -261512,13 +261545,14 @@
       "id": "report--9715eb85-0055-5fe4-a025-c5781d60d9e3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T01:24:48.000Z",
-      "modified": "2026-11-19T01:24:48.000Z",
+      "modified": "2026-11-25T23:01:46.000Z",
       "name": "Multiple Vulnerabilities in Danfoss AK-SM 8xxA Series",
       "description": "## Overview\nMultiple vulnerabilities have been identified in the Danfoss AK-SM 8xxA Series:\n\n- CVE-2025-41450: An improper authentication vulnerability in the Danfoss AK-SM 8xxA Series. This issue affects versions prior to 4.2.\n- CVE-2025-41451: Improper neutralization of alarm-to-mail configuration fields used in an OS shell command injection in Danfoss AK-SM 8xxA Series prior to version 4.3.1, leading to potential post-authenticated remote code execution.\n- CVE-2025-41452: A post-authenticated external control of system web interface configuration setting vulnerability exists in the Danfoss AK-SM 8xxA Series prior to version 4.3.1, which could allow for a denial of service attack.\n\n## Attack Chain\nThese vulnerabilities are reachable via the network. CVE-2025-41451 and CVE-2025-41452 require high attack complexity, active user interaction, and prior authentication.\n\n## Impact\nSuccessful exploitation could enable a remote attacker to bypass authentication, remotely execute arbitrary code, or trigger a denial of service condition.\n\n## Recommendation\n- Upgrade to version 4.2 to address CVE-2025-41450.\n- Upgrade to version 4.3.1 to address CVE-2025-41451 and CVE-2025-41452 using the AK-SM 800A Software Upgrade Process.\n- Minimize network exposure by ensuring devices are not accessible from the internet, using firewalls, and utilizing secure remote access methods such as VPNs.",
       "published": "2026-11-19T01:24:48.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--8a6f8463-8c51-5ab2-a770-0c3c8347c1d5",
+        "software--af22b395-acf2-5796-84b4-b8eee3d6ed02",
         "vulnerability--30a12a3b-71ab-5b1e-b1b0-77e932db0b52",
         "vulnerability--95cc9c3e-e958-52ac-81ce-aae3841508ef",
         "vulnerability--ddc36405-3e9e-5fb1-a5d8-0336ef9815f1"
@@ -261544,22 +261578,29 @@
         {
           "source_name": "reference",
           "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-25-140-03"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-41450"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-19-danfoss-ak-sm-vulnerabilities",
       "x_craftedsignal_event_id": "brief-2026-11-19-danfoss-ak-sm-vulnerabilities",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-danfoss-ak-sm-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-11-19T01:24:48.000Z",
+      "x_craftedsignal_activity_at": "2026-11-25T23:01:46.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "not_observed"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-11-19T01:24:48.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 8.2,
       "x_craftedsignal_epss_max": 0.01521,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -282320,7 +282361,7 @@
       "id": "report--b7fe3a35-b4aa-5229-9c40-26174963a310",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T22:01:28.000Z",
-      "modified": "2026-11-19T22:01:28.000Z",
+      "modified": "2026-11-25T23:01:46.000Z",
       "name": "Mitel MiCollab: XML injection remote code execution (CVE-2026-133303)",
       "description": "## Overview\n\nA vulnerability in the Audio, Web, and Video Conferencing (AWV) component of Mitel MiCollab through 10.3 (10.3.0.18) could allow an unauthenticated attacker to leverage pre-staged malicious content to conduct an XML injection attack due to insufficient parameter validation. This is identified as MTLVULN-1862.\n\n## Attack Chain\n\nAn unauthenticated remote attacker can supply pre-staged malicious content to the AWV component, bypassing authentication and triggering an XML injection vulnerability. \n\n## Impact\n\nA successful exploit could allow an attacker to execute arbitrary commands within the context of the system.\n\n## Recommendation\n\nThere is currently no publicly documented patch or remediation available from the vendor for this vulnerability. Users are advised to monitor official vendor security bulletins.",
       "published": "2026-11-19T22:01:28.000Z",
@@ -282346,22 +282387,34 @@
         },
         {
           "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/mitel-security-advisory-av26-1184"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133303"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-133303"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-19-mitel-micollab-xml-injection-cve-2026-133303",
       "x_craftedsignal_event_id": "brief-2026-11-19-mitel-micollab-xml-injection-cve-2026-133303",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mitel-micollab-xml-injection-cve-2026-133303/",
-      "x_craftedsignal_activity_at": "2026-11-19T22:01:28.000Z",
+      "x_craftedsignal_activity_at": "2026-11-25T23:01:46.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-11-19T22:01:28.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_epss_max": 0.00515,
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -344093,6 +344146,13 @@
       "id": "software--aeef5ace-d737-5d82-a447-6f224a7ae7e8",
       "name": "SOGo (\u003c 5.12.13)",
       "vendor": "SOGo"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--af22b395-acf2-5796-84b4-b8eee3d6ed02",
+      "name": "AK-SM 800A Series",
+      "vendor": "Danfoss"
     },
     {
       "type": "software",
