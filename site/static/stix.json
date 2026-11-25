@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--92e72958-0e4f-54b0-9b85-7f7d10bbb117",
+  "id": "bundle--a2d8babb-d8bc-56e6-82ef-79dcd77856b8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -40340,6 +40340,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2ade7391-8da3-5a36-9a0c-5b3594ec398e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T15:34:21.000Z",
+      "modified": "2026-11-25T15:34:21.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--521763b0-40b7-51a3-b245-cca73dfa7ce5",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2ae064d6-8ba3-5717-af16-585d9340b3f2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T13:54:41.000Z",
@@ -57441,6 +57452,17 @@
       "relationship_type": "has",
       "source_ref": "software--e12ba745-092d-56f1-94a7-b1bd2b9d0539",
       "target_ref": "vulnerability--2c8f3caa-f86d-58cc-b91f-d5edb10c294c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4373bdde-764f-5287-8658-6bf18a4d8b9e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--18c44dfe-9cae-541d-81d2-55dfd9cc6e06",
+      "target_ref": "vulnerability--976f3aca-1cf2-53b0-9389-6fc36c945da9"
     },
     {
       "type": "relationship",
@@ -122623,7 +122645,7 @@
       "id": "relationship--9c34ef70-adb7-5b31-a6ea-1a398892130b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-21T18:43:07.000Z",
-      "modified": "2026-11-21T18:43:07.000Z",
+      "modified": "2026-11-25T15:34:53.000Z",
       "relationship_type": "uses",
       "source_ref": "report--0434cf6f-ffe4-5c4b-9e22-1bbfdc96ce97",
       "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
@@ -197957,7 +197979,7 @@
       "id": "report--0434cf6f-ffe4-5c4b-9e22-1bbfdc96ce97",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-21T18:43:07.000Z",
-      "modified": "2026-11-21T18:43:07.000Z",
+      "modified": "2026-11-25T15:34:53.000Z",
       "name": "Admidio: Stored cross-site scripting (CVE-2026-134262)",
       "description": "## Overview\nAdmidio versions 5.0.0 through 5.0.17 contain a stored cross-site scripting (XSS) vulnerability. An attacker with 'role administrator' privileges can inject malicious JavaScript into role names within the 'modules/profile/roles_functions.php' file. The vulnerability arises because the input is rendered unencoded in the 'data-message' attribute of the affected profile page.\n\n## Attack Chain\n1. Attacker (with role administrator privileges) creates or modifies a role name in the system.\n2. Attacker injects a quote-breaking payload containing malicious JavaScript into the role name field.\n3. The application stores this malicious payload in the 'data-message' attribute within 'modules/profile/roles_functions.php'.\n4. An unsuspecting full administrator accesses the affected profile page.\n5. The browser executes the malicious JavaScript payload.\n6. The script steals the administrator's CSRF token.\n7. The attacker uses the stolen CSRF token to escalate their privileges to the Administrator role.\n\n## Impact\nSuccessful exploitation allows an attacker to escalate privileges to the Administrator role, potentially granting full control over the Admidio installation.\n\n## Recommendation\nUpgrade to Admidio version 5.0.18 or later immediately to remediate this vulnerability.",
       "published": "2026-11-21T18:43:07.000Z",
@@ -197980,20 +198002,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134262"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=ACE3211E-2EF2-5FB6-9570-430A653BCA50\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-21-admidio-stored-xss-cve-2026-134262",
       "x_craftedsignal_event_id": "brief-2026-11-21-admidio-stored-xss-cve-2026-134262",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-admidio-stored-xss-cve-2026-134262/",
-      "x_craftedsignal_activity_at": "2026-11-21T18:43:07.000Z",
+      "x_craftedsignal_activity_at": "2026-11-25T15:34:53.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.00635,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -259095,6 +259122,67 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--521763b0-40b7-51a3-b245-cca73dfa7ce5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T15:34:21.000Z",
+      "modified": "2026-11-25T15:34:21.000Z",
+      "name": "LibreCAD: Heap-based out-of-bounds write in DXF loader (CVE-2026-135294)",
+      "description": "## Overview\nLibreCAD through version 2.2.1.6 contains a heap-based out-of-bounds write vulnerability in the `RS_FilterDXF1::readFileInBuffer()` function. The vulnerability is caused by an unvalidated 64-bit to 32-bit integer cast when processing file sizes. An attacker can craft a DXF file larger than `INT_MAX-16` (2147483631 bytes), which causes the signed integer to wrap. This leads to an undersized memory allocation and subsequent memory corruption or an application crash when the application processes the file.\n\n## Impact\nSuccessful exploitation can result in application crashes or potential memory corruption, potentially leading to arbitrary code execution depending on the context in which LibreCAD is running. Public proof-of-concept exploit code is available.\n\n## Recommendation\n- Upgrade LibreCAD to a version containing the fix implemented in commit `4e51048` (PR 3287).\n- Until patched, avoid opening untrusted or malformed DXF files.\n- Deploy endpoint monitoring to identify abnormal crashes or memory corruption events in LibreCAD instances.",
+      "published": "2026-11-25T15:34:21.000Z",
+      "labels": [
+        "CVE-2026-135294",
+        "LibreCAD",
+        "application-security",
+        "integer-overflow",
+        "memory-corruption"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--18c44dfe-9cae-541d-81d2-55dfd9cc6e06",
+        "vulnerability--976f3aca-1cf2-53b0-9389-6fc36c945da9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-librecad-dxf-overflow-cve-2026-135294",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-librecad-dxf-overflow-cve-2026-135294/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-135294"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/LibreCAD/LibreCAD/commit/4e51048ee7ae82e553e739b3bba82d5fa89698e1"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=F4837CE9-1CE4-5F75-80CE-F43C3ED87F79"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=F4837CE9-1CE4-5F75-80CE-F43C3ED87F79\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-librecad-dxf-overflow-cve-2026-135294",
+      "x_craftedsignal_event_id": "brief-2026-11-25-librecad-dxf-overflow-cve-2026-135294",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-librecad-dxf-overflow-cve-2026-135294/",
+      "x_craftedsignal_activity_at": "2026-11-25T15:34:21.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.3,
+      "x_craftedsignal_epss_max": 0.00152,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -470067,6 +470155,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119723",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119723"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--976f3aca-1cf2-53b0-9389-6fc36c945da9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-135294",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-135294",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135294"
         }
       ]
     },
