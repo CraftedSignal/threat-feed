@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6baec8a4-331c-5884-9aa7-611907d479db",
+  "id": "bundle--edc13151-62de-586f-906d-c2249d196c63",
   "objects": [
     {
       "type": "attack-pattern",
@@ -82604,6 +82604,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--78e3cb30-aa5d-5b21-b0f5-94b96f46257e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T18:48:51.000Z",
+      "modified": "2026-11-25T18:48:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--05f0517a-7f78-5fca-9157-432a620d6534",
+      "target_ref": "attack-pattern--26ef37e6-18b0-51e5-b888-57037be44a7c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--78e5d336-8f89-5c39-919f-3797a12548ce",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-23T13:05:44.000Z",
@@ -112029,6 +112040,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a9bd7a82-c35f-5284-ad24-cd0977b4741c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T18:49:57.000Z",
+      "modified": "2026-11-25T18:49:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0c9a5564-f8c2-50b4-a541-619f89b1481a",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a9be138b-77f4-5249-bf4b-23dd1447c4f7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -133911,7 +133933,7 @@
       "id": "relationship--cce027c5-bf11-5b1e-b292-9e7650843a1f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-23T18:37:41.000Z",
-      "modified": "2026-11-23T18:37:41.000Z",
+      "modified": "2026-11-25T18:50:17.000Z",
       "relationship_type": "uses",
       "source_ref": "report--fd5d9d93-e4f7-5491-87c9-be5277ad9c31",
       "target_ref": "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88"
@@ -154852,6 +154874,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f0a69b0a-e2c8-5be3-8e05-a2ace8df9297",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--874265a2-9378-57c1-9185-74dfb3c76878",
+      "target_ref": "vulnerability--e85e9f2c-5669-582c-b802-13e0acd024f4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f0b5ab4f-9c2f-558a-a3c9-71958b7c04e1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -156399,6 +156432,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--ac29cc9b-20bb-5067-979e-1f26d8a19228"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f2ea4028-aa41-5f3d-94fd-d97f1317efe3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--65c2d3e6-aa4b-546f-8905-14315b73b3d3",
+      "target_ref": "vulnerability--3ba9b473-2fd0-5221-84dd-61eb352b800e"
     },
     {
       "type": "relationship",
@@ -167301,6 +167345,66 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--05f0517a-7f78-5fca-9157-432a620d6534",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T18:48:51.000Z",
+      "modified": "2026-11-25T18:48:51.000Z",
+      "name": "TastyIgniter: Password-reset timing discrepancy (CVE-2026-134022)",
+      "description": "## Overview\nTastyIgniter's User extension prior to version 4.2.0 contains a vulnerability (CVE-2026-134022) where the `onRequestResetPassword()` handler exhibits a measurable timing difference when processing password reset requests. Valid email addresses trigger additional backend operations, including database writes and SMTP relay, while nonexistent accounts trigger an immediate return. This behavior allows remote attackers to enumerate valid staff or customer email addresses via timing measurements against production instances. The vulnerability has been mitigated in version 4.2.0 (via PR 47) by introducing a `Timebox` mechanism that ensures uniform response times regardless of the account status.\n\n## Impact\nSuccessful exploitation allows remote attackers to enumerate valid email addresses registered within the TastyIgniter platform. This information can facilitate downstream attacks such as targeted phishing, social engineering, or credential stuffing.\n\n## Recommendation\n- Upgrade the TastyIgniter User extension to version 4.2.0 or later immediately to apply the timing normalization fix.\n- If an immediate upgrade is not possible, monitor server-side application logs for high-frequency password reset requests originating from suspicious IP addresses, which may indicate enumeration attempts.\n- Audit password-reset endpoints for similar timing discrepancies in other integrated components.",
+      "published": "2026-11-25T18:48:51.000Z",
+      "labels": [
+        "account-enumeration",
+        "cve-2026-134022",
+        "timing-attack",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--26ef37e6-18b0-51e5-b888-57037be44a7c",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--874265a2-9378-57c1-9185-74dfb3c76878",
+        "vulnerability--e85e9f2c-5669-582c-b802-13e0acd024f4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-tastyigniter-enum-cve-2026-134022",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-tastyigniter-enum-cve-2026-134022/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134022"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/tastyigniter/ti-ext-user/pull/47"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=84D64699-142F-5E7C-B57F-C7537B6E79AF"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=84D64699-142F-5E7C-B57F-C7537B6E79AF\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-tastyigniter-enum-cve-2026-134022",
+      "x_craftedsignal_event_id": "brief-2026-11-25-tastyigniter-enum-cve-2026-134022",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tastyigniter-enum-cve-2026-134022/",
+      "x_craftedsignal_activity_at": "2026-11-25T18:48:51.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 3.7,
+      "x_craftedsignal_epss_max": 0.00367,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--0607d374-a369-5eb7-b0d8-656c30533359",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-09T19:52:02.000Z",
@@ -171603,6 +171707,62 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0c9a5564-f8c2-50b4-a541-619f89b1481a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T18:49:57.000Z",
+      "modified": "2026-11-25T18:49:57.000Z",
+      "name": "Apple iTunes: Local Privilege Escalation in AppleMobileDeviceService (CVE-2024-44193)",
+      "description": "## Overview\n\nCVE-2024-44193 is a local privilege escalation (LPE) vulnerability in the AppleMobileDeviceService component of iTunes for Windows. The vulnerability stems from insecure access control lists on the 'C:\\ProgramData\\Apple\\Lockdown\\' directory, which grants write permissions to standard local users. A local attacker can exploit this by placing files or folders within this directory and using opportunistic locks (oplocks) and NTFS junctions to manipulate the service into deleting arbitrary system files or folders when the service performs its recursive cleanup process. This primitive can be weaponized to achieve arbitrary code execution with SYSTEM privileges.\n\n## Attack Chain\n\n1. Attacker identifies the insecure 'C:\\ProgramData\\Apple\\Lockdown\\' directory with write access for standard users.\n2. Attacker creates a nested folder structure (e.g., 'a\\b') within the vulnerable path.\n3. Attacker places files inside these folders and applies an opportunistic lock (oplock) to those files using tools like SetOpLock.\n4. Attacker forces a restart of the 'AppleMobileDeviceService.exe' service.\n5. The service, running as SYSTEM, begins its recursive query and cleanup operation within 'C:\\ProgramData\\Apple\\Lockdown\\'.\n6. Attacker triggers the removal of the original directory and creates an NTFS junction pointing to a critical system destination.\n7. When the oplock is released, the service continues its cleanup operation, now following the NTFS junction to delete the attacker-specified target destination.\n8. Execution of attacker-provided code is achieved using the resulting SYSTEM-level file deletion/manipulation primitive.\n\n## Recommendation\n\n- Update iTunes for Windows to version 12.13.3 or later immediately to remediate the insecure folder permissions.\n- Use AccessChk (Windows Sysinternals) to audit 'C:\\ProgramData\\Apple\\' permissions if immediate patching is not feasible.\n- Monitor process creation logs for the execution of AppleMobileDeviceService.exe followed by suspicious file system activity in 'C:\\ProgramData\\Apple\\'.",
+      "published": "2026-11-25T18:49:57.000Z",
+      "labels": [
+        "apple",
+        "cve",
+        "privilege-escalation",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--65c2d3e6-aa4b-546f-8905-14315b73b3d3",
+        "vulnerability--3ba9b473-2fd0-5221-84dd-61eb352b800e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-cve-2024-44193",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-44193/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2024-44193"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MBOG14-CVE-2024-44193"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MBOG14-CVE-2024-44193\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-cve-2024-44193",
+      "x_craftedsignal_event_id": "brief-2026-11-25-cve-2024-44193",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-44193/",
+      "x_craftedsignal_activity_at": "2026-11-25T18:49:57.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00583,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -324941,7 +325101,7 @@
       "id": "report--fd5d9d93-e4f7-5491-87c9-be5277ad9c31",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-23T18:37:41.000Z",
-      "modified": "2026-11-23T18:37:41.000Z",
+      "modified": "2026-11-25T18:50:17.000Z",
       "name": "Astronomer astro-airflow-mcp arbitrary code execution (CVE-2026-133632)",
       "description": "## Overview\nIn astronomer astro-airflow-mcp versions 0.5.0 through 0.9.1, the 'af' CLI and the MCP server send telemetry from a Python subprocess that can import modules from the current working directory. If a user runs an 'af' command or an MCP tool call from inside a project that contains an attacker-supplied json.py, that file runs with the user's privileges.\n\n## Impact\nSuccessful exploitation allows an attacker to execute arbitrary code with the same privileges as the user invoking the affected tools. Users who only run the tool in projects they trust are not affected.\n\n## Recommendation\n- Upgrade to version 0.9.2 or later, where this issue is fixed.\n- In earlier versions, setting the environment variable AF_TELEMETRY_DISABLED=1 prevents the issue.",
       "published": "2026-11-23T18:37:41.000Z",
@@ -324967,20 +325127,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133632"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=E5AF4C3D-24E1-5C67-9D0C-3127CA82C2DF\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-23-astro-airflow-mcp-rce-cve-2026-133632",
       "x_craftedsignal_event_id": "brief-2026-11-23-astro-airflow-mcp-rce-cve-2026-133632",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-astro-airflow-mcp-rce-cve-2026-133632/",
-      "x_craftedsignal_activity_at": "2026-11-23T18:37:41.000Z",
+      "x_craftedsignal_activity_at": "2026-11-25T18:50:17.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00186,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -336240,6 +336405,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--65c2d3e6-aa4b-546f-8905-14315b73b3d3",
+      "name": "iTunes (\u003c 12.13.3)",
+      "vendor": "Apple"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--65c63184-0df1-56dd-abcb-bf5049828fbf",
       "name": "msgpackr (\u003c 2.1.4)",
       "vendor": "kriszyp"
@@ -339378,6 +339550,13 @@
       "id": "software--87319955-155e-5be0-8920-28e4524a9130",
       "name": "NGINX Open Source",
       "vendor": "F5"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--874265a2-9378-57c1-9185-74dfb3c76878",
+      "name": "ti-ext-user (\u003c 4.2.0)",
+      "vendor": "TastyIgniter"
     },
     {
       "type": "software",
@@ -368046,6 +368225,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-127277",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127277"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3ba9b473-2fd0-5221-84dd-61eb352b800e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-44193",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-44193",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-44193"
         }
       ]
     },
@@ -418766,6 +418961,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111291",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111291"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e85e9f2c-5669-582c-b802-13e0acd024f4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134022",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134022",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134022"
         }
       ]
     },
