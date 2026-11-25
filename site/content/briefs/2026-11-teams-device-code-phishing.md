@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-13-teams-device-code-phishing
 event_id: brief-2026-11-13-teams-device-code-phishing
-revision: 6
-activity_at: "2026-11-19T03:46:10Z"
+revision: 7
+activity_at: "2026-11-25T16:19:05Z"
 revision_history:
   - revision: 2
     at: "2026-11-13T21:10:54Z"
@@ -77,11 +77,26 @@ revision_history:
       - updates
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/collection_exchange_excessive_mail_items_accessed.toml
+  - revision: 7
+    at: "2026-11-25T16:19:05Z"
+    checksum: sha256:c2301cd374af892905209e63a21cb355055e568999c93774a5f963d881efaf9c
+    summary: 'added detection rule: New Federated Domain Added'
+    changed_fields:
+      - iocs
+      - lastmod
+      - priority_signals
+      - references
+      - rules
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/cloud/m365/audit/microsoft365_new_federated_domain_added_audit.yml
 title: Microsoft Teams Meeting Booking Flow Used for Device Code Phishing
 slug: 2026-11-teams-device-code-phishing
 description: Threat actors are using deceptive Microsoft Teams meeting-scheduling pages to trick victims into completing a device code authentication flow, allowing for the theft of session tokens.
 date: "2026-11-13T16:06:43Z"
-lastmod: "2026-11-19T03:45:54Z"
+lastmod: "2026-11-25T16:18:37Z"
 type: threat
 types:
   - threat
@@ -112,6 +127,9 @@ tags:
   - microsoft-365
   - social-engineering
   - email-security
+  - attack.privilege-escalation
+  - attack.defense-impairment
+  - attack.t1484.002
 vendors:
   - Amazon
   - ConnectWise
@@ -183,6 +201,11 @@ mitre_ttps:
     subtechnique_name: Remote Email Collection
     evidence: Excessive mailbox access may indicate an adversary attempting to exfiltrate sensitive information or perform reconnaissance on a target's mailbox.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1484.002
+    technique_name: Trust Modification
+    evidence: The creation of a new Federated domain is not necessarily malicious, however these events need to be followed closely, as it may indicate federated credential abuse or backdoor via federated identities at a similar or different cloud provider.
 references:
   - https://www.huntress.com/blog/crafty-microsoft-teams-booking-flow-disguises-device-code-phishing
   - https://blog.talosintelligence.com/artex-and-beyond/
@@ -198,6 +221,9 @@ references:
   - https://learn.microsoft.com/en-us/purview/audit-log-investigate-accounts#use-mailitemsaccessed-audit-records-for-forensic-investigations
   - https://www.microsoft.com/en-us/security/blog/2025/05/27/new-russia-affiliated-actor-void-blizzard-targets-critical-sectors-for-espionage/
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/collection_exchange_excessive_mail_items_accessed.toml
+  - https://github.com/SigmaHQ/sigma/blob/main/rules/cloud/m365/audit/microsoft365_new_federated_domain_added_audit.yml
+  - https://research.splunk.com/cloud/e155876a-6048-11eb-ae93-0242ac130002/
+  - https://aadinternals.com/post/aadbackdoor/
 iocs:
   - type: domain
     value: moments-notice.com
@@ -221,7 +247,19 @@ rules:
     data_sources:
       - o365.audit
       - microsoft_365
-rules_count: 1
+  - title: New Federated Domain Added
+    description: Detects the addition of a new Federated Domain in M365 audit logs.
+    platform: sigma
+    severity: medium
+    tactics:
+      - defense-impairment
+      - privilege-escalation
+    techniques:
+      - T1484.002
+    data_sources:
+      - m365
+      - audit
+rules_count: 2
 action_plan:
   owners:
     - SOC
@@ -291,13 +329,6 @@ action_plan:
       addresses: Credential harvesting phishing campaign
       evidence: Microsoft recommended that security teams examine suspicious emails and links, investigate user clicks, and review their Safe Links policies.
 updates:
-  - at: "2026-11-13T21:08:46Z"
-    level: L1
-    summary: added coverage for Microsoft 365 +4 products
-    sources:
-      - talos
-    source_urls:
-      - https://blog.talosintelligence.com/artex-and-beyond/
   - at: "2026-11-16T09:26:42Z"
     level: L1
     summary: added coverage for Microsoft 365 +5 products
@@ -326,6 +357,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/collection_exchange_excessive_mail_items_accessed.toml
+  - at: "2026-11-25T16:18:37Z"
+    level: L1
+    summary: 'added detection rule: New Federated Domain Added'
+    sources:
+      - sigma-hq
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/cloud/m365/audit/microsoft365_new_federated_domain_added_audit.yml
 ---
 
 ## Overview

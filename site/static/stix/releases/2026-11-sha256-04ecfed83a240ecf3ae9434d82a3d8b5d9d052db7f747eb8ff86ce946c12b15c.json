@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c60f80da-d4d1-5de8-907f-14612cf032f0",
+  "id": "bundle--25b5ed7d-7c6b-57fd-aaa6-1050ff5f90ce",
   "objects": [
     {
       "type": "attack-pattern",
@@ -79,6 +79,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1087",
           "url": "https://attack.mitre.org/techniques/T1087"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--02aa0ac3-2e1c-5090-bd2d-13eba5181b95",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Trust Modification",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1484.002",
+          "url": "https://attack.mitre.org/techniques/T1484/002"
         }
       ]
     },
@@ -4636,7 +4652,7 @@
       "id": "indicator--4e13da43-9aa0-57bc-bc96-b7185a4a23a0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-19T03:46:10.000Z",
+      "modified": "2026-11-25T16:19:05.000Z",
       "name": "domain: reallifeaccounting.com",
       "description": "Destination domain for malicious links in phishing emails.",
       "pattern": "[domain-name:value = 'reallifeaccounting.com']",
@@ -4869,7 +4885,7 @@
       "id": "indicator--5cc23a73-e056-5f0a-b791-cefb93bcd022",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-19T03:46:10.000Z",
+      "modified": "2026-11-25T16:19:05.000Z",
       "name": "domain: planetmaison.com",
       "description": "Sender domain used for phishing campaign impersonating Microsoft 365 service health notices.",
       "pattern": "[domain-name:value = 'planetmaison.com']",
@@ -4921,7 +4937,7 @@
       "id": "indicator--5e3ae9e0-b92e-59e0-b112-c589eb66c104",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-19T03:46:10.000Z",
+      "modified": "2026-11-25T16:19:05.000Z",
       "name": "domain: newbooker.com",
       "description": "Sender domain used for phishing campaign impersonating Microsoft 365 service health notices.",
       "pattern": "[domain-name:value = 'newbooker.com']",
@@ -5180,7 +5196,7 @@
       "id": "indicator--6ce1f276-99cd-51a4-9888-6e2ff99e956d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-19T03:46:10.000Z",
+      "modified": "2026-11-25T16:19:05.000Z",
       "name": "domain: moments-notice.com",
       "description": "Sender domain used for phishing campaign impersonating Microsoft 365 service health notices.",
       "pattern": "[domain-name:value = 'moments-notice.com']",
@@ -30361,7 +30377,7 @@
       "id": "relationship--24572932-aa62-53b0-8807-7407953c3ccd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-19T03:46:10.000Z",
+      "modified": "2026-11-25T16:19:05.000Z",
       "relationship_type": "uses",
       "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
       "target_ref": "indicator--5cc23a73-e056-5f0a-b791-cefb93bcd022"
@@ -36573,6 +36589,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2e3a0a1c-936b-5958-b07e-cebfbd376566",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:17:53.000Z",
+      "modified": "2026-11-25T16:17:53.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d94b0d48-87b5-5fe1-9233-8bb002994714",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2e3e011d-a527-5115-b24f-dee39b2d48e2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T10:04:43.000Z",
@@ -36730,7 +36757,7 @@
       "id": "relationship--2e93e48c-3248-5031-85a2-ff0c20a3929d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-19T03:46:10.000Z",
+      "modified": "2026-11-25T16:19:05.000Z",
       "relationship_type": "uses",
       "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
       "target_ref": "attack-pattern--465a38e0-65ed-5b24-b51b-228c2afdc195"
@@ -45266,7 +45293,7 @@
       "id": "relationship--3d4f5702-574b-5363-9b38-344f969a1001",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-19T03:46:10.000Z",
+      "modified": "2026-11-25T16:19:05.000Z",
       "relationship_type": "uses",
       "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
       "target_ref": "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b"
@@ -52053,7 +52080,7 @@
       "id": "relationship--48adb644-6dd9-5f55-8b1a-2c046eb2c903",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-19T03:46:10.000Z",
+      "modified": "2026-11-25T16:19:05.000Z",
       "relationship_type": "uses",
       "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
       "target_ref": "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c"
@@ -62921,7 +62948,7 @@
       "id": "relationship--59c82d72-d063-56fe-a406-2444970bf5a3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-19T03:46:10.000Z",
+      "modified": "2026-11-25T16:19:05.000Z",
       "relationship_type": "uses",
       "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
       "target_ref": "indicator--4e13da43-9aa0-57bc-bc96-b7185a4a23a0"
@@ -70500,7 +70527,7 @@
       "id": "relationship--664ae3ae-636b-5999-b2fe-e69b3a4f7aaf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-19T03:46:10.000Z",
+      "modified": "2026-11-25T16:19:05.000Z",
       "relationship_type": "uses",
       "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
       "target_ref": "attack-pattern--f01db0f8-2292-53f2-9bdc-d0cfc660a37a"
@@ -94293,7 +94320,7 @@
       "id": "relationship--8c74c8c8-683c-5a1e-b49c-261489210b98",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-19T03:46:10.000Z",
+      "modified": "2026-11-25T16:19:05.000Z",
       "relationship_type": "uses",
       "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
       "target_ref": "attack-pattern--34bdac9c-9765-5c06-9482-d6dc2db4d84d"
@@ -95591,7 +95618,7 @@
       "id": "relationship--8ec8af15-17f8-52ef-831a-70140b54e1c7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-19T03:46:10.000Z",
+      "modified": "2026-11-25T16:19:05.000Z",
       "relationship_type": "uses",
       "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
       "target_ref": "indicator--5e3ae9e0-b92e-59e0-b112-c589eb66c104"
@@ -110254,7 +110281,7 @@
       "id": "relationship--a74d7711-b887-5143-a145-3491f1edb1f7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T03:34:06.000Z",
-      "modified": "2026-11-10T03:34:06.000Z",
+      "modified": "2026-11-25T16:19:05.000Z",
       "relationship_type": "uses",
       "source_ref": "report--fa8d4ec2-37a5-501f-bfe4-718d22b79b87",
       "target_ref": "attack-pattern--296fc6f2-dbef-543a-8261-6c7285c5fff8"
@@ -111365,7 +111392,7 @@
       "id": "relationship--a945ec73-32c3-510f-92f8-c935b8048d79",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-19T03:46:10.000Z",
+      "modified": "2026-11-25T16:19:05.000Z",
       "relationship_type": "uses",
       "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
@@ -124125,7 +124152,7 @@
       "id": "relationship--bd9b433a-eb7a-5a97-beda-4ad9690e9ed5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-19T03:46:10.000Z",
+      "modified": "2026-11-25T16:19:05.000Z",
       "relationship_type": "uses",
       "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
       "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
@@ -139390,6 +139417,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d6f6d218-18a9-5477-97f8-1126842b155e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-13T16:06:43.000Z",
+      "modified": "2026-11-25T16:19:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
+      "target_ref": "attack-pattern--02aa0ac3-2e1c-5090-bd2d-13eba5181b95"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d6fb8fd3-42d7-54ed-bcdd-72492998946d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -140009,7 +140047,7 @@
       "id": "relationship--d834018c-26fb-5d6a-a222-201fccf5572e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-19T03:46:10.000Z",
+      "modified": "2026-11-25T16:19:05.000Z",
       "relationship_type": "uses",
       "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
       "target_ref": "attack-pattern--e051365d-4c28-5c94-afb1-0ddd8a074fea"
@@ -141450,7 +141488,7 @@
       "id": "relationship--dabb88be-83bf-533a-bac2-047a97debbb7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-19T03:46:10.000Z",
+      "modified": "2026-11-25T16:19:05.000Z",
       "relationship_type": "uses",
       "source_ref": "report--98b586ae-431c-57ed-91e1-9380243c105d",
       "target_ref": "indicator--6ce1f276-99cd-51a4-9888-6e2ff99e956d"
@@ -232392,6 +232430,43 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6b074e37-dc1f-587c-8e9d-7e3296a725b9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:18:01.000Z",
+      "modified": "2026-11-25T16:18:01.000Z",
+      "name": "AWS RDS Security Group Configuration Changes",
+      "description": "## Overview\n\nAWS CloudTrail logs record administrative modifications to RDS Database Security Groups. These events include the creation and deletion of security groups, as well as the authorization or revocation of ingress rules.\n\n## Attack Chain\n\nUnauthorized or accidental modifications to RDS Security Group rules may result in the exposure of databases to the public internet or broader network segments, or the disruption of service availability due to rule removal.\n\n## Impact\n\nChanges to security group configurations can facilitate unauthorized network access to database instances or deny legitimate services and users access to the database.\n\n## Recommendation\n\nMonitor CloudTrail logs for events indicative of RDS security group modifications to ensure changes align with authorized operational procedures.",
+      "published": "2026-11-25T16:18:01.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-rds-sg-modification",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-rds-sg-modification/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/cloud/aws/cloudtrail/aws_cloudtrail_security_group_change_rds.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-rds-sg-modification",
+      "x_craftedsignal_event_id": "brief-2026-11-25-rds-sg-modification",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-rds-sg-modification/",
+      "x_craftedsignal_activity_at": "2026-11-25T16:18:01.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--6b0786fc-4401-5c5d-9b14-58c61fbd30ea",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T13:59:27.000Z",
@@ -260850,12 +260925,15 @@
       "id": "report--98b586ae-431c-57ed-91e1-9380243c105d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T16:06:43.000Z",
-      "modified": "2026-11-19T03:46:10.000Z",
+      "modified": "2026-11-25T16:19:05.000Z",
       "name": "Microsoft Teams Meeting Booking Flow Used for Device Code Phishing",
       "description": "## Overview\nIn mid-October 2026, threat actors targeted a construction sector organization using a spear-phishing email that impersonated a senior executive from a peer company. The email contained a link leading to a typosquatted domain designed to simulate a Microsoft Teams meeting-scheduling interface. \n\n## Attack Chain\n1. The attacker utilized a spear-phishing link embedded in a multi-stage redirect chain.\n2. The landing page presented a fake 'Microsoft Teams Meeting Scheduler' interface that prompted users to select meeting details.\n3. Upon user interaction, the backend initiated a Microsoft device code sign-in process. The site copied the resulting user code to the victim's clipboard.\n4. The site redirected the victim to the legitimate Microsoft device login page to enter the code, which authorized the attacker's session.\n\n## Impact\nThe attack enables the theft of session tokens via the device code authentication flow, potentially granting attackers access to victim accounts.\n\n## Recommendation\nDefenders should monitor sign-in logs for the 'Cmsi:Cmsi' indicator, which signals device-code authentication. Organizations should investigate authentication attempts originating from unmanaged devices or unexpected infrastructure and consider restricting device code flows where not required through Conditional Access policies.",
       "published": "2026-11-13T16:06:43.000Z",
       "labels": [
         "ai",
+        "attack.defense-impairment",
+        "attack.privilege-escalation",
+        "attack.t1484.002",
         "automation",
         "credential-harvesting",
         "cybercrime",
@@ -260867,6 +260945,7 @@
         "social-engineering"
       ],
       "object_refs": [
+        "attack-pattern--02aa0ac3-2e1c-5090-bd2d-13eba5181b95",
         "attack-pattern--34bdac9c-9765-5c06-9482-d6dc2db4d84d",
         "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c",
         "attack-pattern--465a38e0-65ed-5b24-b51b-228c2afdc195",
@@ -260901,11 +260980,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://aadinternals.com/post/aadbackdoor/"
+        },
+        {
+          "source_name": "reference",
           "url": "https://blog.talosintelligence.com/artex-and-beyond/"
         },
         {
           "source_name": "reference",
           "url": "https://cofense.com/blog/flash-alert-weaponizing-the-november-2026-microsoft-outage"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/cloud/m365/audit/microsoft365_new_federated_domain_added_audit.yml"
         },
         {
           "source_name": "reference",
@@ -260918,6 +261005,10 @@
         {
           "source_name": "reference",
           "url": "https://research.checkpoint.com/2026/hacking-on-autopilot-inside-artex-cybercrime-campaigns/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://research.splunk.com/cloud/e155876a-6048-11eb-ae93-0242ac130002/"
         },
         {
           "source_name": "reference",
@@ -260959,9 +261050,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-13-teams-device-code-phishing",
       "x_craftedsignal_event_id": "brief-2026-11-13-teams-device-code-phishing",
-      "x_craftedsignal_revision": 6,
+      "x_craftedsignal_revision": 7,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-teams-device-code-phishing/",
-      "x_craftedsignal_activity_at": "2026-11-19T03:46:10.000Z",
+      "x_craftedsignal_activity_at": "2026-11-25T16:19:05.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -268580,6 +268671,52 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a36b64e7-2914-580a-903e-b2051370e361",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:18:10.000Z",
+      "modified": "2026-11-25T16:18:10.000Z",
+      "name": "AWS EKS Cluster Created or Deleted",
+      "description": "## Overview\n\nMonitoring Amazon EKS cluster creation and deletion is relevant for identifying infrastructure lifecycle changes. AWS CloudTrail logs can capture the 'CreateCluster' and 'DeleteCluster' API calls directed at the 'eks.amazonaws.com' event source.\n\n## Attack Chain\n\n- Impact (T1485): The creation or deletion of EKS clusters impacts the availability or integrity of containerized infrastructure.\n\n## Recommendation\n\nDeploy the provided detection rule. Evaluate whether the actor performing the EKS cluster creation or deletion is authorized. Investigating unauthorized or unexpected activity is recommended to manage potential misconfigurations or malicious infrastructure changes.",
+      "published": "2026-11-25T16:18:10.000Z",
+      "labels": [
+        "cloud",
+        "infrastructure",
+        "monitoring"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-eks-cluster-lifecycle",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-eks-cluster-lifecycle/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/cloud/aws/cloudtrail/aws_eks_cluster_created_or_deleted.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20231015220234/https://any-api.com/amazonaws_com/eks/docs/API_Description"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-eks-cluster-lifecycle",
+      "x_craftedsignal_event_id": "brief-2026-11-25-eks-cluster-lifecycle",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-eks-cluster-lifecycle/",
+      "x_craftedsignal_activity_at": "2026-11-25T16:18:10.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -276583,6 +276720,53 @@
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.01658,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b1492ae7-b418-52d3-a062-25c2ab173ed0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:17:26.000Z",
+      "modified": "2026-11-25T16:17:26.000Z",
+      "name": "AWS CloudTrail: Monitoring CreateNetworkAclEntry activity",
+      "description": "## Overview\n\nThe creation of network Access Control List (ACL) entries is a significant configuration event in AWS environments. While frequently used for legitimate administrative tasks, the ability to modify network traffic flow and visibility makes the 'CreateNetworkAclEntry' API call a point of interest for monitoring potential unauthorized network access or defense impairment.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to your SIEM to monitor AWS CloudTrail for 'CreateNetworkAclEntry' events.\n- Establish a baseline of legitimate ACL modifications to reduce false positives originating from authorized infrastructure-as-code deployments or administrative activity.",
+      "published": "2026-11-25T16:17:26.000Z",
+      "labels": [
+        "aws",
+        "cloud",
+        "defense-impairment",
+        "informational"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-new-acl-entries",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-new-acl-entries/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/cloud/aws/cloudtrail/aws_cloudtrail_new_acl_entries.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20240214032736/https://www.gorillastack.com/blog/real-time-events/important-aws-cloudtrail-security-events-tracking/"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-new-acl-entries",
+      "x_craftedsignal_event_id": "brief-2026-11-25-new-acl-entries",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-new-acl-entries/",
+      "x_craftedsignal_activity_at": "2026-11-25T16:17:26.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -300593,6 +300777,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d94b0d48-87b5-5fe1-9233-8bb002994714",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:17:53.000Z",
+      "modified": "2026-11-25T16:17:53.000Z",
+      "name": "AWS Load Balancer Security Group Modification Monitoring",
+      "description": "## Overview\n\nUnauthorized or unexpected modifications to security groups associated with AWS Elastic Load Balancer (ELB) and Application Load Balancer (ALB) infrastructure may indicate an attempt to expand network ingress points. These modifications, specifically targeting 'ApplySecurityGroupsToLoadBalancer' and 'SetSecurityGroups' API calls, can be used by an attacker to bypass existing network segmentation or establish access to previously unreachable VPC resources. Monitoring these specific CloudTrail events is essential for detecting configuration drift or potential reconnaissance and access escalation activities.",
+      "published": "2026-11-25T16:17:53.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--31984237-c5bd-571e-9226-16c7a2eed52c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-lb-sg-mod",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-lb-sg-mod/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/cloud/aws/cloudtrail/aws_cloudtrail_security_group_change_loadbalancer.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-lb-sg-mod",
+      "x_craftedsignal_event_id": "brief-2026-11-25-lb-sg-mod",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-lb-sg-mod/",
+      "x_craftedsignal_activity_at": "2026-11-25T16:17:53.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d95faafd-5ab5-5537-8b6c-ddf469bf5123",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T00:05:58.000Z",
@@ -321518,7 +321741,7 @@
       "id": "report--fa8d4ec2-37a5-501f-bfe4-718d22b79b87",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T03:34:06.000Z",
-      "modified": "2026-11-10T03:34:06.000Z",
+      "modified": "2026-11-25T16:19:05.000Z",
       "name": "Microsoft 365: Federated domain creation",
       "description": "## Overview\n\nThe addition of a new federated domain in Microsoft 365 environment represents a significant configuration change that may indicate identity-based persistence or backdoor activity. Adversaries with administrative access can leverage federation to bypass standard authentication controls, a technique historically documented in campaigns involving SAML token manipulation.\n\n## Impact\n\nLegitimate domain federation is a routine administrative task, but unauthorized modification of federation settings provides an attacker with the ability to issue identity tokens, effectively bypassing multi-factor authentication and maintaining long-term access to the target cloud environment.\n\n## Recommendation\n\n- Implement monitoring for the 'Add-FederatedDomain' event within M365 Exchange audit logs to identify unauthorized federation changes.\n- Establish a formal change management process for federation configurations and audit these changes periodically against authorized provisioning activity.\n- Deploy the provided detection rule to alert on all instances of domain federation additions for manual investigation.\n",
       "published": "2026-11-10T03:34:06.000Z",
@@ -321530,7 +321753,8 @@
       ],
       "object_refs": [
         "attack-pattern--296fc6f2-dbef-543a-8261-6c7285c5fff8",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d93c17d5-7ee7-5ebf-88c3-3a3e36bc31fd"
       ],
       "external_references": [
         {
@@ -321562,9 +321786,9 @@
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-10-federated-domain-addition",
       "x_craftedsignal_event_id": "brief-2026-11-10-federated-domain-addition",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-federated-domain-addition/",
-      "x_craftedsignal_activity_at": "2026-11-10T03:34:06.000Z",
+      "x_craftedsignal_activity_at": "2026-11-25T16:19:05.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -329809,6 +330033,13 @@
       "spec_version": "2.1",
       "id": "software--319546e0-fed5-5329-8f12-9faac4d2e277",
       "name": "FFmpeg (\u003c= 9.0.2)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--31984237-c5bd-571e-9226-16c7a2eed52c",
+      "name": "AWS Elastic Load Balancing",
+      "vendor": "Amazon"
     },
     {
       "type": "software",
@@ -345336,6 +345567,13 @@
       "id": "software--d91d7264-c979-5c79-9f78-1b0f11a984c9",
       "name": "Grav (2.0.0-2.2.17)",
       "vendor": "Grav"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d93c17d5-7ee7-5ebf-88c3-3a3e36bc31fd",
+      "name": "Microsoft 365",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",

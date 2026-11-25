@@ -1,12 +1,25 @@
 ---
 brief_id: brief-2026-11-10-federated-domain-addition
 event_id: brief-2026-11-10-federated-domain-addition
-revision: 1
-activity_at: "2026-11-10T03:34:06Z"
+revision: 2
+activity_at: "2026-11-25T16:19:05Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-25T16:19:05Z"
+    checksum: sha256:52efa76a81c4f663dbb7b121a1157505a221d558471f31478a3869181b3a5123
+    summary: new product
+    changed_fields:
+      - affected_products
+      - affected_vendors
+      - lastmod
+      - updates
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/cloud/m365/exchange/microsoft365_new_federated_domain_added_exchange.yml
 title: 'Microsoft 365: Federated domain creation'
 slug: 2026-11-federated-domain-addition
 description: Monitoring for the addition of new federated domains in Microsoft 365, a technique associated with persistent unauthorized access and SAML-based identity provider manipulation.
 date: "2026-11-10T03:34:06Z"
+lastmod: "2026-11-25T16:18:38Z"
 type: advisory
 types:
   - advisory
@@ -27,6 +40,10 @@ tags:
   - identity
   - m365
   - cloud-security
+vendors:
+  - Microsoft
+products:
+  - Microsoft 365
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
@@ -74,7 +91,17 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Federated domain creation is a high-impact configuration change
+updates:
+  - at: "2026-11-25T16:18:38Z"
+    level: L1
+    summary: new product
+    sources:
+      - sigma-hq
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/cloud/m365/exchange/microsoft365_new_federated_domain_added_exchange.yml
 ---
+
+## Overview
 
 The addition of a new federated domain in Microsoft 365 environment represents a significant configuration change that may indicate identity-based persistence or backdoor activity. Adversaries with administrative access can leverage federation to bypass standard authentication controls, a technique historically documented in campaigns involving SAML token manipulation.
 
