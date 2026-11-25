@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0c6a52c2-a0f5-5a51-8420-8e6f669a9d42",
+  "id": "bundle--7c25446e-77e6-5a53-b27f-6a001f7d751c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1951,17 +1951,6 @@
       "relationship_type": "has",
       "source_ref": "software--97631bf3-3bf2-5bd9-8f14-8636ee28650e",
       "target_ref": "vulnerability--f6f319c6-86fc-5730-8975-b29d9b5cc830"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1159f79a-a6d6-5280-ac79-0736910ad94e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T23:32:21.000Z",
-      "modified": "2026-08-26T23:32:21.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--399ef12d-d58c-5e84-8a73-2d59f206ab56",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -7950,17 +7939,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e5a518a9-301d-5e2a-8995-cf1a143496d6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--a69dc7c2-ca06-59d2-8b63-cdb4339c497d",
-      "target_ref": "vulnerability--6bff301e-6571-574f-97c0-26c3a2dc3c10"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e634c2d4-157e-5bde-80f0-900f4d3d100c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -10921,47 +10899,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--399ef12d-d58c-5e84-8a73-2d59f206ab56",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-26T23:32:21.000Z",
-      "modified": "2026-08-26T23:32:21.000Z",
-      "name": "SQL Injection Vulnerability in Simple Online Food Ordering System",
-      "description": "## Overview\n\nA SQL injection vulnerability, identified as CVE-2026-81203, exists within the admin module of the SourceCodester Simple Online Food Ordering System version 1.0. The vulnerability is located in the /admin/ajax.php file, specifically within the login2 action. Attackers can reach this endpoint remotely and perform malicious manipulation of the email argument. Because this flaw allows for arbitrary SQL command execution, it can potentially lead to unauthorized data exfiltration, modification of database contents, or authentication bypass. The vulnerability has been disclosed publicly, making it available for exploitation. Organizations using this system should restrict access to the /admin/ directory and validate all inputs against the application logic.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows an unauthenticated remote attacker to execute arbitrary SQL commands against the backend database. This may result in full compromise of the application data, administrative account takeovers, or further exploitation of the underlying database server, depending on the privileges assigned to the database user.\n\n## Recommendation\n\n* Restrict network access to the /admin/ directory using firewall or web application firewall rules to prevent unauthorized remote requests.\n* Apply input sanitization and parameterization to the 'email' argument within /admin/ajax.php to mitigate SQL injection vectors.\n* Audit database logs for anomalous queries originating from the /admin/ajax.php endpoint.\n",
-      "published": "2026-08-26T23:32:21.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--a69dc7c2-ca06-59d2-8b63-cdb4339c497d",
-        "vulnerability--6bff301e-6571-574f-97c0-26c3a2dc3c10"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-26-simple-food-sql-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-simple-food-sql-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81203"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-26-simple-food-sql-injection",
-      "x_craftedsignal_event_id": "brief-2026-08-26-simple-food-sql-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-simple-food-sql-injection/",
-      "x_craftedsignal_activity_at": "2026-08-26T23:32:21.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -21044,13 +20981,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--a69dc7c2-ca06-59d2-8b63-cdb4339c497d",
-      "name": "Simple Online Food Ordering System (1.0)",
-      "vendor": "SourceCodester"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--a6ac2b39-4831-5ae9-9339-5d8015d4b571",
       "name": "alos-http (\u003c 0.0.0-20260617230736-314b6783e196)",
       "vendor": "guno1928"
@@ -23078,22 +23008,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-23489",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23489"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--6bff301e-6571-574f-97c0-26c3a2dc3c10",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-81203",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-81203",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81203"
         }
       ]
     },

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--10f440fc-e511-5d03-81a5-ae413fe40f4d",
+  "id": "bundle--677a7d90-1117-50c9-b639-f1cdc94bcff9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -92295,6 +92295,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--71f0d38a-9937-5919-b517-6db112f50e8f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T01:39:51.000Z",
+      "modified": "2026-11-25T01:39:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--af70b47e-2c08-520a-a7c5-03728a1ea65a",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--71f12717-6275-5c36-967f-522ccf76a1c6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -95404,6 +95415,17 @@
       "relationship_type": "has",
       "source_ref": "software--f9610590-fb0b-532c-b098-1c5a565d8c6d",
       "target_ref": "vulnerability--59b61c9d-0af2-526c-9f57-bb87eb8201c6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--767b2554-cb74-5295-b477-8eeb66322bbb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--619d066c-d162-5fd2-a09d-bd510f329ea7",
+      "target_ref": "vulnerability--d5cd2587-fc48-55ed-af24-d88e35bee5e6"
     },
     {
       "type": "relationship",
@@ -132485,6 +132507,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--99839128-10c7-5d32-a416-8e7000a345c0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a993e4db-8d4d-57b3-941e-0b7999ba5093",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T01:40:53.000Z",
+      "modified": "2026-11-25T01:40:53.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0c44a9c7-ae57-5fdf-886d-8df5d421558a",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -187577,6 +187610,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f525fae3-3e62-5633-8e72-295e2800c5f6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c73c9b9b-e277-5d71-bd21-9bda1557572c",
+      "target_ref": "vulnerability--145ec6bc-7574-5be2-86dd-4114ab1e790b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f5260f0b-22c9-5f20-ad5d-f309362066db",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -204024,6 +204068,65 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0c44a9c7-ae57-5fdf-886d-8df5d421558a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T01:40:53.000Z",
+      "modified": "2026-11-25T01:40:53.000Z",
+      "name": "MISP: Authorization bypass in sighting synchronization (CVE-2026-135243)",
+      "description": "## Overview\nMISP versions prior to 2.5.52 contain an authorization bypass vulnerability in the handling of sightings during server synchronization and bulk operations. The issue stems from the sighting pull mechanism executing with elevated privileges and accepting event identifiers without verifying that the local event is authorized for sharing with the remote server. Additionally, the bulkSaveSightings function did not strictly enforce that the attributes referenced in the request belonged to the specific event specified in the URL.\n\n## Attack Chain\nA remote attacker with access to a synchronized MISP instance can supply event identifiers during a sighting pull or bulk save operation. Because the system fails to verify the source server's authorization for the specified event (via creator organization, distribution levels, or sharing groups), the system processes the request and binds the sightings to the unauthorized local event.\n\n## Impact\nExploitation can lead to unauthorized disclosure of threat intelligence data and integrity issues where sightings are incorrectly attributed to events the attacker should not access. The vulnerability has a CVSS 4.0 base score of 5.3 (AV:N/AC:L/AT:N/PR:L/UI:N/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N).\n\n## Recommendation\nUpgrade MISP to version 2.5.52 or later. The fix introduces a new method, Event::syncedWithServer(), to verify local event authorization for sharing before pulling sightings. The bulkSaveSightings function has also been modified to filter attributes by the authorized event ID.",
+      "published": "2026-11-25T01:40:53.000Z",
+      "labels": [
+        "authorization-bypass",
+        "cve-2026-135243",
+        "misp",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c73c9b9b-e277-5d71-bd21-9bda1557572c",
+        "vulnerability--145ec6bc-7574-5be2-86dd-4114ab1e790b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-misp-auth-bypass-cve-2026-135243",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-misp-auth-bypass-cve-2026-135243/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-135243"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/MISP/MISP/commit/aa8b355d69708fe90ce3d04f3e6c14321d"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=C8F8ABE9-48A3-57A5-AD56-0B00EF0362F4"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=C8F8ABE9-48A3-57A5-AD56-0B00EF0362F4\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-misp-auth-bypass-cve-2026-135243",
+      "x_craftedsignal_event_id": "brief-2026-11-25-misp-auth-bypass-cve-2026-135243",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-misp-auth-bypass-cve-2026-135243/",
+      "x_craftedsignal_activity_at": "2026-11-25T01:40:53.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00453,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -328537,6 +328640,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--af70b47e-2c08-520a-a7c5-03728a1ea65a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T01:39:51.000Z",
+      "modified": "2026-11-25T01:39:51.000Z",
+      "name": "OpenResty stream-lua-nginx-module: use-after-free vulnerability (CVE-2026-136412)",
+      "description": "## Overview\nOpenResty stream-lua-nginx-module before 0.0.20rc4 contains a use-after-free vulnerability that allows remote peers to trigger access to freed memory when a receiveuntil() pattern iterator is garbage-collected while still referenced by the socket. Attackers can interrupt or close the cosocket connection so that later reads or socket closure use the stale pattern pointer, causing a crash or corruption of the nginx worker.\n\n## Attack Chain\n1. The attacker establishes a stream-lua socket connection.\n2. The attacker triggers a read-error on the socket connection while a receiveuntil iterator is active.\n3. The socket is finalized and freed.\n4. The Lua garbage collector triggers the iterator's __gc handler, which performs a write operation through a dangling pointer to the already freed socket memory.\n\n## Impact\nSuccessful exploitation may result in memory corruption or a crash of the nginx worker process. Access is remote and does not require privileges or user interaction.\n\n## Recommendation\nUpgrade to a version containing the fix implemented in commit 7581c68b. Note that the remediation is specifically identified by this commit hash, which detaches the back-pointer to the socket prior to teardown.",
+      "published": "2026-11-25T01:39:51.000Z",
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--619d066c-d162-5fd2-a09d-bd510f329ea7",
+        "vulnerability--d5cd2587-fc48-55ed-af24-d88e35bee5e6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-openresty-uaf-cve-2026-136412",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-openresty-uaf-cve-2026-136412/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-136412"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/openresty/stream-lua-nginx-module/commit/7581c68b43e1645bffe0d7262b1f4230d9698a6a"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=3C847918-1E62-519A-B6F4-510BBF83E930"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=3C847918-1E62-519A-B6F4-510BBF83E930\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-openresty-uaf-cve-2026-136412",
+      "x_craftedsignal_event_id": "brief-2026-11-25-openresty-uaf-cve-2026-136412",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-openresty-uaf-cve-2026-136412/",
+      "x_craftedsignal_activity_at": "2026-11-25T01:39:51.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--af8722cc-d3f1-561c-9788-d84868322228",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T22:48:28.000Z",
@@ -400329,6 +400485,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--619d066c-d162-5fd2-a09d-bd510f329ea7",
+      "name": "stream-lua-nginx-module (\u003c 0.0.20rc4)",
+      "vendor": "openresty"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--61a23c73-36cf-5d2b-b05e-7e230df9cb9b",
       "name": "Emitter (\u003c= 3.1)",
       "vendor": "emitter-io"
@@ -426179,6 +426342,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-77880",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77880"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--145ec6bc-7574-5be2-86dd-4114ab1e790b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-135243",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-135243",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135243"
         }
       ]
     },
@@ -492451,6 +492630,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-77382",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77382"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d5cd2587-fc48-55ed-af24-d88e35bee5e6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-136412",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-136412",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-136412"
         }
       ]
     },
