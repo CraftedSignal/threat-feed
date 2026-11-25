@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c7694dd5-e5b0-5015-ad14-c843b8d482b8",
+  "id": "bundle--063aaa25-37aa-5072-9269-0e4a4666d7e3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -63732,6 +63732,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5b470eb3-831f-5546-9be2-381c6181a7a2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T14:31:59.000Z",
+      "modified": "2026-11-25T14:31:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c89e61c6-6e7f-5084-b127-d7bf51578cbc",
+      "target_ref": "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5b48623d-12b3-5d15-a66b-5d2bd6c25eaa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -73254,6 +73265,17 @@
       "relationship_type": "has",
       "source_ref": "software--fb91d3e5-97bd-5ed3-bd9c-6fe3158e757d",
       "target_ref": "vulnerability--812e0638-034e-527d-b58e-1ebf054b2130"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6ab9cfc1-c9e5-5c17-a26a-bc34f7ecdf30",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T14:31:59.000Z",
+      "modified": "2026-11-25T14:31:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c89e61c6-6e7f-5084-b127-d7bf51578cbc",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -98789,6 +98811,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9457d832-1554-5829-935b-93016b970331",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--194fe11c-656f-58d3-b912-f7539b2064e8",
+      "target_ref": "vulnerability--000c9e49-1511-59eb-ae68-6d5412972aab"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--945b1c29-57b5-54b0-9af0-62fb39e91c23",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -100530,7 +100563,7 @@
       "id": "relationship--978d3b77-be55-57aa-b029-ee6b5c276e35",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-23T19:13:49.000Z",
-      "modified": "2026-11-23T19:13:49.000Z",
+      "modified": "2026-11-25T14:32:40.000Z",
       "relationship_type": "uses",
       "source_ref": "report--c61e0b17-0c61-5fad-8f44-e4320e7aff93",
       "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
@@ -288576,7 +288609,7 @@
       "id": "report--c61e0b17-0c61-5fad-8f44-e4320e7aff93",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-23T19:13:49.000Z",
-      "modified": "2026-11-23T19:13:49.000Z",
+      "modified": "2026-11-25T14:32:40.000Z",
       "name": "Pomerium: Authentication bypass in MCP token endpoint (CVE-2026-135300)",
       "description": "## Overview\n\nPomerium versions 0.30.0 through 0.33.x are affected by an authentication bypass vulnerability in the MCP token endpoint. The vulnerability occurs when handling client_secret_basic clients, where the system fails to verify the provided client secret. An attacker who has intercepted a valid authorization code or refresh token can leverage this flaw to authenticate against the /.pomerium/mcp/token endpoint with an arbitrary secret, resulting in the issuance of the victim's access tokens.\n\n## Impact\n\nSuccessful exploitation allows an attacker to obtain access tokens for legitimate users, potentially leading to unauthorized access to protected resources managed by Pomerium.\n\n## Recommendation\n\nUpdate Pomerium to version 0.34.0 or later to remediate this issue.",
       "published": "2026-11-23T19:13:49.000Z",
@@ -288599,20 +288632,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135300"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=4800E79D-02E9-5DE4-BFE1-0BE8C5044161\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-23-pomerium-auth-bypass-cve-2026-135300",
       "x_craftedsignal_event_id": "brief-2026-11-23-pomerium-auth-bypass-cve-2026-135300",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-pomerium-auth-bypass-cve-2026-135300/",
-      "x_craftedsignal_activity_at": "2026-11-23T19:13:49.000Z",
+      "x_craftedsignal_activity_at": "2026-11-25T14:32:40.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.4,
+      "x_craftedsignal_epss_max": 0.00544,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -290118,6 +290156,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--c89e61c6-6e7f-5084-b127-d7bf51578cbc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T14:31:59.000Z",
+      "modified": "2026-11-25T14:31:59.000Z",
+      "name": "VirtueMart extension for Joomla: Local file inclusion remote code execution (CVE-2026-133335)",
+      "description": "## Overview\n\nCVE-2026-133335 describes a critical vulnerability in the VirtueMart extension for Joomla, affecting versions 4.0.0 through 4.8.7. The vulnerability exists within the component's main controller fallback mechanism, which fails to filter input when deriving a controller file path from a user request. This flaw allows for directory traversal and the inclusion of arbitrary local PHP files. If a reachable local file, such as `pearcmd.php`, exists on the server, an unauthenticated attacker can leverage this path traversal to achieve remote code execution. The vulnerability has been confirmed as exploited in the wild. A fix is available in version 4.8.8.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to execute arbitrary code with the privileges of the web server user. This can lead to full site compromise, data exfiltration, or persistence.\n\n## Recommendation\n\n1. Immediately audit all Joomla instances for the presence of the VirtueMart extension.\n2. Upgrade the VirtueMart extension to version 4.8.8 or later immediately.\n3. Implement web application firewall rules to detect and block directory traversal attempts targeting the VirtueMart controller logic.\n4. Verify that sensitive local files, such as `pearcmd.php` or other PEAR environment files, are removed or restricted from web-accessible directories.",
+      "published": "2026-11-25T14:31:59.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--194fe11c-656f-58d3-b912-f7539b2064e8",
+        "vulnerability--000c9e49-1511-59eb-ae68-6d5412972aab"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-virtuemart-rce-cve-2026-133335",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-virtuemart-rce-cve-2026-133335/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-133335"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-133335\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-virtuemart-rce-cve-2026-133335",
+      "x_craftedsignal_event_id": "brief-2026-11-25-virtuemart-rce-cve-2026-133335",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-virtuemart-rce-cve-2026-133335/",
+      "x_craftedsignal_activity_at": "2026-11-25T14:31:59.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -327518,6 +327601,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--194fe11c-656f-58d3-b912-f7539b2064e8",
+      "name": "VirtueMart extension for Joomla (4.0.0-4.8.7)",
+      "vendor": "virtuemart.net"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--19506927-271b-52cf-87bf-75b677d185d4",
       "name": "ZIP AI",
       "vendor": "Brainstorm Force"
@@ -349178,6 +349268,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-132620",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132620"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--000c9e49-1511-59eb-ae68-6d5412972aab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-133335",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-133335",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133335"
         }
       ]
     },
