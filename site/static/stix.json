@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f6284705-f327-5fe5-87ff-3aedd0f59186",
+  "id": "bundle--990c4ec2-8209-57e1-bddb-134c50719cf5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -159,6 +159,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1203",
           "url": "https://attack.mitre.org/techniques/T1203"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--04c2e9fd-cd35-5064-9038-e567400baac3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Clear Command History",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1070.003",
+          "url": "https://attack.mitre.org/techniques/T1070/003"
         }
       ]
     },
@@ -463,6 +479,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1585.002",
           "url": "https://attack.mitre.org/techniques/T1585/002"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--1756a75f-27b2-553e-b071-d3f47f4ed343",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Trusted Developer Utilities Proxy Execution",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1127",
+          "url": "https://attack.mitre.org/techniques/T1127"
         }
       ]
     },
@@ -21151,7 +21183,7 @@
       "id": "relationship--1019db64-8154-5e87-a88b-4a1f356ee681",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T07:45:03.000Z",
-      "modified": "2026-11-10T07:45:03.000Z",
+      "modified": "2026-11-25T16:29:40.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5ef6aaa2-4ba4-51b5-93d3-1d05faf686f7",
       "target_ref": "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876"
@@ -22134,6 +22166,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--d7d996c8-830b-5731-ad0c-6606afef91e5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--115f0023-2f45-57f9-bdb9-40a81cdfb10c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:26:39.000Z",
+      "modified": "2026-11-25T16:26:39.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--31d535c9-ac2f-5a5e-8aa9-574ce9cafa22",
+      "target_ref": "attack-pattern--04c2e9fd-cd35-5064-9038-e567400baac3"
     },
     {
       "type": "relationship",
@@ -92494,6 +92537,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--71f8a59b-8e96-5884-a42a-c315626edb05",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:28:19.000Z",
+      "modified": "2026-11-25T16:28:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--df7f110a-8b8e-5ab8-b786-1b920d00b462",
+      "target_ref": "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--71fdc71e-2281-50eb-9465-265194011bf2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -114791,6 +114845,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--903bd707-492a-5367-8432-abd13f0dfb99",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:27:57.000Z",
+      "modified": "2026-11-25T16:27:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0c03d38e-61d8-5bf4-8730-8298339e471c",
+      "target_ref": "attack-pattern--1756a75f-27b2-553e-b071-d3f47f4ed343"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--903e5f12-817c-543e-a904-9deab250cec8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -130664,6 +130729,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a6bcfee7-164c-56fd-b21e-e756fb3e0d38",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:26:08.000Z",
+      "modified": "2026-11-25T16:26:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a3757639-ba8f-58a8-897d-66506d8ff588",
+      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a6c27af9-43e9-50ca-8fb9-df8066d96ccc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -134499,6 +134575,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9c82ff93-9304-5ef6-899c-94f5304e8bd0",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--abc6230e-4632-5de8-9046-3a35137cbc84",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:27:03.000Z",
+      "modified": "2026-11-25T16:27:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d48b0a84-ea59-5641-b6e6-4af40bf057e4",
+      "target_ref": "attack-pattern--6ef3c5ca-94f5-57f2-924a-8c2f91b71d40"
     },
     {
       "type": "relationship",
@@ -161951,7 +162038,7 @@
       "id": "relationship--d14122fc-a3f1-58b4-85be-e8182c12ee3b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T07:45:03.000Z",
-      "modified": "2026-11-10T07:45:03.000Z",
+      "modified": "2026-11-25T16:29:40.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5ef6aaa2-4ba4-51b5-93d3-1d05faf686f7",
       "target_ref": "attack-pattern--01b0e09b-1506-5d2d-8ffa-f7854bbc1154"
@@ -203564,6 +203651,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--0c03d38e-61d8-5bf4-8730-8298339e471c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:27:57.000Z",
+      "modified": "2026-11-25T16:27:57.000Z",
+      "name": "Living off the Land: C# IL Code Compilation via Ilasm.EXE",
+      "description": "## Overview\nIlasm.exe (IL Assembler) is a component of the .NET Framework designed to assemble intermediate language (IL) files into executable files (EXE) or dynamic link libraries (DLL). Adversaries utilize this binary as a \"Living off the Land\" (LotL) technique to compile code directly on a target system without requiring the installation of standard development tools.\n\n## Impact\nBy leveraging this built-in utility, an adversary can create custom binaries post-compromise, which may facilitate the execution of arbitrary code.\n\n## Recommendation\nDetection teams should monitor for the execution of 'ilasm.exe' with command-line arguments that indicate file compilation, specifically looking for the '/dll' or '/exe' flags.",
+      "published": "2026-11-25T16:27:57.000Z",
+      "labels": [
+        "defense-evasion",
+        "execution",
+        "lolbas"
+      ],
+      "object_refs": [
+        "attack-pattern--1756a75f-27b2-553e-b071-d3f47f4ed343",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-ilasm-compilation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ilasm-compilation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_ilasm_il_code_compilation.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://lolbas-project.github.io/lolbas/Binaries/Ilasm/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-ilasm-compilation",
+      "x_craftedsignal_event_id": "brief-2026-11-25-ilasm-compilation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ilasm-compilation/",
+      "x_craftedsignal_activity_at": "2026-11-25T16:27:57.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--0c085d06-86d3-5e64-ac9c-4ea2e49ef9ad",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-24T00:53:39.000Z",
@@ -232335,6 +232469,61 @@
       },
       "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--31d535c9-ac2f-5a5e-8aa9-574ce9cafa22",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:26:39.000Z",
+      "modified": "2026-11-25T16:26:39.000Z",
+      "name": "Clearing Windows Console History",
+      "description": "## Overview\n\nAn adversary may clear the command history of a compromised account to conceal actions undertaken during an intrusion. This can be achieved through specific PowerShell cmdlets or by removing the files where the history is stored.\n\n## Attack Chain\n\n1. **Execution**: Adversary executes PowerShell cmdlets (e.g., Clear-History) or removes the ConsoleHost_history.txt file.\n2. **Defense Evasion**: The removal of command history prevents investigators from recovering commands executed during the post-compromise phase.\n\n## Impact\n\nClearing history destroys evidence of malicious activity, such as lateral movement, credential access, or discovery commands, which hinders incident response and forensic analysis.\n\n## Recommendation\n\nEnsure that PowerShell Script Block Logging is enabled to capture command execution even if the console history is cleared.",
+      "published": "2026-11-25T16:26:39.000Z",
+      "labels": [
+        "attack.stealth",
+        "attack.t1070",
+        "attack.t1070.003"
+      ],
+      "object_refs": [
+        "attack-pattern--04c2e9fd-cd35-5064-9038-e567400baac3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-clearing-windows-console-history",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-clearing-windows-console-history/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://community.sophos.com/sophos-labs/b/blog/posts/powershell-command-history-forensics"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/powershell/powershell_script/posh_ps_clearing_windows_console_history.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20240425035922/https://stefanos.cloud/kb/how-to-clear-the-powershell-command-history/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.shellhacks.com/clear-history-powershell/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-clearing-windows-console-history",
+      "x_craftedsignal_event_id": "brief-2026-11-25-clearing-windows-console-history",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-clearing-windows-console-history/",
+      "x_craftedsignal_activity_at": "2026-11-25T16:26:39.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -268456,7 +268645,7 @@
       "id": "report--5ef6aaa2-4ba4-51b5-93d3-1d05faf686f7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T07:45:03.000Z",
-      "modified": "2026-11-10T07:45:03.000Z",
+      "modified": "2026-11-25T16:29:40.000Z",
       "name": "Detection of Malicious PowerShell Framework Commandlets",
       "description": "## Overview\nThis brief summarizes signatures for identifying malicious PowerShell script blocks. These commandlets are frequently observed in offensive security frameworks, credential theft tools, and backdoor installers. The detection focuses on identifying specific function names within PowerShell Script Block Logging events.\n\n## Recommendation\n- Enable PowerShell Script Block Logging (Event ID 4104) across all Windows endpoints.\n- Deploy the provided Sigma rule to your SIEM to monitor for known offensive commandlets.\n- Review any detections for legitimate administrative scripts or internal tooling; tune by filtering out known-good, internally-developed script paths.\n",
       "published": "2026-11-10T07:45:03.000Z",
@@ -268486,9 +268675,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-10-malicious-powershell-commandlets",
       "x_craftedsignal_event_id": "brief-2026-11-10-malicious-powershell-commandlets",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-malicious-powershell-commandlets/",
-      "x_craftedsignal_activity_at": "2026-11-10T07:45:03.000Z",
+      "x_craftedsignal_activity_at": "2026-11-25T16:29:40.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -320208,6 +320397,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a3757639-ba8f-58a8-897d-66506d8ff588",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:26:08.000Z",
+      "modified": "2026-11-25T16:26:08.000Z",
+      "name": "Unauthorized Access to ADFS Configuration Database via Named Pipes",
+      "description": "## Overview\n\nAccess to the ADFS configuration database, stored in the Windows Internal Database (WID), allows an attacker to extract sensitive information, including token-signing certificates used for SAML token creation. Accessing the WID instance via the named pipe '\\MICROSOFT##WID\\tsql\\query' by unauthorized processes is a known technique for collecting ADFS configuration data. Defenders should monitor for connections to this specific pipe originating from processes other than legitimate ADFS service components, SQL management tools, or known identity health monitoring agents.\n\n## Recommendation\n\n- Deploy Sysmon (Event ID 17/18) to monitor named pipe connections.\n- Implement the provided detection rule to identify uncommon processes accessing the WID named pipe.\n- Audit legitimate administrative tools and service accounts in the environment to tune the exclusion list, ensuring critical infrastructure components are not flagged.",
+      "published": "2026-11-25T16:26:08.000Z",
+      "labels": [
+        "adfs",
+        "collection",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-adfs-wid-pipe",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-adfs-wid-pipe/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://aadinternals.com/post/adfs/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/Azure/Azure-Sentinel/blob/f99542b94afe0ad2f19a82cc08262e7ac8e1428e/Detections/SecurityEvent/ADFSDBNamedPipeConnection.yaml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/pipe_created/pipe_created_adfs_namedpipe_connection_uncommon_tool.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-adfs-wid-pipe",
+      "x_craftedsignal_event_id": "brief-2026-11-25-adfs-wid-pipe",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-adfs-wid-pipe/",
+      "x_craftedsignal_activity_at": "2026-11-25T16:26:08.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a37bb8fe-c75b-59f2-bb59-86a33c9cd1b7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T16:56:25.000Z",
@@ -354211,6 +354451,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d48b0a84-ea59-5641-b6e6-4af40bf057e4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:27:03.000Z",
+      "modified": "2026-11-25T16:27:03.000Z",
+      "name": "Unauthorized Data Export via BCP Utility",
+      "description": "## Overview\n\nThe BCP (Bulk Copy Program) utility is a legitimate tool used for importing and exporting data between Microsoft SQL Server and data files. Threat actors have been documented leveraging this utility to extract sensitive information or malware payloads stored within database tables. By executing BCP with specific flags, adversaries can export entire tables or results from custom SQL queries to local or remote files.\n\n## Attack Chain\n\n1. Initial access to the database server (e.g., via compromised credentials or SQL injection).\n2. Malware or malicious scripts are written into database columns or tables.\n3. The adversary executes `bcp.exe` via command-line interface.\n4. BCP processes the table or query and writes the output to a specified file path.\n\n## Recommendation\n\nImplement process-creation monitoring to detect the invocation of `bcp.exe` with suspicious command-line parameters. Filter for known legitimate administrative tasks to reduce noise. Maintain strict access control to MSSQL server environments and enforce principle of least privilege for database service accounts.\n",
+      "published": "2026-11-25T16:27:03.000Z",
+      "labels": [
+        "execution",
+        "exfiltration",
+        "mssql",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--6ef3c5ca-94f5-57f2-924a-8c2f91b71d40",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-mssql-bcp-export",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mssql-bcp-export/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_bcp_export_data.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-mssql-bcp-export",
+      "x_craftedsignal_event_id": "brief-2026-11-25-mssql-bcp-export",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mssql-bcp-export/",
+      "x_craftedsignal_activity_at": "2026-11-25T16:27:03.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d48ea7f8-0bac-58b1-b57e-40cc19ccd7ce",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T10:00:42.000Z",
@@ -363616,6 +363900,49 @@
       },
       "x_craftedsignal_cvss_max": 0,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--df7f110a-8b8e-5ab8-b786-1b920d00b462",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:28:19.000Z",
+      "modified": "2026-11-25T16:28:19.000Z",
+      "name": "Microsoft Windows SDK: Potential Application Control Bypass via VisualUiaVerifyNative.exe",
+      "description": "## Overview\n\nVisualUiaVerifyNative.exe is a legitimate Microsoft Windows SDK binary that has been identified as a security risk due to its potential use in Application Whitelisting (AWL) bypasses. Microsoft lists this binary in its recommended WDAC block rules to prevent its abuse as a living-off-the-land binary (LOLBin). There is currently no evidence of specific widespread exploitation campaigns, but its presence on production systems is generally unnecessary for standard user operation and poses an elevated risk to application control integrity.\n\n## Recommendation\n\n1. Review environments for the presence of VisualUiaVerifyNative.exe. \n2. Integrate the binary into existing WDAC or AppLocker block policies as recommended by Microsoft.\n3. Deploy the provided detection rule to monitor for execution of this process in environments where it is not required for software development or UI testing tasks.",
+      "published": "2026-11-25T16:28:19.000Z",
+      "labels": [
+        "application-control",
+        "awl-bypass",
+        "lolbin"
+      ],
+      "object_refs": [
+        "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-visualuiaverifynative",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-visualuiaverifynative/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_lolbin_visualuiaverifynative.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-visualuiaverifynative",
+      "x_craftedsignal_event_id": "brief-2026-11-25-visualuiaverifynative",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-visualuiaverifynative/",
+      "x_craftedsignal_activity_at": "2026-11-25T16:28:19.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",

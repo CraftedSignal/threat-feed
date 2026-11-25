@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1d4d3ae1-48a0-5445-9816-f52764e8d98f",
+  "id": "bundle--7f902a2f-1e78-52ef-ab51-0e8a98f49a92",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2645,6 +2645,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--d0244b2b-f5e2-57ad-b3c6-8822b9d0a3d4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Domain Account",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1087.002",
+          "url": "https://attack.mitre.org/techniques/T1087/002"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2767,6 +2783,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1059.007",
           "url": "https://attack.mitre.org/techniques/T1059/007"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--da402016-f1f1-58aa-8cdc-47cc92cb6ca1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Local Account",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1087.001",
+          "url": "https://attack.mitre.org/techniques/T1087/001"
         }
       ]
     },
@@ -7280,6 +7312,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--099d1ff4-08d2-5d25-a5ca-8c59cbc0ff7b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-01T12:22:12.000Z",
+      "modified": "2026-11-25T16:29:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--22c7e34d-001a-5eb0-8031-b3f86e404572",
+      "target_ref": "attack-pattern--da402016-f1f1-58aa-8cdc-47cc92cb6ca1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0a098def-9024-53cb-87dc-044f38279d5b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-24T13:13:21.000Z",
@@ -9722,6 +9765,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--17b6594d-d2d6-512d-8142-ccf62fae8a08",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-01T12:22:12.000Z",
+      "modified": "2026-11-25T16:29:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--22c7e34d-001a-5eb0-8031-b3f86e404572",
+      "target_ref": "attack-pattern--d0244b2b-f5e2-57ad-b3c6-8822b9d0a3d4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--17ba8f0a-9bf3-53a3-b2d2-e9b8f01d75e5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-29T20:30:04.000Z",
@@ -9795,17 +9849,6 @@
       "relationship_type": "has",
       "source_ref": "software--e318d733-44d2-5b78-bdf0-ff4170c71329",
       "target_ref": "vulnerability--de477be0-8222-5be4-8077-f03deb950185"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1827c1e2-a17c-52bc-a329-0c904b71008f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-01T12:22:12.000Z",
-      "modified": "2026-09-01T12:22:12.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--22c7e34d-001a-5eb0-8031-b3f86e404572",
-      "target_ref": "attack-pattern--01b0e09b-1506-5d2d-8ffa-f7854bbc1154"
     },
     {
       "type": "relationship",
@@ -64545,7 +64588,7 @@
       "id": "report--22c7e34d-001a-5eb0-8031-b3f86e404572",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-01T12:22:12.000Z",
-      "modified": "2026-09-01T12:22:12.000Z",
+      "modified": "2026-11-25T16:29:40.000Z",
       "name": "Suspicious Group and Account Reconnaissance via Net.exe",
       "description": "## Overview\n\nThreat actors, including those deploying ransomware such as Ryuk and LockBit, consistently rely on built-in administrative tools for reconnaissance during the post-exploitation phase of an attack. The 'net.exe' and 'net1.exe' binaries are frequently leveraged to enumerate local and domain-level user groups, particularly targeting administrative groups like 'Domain Admins', 'Enterprise Admins', or 'Remote Desktop Users'. This activity is a critical indicator of intent to escalate privileges or identify high-value targets within an Active Directory environment. Defenders should monitor for these command-line patterns, as they often deviate from standard administrative maintenance workflows and serve as a precursor to unauthorized lateral movement or domain dominance.\n\n## Attack Chain\n\n1. Attacker establishes initial access via phishing or exploit.\n2. Attacker executes shell or command prompt on the compromised endpoint.\n3. Attacker invokes 'net.exe group' or 'net.exe localgroup' to enumerate current group memberships.\n4. Attacker specifically queries for high-privilege groups using the '/domain' or '/do' flag.\n5. Attacker observes command output to identify service accounts or cached domain admin credentials.\n6. Attacker leverages identified account information to perform credential dumping (e.g., LSASS memory access).\n7. Attacker uses stolen credentials for lateral movement to domain controllers or sensitive servers.\n\n## Impact\n\nSuccessful reconnaissance of user accounts and groups allows attackers to map the environment, identify key targets for privilege escalation, and prepare for widespread ransomware deployment. This activity is a hallmark of human-operated ransomware campaigns, which have caused extensive operational disruption and data exfiltration across the healthcare and enterprise sectors.\n\n## Recommendation\n\n- Deploy the Sigma rule below to detect abnormal reconnaissance patterns using 'net.exe'.\n- Baseline common administrative tools and scripts in your environment to distinguish legitimate inventory tasks from malicious reconnaissance.\n- Investigate any occurrences of this command pattern executed by non-administrative service accounts or automated processes.\n- Monitor for parent processes associated with common initial access vectors (e.g., 'wsmprovhost.exe', 'powershell.exe', 'cmd.exe') when 'net.exe' is invoked.\n",
       "published": "2026-09-01T12:22:12.000Z",
@@ -64556,7 +64599,8 @@
         "windows"
       ],
       "object_refs": [
-        "attack-pattern--01b0e09b-1506-5d2d-8ffa-f7854bbc1154",
+        "attack-pattern--d0244b2b-f5e2-57ad-b3c6-8822b9d0a3d4",
+        "attack-pattern--da402016-f1f1-58aa-8cdc-47cc92cb6ca1",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
       ],
       "external_references": [
@@ -64564,14 +64608,18 @@
           "source_name": "craftedsignal",
           "external_id": "brief-2026-09-01-net-recon",
           "url": "https://feed.craftedsignal.io/briefs/2026-09-01-net-recon/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_net_groups_and_accounts_recon.yml"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-09-01-net-recon",
       "x_craftedsignal_event_id": "brief-2026-09-01-net-recon",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-01-net-recon/",
-      "x_craftedsignal_activity_at": "2026-09-01T12:22:12.000Z",
+      "x_craftedsignal_activity_at": "2026-11-25T16:29:40.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {

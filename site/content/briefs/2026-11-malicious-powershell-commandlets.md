@@ -1,12 +1,24 @@
 ---
 brief_id: brief-2026-11-10-malicious-powershell-commandlets
 event_id: brief-2026-11-10-malicious-powershell-commandlets
-revision: 1
-activity_at: "2026-11-10T07:45:03Z"
+revision: 2
+activity_at: "2026-11-25T16:29:40Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-25T16:29:40Z"
+    checksum: sha256:c454b2dfb36b6704abf861a231c55684cc8668b3ac9df37d0743a2055255680b
+    summary: OS windows
+    changed_fields:
+      - affected_os
+      - lastmod
+      - updates
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/powershell/powershell_script/posh_ps_malicious_commandlets.yml
 title: Detection of Malicious PowerShell Framework Commandlets
 slug: 2026-11-malicious-powershell-commandlets
 description: This brief provides detection logic for commandlets associated with various PowerShell-based exploitation frameworks, post-exploitation tools, and persistence mechanisms.
 date: "2026-11-10T07:45:03Z"
+lastmod: "2026-11-25T16:26:48Z"
 type: advisory
 types:
   - advisory
@@ -28,6 +40,8 @@ tags:
   - execution
   - discovery
   - persistence
+affected_os:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -77,8 +91,17 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: High volume of offensive script blocks documented in the Sigma rule.
+updates:
+  - at: "2026-11-25T16:26:48Z"
+    level: L1
+    summary: OS windows
+    sources:
+      - sigma-hq
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/powershell/powershell_script/posh_ps_malicious_commandlets.yml
 ---
 
+## Overview
 This brief summarizes signatures for identifying malicious PowerShell script blocks. These commandlets are frequently observed in offensive security frameworks, credential theft tools, and backdoor installers. The detection focuses on identifying specific function names within PowerShell Script Block Logging events.
 
 ## Recommendation
