@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7c25446e-77e6-5a53-b27f-6a001f7d751c",
+  "id": "bundle--27a7a9f3-e515-5f0d-a48d-855a742b307d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -239,22 +239,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1595",
           "url": "https://attack.mitre.org/techniques/T1595"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--2a2e3363-2bfb-561d-b767-55e268e382cb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Path Interception by Unquoted Path",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1574.009",
-          "url": "https://attack.mitre.org/techniques/T1574/009"
         }
       ]
     },
@@ -2230,17 +2214,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--1f2902fb-7323-5c83-802c-e84bf2e89879",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--56f7c800-22eb-5c3a-a606-dad31368b1b0",
-      "target_ref": "vulnerability--c4989f83-a9ca-5b51-bbfb-289feeaa567f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--1fe29873-d8b7-5b2d-9be2-ea79efbecd37",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T13:13:17.000Z",
@@ -2791,17 +2764,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--2ed76d86-4f81-5720-a556-f37a2f8919fb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--5bff3547-ed1d-5e2b-8f09-262e85e78c79",
-      "target_ref": "vulnerability--c4989f83-a9ca-5b51-bbfb-289feeaa567f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--2f04cd1c-0d5b-5b21-b91a-050202d4a6cd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2952,17 +2914,6 @@
       "relationship_type": "uses",
       "source_ref": "report--8ba62f4d-ce03-5e49-af09-adef9fa9c1ef",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--33b591c1-bdaa-522d-b6e4-ed7c0cd99ba9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-27T04:36:44.000Z",
-      "modified": "2026-08-27T04:36:44.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--be9ed523-22fe-569c-8bec-bce1d1cd72fa",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -6663,17 +6614,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--bae20c05-9ffd-5481-8058-814520b30d59",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-27T04:36:44.000Z",
-      "modified": "2026-08-27T04:36:44.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--be9ed523-22fe-569c-8bec-bce1d1cd72fa",
-      "target_ref": "attack-pattern--2a2e3363-2bfb-561d-b767-55e268e382cb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--bb7fc008-2643-55c0-94a5-2777ce1ea20d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8199,17 +8139,6 @@
       "relationship_type": "has",
       "source_ref": "software--78f2edb9-f57d-555f-aa53-6b90a3811c7b",
       "target_ref": "vulnerability--23094f84-c53b-500a-810f-64b18c967408"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--edefd292-4ed0-5a68-a3c2-38ec3587a809",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--cc8b0230-0a75-5c41-b404-80c7c2f4a62e",
-      "target_ref": "vulnerability--c4989f83-a9ca-5b51-bbfb-289feeaa567f"
     },
     {
       "type": "relationship",
@@ -16520,54 +16449,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--be9ed523-22fe-569c-8bec-bce1d1cd72fa",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-27T04:36:44.000Z",
-      "modified": "2026-08-27T04:36:44.000Z",
-      "name": "Local Privilege Escalation in ASUS AsIO3.sys Driver (CVE-2025-3464)",
-      "description": "## Overview\n\nCVE-2025-3464 is a local privilege escalation (LPE) vulnerability affecting the ASUS AsIO3.sys driver, a component often bundled with ASUS utilities such as Armoury Crate and AI Suite. The vulnerability stems from two primary flaws: a time-of-check time-of-use (TOCTOU) authentication bypass and an arbitrary 8-byte decrement primitive triggered via IOCTL 0xA0402450. Attackers can abuse these flaws to modify the KTHREAD structure of a running process, specifically toggling the 'PreviousMode' field from 1 (UserMode) to 0 (KernelMode). This transition grants the process the ability to perform arbitrary kernel-mode memory read/write operations. By manipulating the EPROCESS structure, a local unprivileged user can steal the SYSTEM token to achieve full administrative control over the host. The exploit is documented to work on Windows 11 22H2; newer Windows versions incorporate protections that render these specific PreviousMode manipulation techniques ineffective.\n\n## Attack Chain\n\n1. Attacker creates an NTFS hardlink to a directory or file path containing the substring \"AsusCertService\".\n2. Attacker launches a controlled process (the exploit) through the created hardlink to bypass the driver's path validation check.\n3. Attacker re-points the hardlink to the legitimate `AsusCertService.exe` to satisfy the driver's authentication requirements.\n4. The malicious process opens a handle to the `\\\\.\\AsIO3` device.\n5. The attacker invokes IOCTL 0xA0402450, triggering the vulnerable `ObfDereferenceObject` function to decrement memory at a chosen address.\n6. The exploit targets the KTHREAD+0x232 field to set PreviousMode to 0, enabling kernel-mode access for the user-mode process.\n7. Attacker performs token stealing by locating the SYSTEM EPROCESS structure and updating their own process token.\n8. Attacker restores the PreviousMode to 1 to avoid system instability (BSOD) and executes a payload with SYSTEM privileges.\n\n## Impact\n\nSuccessful exploitation results in full local privilege escalation to the NT AUTHORITY\\SYSTEM account. This allows an attacker who has already gained a low-privileged foothold on a Windows machine to gain total control over the operating system, bypass security controls, and persist with the highest level of system privileges. The scope is limited to systems where the vulnerable ASUS driver is installed and specifically on Windows 11 22H2 or older builds that lack modern protections against PreviousMode manipulation.\n\n## Recommendation\n\n* Identify and audit systems with the ASUS AsIO3.sys driver installed, particularly those running Windows 11 22H2 or older.\n* Uninstall or update ASUS software (Armoury Crate, AI Suite) to versions that incorporate a patched version of the driver.\n* Deploy endpoint security policies to restrict the loading of vulnerable third-party drivers using Windows Defender Application Control (WDAC).\n* Monitor for processes attempting to access `\\\\.\\AsIO3` or making unexpected IOCTL calls to the driver.\n",
-      "published": "2026-08-27T04:36:44.000Z",
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--2a2e3363-2bfb-561d-b767-55e268e382cb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--56f7c800-22eb-5c3a-a606-dad31368b1b0",
-        "software--5bff3547-ed1d-5e2b-8f09-262e85e78c79",
-        "software--cc8b0230-0a75-5c41-b404-80c7c2f4a62e",
-        "vulnerability--c4989f83-a9ca-5b51-bbfb-289feeaa567f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-asio3-lpe",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-asio3-lpe/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://blog.talosintelligence.com/decrement-by-one-to-rule-them-all/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JEFFAF-CVE-2025-3464-ASIO3-LPE"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-asio3-lpe",
-      "x_craftedsignal_event_id": "brief-2026-08-asio3-lpe",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-asio3-lpe/",
-      "x_craftedsignal_activity_at": "2026-08-27T04:36:44.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_epss_max": 0.00582,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--bed1c76b-ae0b-5965-b63c-c18d79383daf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T21:15:18.000Z",
@@ -20106,13 +19987,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--56f7c800-22eb-5c3a-a606-dad31368b1b0",
-      "name": "Armoury Crate",
-      "vendor": "ASUS"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--57eba30b-1f3a-5ced-950f-e572cf2a836b",
       "name": "@hulumi/drift (\u003c 1.3.2)",
       "vendor": "hulumi"
@@ -20170,13 +20044,6 @@
       "spec_version": "2.1",
       "id": "software--5bbb17ba-8a0f-54fb-9fa1-ec9d53bc6cd0",
       "name": "Chrome (\u003c 153.0.8010.37)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--5bff3547-ed1d-5e2b-8f09-262e85e78c79",
-      "name": "AsIO3.sys",
-      "vendor": "ASUS"
     },
     {
       "type": "software",
@@ -21294,13 +21161,6 @@
       "id": "software--caf2f92f-7537-5f06-8203-d5d26f048837",
       "name": "WG3526",
       "vendor": "Zbtlink"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--cc8b0230-0a75-5c41-b404-80c7c2f4a62e",
-      "name": "AI Suite",
-      "vendor": "ASUS"
     },
     {
       "type": "software",
@@ -24016,22 +23876,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-55673",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55673"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--c4989f83-a9ca-5b51-bbfb-289feeaa567f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2025-3464",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2025-3464",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-3464"
         }
       ]
     },
