@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a4c69a1f-2e5d-5b3e-9416-61c5930dbcbe",
+  "id": "bundle--0feec749-f9bd-544a-b218-d910d397e16f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -32301,6 +32301,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--27418cfa-a3c9-54f2-a7bd-cc81aafeaa41",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--feaa0b32-ae9e-5a85-9730-f81dab890bdf",
+      "target_ref": "vulnerability--3cfeed57-5ff6-5823-90f1-ac1cd51a2457"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2744e852-f9fe-5f8e-8091-53592267f544",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -54022,6 +54033,17 @@
       "relationship_type": "has",
       "source_ref": "software--7ccc1751-3f28-5098-a697-b9f899b1ee6f",
       "target_ref": "vulnerability--d6906d7e-e7ba-5dca-a174-124e40e18bd5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4b5deb72-b476-5743-9c15-d5991834806f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:47:40.000Z",
+      "modified": "2026-11-25T16:47:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6e58a002-e134-518f-ac80-7f8fafe81e37",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -144988,7 +145010,7 @@
       "id": "relationship--e03bc717-65fd-5811-9029-072e7e6a3827",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-24T01:35:39.000Z",
-      "modified": "2026-11-24T01:35:39.000Z",
+      "modified": "2026-11-25T16:48:02.000Z",
       "relationship_type": "uses",
       "source_ref": "report--ac24ca38-c2ae-5c89-9b10-5589c143d38e",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -235372,6 +235394,60 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6e58a002-e134-518f-ac80-7f8fafe81e37",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:47:40.000Z",
+      "modified": "2026-11-25T16:47:40.000Z",
+      "name": "MediaArea MediaInfoLib: Uninitialized pointer dereference (CVE-2026-135441)",
+      "description": "## Overview\n\nMediaInfoLib before version 26.10 contains an uninitialized pointer dereference vulnerability (CVE-2026-135441) in the File_Mpeg4_Descriptors constructor. Several raw conformance pointers, including IsCmaf, are left uninitialized during object construction. When parsing a crafted MP4 file with specific AAC/USAC decoder-specific descriptors, the File_Usac::Streams_Finish_Conformance_Profile method dereferences these stale pointers. This results in an application crash (SIGSEGV). A public proof-of-concept exploit is available, increasing the risk for applications utilizing MediaInfoLib for media processing.\n\n## Impact\n\nSuccessful exploitation results in a denial-of-service via application crash. The vulnerability could potentially be leveraged for arbitrary code execution if an attacker can control the heap state to influence the dereferenced pointer value.\n\n## Recommendation\n\n- Identify all applications and services that integrate the MediaInfoLib library.\n- Update MediaInfoLib to version 26.10 or newer, which contains the fix (commit 35198cc).\n- If immediate patching is not possible, implement input validation or sandboxing for media parsing services to restrict processing of untrusted or malformed MP4 files.",
+      "published": "2026-11-25T16:47:40.000Z",
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--feaa0b32-ae9e-5a85-9730-f81dab890bdf",
+        "vulnerability--3cfeed57-5ff6-5823-90f1-ac1cd51a2457"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-mediainfolib-uninitialized-pointer-cve-2026-135441",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mediainfolib-uninitialized-pointer-cve-2026-135441/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-135441"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/MediaArea/MediaInfoLib/commit/35198cc4d05cc8bed1a25791d1297c70509b86e7"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=6D341517-1685-5AC1-9B6C-5B0402141741"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=6D341517-1685-5AC1-9B6C-5B0402141741\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-mediainfolib-uninitialized-pointer-cve-2026-135441",
+      "x_craftedsignal_event_id": "brief-2026-11-25-mediainfolib-uninitialized-pointer-cve-2026-135441",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mediainfolib-uninitialized-pointer-cve-2026-135441/",
+      "x_craftedsignal_activity_at": "2026-11-25T16:47:40.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.5,
+      "x_craftedsignal_epss_max": 0.00172,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--6e67fb48-db50-51a1-b7ea-49310d810fa6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T14:36:17.000Z",
@@ -274784,7 +274860,7 @@
       "id": "report--ac24ca38-c2ae-5c89-9b10-5589c143d38e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-24T01:35:39.000Z",
-      "modified": "2026-11-24T01:35:39.000Z",
+      "modified": "2026-11-25T16:48:02.000Z",
       "name": "Open5GS WebUI Incorrect Authorization (CVE-2026-135691)",
       "description": "## Overview\nOpen5GS WebUI through version 2.8.0 contains an incorrect authorization vulnerability in the webui/server/routes/db.js file. This flaw allows authenticated users with standard access roles to perform unauthorized operations on the system database.\n\n## Impact\nAuthenticated attackers can send specially crafted PATCH requests to the /api/db/Account/ endpoint to modify the Account model. This allows an attacker to escalate their own privileges to the admin role, overwrite account password hashes, delete accounts, or read existing password hashes, effectively gaining full administrative control over the WebUI.\n\n## Recommendation\nCurrently, there is no disclosed fixed version or patch for CVE-2026-135691. Organizations utilizing Open5GS WebUI should audit existing account permissions and monitor WebUI API access logs for anomalous PATCH requests until an update is released. Implement strict network-level access controls to restrict access to the WebUI to only necessary personnel.",
       "published": "2026-11-24T01:35:39.000Z",
@@ -274807,20 +274883,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135691"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=78F4F212-386C-5E6B-833B-000C30AFCE1A\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-24-open5gs-webui-auth-bypass-cve-2026-135691",
       "x_craftedsignal_event_id": "brief-2026-11-24-open5gs-webui-auth-bypass-cve-2026-135691",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-open5gs-webui-auth-bypass-cve-2026-135691/",
-      "x_craftedsignal_activity_at": "2026-11-24T01:35:39.000Z",
+      "x_craftedsignal_activity_at": "2026-11-25T16:48:02.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00614,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -350240,6 +350321,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--feaa0b32-ae9e-5a85-9730-f81dab890bdf",
+      "name": "MediaInfoLib (\u003c 26.10)",
+      "vendor": "MediaArea"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--feb01f48-7135-562d-9989-551be9194050",
       "name": "PowerStore 5000T (\u003c 5.1.0.0-2798105)",
       "vendor": "Dell"
@@ -368313,6 +368401,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-130853",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130853"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3cfeed57-5ff6-5823-90f1-ac1cd51a2457",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-135441",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-135441",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135441"
         }
       ]
     },
