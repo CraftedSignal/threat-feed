@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c55c21f3-0c79-5113-b26d-d591ef9c173f",
+  "id": "bundle--7124f3e3-ce4e-5201-b8c9-d48fb18313a4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -15438,6 +15438,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0bc786a1-9d0a-5494-b912-172d6047dd9c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8a5c8d81-b7ba-5514-b089-d89375c1fe62",
+      "target_ref": "vulnerability--b63d5423-f0f4-54f7-a390-26d5cfda6787"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0bcff71f-7641-53d7-afe8-bf84a4a22559",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -27116,6 +27127,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--b0463acb-5b43-5927-b3ee-ac5baf666329"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1e311867-ed80-5757-862e-8f2880b10303",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9cd1410b-0f29-5c4b-a1f0-f4503914b3ce",
+      "target_ref": "vulnerability--0968ec51-113e-5750-8b22-7692ac5b6839"
     },
     {
       "type": "relationship",
@@ -104384,6 +104406,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9d08659a-3b11-5c6e-b212-89b2cfe64b0c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9cd1410b-0f29-5c4b-a1f0-f4503914b3ce",
+      "target_ref": "vulnerability--56a86f01-cc0d-5cc8-8ac2-7b91d6006fd7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9d090ded-9d82-5ac8-90ab-bda41f4dc2b3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T13:27:25.000Z",
@@ -127385,6 +127418,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c1a8823d-bce9-5b58-8e2b-99a61c1ed1fc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f821be92-5534-59a1-ac7e-f2e0362cc794",
+      "target_ref": "vulnerability--b63d5423-f0f4-54f7-a390-26d5cfda6787"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c1a9ff98-66a6-5ecc-af9f-bf8cd38f3630",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -131924,6 +131968,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--dfa677b6-a9a6-583c-982b-456a68c0b599"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c8e5fbd4-ab18-5d94-9445-8ea8908ccfc5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c7caeeff-2a22-5311-886f-4a5863d4c54a",
+      "target_ref": "vulnerability--b63d5423-f0f4-54f7-a390-26d5cfda6787"
     },
     {
       "type": "relationship",
@@ -242587,6 +242642,60 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--79637a85-f605-51a2-a373-f02d53779aa7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T23:21:03.000Z",
+      "modified": "2026-11-25T23:21:03.000Z",
+      "name": "Drupal Core: Access bypass vulnerability (CVE-2026-136716)",
+      "description": "## Overview\n\nDrupal has released security advisory SA-CORE-2026-019 regarding a highly critical access bypass vulnerability identified as CVE-2026-136716. The vulnerability affects multiple versions of Drupal core. According to the advisory, exploitation of this flaw has been observed in the wild. \n\n## Recommendation\n\nAdministrators should immediately upgrade to the patched versions of Drupal core to mitigate the risk of exploitation. \n- Upgrade Drupal core to 10.6.23, 11.3.23, or 11.4.14 or later as appropriate for the current deployment.\n- Review the official Drupal advisory SA-CORE-2026-019 for specific environment mitigation steps.",
+      "published": "2026-11-25T23:21:03.000Z",
+      "labels": [
+        "access-bypass",
+        "vulnerability",
+        "web-application"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8a5c8d81-b7ba-5514-b089-d89375c1fe62",
+        "software--c7caeeff-2a22-5311-886f-4a5863d4c54a",
+        "software--f821be92-5534-59a1-ac7e-f2e0362cc794",
+        "vulnerability--b63d5423-f0f4-54f7-a390-26d5cfda6787"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-drupal-core-access-bypass-cve-2026-136716",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-drupal-core-access-bypass-cve-2026-136716/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/drupal-security-advisory-av26-1209"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.drupal.org/sa-core-2026-019"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.drupal.org/security"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-drupal-core-access-bypass-cve-2026-136716",
+      "x_craftedsignal_event_id": "brief-2026-11-25-drupal-core-access-bypass-cve-2026-136716",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-drupal-core-access-bypass-cve-2026-136716/",
+      "x_craftedsignal_activity_at": "2026-11-25T23:21:03.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--79931576-459c-5fde-9434-4ed2ec050616",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-07T17:13:47.000Z",
@@ -267061,6 +267170,53 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--9ec683b8-cdea-51ea-846d-242f10a43a42",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T23:21:19.000Z",
+      "modified": "2026-11-25T23:21:19.000Z",
+      "name": "GeoServer Security Advisory (AV26-1207)",
+      "description": "## Overview\nOn November 25, 2026, the Cyber Centre issued an advisory regarding vulnerabilities in GeoServer. Open source reporting indicates that CVE-2026-120705 and CVE-2026-129243 are being exploited in the wild.\n\n## Attack Chain\nThe provided source does not specify the mechanisms of exploitation, attack stages, or impact.\n\n## Impact\nThe provided source confirms active exploitation in the wild, but does not explicitly define the security impact.\n\n## Recommendation\nAdministrators should review the vendor documentation at https://geoserver.org/vulnerability/2026/11/23/cve-update.html and apply updates for affected GeoServer versions prior to 2.27.7, 2.28.6, and 3.0.2.",
+      "published": "2026-11-25T23:21:19.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9cd1410b-0f29-5c4b-a1f0-f4503914b3ce",
+        "vulnerability--0968ec51-113e-5750-8b22-7692ac5b6839",
+        "vulnerability--56a86f01-cc0d-5cc8-8ac2-7b91d6006fd7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-geoserver-critical-vulns",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-geoserver-critical-vulns/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/geoserver-security-advisory-av26-1207"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://geoserver.org/vulnerability/2026/11/23/cve-update.html"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-geoserver-critical-vulns",
+      "x_craftedsignal_event_id": "brief-2026-11-25-geoserver-critical-vulns",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-geoserver-critical-vulns/",
+      "x_craftedsignal_activity_at": "2026-11-25T23:21:19.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://cyber.gc.ca/en/alerts-advisories/geoserver-security-advisory-av26-1207",
+        "observed_at": "2026-11-25T23:21:19.000Z",
+        "confidence": "high"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -318512,6 +318668,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f180ee1c-1c21-5f1d-9d59-441cf5674784",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T23:21:37.000Z",
+      "modified": "2026-11-25T23:21:37.000Z",
+      "name": "Adobe Experience Manager vulnerabilities (APSB26-104)",
+      "description": "## Overview\n\nAdobe has published security advisory APSB26-104 regarding vulnerabilities impacting Adobe Experience Manager (AEM) deployments. The affected versions include AEM Cloud Service, AEM 6.5, and AEM 6.5 LTS. Technical details regarding the vulnerability type were not explicitly disclosed in the initial advisory; administrators must consult the vendor-provided bulletin to determine the specific security implications and required hotfixes.\n\n## Recommendation\n\n* Inventory all instances of Adobe Experience Manager across the enterprise to identify vulnerable versions.\n* Review the official Adobe Security Bulletin (APSB26-104) to confirm the specific patch requirements and update procedures for each identified product version.\n* Apply the necessary updates, specifically addressing the cumulative hotfixes mentioned for the GRANITE-76751 tracking reference for on-premises versions.",
+      "published": "2026-11-25T23:21:37.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--334da297-4835-5d72-8a44-a278b31f7be3",
+        "software--69d906d5-8b2f-5a10-8085-961b5c5fa151",
+        "software--71563234-64a8-5a7b-8d40-61afe231930d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-adobe-aem-advisory",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-adobe-aem-advisory/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/adobe-security-advisory-av26-1205"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.adobe.com/trust/security/products/experience-manager/apsb26-104.html"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-adobe-aem-advisory",
+      "x_craftedsignal_event_id": "brief-2026-11-25-adobe-aem-advisory",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-adobe-aem-advisory/",
+      "x_craftedsignal_activity_at": "2026-11-25T23:21:37.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f1a0ef96-2579-5625-8c41-bec6c1663889",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T18:23:00.000Z",
@@ -332599,6 +332799,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--334da297-4835-5d72-8a44-a278b31f7be3",
+      "name": "Adobe Experience Manager (AEM) 6.5 (\u003c= Service Pack 26 / 25 / 24 - Cumulative Hotfix for GRANITE-76751)",
+      "vendor": "Adobe"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--33510a40-9f3e-5a09-b3ef-86e93d2d37ac",
       "name": "iSTAR Ultra G2 SE (\u003c 6.9.2.CU02)",
       "vendor": "Johnson Controls"
@@ -337842,6 +338049,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--69d906d5-8b2f-5a10-8085-961b5c5fa151",
+      "name": "Adobe Experience Manager (AEM) 6.5 LTS (\u003c= Service Pack 3 / 2 / 1 - Cumulative Hotfix for GRANITE-76751)",
+      "vendor": "Adobe"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--69ea35e8-5044-596e-9a94-b7d335052369",
       "name": "IoTDB (0.13.0-2.0.11)",
       "vendor": "Apache"
@@ -338470,6 +338684,13 @@
       "spec_version": "2.1",
       "id": "software--713c0f32-c74f-560c-b501-f6f4973173c3",
       "name": "JWT Auth WordPress Plugin (\u003c= 3.0.2)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--71563234-64a8-5a7b-8d40-61afe231930d",
+      "name": "Adobe Experience Manager (AEM) Cloud Service (\u003c= 2026.11.29643)",
+      "vendor": "Adobe"
     },
     {
       "type": "software",
@@ -340782,6 +341003,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8a5c8d81-b7ba-5514-b089-d89375c1fe62",
+      "name": "Drupal core (\u003c 11.4.14)",
+      "vendor": "Drupal"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8a61fee3-1cee-5681-8539-d7da1a4148e8",
       "name": "Rucio (\u003e= 36.0.0, \u003c 38.6.1)",
       "vendor": "Rucio"
@@ -342502,6 +342730,12 @@
       "id": "software--9cc90d3b-d5e4-562f-8620-5e1907bb6b8c",
       "name": "MailEnable",
       "vendor": "MailEnable"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--9cd1410b-0f29-5c4b-a1f0-f4503914b3ce",
+      "name": "GeoServer"
     },
     {
       "type": "software",
@@ -346708,6 +346942,13 @@
       "id": "software--c7bdb138-58fc-5de2-98ff-a5052a1d12fa",
       "name": "PowerStore 9200T (\u003c 5.1.0.0-2798105 or 4.3.1.3-2800620)",
       "vendor": "Dell"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c7caeeff-2a22-5311-886f-4a5863d4c54a",
+      "name": "Drupal core (\u003c 10.6.23)",
+      "vendor": "Drupal"
     },
     {
       "type": "software",
@@ -351126,6 +351367,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--f821be92-5534-59a1-ac7e-f2e0362cc794",
+      "name": "Drupal core (\u003c 11.3.23)",
+      "vendor": "Drupal"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f8635404-fcef-5d09-8298-04211ff5ee36",
       "name": "Zephyr RTOS",
       "vendor": "Zephyr Project"
@@ -355205,6 +355453,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-105153",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105153"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0968ec51-113e-5750-8b22-7692ac5b6839",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120705",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120705",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120705"
         }
       ]
     },
@@ -376453,6 +376717,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-49009",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49009"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--56a86f01-cc0d-5cc8-8ac2-7b91d6006fd7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129243",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129243",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129243"
         }
       ]
     },
@@ -404869,6 +405149,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124019",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124019"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b63d5423-f0f4-54f7-a390-26d5cfda6787",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-136716",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-136716",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-136716"
         }
       ]
     },
