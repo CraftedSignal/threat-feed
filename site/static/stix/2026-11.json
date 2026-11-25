@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0feec749-f9bd-544a-b218-d910d397e16f",
+  "id": "bundle--6baec8a4-331c-5884-9aa7-611907d479db",
   "objects": [
     {
       "type": "attack-pattern",
@@ -168348,6 +168348,44 @@
       },
       "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--07b85ba0-7cb0-55d3-b100-b55a4478159c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T17:09:42.000Z",
+      "modified": "2026-11-25T17:09:42.000Z",
+      "name": "Argo Project: Multiple vulnerabilities in Argo CD",
+      "description": "## Overview\n\nThe BSI has reported multiple vulnerabilities in Argo CD that can be exploited by an attacker to conduct unauthorized information disclosure, data manipulation, security bypass, or to cause a denial-of-service (DoS) condition. Specific CVE identifiers and affected versions remain undisclosed in the BSI advisory, and users are encouraged to monitor the official Argo Project security advisories for patches and remediation guidance.\n\n## Recommendation\n\n- Inventory all instances of Argo CD within the environment.\n- Monitor the official Argo Project security documentation for specific CVE details and patch availability.\n- Implement least privilege access controls for the Argo CD dashboard and API to mitigate the potential impact of information disclosure or unauthorized data manipulation.\n- Ensure logging and monitoring are enabled for Argo CD to detect anomalous API requests or unexpected configuration changes.",
+      "published": "2026-11-25T17:09:42.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8e9698ab-faf6-57f5-9c06-fe57070c9517"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-argo-cd-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-argo-cd-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4795"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-argo-cd-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-25-argo-cd-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-argo-cd-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-25T17:09:42.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -340074,6 +340112,13 @@
       "id": "software--8e8e0fac-d677-5036-b014-eb592d2e9582",
       "name": "PowerStore 5500 (\u003c 5.1.0.0-2798105)",
       "vendor": "Dell"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8e9698ab-faf6-57f5-9c06-fe57070c9517",
+      "name": "Argo CD",
+      "vendor": "Argo Project"
     },
     {
       "type": "software",
