@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0e3ca5ec-e6d4-5a33-a270-aad9c7643927",
+  "id": "bundle--ad34a3f2-3acb-545c-aed0-9ecc13b9b6ee",
   "objects": [
     {
       "type": "attack-pattern",
@@ -76188,7 +76188,7 @@
       "id": "relationship--5cc29ac6-6d25-539d-8af0-aef507000d97",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-24T22:47:30.000Z",
-      "modified": "2026-11-24T22:47:30.000Z",
+      "modified": "2026-11-25T03:35:13.000Z",
       "relationship_type": "uses",
       "source_ref": "report--cf1f3431-2f86-5976-ad28-e27e5dba0f3e",
       "target_ref": "attack-pattern--0c254b82-a6b4-5a3f-9c7a-b8d78780452b"
@@ -120419,7 +120419,7 @@
       "id": "relationship--98b80cb3-1bf1-5f77-a68b-d7aa8122d917",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-24T22:47:30.000Z",
-      "modified": "2026-11-24T22:47:30.000Z",
+      "modified": "2026-11-25T03:35:13.000Z",
       "relationship_type": "uses",
       "source_ref": "report--cf1f3431-2f86-5976-ad28-e27e5dba0f3e",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
@@ -351451,7 +351451,7 @@
       "id": "report--cf1f3431-2f86-5976-ad28-e27e5dba0f3e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-24T22:47:30.000Z",
-      "modified": "2026-11-24T22:47:30.000Z",
+      "modified": "2026-11-25T03:35:13.000Z",
       "name": "Fortinet FortiOS and Enterprise Products: Authentication Bypass via SSO (CVE-2026-24858)",
       "description": "## Overview\nCVE-2026-24858 is an authentication bypass vulnerability [CWE-288] affecting multiple Fortinet enterprise products, including FortiOS, FortiManager, FortiAnalyzer, FortiProxy, FortiWeb, and FortiNAC-F. The vulnerability allows an attacker with a valid FortiCloud account and a registered device to log into other devices registered to different accounts, provided that FortiCloud SSO authentication is enabled on the target device. In the FG-IR-26-060 campaign, actors leveraged this access to create rogue administrator accounts and export full device configurations to facilitate further network compromise.\n\n## Attack Chain\n1. Attacker leverages a valid FortiCloud account and device registration to bypass SSO authentication (CVE-2026-24858).\n2. Attacker logs into a target Fortinet device under a different organization's account.\n3. Attacker gains administrative access to the compromised device.\n4. Attacker creates rogue administrator accounts to maintain persistent access.\n5. Attacker executes a device configuration export to harvest sensitive credentials, such as password hashes, LDAP/RADIUS secrets, and VPN keys.\n6. Attacker maps the internal network topology using the exported configuration data.\n7. Attacker uses harvested credentials to perform lateral movement and gain deeper access into the internal network.\n\n## Impact\nSuccessful exploitation grants attackers full administrative control over the affected device. Exported configuration files contain highly sensitive data, including administrator credentials, certificate private keys, and routing tables, which are subsequently used for lateral movement and persistence within the victim's environment.\n\n## Recommendation\n- Upgrade immediately to the vendor-provided fixed versions for all affected products (FortiOS 7.0.19, 7.2.13, 7.4.11, 7.6.6, 8.0.0+; FortiManager 7.0.16, 7.2.12, 7.4.10, 7.6.6, 8.0.0+; FortiAnalyzer 7.0.16, 7.2.12, 7.4.10, 7.6.6+; FortiProxy 7.0.23, 7.2.16, 7.4.13, 7.6.5+; FortiWeb 7.4.12, 7.6.7, 8.0.4+; FortiNAC-F 7.6.6+; FortiSwitchManager 7.0.8, 7.2.9+).\n- If unauthorized configuration export is detected, consider all credentials and keys within those configurations as compromised and rotate them immediately.\n- Audit administrator accounts on all internet-facing Fortinet devices for unauthorized additions or suspicious activity.",
       "published": "2026-11-24T22:47:30.000Z",
@@ -351490,6 +351490,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-M0D0RI205-CVE-2026-24858\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.cisa.gov/news-events/alerts/2026/01/28/fortinet-releases-guidance-address-ongoing-exploitation-authentication-bypass-vulnerability-cve-2026"
         },
         {
@@ -351504,9 +351508,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-24-fortinet-sso-bypass-cve-2026-24858",
       "x_craftedsignal_event_id": "brief-2026-11-24-fortinet-sso-bypass-cve-2026-24858",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fortinet-sso-bypass-cve-2026-24858/",
-      "x_craftedsignal_activity_at": "2026-11-24T22:47:30.000Z",
+      "x_craftedsignal_activity_at": "2026-11-25T03:35:13.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
