@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ba07c171-90ef-5f43-ab95-6ed5f51ed1a8",
+  "id": "bundle--a5e80aa5-2ce0-5a22-b678-883e54f42e95",
   "objects": [
     {
       "type": "attack-pattern",
@@ -885,22 +885,6 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
-      "id": "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Boot or Logon Autostart Execution",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1547",
-          "url": "https://attack.mitre.org/techniques/T1547"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
       "id": "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1144,19 +1128,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--469fe5d5-3c74-5347-b9ec-76ce8cb7346e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-27T11:39:31.000Z",
-      "modified": "2026-08-27T11:39:31.000Z",
-      "name": "ip: 192.252.180.45",
-      "description": "PackClient C2 infrastructure",
-      "pattern": "[ipv4-addr:value = '192.252.180.45']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-27T11:39:31.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--4aa9e225-6f65-525f-8a5d-4051f7d0cd28",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T11:54:52.000Z",
@@ -1248,19 +1219,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--addf8331-ecf7-5046-80b1-191515f586f7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-27T11:39:31.000Z",
-      "modified": "2026-08-27T11:39:31.000Z",
-      "name": "domain: gov12366.com",
-      "description": "Attacker-controlled domain used for hosting malware archives",
-      "pattern": "[domain-name:value = 'gov12366.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-27T11:39:31.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--b5c224fa-cc03-53c1-b92c-7958584ca436",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T11:54:52.000Z",
@@ -1270,19 +1228,6 @@
       "pattern": "[domain-name:value = 'infrastructureopsdesk.onmicrosoft.com']",
       "pattern_type": "stix",
       "valid_from": "2026-08-31T11:54:52.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--b7c38b3f-f0b9-5894-b69e-cc5fb9524cfc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-27T11:39:31.000Z",
-      "modified": "2026-08-27T11:39:31.000Z",
-      "name": "ip: 64.81.30.99",
-      "description": "PackClient C2 infrastructure",
-      "pattern": "[ipv4-addr:value = '64.81.30.99']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-27T11:39:31.000Z"
     },
     {
       "type": "indicator",
@@ -1495,17 +1440,6 @@
       "relationship_type": "uses",
       "source_ref": "report--c7b194f8-99f3-5fdf-ba5e-424d419674f3",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--03c6b8df-0f25-5147-b32c-c13e015a2899",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-27T11:39:31.000Z",
-      "modified": "2026-08-27T11:39:31.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7c1ff61a-cff4-583a-b28a-8b2b1740008a",
-      "target_ref": "indicator--addf8331-ecf7-5046-80b1-191515f586f7"
     },
     {
       "type": "relationship",
@@ -2881,17 +2815,6 @@
       "relationship_type": "has",
       "source_ref": "software--94573a8c-27e7-5999-9c62-8092d7472868",
       "target_ref": "vulnerability--9175cf4a-42dd-569d-9ab1-bdc579cb0c9e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--3489c6ee-c3f2-5f95-b8b1-aea4a58beb4e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-27T11:39:31.000Z",
-      "modified": "2026-08-27T11:39:31.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7c1ff61a-cff4-583a-b28a-8b2b1740008a",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -4931,17 +4854,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--7e54b4a5-6613-5ffc-8e3e-d483b5ee5cc8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-27T11:39:31.000Z",
-      "modified": "2026-08-27T11:39:31.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7c1ff61a-cff4-583a-b28a-8b2b1740008a",
-      "target_ref": "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--7ea5ebad-856d-55f3-9cb6-a3e068f7000c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -5367,17 +5279,6 @@
       "relationship_type": "uses",
       "source_ref": "report--0da137df-2c1d-53eb-bc8f-35dd22bf827e",
       "target_ref": "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--90f9b17a-5124-51d5-bef5-e2da4ce2e17e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-27T11:39:41.000Z",
-      "modified": "2026-08-27T11:39:41.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--99af5179-3cb6-5199-87b4-11f1d85f0009",
-      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -6038,17 +5939,6 @@
       "relationship_type": "uses",
       "source_ref": "report--847bf8a9-52c4-5042-ade5-21a38ba0b2af",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--abfae93d-d502-55de-a4ec-5717e39b433c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-27T11:39:31.000Z",
-      "modified": "2026-08-27T11:39:31.000Z",
-      "relationship_type": "attributed-to",
-      "source_ref": "report--7c1ff61a-cff4-583a-b28a-8b2b1740008a",
-      "target_ref": "threat-actor--44939aab-fe69-5ab5-8b0d-2b084e0d32ea"
     },
     {
       "type": "relationship",
@@ -7461,17 +7351,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--dddde520-4db4-51cf-a560-213df284f7a5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-27T11:39:31.000Z",
-      "modified": "2026-08-27T11:39:31.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7c1ff61a-cff4-583a-b28a-8b2b1740008a",
-      "target_ref": "indicator--469fe5d5-3c74-5347-b9ec-76ce8cb7346e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ddf05961-5c48-5027-b6d4-2bb37cf07fe2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T13:13:17.000Z",
@@ -7604,17 +7483,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e12ceb4c-d354-5d25-aed9-0fbfbcec31c0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-27T11:39:31.000Z",
-      "modified": "2026-08-27T11:39:31.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7c1ff61a-cff4-583a-b28a-8b2b1740008a",
-      "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e1a20ddc-d3fd-51f4-96d8-222d36e155fb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -7633,17 +7501,6 @@
       "relationship_type": "uses",
       "source_ref": "report--fc7f3fad-40c8-5410-b17e-2a3bd9404800",
       "target_ref": "attack-pattern--bba68a35-6a0b-5d9c-befe-54dd678156a1"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e40627fb-8e26-5cd0-bdb3-452dd4d58bfb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-27T11:39:31.000Z",
-      "modified": "2026-08-27T11:39:31.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7c1ff61a-cff4-583a-b28a-8b2b1740008a",
-      "target_ref": "indicator--b7c38b3f-f0b9-5894-b69e-cc5fb9524cfc"
     },
     {
       "type": "relationship",
@@ -8469,17 +8326,6 @@
       "relationship_type": "uses",
       "source_ref": "report--2e8bcf5f-22bc-55b1-9a2a-8b3387055e72",
       "target_ref": "indicator--d1ef82a7-585e-5de8-b98b-6fbed6e4b7fc"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ff2c219d-71a4-5fcd-a2b4-b9337e40c3dd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--bc5e8817-05ac-572f-b269-d050dc9097af",
-      "target_ref": "vulnerability--9a4a6ff5-d4fa-5691-8887-454f681805fa"
     },
     {
       "type": "relationship",
@@ -13342,57 +13188,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--7c1ff61a-cff4-583a-b28a-8b2b1740008a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-27T11:39:31.000Z",
-      "modified": "2026-08-27T11:39:31.000Z",
-      "name": "TA4922 Deploys PackClient RAT Framework",
-      "description": "## Overview\n\nProofpoint researchers have identified a new, modular command and control (C2) framework dubbed PackClient, currently utilized by the Chinese-speaking threat actor TA4922. The malware is being actively marketed on Telegram and features a sophisticated multi-stage infection chain. Campaigns observed between May and July 2026 targeted organizations in China and India using tax-themed phishing lures that impersonated local tax authorities to pressure victims into executing malicious archives (ZIP/IMG). PackClient is highly modular, supporting data exfiltration, keylogging, and the download of secondary payloads, such as ManageEngine RMM software. The framework employs a unique process tree, including a dedicated \"guard\" process to ensure the RAT remains active on the victim's host, making it a critical threat to organizations in the targeted regions.\n\n## Attack Chain\n\n1. TA4922 sends spearphishing emails with tax-inspection notices, directing users to download a ZIP archive containing an executable or an IMG disk image.\n2. The user executes a payload or mounts the IMG, initiating a DLL sideloading process (e.g., using a legitimate library like nvdahelperremote.dll).\n3. A Stage 1 loader is executed, which checks for elevated permissions, decrypts an embedded Stage 2 payload, and writes it to disk (e.g., %TEMP%\\svchost.exe).\n4. The loader establishes persistence by adding an entry to the HKCU RunOnce registry key.\n5. The Stage 2 \"PackClientLauncher\" module is executed, which contacts a hardcoded C2 server to download the Stage 3 \"PackClientCore\" module.\n6. The core module is reflectively loaded into memory and initialized using a configuration found in the .rdata section or registry.\n7. A secondary guard process is spawned with the '--guard' flag to monitor the main process and perform auto-restart if terminated.\n8. The attacker deploys follow-on tools, such as ManageEngine RMM, to maintain persistent remote access and exfiltrate data.\n\n## Impact\n\nTA4922 campaigns have targeted government, financial, and enterprise entities in China and India. Successful compromise grants the actor full remote control, including surveillance capabilities, keylogging, and the ability to download arbitrary secondary payloads. This facilitates long-term espionage and unauthorized access to sensitive financial and corporate data.\n\n## Recommendation\n\n* Deploy the provided Sigma rule to detect the unique PackClient process tree and guard process behavior.\n* Block the actor-controlled infrastructure domains (gov12366[.]com) and IPs at the organization's perimeter DNS and firewall.\n* Monitor for unauthorized execution of ManageEngine RMM binaries in environments where they are not officially managed by IT.\n* Implement restrictive policies on mounting IMG files and executing unsigned binaries from the %TEMP% directory.\n",
-      "published": "2026-08-27T11:39:31.000Z",
-      "labels": [
-        "c2-framework",
-        "espionage",
-        "phishing",
-        "rat"
-      ],
-      "object_refs": [
-        "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c",
-        "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--469fe5d5-3c74-5347-b9ec-76ce8cb7346e",
-        "indicator--addf8331-ecf7-5046-80b1-191515f586f7",
-        "indicator--b7c38b3f-f0b9-5894-b69e-cc5fb9524cfc",
-        "software--99d993ec-6b44-5627-925e-cc23379a2a79",
-        "threat-actor--44939aab-fe69-5ab5-8b0d-2b084e0d32ea"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-packclient-ta4922",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-packclient-ta4922/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.proofpoint.com/us/blog/threat-insight/carry-compromise-ta4922-packs-packclient"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-packclient-ta4922",
-      "x_craftedsignal_event_id": "brief-2026-08-packclient-ta4922",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-packclient-ta4922/",
-      "x_craftedsignal_activity_at": "2026-08-27T11:39:31.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--7defd0c7-9341-56eb-a40a-a5abdd35ec15",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T13:38:43.000Z",
@@ -14510,47 +14305,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--99af5179-3cb6-5199-87b4-11f1d85f0009",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-27T11:39:41.000Z",
-      "modified": "2026-08-27T11:39:41.000Z",
-      "name": "Stack-Based Buffer Overflow in Nessus NASL Processing",
-      "description": "## Overview\n\nCVE-2026-81625 is a critical security vulnerability discovered in the Tenable Nessus vulnerability management platform. The vulnerability is located within the platform's NASL (Nessus Attack Scripting Language) processing engine. An attacker who has already obtained legitimate user-level access to the Nessus management console or environment can craft and upload a malicious or compromised NASL vulnerability test (VT) file. When the Nessus engine processes this specifically crafted script, it triggers a stack-based buffer overflow. This allows the attacker to bypass standard security controls and achieve full command execution on the underlying host operating system with the privileges of the service user. This vulnerability is significant because it allows for privilege escalation and persistent access within a security tool that often maintains high-level administrative credentials across an organization's network, representing a high-value target for lateral movement.\n\n## Impact\n\nSuccessful exploitation of this vulnerability results in full system compromise of the Nessus server. If exploited, an attacker could gain complete control over the vulnerability scanner, allowing them to access stored credentials, scan history, and network topology data. Furthermore, an attacker could utilize the compromised Nessus instance as a platform to launch further attacks against the rest of the internal network, effectively weaponizing the security tool itself.\n\n## Recommendation\n\nPrioritized actions for security teams using Nessus:\n\n- Identify all users with permissions to upload or create custom NASL scripts and verify their activity logs for unauthorized or unexpected modifications.\n- Patch Nessus installations to the latest version provided by Tenable to remediate CVE-2026-81625 immediately.\n- Review access control policies for the Nessus management console to ensure the principle of least privilege is applied, specifically restricting the ability to upload or edit NASL files to trusted administrators only.\n- Monitor application logs for segmentation faults or unexpected service restarts of the Nessus daemon, which may indicate attempted exploitation of the buffer overflow condition.\n",
-      "published": "2026-08-27T11:39:41.000Z",
-      "object_refs": [
-        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--bc5e8817-05ac-572f-b269-d050dc9097af",
-        "vulnerability--9a4a6ff5-d4fa-5691-8887-454f681805fa"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-27-cve-2026-81625",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2026-81625/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81625"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-27-cve-2026-81625",
-      "x_craftedsignal_event_id": "brief-2026-08-27-cve-2026-81625",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2026-81625/",
-      "x_craftedsignal_activity_at": "2026-08-27T11:39:41.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -20232,13 +19986,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--99d993ec-6b44-5627-925e-cc23379a2a79",
-      "name": "Remote Monitoring and Management",
-      "vendor": "ManageEngine"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--9ae2d3e5-3752-5132-9b37-e40c0dee346e",
       "name": "WF3526-P",
       "vendor": "Zbtlink"
@@ -20514,13 +20261,6 @@
       "spec_version": "2.1",
       "id": "software--bb9d6685-cd3a-58c7-b228-e74330b7b196",
       "name": "rust-iot-platform (\u003c= 5df942ab)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--bc5e8817-05ac-572f-b269-d050dc9097af",
-      "name": "Nessus",
-      "vendor": "Tenable"
     },
     {
       "type": "software",
@@ -21087,15 +20827,6 @@
       "id": "software--ff2a9322-c113-5262-8a22-4edb980e655d",
       "name": "Vikunja (all versions prior to patch)",
       "vendor": "Vikunja"
-    },
-    {
-      "type": "threat-actor",
-      "spec_version": "2.1",
-      "id": "threat-actor--44939aab-fe69-5ab5-8b0d-2b084e0d32ea",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "TA4922"
     },
     {
       "type": "threat-actor",
@@ -22856,22 +22587,6 @@
           "source_name": "cve",
           "external_id": "CVE-2024-5223",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-5223"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--9a4a6ff5-d4fa-5691-8887-454f681805fa",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-81625",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-81625",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81625"
         }
       ]
     },
