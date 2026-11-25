@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2fe100d4-93dd-5cf7-a744-8a976c0b3735",
+  "id": "bundle--77685f09-eaa2-56d0-bd0b-c9135e7824ff",
   "objects": [
     {
       "type": "attack-pattern",
@@ -15104,6 +15104,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--49b7286f-88a6-55de-a8e0-5427cf8ba8e1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0804e5ff-a3b8-5226-bd0e-79093b198f06",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T23:12:16.000Z",
+      "modified": "2026-11-25T23:12:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--03c7f8f7-da32-54a1-942a-fcb3f982c962",
+      "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
     },
     {
       "type": "relationship",
@@ -105660,6 +105671,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8457d4ac-d6c7-51ac-848f-ebc764516e76",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a2ce716f-d6ce-573c-a15a-0717b1e01cdc",
+      "target_ref": "vulnerability--7296e637-5593-5483-81c5-33e181ede1b1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--84590b1f-0838-5b87-8210-302bbc90fe72",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -170428,6 +170450,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--dea42795-4dc6-5b70-911f-edf41655b7a1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T23:12:16.000Z",
+      "modified": "2026-11-25T23:12:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--03c7f8f7-da32-54a1-942a-fcb3f982c962",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--dea6c4a8-1b4e-5c57-bf98-49c2899d88b9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -196773,6 +196806,47 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.01159,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--03c7f8f7-da32-54a1-942a-fcb3f982c962",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T23:12:16.000Z",
+      "modified": "2026-11-25T23:12:16.000Z",
+      "name": "TastyIgniter Media Manager remote code execution (CVE-2026-69179)",
+      "description": "## Overview\nTastyIgniter versions before 4.3.1 contain an unrestricted file upload vulnerability in the Media Manager component. The application fails to validate uploaded files, allowing an authenticated administrator to upload a .htaccess file. This file can be used to reconfigure the web server to interpret arbitrary file types (e.g., .jpg) as PHP code. Following this, the attacker can upload a secondary file disguised as an image containing malicious PHP payloads to execute commands on the underlying server.\n\n## Attack Chain\n1. Attacker authenticates to the TastyIgniter administration panel.\n2. Attacker navigates to the Media Manager component.\n3. Attacker uploads a custom .htaccess file designed to map a specific image extension to the PHP handler.\n4. Attacker uploads a malicious file containing PHP code saved with the mapped image extension (e.g., .jpg).\n5. Attacker makes an HTTP request to the uploaded file location to trigger execution of the PHP payload.\n\n## Impact\nAn authenticated administrator can achieve full remote code execution on the underlying server, potentially leading to total system compromise, data theft, or lateral movement within the network.\n\n## Recommendation\nUpgrade the TastyIgniter installation to version 4.3.1 or later. If an immediate upgrade is not possible, restrict administrative access to the Media Manager and implement server-side restrictions to prevent the upload or execution of .htaccess files in web-accessible directories.",
+      "published": "2026-11-25T23:12:16.000Z",
+      "object_refs": [
+        "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a2ce716f-d6ce-573c-a15a-0717b1e01cdc",
+        "vulnerability--7296e637-5593-5483-81c5-33e181ede1b1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-tastyigniter-rce-ghsa-7wwv-x6mc-pxqx",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-tastyigniter-rce-ghsa-7wwv-x6mc-pxqx/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-7wwv-x6mc-pxqx"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-tastyigniter-rce-ghsa-7wwv-x6mc-pxqx",
+      "x_craftedsignal_event_id": "brief-2026-11-25-tastyigniter-rce-ghsa-7wwv-x6mc-pxqx",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tastyigniter-rce-ghsa-7wwv-x6mc-pxqx/",
+      "x_craftedsignal_activity_at": "2026-11-25T23:12:16.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -454764,6 +454838,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-104016",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104016"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7296e637-5593-5483-81c5-33e181ede1b1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-69179",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-69179",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69179"
         }
       ]
     },
