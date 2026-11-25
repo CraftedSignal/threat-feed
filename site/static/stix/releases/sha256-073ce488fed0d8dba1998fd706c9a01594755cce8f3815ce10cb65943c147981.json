@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--cff65bd1-799f-506f-abb9-a4db1548e2dd",
+  "id": "bundle--396a9e72-6e7e-5596-8c5b-8a09fdea0eda",
   "objects": [
     {
       "type": "attack-pattern",
@@ -543,6 +543,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1546",
           "url": "https://attack.mitre.org/techniques/T1546"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--1c35ac25-2f71-55e7-a0e5-bb3ec128e9dd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Traffic Signaling",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1205",
+          "url": "https://attack.mitre.org/techniques/T1205"
         }
       ]
     },
@@ -43595,6 +43611,17 @@
       "relationship_type": "has",
       "source_ref": "software--5f05350e-9599-5c29-a98c-a014612a3dde",
       "target_ref": "vulnerability--9ff8f391-7912-58f5-ba37-d6aaab5caa8e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2f4c8164-a216-5f14-a428-ca2e5139ab71",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T07:31:07.000Z",
+      "modified": "2026-11-25T07:31:07.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3f9e6c6c-7080-5fd9-8dd6-f38512cd372e",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -107916,6 +107943,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--86afea6c-465e-5e75-85f1-b0128b62c6c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--abbc781c-e421-5613-9189-6e3820ac33fb",
+      "target_ref": "vulnerability--5b274bb7-7404-5273-999d-79471c52724e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--86b57e1f-dadf-54e4-980c-50b285f0e9ec",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T15:28:43.000Z",
@@ -128079,6 +128117,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a32f80d2-2a43-5a4e-9a25-c6165149d08c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T07:31:07.000Z",
+      "modified": "2026-11-25T07:31:07.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3f9e6c6c-7080-5fd9-8dd6-f38512cd372e",
+      "target_ref": "attack-pattern--1c35ac25-2f71-55e7-a0e5-bb3ec128e9dd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a32f8708-539e-58dd-b2d5-bbfe9b8f8104",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -134543,6 +134592,17 @@
       "relationship_type": "uses",
       "source_ref": "report--994e8204-a064-537d-b138-1d6636766319",
       "target_ref": "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--aba2bab8-6427-515c-9c54-01c69e7d5bf9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T07:31:07.000Z",
+      "modified": "2026-11-25T07:31:07.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--3f9e6c6c-7080-5fd9-8dd6-f38512cd372e",
+      "target_ref": "threat-actor--81b7b538-2dc7-5df9-9900-9bf491c811f7"
     },
     {
       "type": "relationship",
@@ -145987,6 +146047,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bac22853-9884-55c4-9eb9-d74c52a0079e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--cb6fd8e8-a3b3-5ffb-a999-1e685ca92625",
+      "target_ref": "vulnerability--5b274bb7-7404-5273-999d-79471c52724e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bac2f291-a84f-56b4-87f4-a5621148043a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T07:37:18.000Z",
@@ -151208,6 +151279,17 @@
       "relationship_type": "has",
       "source_ref": "software--7c56fa6a-c4d7-5f64-b84b-c982cda54be0",
       "target_ref": "vulnerability--6d600aaf-c6e9-5eb6-a439-f998b0bd76ee"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c20a8798-2127-5f1e-b55b-4d1f33bea7e3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f4ebdf89-73f3-5a80-9615-4a789d0407d9",
+      "target_ref": "vulnerability--5b274bb7-7404-5273-999d-79471c52724e"
     },
     {
       "type": "relationship",
@@ -245005,6 +245087,67 @@
       },
       "x_craftedsignal_cvss_max": 6,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3f9e6c6c-7080-5fd9-8dd6-f38512cd372e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T07:31:07.000Z",
+      "modified": "2026-11-25T07:31:07.000Z",
+      "name": "Xiaomi Xiaoji O1 series: Local privilege escalation via Wacom HID driver (CVE-2026-99491)",
+      "description": "## Overview\n\nCVE-2026-99491 is a use-after-free vulnerability within the Linux kernel Wacom HID driver affecting Xiaoji O1 series devices (Xiaomi Pad 7S Pro 12.5, Xiaomi Pad 7 Ultra, and Xiaomi 15S Pro). The vulnerability stems from a race condition where the driver cleanup sequence fails to clear a shared pointer (shared-\u003etouch_input) while the underlying device resource is freed. Attackers can exploit this window to reclaim the freed memory with a malicious fake structure, enabling controlled 8-byte arbitrary kernel writes. Public exploit code has been released that leverages this primitive to modify credential structures (euid, fsuid, capabilities) and SELinux status, allowing the installation of unauthorized kernel modules such as KernelSU.\n\n## Attack Chain\n\n1. Setup: Two UHID devices are created to share a common `wacom_shared` data structure by leveraging `phys` prefix naming.\n2. Trigger: One UHID device is destroyed, causing `wacom_release_resources()` to free the associated `input_dev` memory while `shared-\u003etouch_input` retains a dangling pointer.\n3. Heap Spray: The attacker sprays 24 pairs of Unix sockets (`SPRAY_LEN = 1664`) to occupy the recently freed `kmalloc-2k` memory slot with a crafted fake `struct input_dev`.\n4. Write Primitive: Pad reports (`WACOM_HID_WD_TOUCHONOFF`) are sent to the dangling pointer, triggering a write operation into the `vals` array of the attacker-controlled memory.\n5. Privilege Escalation: The arbitrary write primitive is used to overwrite `cred` structure fields (e.g., `euid`, `fsuid`, `cap_effective`) to gain root privileges.\n6. Security Bypass: The exploit modifies the SELinux AVC decision node (`avd_flags`) to force permissive mode and clear relevant AVC slots.\n7. Persistence/Loading: A selected kernel module (e.g., KernelSU) is loaded, and syscall handlers are patched to ensure its operation.\n\n## Impact\n\nExploitation results in full root access on the target Android devices, complete bypass of SELinux security policies, and the ability to load unsigned kernel-level code. This facilitates persistent system-level compromise and potential data exfiltration from the device.\n\n## Recommendation\n\n- Immediately identify and inventory all Xiaoji O1 series devices within the environment (Xiaomi Pad 7S Pro 12.5, Xiaomi Pad 7 Ultra, Xiaomi 15S Pro).\n- Restrict local user access to the environment where feasible to mitigate the local-only attack vector.\n- Monitor for the installation of unauthorized kernel modules or root-management applications (e.g., KernelSU, SukiSU, 7kimisu).\n- Implement device integrity monitoring to detect changes to kernel memory or security state (e.g., SELinux permissive status).\n- Await official kernel patches from the manufacturer for the affected kernel branches and prioritize deployment to impacted devices.",
+      "published": "2026-11-25T07:31:07.000Z",
+      "labels": [
+        "android",
+        "cve-2026-99491",
+        "kernel",
+        "privilege-escalation",
+        "use-after-free",
+        "xiaomi"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--1c35ac25-2f71-55e7-a0e5-bb3ec128e9dd",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--abbc781c-e421-5613-9189-6e3820ac33fb",
+        "software--cb6fd8e8-a3b3-5ffb-a999-1e685ca92625",
+        "software--f4ebdf89-73f3-5a80-9615-4a789d0407d9",
+        "threat-actor--81b7b538-2dc7-5df9-9900-9bf491c811f7",
+        "vulnerability--5b274bb7-7404-5273-999d-79471c52724e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-xiao-ji-o1-root-cve-2026-99491",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-xiao-ji-o1-root-cve-2026-99491/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-99491"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=1258CC51-4A63-5C59-B883-97C0785653E2"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=1258CC51-4A63-5C59-B883-97C0785653E2\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-xiao-ji-o1-root-cve-2026-99491",
+      "x_craftedsignal_event_id": "brief-2026-11-25-xiao-ji-o1-root-cve-2026-99491",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-xiao-ji-o1-root-cve-2026-99491/",
+      "x_craftedsignal_activity_at": "2026-11-25T07:31:07.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.0032,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -409762,6 +409905,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--abbc781c-e421-5613-9189-6e3820ac33fb",
+      "name": "Xiaomi Pad 7 Ultra",
+      "vendor": "Xiaomi"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--abc8e0e3-5ca2-5fa1-b682-c45b9911e446",
       "name": "FortiSASE 25.4 all versions",
       "vendor": "Fortinet"
@@ -413430,6 +413580,13 @@
       "spec_version": "2.1",
       "id": "software--cb54a4c6-0cc3-5c5d-a98e-501a7bf49203",
       "name": "NoNonsense Notes (versionCode 72600)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--cb6fd8e8-a3b3-5ffb-a999-1e685ca92625",
+      "name": "Xiaomi 15S Pro",
+      "vendor": "Xiaomi"
     },
     {
       "type": "software",
@@ -418308,6 +418465,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--f4ebdf89-73f3-5a80-9615-4a789d0407d9",
+      "name": "Xiaomi Pad 7S Pro 12.5",
+      "vendor": "Xiaomi"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f50d1d1e-2f7d-522a-be58-47aeb13b5b50",
       "name": "Microweber",
       "vendor": "Microweber"
@@ -419674,6 +419838,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "CopperDragon"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--81b7b538-2dc7-5df9-9900-9bf491c811f7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "ChaYeWuu"
     },
     {
       "type": "threat-actor",
@@ -450176,6 +450349,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114848",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114848"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5b274bb7-7404-5273-999d-79471c52724e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99491",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99491",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99491"
         }
       ]
     },
