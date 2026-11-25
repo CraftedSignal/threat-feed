@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--aad7af86-0628-5790-a657-d14cd158a593",
+  "id": "bundle--71883611-6fde-536e-82fe-e3384f5b4099",
   "objects": [
     {
       "type": "attack-pattern",
@@ -100567,6 +100567,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--96e078c5-95ce-5d17-8d77-6fb53f18a358",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T21:42:12.000Z",
+      "modified": "2026-11-25T21:42:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1ce41f87-95fc-5fdb-b5cc-5d13b456932f",
+      "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--96e0b0bd-9c04-5ca9-9a55-ce436c476b1c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T10:21:33.000Z",
@@ -113004,6 +113015,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c63d2785-6bc7-5878-aef9-1a366c2616ce",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--aaf1af2e-e44b-5179-978f-5895a2ef6c15",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--01a03680-9a34-5f1e-87bc-0adfbde56980",
+      "target_ref": "vulnerability--b15bd4fd-107e-58fc-b870-383c5b4f2ea7"
     },
     {
       "type": "relationship",
@@ -182126,6 +182148,65 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1ce41f87-95fc-5fdb-b5cc-5d13b456932f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T21:42:12.000Z",
+      "modified": "2026-11-25T21:42:12.000Z",
+      "name": "SeaweedFS: SFTP authentication bypass (CVE-2026-133464)",
+      "description": "## Overview\n\nSeaweedFS versions prior to 4.46 contain an authentication bypass vulnerability in the SFTP server component, identified as CVE-2026-133464. The FileStore.ValidatePassword function fails to reject zero-length secrets, causing empty passwords to match accounts that do not have a password configured (e.g., public-key or certificate-only users). A remote attacker knowing a valid username can authenticate to the SFTP server without a credential, gaining access to the user's home directory and file permissions. The issue is fixed in version 4.46.\n\n## Impact\n\nSuccessful exploitation allows a remote, unauthenticated attacker to bypass password requirements and gain access to the file system as an existing user. This results in potential unauthorized access to, modification of, or exfiltration of sensitive files stored within the SeaweedFS environment.\n\n## Recommendation\n\n1. Upgrade SeaweedFS to version 4.46 or later immediately to resolve the authentication flaw.\n2. In environments where upgrading is not immediately feasible, disable the SFTP server if not required for business operations or enforce strict network access controls to the SFTP service port to limit exposure to known, trusted source IP addresses.",
+      "published": "2026-11-25T21:42:12.000Z",
+      "labels": [
+        "auth-bypass",
+        "cve",
+        "seaweedfs",
+        "sftp",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--01a03680-9a34-5f1e-87bc-0adfbde56980",
+        "vulnerability--b15bd4fd-107e-58fc-b870-383c5b4f2ea7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-seaweedfs-sftp-auth-bypass-cve-2026-133464",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-seaweedfs-sftp-auth-bypass-cve-2026-133464/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-133464"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/seaweedfs/seaweedfs/commit/3cdfe648eb14e20fa5383b52076b38af94dbbc8c"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/seaweedfs/seaweedfs/security/advisories/GHSA-q9rj-8p2j-whg4"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-133464\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-seaweedfs-sftp-auth-bypass-cve-2026-133464",
+      "x_craftedsignal_event_id": "brief-2026-11-25-seaweedfs-sftp-auth-bypass-cve-2026-133464",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-seaweedfs-sftp-auth-bypass-cve-2026-133464/",
+      "x_craftedsignal_activity_at": "2026-11-25T21:42:12.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -327300,6 +327381,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--01a03680-9a34-5f1e-87bc-0adfbde56980",
+      "name": "SeaweedFS (\u003c 4.46)",
+      "vendor": "SeaweedFS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--01b93615-283f-55c0-b003-7f6aa2c2c43e",
       "name": "XWEB supervisory controllers (\u003c= 1.12.1)"
     },
@@ -402828,6 +402916,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-128990",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128990"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b15bd4fd-107e-58fc-b870-383c5b4f2ea7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-133464",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-133464",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133464"
         }
       ]
     },
