@@ -1,12 +1,25 @@
 ---
 brief_id: brief-2026-11-13-shell-registry-manipulation
 event_id: brief-2026-11-13-shell-registry-manipulation
-revision: 1
-activity_at: "2026-11-13T06:51:17Z"
+revision: 2
+activity_at: "2026-11-25T16:34:57Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-25T16:34:57Z"
+    checksum: sha256:eb2a0fb4d9ae7d599e911c538e279fd1aea7dc71c4c5d73bfbd284376e804f18
+    summary: new product
+    changed_fields:
+      - affected_products
+      - affected_vendors
+      - lastmod
+      - updates
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_event/registry_event_shell_open_keys_manipulation.yml
 title: Windows Registry Shell Open Key Manipulation
 slug: 2026-11-shell-registry-manipulation
 description: Malicious actors modify shell open command registry keys to achieve UAC bypass or maintain persistence through file association hijacking.
 date: "2026-11-13T06:51:17Z"
+lastmod: "2026-11-25T16:34:12Z"
 type: advisory
 types:
   - advisory
@@ -24,6 +37,10 @@ tags:
   - privilege-escalation
   - windows
   - registry
+vendors:
+  - Microsoft
+products:
+  - Windows
 affected_os:
   - Windows
 mitre_ttps:
@@ -52,7 +69,17 @@ rules:
       - registry_event
       - windows
 rules_count: 1
+updates:
+  - at: "2026-11-25T16:34:12Z"
+    level: L1
+    summary: new product
+    sources:
+      - sigma-hq
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_event/registry_event_shell_open_keys_manipulation.yml
 ---
+
+## Overview
 
 Threat actors target Windows shell open command registry keys, such as "ms-settings" and "exefile", to facilitate User Account Control (UAC) bypass or to establish persistent execution via file association hijacking.
 

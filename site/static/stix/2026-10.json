@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b3b40ad3-38c1-5a24-abcc-e18d93a187fa",
+  "id": "bundle--e45d71d8-fcf5-5733-9606-1440b31cd11b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -15982,7 +15982,7 @@
       "id": "relationship--1fdc99ce-6e2c-5f75-bd16-ba727a71fd27",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-02T10:12:47.000Z",
-      "modified": "2026-10-02T10:12:47.000Z",
+      "modified": "2026-11-25T16:34:57.000Z",
       "relationship_type": "uses",
       "source_ref": "report--e1c100d6-db75-5870-930f-a694ced5c7c6",
       "target_ref": "attack-pattern--7ae20902-9541-5391-8598-d72c1b1ffdfd"
@@ -72632,7 +72632,7 @@
       "id": "relationship--d36f5b79-564a-5b26-be52-32fdd895983d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-02T10:12:47.000Z",
-      "modified": "2026-10-02T10:12:47.000Z",
+      "modified": "2026-11-25T16:34:57.000Z",
       "relationship_type": "uses",
       "source_ref": "report--e1c100d6-db75-5870-930f-a694ced5c7c6",
       "target_ref": "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f"
@@ -184594,7 +184594,7 @@
       "id": "report--e1c100d6-db75-5870-930f-a694ced5c7c6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-02T10:12:47.000Z",
-      "modified": "2026-10-02T10:12:47.000Z",
+      "modified": "2026-11-25T16:34:57.000Z",
       "name": "Potential Hijacking of Windows Subsystem for Linux via Registry Modification",
       "description": "## Overview\n\nResearch indicates that the Windows Subsystem for Linux (WSL) configuration can be abused by attackers to achieve stealthy execution and persistence. By modifying the 'InstallLocation' registry key associated with WSL, an actor can point the system to a custom or malicious directory. When a user subsequently invokes 'wsl.exe' or 'bash.exe', the system executes the payload located at the path defined in the hijacked registry key instead of the legitimate WSL environment. This technique provides a mechanism for defense evasion by leveraging trusted system binaries to execute malicious code, potentially bypassing security controls that rely on process allowlisting or signature-based detection. This method has been documented in various security research reports as a vector for stealthy operations and long-term system persistence on Windows endpoints.\n\n## Attack Chain\n\n1. Attacker gains initial access or code execution on the target Windows system.\n2. Attacker identifies the WSL 'InstallLocation' registry key path under 'HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Lxss'.\n3. Attacker drops a malicious binary or script designed to masquerade as the legitimate WSL environment.\n4. Attacker modifies the 'InstallLocation' registry value to point to the directory containing the malicious payload.\n5. The next time the user or an automated task executes 'wsl.exe' or 'bash.exe', the system loads the malicious files instead of the legitimate WSL components.\n6. The malicious payload executes within the context of the WSL process, achieving the attacker's objective (persistence, exfiltration, or further command execution).\n\n## Impact\n\nSuccessful exploitation allows attackers to maintain stealthy persistence and execute malicious code under the guise of legitimate system processes. This can lead to unauthorized access to sensitive data, internal network reconnaissance, and the deployment of additional malware, impacting the integrity and confidentiality of the host system.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to monitor for unauthorized modifications to the WSL 'InstallLocation' registry key.\n- Establish a baseline of expected 'InstallLocation' paths within the environment to facilitate more precise alerting.\n- Review registry monitoring logs (Event ID 13) for unexpected processes modifying keys under 'HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Lxss'.\n- Restrict administrative privileges on endpoints to prevent unauthorized registry modifications.\n",
       "published": "2026-10-02T10:12:47.000Z",
@@ -184607,21 +184607,26 @@
       "object_refs": [
         "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f",
         "attack-pattern--7ae20902-9541-5391-8598-d72c1b1ffdfd",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--744b3859-1cbf-5cbc-ba50-bd87666e354b"
       ],
       "external_references": [
         {
           "source_name": "craftedsignal",
           "external_id": "brief-2026-10-wsl-registry-hijack",
           "url": "https://feed.craftedsignal.io/briefs/2026-10-wsl-registry-hijack/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_wsl_installlocation_registry_key_modification.yml"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-10-wsl-registry-hijack",
       "x_craftedsignal_event_id": "brief-2026-10-wsl-registry-hijack",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-wsl-registry-hijack/",
-      "x_craftedsignal_activity_at": "2026-10-02T10:12:47.000Z",
+      "x_craftedsignal_activity_at": "2026-11-25T16:34:57.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {

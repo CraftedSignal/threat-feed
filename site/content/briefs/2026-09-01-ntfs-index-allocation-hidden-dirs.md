@@ -1,38 +1,66 @@
 ---
+brief_id: brief-2026-09-01-ntfs-index-allocation-hidden-dirs
+event_id: brief-2026-09-01-ntfs-index-allocation-hidden-dirs
+revision: 2
+activity_at: "2026-11-25T16:34:57Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-25T16:34:57Z"
+    checksum: sha256:0ca009a317decde9d283a44cd21787640e9baec2f30921ab74bfea70cf632198
+    summary: OS windows
+    changed_fields:
+      - affected_os
+      - affected_products
+      - affected_vendors
+      - lastmod
+      - references
+      - rules
+      - ttps
+      - updates
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_susp_hidden_dir_index_allocation.yml
 title: Abuse of NTFS INDEX_ALLOCATION Stream for Directory Obfuscation
 slug: 2026-09-01-ntfs-index-allocation-hidden-dirs
 description: Attackers can abuse the NTFS $INDEX_ALLOCATION stream to create directories that are inaccessible to standard Windows utilities like Explorer and PowerShell, facilitating stealthy data storage.
 date: "2026-09-01T12:25:07Z"
+lastmod: "2026-11-25T16:32:27Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Rule defined based on community-verified Sigma patterns.
 tags:
   - stealth
   - persistence
   - windows
   - ntfs
+vendors:
+  - Microsoft
+products:
+  - Windows
+affected_os:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1564
     technique_name: Hide Artifacts
+    subtechnique_id: T1564.004
+    subtechnique_name: NTFS File Attributes
     evidence: The $INDEX_ALLOCATION stream can be used as a technique to prevent access to folders or files from tooling such as explorer.exe or powershell.exe.
     confidence_band: high
-rules:
-  - title: Detect Potential NTFS INDEX_ALLOCATION Hidden Directory Creation
-    description: Detects the use of the ::$index_allocation stream in command lines, which is used to create hidden directories inaccessible to standard Windows tooling.
-    platform: sigma
-    severity: medium
-    tactics:
-      - stealth
-    techniques:
-      - T1564.004
-    data_sources:
-      - process_creation
-      - windows
-rules_count: 1
+references:
+  - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_susp_hidden_dir_index_allocation.yml
 action_plan:
   priority: elevated
   owners:
@@ -59,7 +87,17 @@ action_plan:
       evidence: This technique bypasses file system standard tools.
   gaps:
     - Limited visibility into stream manipulation via API calls that do not involve the command line.
+updates:
+  - at: "2026-11-25T16:32:27Z"
+    level: L1
+    summary: OS windows
+    sources:
+      - sigma-hq
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_susp_hidden_dir_index_allocation.yml
 ---
+
+## Overview
 
 This technique involves the abuse of the NTFS filesystem structure, specifically the $INDEX_ALLOCATION attribute. By appending the string "::$INDEX_ALLOCATION" to a directory name during creation, an attacker can create a folder structure that standard Windows APIs and common management tools (such as Windows Explorer or PowerShell) struggle to traverse or list. This effectively hides the directory and its contents from the average user and administrative tools, providing a method for stealthy persistence or data staging. While the data remains accessible via low-level file system calls or specific command-line utilities, this technique is frequently leveraged to bypass automated monitoring and user discovery during the post-exploitation phase. Defenders should be aware that standard EDR process-creation logs may not always capture the full command-line arguments involving alternate data streams, depending on the specific sensor implementation and visibility.
 

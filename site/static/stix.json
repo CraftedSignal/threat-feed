@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--990c4ec2-8209-57e1-bddb-134c50719cf5",
+  "id": "bundle--6be693a5-980e-5399-b725-08172d9931bd",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2943,6 +2943,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1528",
           "url": "https://attack.mitre.org/techniques/T1528"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--d6650335-6cb1-5456-be61-6a333c34789d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Windows Remote Management",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1021.006",
+          "url": "https://attack.mitre.org/techniques/T1021/006"
         }
       ]
     },
@@ -27112,7 +27128,7 @@
       "id": "relationship--1898ce75-57f8-5698-980f-55480d3ce76b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T06:51:17.000Z",
-      "modified": "2026-11-13T06:51:17.000Z",
+      "modified": "2026-11-25T16:34:57.000Z",
       "relationship_type": "uses",
       "source_ref": "report--ce552999-ef25-5f9c-aea2-12c548931a09",
       "target_ref": "attack-pattern--63f3df9d-5b16-5372-87eb-7cae1cedb9d2"
@@ -91327,6 +91343,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--708278b1-8779-57d3-913a-acaffd057e30",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:32:47.000Z",
+      "modified": "2026-11-25T16:32:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5b3a012b-7c73-5c30-9b92-3a7b8caed4b4",
+      "target_ref": "attack-pattern--cab43178-fae3-52ac-a29f-a095c60026fa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7083e110-6aff-5c4a-9e17-f70c5ae09a92",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -92500,6 +92527,17 @@
       "relationship_type": "has",
       "source_ref": "software--4d107416-4cb3-5ba8-b39e-6c4ec419faad",
       "target_ref": "vulnerability--db832cd9-4aa0-5c13-bbf9-8ef9f340aa1e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--71e8ffec-0d0f-5935-bbd5-ab8e25c42cbb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:33:55.000Z",
+      "modified": "2026-11-25T16:33:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ee8b5b46-8e1b-592b-a064-5d9540c6947a",
+      "target_ref": "attack-pattern--cab43178-fae3-52ac-a29f-a095c60026fa"
     },
     {
       "type": "relationship",
@@ -97516,6 +97554,17 @@
       "relationship_type": "has",
       "source_ref": "software--976f7043-33e9-591a-b078-60ef72fda63a",
       "target_ref": "vulnerability--fa919bab-c270-5e69-addb-4bd992fdafb2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--78a314a8-8596-51d9-adab-ba46e5b48b55",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:32:47.000Z",
+      "modified": "2026-11-25T16:32:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5b3a012b-7c73-5c30-9b92-3a7b8caed4b4",
+      "target_ref": "attack-pattern--5ef49edb-94d7-5032-9ce1-22d917ae63a7"
     },
     {
       "type": "relationship",
@@ -105953,6 +106002,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e0c0fea6-ef41-562a-8b67-3a853708c8b2",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8413ba24-328b-54da-a7d5-270780c0d449",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:33:26.000Z",
+      "modified": "2026-11-25T16:33:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--fd906003-2d1f-5304-84aa-b28cdab7d565",
+      "target_ref": "attack-pattern--d6650335-6cb1-5456-be61-6a333c34789d"
     },
     {
       "type": "relationship",
@@ -118335,7 +118395,7 @@
       "id": "relationship--95a0bf15-07fd-5647-aedd-bc144853fe96",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T06:51:17.000Z",
-      "modified": "2026-11-13T06:51:17.000Z",
+      "modified": "2026-11-25T16:34:57.000Z",
       "relationship_type": "uses",
       "source_ref": "report--ce552999-ef25-5f9c-aea2-12c548931a09",
       "target_ref": "attack-pattern--3f9163d1-482c-5aeb-b396-d70a5cf9d27b"
@@ -134102,6 +134162,17 @@
       "relationship_type": "has",
       "source_ref": "software--8262e6fb-8b0e-53c2-a22b-2800cb5ff095",
       "target_ref": "vulnerability--732e7244-1bff-5be0-a62e-74effa9848d0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ab4e55d0-64d8-5e8a-8ecc-6016fb8ced55",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:33:55.000Z",
+      "modified": "2026-11-25T16:33:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ee8b5b46-8e1b-592b-a064-5d9540c6947a",
+      "target_ref": "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f"
     },
     {
       "type": "relationship",
@@ -151196,6 +151267,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--d12448d8-715c-59ea-b8ba-8e55aceb42a9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c254d4fa-ff9a-5424-a3b4-adb4f683c903",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:33:18.000Z",
+      "modified": "2026-11-25T16:33:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--09dce43c-cb76-5d5a-89d4-857b6c62aba2",
+      "target_ref": "attack-pattern--d6650335-6cb1-5456-be61-6a333c34789d"
     },
     {
       "type": "relationship",
@@ -169896,6 +169978,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--2912e0d7-2b3b-5fe4-8b5a-4f862cb5b40b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--dcc0fa25-be8b-563e-9cc8-51fc59c19fcc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:33:18.000Z",
+      "modified": "2026-11-25T16:33:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--09dce43c-cb76-5d5a-89d4-857b6c62aba2",
+      "target_ref": "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f"
     },
     {
       "type": "relationship",
@@ -201990,6 +202083,45 @@
         "confidence": "high"
       },
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--09dce43c-cb76-5d5a-89d4-857b6c62aba2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:33:18.000Z",
+      "modified": "2026-11-25T16:33:18.000Z",
+      "name": "Windows Remote Shell (WinRS) local command execution",
+      "description": "## Overview\n\nWinrs.exe is a command-line tool used for managing remote Windows systems via Windows Remote Management (WinRM). Adversaries may leverage this utility to execute commands locally by targeting the loopback interface, effectively using the tool for proxy execution. This technique can help bypass security controls that monitor standard process execution chains, as commands launched this way are typically executed under the child process 'Winrshost.exe'.\n\n## Impact\n\nAbuse of WinRS for local execution allows an attacker to mask the origin of a command, potentially evading endpoint detection and response (EDR) rules that rely on standard process-parent relationships.\n\n## Recommendation\n\nDeploy the provided detection rule to monitor for suspicious command-line invocations of WinRS targeting the local host. Ensure that process-creation logging (e.g., Event ID 1) is enabled on all Windows endpoints and that command-line argument logging is included in the telemetry scope.\n",
+      "published": "2026-11-25T16:33:18.000Z",
+      "object_refs": [
+        "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f",
+        "attack-pattern--d6650335-6cb1-5456-be61-6a333c34789d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-winrs-local-execution",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-winrs-local-execution/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_winrs_local_command_execution.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-winrs-local-execution",
+      "x_craftedsignal_event_id": "brief-2026-11-25-winrs-local-execution",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-winrs-local-execution/",
+      "x_craftedsignal_activity_at": "2026-11-25T16:33:18.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -265942,6 +266074,50 @@
       },
       "x_craftedsignal_cvss_max": 8.6,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5b3a012b-7c73-5c30-9b92-3a7b8caed4b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:32:47.000Z",
+      "modified": "2026-11-25T16:32:47.000Z",
+      "name": "Windows Svchost.exe anomalous command line parameters",
+      "description": "## Overview\n\nSecurity analysis identifies that legitimate instances of svchost.exe typically follow a well-defined command line pattern, usually involving the -k flag followed by a service group name. Instances of svchost.exe executing with anomalous command line parameters or lacking standard service group flags are frequently associated with malicious activity, including process injection, process hollowing, or the execution of unauthorized binaries masquerading as the system process.\n\n## Impact\n\nAbnormal svchost.exe execution can signify a compromised host where an attacker has achieved persistence or stealthy code execution, potentially leading to unauthorized system access, privilege escalation, or lateral movement within the network.\n\n## Recommendation\n\nDetection engineers should deploy the provided Sigma rule to monitor for svchost.exe processes that do not conform to standard service group syntax. Tune the rule within your SIEM environment to account for local administrative tools or legitimate system maintenance processes that may deviate from common service patterns.",
+      "published": "2026-11-25T16:32:47.000Z",
+      "labels": [
+        "detection",
+        "stealth",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--5ef49edb-94d7-5032-9ce1-22d917ae63a7",
+        "attack-pattern--cab43178-fae3-52ac-a29f-a095c60026fa",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-svchost-anomaly",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-svchost-anomaly/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_svchost_uncommon_command_line_flags.yml"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-svchost-anomaly",
+      "x_craftedsignal_event_id": "brief-2026-11-25-svchost-anomaly",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-svchost-anomaly/",
+      "x_craftedsignal_activity_at": "2026-11-25T16:32:47.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -350320,7 +350496,7 @@
       "id": "report--ce552999-ef25-5f9c-aea2-12c548931a09",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T06:51:17.000Z",
-      "modified": "2026-11-13T06:51:17.000Z",
+      "modified": "2026-11-25T16:34:57.000Z",
       "name": "Windows Registry Shell Open Key Manipulation",
       "description": "## Overview\n\nThreat actors target Windows shell open command registry keys, such as \"ms-settings\" and \"exefile\", to facilitate User Account Control (UAC) bypass or to establish persistent execution via file association hijacking.\n\n## Impact\n\nSuccessful manipulation of these keys allows for privilege escalation to administrative levels or the establishment of long-term persistence within the host environment.\n\n## Recommendation\n\nMonitor registry events for unauthorized modifications to the identified shell open command keys.",
       "published": "2026-11-13T06:51:17.000Z",
@@ -350333,7 +350509,8 @@
       "object_refs": [
         "attack-pattern--3f9163d1-482c-5aeb-b396-d70a5cf9d27b",
         "attack-pattern--63f3df9d-5b16-5372-87eb-7cae1cedb9d2",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d"
       ],
       "external_references": [
         {
@@ -350365,9 +350542,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-13-shell-registry-manipulation",
       "x_craftedsignal_event_id": "brief-2026-11-13-shell-registry-manipulation",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-shell-registry-manipulation/",
-      "x_craftedsignal_activity_at": "2026-11-13T06:51:17.000Z",
+      "x_craftedsignal_activity_at": "2026-11-25T16:34:57.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -374743,6 +374920,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ee8b5b46-8e1b-592b-a064-5d9540c6947a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:33:55.000Z",
+      "modified": "2026-11-25T16:33:55.000Z",
+      "name": "Windows Subsystem for Linux (WSL) Binary Hijack via InstallLocation Registry Modification",
+      "description": "## Overview\n\nAdversaries can perform a proxy execution attack by manipulating the Windows registry to hijack the execution flow of the Windows Subsystem for Linux (WSL). When users or automated processes invoke the legitimate wsl.exe residing in C:\\Windows\\System32, the binary queries the registry key 'InstallLocation' to determine the path of the actual WSL installation. By modifying this registry key to point to an attacker-controlled directory, the wsl.exe stub will transparently launch a malicious binary named 'wsl.exe' instead of the legitimate environment, allowing attackers to execute code while maintaining the appearance of a legitimate WSL process.\n\n## Attack Chain\n\n1. Attacker gains administrative or sufficient user privileges to modify registry keys.\n2. Attacker places a malicious wsl.exe binary into a non-standard directory.\n3. Attacker updates the 'InstallLocation' registry key associated with WSL to the path of the malicious binary.\n4. A user or process executes the legitimate C:\\Windows\\System32\\wsl.exe.\n5. The System32 stub reads the compromised 'InstallLocation' registry value.\n6. The System32 stub executes the malicious wsl.exe binary as a child process, proxying the requested action to the payload.\n\n## Recommendation\n\nDeploy the provided detection rule to monitor for wsl.exe processes originating from unexpected paths. Additionally, audit the registry for unexpected modifications to the InstallLocation keys associated with WSL. Restrict write access to registry locations related to WSL configuration to only authorized system administrators.\n\n## Impact\n\nThis technique enables stealthy code execution and persistence, potentially bypassing security controls that white-list the legitimate System32 wsl.exe while failing to inspect its child processes or non-standard WSL installation paths.",
+      "published": "2026-11-25T16:33:55.000Z",
+      "labels": [
+        "defense-evasion",
+        "living-off-the-land",
+        "proxy-execution"
+      ],
+      "object_refs": [
+        "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f",
+        "attack-pattern--cab43178-fae3-52ac-a29f-a095c60026fa",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-wsl-binary-hijack",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wsl-binary-hijack/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_wsl_binary_hijack_execution.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20260718025639/https://cardinalops.com/blog/bash-and-switch-hijacking-via-windows-subsystem-for-linux/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-wsl-binary-hijack",
+      "x_craftedsignal_event_id": "brief-2026-11-25-wsl-binary-hijack",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wsl-binary-hijack/",
+      "x_craftedsignal_activity_at": "2026-11-25T16:33:55.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ee926f21-4ff3-54fe-9f9b-b9a4f5b72f02",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T19:49:56.000Z",
@@ -380223,6 +380448,81 @@
       },
       "x_craftedsignal_cvss_max": 7.4,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--f44e6d4a-b204-5418-93df-d2e63db9969a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:34:29.000Z",
+      "modified": "2026-11-25T16:34:29.000Z",
+      "name": "Windows Defender: Unauthorized modification of protection registry keys",
+      "description": "## Overview\n\nAttackers or tools can disable Windows Defender functionalities by modifying specific registry keys. This behavior is documented in various security reports and technical documentation.\n\n## Attack Chain\n\nAdversaries manipulate specific registry subkeys within the Windows Defender policy or configuration paths to disable features such as real-time monitoring and Tamper Protection.\n\n## Impact\n\nModification of these registry keys can result in the impairment of Windows Defender security features.\n\n## Recommendation\n\nMonitor for registry modification events targeting the keys specified in the detection rule and investigate unauthorized changes.",
+      "published": "2026-11-25T16:34:29.000Z",
+      "labels": [
+        "attack.defense-impairment",
+        "attack.t1685",
+        "registry",
+        "windows"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-windows-defender-tampering",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-windows-defender-tampering/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://admx.help/?Category=Windows_7_2008R2\u0026Policy=Microsoft.Policies.WindowsDefender::SpyNetReporting"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_windows_defender_tamper.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://securelist.com/key-group-ransomware-samples-and-telegram-schemes/114025/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://symantec-enterprise-blogs.security.com/blogs/threat-intelligence/ransomware-hive-conti-avoslocker"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thedfirreport.com/2021/10/18/icedid-to-xinglocker-ransomware-in-24-hours/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20211121135248/https://gist.github.com/anadr/7465a9fde63d41341136949f14c21105"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.tenforums.com/tutorials/105533-enable-disable-windows-defender-exploit-protection-settings.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.tenforums.com/tutorials/123792-turn-off-tamper-protection-microsoft-defender-antivirus.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.tenforums.com/tutorials/32236-enable-disable-microsoft-defender-pua-protection-windows-10-a.html"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-windows-defender-tampering",
+      "x_craftedsignal_event_id": "brief-2026-11-25-windows-defender-tampering",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-windows-defender-tampering/",
+      "x_craftedsignal_activity_at": "2026-11-25T16:34:29.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -386782,6 +387082,52 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--fd906003-2d1f-5304-84aa-b28cdab7d565",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:33:26.000Z",
+      "modified": "2026-11-25T16:33:26.000Z",
+      "name": "Windows Remote Shell exploitation for lateral movement",
+      "description": "## Overview\n\nWindows Remote Management (WinRM) facilitates remote administration. The winrshost.exe process is used by WinRs to manage these remote connections. Child processes spawned by winrshost.exe may indicate remote command execution and potential lateral movement.\n\n## Impact\n\nUnauthorized remote command execution can allow an attacker to move laterally across a network and execute arbitrary commands on a target system.\n\n## Recommendation\n\nSecurity teams should monitor process creation events for child processes spawned by winrshost.exe. Administrative environments should baseline expected WinRM usage to reduce false positives.\n\n## References\n\n- https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_winrshost_command_execution.yml\n- https://web.archive.org/web/20260615052554/https://cardinalops.com/blog/living-off-winrm-abusing-complexity-in-remote-management/\n- https://www.ired.team/offensive-security/lateral-movement/winrs-for-lateral-movement",
+      "published": "2026-11-25T16:33:26.000Z",
+      "object_refs": [
+        "attack-pattern--d6650335-6cb1-5456-be61-6a333c34789d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-winrs-lateral-movement",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-winrs-lateral-movement/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_winrshost_command_execution.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20260615052554/https://cardinalops.com/blog/living-off-winrm-abusing-complexity-in-remote-management/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.ired.team/offensive-security/lateral-movement/winrs-for-lateral-movement"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-winrs-lateral-movement",
+      "x_craftedsignal_event_id": "brief-2026-11-25-winrs-lateral-movement",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-winrs-lateral-movement/",
+      "x_craftedsignal_activity_at": "2026-11-25T16:33:26.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",

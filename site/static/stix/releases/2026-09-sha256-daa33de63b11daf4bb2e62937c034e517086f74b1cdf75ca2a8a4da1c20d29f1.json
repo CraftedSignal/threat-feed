@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7f902a2f-1e78-52ef-ab51-0e8a98f49a92",
+  "id": "bundle--f9332b28-de16-579a-bbae-0dee4e543302",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3135,6 +3135,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1016",
           "url": "https://attack.mitre.org/techniques/T1016"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--f346474d-c8f5-587d-b7b0-bae31a04910a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Install Root Certificate",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1553.004",
+          "url": "https://attack.mitre.org/techniques/T1553/004"
         }
       ]
     },
@@ -20838,6 +20854,17 @@
       "relationship_type": "has",
       "source_ref": "software--397c3968-9314-5152-bf4f-f91bde6da4fe",
       "target_ref": "vulnerability--06c585b1-d897-564b-b23d-0dedf65dfa64"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--51ccad82-8a79-5624-85b3-3a5712f1911e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-01T12:25:07.000Z",
+      "modified": "2026-11-25T16:34:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--efc083c1-3d60-5640-8cf8-f688323ea0a1",
+      "target_ref": "attack-pattern--f0b4ce4d-59d8-5ca5-a4da-451d516694cc"
     },
     {
       "type": "relationship",
@@ -43458,17 +43485,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ce10ef8e-0529-5488-a6da-0da18c2144a0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-01T12:25:07.000Z",
-      "modified": "2026-09-01T12:25:07.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--efc083c1-3d60-5640-8cf8-f688323ea0a1",
-      "target_ref": "attack-pattern--78ac3757-7782-5464-9fac-0e8faa621d9c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ce11dd4a-0381-53e6-9b6d-2c74b172a6bf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-22T14:01:44.000Z",
@@ -43850,17 +43866,6 @@
       "relationship_type": "has",
       "source_ref": "software--17840450-684d-574e-886c-84132337c120",
       "target_ref": "vulnerability--010db60e-6232-5e90-b072-86afe194fa38"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d074aa03-838d-55c8-9773-a717f5d9b84c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-01T12:12:22.000Z",
-      "modified": "2026-09-01T12:12:22.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ef4ca89a-ef6a-5830-a5cb-23f7cf93b93a",
-      "target_ref": "attack-pattern--ce03e15a-3e03-5639-98e6-b790ad78c8fb"
     },
     {
       "type": "relationship",
@@ -49658,6 +49663,17 @@
       "relationship_type": "has",
       "source_ref": "software--c4d8638c-e124-503e-b3d3-e06b83575c0b",
       "target_ref": "vulnerability--102e6357-d6e9-5fce-8cf3-0ea443e28fcf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--eb60713c-3d78-5fdc-bbff-e28365946eed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-01T12:12:22.000Z",
+      "modified": "2026-11-25T16:34:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ef4ca89a-ef6a-5830-a5cb-23f7cf93b93a",
+      "target_ref": "attack-pattern--f346474d-c8f5-587d-b7b0-bae31a04910a"
     },
     {
       "type": "relationship",
@@ -124964,7 +124980,7 @@
       "id": "report--ef4ca89a-ef6a-5830-a5cb-23f7cf93b93a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-01T12:12:22.000Z",
-      "modified": "2026-09-01T12:12:22.000Z",
+      "modified": "2026-11-25T16:34:57.000Z",
       "name": "Detection of Unauthorized Root or CA Certificate Installation",
       "description": "## Overview\n\nThe installation of unauthorized root or Certification Authority (CA) certificates into the Windows registry is a technique used by adversaries to facilitate malicious activities such as man-in-the-middle (MitM) attacks, bypass certificate validation for malicious payloads, and ensure the persistence of rogue communication channels. By modifying specific registry keys within the SystemCertificates hive, an attacker can force the operating system to trust a compromised or attacker-controlled certificate. This technique is often observed during post-exploitation phases or as a means to subvert enterprise-grade security appliances that rely on SSL/TLS inspection. Defenders should prioritize visibility into registry modifications affecting the Windows certificate store to identify unauthorized trust anchors being added to the environment.\n\n## Impact\n\nSuccessful installation of unauthorized root certificates allows attackers to intercept encrypted traffic, bypass application-level certificate pinning, and establish persistent access by masquerading as trusted internal services or entities, leading to potential data exfiltration and credential theft.\n\n## Recommendation\n\n1. Deploy the provided Sigma rule to monitor registry modifications within the Windows Certificate Store locations.\n2. Implement an allowlist for known enterprise CA certificates and alert on any additions to the Root, CA, or AuthRoot certificate stores not initiated by authorized management software.\n3. Regularly audit endpoints for unexpected certificates in the registry and compare them against approved organizational certificate inventories.\n",
       "published": "2026-09-01T12:12:22.000Z",
@@ -124974,8 +124990,9 @@
         "windows"
       ],
       "object_refs": [
-        "attack-pattern--ce03e15a-3e03-5639-98e6-b790ad78c8fb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+        "attack-pattern--f346474d-c8f5-587d-b7b0-bae31a04910a",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d"
       ],
       "external_references": [
         {
@@ -124999,9 +125016,9 @@
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-09-01-windows-cert-store-modifications",
       "x_craftedsignal_event_id": "brief-2026-09-01-windows-cert-store-modifications",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-cert-store-modifications/",
-      "x_craftedsignal_activity_at": "2026-09-01T12:12:22.000Z",
+      "x_craftedsignal_activity_at": "2026-11-25T16:34:57.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -125107,7 +125124,7 @@
       "id": "report--efc083c1-3d60-5640-8cf8-f688323ea0a1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-01T12:25:07.000Z",
-      "modified": "2026-09-01T12:25:07.000Z",
+      "modified": "2026-11-25T16:34:57.000Z",
       "name": "Abuse of NTFS INDEX_ALLOCATION Stream for Directory Obfuscation",
       "description": "## Overview\n\nThis technique involves the abuse of the NTFS filesystem structure, specifically the $INDEX_ALLOCATION attribute. By appending the string \"::$INDEX_ALLOCATION\" to a directory name during creation, an attacker can create a folder structure that standard Windows APIs and common management tools (such as Windows Explorer or PowerShell) struggle to traverse or list. This effectively hides the directory and its contents from the average user and administrative tools, providing a method for stealthy persistence or data staging. While the data remains accessible via low-level file system calls or specific command-line utilities, this technique is frequently leveraged to bypass automated monitoring and user discovery during the post-exploitation phase. Defenders should be aware that standard EDR process-creation logs may not always capture the full command-line arguments involving alternate data streams, depending on the specific sensor implementation and visibility.\n\n## Impact\n\nSuccessful implementation of this technique results in the creation of hidden directories that effectively bypass traditional file discovery methods. This allows an attacker to conceal malware payloads, exfiltrated data, or persistence mechanisms on an endpoint, reducing the likelihood of detection by security personnel and automated administrative cleanup tasks.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to detect the use of \"::$index_allocation\" in command-line arguments.\n- Verify your EDR/telemetry coverage, as many standard Sysmon configurations do not log alternate data stream path components in process-creation events.\n- Prioritize auditing file system modifications for directories containing \"::$index_allocation\" strings.\n",
       "published": "2026-09-01T12:25:07.000Z",
@@ -125118,22 +125135,27 @@
         "windows"
       ],
       "object_refs": [
-        "attack-pattern--78ac3757-7782-5464-9fac-0e8faa621d9c",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+        "attack-pattern--f0b4ce4d-59d8-5ca5-a4da-451d516694cc",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d"
       ],
       "external_references": [
         {
           "source_name": "craftedsignal",
           "external_id": "brief-2026-09-01-ntfs-index-allocation-hidden-dirs",
           "url": "https://feed.craftedsignal.io/briefs/2026-09-01-ntfs-index-allocation-hidden-dirs/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_susp_hidden_dir_index_allocation.yml"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-09-01-ntfs-index-allocation-hidden-dirs",
       "x_craftedsignal_event_id": "brief-2026-09-01-ntfs-index-allocation-hidden-dirs",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-01-ntfs-index-allocation-hidden-dirs/",
-      "x_craftedsignal_activity_at": "2026-09-01T12:25:07.000Z",
+      "x_craftedsignal_activity_at": "2026-11-25T16:34:57.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {

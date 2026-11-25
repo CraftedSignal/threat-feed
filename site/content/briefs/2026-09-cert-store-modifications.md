@@ -1,17 +1,48 @@
 ---
+brief_id: brief-2026-09-01-windows-cert-store-modifications
+event_id: brief-2026-09-01-windows-cert-store-modifications
+revision: 2
+activity_at: "2026-11-25T16:34:57Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-25T16:34:57Z"
+    checksum: sha256:88e7bb787c2fd2a0cb3f3813cf3eeb5362af0545111f713a3b2604448e650a15
+    summary: new product
+    changed_fields:
+      - affected_products
+      - affected_vendors
+      - lastmod
+      - ttps
+      - updates
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_install_root_or_ca_certificat.yml
 title: Detection of Unauthorized Root or CA Certificate Installation
 slug: 2026-09-cert-store-modifications
 description: Adversaries can install malicious root or CA certificates into the Windows registry to facilitate traffic interception, bypass security controls, and establish persistence.
 date: "2026-09-01T12:12:22Z"
+lastmod: "2026-11-25T16:34:23Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 tags:
   - windows
   - registry
   - certificate-management
+vendors:
+  - Microsoft
+products:
+  - Windows
 affected_os:
   - Windows
 mitre_ttps:
@@ -19,6 +50,8 @@ mitre_ttps:
     tactic_name: Defense Evasion
     technique_id: T1553
     technique_name: Subvert Trust Controls
+    subtechnique_id: T1553.004
+    subtechnique_name: Install Root Certificate
     evidence: Adversaries can install a root certificate on a compromised system to enable them to intercept and inspect encrypted traffic.
     confidence_band: high
 references:
@@ -64,7 +97,17 @@ action_plan:
       owner: IT Operations
       addresses: T1553.004
       evidence: Mitigation of subversion of trust controls
+updates:
+  - at: "2026-11-25T16:34:23Z"
+    level: L1
+    summary: new product
+    sources:
+      - sigma-hq
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_install_root_or_ca_certificat.yml
 ---
+
+## Overview
 
 The installation of unauthorized root or Certification Authority (CA) certificates into the Windows registry is a technique used by adversaries to facilitate malicious activities such as man-in-the-middle (MitM) attacks, bypass certificate validation for malicious payloads, and ensure the persistence of rogue communication channels. By modifying specific registry keys within the SystemCertificates hive, an attacker can force the operating system to trust a compromised or attacker-controlled certificate. This technique is often observed during post-exploitation phases or as a means to subvert enterprise-grade security appliances that rely on SSL/TLS inspection. Defenders should prioritize visibility into registry modifications affecting the Windows certificate store to identify unauthorized trust anchors being added to the environment.
 

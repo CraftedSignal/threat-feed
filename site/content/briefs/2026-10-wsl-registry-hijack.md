@@ -1,18 +1,49 @@
 ---
+brief_id: brief-2026-10-wsl-registry-hijack
+event_id: brief-2026-10-wsl-registry-hijack
+revision: 2
+activity_at: "2026-11-25T16:34:57Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-25T16:34:57Z"
+    checksum: sha256:e6687c6d05e952e3345e3609b7c3f96ad19ad2d6170af12387ccdde5ecf74530
+    summary: new product
+    changed_fields:
+      - affected_products
+      - affected_vendors
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_wsl_installlocation_registry_key_modification.yml
 title: Potential Hijacking of Windows Subsystem for Linux via Registry Modification
 slug: 2026-10-wsl-registry-hijack
 description: Adversaries can gain persistence and perform proxy execution by modifying the WSL InstallLocation registry key to redirect binary execution to malicious payloads.
 date: "2026-10-02T10:12:47Z"
+lastmod: "2026-11-25T16:34:40Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: B
+  credibility: "2"
+  rating: B2
+  likelihood: likely
+qa_status:
+  verdict: pass
 tags:
   - persistence
   - defense-evasion
   - registry
   - wsl
+vendors:
+  - Microsoft
+products:
+  - Windows Subsystem for Linux
 affected_os:
   - Windows
 mitre_ttps:
@@ -28,6 +59,8 @@ mitre_ttps:
     technique_name: System Binary Proxy Execution
     evidence: Attackers can modify this registry key to redirect the execution flow of legitimate WSL processes (wsl.exe or bash.exe) to a malicious payload, acting as a proxy execution and defense evasion technique.
     confidence_band: high
+references:
+  - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_wsl_installlocation_registry_key_modification.yml
 rules:
   - title: Detect Potential WSL InstallLocation Registry Key Modification
     description: Detects modifications to the Windows Subsystem for Linux (WSL) InstallLocation registry key, which can be used for proxy execution or persistence.
@@ -60,7 +93,17 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: Registry keys are persistent and can be searched retrospectively.
+updates:
+  - at: "2026-11-25T16:34:40Z"
+    level: L1
+    summary: new product
+    sources:
+      - sigma-hq
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_wsl_installlocation_registry_key_modification.yml
 ---
+
+## Overview
 
 Research indicates that the Windows Subsystem for Linux (WSL) configuration can be abused by attackers to achieve stealthy execution and persistence. By modifying the 'InstallLocation' registry key associated with WSL, an actor can point the system to a custom or malicious directory. When a user subsequently invokes 'wsl.exe' or 'bash.exe', the system executes the payload located at the path defined in the hijacked registry key instead of the legitimate WSL environment. This technique provides a mechanism for defense evasion by leveraging trusted system binaries to execute malicious code, potentially bypassing security controls that rely on process allowlisting or signature-based detection. This method has been documented in various security research reports as a vector for stealthy operations and long-term system persistence on Windows endpoints.
 
