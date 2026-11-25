@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4f9c33a8-2133-5cf2-b79a-7c8638cf78ea",
+  "id": "bundle--9c599232-f6d8-5c74-8ce7-876eed684833",
   "objects": [
     {
       "type": "attack-pattern",
@@ -43656,7 +43656,7 @@
       "id": "relationship--2fa9124f-e5d7-5291-a566-6a8e8a7f7ed3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T22:02:01.000Z",
-      "modified": "2026-11-19T22:02:01.000Z",
+      "modified": "2026-11-25T23:23:52.000Z",
       "relationship_type": "uses",
       "source_ref": "report--dcc103a2-3715-50d2-b423-9d801226b701",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -68736,7 +68736,7 @@
       "id": "relationship--5302755e-b62f-5700-90b1-e741bbc7e812",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T22:02:01.000Z",
-      "modified": "2026-11-19T22:02:01.000Z",
+      "modified": "2026-11-25T23:23:52.000Z",
       "relationship_type": "uses",
       "source_ref": "report--dcc103a2-3715-50d2-b423-9d801226b701",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -360163,7 +360163,7 @@
       "id": "report--dcc103a2-3715-50d2-b423-9d801226b701",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T22:02:01.000Z",
-      "modified": "2026-11-19T22:02:01.000Z",
+      "modified": "2026-11-25T23:23:52.000Z",
       "name": "Mitel MiCollab: Audio, Web, and Video Conferencing command injection (CVE-2026-133323)",
       "description": "## Overview\nA vulnerability exists in the Audio, Web, and Video Conferencing (AWV) component of Mitel MiCollab, identified as CVE-2026-133323 (MTLVULN-1864). The flaw stems from insufficient parameter sanitization, which allows unauthenticated attackers to perform blind command injection. Successful exploitation permits the execution of arbitrary commands within the context of the underlying system. No fixed release is currently identified in the provided evidence.\n\n## Impact\nSuccessful exploitation results in full system compromise due to the ability to execute arbitrary commands, leading to a CVSS 3.1 base score of 10.0 (Critical).\n\n## Recommendation\n- Inventory all deployments of Mitel MiCollab, specifically those running version 10.3 (10.3.0.18) or earlier.\n- Restrict network access to the Audio, Web, and Video Conferencing (AWV) component by placing it behind a VPN or internal network firewall to limit exposure to unauthenticated attackers.\n- Monitor vendor communications from Mitel regarding the release of a patch for MTLVULN-1864.",
       "published": "2026-11-19T22:02:01.000Z",
@@ -360187,22 +360187,29 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133323"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-mitel-micollab-could-allow-for-arbitrary-code-execution_2026-139"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-19-mitel-micollab-command-injection-cve-2026-133323",
       "x_craftedsignal_event_id": "brief-2026-11-19-mitel-micollab-command-injection-cve-2026-133323",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mitel-micollab-command-injection-cve-2026-133323/",
-      "x_craftedsignal_activity_at": "2026-11-19T22:02:01.000Z",
+      "x_craftedsignal_activity_at": "2026-11-25T23:23:52.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "observed_at": "2026-11-25T00:00:00.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_epss_max": 0.01662,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
