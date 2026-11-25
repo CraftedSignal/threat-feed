@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--edc13151-62de-586f-906d-c2249d196c63",
+  "id": "bundle--54f37ccd-a244-5fc3-9510-aa1893631ba4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -19064,6 +19064,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--68e975ac-87b1-5b5f-97e0-141ab326fc2b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--113506b2-b8a2-5892-b7b6-8829474ae1e0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T20:41:49.000Z",
+      "modified": "2026-11-25T20:41:49.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b5c426d4-0789-503b-9059-3ea187a76958",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -61898,6 +61909,17 @@
       "relationship_type": "uses",
       "source_ref": "report--66af3ebf-76c6-58f0-a818-f2a6be889701",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--57c6e05e-7c51-5416-9306-b074fd6cd8c7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T20:41:49.000Z",
+      "modified": "2026-11-25T20:41:49.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b5c426d4-0789-503b-9059-3ea187a76958",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -125929,6 +125951,17 @@
       "relationship_type": "uses",
       "source_ref": "report--46aa4531-245a-55ea-af83-74ba016ac147",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bff7e354-bf5f-51a1-b0eb-9bd3109f3e60",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--96a94b24-19f3-52cb-9f44-25d303a46132",
+      "target_ref": "vulnerability--c6f58937-23dc-535f-b2c4-7034463fbd7d"
     },
     {
       "type": "relationship",
@@ -279939,6 +279972,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b5c426d4-0789-503b-9059-3ea187a76958",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T20:41:49.000Z",
+      "modified": "2026-11-25T20:41:49.000Z",
+      "name": "WP Rocket: Unauthenticated remote code execution via path traversal (CVE-2026-125812)",
+      "description": "## Overview\n\nWP Rocket versions prior to 3.24.2 contain an improper limitation of a pathname to a restricted directory vulnerability (CVE-2026-125812). This flaw resides in the plugin's font optimization pipeline, which processes external CSS requests. An unauthenticated attacker can exploit this by forcing the plugin to process a malicious URL, leading to an arbitrary file write within the WordPress webroot. This effectively permits the creation of web shells or other malicious content, resulting in remote code execution (RCE).\n\n## Attack Chain\n\n1. The attacker identifies a target site running an affected version of the WP Rocket plugin.\n2. The attacker sets up a malicious external callback server to serve a crafted CSS response.\n3. The attacker sends a request to the target site, leveraging the font optimization feature with a manipulated URL (e.g., //fonts.googleapis.com/css2/x.woff2) to initiate the path traversal.\n4. The target server reaches out to the attacker's callback server.\n5. The callback server responds with CSS containing path traversal sequences in the `url()` field.\n6. The plugin incorrectly processes the traversal sequences, allowing the attacker to write an arbitrary file to the webroot.\n7. The attacker sends a final request to trigger the newly written malicious file (e.g., a PHP shell), achieving RCE.\n\n## Impact\n\nSuccessful exploitation results in full server-side compromise, including the ability to execute arbitrary commands, read sensitive files, and modify website content without authentication.\n\n## Recommendation\n\n- Immediately update the WP Rocket WordPress plugin to version 3.24.2 or later.\n- Audit the WordPress webroot for suspicious files, particularly those created or modified around the time of potential scanning activity.\n- Monitor web server access logs for anomalous requests to the font optimization pipeline or unexpected traffic to unknown external domains triggered by the web application.",
+      "published": "2026-11-25T20:41:49.000Z",
+      "labels": [
+        "cve-2026-125812",
+        "path-traversal",
+        "rce",
+        "web-application",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--96a94b24-19f3-52cb-9f44-25d303a46132",
+        "vulnerability--c6f58937-23dc-535f-b2c4-7034463fbd7d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-wp-rocket-rce-cve-2026-125812",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wp-rocket-rce-cve-2026-125812/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125812"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=F605EAAF-75AD-51F4-A5CA-83AC35EF8D46\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-wp-rocket-rce-cve-2026-125812",
+      "x_craftedsignal_event_id": "brief-2026-11-25-wp-rocket-rce-cve-2026-125812",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wp-rocket-rce-cve-2026-125812/",
+      "x_craftedsignal_activity_at": "2026-11-25T20:41:49.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b5c92c00-2d91-5586-9b60-59adfa6c8361",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:20:42.000Z",
@@ -340974,6 +341060,13 @@
       "id": "software--969f4b30-e3c3-5e1d-b85e-98debc305455",
       "name": "Splunk Enterprise (version \u003c 10.0.12)",
       "vendor": "Splunk"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--96a94b24-19f3-52cb-9f44-25d303a46132",
+      "name": "WP Rocket (\u003c 3.24.2)",
+      "vendor": "WP Media"
     },
     {
       "type": "software",
@@ -408977,6 +409070,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-123202",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123202"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c6f58937-23dc-535f-b2c4-7034463fbd7d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-125812",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-125812",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125812"
         }
       ]
     },
