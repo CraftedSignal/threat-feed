@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--677a7d90-1117-50c9-b639-f1cdc94bcff9",
+  "id": "bundle--be17ee26-5e4e-525d-95bf-5722f8a89b47",
   "objects": [
     {
       "type": "attack-pattern",
@@ -96640,6 +96640,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--77fae90a-b305-5b90-ae28-00113ce909d4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T00:51:36.000Z",
+      "modified": "2026-11-25T02:12:50.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a17e09b9-384e-50de-94ed-bd72c9067ed8",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--77fc506f-7773-57cd-8b9d-b3bc4047a464",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -109990,6 +110001,17 @@
       "relationship_type": "has",
       "source_ref": "software--c29a422c-e3bf-53a3-9f82-ae79326b5b24",
       "target_ref": "vulnerability--5cc29f1a-23a2-52e2-8330-e91041c5b5eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--89b79513-544a-5ff2-93fe-ac08bfae2c4e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2e1469d3-0369-5bcb-a2d8-96d66a84532e",
+      "target_ref": "vulnerability--ebca9acf-1116-57c6-9095-343f8ff97eae"
     },
     {
       "type": "relationship",
@@ -189894,6 +189916,17 @@
       "relationship_type": "has",
       "source_ref": "software--48a69775-5d3d-5538-83f3-87c88b639c2d",
       "target_ref": "vulnerability--3cdc9435-70f1-5157-b88d-01fcedb9aeb8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f8921473-6280-5ae0-8b90-69910587c4cc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f6c99948-9d0b-5938-ba3e-92eb6c18c721",
+      "target_ref": "vulnerability--ebca9acf-1116-57c6-9095-343f8ff97eae"
     },
     {
       "type": "relationship",
@@ -318647,6 +318680,66 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a17e09b9-384e-50de-94ed-bd72c9067ed8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-20T00:51:36.000Z",
+      "modified": "2026-11-25T02:12:50.000Z",
+      "name": "NLTK: OS command injection via Java launcher (CVE-2026-128138)",
+      "description": "## Overview\n\nCVE-2026-128138 is an OS command injection vulnerability in the NLTK library (versions 3.10.3 to 3.10.4). The library improperly validates Java launcher tokens in the options channel of the Java-backed parser integration (e.g., StanfordSegmenter, Stanford CoreNLP, MaltParser). An attacker can supply a malicious token containing shell metacharacters via nltk.internals.java, leading to arbitrary command execution on the host machine. A functional proof-of-concept exploit is publicly available, increasing the risk of exploitation.\n\n## Attack Chain\n\n1. Attacker identifies an NLTK-based application that processes user-controlled input through Java-backed parsers.\n2. Attacker crafts a malicious string containing shell metacharacters (e.g., `;`, `|`, `\u0026`).\n3. Attacker submits the payload as an input token to the NLTK Java interface.\n4. NLTK concatenates the payload into a command string for the Java launcher.\n5. The Java launcher executes the resulting shell command.\n6. Arbitrary OS commands are executed on the application host with the privileges of the NLTK process.\n\n## Impact\n\nSuccessful exploitation results in full remote code execution on the server or workstation running the NLTK-based application, with potential for total system compromise, data theft, and persistence.\n\n## Recommendation\n\n- Patch: Upgrade NLTK to version 3.10.4 or later immediately.\n- Remediation: Developers should replace any shell-based subprocess execution with list-based invocations (`subprocess.run(list_form)`) and implement strict input validation using `shlex.quote()` to sanitize all tokens passed to external command launchers.",
+      "published": "2026-11-20T00:51:36.000Z",
+      "labels": [
+        "command-injection",
+        "cve",
+        "nltk",
+        "rce"
+      ],
+      "object_refs": [
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2e1469d3-0369-5bcb-a2d8-96d66a84532e",
+        "software--f6c99948-9d0b-5938-ba3e-92eb6c18c721",
+        "vulnerability--ebca9acf-1116-57c6-9095-343f8ff97eae"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-20-nltk-rce-cve-2026-128138",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-rce-cve-2026-128138/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-128138"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128138"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=3FC18197-45DC-50BE-9D71-AFBA7D9B6AB7"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=3FC18197-45DC-50BE-9D71-AFBA7D9B6AB7\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-20-nltk-rce-cve-2026-128138",
+      "x_craftedsignal_event_id": "brief-2026-11-20-nltk-rce-cve-2026-128138",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nltk-rce-cve-2026-128138/",
+      "x_craftedsignal_activity_at": "2026-11-25T02:12:50.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a17f1d62-5f22-52eb-813e-2cb4742ac235",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T10:52:29.000Z",
@@ -394359,6 +394452,13 @@
       "spec_version": "2.1",
       "id": "software--2e12ca32-5709-5612-8dff-e9dc59f1a5ef",
       "name": "osc.open_ondemand"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--2e1469d3-0369-5bcb-a2d8-96d66a84532e",
+      "name": "NLTK (\u003e= 3.10.3, \u003c 3.10.4)",
+      "vendor": "nltk"
     },
     {
       "type": "software",
