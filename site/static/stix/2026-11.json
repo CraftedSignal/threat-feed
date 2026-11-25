@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--25b5ed7d-7c6b-57fd-aaa6-1050ff5f90ce",
+  "id": "bundle--58620d52-f617-5427-9ab1-7057005d4d1d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -543,6 +543,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1205",
           "url": "https://attack.mitre.org/techniques/T1205"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--1eff40f5-5cb6-568a-ba41-d3b1bdbf0038",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "DNS",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1590.002",
+          "url": "https://attack.mitre.org/techniques/T1590/002"
         }
       ]
     },
@@ -2085,6 +2101,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--a1de2e06-c3d2-5b21-a571-47545bce0a43",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Exfiltration to Cloud Storage",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1567.002",
+          "url": "https://attack.mitre.org/techniques/T1567/002"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2789,6 +2821,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--da26685a-06ae-5445-a6a5-2e777dbba577",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Query Registry",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1012",
+          "url": "https://attack.mitre.org/techniques/T1012"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3055,6 +3103,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1539",
           "url": "https://attack.mitre.org/techniques/T1539"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--f0b4ce4d-59d8-5ca5-a4da-451d516694cc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "NTFS File Attributes",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1564.004",
+          "url": "https://attack.mitre.org/techniques/T1564/004"
         }
       ]
     },
@@ -13793,6 +13857,17 @@
       "relationship_type": "has",
       "source_ref": "software--fcfd626f-c59d-528f-9ee4-0cf72cea1cb2",
       "target_ref": "vulnerability--400c6df6-6184-547c-b605-92562c25ab50"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--09260dcd-d484-5682-8485-3148cbec0e5e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:23:50.000Z",
+      "modified": "2026-11-25T16:23:50.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7286b9b0-55d6-5c3f-8728-e248545e2551",
+      "target_ref": "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876"
     },
     {
       "type": "relationship",
@@ -44388,6 +44463,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3bc430b6-6482-5a89-ae0b-76578b99e263",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:21:36.000Z",
+      "modified": "2026-11-25T16:21:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6732fc8b-36e4-5b1a-9d5d-e2ee4aa7c788",
+      "target_ref": "attack-pattern--1eff40f5-5cb6-568a-ba41-d3b1bdbf0038"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3bcd665d-462d-5c2f-b794-82072fd8d705",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -49125,6 +49211,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--d56fa89c-c5d2-59b3-a314-df5d8a17e17d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--43f8e925-c84c-573e-a049-061432ab7bab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:23:57.000Z",
+      "modified": "2026-11-25T16:23:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d9d4cab2-4514-5d61-aab6-2f57a6962357",
+      "target_ref": "attack-pattern--a1de2e06-c3d2-5b21-a571-47545bce0a43"
     },
     {
       "type": "relationship",
@@ -58695,6 +58792,17 @@
       "relationship_type": "uses",
       "source_ref": "report--b72b1847-f67f-51a9-9a33-c72ed363d669",
       "target_ref": "attack-pattern--8fc56897-9604-585d-b9ba-92e6c29d47c9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--534baec3-699d-5bfc-88a2-c796183a1f0b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:24:05.000Z",
+      "modified": "2026-11-25T16:24:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a9317d80-612f-59f3-9e78-7e9c6ceef200",
+      "target_ref": "attack-pattern--f0b4ce4d-59d8-5ca5-a4da-451d516694cc"
     },
     {
       "type": "relationship",
@@ -69435,6 +69543,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--647a010a-c162-5322-98ef-08030f59b35b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:21:46.000Z",
+      "modified": "2026-11-25T16:21:46.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c4e79d6d-c1e6-5668-94a3-386fe032530e",
+      "target_ref": "attack-pattern--da26685a-06ae-5445-a6a5-2e777dbba577"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--64801ce1-c398-5c4f-8ac5-ca7a889afdb1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -75507,6 +75626,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6e070555-77bc-50a6-9483-9e05b0318807",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:21:25.000Z",
+      "modified": "2026-11-25T16:21:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3ed0a6b9-0e59-5f28-a0ad-44cdbe078bfb",
+      "target_ref": "attack-pattern--a1de2e06-c3d2-5b21-a571-47545bce0a43"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6e0f9264-e51e-56f0-a35f-83449c9fbc49",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -75580,6 +75710,17 @@
       "relationship_type": "has",
       "source_ref": "software--153a8653-4b4b-56e7-bfef-6faa628de8bd",
       "target_ref": "vulnerability--0ae42c74-565a-50f7-93a5-20d7bd576c4d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6e20d17a-096c-5688-8fd8-7298772699d0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:21:57.000Z",
+      "modified": "2026-11-25T16:21:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--60e17872-ecf4-5945-8e91-74b250fee41e",
+      "target_ref": "attack-pattern--da26685a-06ae-5445-a6a5-2e777dbba577"
     },
     {
       "type": "relationship",
@@ -80904,6 +81045,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--8de56a6b-ba81-5b7d-8e13-12c8ed6dfa4d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--76dfb201-909f-527e-b2a5-c75df929a943",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:22:04.000Z",
+      "modified": "2026-11-25T16:22:04.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--229a5c3f-b5d7-5ee5-8681-cf39331df40c",
+      "target_ref": "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c"
     },
     {
       "type": "relationship",
@@ -184847,6 +184999,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--229a5c3f-b5d7-5ee5-8681-cf39331df40c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:22:04.000Z",
+      "modified": "2026-11-25T16:22:04.000Z",
+      "name": "Unauthorized access to Microsoft Teams authentication tokens",
+      "description": "## Overview\nMicrosoft Teams stores authentication tokens and session data on the local file system. Unauthorized access to these files, located within the application's local storage and cookie directories, allows for potential session hijacking and impersonation of users. This activity can be identified via Windows Security event auditing when processes access these specific sensitive paths.\n\n## Attack Chain\nAttackers target the local file system where Microsoft Teams stores authentication tokens. Accessing these files allows an attacker to retrieve session data, which may lead to the compromise of the victim's account.\n\n## Impact\nSuccessful extraction of authentication tokens allows unauthorized parties to bypass primary authentication mechanisms, leading to session hijacking and unauthorized access to resources accessible through the victim's Teams account.\n\n## Recommendation\nMonitor for unauthorized process access to Teams local storage using Windows Security auditing. Organizations should ensure that only the legitimate Microsoft Teams process is accessing these sensitive directories.",
+      "published": "2026-11-25T16:22:04.000Z",
+      "labels": [
+        "credential-access",
+        "microsoft-teams"
+      ],
+      "object_refs": [
+        "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a798184d-31a2-527a-a29e-bdf6819647df"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-teams-auth-access",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-teams-auth-access/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/security/win_security_teams_suspicious_objectaccess.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20230726144455/https://www.vectra.ai/blogpost/undermining-microsoft-teams-security-by-mining-tokens"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.bleepingcomputer.com/news/security/microsoft-teams-stores-auth-tokens-as-cleartext-in-windows-linux-macs/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-teams-auth-access",
+      "x_craftedsignal_event_id": "brief-2026-11-25-teams-auth-access",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-teams-auth-access/",
+      "x_craftedsignal_activity_at": "2026-11-25T16:22:04.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--22b5387e-acae-5055-a294-b47c603b92e2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T18:50:53.000Z",
@@ -204164,6 +204367,52 @@
       },
       "x_craftedsignal_cvss_max": 7.4,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3ed0a6b9-0e59-5f28-a0ad-44cdbe078bfb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:21:25.000Z",
+      "modified": "2026-11-25T16:21:25.000Z",
+      "name": "DNS Client Queries to MEGA Cloud Storage",
+      "description": "## Overview\n\nThis brief documents detection logic for monitoring outbound DNS traffic to the MEGA cloud storage platform (mega.co.nz) using the Windows DNS Client operational log. \n\n## Attack Chain\n\n- The detection identifies DNS resolution requests for specific subdomains associated with the MEGA storage service.\n\n## Impact\n\n- Potential identification of endpoints communicating with the MEGA cloud storage platform.\n\n## Recommendation\n\n- Enable and collect the Microsoft-Windows-DNS Client Events/Operational log to facilitate detection.\n- Deploy the provided Sigma rule to monitor for relevant DNS queries.",
+      "published": "2026-11-25T16:21:25.000Z",
+      "labels": [
+        "dns",
+        "exfiltration"
+      ],
+      "object_refs": [
+        "attack-pattern--a1de2e06-c3d2-5b21-a571-47545bce0a43",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-dns-query-mega",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dns-query-mega/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/dns_client/win_dns_client_mega_nz.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.nccgroup.com/research/detecting-rclone-an-effective-tool-for-exfiltration/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-dns-query-mega",
+      "x_craftedsignal_event_id": "brief-2026-11-25-dns-query-mega",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dns-query-mega/",
+      "x_craftedsignal_activity_at": "2026-11-25T16:21:25.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -226370,6 +226619,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--60e17872-ecf4-5945-8e91-74b250fee41e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:21:57.000Z",
+      "modified": "2026-11-25T16:21:57.000Z",
+      "name": "Azure AD Health Service Agent registry access monitoring",
+      "description": "## Overview\n\nAccessing the registry keys associated with the Azure AD Health service agent (specifically HKLM:\\SOFTWARE\\Microsoft\\ADHealthAgent) allows an attacker to potentially compromise identity-related configurations. In hybrid environments, this data can be misused to abuse features such as Federation, potentially leading to unauthorized token generation or other identity-based attacks. Monitoring requires configuring a System Access Control List (SACL) on the target registry path to capture events in the Windows Security log.\n\n## Recommendation\n\n- Configure a SACL on the registry key HKLM:\\SOFTWARE\\Microsoft\\ADHealthAgent to log object access (Success/Failure).\n- Deploy the provided Sigma rule to audit 4656/4663 Event IDs to identify processes interacting with this key that are not part of the legitimate Azure AD Health agent suite.",
+      "published": "2026-11-25T16:21:57.000Z",
+      "labels": [
+        "discovery",
+        "identity-security",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--da26685a-06ae-5445-a6a5-2e777dbba577",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-azure-ad-health-agent-registry-access",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-azure-ad-health-agent-registry-access/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/security/win_security_aadhealth_svc_agent_regkey_access.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-azure-ad-health-agent-registry-access",
+      "x_craftedsignal_event_id": "brief-2026-11-25-azure-ad-health-agent-registry-access",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-azure-ad-health-agent-registry-access/",
+      "x_craftedsignal_activity_at": "2026-11-25T16:21:57.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--60ea9880-5bb2-5830-90eb-fa455807814e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-22T02:57:21.000Z",
@@ -230855,6 +231147,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--6732fc8b-36e4-5b1a-9d5d-e2ee4aa7c788",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:21:36.000Z",
+      "modified": "2026-11-25T16:21:36.000Z",
+      "name": "DNS Server Zone Transfer Failure",
+      "description": "## Overview\n\nThe Windows DNS Server service records Event ID 6004 when a request for a zone transfer is received by the server for a zone that is either non-existent or for which the server is not authoritative.\n\n## Attack Chain\n\nThis event indicates an attempt to initiate a zone transfer (AXFR) against a DNS server.\n\n## Impact\n\nUnauthorized zone transfer requests may be logged by the DNS Server service.\n\n## Recommendation\n\nMonitor DNS Server logs for the occurrence of Event ID 6004.",
+      "published": "2026-11-25T16:21:36.000Z",
+      "labels": [
+        "dns",
+        "reconnaissance"
+      ],
+      "object_refs": [
+        "attack-pattern--1eff40f5-5cb6-568a-ba41-d3b1bdbf0038",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-dns-zone-transfer",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dns-zone-transfer/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/dns_server/win_dns_server_failed_dns_zone_transfer.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20231017043746/https://kb.eventtracker.com/evtpass/evtpages/EventId_6004_Microsoft-Windows-DNS-Server-Service_65410.asp"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-dns-zone-transfer",
+      "x_craftedsignal_event_id": "brief-2026-11-25-dns-zone-transfer",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dns-zone-transfer/",
+      "x_craftedsignal_activity_at": "2026-11-25T16:21:36.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -236900,6 +237238,48 @@
       },
       "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--7286b9b0-55d6-5c3f-8728-e248545e2551",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:23:50.000Z",
+      "modified": "2026-11-25T16:23:50.000Z",
+      "name": "Detection of Offensive PowerShell Scripts via File Creation",
+      "description": "## Overview\n\nSecurity teams can detect the staging of common offensive PowerShell frameworks and exploitation scripts by monitoring file system events. This detection identifies the creation of files matching known malicious PowerShell script names, including tools used for credential dumping, persistence, UAC bypass, and network reconnaissance.\n\n## Recommendation\n\nDeploy the provided Sigma detection rule to monitor for file creation events matching the identified list of offensive script names. This is particularly effective for detecting the 'drop' phase of an engagement where an attacker stages tools on the disk. Ensure endpoint security policies restrict write access to non-standard directories to reduce the footprint of potential tool staging.",
+      "published": "2026-11-25T16:23:50.000Z",
+      "labels": [
+        "attack.execution",
+        "attack.t1059.001"
+      ],
+      "object_refs": [
+        "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-malicious-powershell-file-creation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-malicious-powershell-file-creation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/file/file_event/file_event_win_powershell_exploit_scripts.yml"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-malicious-powershell-file-creation",
+      "x_craftedsignal_event_id": "brief-2026-11-25-malicious-powershell-file-creation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-malicious-powershell-file-creation/",
+      "x_craftedsignal_activity_at": "2026-11-25T16:23:50.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -272110,6 +272490,68 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a9317d80-612f-59f3-9e78-7e9c6ceef200",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:24:05.000Z",
+      "modified": "2026-11-25T16:24:05.000Z",
+      "name": "Windows NTFS Hidden Directory Creation via INDEX_ALLOCATION Stream",
+      "description": "## Overview\n\nWindows file systems support an NTFS-specific technique where appending the '::$index_allocation' stream to a directory name creates a hidden container. This manipulation prevents common Windows administrative and browsing tools, such as Windows Explorer and PowerShell, from accessing, listing, or deleting the directory or its contents.\n\n## Impact\n\nThis technique is used as a method to prevent access to folders and files from standard tooling, potentially concealing malicious artifacts from forensic or administrative visibility.\n\n## Recommendation\n\n- Deploy file system monitoring capable of detecting the creation of files or directories containing the '::$index_allocation' string.\n- Note that while Sysmon and ETW may be unable to log the presence of such streams in the CommandLine, some EDR solutions may be able to detect this via alternate telemetry such as console command history.",
+      "published": "2026-11-25T16:24:05.000Z",
+      "labels": [
+        "file-system-manipulation",
+        "stealth"
+      ],
+      "object_refs": [
+        "attack-pattern--f0b4ce4d-59d8-5ca5-a4da-451d516694cc",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-hidden-ntfs-directory",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-hidden-ntfs-directory/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/file/file_event/file_event_win_susp_hidden_dir_index_allocation.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/5c3b23002d2bbede3c07e7307165fc2a235a427d/atomics/T1564.004/T1564.004.md#atomic-test-5---create-hidden-directory-via-index_allocation"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-fscc/c54dec26-1551-4d3a-a0ea-4fa40f848eb3"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sec-consult.com/blog/detail/pentesters-windows-ntfs-tricks-collection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://twitter.com/pfiatde/status/1681977680688738305"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20250603152157/https://soroush.me/blog/2010/12/a-dotty-salty-directory-a-secret-place-in-ntfs-for-secret-files/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-hidden-ntfs-directory",
+      "x_craftedsignal_event_id": "brief-2026-11-25-hidden-ntfs-directory",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-hidden-ntfs-directory/",
+      "x_craftedsignal_activity_at": "2026-11-25T16:24:05.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a93fbb5a-562b-55bb-9e1f-961207afe056",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T11:28:52.000Z",
@@ -288089,6 +288531,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c4e79d6d-c1e6-5668-94a3-386fe032530e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:21:46.000Z",
+      "modified": "2026-11-25T16:21:46.000Z",
+      "name": "Azure AD Health Monitoring Agent Registry Keys Access",
+      "description": "## Overview\n\nThe Azure AD Connect Health monitoring agent registry key at HKLM\\SOFTWARE\\Microsoft\\Microsoft Online\\Reporting\\MonitoringAgent is a target for unauthorized access. This detection uses Windows security events to identify suspicious access attempts.\n\n## Attack Chain\n\nThis activity is categorized as Registry Discovery (T1012), where an adversary may interact with sensitive configuration registry keys.\n\n## Impact\n\nUnauthorized access to this key could facilitate the discovery of configuration settings or sensitive information regarding the hybrid health monitoring agent.\n\n## Recommendation\n\nThis detection requires an access control entry (ACE) on the system access control list (SACL) of the following securable object: HKLM\\SOFTWARE\\Microsoft\\Microsoft Online\\Reporting\\MonitoringAgent.",
+      "published": "2026-11-25T16:21:46.000Z",
+      "labels": [
+        "attack.discovery",
+        "attack.t1012"
+      ],
+      "object_refs": [
+        "attack-pattern--da26685a-06ae-5445-a6a5-2e777dbba577",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--aa26cfc3-97dd-563c-8cdf-2874773a62a3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-aad-health-agent-reg-access",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-aad-health-agent-reg-access/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://aadinternals.com/post/hybridhealthagent/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/OTRF/Set-AuditRule/blob/c3dec5443414231714d850565d364ca73475ade5/rules/registry/aad_connect_health_monitoring_agent.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/security/win_security_aadhealth_mon_agent_regkey_access.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-aad-health-agent-reg-access",
+      "x_craftedsignal_event_id": "brief-2026-11-25-aad-health-agent-reg-access",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-aad-health-agent-reg-access/",
+      "x_craftedsignal_activity_at": "2026-11-25T16:21:46.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c4ed4e9c-f72a-58cb-a8fc-5d7ed50458a4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T23:24:14.000Z",
@@ -301297,6 +301790,49 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--d9d4cab2-4514-5d61-aab6-2f57a6962357",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-25T16:23:57.000Z",
+      "modified": "2026-11-25T16:23:57.000Z",
+      "name": "Rclone configuration file creation",
+      "description": "## Overview\n\nRclone is a command-line program for managing files on cloud storage. Threat actors frequently utilize Rclone for data exfiltration due to its extensive cloud provider support and ability to encrypt data in transit. The creation of a configuration file in a user profile directory is a necessary prerequisite for Rclone to authenticate and interact with remote storage services.\n\n## Impact\n\nUnauthorized data exfiltration to attacker-controlled cloud storage, potentially leading to sensitive data loss.\n\n## Recommendation\n\nDeploy the provided Sigma rule to monitor for the creation of Rclone configuration files. In environments where Rclone is not used, treat these file creation events as high-fidelity alerts for potential exfiltration activity. In environments where Rclone is used legitimately, baseline authorized user accounts and service accounts that are permitted to interact with Rclone and investigate deviations.",
+      "published": "2026-11-25T16:23:57.000Z",
+      "labels": [
+        "exfiltration",
+        "rclone",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--a1de2e06-c3d2-5b21-a571-47545bce0a43",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-25-rclone-config",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-rclone-config/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/file/file_event/file_event_win_rclone_config_files.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-25-rclone-config",
+      "x_craftedsignal_event_id": "brief-2026-11-25-rclone-config",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-rclone-config/",
+      "x_craftedsignal_activity_at": "2026-11-25T16:23:57.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -341230,6 +341766,12 @@
       "id": "software--a9f9291a-66f3-5760-9c75-cc410f70ab0b",
       "name": "Apache TomEE (11.0.0-M1 to 11.0.0-M2)",
       "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--aa26cfc3-97dd-563c-8cdf-2874773a62a3",
+      "name": "Azure AD Connect Health Monitoring Agent"
     },
     {
       "type": "software",
