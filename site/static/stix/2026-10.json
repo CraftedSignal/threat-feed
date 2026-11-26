@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9f284d9a-be77-523f-b1e4-11880b773a1b",
+  "id": "bundle--7f7c085e-0adb-5145-8133-59a90802c21f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -26711,6 +26711,17 @@
       "relationship_type": "has",
       "source_ref": "software--4aa5f7aa-79ac-5b05-a783-3a4dbbf38fd4",
       "target_ref": "vulnerability--56e8e968-b00b-5ec4-b744-5f1c5e78938f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4391f07c-754f-5524-94a2-9f3c51f2095c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--95f17dd9-6b7b-566b-8f8d-a6883301ff7a",
+      "target_ref": "vulnerability--f5a87bfe-c762-5718-926d-dbb6be3a0fa1"
     },
     {
       "type": "relationship",
@@ -55828,6 +55839,17 @@
       "relationship_type": "has",
       "source_ref": "software--9e21660a-6943-5194-9a72-eb5347e5c2b4",
       "target_ref": "vulnerability--25e585e6-ff2f-504a-8036-3ced45ec8f84"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9e4f6b7d-603a-5381-ae9d-055f590bceaa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--95f17dd9-6b7b-566b-8f8d-a6883301ff7a",
+      "target_ref": "vulnerability--9a2c1188-3b2d-5212-bc1c-e23bbeb77ae5"
     },
     {
       "type": "relationship",
@@ -90069,13 +90091,14 @@
       "id": "report--081343af-19ff-5a43-b71d-133261f23188",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T21:19:06.000Z",
-      "modified": "2026-10-30T21:19:06.000Z",
+      "modified": "2026-11-26T22:38:54.000Z",
       "name": "Apple Xcode: Multiple data confidentiality vulnerabilities (CVE-2026-112602, CVE-2026-112605)",
       "description": "## Overview\n\nApple has released security updates to address multiple vulnerabilities in Xcode, specifically affecting versions prior to 27.2. These flaws, identified as CVE-2026-112602 and CVE-2026-112605, may allow an attacker to gain unauthorized access to sensitive information. No specific exploit details or delivery mechanisms were provided in the advisory.\n\n## Impact\n\nThe identified vulnerabilities present a risk to data confidentiality. The specific scope of information accessible depends on the nature of the underlying flaws within the Xcode environment.\n\n## Recommendation\n\n* Inventory all systems running Xcode and update to version 27.2 or later immediately to mitigate CVE-2026-112602 and CVE-2026-112605.\n* Audit developer environments for unauthorized access or anomalous activity following the application of the security update.\n",
       "published": "2026-10-30T21:19:06.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--84738591-5fcb-5463-84f9-726c9e3e80c4",
+        "software--95f17dd9-6b7b-566b-8f8d-a6883301ff7a",
         "vulnerability--9a2c1188-3b2d-5212-bc1c-e23bbeb77ae5",
         "vulnerability--f5a87bfe-c762-5718-926d-dbb6be3a0fa1"
       ],
@@ -90084,6 +90107,10 @@
           "source_name": "craftedsignal",
           "external_id": "brief-2026-10-30-apple-xcode-vulnerabilities",
           "url": "https://feed.craftedsignal.io/briefs/2026-10-apple-xcode-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112605"
         },
         {
           "source_name": "reference",
@@ -90105,15 +90132,16 @@
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-10-30-apple-xcode-vulnerabilities",
       "x_craftedsignal_event_id": "brief-2026-10-30-apple-xcode-vulnerabilities",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-apple-xcode-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-10-30T21:19:06.000Z",
+      "x_craftedsignal_activity_at": "2026-11-26T22:38:54.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_epss_max": 0.00136,
+      "x_craftedsignal_cvss_max": 3.3,
+      "x_craftedsignal_epss_max": 0.00184,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -211010,6 +211038,13 @@
       "id": "software--95e070e5-956a-589c-a9b1-f78f4234f2d7",
       "name": "PDF Invoices \u0026 Packing Slips for WooCommerce (\u003c= 5.16.1)",
       "vendor": "WordPress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--95f17dd9-6b7b-566b-8f8d-a6883301ff7a",
+      "name": "Xcode",
+      "vendor": "Apple"
     },
     {
       "type": "software",
