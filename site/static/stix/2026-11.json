@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--acfd0f1b-0a36-5da4-9166-01f84b9221af",
+  "id": "bundle--e1eb85ca-3d8e-5420-8ab4-4968249336ef",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16616,6 +16616,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0d1db499-8d68-53e6-918f-b2564af9aa34",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--60db1b0f-229d-5aeb-aa32-2596c4bb882f",
+      "target_ref": "vulnerability--4e366a60-f050-5f89-818b-e9d6e2a44322"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0d24c7b0-13cf-58c5-9174-ab1397889803",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -31340,6 +31351,17 @@
       "modified": "2026-11-23T01:00:14.000Z",
       "relationship_type": "uses",
       "source_ref": "report--004dfd4b-0aae-5d59-a4da-aebef7927f58",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--24aab127-0613-5029-aac6-af2d7cda4c7d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T15:59:34.000Z",
+      "modified": "2026-11-26T15:59:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--74dd8ccc-9639-5399-8182-316f25838dc3",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -77897,6 +77919,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6eb3f1ce-68e1-5324-929e-3615ba44ddb7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a86a78ea-bafb-5cc1-a48c-8f9f53694857",
+      "target_ref": "vulnerability--3296ef72-4936-5553-bda3-7f416c7f89d9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6eba45e7-1740-5f27-9a66-b0208e963c6e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -106959,6 +106992,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9dc2567f-0fa7-5a95-87c6-4be4746c2341",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T15:59:34.000Z",
+      "modified": "2026-11-26T15:59:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--74dd8ccc-9639-5399-8182-316f25838dc3",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9dc2b7b9-cab1-5e00-913c-32bfe08141d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -107615,6 +107659,17 @@
       "relationship_type": "has",
       "source_ref": "software--85475315-041c-542e-bcae-560f82ce7f95",
       "target_ref": "vulnerability--830c1c61-0e00-5344-b68d-16ea4f54d88d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9ed544dd-5ef5-5d9a-aedb-0b7985832fd0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T15:59:26.000Z",
+      "modified": "2026-11-26T15:59:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--18cbbfd5-136b-5e20-85cb-423d4e98303f",
+      "target_ref": "attack-pattern--26ef37e6-18b0-51e5-b888-57037be44a7c"
     },
     {
       "type": "relationship",
@@ -113544,6 +113599,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--aa0b2bf1-cc73-54a9-9870-9a8e528bc2bc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a84c522d-e6b9-5317-ac61-c268bbe8d700",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--28c93ea3-b6ff-50a2-a834-20a8924d40b0",
+      "target_ref": "vulnerability--4e366a60-f050-5f89-818b-e9d6e2a44322"
     },
     {
       "type": "relationship",
@@ -183252,6 +183318,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--18cbbfd5-136b-5e20-85cb-423d4e98303f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T15:59:26.000Z",
+      "modified": "2026-11-26T15:59:26.000Z",
+      "name": "Video Conferencing with Zoom: Unauthorized meeting access (CVE-2026-114434)",
+      "description": "## Overview\n\nThe Video Conferencing with Zoom WordPress plugin prior to version 4.7.0 contains an authorization vulnerability (CVE-2026-114434) that allows unauthenticated users to obtain a valid Zoom Meeting SDK signature for any meeting. Because the plugin does not validate whether a requester is authorized to access a specific meeting before generating the credential, an attacker can potentially join private or restricted meetings.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated remote attackers to gain unauthorized access to Zoom meetings. This may lead to the exposure of confidential discussions, participant lists, or sensitive information shared during the session.\n\n## Recommendation\n\n- Update the Video Conferencing with Zoom WordPress plugin to version 4.7.0 or later immediately.\n- Review web server access logs for anomalous requests targeting the plugin's signature generation endpoint.\n- Audit existing Zoom meeting configurations to ensure that meetings do not rely solely on SDK signature-based authentication if they contain highly sensitive information.",
+      "published": "2026-11-26T15:59:26.000Z",
+      "object_refs": [
+        "attack-pattern--26ef37e6-18b0-51e5-b888-57037be44a7c",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a86a78ea-bafb-5cc1-a48c-8f9f53694857",
+        "vulnerability--3296ef72-4936-5553-bda3-7f416c7f89d9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-video-conferencing-zoom-auth-cve-2026-114434",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-video-conferencing-zoom-auth-cve-2026-114434/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-114434"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114434"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-video-conferencing-zoom-auth-cve-2026-114434",
+      "x_craftedsignal_event_id": "brief-2026-11-26-video-conferencing-zoom-auth-cve-2026-114434",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-video-conferencing-zoom-auth-cve-2026-114434/",
+      "x_craftedsignal_activity_at": "2026-11-26T15:59:26.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00661,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--18de2755-b513-5f04-9da3-d90632b71bce",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T00:15:32.000Z",
@@ -246064,6 +246176,54 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.69797,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--74dd8ccc-9639-5399-8182-316f25838dc3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T15:59:34.000Z",
+      "modified": "2026-11-26T15:59:34.000Z",
+      "name": "UpdraftPlus: SQL injection and privilege escalation (CVE-2026-121150)",
+      "description": "## Overview\n\nThe UpdraftPlus: WP Backup \u0026 Migration Plugin for WordPress fails to correctly handle comment-like content within SQL statements during database restoration. An attacker with Subscriber-level privileges can inject malicious SQL content into their user profile, which is then executed when an administrator performs a backup restore. This vulnerability allows for unauthorized account privilege escalation to administrator. This issue represents a distinct code path from previously patched vulnerabilities in the plugin.\n\n## Attack Chain\n\n1. Attacker creates a WordPress account with Subscriber-level privileges.\n2. Attacker stores crafted, malicious SQL content containing comment-like sequences within their user profile settings.\n3. A WordPress administrator initiates a backup restoration using the UpdraftPlus plugin.\n4. The plugin parses the database backup, including the attacker's stored profile data, during the restore process.\n5. The flawed SQL parsing logic incorrectly interprets the attacker-controlled comment-like content.\n6. The malicious SQL statement is executed within the database context with elevated application privileges.\n7. The attacker's account is granted administrator privileges as a result of the injected SQL execution.\n\n## Impact\n\nSuccessful exploitation allows an authenticated subscriber to achieve full administrative control over the affected WordPress installation.\n\n## Recommendation\n\n- Update the UpdraftPlus: WP Backup \u0026 Migration Plugin immediately to version 2.26.16.26 for the 2.x branch or 1.26.16 for the 1.x branch.\n- Audit existing user accounts for suspicious profile content if an update was not performed prior to recent backup restoration events.",
+      "published": "2026-11-26T15:59:34.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--28c93ea3-b6ff-50a2-a834-20a8924d40b0",
+        "software--60db1b0f-229d-5aeb-aa32-2596c4bb882f",
+        "vulnerability--4e366a60-f050-5f89-818b-e9d6e2a44322"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-updraftplus-sql-injection-cve-2026-121150",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-updraftplus-sql-injection-cve-2026-121150/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-121150"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121150"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-updraftplus-sql-injection-cve-2026-121150",
+      "x_craftedsignal_event_id": "brief-2026-11-26-updraftplus-sql-injection-cve-2026-121150",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-updraftplus-sql-injection-cve-2026-121150/",
+      "x_craftedsignal_activity_at": "2026-11-26T15:59:34.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_epss_max": 0.00419,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -341066,6 +341226,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--28c93ea3-b6ff-50a2-a834-20a8924d40b0",
+      "name": "UpdraftPlus: WP Backup \u0026 Migration Plugin (\u003c 1.26.16)",
+      "vendor": "UpdraftPlus"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--28cf9aff-75c9-5e3e-8831-0daf4ae7b514",
       "name": "PostgreSQL (\u003c 14.25)",
       "vendor": "PostgreSQL"
@@ -346567,6 +346734,13 @@
       "id": "software--60bedc87-d9b6-54cf-979c-e8e91a4a479c",
       "name": "Backup and Replication (\u003c 12.2.0.334)",
       "vendor": "Veeam"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--60db1b0f-229d-5aeb-aa32-2596c4bb882f",
+      "name": "UpdraftPlus: WP Backup \u0026 Migration Plugin (\u003c 2.26.16.26)",
+      "vendor": "UpdraftPlus"
     },
     {
       "type": "software",
@@ -353538,6 +353712,13 @@
       "id": "software--a8517525-07b7-5415-8646-e1884624d662",
       "name": "Action Pack (\u003c 8.1.4.1, \u003c 8.0.5.2)",
       "vendor": "Ruby on Rails"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a86a78ea-bafb-5cc1-a48c-8f9f53694857",
+      "name": "Video Conferencing with Zoom (\u003c 4.7.0)",
+      "vendor": "Video Conferencing with Zoom"
     },
     {
       "type": "software",
@@ -377564,6 +377745,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--3296ef72-4936-5553-bda3-7f416c7f89d9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114434",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114434",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114434"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--329a3ada-e08b-543f-954c-3963b8f691e2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -385142,6 +385339,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115732",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115732"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4e366a60-f050-5f89-818b-e9d6e2a44322",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121150",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121150",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121150"
         }
       ]
     },
