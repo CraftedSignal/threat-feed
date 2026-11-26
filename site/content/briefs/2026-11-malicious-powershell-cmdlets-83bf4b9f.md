@@ -1,12 +1,24 @@
 ---
 brief_id: brief-2026-11-10-malicious-powershell-cmdlets-83bf4b9f
 event_id: brief-2026-11-10-malicious-powershell-cmdlets-83bf4b9f
-revision: 1
-activity_at: "2026-11-10T05:38:29Z"
+revision: 2
+activity_at: "2026-11-26T21:29:15Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-26T21:29:15Z"
+    checksum: sha256:8e1c0689828bc1833be31d571fa2075a81248cc8a4f78b488957bdbd4f8c4d24
+    summary: OS windows
+    changed_fields:
+      - affected_os
+      - lastmod
+      - updates
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_powershell_malicious_cmdlets.yml
 title: Malicious PowerShell Commandlets in Exploitation Frameworks
 slug: 2026-11-malicious-powershell-cmdlets-83bf4b9f
 description: Detection of PowerShell commandlets commonly utilized within post-exploitation frameworks to perform credential dumping, lateral movement, and system reconnaissance.
 date: "2026-11-10T05:38:29Z"
+lastmod: "2026-11-26T21:28:49Z"
 type: advisory
 types:
   - advisory
@@ -27,6 +39,8 @@ tags:
   - execution
   - discovery
   - post-exploitation
+affected_os:
+  - Windows
 references:
   - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_powershell_malicious_cmdlets.yml
 rules:
@@ -62,8 +76,17 @@ action_plan:
       confidence: medium
       disposition: convert_to_detection
       evidence: High volume of offensive tool usage relies on these specific function names.
+updates:
+  - at: "2026-11-26T21:28:49Z"
+    level: L1
+    summary: OS windows
+    sources:
+      - sigma-hq
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_powershell_malicious_cmdlets.yml
 ---
 
+## Overview
 This brief highlights a collection of PowerShell commandlets associated with well-known offensive security and exploitation frameworks. These commandlets are frequently observed in post-exploitation scenarios, including credential harvesting (e.g., Mimikatz wrappers), privilege escalation, and domain reconnaissance. Defenders should monitor for the execution of these specific function names within PowerShell process command lines.
 
 ## Recommendation
