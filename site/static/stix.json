@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2e6f6d22-4129-5be2-8ac8-7cd85950d862",
+  "id": "bundle--10c42dae-6c25-5d11-a5f4-662c4cf758c0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -142499,6 +142499,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b75d4f29-b113-5450-bd94-ed9126d355d9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f52636e6-230c-5ff3-b19f-34dc8d7469be",
+      "target_ref": "vulnerability--6dbb8003-bab9-5e63-9899-b81c5683ba36"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b75e395a-51c9-5622-8894-9b29647a96ce",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -175521,6 +175532,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e6029d09-24a4-5591-98b8-e3fb55e684b0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T06:03:01.000Z",
+      "modified": "2026-11-26T06:03:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2a370908-46a9-5025-bcc6-6fae3cb85036",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e6033fbd-e2f4-5c61-bb5a-94ce5abe4499",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -192743,6 +192765,17 @@
       "relationship_type": "has",
       "source_ref": "software--2d4d3a27-427d-532b-a66a-72e8cc57068a",
       "target_ref": "vulnerability--adaf658b-bf49-51f6-b6b9-c5132298bcb1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fdc1d5f9-7fce-5754-84f2-987a0234ba30",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--beb7ced0-4ff8-569d-9f1b-547e5360c7b8",
+      "target_ref": "vulnerability--986054a0-fc17-5f46-98ad-4b6ccb5d38a6"
     },
     {
       "type": "relationship",
@@ -224131,6 +224164,63 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2a370908-46a9-5025-bcc6-6fae3cb85036",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T06:03:01.000Z",
+      "modified": "2026-11-26T06:03:01.000Z",
+      "name": "TOTOLINK N350RT Authentication Bypass (CVE-2026-137043)",
+      "description": "## Overview\nA critical authorization bypass vulnerability exists in the TOTOLINK N350RT router, specifically within the setLanguageCfg function of the /cgi-bin/cstecgi.cgi script. An unauthenticated remote attacker can manipulate the lang argument to bypass authentication mechanisms. This vulnerability, identified as CVE-2026-137043, has publicly available proof-of-concept exploit code. No vendor-provided firmware fix is currently listed in the available advisory.\n\n## Impact\nThe vulnerability allows for unauthenticated remote access to the device, potentially leading to full administrative compromise. Given the CVSS score of 10.0, successful exploitation poses a critical risk to the confidentiality, integrity, and availability of the affected network infrastructure.\n\n## Recommendation\nInventory all TOTOLINK N350RT devices on the internal network. Given the lack of a patched firmware version, immediately restrict access to the web management interface of these devices to trusted management subnets or disable remote management entirely. Monitor outbound and inbound network traffic from these devices for anomalous activity that may indicate exploitation attempts.",
+      "published": "2026-11-26T06:03:01.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--beb7ced0-4ff8-569d-9f1b-547e5360c7b8",
+        "vulnerability--986054a0-fc17-5f46-98ad-4b6ccb5d38a6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-totolink-n350rt-auth-bypass-cve-2026-137043",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-totolink-n350rt-auth-bypass-cve-2026-137043/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-137043"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://gist.github.com/aslanbekthedefender/15846cb866cab1e7a1dfb197a84ee823"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-137043"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-137043\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://vuldb.com/vuln/443967"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-totolink-n350rt-auth-bypass-cve-2026-137043",
+      "x_craftedsignal_event_id": "brief-2026-11-26-totolink-n350rt-auth-bypass-cve-2026-137043",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-totolink-n350rt-auth-bypass-cve-2026-137043/",
+      "x_craftedsignal_activity_at": "2026-11-26T06:03:01.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -352294,6 +352384,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d4989d0a-05ab-5907-8911-e8599155b8ce",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T06:02:18.000Z",
+      "modified": "2026-11-26T06:02:18.000Z",
+      "name": "Nmap: Uncontrolled resource consumption in NSE eigrp.lua (CVE-2026-81418)",
+      "description": "## Overview\nNmap versions prior to 7.992 contain an uncontrolled resource consumption vulnerability in the TLV.AUTH parser of the NSE eigrp.lua library. An attacker on the same Layer 2 segment can send a single crafted EIGRP Update of approximately 36 bytes via unauthenticated multicast. When the `broadcast-eigrp-discovery.nse` script processes this input, the vulnerable length arithmetic causes unbounded table growth, resulting in memory exhaustion of the Nmap process.\n\n## Attack Chain\nThe vulnerability is triggered when the `broadcast-eigrp-discovery.nse` script is executed against attacker-influenced responses. The Nmap Scripting Engine (NSE) allocator in `nse_main.cc` previously lacked resource limits, allowing a single script to consume all available host memory.\n\n## Impact\nSuccessful exploitation causes the Nmap process to exhaust available system memory, leading to a service crash or significant degradation of host performance.\n\n## Recommendation\n- Upgrade Nmap to version 7.992 or later, which incorporates a per-allocation memory limit of 400MB as specified in commit 9de32e3.\n- The fix introduces a check against the memory limit, causing the Lua VM to raise `LUA_ERRMEM` when the limit is exceeded instead of allowing unbounded growth.",
+      "published": "2026-11-26T06:02:18.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f52636e6-230c-5ff3-b19f-34dc8d7469be",
+        "vulnerability--6dbb8003-bab9-5e63-9899-b81c5683ba36"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-nmap-dos-cve-2026-81418",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nmap-dos-cve-2026-81418/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-81418"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/nmap/nmap/commit/9de32e381e5f"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=A59C9AAE-3994-5B1C-86C9-8E9A62D53A26"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=A59C9AAE-3994-5B1C-86C9-8E9A62D53A26\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-nmap-dos-cve-2026-81418",
+      "x_craftedsignal_event_id": "brief-2026-11-26-nmap-dos-cve-2026-81418",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nmap-dos-cve-2026-81418/",
+      "x_craftedsignal_activity_at": "2026-11-26T06:02:18.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 4.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d4aeb1fc-3262-53e4-9b54-40c91bce52c6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T16:35:03.000Z",
@@ -408571,6 +408713,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--beb7ced0-4ff8-569d-9f1b-547e5360c7b8",
+      "name": "N350RT (9.3.5u.6468_B20250827, 9.3.5u.6466_B20250825)",
+      "vendor": "TOTOLINK"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--bec95027-a145-51a2-b613-35f26bf33971",
       "name": "TYPO3 CMS (14.x \u003c 14.3.12)",
       "vendor": "TYPO3"
@@ -452412,6 +452561,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--6dbb8003-bab9-5e63-9899-b81c5683ba36",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-81418",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-81418",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81418"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--6dc2c7ec-f0b0-5d09-b8fc-ff2d9da78d9d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -467382,6 +467547,22 @@
           "source_name": "cve",
           "external_id": "CVE-2024-13979",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-13979"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--986054a0-fc17-5f46-98ad-4b6ccb5d38a6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-137043",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-137043",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137043"
         }
       ]
     },

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--032930a7-6aef-5d25-b1a5-c27003253778",
+  "id": "bundle--603090fb-52d1-57e0-b6e2-4b8e03e9e4d3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5988,17 +5988,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--dd82b6f9-011d-5f4f-a262-d67b1bb814a1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--4a038768-c6d0-535c-bdb3-5a7b3c0a04f6",
-      "target_ref": "vulnerability--56d4074a-8505-5e19-9820-2010eda513e8"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ddf05961-5c48-5027-b6d4-2bb37cf07fe2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T13:13:17.000Z",
@@ -8564,51 +8553,6 @@
       },
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_epss_max": 0.00438,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--40935bcf-4607-5ef7-8697-f85bf60a9ef3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T05:22:29.000Z",
-      "modified": "2026-08-28T05:22:29.000Z",
-      "name": "Public Proof-of-Concept Exploit for CVE-2025-4611",
-      "description": "## Overview\n\nOn August 27, 2026, a proof-of-concept (PoC) exploit for CVE-2025-4611 was published on the Sploitus platform. This vulnerability affects the Slim Seo product and carries a CVSS score of 6.4. The vulnerability is categorized as having a medium severity, with a vector of CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:L/A:N. The impact allows for unauthorized access to confidentiality and integrity via a network-based attack vector requiring low privileges. Because the PoC is publicly accessible, the risk of exploitation against unpatched installations has increased. Defenders should verify their Slim Seo version and apply necessary patches or mitigations to prevent potential exploitation of this known vulnerability.\n\n## Impact\n\nSuccessful exploitation of CVE-2025-4611 permits an attacker with low-privilege access to manipulate data or gain unauthorized information access within the scope of the Slim Seo plugin. While the vulnerability does not directly impact availability, the ability to compromise confidentiality and integrity in a changed-scope environment presents a risk to the underlying web application's security posture.\n\n## Recommendation\n\n* Identify all instances of Slim Seo currently deployed across the environment.\n* Audit web server logs for requests originating from low-privilege accounts that interact with Slim Seo plugin endpoints.\n* Prioritize the application of vendor-provided security patches for Slim Seo to neutralize the impact of this vulnerability.\n",
-      "published": "2026-08-28T05:22:29.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--4a038768-c6d0-535c-bdb3-5a7b3c0a04f6",
-        "vulnerability--56d4074a-8505-5e19-9820-2010eda513e8"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-28-cve-2025-4611-poc",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2025-4611-poc/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://an4ss-organization.gitbook.io/anas-almizani-blogs/research/cve-2025-4611"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-X6VRN-CVE-2025-4611-POC"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-08-28-cve-2025-4611-poc",
-      "x_craftedsignal_event_id": "brief-2026-08-28-cve-2025-4611-poc",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2025-4611-poc/",
-      "x_craftedsignal_activity_at": "2026-08-28T05:22:29.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 6.4,
-      "x_craftedsignal_epss_max": 0.005,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -15858,13 +15802,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--4a038768-c6d0-535c-bdb3-5a7b3c0a04f6",
-      "name": "Slim Seo",
-      "vendor": "Slim Seo"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--4ac7fd8f-e4fe-5446-934b-a114e92e8f0e",
       "name": "SiYuan (\u003c 3.8.2)",
       "vendor": "SiYuan"
@@ -17929,22 +17866,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-82241",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82241"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--56d4074a-8505-5e19-9820-2010eda513e8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2025-4611",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2025-4611",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-4611"
         }
       ]
     },
