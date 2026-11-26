@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8de7fd3a-788c-5c13-b554-ef8624c6bb35",
+  "id": "bundle--9a23bc2c-f1ae-5757-9b70-daccccbf19b6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -60106,6 +60106,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--378fd016-2c38-52d8-a56e-ff60d6e876f7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--532f053b-de5f-5aa1-a1d4-8e494bbea7ab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9b77c7aa-4722-54e1-bc81-cf03224675db",
+      "target_ref": "vulnerability--f8d3c5a6-832e-53c5-a5c0-31b78e82ac72"
     },
     {
       "type": "relationship",
@@ -121999,7 +122010,7 @@
       "id": "relationship--b517f63b-1e13-5169-83e8-9ece4b16f0d6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:55:07.000Z",
-      "modified": "2026-11-17T20:55:07.000Z",
+      "modified": "2026-11-26T15:44:11.000Z",
       "relationship_type": "uses",
       "source_ref": "report--89515e82-25a1-55db-a671-964aa17ab96a",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -157276,7 +157287,7 @@
       "id": "relationship--ef1455df-e773-5e0b-8147-c50c32e3313d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:55:07.000Z",
-      "modified": "2026-11-17T20:55:07.000Z",
+      "modified": "2026-11-26T15:44:11.000Z",
       "relationship_type": "uses",
       "source_ref": "report--89515e82-25a1-55db-a671-964aa17ab96a",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -260137,7 +260148,7 @@
       "id": "report--89515e82-25a1-55db-a671-964aa17ab96a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T20:55:07.000Z",
-      "modified": "2026-11-17T20:55:07.000Z",
+      "modified": "2026-11-26T15:44:11.000Z",
       "name": "Broadcom AutoSys Workload Automation: OS Command Injection (CVE-2026-126552)",
       "description": "## Overview\nBroadcom AutoSys Workload Automation (Workload Control Center modules) is affected by a critical OS command injection vulnerability (CVE-2026-126552) stemming from missing authentication for critical functions. The vulnerability affects versions 12.1 through 24.0.01 on both Windows and Linux platforms. A proof-of-concept exploit is publicly available as of November 2026.\n\n## Impact\nSuccessful exploitation allows remote, unauthenticated attackers to execute arbitrary OS commands on the vulnerable host, leading to a full compromise of the application server.\n\n## Recommendation\n- Upgrade to AutoSys Workload Automation 24.2.01 or later, or WCC 24.1.00 or later, as recommended by Broadcom.\n- If patching is not immediately feasible, restrict network access to the Workload Control Center (WCC) management interface to trusted internal segments only.\n- Monitor server logs for suspicious process execution spawned by WCC service accounts.",
       "published": "2026-11-17T20:55:07.000Z",
@@ -260151,6 +260162,7 @@
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9b77c7aa-4722-54e1-bc81-cf03224675db",
         "software--cafc58b9-1dc9-5e2d-be66-9328b29b3f79",
         "vulnerability--f8d3c5a6-832e-53c5-a5c0-31b78e82ac72"
       ],
@@ -260163,6 +260175,10 @@
         {
           "source_name": "reference",
           "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126552"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126552"
         },
         {
           "source_name": "reference",
@@ -260180,9 +260196,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-17-autosys-rce-cve-2026-126552",
       "x_craftedsignal_event_id": "brief-2026-11-17-autosys-rce-cve-2026-126552",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-autosys-rce-cve-2026-126552/",
-      "x_craftedsignal_activity_at": "2026-11-17T20:55:07.000Z",
+      "x_craftedsignal_activity_at": "2026-11-26T15:44:11.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -352042,6 +352058,13 @@
       "id": "software--9b49dada-8849-55a9-a848-f23be7ae5a10",
       "name": "AnsibleForms (\u003c 6.2.1)",
       "vendor": "ansibleguy76"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--9b77c7aa-4722-54e1-bc81-cf03224675db",
+      "name": "AutoSys Workload Automation (12.1 through 24.0.01)",
+      "vendor": "Broadcom"
     },
     {
       "type": "software",
