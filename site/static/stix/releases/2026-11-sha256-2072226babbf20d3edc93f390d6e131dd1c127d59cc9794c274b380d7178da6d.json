@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3e9f3fe5-3cf3-5a23-a0c8-161921c07d3f",
+  "id": "bundle--96741464-a751-55e0-8c59-0f652bade338",
   "objects": [
     {
       "type": "attack-pattern",
@@ -89117,6 +89117,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7c6b0c94-af0b-5f64-82e1-46f614efd815",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4fba7a87-41c8-5b4a-90d2-8130a4bd95d5",
+      "target_ref": "vulnerability--c5e8b703-77b5-5187-ad19-3b787b3bd077"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7c7216ed-0376-5ce4-a990-0f7a6f39020b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -103952,6 +103963,17 @@
       "relationship_type": "has",
       "source_ref": "software--24474bbb-98fc-587b-9e69-7014db219f6a",
       "target_ref": "vulnerability--1d1d7db0-8c34-50d8-849a-939cfd3c97be"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--939ebfbf-95b0-5d2c-a455-b2605f896992",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T20:36:20.000Z",
+      "modified": "2026-11-26T20:36:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b1e715ab-d4e3-525c-91c5-ab4e3240ae6c",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -298058,6 +298080,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b1e715ab-d4e3-525c-91c5-ab4e3240ae6c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T20:36:20.000Z",
+      "modified": "2026-11-26T20:36:20.000Z",
+      "name": "Zephyr RTOS: SMBus driver kernel memory write vulnerability (CVE-2026-100374)",
+      "description": "## Overview\n\nThe smbus_block_read() and smbus_block_pcall() system call verification handlers in Zephyr RTOS (drivers/smbus/smbus_handlers.c) fail to validate the receive buffer pointer (buf / rcv_buf). Because these drivers operate in supervisor mode, they can be manipulated to write peripheral-supplied data into arbitrary memory addresses. This vulnerability affects systems built with CONFIG_USERSPACE, where a user-mode thread granted access to an SMBus device can provide an arbitrary destination address, including kernel memory or another thread's memory. The driver may write up to 255 bytes of peripheral-supplied data, depending on the specific hardware driver implementation.\n\n## Impact\n\nSuccessful exploitation bypasses the user/kernel isolation boundary, granting an unprivileged user-mode thread a kernel-memory write primitive. This can be leveraged to escalate privileges, corrupt kernel state, or cause system instability and crashes.\n\n## Recommendation\n\nUpgrade Zephyr to version 4.5.0 or later to incorporate the required K_SYSCALL_MEMORY_WRITE() verification checks. Systems that do not utilize CONFIG_USERSPACE are not vulnerable.",
+      "published": "2026-11-26T20:36:20.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4fba7a87-41c8-5b4a-90d2-8130a4bd95d5",
+        "vulnerability--c5e8b703-77b5-5187-ad19-3b787b3bd077"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-zephyr-smbus-rce-cve-2026-100374",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-zephyr-smbus-rce-cve-2026-100374/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-100374"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100374"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-zephyr-smbus-rce-cve-2026-100374",
+      "x_craftedsignal_event_id": "brief-2026-11-26-zephyr-smbus-rce-cve-2026-100374",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-zephyr-smbus-rce-cve-2026-100374/",
+      "x_craftedsignal_activity_at": "2026-11-26T20:36:20.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00141,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b1f61492-e8b8-5e28-a99a-2ec3ffb8140a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-21T19:29:30.000Z",
@@ -359283,6 +359351,13 @@
       "id": "software--4fa261b6-6185-5f97-8c1a-af7a8ae9638a",
       "name": "CA300-PoE (6.2c.884)",
       "vendor": "TOTOLINK"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4fba7a87-41c8-5b4a-90d2-8130a4bd95d5",
+      "name": "Zephyr (\u003e= 3.4.0, \u003c 4.5.0)",
+      "vendor": "Zephyr"
     },
     {
       "type": "software",
@@ -439467,6 +439542,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-11732",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11732"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c5e8b703-77b5-5187-ad19-3b787b3bd077",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-100374",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-100374",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100374"
         }
       ]
     },
