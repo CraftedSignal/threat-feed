@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--be086146-4142-5914-ad79-8e56ee299ec8",
+  "id": "bundle--b247a6ec-47f8-500d-9ae6-92b28a7397c1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -31565,6 +31565,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--23304857-71bc-5896-8bf7-361b3a561556",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--712eaae5-3924-5e4d-9a97-541edb252261",
+      "target_ref": "vulnerability--016d9519-452a-5c43-95ba-7b9dbd0f1b04"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--23328d87-a048-515a-97c2-a3057ebc119c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -50558,6 +50569,17 @@
       "relationship_type": "uses",
       "source_ref": "report--f3de5f79-85bf-56a2-aa04-45ccfccc6062",
       "target_ref": "attack-pattern--01959e06-6fa4-5fae-a45c-0c4b168701d2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--40f98288-bf09-54d2-afd2-1b4287925b89",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ea42939a-a672-5e52-b40c-a1304f00f6cd",
+      "target_ref": "vulnerability--bfb5a6ba-93bd-5488-80a8-c14d6b035019"
     },
     {
       "type": "relationship",
@@ -299850,6 +299872,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--aa944788-68e6-55a9-9a83-2038a552d7a5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T23:19:13.000Z",
+      "modified": "2026-11-26T23:19:13.000Z",
+      "name": "NVIDIA Triton Inference Server: NULL pointer dereference (CVE-2026-100969)",
+      "description": "## Overview\nNVIDIA Triton Inference Server for Linux contains a vulnerability (CVE-2026-100969) where a NULL pointer dereference can be triggered by a remote, unauthenticated attacker. Successful exploitation of this flaw can result in a denial of service (DoS) for the affected inference server.\n\n## Impact\nAn attacker can cause a denial-of-service condition, impacting the availability of the NVIDIA Triton Inference Server. The vulnerability has a CVSS v3.1 base score of 7.5 (AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H).\n\n## Recommendation\n- Inventory all instances of Triton Inference Server across your infrastructure to determine exposure.\n- Monitor official NVIDIA security bulletins for the release of a patch or remediation guidance, as the fix is currently undisclosed.\n- Prioritize restricting network access to the Triton Inference Server, ensuring it is not exposed to untrusted networks where an attacker could reach the service.",
+      "published": "2026-11-26T23:19:13.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ea42939a-a672-5e52-b40c-a1304f00f6cd",
+        "vulnerability--bfb5a6ba-93bd-5488-80a8-c14d6b035019"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-nvidia-triton-null-pointer-cve-2026-100969",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nvidia-triton-null-pointer-cve-2026-100969/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-100969"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100969"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-nvidia-triton-null-pointer-cve-2026-100969",
+      "x_craftedsignal_event_id": "brief-2026-11-26-nvidia-triton-null-pointer-cve-2026-100969",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nvidia-triton-null-pointer-cve-2026-100969/",
+      "x_craftedsignal_activity_at": "2026-11-26T23:19:13.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00927,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--aab15319-ed29-59fb-b755-70a0e4133c4b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T18:45:08.000Z",
@@ -304774,6 +304841,55 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_epss_max": 0.01053,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b26f1002-ffd9-5d5f-a841-f0b4bf98cd45",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T23:19:05.000Z",
+      "modified": "2026-11-26T23:19:05.000Z",
+      "name": "Hitachi Energy RTU500 series format string vulnerability (CVE-2026-14569)",
+      "description": "## Overview\nA format string vulnerability exists in the logging function for TLS, PPP, and CAM in the RTU500 series CMU firmware, tracked as CVE-2026-14569. An unauthenticated remote attacker could exploit this flaw to cause a denial of service or potentially disclose sensitive memory. Hitachi Energy has published a security advisory regarding this issue.\n\n## Impact\nExploitation may result in sensitive memory disclosure and denial of service. The vulnerability is rated with a CVSS v3.1 base score of 7.5 (High).\n\n## Recommendation\n- Review the vendor advisory (Document ID: 8DBD000263) from Hitachi Energy to identify affected device configurations.\n- Implement network-level segmentation to restrict access to RTU500 device management and logging interfaces, ensuring only authorized sources can communicate with these services.",
+      "published": "2026-11-26T23:19:05.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--712eaae5-3924-5e4d-9a97-541edb252261",
+        "vulnerability--016d9519-452a-5c43-95ba-7b9dbd0f1b04"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-rtu500-format-string-vulnerability-cve-2026-14569",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-rtu500-format-string-vulnerability-cve-2026-14569/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-14569"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14569"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://publisher.hitachienergy.com/preview?DocumentID=8DBD000263\u0026LanguageCode=en\u0026DocumentPartId=\u0026Action=Launch"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-rtu500-format-string-vulnerability-cve-2026-14569",
+      "x_craftedsignal_event_id": "brief-2026-11-26-rtu500-format-string-vulnerability-cve-2026-14569",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-rtu500-format-string-vulnerability-cve-2026-14569/",
+      "x_craftedsignal_activity_at": "2026-11-26T23:19:05.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.0057,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -371143,6 +371259,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--712eaae5-3924-5e4d-9a97-541edb252261",
+      "name": "RTU500 series CMU firmware (13.5.1-13.5.4, 13.6.1-13.6.3, 13.7.1-13.7.8, 13.8.1-13.8.2, 13.9.1, 12.7.1-12.7.8)",
+      "vendor": "Hitachi Energy"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7139c446-1581-51a0-b045-1f5d0d701f7b",
       "name": "Xwayland (\u003c 24.1.9)"
     },
@@ -387782,6 +387905,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-125219",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125219"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--016d9519-452a-5c43-95ba-7b9dbd0f1b04",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-14569",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-14569",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14569"
         }
       ]
     },
@@ -447734,6 +447873,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-81419",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81419"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--bfb5a6ba-93bd-5488-80a8-c14d6b035019",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-100969",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-100969",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100969"
         }
       ]
     },
