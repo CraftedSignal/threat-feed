@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-oracle-security-updates
 event_id: brief-2026-11-oracle-security-updates
-revision: 57
-activity_at: "2026-11-26T15:17:23Z"
+revision: 58
+activity_at: "2026-11-26T21:04:34Z"
 revision_history:
   - revision: 2
     at: "2026-11-17T23:49:55Z"
@@ -735,11 +735,23 @@ revision_history:
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101680
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101703
+  - revision: 58
+    at: "2026-11-26T21:04:34Z"
+    checksum: sha256:2ceb322702742a63df84c2c412e182b0a30c43bd5a2e273ed4e89d38af8d0beb
+    summary: added CVE-2026-101686
+    changed_fields:
+      - cve_verification
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101686
 title: Oracle Security Updates - November 2026
 slug: 2026-11-oracle-security-updates
 description: Roundup of Oracle security advisories published in November 2026.
 date: "2026-11-16T21:54:15Z"
-lastmod: "2026-11-26T15:13:21Z"
+lastmod: "2026-11-26T21:04:11Z"
 type: threat
 types:
   - threat
@@ -780,1173 +792,1179 @@ cve_verification:
   CVE-2026-83362:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:02.119482383Z
+    checked_at: 2026-11-26T21:04:04.287216775Z
   CVE-2026-83365:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:02.31943015Z
+    checked_at: 2026-11-26T21:04:04.484808431Z
   CVE-2026-83366:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:02.506780736Z
+    checked_at: 2026-11-26T21:04:04.679321017Z
   CVE-2026-83367:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:02.696741972Z
+    checked_at: 2026-11-26T21:04:04.879624474Z
   CVE-2026-83379:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:02.888410819Z
+    checked_at: 2026-11-26T21:04:05.08418198Z
   CVE-2026-83393:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:03.085779345Z
+    checked_at: 2026-11-26T21:04:05.280477466Z
   CVE-2026-83484:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:03.276325382Z
+    checked_at: 2026-11-26T21:04:05.475982053Z
   CVE-2026-87305:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:03.473952328Z
+    checked_at: 2026-11-26T21:04:05.671748969Z
   CVE-2026-87306:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:03.664512404Z
+    checked_at: 2026-11-26T21:04:05.868521595Z
   CVE-2026-91456:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:03.85237453Z
+    checked_at: 2026-11-26T21:04:06.064079942Z
   CVE-2026-91469:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:04.041852186Z
+    checked_at: 2026-11-26T21:04:06.259353478Z
   CVE-2026-91470:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:04.229741263Z
+    checked_at: 2026-11-26T21:04:06.455145924Z
   CVE-2026-91498:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:04.41693175Z
+    checked_at: 2026-11-26T21:04:06.65398199Z
   CVE-2026-91500:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:04.604202846Z
+    checked_at: 2026-11-26T21:04:06.852415077Z
   CVE-2026-91507:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:04.798015762Z
+    checked_at: 2026-11-26T21:04:07.050960043Z
   CVE-2026-91509:
     status: verified
-    source: cve_program
-    checked_at: 2026-11-26T15:13:04.991876688Z
+    source: nvd
+    checked_at: 2026-11-26T21:04:07.251299769Z
   CVE-2026-91510:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:05.181661605Z
+    checked_at: 2026-11-26T21:04:07.534921154Z
   CVE-2026-91516:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:05.373296461Z
+    checked_at: 2026-11-26T21:04:07.73149351Z
   CVE-2026-91522:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:05.561915548Z
+    checked_at: 2026-11-26T21:04:07.928187496Z
   CVE-2026-91531:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:05.749330064Z
+    checked_at: 2026-11-26T21:04:08.122678303Z
   CVE-2026-91533:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:05.941370431Z
+    checked_at: 2026-11-26T21:04:08.317711129Z
   CVE-2026-91540:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:06.128934967Z
+    checked_at: 2026-11-26T21:04:08.512320925Z
   CVE-2026-91543:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:06.318370213Z
+    checked_at: 2026-11-26T21:04:08.707121442Z
   CVE-2026-91548:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:06.51036005Z
+    checked_at: 2026-11-26T21:04:08.903086118Z
   CVE-2026-91551:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:06.700679406Z
+    checked_at: 2026-11-26T21:04:09.098579704Z
   CVE-2026-91556:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:06.890714533Z
+    checked_at: 2026-11-26T21:04:09.29419795Z
   CVE-2026-91558:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:07.077397129Z
+    checked_at: 2026-11-26T21:04:09.489519757Z
   CVE-2026-91561:
     status: verified
-    source: nvd
-    checked_at: 2026-11-26T15:13:07.466647412Z
+    source: cve_program
+    checked_at: 2026-11-26T21:04:09.687307743Z
   CVE-2026-91564:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:07.740679336Z
+    checked_at: 2026-11-26T21:04:09.883379879Z
   CVE-2026-91566:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:07.931011683Z
+    checked_at: 2026-11-26T21:04:10.084831155Z
   CVE-2026-91569:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:08.1225825Z
+    checked_at: 2026-11-26T21:04:10.281035181Z
   CVE-2026-91570:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:08.312804376Z
+    checked_at: 2026-11-26T21:04:10.476951107Z
   CVE-2026-91583:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:08.503902143Z
+    checked_at: 2026-11-26T21:04:10.673413924Z
   CVE-2026-91585:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:08.697497779Z
+    checked_at: 2026-11-26T21:04:10.86912642Z
   CVE-2026-91586:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:08.886813995Z
+    checked_at: 2026-11-26T21:04:11.065856896Z
   CVE-2026-91587:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:09.079485652Z
+    checked_at: 2026-11-26T21:04:11.263573672Z
   CVE-2026-91618:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:09.270633068Z
+    checked_at: 2026-11-26T21:04:11.459458689Z
   CVE-2026-91671:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:09.460929725Z
+    checked_at: 2026-11-26T21:04:11.655668455Z
   CVE-2026-101603:
     status: verified
     source: nvd
-    checked_at: 2026-11-26T15:12:12.585457662Z
+    checked_at: 2026-11-26T21:03:12.67898238Z
   CVE-2026-101604:
     status: verified
-    source: cve_program
-    checked_at: 2026-11-26T15:12:12.879332776Z
+    source: nvd
+    checked_at: 2026-11-26T21:03:13.379328537Z
   CVE-2026-101635:
     status: verified
-    source: cve_program
-    checked_at: 2026-11-26T15:12:13.068096603Z
+    source: nvd
+    checked_at: 2026-11-26T21:03:13.628465342Z
   CVE-2026-101638:
     status: verified
     source: nvd
-    checked_at: 2026-11-26T15:12:13.295499858Z
+    checked_at: 2026-11-26T21:03:13.916950757Z
   CVE-2026-101640:
     status: verified
-    source: cve_program
-    checked_at: 2026-11-26T15:12:13.571029453Z
+    source: nvd
+    checked_at: 2026-11-26T21:03:14.201094092Z
   CVE-2026-101641:
     status: verified
-    source: cve_program
-    checked_at: 2026-11-26T15:12:13.758985379Z
+    source: nvd
+    checked_at: 2026-11-26T21:03:14.431388428Z
   CVE-2026-101642:
     status: verified
-    source: cve_program
-    checked_at: 2026-11-26T15:12:13.949927876Z
+    source: nvd
+    checked_at: 2026-11-26T21:03:14.663780863Z
   CVE-2026-101643:
     status: verified
-    source: cve_program
-    checked_at: 2026-11-26T15:12:14.144430682Z
+    source: nvd
+    checked_at: 2026-11-26T21:03:14.891315629Z
   CVE-2026-101652:
     status: verified
-    source: cve_program
-    checked_at: 2026-11-26T15:12:14.340748178Z
+    source: nvd
+    checked_at: 2026-11-26T21:03:15.125816464Z
   CVE-2026-101653:
     status: verified
-    source: cve_program
-    checked_at: 2026-11-26T15:12:14.528118295Z
+    source: nvd
+    checked_at: 2026-11-26T21:03:15.410876679Z
   CVE-2026-101654:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:14.715225591Z
+    checked_at: 2026-11-26T21:03:15.690775993Z
   CVE-2026-101655:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:14.906835867Z
+    checked_at: 2026-11-26T21:03:15.892795049Z
   CVE-2026-101657:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:15.096523314Z
+    checked_at: 2026-11-26T21:03:16.089489705Z
   CVE-2026-101658:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:15.28475168Z
+    checked_at: 2026-11-26T21:03:16.288472432Z
   CVE-2026-101659:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:15.473649746Z
+    checked_at: 2026-11-26T21:03:16.505371137Z
   CVE-2026-101663:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:15.662919403Z
+    checked_at: 2026-11-26T21:03:16.707034884Z
   CVE-2026-101664:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:15.84993639Z
+    checked_at: 2026-11-26T21:03:16.90766119Z
   CVE-2026-101679:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:16.039012586Z
+    checked_at: 2026-11-26T21:03:17.102826366Z
   CVE-2026-101680:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:16.239398052Z
+    checked_at: 2026-11-26T21:03:17.297088343Z
   CVE-2026-101684:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:16.431174948Z
+    checked_at: 2026-11-26T21:03:17.491223249Z
   CVE-2026-101685:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:16.620543715Z
+    checked_at: 2026-11-26T21:03:17.694546665Z
+  CVE-2026-101686:
+    status: verified
+    source: cve_program
+    checked_at: 2026-11-26T21:03:17.889373622Z
   CVE-2026-101688:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:16.806981851Z
+    checked_at: 2026-11-26T21:03:18.084458228Z
   CVE-2026-101689:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:16.999208877Z
+    checked_at: 2026-11-26T21:03:18.282925594Z
   CVE-2026-101690:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:17.191860084Z
+    checked_at: 2026-11-26T21:03:18.47893938Z
   CVE-2026-101691:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:17.38383163Z
+    checked_at: 2026-11-26T21:03:18.673433576Z
   CVE-2026-101693:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:17.572206316Z
+    checked_at: 2026-11-26T21:03:18.868872923Z
   CVE-2026-101698:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:17.763306173Z
+    checked_at: 2026-11-26T21:03:19.067583419Z
   CVE-2026-101699:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:17.953339529Z
+    checked_at: 2026-11-26T21:03:19.263397605Z
   CVE-2026-101703:
     status: verified
-    source: nvd
-    checked_at: 2026-11-26T15:13:21.36145588Z
+    source: cve_program
+    checked_at: 2026-11-26T21:03:19.458129082Z
   CVE-2026-101704:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:18.147410916Z
+    checked_at: 2026-11-26T21:03:19.665828337Z
   CVE-2026-101705:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:18.340063142Z
+    checked_at: 2026-11-26T21:03:19.863243874Z
   CVE-2026-101758:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:18.528307408Z
+    checked_at: 2026-11-26T21:03:20.05923643Z
   CVE-2026-101785:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:18.717888895Z
+    checked_at: 2026-11-26T21:03:20.255196026Z
   CVE-2026-101786:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:18.908235761Z
+    checked_at: 2026-11-26T21:03:20.450796493Z
   CVE-2026-101796:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:19.098198317Z
+    checked_at: 2026-11-26T21:03:20.645403029Z
   CVE-2026-101797:
     status: verified
-    source: nvd
-    checked_at: 2026-11-26T15:12:19.240743635Z
+    source: cve_program
+    checked_at: 2026-11-26T21:03:20.840339225Z
   CVE-2026-101838:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:19.51685098Z
+    checked_at: 2026-11-26T21:03:21.037878451Z
   CVE-2026-101839:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:19.705325196Z
+    checked_at: 2026-11-26T21:03:21.233372597Z
   CVE-2026-101848:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:19.894888572Z
+    checked_at: 2026-11-26T21:03:21.433419823Z
   CVE-2026-114783:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:20.086739078Z
+    checked_at: 2026-11-26T21:03:21.629084559Z
   CVE-2026-114784:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:20.274989315Z
+    checked_at: 2026-11-26T21:03:21.822866686Z
   CVE-2026-114785:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:20.461787331Z
+    checked_at: 2026-11-26T21:03:22.019442372Z
   CVE-2026-114788:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:20.653904298Z
+    checked_at: 2026-11-26T21:03:22.213395978Z
   CVE-2026-114792:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:20.841228924Z
+    checked_at: 2026-11-26T21:03:22.411794344Z
   CVE-2026-114793:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:21.028549011Z
+    checked_at: 2026-11-26T21:03:22.610317611Z
   CVE-2026-114794:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:21.220470117Z
+    checked_at: 2026-11-26T21:03:22.805194677Z
   CVE-2026-114799:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:21.409755054Z
+    checked_at: 2026-11-26T21:03:22.999412263Z
   CVE-2026-114809:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:21.598324861Z
+    checked_at: 2026-11-26T21:03:23.195851069Z
   CVE-2026-114813:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:21.789207317Z
+    checked_at: 2026-11-26T21:03:23.393910016Z
   CVE-2026-114814:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:21.977170613Z
+    checked_at: 2026-11-26T21:03:23.588560272Z
   CVE-2026-114815:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:22.16788218Z
+    checked_at: 2026-11-26T21:03:23.785431238Z
   CVE-2026-114817:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:22.359581266Z
+    checked_at: 2026-11-26T21:03:23.981703184Z
   CVE-2026-114818:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:22.546929333Z
+    checked_at: 2026-11-26T21:03:24.17553563Z
   CVE-2026-114819:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:22.73986215Z
+    checked_at: 2026-11-26T21:03:24.373265647Z
   CVE-2026-114824:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:22.935323645Z
+    checked_at: 2026-11-26T21:03:24.569378173Z
   CVE-2026-114825:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:23.129541872Z
+    checked_at: 2026-11-26T21:03:24.764417309Z
   CVE-2026-114826:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:23.320950778Z
+    checked_at: 2026-11-26T21:03:24.959164586Z
   CVE-2026-114827:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:23.507760685Z
+    checked_at: 2026-11-26T21:03:25.154548972Z
   CVE-2026-114828:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:23.694873231Z
+    checked_at: 2026-11-26T21:03:25.354261728Z
   CVE-2026-114829:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:23.884462548Z
+    checked_at: 2026-11-26T21:03:25.552108214Z
   CVE-2026-114835:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:24.073076514Z
+    checked_at: 2026-11-26T21:03:25.7477709Z
   CVE-2026-114846:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:24.2639873Z
+    checked_at: 2026-11-26T21:03:25.944554117Z
   CVE-2026-114847:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:24.461938767Z
+    checked_at: 2026-11-26T21:03:26.142161643Z
   CVE-2026-114848:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:24.650351623Z
+    checked_at: 2026-11-26T21:03:26.337495029Z
   CVE-2026-114849:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:24.840744789Z
+    checked_at: 2026-11-26T21:03:26.535400365Z
   CVE-2026-114850:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:25.028237436Z
+    checked_at: 2026-11-26T21:03:26.730706822Z
   CVE-2026-114852:
     status: verified
-    source: nvd
-    checked_at: 2026-11-26T15:12:25.190374562Z
+    source: cve_program
+    checked_at: 2026-11-26T21:03:26.927005708Z
   CVE-2026-114856:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:25.467895277Z
+    checked_at: 2026-11-26T21:03:27.122741334Z
   CVE-2026-114857:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:25.655665184Z
+    checked_at: 2026-11-26T21:03:27.31811667Z
   CVE-2026-114859:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:25.84427081Z
+    checked_at: 2026-11-26T21:03:27.513859607Z
   CVE-2026-114860:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:26.034188566Z
+    checked_at: 2026-11-26T21:03:27.710698033Z
   CVE-2026-114861:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:26.224060953Z
+    checked_at: 2026-11-26T21:03:27.906528689Z
   CVE-2026-114862:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:26.41418084Z
+    checked_at: 2026-11-26T21:03:28.103171765Z
   CVE-2026-114863:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:26.602308316Z
+    checked_at: 2026-11-26T21:03:28.299408331Z
   CVE-2026-114864:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:26.791000092Z
+    checked_at: 2026-11-26T21:03:28.494643898Z
   CVE-2026-114865:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:26.982389559Z
+    checked_at: 2026-11-26T21:03:28.689999695Z
   CVE-2026-114866:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:27.173137595Z
+    checked_at: 2026-11-26T21:03:28.88417753Z
   CVE-2026-114867:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:27.364993411Z
+    checked_at: 2026-11-26T21:03:29.082220866Z
   CVE-2026-114869:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:27.554033948Z
+    checked_at: 2026-11-26T21:03:29.276739292Z
   CVE-2026-114871:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:27.746325074Z
+    checked_at: 2026-11-26T21:03:29.473951848Z
   CVE-2026-114872:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:27.936119251Z
+    checked_at: 2026-11-26T21:03:29.669650695Z
   CVE-2026-114873:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:28.124050537Z
+    checked_at: 2026-11-26T21:03:29.866490831Z
   CVE-2026-114874:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:28.313567374Z
+    checked_at: 2026-11-26T21:03:30.065812487Z
   CVE-2026-114876:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:28.50981384Z
+    checked_at: 2026-11-26T21:03:30.263677463Z
   CVE-2026-114877:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:28.698738546Z
+    checked_at: 2026-11-26T21:03:30.45970812Z
   CVE-2026-114878:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:28.886062732Z
+    checked_at: 2026-11-26T21:03:30.655561006Z
   CVE-2026-114880:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:29.074922459Z
+    checked_at: 2026-11-26T21:03:30.851664592Z
   CVE-2026-114881:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:29.265814685Z
+    checked_at: 2026-11-26T21:03:31.049871088Z
   CVE-2026-114882:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:29.460822381Z
+    checked_at: 2026-11-26T21:03:31.244389754Z
   CVE-2026-114883:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:29.647411558Z
+    checked_at: 2026-11-26T21:03:31.439743791Z
   CVE-2026-114884:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:29.835828005Z
+    checked_at: 2026-11-26T21:03:31.635200197Z
   CVE-2026-114885:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:30.023935811Z
+    checked_at: 2026-11-26T21:03:31.832655443Z
   CVE-2026-114887:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:30.214192897Z
+    checked_at: 2026-11-26T21:03:32.026451219Z
   CVE-2026-114888:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:30.411044623Z
+    checked_at: 2026-11-26T21:03:32.221572635Z
   CVE-2026-114894:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:30.60215526Z
+    checked_at: 2026-11-26T21:03:32.419309512Z
   CVE-2026-114896:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:30.793153516Z
+    checked_at: 2026-11-26T21:03:32.613898368Z
   CVE-2026-114897:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:30.982879883Z
+    checked_at: 2026-11-26T21:03:32.811445694Z
   CVE-2026-114898:
     status: verified
-    source: nvd
-    checked_at: 2026-11-26T15:12:31.12240027Z
+    source: cve_program
+    checked_at: 2026-11-26T21:03:33.00963806Z
   CVE-2026-114901:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:31.395660345Z
+    checked_at: 2026-11-26T21:03:33.210297467Z
   CVE-2026-114902:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:31.583070331Z
+    checked_at: 2026-11-26T21:03:33.405678973Z
   CVE-2026-114903:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:31.770722608Z
+    checked_at: 2026-11-26T21:03:33.599846339Z
   CVE-2026-114904:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:31.958435285Z
+    checked_at: 2026-11-26T21:03:33.796428766Z
   CVE-2026-114906:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:32.147440241Z
+    checked_at: 2026-11-26T21:03:33.990690402Z
   CVE-2026-114907:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:32.335312327Z
+    checked_at: 2026-11-26T21:03:34.187312458Z
   CVE-2026-114909:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:32.526875814Z
+    checked_at: 2026-11-26T21:03:34.383416354Z
   CVE-2026-114911:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:32.71544309Z
+    checked_at: 2026-11-26T21:03:34.57772461Z
   CVE-2026-114912:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:32.906525896Z
+    checked_at: 2026-11-26T21:03:34.774070917Z
   CVE-2026-114913:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:33.096017632Z
+    checked_at: 2026-11-26T21:03:34.968358513Z
   CVE-2026-114914:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:33.287403839Z
+    checked_at: 2026-11-26T21:03:35.162760419Z
   CVE-2026-114915:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:33.474205485Z
+    checked_at: 2026-11-26T21:03:35.356880896Z
   CVE-2026-114916:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:33.665776722Z
+    checked_at: 2026-11-26T21:03:35.553301892Z
   CVE-2026-114917:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:33.853279338Z
+    checked_at: 2026-11-26T21:03:35.748964958Z
   CVE-2026-114918:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:34.044661365Z
+    checked_at: 2026-11-26T21:03:35.945292294Z
   CVE-2026-114924:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:34.232999981Z
+    checked_at: 2026-11-26T21:03:36.141907781Z
   CVE-2026-114925:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:34.428189317Z
+    checked_at: 2026-11-26T21:03:36.340754617Z
   CVE-2026-114927:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:34.620221754Z
+    checked_at: 2026-11-26T21:03:36.535788093Z
   CVE-2026-114928:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:34.80887832Z
+    checked_at: 2026-11-26T21:03:36.732126959Z
   CVE-2026-114929:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:34.998745667Z
+    checked_at: 2026-11-26T21:03:36.926471966Z
   CVE-2026-114930:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:35.185280833Z
+    checked_at: 2026-11-26T21:03:37.122413842Z
   CVE-2026-114931:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:35.374819529Z
+    checked_at: 2026-11-26T21:03:37.317840448Z
   CVE-2026-114932:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:35.563778316Z
+    checked_at: 2026-11-26T21:03:37.514794664Z
   CVE-2026-114933:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:35.751870492Z
+    checked_at: 2026-11-26T21:03:37.709922921Z
   CVE-2026-114934:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:35.940390118Z
+    checked_at: 2026-11-26T21:03:37.906902087Z
   CVE-2026-114935:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:36.128475855Z
+    checked_at: 2026-11-26T21:03:38.101193603Z
   CVE-2026-114937:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:36.324036522Z
+    checked_at: 2026-11-26T21:03:38.298353179Z
   CVE-2026-114939:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:36.512293238Z
+    checked_at: 2026-11-26T21:03:38.494028526Z
   CVE-2026-114940:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:36.700294435Z
+    checked_at: 2026-11-26T21:03:38.742295371Z
   CVE-2026-114941:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:36.889398591Z
+    checked_at: 2026-11-26T21:03:38.937898527Z
   CVE-2026-114942:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:37.075895108Z
+    checked_at: 2026-11-26T21:03:39.132548503Z
   CVE-2026-114949:
     status: verified
-    source: nvd
-    checked_at: 2026-11-26T15:12:37.273478724Z
+    source: cve_program
+    checked_at: 2026-11-26T21:03:39.32824849Z
   CVE-2026-114950:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:37.546802739Z
+    checked_at: 2026-11-26T21:03:39.523524856Z
   CVE-2026-114951:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:37.736823755Z
+    checked_at: 2026-11-26T21:03:39.722293302Z
   CVE-2026-114952:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:37.924309182Z
+    checked_at: 2026-11-26T21:03:40.094433985Z
   CVE-2026-114955:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:38.115072108Z
+    checked_at: 2026-11-26T21:03:40.380359859Z
   CVE-2026-114956:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:38.303589405Z
+    checked_at: 2026-11-26T21:03:40.661220404Z
   CVE-2026-114958:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:38.490235721Z
+    checked_at: 2026-11-26T21:03:40.85529423Z
   CVE-2026-114977:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:38.679576638Z
+    checked_at: 2026-11-26T21:03:41.050745766Z
   CVE-2026-114978:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:38.868632594Z
+    checked_at: 2026-11-26T21:03:41.245166373Z
   CVE-2026-114979:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:39.07797549Z
+    checked_at: 2026-11-26T21:03:41.44063395Z
   CVE-2026-114980:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:39.267528967Z
+    checked_at: 2026-11-26T21:03:41.638838315Z
   CVE-2026-114981:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:39.455986543Z
+    checked_at: 2026-11-26T21:03:41.833685951Z
   CVE-2026-115035:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:39.643222459Z
+    checked_at: 2026-11-26T21:03:42.028649448Z
   CVE-2026-115044:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:39.832187016Z
+    checked_at: 2026-11-26T21:03:42.225410784Z
   CVE-2026-115046:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:40.023981652Z
+    checked_at: 2026-11-26T21:03:42.42174Z
   CVE-2026-115047:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:40.259321607Z
+    checked_at: 2026-11-26T21:03:42.618949716Z
   CVE-2026-115048:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:40.930677714Z
+    checked_at: 2026-11-26T21:03:42.813401022Z
   CVE-2026-115049:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:41.119908201Z
+    checked_at: 2026-11-26T21:03:43.095572347Z
   CVE-2026-115050:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:41.309589297Z
+    checked_at: 2026-11-26T21:03:43.290119193Z
   CVE-2026-115051:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:41.499896274Z
+    checked_at: 2026-11-26T21:03:43.485514999Z
   CVE-2026-115053:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:41.68938753Z
+    checked_at: 2026-11-26T21:03:43.681701055Z
   CVE-2026-115054:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:41.880667937Z
+    checked_at: 2026-11-26T21:03:43.875691512Z
   CVE-2026-115057:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:42.069265433Z
+    checked_at: 2026-11-26T21:03:44.072153358Z
   CVE-2026-115058:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:42.263617369Z
+    checked_at: 2026-11-26T21:03:44.269405254Z
   CVE-2026-115059:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:42.450869966Z
+    checked_at: 2026-11-26T21:03:44.465217041Z
   CVE-2026-115060:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:42.640500243Z
+    checked_at: 2026-11-26T21:03:44.660639937Z
   CVE-2026-115061:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:42.828751039Z
+    checked_at: 2026-11-26T21:03:44.856892484Z
   CVE-2026-115062:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:43.019510075Z
+    checked_at: 2026-11-26T21:03:45.056089929Z
   CVE-2026-115063:
     status: verified
-    source: nvd
-    checked_at: 2026-11-26T15:12:43.223428081Z
+    source: cve_program
+    checked_at: 2026-11-26T21:03:45.252532426Z
   CVE-2026-115064:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:43.532036305Z
+    checked_at: 2026-11-26T21:03:45.450224462Z
   CVE-2026-115065:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:43.720470562Z
+    checked_at: 2026-11-26T21:03:45.646916189Z
   CVE-2026-115066:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:43.911385499Z
+    checked_at: 2026-11-26T21:03:45.843770134Z
   CVE-2026-115067:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:44.100800395Z
+    checked_at: 2026-11-26T21:03:46.038424361Z
   CVE-2026-115070:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:44.289358561Z
+    checked_at: 2026-11-26T21:03:46.235044007Z
   CVE-2026-115071:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:44.503652177Z
+    checked_at: 2026-11-26T21:03:46.428986223Z
   CVE-2026-115072:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:44.690232384Z
+    checked_at: 2026-11-26T21:03:46.62568929Z
   CVE-2026-115074:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:44.87910398Z
+    checked_at: 2026-11-26T21:03:46.819836466Z
   CVE-2026-115076:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:45.078406666Z
+    checked_at: 2026-11-26T21:03:47.015548352Z
   CVE-2026-115077:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:45.265308253Z
+    checked_at: 2026-11-26T21:03:47.210038229Z
   CVE-2026-115078:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:45.456711649Z
+    checked_at: 2026-11-26T21:03:47.405820945Z
   CVE-2026-115080:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:45.642629275Z
+    checked_at: 2026-11-26T21:03:47.600216841Z
   CVE-2026-115081:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:45.831798511Z
+    checked_at: 2026-11-26T21:03:47.794460717Z
   CVE-2026-115082:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:46.025714067Z
+    checked_at: 2026-11-26T21:03:47.990438244Z
   CVE-2026-115086:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:46.212659924Z
+    checked_at: 2026-11-26T21:03:48.18539423Z
   CVE-2026-115087:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:46.400926521Z
+    checked_at: 2026-11-26T21:03:48.381043246Z
   CVE-2026-115088:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:46.601892977Z
+    checked_at: 2026-11-26T21:03:48.578099473Z
   CVE-2026-115089:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:46.788952844Z
+    checked_at: 2026-11-26T21:03:48.773010239Z
   CVE-2026-115092:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:46.97684547Z
+    checked_at: 2026-11-26T21:03:48.967955875Z
   CVE-2026-115094:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:47.164414117Z
+    checked_at: 2026-11-26T21:03:49.168116061Z
   CVE-2026-115101:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:47.357851573Z
+    checked_at: 2026-11-26T21:03:49.364529967Z
   CVE-2026-115117:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:47.54616242Z
+    checked_at: 2026-11-26T21:03:49.560278364Z
   CVE-2026-115120:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:47.755256616Z
+    checked_at: 2026-11-26T21:03:49.75990723Z
   CVE-2026-115124:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:47.943451763Z
+    checked_at: 2026-11-26T21:03:49.954876096Z
   CVE-2026-115128:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:48.131963149Z
+    checked_at: 2026-11-26T21:03:50.150498443Z
   CVE-2026-115129:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:48.321431856Z
+    checked_at: 2026-11-26T21:03:50.344795849Z
   CVE-2026-115130:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:48.508881442Z
+    checked_at: 2026-11-26T21:03:50.538954805Z
   CVE-2026-115131:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:48.700927769Z
+    checked_at: 2026-11-26T21:03:50.734660012Z
   CVE-2026-115133:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:48.890908926Z
+    checked_at: 2026-11-26T21:03:50.929175018Z
   CVE-2026-115138:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:49.078819511Z
+    checked_at: 2026-11-26T21:03:51.124704464Z
   CVE-2026-115139:
     status: verified
-    source: nvd
-    checked_at: 2026-11-26T15:12:49.225543509Z
+    source: cve_program
+    checked_at: 2026-11-26T21:03:51.319861441Z
   CVE-2026-115140:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:49.497310404Z
+    checked_at: 2026-11-26T21:03:51.514172317Z
   CVE-2026-115141:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:49.6860591Z
+    checked_at: 2026-11-26T21:03:51.707827943Z
   CVE-2026-115142:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:49.876254257Z
+    checked_at: 2026-11-26T21:03:51.901967529Z
   CVE-2026-115143:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:50.064824283Z
+    checked_at: 2026-11-26T21:03:52.100185735Z
   CVE-2026-115146:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:50.253948129Z
+    checked_at: 2026-11-26T21:03:52.296477212Z
   CVE-2026-115150:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:50.443028865Z
+    checked_at: 2026-11-26T21:03:52.491779618Z
   CVE-2026-115151:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:50.632142692Z
+    checked_at: 2026-11-26T21:03:52.685862414Z
   CVE-2026-115153:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:50.821587408Z
+    checked_at: 2026-11-26T21:03:52.87985026Z
   CVE-2026-115155:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:51.010817694Z
+    checked_at: 2026-11-26T21:03:53.078445476Z
   CVE-2026-115157:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:51.341258588Z
+    checked_at: 2026-11-26T21:03:53.273023133Z
   CVE-2026-115158:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:51.530366214Z
+    checked_at: 2026-11-26T21:03:53.468561099Z
   CVE-2026-115159:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:51.718522521Z
+    checked_at: 2026-11-26T21:03:53.663775365Z
   CVE-2026-115160:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:51.905378357Z
+    checked_at: 2026-11-26T21:03:53.858911922Z
   CVE-2026-115163:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:52.094101244Z
+    checked_at: 2026-11-26T21:03:54.052464978Z
   CVE-2026-115164:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:52.28165516Z
+    checked_at: 2026-11-26T21:03:54.246125705Z
   CVE-2026-115166:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:52.470617307Z
+    checked_at: 2026-11-26T21:03:54.443803921Z
   CVE-2026-115170:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:52.658581154Z
+    checked_at: 2026-11-26T21:03:54.637805677Z
   CVE-2026-115172:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:52.84739719Z
+    checked_at: 2026-11-26T21:03:54.833510363Z
   CVE-2026-115173:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:53.036366386Z
+    checked_at: 2026-11-26T21:03:55.02911278Z
   CVE-2026-115176:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:53.233336122Z
+    checked_at: 2026-11-26T21:03:55.224739156Z
   CVE-2026-115177:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:53.420842539Z
+    checked_at: 2026-11-26T21:03:55.420701662Z
   CVE-2026-115178:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:53.609562325Z
+    checked_at: 2026-11-26T21:03:55.615932459Z
   CVE-2026-115179:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:53.800803601Z
+    checked_at: 2026-11-26T21:03:55.811852615Z
   CVE-2026-127306:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:53.990355308Z
+    checked_at: 2026-11-26T21:03:56.007864041Z
   CVE-2026-127307:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:54.177160454Z
+    checked_at: 2026-11-26T21:03:56.204119517Z
   CVE-2026-127308:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:54.36416521Z
+    checked_at: 2026-11-26T21:03:56.399941044Z
   CVE-2026-127319:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:54.554757377Z
+    checked_at: 2026-11-26T21:03:56.59529226Z
   CVE-2026-127324:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:54.743522954Z
+    checked_at: 2026-11-26T21:03:56.791294366Z
   CVE-2026-127325:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:54.972534999Z
+    checked_at: 2026-11-26T21:03:56.988888682Z
   CVE-2026-127326:
     status: verified
-    source: nvd
-    checked_at: 2026-11-26T15:12:55.114232736Z
+    source: cve_program
+    checked_at: 2026-11-26T21:03:57.185301999Z
   CVE-2026-127327:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:55.385860361Z
+    checked_at: 2026-11-26T21:03:57.381945615Z
   CVE-2026-127328:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:55.575532187Z
+    checked_at: 2026-11-26T21:03:57.576888931Z
   CVE-2026-127329:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:55.767064814Z
+    checked_at: 2026-11-26T21:03:57.774068967Z
   CVE-2026-127330:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:55.95813803Z
+    checked_at: 2026-11-26T21:03:57.969736604Z
   CVE-2026-127331:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:56.148135866Z
+    checked_at: 2026-11-26T21:03:58.165918651Z
   CVE-2026-127334:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:56.341619223Z
+    checked_at: 2026-11-26T21:03:58.362185777Z
   CVE-2026-127335:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:56.532339679Z
+    checked_at: 2026-11-26T21:03:58.558313793Z
   CVE-2026-127337:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:56.720286185Z
+    checked_at: 2026-11-26T21:03:58.75232576Z
   CVE-2026-127339:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:56.906953512Z
+    checked_at: 2026-11-26T21:03:58.946754946Z
   CVE-2026-127340:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:57.104095968Z
+    checked_at: 2026-11-26T21:03:59.141714692Z
   CVE-2026-127349:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:57.296133234Z
+    checked_at: 2026-11-26T21:03:59.338785498Z
   CVE-2026-127351:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:57.485956131Z
+    checked_at: 2026-11-26T21:03:59.534823695Z
   CVE-2026-127357:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:57.672968397Z
+    checked_at: 2026-11-26T21:03:59.730509301Z
   CVE-2026-127360:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:57.862234774Z
+    checked_at: 2026-11-26T21:03:59.926183277Z
   CVE-2026-127362:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:58.05320913Z
+    checked_at: 2026-11-26T21:04:00.124035123Z
   CVE-2026-127369:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:58.241417627Z
+    checked_at: 2026-11-26T21:04:00.31909326Z
   CVE-2026-127370:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:58.430111543Z
+    checked_at: 2026-11-26T21:04:00.519919236Z
   CVE-2026-127371:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:58.624232539Z
+    checked_at: 2026-11-26T21:04:00.715340142Z
   CVE-2026-127372:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:58.815166446Z
+    checked_at: 2026-11-26T21:04:00.910016748Z
   CVE-2026-127373:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:59.003493552Z
+    checked_at: 2026-11-26T21:04:01.103951995Z
   CVE-2026-127392:
     status: verified
-    source: cve_program
-    checked_at: 2026-11-26T15:12:59.192555849Z
+    source: nvd
+    checked_at: 2026-11-26T21:04:01.262336602Z
   CVE-2026-127394:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:59.382358635Z
+    checked_at: 2026-11-26T21:04:01.544119856Z
   CVE-2026-127402:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:59.571897382Z
+    checked_at: 2026-11-26T21:04:01.739210643Z
   CVE-2026-127413:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:59.764343168Z
+    checked_at: 2026-11-26T21:04:01.938166169Z
   CVE-2026-127414:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:12:59.954324744Z
+    checked_at: 2026-11-26T21:04:02.132689505Z
   CVE-2026-127415:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:00.146189901Z
+    checked_at: 2026-11-26T21:04:02.330933672Z
   CVE-2026-127416:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:00.336026297Z
+    checked_at: 2026-11-26T21:04:02.529370628Z
   CVE-2026-127418:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:00.523438864Z
+    checked_at: 2026-11-26T21:04:02.725269944Z
   CVE-2026-127421:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:00.71293297Z
+    checked_at: 2026-11-26T21:04:02.920841661Z
   CVE-2026-127422:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:00.903658817Z
+    checked_at: 2026-11-26T21:04:03.115236177Z
   CVE-2026-127423:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:01.104729013Z
+    checked_at: 2026-11-26T21:04:03.310343313Z
   CVE-2026-127425:
     status: verified
-    source: nvd
-    checked_at: 2026-11-26T15:13:01.26586816Z
+    source: cve_program
+    checked_at: 2026-11-26T21:04:03.504548079Z
   CVE-2026-127426:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:01.547669704Z
+    checked_at: 2026-11-26T21:04:03.699505986Z
   CVE-2026-127427:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:01.738535141Z
+    checked_at: 2026-11-26T21:04:03.894802492Z
   CVE-2026-127428:
     status: verified
     source: cve_program
-    checked_at: 2026-11-26T15:13:01.929424417Z
+    checked_at: 2026-11-26T21:04:04.090667878Z
 cves:
   - id: CVE-2026-101653
+    cvss: 8.8
+    epss: 0.00432
     kev_status: "false"
   - id: CVE-2026-101663
     product: Oracle Mobile Field Service (12.2.3-12.2.15)
@@ -1968,6 +1986,8 @@ cves:
     kev_status: "false"
   - id: CVE-2026-101652
     product: Oracle E-Business Suite (12.2.3-12.2.15)
+    cvss: 8.1
+    epss: 0.0035
     kev_status: "false"
   - id: CVE-2026-101659
     product: E-Business Suite (12.2.3-12.2.15)
@@ -2384,6 +2404,8 @@ cves:
     kev_status: "false"
   - id: CVE-2026-127392
     product: Product Lifecycle Analytics (3.6.1)
+    cvss: 7.7
+    epss: 0.00115
     kev_status: "false"
   - id: CVE-2026-127394
     product: Product Lifecycle Analytics (3.6.1)
@@ -2419,6 +2441,8 @@ cves:
     kev_status: "false"
   - id: CVE-2026-91509
     product: Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0)
+    cvss: 8.7
+    epss: 0.00323
     kev_status: "false"
   - id: CVE-2026-91548
     product: Oracle Fusion Middleware (12.2.1.4.0, 14.1.2.0.0)
@@ -2755,7 +2779,7 @@ cves:
     kev_status: "false"
   - id: CVE-2026-101604
     cvss: 7.5
-    epss: 0.00377
+    epss: 0.00414
     kev_status: "false"
   - id: CVE-2026-101638
     cvss: 7.3
@@ -2787,7 +2811,7 @@ cves:
   - id: CVE-2026-101635
     product: Mobile Field Service (12.2.3-12.2.15)
     cvss: 8.8
-    epss: 0.00448
+    epss: 0.00432
     kev_status: "false"
   - id: CVE-2026-101664
     product: Mobile Field Service (12.2.3-12.2.15)
@@ -2810,21 +2834,21 @@ cves:
   - id: CVE-2026-101641
     product: Oracle E-Business Suite (12.2.3-12.2.15)
     cvss: 7.6
-    epss: 0.00345
+    epss: 0.00321
     kev_status: "false"
   - id: CVE-2026-101642
     product: Oracle E-Business Suite (12.2.3-12.2.15)
     cvss: 7.1
-    epss: 0.00405
+    epss: 0.00376
     kev_status: "false"
   - id: CVE-2026-101643
     product: E-Business Suite (12.2.3-12.2.15)
     cvss: 7.1
-    epss: 0.00309
+    epss: 0.00279
     kev_status: "false"
   - id: CVE-2026-101640
     cvss: 8.2
-    epss: 0.00373
+    epss: 0.00353
     kev_status: "false"
   - id: CVE-2026-101688
     kev_status: "false"
@@ -2843,16 +2867,11 @@ cves:
     cvss: 7.5
     epss: 0.00334
     kev_status: "false"
+  - id: CVE-2026-101686
+    kev_status: "false"
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-101703
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-101686
 updates:
-  - at: "2026-11-20T23:05:12Z"
-    level: L2
-    summary: added CVE-2026-101655
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-101655
   - at: "2026-11-21T17:29:36Z"
     level: L2
     summary: added CVE-2026-101704
@@ -2875,6 +2894,13 @@ updates:
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101680
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101703
+  - at: "2026-11-26T21:04:11Z"
+    level: L2
+    summary: added CVE-2026-101686
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101686
 ---
 
 ## Overview
