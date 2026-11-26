@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b0af4231-f8de-5de5-ad44-448c694d5e4e",
+  "id": "bundle--e3b8b8a7-57d7-5e4e-8463-ca1fe139fda5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -22801,6 +22801,17 @@
       "relationship_type": "uses",
       "source_ref": "report--654a3c0d-618b-5633-88b2-79d5e36b9afb",
       "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--120ea21b-be86-5c94-843f-16c187c3f071",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0e5967d4-cbc6-578f-a471-e169aa578d8d",
+      "target_ref": "vulnerability--be13fb35-d0a0-5183-aa9c-d73a9f666d5f"
     },
     {
       "type": "relationship",
@@ -108458,6 +108469,17 @@
       "relationship_type": "has",
       "source_ref": "software--b4b5d3e2-2a05-5d54-ba6b-18cfb146ed51",
       "target_ref": "vulnerability--eca24f8f-697e-57fd-abf4-32bbf8935e7e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8574ba65-b184-5087-a6a0-550a06a4fa49",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T22:47:07.000Z",
+      "modified": "2026-11-26T22:47:07.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d25c4d42-f064-52d3-98b4-16b91ac7f6dd",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -364961,6 +364983,48 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d25c4d42-f064-52d3-98b4-16b91ac7f6dd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T22:47:07.000Z",
+      "modified": "2026-11-26T22:47:07.000Z",
+      "name": "PHPGurukul Employee Leaves Management System privilege escalation (CVE-2026-128719)",
+      "description": "## Overview\nPHPGurukul Employee Leaves Management System (ELMS) version 2.1 is affected by a privilege escalation vulnerability. The issue exists within the password recovery functionality, which can be leveraged by a remote attacker to gain unauthorized high-privileged access to the application.\n\n## Impact\nExploitation allows a remote, unauthenticated attacker to escalate privileges to administrative levels, potentially compromising the integrity and confidentiality of the employee management system.\n\n## Recommendation\nThere is currently no official patch or fixed version documented for this vulnerability. Security teams should inventory all deployments of PHPGurukul Employee Leaves Management System 2.1 and evaluate the exposure of the password recovery endpoint until an official vendor fix is released.",
+      "published": "2026-11-26T22:47:07.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0e5967d4-cbc6-578f-a471-e169aa578d8d",
+        "vulnerability--be13fb35-d0a0-5183-aa9c-d73a9f666d5f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-phpgurukul-elms-privesc-cve-2026-128719",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-phpgurukul-elms-privesc-cve-2026-128719/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128719"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-phpgurukul-elms-privesc-cve-2026-128719",
+      "x_craftedsignal_event_id": "brief-2026-11-26-phpgurukul-elms-privesc-cve-2026-128719",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-phpgurukul-elms-privesc-cve-2026-128719/",
+      "x_craftedsignal_activity_at": "2026-11-26T22:47:07.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.0045,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d2a091d2-57b6-5df5-aa19-abfc6de6ff3b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T13:21:01.000Z",
@@ -404078,6 +404142,13 @@
       "id": "software--0e496b2a-94fb-542f-bee6-3d7ac340b02b",
       "name": "gst-plugins-bad",
       "vendor": "GStreamer"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--0e5967d4-cbc6-578f-a471-e169aa578d8d",
+      "name": "Employee Leaves Management System (2.1)",
+      "vendor": "PHPGurukul"
     },
     {
       "type": "software",
@@ -501219,6 +501290,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126129",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126129"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--be13fb35-d0a0-5183-aa9c-d73a9f666d5f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-128719",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-128719",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128719"
         }
       ]
     },
