@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9549e617-c685-5ff0-a1f0-811dab887f92",
+  "id": "bundle--9ea825cd-fd8a-563e-85ff-ec0fc85d421e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -69439,6 +69439,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--53c27852-7b62-5262-ae9b-5a50b7da856a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a63ffd17-9350-5012-b972-1916b7d96c4d",
+      "target_ref": "vulnerability--d924e16f-2b7d-5a5a-82a3-90804c731170"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--53c51dac-7efd-58ec-848b-1cef6b79c5cf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -114777,6 +114788,17 @@
       "relationship_type": "has",
       "source_ref": "software--d00b9619-60bc-5708-8ff9-eecae057c1d8",
       "target_ref": "vulnerability--4f75559b-999b-5ae7-8fae-bd2e1ebaef99"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--90e4b8eb-def6-59bb-a8ba-60621844d60d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d4f5d3f9-cfa1-58be-a8a7-f9b1bfeb3c29",
+      "target_ref": "vulnerability--d924e16f-2b7d-5a5a-82a3-90804c731170"
     },
     {
       "type": "relationship",
@@ -227411,6 +227433,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2e80f2c2-335c-5c72-a1ca-d0b36c14a93b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T14:25:24.000Z",
+      "modified": "2026-11-26T14:25:24.000Z",
+      "name": "MongoDB Go Driver GridFS unauthorized data deletion (CVE-2026-88031)",
+      "description": "## Overview\n\nThe GridFS component of the MongoDB Go Driver contains a vulnerability where caller-supplied structured file identifiers are incorrectly neutralized. An authenticated user who can influence the identifier passed to the driver may cause the identifier to be interpreted as a query condition instead of a literal identifier. This logic error allows the attacker to cause the removal of all GridFS file chunks in an affected bucket, rendering stored file content unreadable.\n\n## Impact\n\nSuccessful exploitation results in the loss of availability and integrity of GridFS data. By forcing an improper query, an attacker can trigger the deletion of all file chunks within an affected bucket, causing data loss.\n\n## Recommendation\n\n* Upgrade to MongoDB Go Driver version 1.17.10 or later for the 1.x branch.\n* Upgrade to MongoDB Go Driver version 2.9.1 or later for the 2.x branch.\n* Review application code that uses the GridFS component and ensures that input provided to file identifiers is strictly validated and sanitized to prevent injection into query logic.",
+      "published": "2026-11-26T14:25:24.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a63ffd17-9350-5012-b972-1916b7d96c4d",
+        "software--d4f5d3f9-cfa1-58be-a8a7-f9b1bfeb3c29",
+        "vulnerability--d924e16f-2b7d-5a5a-82a3-90804c731170"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-mongodb-go-driver-gridfs-vulnerability-cve-2026-88031",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mongodb-go-driver-gridfs-vulnerability-cve-2026-88031/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-88031"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88031"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-mongodb-go-driver-gridfs-vulnerability-cve-2026-88031",
+      "x_craftedsignal_event_id": "brief-2026-11-26-mongodb-go-driver-gridfs-vulnerability-cve-2026-88031",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mongodb-go-driver-gridfs-vulnerability-cve-2026-88031/",
+      "x_craftedsignal_activity_at": "2026-11-26T14:25:24.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.0048,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -407399,6 +407467,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a63ffd17-9350-5012-b972-1916b7d96c4d",
+      "name": "Go Driver (\u003e= 1.0.0, \u003c 1.17.10)",
+      "vendor": "MongoDB"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a642bd70-57d1-55a5-adea-ab84630a93db",
       "name": "Solr (9.0.0 before 9.11.0)",
       "vendor": "Apache"
@@ -412973,6 +413048,13 @@
       "id": "software--d4f30ab8-a98e-54b6-a97c-650a935807eb",
       "name": "Linux Kernel (\u003e= 2.6.26, \u003c 5.10.271)",
       "vendor": "Linux"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d4f5d3f9-cfa1-58be-a8a7-f9b1bfeb3c29",
+      "name": "Go Driver (\u003e= 2.0.0, \u003c 2.9.1)",
+      "vendor": "MongoDB"
     },
     {
       "type": "software",
@@ -491828,6 +491910,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115094",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115094"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d924e16f-2b7d-5a5a-82a3-90804c731170",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-88031",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-88031",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88031"
         }
       ]
     },
