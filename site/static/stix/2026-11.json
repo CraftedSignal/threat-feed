@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a09b4eba-9ddc-553a-8843-ee68120533c4",
+  "id": "bundle--b5879aba-b661-58ea-b173-2fefc948605a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -243562,7 +243562,7 @@
       "id": "report--79637a85-f605-51a2-a373-f02d53779aa7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-25T23:21:03.000Z",
-      "modified": "2026-11-25T23:21:03.000Z",
+      "modified": "2026-11-26T09:40:00.000Z",
       "name": "Drupal Core: Access bypass vulnerability (CVE-2026-136716)",
       "description": "## Overview\n\nDrupal has released security advisory SA-CORE-2026-019 regarding a highly critical access bypass vulnerability identified as CVE-2026-136716. The vulnerability affects multiple versions of Drupal core. According to the advisory, exploitation of this flaw has been observed in the wild. \n\n## Recommendation\n\nAdministrators should immediately upgrade to the patched versions of Drupal core to mitigate the risk of exploitation. \n- Upgrade Drupal core to 10.6.23, 11.3.23, or 11.4.14 or later as appropriate for the current deployment.\n- Review the official Drupal advisory SA-CORE-2026-019 for specific environment mitigation steps.",
       "published": "2026-11-25T23:21:03.000Z",
@@ -243595,18 +243595,25 @@
         {
           "source_name": "reference",
           "url": "https://www.drupal.org/security"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/drupal-installer-patch-left-a-gap-attackers-are-already-exploiting/"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-25-drupal-core-access-bypass-cve-2026-136716",
       "x_craftedsignal_event_id": "brief-2026-11-25-drupal-core-access-bypass-cve-2026-136716",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-drupal-core-access-bypass-cve-2026-136716/",
-      "x_craftedsignal_activity_at": "2026-11-25T23:21:03.000Z",
+      "x_craftedsignal_activity_at": "2026-11-26T09:40:00.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.securityweek.com/drupal-installer-patch-left-a-gap-attackers-are-already-exploiting/",
+        "observed_at": "2026-11-26T09:12:26.000Z",
+        "confidence": "medium"
       },
       "x_craftedsignal_kev_status": "false"
     },
