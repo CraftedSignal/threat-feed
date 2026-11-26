@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c83401a0-e609-5583-ba51-2e13ef2f2ce9",
+  "id": "bundle--5d0703c1-3128-5c0f-8dc1-3c0749cbfa95",
   "objects": [
     {
       "type": "attack-pattern",
@@ -29503,6 +29503,17 @@
       "modified": "2026-11-20T02:04:04.000Z",
       "relationship_type": "uses",
       "source_ref": "report--890132e6-af24-5721-978e-d8cb220ab03c",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--21140e6e-0deb-596a-9d95-bcea26434422",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T18:04:38.000Z",
+      "modified": "2026-11-26T18:04:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8120f636-c899-5f5e-8199-632705db3029",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -74597,6 +74608,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--68ac8ad1-cee4-5b42-9c70-95eb928f9dd6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--61cf6dbc-e3e3-51f7-b4d9-bb4c6957a799",
+      "target_ref": "vulnerability--10a08827-6805-5ee2-b617-0ea336ac52c0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--68ad4470-45c0-5cab-af7d-26a8b67e841e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -87599,6 +87621,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7c4c28ea-b245-56ec-a1ad-c757cc4c3441",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T18:04:38.000Z",
+      "modified": "2026-11-26T18:04:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8120f636-c899-5f5e-8199-632705db3029",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7c596049-f904-5c97-b34c-d398208fc1dd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -99853,6 +99886,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8f9b6f64-65c9-5d25-bce3-88dcc960a49f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2df56517-182b-53a6-87b1-d86cdb593dd1",
+      "target_ref": "vulnerability--a3cface3-ca61-5038-8037-bff48137244c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8f9e61de-aae6-5595-a9cd-9545607ce07c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T04:28:42.000Z",
@@ -111641,6 +111685,17 @@
       "relationship_type": "has",
       "source_ref": "software--213b6899-f7a1-5c3e-9792-b02d36bd90ff",
       "target_ref": "vulnerability--78ae235a-d477-59b5-a817-36efae25c677"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a2d9d0eb-8c41-53b8-a0ba-268082fcfcca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--44a93ffa-5092-5c65-b716-733cf8edcb6b",
+      "target_ref": "vulnerability--4130f93b-dcb0-5e43-be87-92b358140c63"
     },
     {
       "type": "relationship",
@@ -176854,6 +176909,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0aec6b1d-7a2b-5be3-ae65-22241365b74b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T18:04:11.000Z",
+      "modified": "2026-11-26T18:04:11.000Z",
+      "name": "Genetec Security Center: Information exposure of access control credentials (CVE-2026-50048)",
+      "description": "## Overview\nGenetec Security Center is affected by an information exposure vulnerability (CVE-2026-50048) occurring when specific non-default logging options are enabled, resulting in access control unit credentials being written in plain text to server log files. An attacker with local access to these files could retrieve the credentials.\n\n## Impact\nA local attacker with access to the affected server log files can obtain credentials for access control units, potentially leading to unauthorized access to the security systems managed by the units.\n\n## Recommendation\nUpgrade to Security Center 5.10.4.32, 5.11.3.30, 5.12.2.20, 5.13.3.8, 5.14.0.1, or any later version. Customers using an unsupported release should upgrade to a supported version. If additional diagnostic logging is required, use the default logging configuration whenever possible, limit its use, restrict access to the resulting log files, and securely delete those files when they are no longer required.",
+      "published": "2026-11-26T18:04:11.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2df56517-182b-53a6-87b1-d86cdb593dd1",
+        "vulnerability--a3cface3-ca61-5038-8037-bff48137244c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-genetec-log-exposure-cve-2026-50048",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-genetec-log-exposure-cve-2026-50048/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-50048"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50048"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-genetec-log-exposure-cve-2026-50048",
+      "x_craftedsignal_event_id": "brief-2026-11-26-genetec-log-exposure-cve-2026-50048",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-genetec-log-exposure-cve-2026-50048/",
+      "x_craftedsignal_activity_at": "2026-11-26T18:04:11.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00273,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -258744,6 +258844,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8120f636-c899-5f5e-8199-632705db3029",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T18:04:38.000Z",
+      "modified": "2026-11-26T18:04:38.000Z",
+      "name": "Dell Virtual Storage Integrator OS Command Injection (CVE-2026-82169)",
+      "description": "## Overview\n\nDell Virtual Storage Integrator for VMware vSphere Web Client, in versions prior to 10.12.0.0, contains an OS command injection vulnerability located in the Upgrade Service.\n\n## Impact\n\nA low-privileged, remote attacker could potentially exploit this vulnerability to achieve arbitrary command execution on the affected system.\n\n## Recommendation\n\nUsers are advised to identify instances of Dell Virtual Storage Integrator for VMware vSphere Web Client within their environments. Remediation status for this vulnerability is currently unknown as the provided source documentation does not define a fixed version or available patch.",
+      "published": "2026-11-26T18:04:38.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--61cf6dbc-e3e3-51f7-b4d9-bb4c6957a799",
+        "vulnerability--10a08827-6805-5ee2-b617-0ea336ac52c0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-dell-vsi-rce-cve-2026-82169",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dell-vsi-rce-cve-2026-82169/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-82169"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82169"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-dell-vsi-rce-cve-2026-82169",
+      "x_craftedsignal_event_id": "brief-2026-11-26-dell-vsi-rce-cve-2026-82169",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dell-vsi-rce-cve-2026-82169/",
+      "x_craftedsignal_activity_at": "2026-11-26T18:04:38.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.3,
+      "x_craftedsignal_epss_max": 0.01596,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--812a5cab-9dcd-59fd-b8c1-a1a162578af6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T14:35:54.000Z",
@@ -270469,6 +270616,51 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--93154aee-9705-5fca-b3fe-7cebb7121456",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T18:04:52.000Z",
+      "modified": "2026-11-26T18:04:52.000Z",
+      "name": "Dell Virtual Storage Integrator Server-Side Request Forgery (CVE-2026-82170)",
+      "description": "## Overview\nDell Virtual Storage Integrator for VMware vSphere Web Client, in versions prior to 10.12.0.0, contains a Server-Side Request Forgery (SSRF) vulnerability. This issue resides in the httpRest.js component and allows a remote, low-privileged attacker to send unauthorized requests to internal services, potentially resulting in unauthorized access to sensitive information or internal network resources.\n\n## Impact\nSuccessful exploitation allows an attacker to bypass security controls and interact with internal network services that would otherwise be inaccessible from the external environment. The CVSS v3.1 base score for this vulnerability is 7.7.\n\n## Recommendation\nInventory all instances of Dell Virtual Storage Integrator for VMware vSphere Web Client. Monitor official Dell security advisories for the availability of security patches and apply them as soon as they are released. Until updates are applied, restrict network access to the management interface of the Virtual Storage Integrator to authorized personnel and trusted subnets to mitigate the potential for unauthorized internal service access.",
+      "published": "2026-11-26T18:04:52.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--44a93ffa-5092-5c65-b716-733cf8edcb6b",
+        "vulnerability--4130f93b-dcb0-5e43-be87-92b358140c63"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-dell-vsi-ssrf-cve-2026-82170",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dell-vsi-ssrf-cve-2026-82170/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-82170"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82170"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-dell-vsi-ssrf-cve-2026-82170",
+      "x_craftedsignal_event_id": "brief-2026-11-26-dell-vsi-ssrf-cve-2026-82170",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dell-vsi-ssrf-cve-2026-82170/",
+      "x_craftedsignal_activity_at": "2026-11-26T18:04:52.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.7,
+      "x_craftedsignal_epss_max": 0.00561,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -347907,6 +348099,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2df56517-182b-53a6-87b1-d86cdb593dd1",
+      "name": "Genetec Security Center",
+      "vendor": "Genetec Inc."
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2df61a24-bfd8-56a8-85dc-951d42f2501d",
       "name": "PB Integrações (antigo PagBank Integrações) para WooCommerce (\u003c= 5.1.6)",
       "vendor": "martins56"
@@ -350195,6 +350394,13 @@
       "id": "software--448f89cf-b82a-5646-9739-66b8797b2e38",
       "name": "NCrypted Jobgator",
       "vendor": "Ncrypted"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--44a93ffa-5092-5c65-b716-733cf8edcb6b",
+      "name": "Virtual Storage Integrator for VMware vSphere Web Client (\u003c 10.12.0.0)",
+      "vendor": "Dell"
     },
     {
       "type": "software",
@@ -353188,6 +353394,13 @@
       "id": "software--61ba8219-2c40-5007-81cc-dff5dae62fe3",
       "name": "Bob (1.0.4-2.0.1)",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--61cf6dbc-e3e3-51f7-b4d9-bb4c6957a799",
+      "name": "Virtual Storage Integrator for VMware vSphere Web Client",
+      "vendor": "Dell"
     },
     {
       "type": "software",
@@ -374834,6 +375047,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--10a08827-6805-5ee2-b617-0ea336ac52c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-82169",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-82169",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82169"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--10d2627f-6a42-5d46-b299-f4e4b3518e2c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -389212,6 +389441,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-113765",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113765"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4130f93b-dcb0-5e43-be87-92b358140c63",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-82170",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-82170",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82170"
         }
       ]
     },
@@ -419212,6 +419457,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-105543",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105543"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a3cface3-ca61-5038-8037-bff48137244c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-50048",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-50048",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50048"
         }
       ]
     },
