@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--21f72672-5f1c-582f-92f4-b05366bd2cfe",
+  "id": "bundle--63beeb18-5e40-5f37-b8a2-593bc33606d8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -101304,6 +101304,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--979ca674-7955-5e68-b5c6-affae28a84c3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3de0e8f3-8b21-5662-a847-54a6a4ea65e7",
+      "target_ref": "vulnerability--f9ff92de-b721-58c7-b94e-4e183e0eca90"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--97a24c65-7b66-5a20-a223-ca4f1c4a1ac2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -139788,6 +139799,17 @@
       "modified": "2026-11-07T03:46:33.000Z",
       "relationship_type": "uses",
       "source_ref": "report--2e2186b3-5b50-5fe6-9704-32996cc368ff",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d5e6ec45-b4b0-55be-91c5-6d9cdc922751",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T01:44:52.000Z",
+      "modified": "2026-11-26T01:44:52.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6c0223fd-4946-5d16-a261-e26477eb6d2f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -235095,6 +235117,66 @@
       },
       "x_craftedsignal_cvss_max": 9.6,
       "x_craftedsignal_epss_max": 0.00397,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--6c0223fd-4946-5d16-a261-e26477eb6d2f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T01:44:52.000Z",
+      "modified": "2026-11-26T01:44:52.000Z",
+      "name": "SPIP: Unauthenticated remote code execution via X-Spip-Filtre header (CVE-2026-77806)",
+      "description": "## Overview\nSPIP versions prior to 4.4.21 are vulnerable to a critical remote code execution flaw, tracked as CVE-2026-77806. The vulnerability exists within the analyse_resultat_skel function, which improperly processes the X-Spip-Filtre HTTP request header. This flaw allows an unauthenticated attacker to perform code injection and execute arbitrary commands on the server. Exploitation has been observed in the wild since August 2026, and public proof-of-concept exploit code is available.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to execute arbitrary commands, read sensitive application data, modify application files, and potentially gain full control over the underlying server hosting the SPIP instance.\n\n## Recommendation\nUpgrade all SPIP installations to version 4.4.21 or later immediately. Before and after patching, perform a thorough review of HTTP access logs for the presence of malicious X-Spip-Filtre headers and inspect the server for unauthorized file changes or suspicious background processes.",
+      "published": "2026-11-26T01:44:52.000Z",
+      "labels": [
+        "code-injection",
+        "cve",
+        "remote-code-execution",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3de0e8f3-8b21-5662-a847-54a6a4ea65e7",
+        "vulnerability--f9ff92de-b721-58c7-b94e-4e183e0eca90"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-spip-rce-cve-2026-77806",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-spip-rce-cve-2026-77806/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://blog.spip.net/Mise-a-jour-critique-de-securite-sortie-de-SPIP-4-4-21.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-77806"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=631D9A95-8E1C-563E-8FB7-F7863B208777"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=631D9A95-8E1C-563E-8FB7-F7863B208777\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-spip-rce-cve-2026-77806",
+      "x_craftedsignal_event_id": "brief-2026-11-26-spip-rce-cve-2026-77806",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-spip-rce-cve-2026-77806/",
+      "x_craftedsignal_activity_at": "2026-11-26T01:44:52.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.04479,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -334186,6 +334268,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3de0e8f3-8b21-5662-a847-54a6a4ea65e7",
+      "name": "SPIP (\u003c 4.4.21)",
+      "vendor": "SPIP"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3debd7b8-e55f-5d87-bafb-71551a22802b",
       "name": "Erlang/ssl (\u003e 11.3, \u003c 11.5.4)",
       "vendor": "Erlang"
@@ -425945,6 +426034,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124415",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124415"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f9ff92de-b721-58c7-b94e-4e183e0eca90",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-77806",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-77806",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77806"
         }
       ]
     },
