@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5d3f4b1a-37cb-561e-8811-4f7b2f260b3e",
+  "id": "bundle--84084aad-60c2-5517-9418-8d20c69e7d52",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9408,6 +9408,17 @@
       "relationship_type": "uses",
       "source_ref": "report--0b9e61c5-64cb-5713-a7af-8f7343368d4b",
       "target_ref": "indicator--caa6a641-4742-5a39-8095-8edbcb573993"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--00d4d035-3101-51df-9f65-ae3ea8307e0f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T12:55:37.000Z",
+      "modified": "2026-11-26T12:55:37.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--52f0a8c9-542f-598d-a2a0-645aa37e3209",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
     },
     {
       "type": "relationship",
@@ -41935,6 +41946,17 @@
       "relationship_type": "has",
       "source_ref": "software--b9917b2e-c447-543f-9a73-8380190ced8a",
       "target_ref": "vulnerability--39d886de-ca7c-54e2-9876-495935ac6cc4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2d8bd110-068a-513f-91d9-989c501d5668",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--df33094a-84d2-5994-9f38-4372847f1023",
+      "target_ref": "vulnerability--e4f4200e-fcf9-5446-8b8c-4f89c3c95bd8"
     },
     {
       "type": "relationship",
@@ -257806,6 +257828,65 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--52f0a8c9-542f-598d-a2a0-645aa37e3209",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T12:55:37.000Z",
+      "modified": "2026-11-26T12:55:37.000Z",
+      "name": "HumHub: Unauthorized member enumeration via missing authorization (CVE-2026-134840)",
+      "description": "## Overview\nHumHub versions before 1.19.4 contain a missing authorization vulnerability in the `GroupController` class, specifically within the `actionNewMemberSearch` and `actionAdminUserSearch` methods. These actions fail to perform the `checkGroupAccess` check, allowing an authenticated manager of any single group to query these search endpoints with an arbitrary group ID parameter. This allows the enumeration of members in groups the user is not authorized to manage, including the administrator group.\n\n## Attack Chain\nAn attacker requires an authenticated account with group manager privileges to reach the affected endpoints. By supplying a foreign group ID (e.g., the ID of the administrator group) to the `admin-user-search` or `new-member-search` routes, the attacker can receive a JSON response containing the list of group members.\n\n## Impact\nSuccessful exploitation allows an authenticated group manager to enumerate users within groups they do not have administrative access to, potentially revealing the identity of administrators or other sensitive group memberships.\n\n## Recommendation\nUpgrade to HumHub 1.19.4 or later. This release addresses the vulnerability by enforcing the `checkGroupAccess` helper within the vulnerable search actions.",
+      "published": "2026-11-26T12:55:37.000Z",
+      "labels": [
+        "cve",
+        "privilege-escalation",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--df33094a-84d2-5994-9f38-4372847f1023",
+        "vulnerability--e4f4200e-fcf9-5446-8b8c-4f89c3c95bd8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-humhub-enumeration-cve-2026-134840",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-humhub-enumeration-cve-2026-134840/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-134840"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/humhub/humhub/commit/06f647622d11ccb153948a5614a7c6dcd35264a8"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/humhub/humhub/security/advisories/GHSA-5v8f-59v4-x975"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=881E7AA2-7BB7-58A8-9314-35E15D936998\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-humhub-enumeration-cve-2026-134840",
+      "x_craftedsignal_event_id": "brief-2026-11-26-humhub-enumeration-cve-2026-134840",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-humhub-enumeration-cve-2026-134840/",
+      "x_craftedsignal_activity_at": "2026-11-26T12:55:37.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 4.3,
+      "x_craftedsignal_epss_max": 0.00342,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--53034024-6032-5594-85c1-3bab32a99c0a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T20:50:05.000Z",
@@ -411337,6 +411418,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--df33094a-84d2-5994-9f38-4372847f1023",
+      "name": "HumHub (\u003c 1.19.4)",
+      "vendor": "HumHub"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--df80f238-4cf0-547b-9d6b-27cfd9f6d453",
       "name": "VM1",
       "vendor": "Elecbrakes"
@@ -492974,6 +493062,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-100967",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100967"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e4f4200e-fcf9-5446-8b8c-4f89c3c95bd8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-134840",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-134840",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134840"
         }
       ]
     },
