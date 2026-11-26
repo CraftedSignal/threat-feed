@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--fbe9704d-6a9b-5676-b214-cabad0e675ec",
+  "id": "bundle--9bfbcd8f-a373-5936-80a9-64f7490b4244",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2161,17 +2161,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--56e6d1d5-4dc3-58bf-8d63-16d4c265c43e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--154061ae-5229-508d-bbf4-6f146bafc5b8",
-      "target_ref": "vulnerability--f5631f26-6143-57b7-8cfa-f905003fe94c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--5862527e-60f3-5469-b537-ff7a79cc3dc9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2916,28 +2905,6 @@
       "relationship_type": "uses",
       "source_ref": "report--38fae6a3-e998-5bc0-80f0-1a71301bf9cc",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7fd18141-ee74-5948-8e54-1cdf0ad77519",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:19:10.000Z",
-      "modified": "2026-08-28T21:19:10.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ee6e6cd4-446e-5c9c-8a07-62e9100bd224",
-      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--81dc665c-e2f5-5569-9e99-a9f0f0423376",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--242b028e-37e6-501a-838c-50cbf555a43f",
-      "target_ref": "vulnerability--f5631f26-6143-57b7-8cfa-f905003fe94c"
     },
     {
       "type": "relationship",
@@ -3745,17 +3712,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--bee83ab5-a002-572b-acd6-149a9023b34c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--5f0c083f-0604-5a31-973d-fac8c74e9eeb",
-      "target_ref": "vulnerability--f5631f26-6143-57b7-8cfa-f905003fe94c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--bf3db514-c8c7-5877-b0a5-5d306efed49c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3763,17 +3719,6 @@
       "relationship_type": "has",
       "source_ref": "software--d0e7e2c9-152b-5b02-9f46-573cc6046691",
       "target_ref": "vulnerability--d6eb889f-081b-5dbc-b668-c236bdfa37e9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c0613670-9977-513c-baf4-ed871141c1f8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:19:20.000Z",
-      "modified": "2026-08-28T21:19:20.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b4d415e1-6afc-523d-b4de-f46c3eac1ed5",
-      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -8732,58 +8677,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--b4d415e1-6afc-523d-b4de-f46c3eac1ed5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:19:20.000Z",
-      "modified": "2026-08-28T21:19:20.000Z",
-      "name": "KubeVela Terraform Remote Loader Denial of Service via Unbounded File Read",
-      "description": "## Overview\n\nKubeVela versions 1.9.14, 1.10.9, and 1.11.0-alpha.4 are vulnerable to a denial-of-service (DoS) condition (CVE-2026-55108) within the `vela-core` controller. The vulnerability exists in the Terraform remote configuration loader, specifically within `pkg/controller/utils/capability.go`. The controller improperly validates file paths when processing remote git repositories defined in `ComponentDefinition` resources. By crafting a repository that includes a symlink (e.g., `variables.tf` pointing to `/dev/zero`), an attacker can force the `vela-core` controller to perform an unbounded read via `os.ReadFile`. Because the controller follows symlinks and does not verify file size or target location before reading, the process memory usage grows until the controller is terminated by the kernel OOM killer. This vulnerability affects the core control plane and can cause persistent crash loops if the malicious definition remains in the cluster.\n\n## Attack Chain\n\n1. Attacker gains authorization to create or update `core.oam.dev/v1beta1` `ComponentDefinition` resources in a target namespace.\n2. Attacker initializes a git repository and creates a relative symbolic link named `variables.tf` or `main.tf` that resolves to `/dev/zero` (e.g., `ln -s ../../../../../../dev/zero variables.tf`).\n3. Attacker pushes the repository to a location accessible by the KubeVela controller.\n4. Attacker creates or updates a `ComponentDefinition` resource, setting `spec.schematic.terraform.type` to `remote` and providing the URL to the malicious repository.\n5. The `vela-core` controller initiates a reconcile loop and clones the repository into its local cache.\n6. The `GetTerraformConfigurationFromRemote` function executes `os.Stat` and `os.ReadFile` on the attacker-controlled symlink path.\n7. The controller consumes system memory indefinitely while reading from the `/dev/zero` stream.\n8. The `vela-core` controller process reaches the container memory limit and is terminated with an OOMKilled status, resulting in a denial-of-service for the KubeVela control plane.\n\n## Impact\n\nSuccessful exploitation results in a denial-of-service of the KubeVela control plane. The `vela-core` controller Pod enters a `CrashLoopBackOff` state, preventing the orchestration of application components across the cluster. If the controller lacks enforced memory limits, the unbounded read can place extreme pressure on node memory, potentially impacting other co-located workloads.\n\n## Recommendation\n\n1. Upgrade `vela-core` to the patched versions immediately: 1.9.14, 1.10.9, or 1.11.0-alpha.4.\n2. Audit existing `ComponentDefinition` resources to identify and restrict `remote` Terraform repository URLs to trusted, internal-only sources.\n3. Implement strict RBAC controls to limit which users can create or modify `ComponentDefinition` objects within the cluster.\n4. Ensure Kubernetes memory limits are configured for the `vela-core` controller deployment to contain the impact of OOM conditions and prevent node-wide instability.\n",
-      "published": "2026-08-28T21:19:20.000Z",
-      "labels": [
-        "denial-of-service",
-        "kubernetes",
-        "kubevela"
-      ],
-      "object_refs": [
-        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--154061ae-5229-508d-bbf4-6f146bafc5b8",
-        "software--242b028e-37e6-501a-838c-50cbf555a43f",
-        "software--5f0c083f-0604-5a31-973d-fac8c74e9eeb",
-        "vulnerability--f5631f26-6143-57b7-8cfa-f905003fe94c"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-kubevela-dos",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-kubevela-dos/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-fmgp-q6jx-gg3x"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/kubevela/kubevela/blob/a24d3a9c6/pkg/controller/utils/capability.go"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-kubevela-dos",
-      "x_craftedsignal_event_id": "brief-2026-08-kubevela-dos",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-kubevela-dos/",
-      "x_craftedsignal_activity_at": "2026-08-28T21:19:20.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--baa9e51b-b54d-5d17-b0ad-919df45d52ed",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T20:06:17.000Z",
@@ -10335,51 +10228,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--ee6e6cd4-446e-5c9c-8a07-62e9100bd224",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:19:10.000Z",
-      "modified": "2026-08-28T21:19:10.000Z",
-      "name": "Trestle Server-Side Template Injection via Custom Jinja2 Extensions",
-      "description": "## Overview\n\nTrestle contains multiple Server-Side Template Injection (SSTI) vulnerabilities within its Jinja2 rendering pipeline. The application processes Markdown files and other data sources using custom Jinja2 extensions (`MDCleanInclude` and `MDSectionInclude`). These extensions improperly treat untrusted content as Jinja2 template source code by passing it directly to the `jinja2.Parser` object without adequate sanitization or sandboxing. Because the environment utilizes a standard `jinja2.Environment` rather than a `SandboxedEnvironment`, attackers can inject malicious Jinja2 expressions, such as object traversal payloads (e.g., `__class__.__mro__`, `__globals__`), to achieve arbitrary command execution via Python's `os.system` or `subprocess` modules. This pattern exists within `trestle/core/jinja/tags.py` and is triggered whenever a user-provided or workspace-modified Markdown file is processed by the Trestle authoring commands.\n\n## Attack Chain\n\n1. Attacker places a malicious `.md` file containing a Jinja2 payload (e.g., `{{ ... os.system(...) }}`) into the Trestle workspace.\n2. Attacker executes the `trestle author jinja` CLI command, targeting a legitimate template that utilizes the vulnerable `{% md_clean_include %}` or `{% mdsection_include %}` tags.\n3. The Trestle engine loads the malicious file from the filesystem via `FileSystemLoader`.\n4. The `MDCleanInclude` or `MDSectionInclude` tag handler processes the file content, extracting the Markdown body without sanitization.\n5. The extracted content is passed as raw string input to the `Parser` constructor in `trestle/core/jinja/tags.py`.\n6. The `Parser.parse()` method triggers the evaluation of the injected Jinja2 syntax within the template context.\n7. The injected Python payload executes with the privileges of the Trestle process, leading to full Remote Code Execution (RCE) or sensitive data exfiltration.\n\n## Impact\n\nSuccessful exploitation allows for arbitrary code execution on the system running the Trestle command. If used in automated CI/CD pipelines, this can result in the compromise of build environments, leakage of environment variables (e.g., API keys, AWS credentials), or lateral movement within the infrastructure.\n\n## Recommendation\n\n1. Immediately restrict write access to all Trestle workspace directories to trusted users to prevent the introduction of malicious Markdown files.\n2. Patch the application code by modifying `trestle/core/jinja/tags.py` to stop re-parsing Markdown content via `Parser.parse()`, replacing it with `nodes.TemplateData` as suggested by the security advisory.\n3. Transition from `jinja2.Environment` to `jinja2.sandbox.SandboxedEnvironment` in `trestle/core/commands/author/jinja.py` to restrict access to sensitive Python object attributes.\n4. Implement a pre-commit hook or CI scanning gate to audit all workspace files for Jinja2 syntax patterns and dangerous Python method calls (e.g., `__globals__`, `os.system`, `subprocess`).\n",
-      "published": "2026-08-28T21:19:10.000Z",
-      "labels": [
-        "jinja2",
-        "python",
-        "rce",
-        "ssti"
-      ],
-      "object_refs": [
-        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--bb63ed42-0104-5e25-a7b0-cb0c7f509a92"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-trestle-ssti",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-trestle-ssti/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-jw39-3688-r4rx"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-trestle-ssti",
-      "x_craftedsignal_event_id": "brief-2026-08-trestle-ssti",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-trestle-ssti/",
-      "x_craftedsignal_activity_at": "2026-08-28T21:19:10.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--f08ce54d-98d6-583a-8cbb-3389462421a7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T15:58:02.000Z",
@@ -10896,13 +10744,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--154061ae-5229-508d-bbf4-6f146bafc5b8",
-      "name": "vela-core (\u003c 1.9.14)",
-      "vendor": "KubeVela"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--15d7ac41-a0e0-54ea-adc4-99a5377b1609",
       "name": "GraphQL",
       "vendor": "SmallRye"
@@ -10955,13 +10796,6 @@
       "id": "software--23766c97-04de-5815-ab7f-0502a1f3423e",
       "name": "silicon (\u003c= 0.1.5)",
       "vendor": "cu"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--242b028e-37e6-501a-838c-50cbf555a43f",
-      "name": "vela-core (\u003e= 1.11.0-alpha.1, \u003c 1.11.0-alpha.4)",
-      "vendor": "KubeVela"
     },
     {
       "type": "software",
@@ -11235,13 +11069,6 @@
       "id": "software--5ded517b-3b52-5166-9360-289e65d09cfb",
       "name": "Admidio (\u003c 5.0.12)",
       "vendor": "Admidio"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--5f0c083f-0604-5a31-973d-fac8c74e9eeb",
-      "name": "vela-core (\u003e= 1.10.0-alpha.1, \u003c 1.10.9)",
-      "vendor": "KubeVela"
     },
     {
       "type": "software",
@@ -11631,13 +11458,6 @@
       "id": "software--ba7a2a2b-0ada-51aa-8c36-8191d3d54d6a",
       "name": "PS3111-S11 (\u003c= SBFQT1.3)",
       "vendor": "Phison"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--bb63ed42-0104-5e25-a7b0-cb0c7f509a92",
-      "name": "trestle",
-      "vendor": "IBM"
     },
     {
       "type": "software",
@@ -13561,22 +13381,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-3627",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3627"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--f5631f26-6143-57b7-8cfa-f905003fe94c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-55108",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-55108",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55108"
         }
       ]
     },

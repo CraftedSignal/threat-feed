@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e185cb0c-b352-5228-9bc1-f0623366be03",
+  "id": "bundle--41a6e722-b3a0-5c15-9877-e1ae8d60e3cf",
   "objects": [
     {
       "type": "attack-pattern",
@@ -356289,6 +356289,44 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--cbe1c6fe-9301-50a3-aba2-24ff0762418a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T21:24:27.000Z",
+      "modified": "2026-11-26T21:24:27.000Z",
+      "name": "Anope: Security updates released for Anope services",
+      "description": "## Overview\n\nAnope has released security updates for their services software. The advisory was shared with the UnrealIRCd mailing list to ensure administrators of related infrastructure are aware of the need to update their systems. No specific CVE identifiers, vulnerability details, or exploitation information were provided in the source announcement.\n\n## Recommendation\n\n- Inventory all deployments of Anope IRC services.\n- Monitor the official Anope project communications for the release notes detailing the specific security vulnerabilities fixed in these updates.\n- Update Anope services to the latest version as soon as patches are confirmed available.",
+      "published": "2026-11-26T21:24:27.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--52a17d07-d93e-5be7-afd9-8e0a2d470f37"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-anope-security-updates",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-anope-security-updates/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/836"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-anope-security-updates",
+      "x_craftedsignal_event_id": "brief-2026-11-26-anope-security-updates",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-anope-security-updates/",
+      "x_craftedsignal_activity_at": "2026-11-26T21:24:27.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--cbe63115-1edf-5245-9356-275a3140e356",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T08:18:57.000Z",
@@ -408398,6 +408436,13 @@
       "id": "software--528f8b05-5568-548d-941b-1ba0a5a1ab03",
       "name": "pardus-boot-repair (1.0.8 through \u003c 1.1.0)",
       "vendor": "TÜBİTAK BİLGEM Software Technologies Research Institute"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--52a17d07-d93e-5be7-afd9-8e0a2d470f37",
+      "name": "Anope services",
+      "vendor": "Anope"
     },
     {
       "type": "software",
