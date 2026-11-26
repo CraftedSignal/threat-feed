@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5d0703c1-3128-5c0f-8dc1-3c0749cbfa95",
+  "id": "bundle--81f154f6-5af3-58bf-8226-3e9ca3fed9bd",
   "objects": [
     {
       "type": "attack-pattern",
@@ -43808,6 +43808,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--382bc521-c282-53bb-83a1-f54a85979b2b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--10fc3919-d917-5b76-a89f-9a6718da6628",
+      "target_ref": "vulnerability--2995a7ae-427e-53e4-b1c7-d27ee2c54f19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--382c4817-5910-5d73-857c-dcc7f8f6cc88",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T14:53:22.000Z",
@@ -58181,6 +58192,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--6778d1a1-ce8c-5825-8545-8ab2d7ef72ae"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4eaa9316-a851-5bf5-9a43-6f75e169f9ad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T18:23:42.000Z",
+      "modified": "2026-11-26T18:23:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3ba64011-b1ad-5832-99d3-915c2aafc5d8",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -211605,6 +211627,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--3ba64011-b1ad-5832-99d3-915c2aafc5d8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T18:23:42.000Z",
+      "modified": "2026-11-26T18:23:42.000Z",
+      "name": "Apache Karaf: Privilege escalation and remote code execution in SFTP/SCP subsystems (CVE-2026-129959)",
+      "description": "## Overview\nApache Karaf versions up to and including 4.4.12 contain a vulnerability in the SSH server's SFTP and SCP subsystems. When sftpEnabled=true (the default), the system fails to verify the authenticated user's roles beyond the initial login check. This flaw permits users with minimal roles, such as 'viewer' or 'ssh', to perform unauthorized read operations on sensitive files, including 'etc/users.properties' and 'etc/host.key', or write arbitrary files into system directories like 'deploy/' or 'etc/'. Successful exploitation results in privilege escalation and arbitrary code execution.\n\n## Impact\nAuthenticated attackers with low-privileged access can bypass role-based access control to read sensitive configuration and cryptographic keys, or modify the system's runtime environment via file injection. This facilitates full system compromise.\n\n## Recommendation\n- Upgrade to Apache Karaf 4.4.13 or 4.5.0, which introduce the sftpRole configuration property to enforce granular access control.\n- If an upgrade is not immediately possible and SFTP/SCP functionality is not required, disable the vulnerable subsystem by setting 'sftpEnabled=false' in 'etc/org.apache.karaf.shell.cfg' and restart the affected Karaf instance or SSH server bundle.",
+      "published": "2026-11-26T18:23:42.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--10fc3919-d917-5b76-a89f-9a6718da6628",
+        "vulnerability--2995a7ae-427e-53e4-b1c7-d27ee2c54f19"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-apache-karaf-sftp-rce-cve-2026-129959",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-karaf-sftp-rce-cve-2026-129959/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129959"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129959"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-apache-karaf-sftp-rce-cve-2026-129959",
+      "x_craftedsignal_event_id": "brief-2026-11-26-apache-karaf-sftp-rce-cve-2026-129959",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-karaf-sftp-rce-cve-2026-129959/",
+      "x_craftedsignal_activity_at": "2026-11-26T18:23:42.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.01757,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--3bab7def-1bdb-5138-8df7-8e783553772f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-26T17:45:20.000Z",
@@ -345406,6 +345474,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--10fc3919-d917-5b76-a89f-9a6718da6628",
+      "name": "Apache Karaf (\u003c= 4.4.12)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1132d803-2f37-5162-8cd2-3f5c75a4b221",
       "name": "django-docutils",
       "vendor": "tony"
@@ -382385,6 +382460,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124756",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124756"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2995a7ae-427e-53e4-b1c7-d27ee2c54f19",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129959",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129959",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129959"
         }
       ]
     },

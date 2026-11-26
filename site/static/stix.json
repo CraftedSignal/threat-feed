@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9650895d-487c-5b27-83e5-59779f65260f",
+  "id": "bundle--628e40ae-09c0-5c28-b4b2-a9463c68521e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -49095,6 +49095,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--382bc521-c282-53bb-83a1-f54a85979b2b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--10fc3919-d917-5b76-a89f-9a6718da6628",
+      "target_ref": "vulnerability--2995a7ae-427e-53e4-b1c7-d27ee2c54f19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--382c4817-5910-5d73-857c-dcc7f8f6cc88",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T14:53:22.000Z",
@@ -65386,6 +65397,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4eaa9316-a851-5bf5-9a43-6f75e169f9ad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T18:23:42.000Z",
+      "modified": "2026-11-26T18:23:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3ba64011-b1ad-5832-99d3-915c2aafc5d8",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4eb0219b-41a6-5606-86c8-7aed2d6bb523",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -78058,17 +78080,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--6051ef14-9c60-58ba-9339-0efa3e5800e2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--d0b569ff-be4e-5537-9411-34627644d5f3",
-      "target_ref": "vulnerability--0a2b8c9b-f3eb-57e2-931e-e9b5f7b0b017"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--60522372-423e-5eff-a2bc-a26722526afb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -85985,17 +85996,6 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--347dcb93-3644-5487-8952-d4cda7936405"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--6af9e00b-3073-5ade-857d-3c32b76817cc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--35ec5899-d3ab-5052-9224-bca5a3a75aef",
-      "target_ref": "vulnerability--30fbec68-7bd3-5f63-8b45-385339168a5e"
     },
     {
       "type": "relationship",
@@ -106104,17 +106104,6 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--57972d4e-5725-5e7e-adc6-7c102005921f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--85a5b8d4-8958-5b31-89f8-a3557fbae001",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-27T18:15:53.000Z",
-      "modified": "2026-10-27T18:15:53.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3e508364-519e-554a-a531-3eba1e837c01",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -141638,17 +141627,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b75a7579-f4fd-5edf-b1e3-34b2a6e27830",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-27T18:15:41.000Z",
-      "modified": "2026-10-27T18:15:41.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c6e176f2-9f80-5360-8845-8cb332db6efa",
-      "target_ref": "attack-pattern--517e3cf6-0668-587e-8d91-d211f6b8fe6b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b75d4f29-b113-5450-bd94-ed9126d355d9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -159938,17 +159916,6 @@
       "relationship_type": "has",
       "source_ref": "software--31f0bc12-9756-5aa2-9d19-05592043941b",
       "target_ref": "vulnerability--d1b4fae6-964a-5cb4-bfee-5cfab3392e2f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d0ccd886-ff0c-5e55-89e9-ce799a683018",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-27T18:15:53.000Z",
-      "modified": "2026-10-27T18:15:53.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3e508364-519e-554a-a531-3eba1e837c01",
-      "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
     },
     {
       "type": "relationship",
@@ -239793,6 +239760,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--3ba64011-b1ad-5832-99d3-915c2aafc5d8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T18:23:42.000Z",
+      "modified": "2026-11-26T18:23:42.000Z",
+      "name": "Apache Karaf: Privilege escalation and remote code execution in SFTP/SCP subsystems (CVE-2026-129959)",
+      "description": "## Overview\nApache Karaf versions up to and including 4.4.12 contain a vulnerability in the SSH server's SFTP and SCP subsystems. When sftpEnabled=true (the default), the system fails to verify the authenticated user's roles beyond the initial login check. This flaw permits users with minimal roles, such as 'viewer' or 'ssh', to perform unauthorized read operations on sensitive files, including 'etc/users.properties' and 'etc/host.key', or write arbitrary files into system directories like 'deploy/' or 'etc/'. Successful exploitation results in privilege escalation and arbitrary code execution.\n\n## Impact\nAuthenticated attackers with low-privileged access can bypass role-based access control to read sensitive configuration and cryptographic keys, or modify the system's runtime environment via file injection. This facilitates full system compromise.\n\n## Recommendation\n- Upgrade to Apache Karaf 4.4.13 or 4.5.0, which introduce the sftpRole configuration property to enforce granular access control.\n- If an upgrade is not immediately possible and SFTP/SCP functionality is not required, disable the vulnerable subsystem by setting 'sftpEnabled=false' in 'etc/org.apache.karaf.shell.cfg' and restart the affected Karaf instance or SSH server bundle.",
+      "published": "2026-11-26T18:23:42.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--10fc3919-d917-5b76-a89f-9a6718da6628",
+        "vulnerability--2995a7ae-427e-53e4-b1c7-d27ee2c54f19"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-apache-karaf-sftp-rce-cve-2026-129959",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-karaf-sftp-rce-cve-2026-129959/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-129959"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129959"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-apache-karaf-sftp-rce-cve-2026-129959",
+      "x_craftedsignal_event_id": "brief-2026-11-26-apache-karaf-sftp-rce-cve-2026-129959",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-karaf-sftp-rce-cve-2026-129959/",
+      "x_craftedsignal_activity_at": "2026-11-26T18:23:42.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.01757,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--3bab7def-1bdb-5138-8df7-8e783553772f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-26T17:45:20.000Z",
@@ -241949,63 +241962,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.6,
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--3e508364-519e-554a-a531-3eba1e837c01",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-27T18:15:53.000Z",
-      "modified": "2026-10-27T18:15:53.000Z",
-      "name": "midi-Synth: Unauthenticated arbitrary file upload remote code execution (CVE-2026-1306)",
-      "description": "## Overview\nThe midi-Synth WordPress plugin contains a critical unauthenticated arbitrary file upload vulnerability (CVE-2026-1306) in the export AJAX handler of admin-ajax.php. The plugin fails to validate file extensions, MIME types, or file content, allowing unauthenticated users to upload malicious files to the /wp-content/plugins/midi-synth/sound/ directory. Because this directory is web-accessible and allows PHP execution, an attacker can achieve remote code execution (RCE). The vulnerability is remediated in version 2.0.0.\n\n## Attack Chain\n1. Attacker performs a GET request to the WordPress homepage.\n2. Attacker parses the HTML response to extract the hardcoded nonce (`midiSynth_nonce`) embedded in frontend JavaScript.\n3. Attacker sends a POST request to /wp-admin/admin-ajax.php with action=export and the extracted nonce.\n4. Attacker includes the filename (e.g., shell.php) and base64-encoded file content in the POST parameters.\n5. The plugin decodes and writes the file to the web-accessible /wp-content/plugins/midi-synth/sound/ directory.\n6. Attacker requests the newly uploaded PHP file via the browser to trigger code execution.\n\n## Impact\nSuccessful exploitation allows for full server compromise, including loss of confidentiality, integrity, and availability of the affected WordPress site.\n\n## Recommendation\n- Update the midi-Synth plugin to version 2.0.0 or later immediately.\n- If updates cannot be applied, deactivate and remove the plugin from the environment.\n- Audit the /wp-content/plugins/midi-synth/sound/ directory for unexpected files and remove any malicious entries.\n- Implement a WAF rule to block POST requests to admin-ajax.php where action=export and the fileName parameter ends in .php.\n- Review server access logs for anomalous POST requests to admin-ajax.php as defined in the hunt leads.\n",
-      "published": "2026-10-27T18:15:53.000Z",
-      "labels": [
-        "arbitrary-file-upload",
-        "rce",
-        "web-application-vulnerability",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--d0b569ff-be4e-5537-9411-34627644d5f3",
-        "vulnerability--0a2b8c9b-f3eb-57e2-931e-e9b5f7b0b017"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-27-midi-synth-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-midi-synth-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1306"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=97A4BB46-6450-5A5B-B0CF-4C0DEC06BA80"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=97A4BB46-6450-5A5B-B0CF-4C0DEC06BA80\u0026utm_source=rss\u0026utm_medium=rss"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-27-midi-synth-rce",
-      "x_craftedsignal_event_id": "brief-2026-10-27-midi-synth-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-midi-synth-rce/",
-      "x_craftedsignal_activity_at": "2026-10-27T18:15:53.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.04827,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -345041,62 +344997,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--c6e176f2-9f80-5360-8845-8cb332db6efa",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-27T18:15:41.000Z",
-      "modified": "2026-10-27T18:15:41.000Z",
-      "name": "KaizenCoders URL Shortify: Unauthenticated Open Redirect (CVE-2026-1277)",
-      "description": "## Overview\n\nCVE-2026-1277 is an unauthenticated open redirect vulnerability affecting the URL Shortify WordPress plugin (versions prior to 1.12.2). The vulnerability resides in the `handle_promotions` method within `url-shortify/lite/includes/Promo.php`. While the plugin sanitizes the `redirect_to` parameter using `esc_url_raw()`, it fails to validate the destination against a whitelist, enabling arbitrary redirection to external domains. A public proof-of-concept (PoC) exploit has been released, enabling attackers to generate malicious URLs that facilitate phishing campaigns by abusing trust in the target site.\n\n## Attack Chain\n\n1. Attacker crafts a malicious URL pointing to the site's `admin-ajax.php` endpoint.\n2. Attacker injects a target phishing domain into the `redirect_to` parameter.\n3. Attacker distributes the link to a victim via social engineering.\n4. Victim clicks the malicious link while interacting with the legitimate WordPress site.\n5. WordPress server processes the request and executes `wp_redirect` using the attacker-supplied parameter.\n6. Victim is redirected to the attacker-controlled phishing site.\n\n## Impact\n\nSuccessful exploitation allows an attacker to abuse a trusted domain to redirect users to malicious, phishing, or malware-hosting sites. This vulnerability does not allow server-side compromise or unauthorized access to the underlying WordPress instance.\n\n## Recommendation\n\n1. Upgrade the URL Shortify plugin to version 1.12.2 or later immediately.\n2. If an immediate update is not possible, deactivate the plugin until the patch can be applied.\n3. Implement WAF rules to reject requests to `admin-ajax.php` where the `redirect_to` parameter contains external hostnames that do not match an allow-list of your domain.\n",
-      "published": "2026-10-27T18:15:41.000Z",
-      "labels": [
-        "cve-2026-1277",
-        "open-redirect",
-        "web-application",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--517e3cf6-0668-587e-8d91-d211f6b8fe6b",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--35ec5899-d3ab-5052-9224-bca5a3a75aef",
-        "vulnerability--30fbec68-7bd3-5f63-8b45-385339168a5e"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-27-url-shortify-open-redirect",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-url-shortify-open-redirect/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1277"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=6F6F79AB-D794-5C99-8818-CC718379859C"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=6F6F79AB-D794-5C99-8818-CC718379859C\u0026utm_source=rss\u0026utm_medium=rss"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-10-27-url-shortify-open-redirect",
-      "x_craftedsignal_event_id": "brief-2026-10-27-url-shortify-open-redirect",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-url-shortify-open-redirect/",
-      "x_craftedsignal_activity_at": "2026-10-27T18:15:41.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 4.7,
-      "x_craftedsignal_epss_max": 0.00658,
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--c6e6acc8-e6fd-51c6-ba9d-6b82685181a9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-06T17:22:59.000Z",
@@ -392260,6 +392160,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--10fc3919-d917-5b76-a89f-9a6718da6628",
+      "name": "Apache Karaf (\u003c= 4.4.12)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--110e544c-7f56-5c21-94d5-fd366b3251cc",
       "name": "Red Hat Enterprise Linux 7 (All versions)",
       "vendor": "Red Hat"
@@ -396526,13 +396433,6 @@
       "spec_version": "2.1",
       "id": "software--35ded41b-8223-548a-8b44-44f0b6542da6",
       "name": "Azure Key Vault"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--35ec5899-d3ab-5052-9224-bca5a3a75aef",
-      "name": "URL Shortify (\u003c 1.12.2)",
-      "vendor": "KaizenCoders"
     },
     {
       "type": "software",
@@ -414958,12 +414858,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--d0b569ff-be4e-5537-9411-34627644d5f3",
-      "name": "midi-Synth (\u003c 2.0.0)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--d0d300bb-2332-5322-a5d9-c0a23717bd0f",
       "name": "Craft CMS (\u003c 5.11.2)",
       "vendor": "Craft CMS"
@@ -424704,22 +424598,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-105565",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105565"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--0a2b8c9b-f3eb-57e2-931e-e9b5f7b0b017",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-1306",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-1306",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1306"
         }
       ]
     },
@@ -435126,6 +435004,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--2995a7ae-427e-53e4-b1c7-d27ee2c54f19",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-129959",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-129959",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129959"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--2999395a-cb2b-53fc-84f3-31572107b0b5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -437392,22 +437286,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-130321",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130321"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--30fbec68-7bd3-5f63-8b45-385339168a5e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-1277",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-1277",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1277"
         }
       ]
     },
