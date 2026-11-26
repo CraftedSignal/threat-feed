@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--efa790a3-3806-527a-a836-faa10cdba6e9",
+  "id": "bundle--b27f07cd-da38-5cb1-8832-a024ac9cc615",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1055,19 +1055,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--5c5f7b70-f0cc-5ae6-ad71-e583da4ecb7e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T14:28:32.000Z",
-      "modified": "2026-11-19T18:13:06.000Z",
-      "name": "ip: 45.142.193.132",
-      "description": "C2 server used for data exfiltration and delivery of credential harvesting tools.",
-      "pattern": "[ipv4-addr:value = '45.142.193.132']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-28T14:28:32.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--74de0ebf-6be8-5f84-aa7e-b1d59ee2c300",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T11:54:52.000Z",
@@ -1181,19 +1168,6 @@
       "pattern": "[file:hashes.MD5 = 'c24e99f9437feacaa63766a3cde3fe3d']",
       "pattern_type": "stix",
       "valid_from": "2026-08-31T12:55:01.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--eb430418-9631-57a0-8194-775b35aae13a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T14:28:32.000Z",
-      "modified": "2026-11-19T18:13:06.000Z",
-      "name": "ip: 194.180.48.134",
-      "description": "C2 server used to deliver Meterpreter Java payloads and establish sessions.",
-      "pattern": "[ipv4-addr:value = '194.180.48.134']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-28T14:28:32.000Z"
     },
     {
       "type": "relationship",
@@ -1506,17 +1480,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--0ce13641-ea14-5832-a583-92d0aabc9e75",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--9ee41004-103b-55c6-99f5-3502ae122799",
-      "target_ref": "vulnerability--473420a9-1b1b-5a3f-9771-b6509d32fe6e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--0d84aa48-3ae2-5573-b117-25b9e44e7e35",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T15:13:11.000Z",
@@ -1601,17 +1564,6 @@
       "relationship_type": "has",
       "source_ref": "software--97631bf3-3bf2-5bd9-8f14-8636ee28650e",
       "target_ref": "vulnerability--f6f319c6-86fc-5730-8975-b29d9b5cc830"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--11fb4688-00d9-504a-8ca8-2681fabc6138",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T14:28:32.000Z",
-      "modified": "2026-11-19T18:13:06.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c20fff9c-3341-582c-a47f-5ed42e10db3c",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -1946,17 +1898,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--27123eee-3a9e-506e-b5d6-da07d74bc210",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--aa63b621-3e72-5793-8e3f-3767a926feea",
-      "target_ref": "vulnerability--bfc97155-70d6-5241-80ab-8d6444463cd8"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--27590876-8eab-5623-899d-4e7ced6926a1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2122,17 +2063,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--2f32ec98-3cac-529e-938a-851daf53b635",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T14:28:32.000Z",
-      "modified": "2026-11-19T18:13:06.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c20fff9c-3341-582c-a47f-5ed42e10db3c",
-      "target_ref": "indicator--5c5f7b70-f0cc-5ae6-ad71-e583da4ecb7e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--2f80e8c2-722c-5e43-866f-2220a721dec2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T17:52:43.000Z",
@@ -2195,17 +2125,6 @@
       "relationship_type": "uses",
       "source_ref": "report--c23dfd92-de71-5868-94b3-0ef05d16102e",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--3226426e-3507-5164-b6a1-937d3ea35b1b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--aa63b621-3e72-5793-8e3f-3767a926feea",
-      "target_ref": "vulnerability--473420a9-1b1b-5a3f-9771-b6509d32fe6e"
     },
     {
       "type": "relationship",
@@ -2316,17 +2235,6 @@
       "relationship_type": "uses",
       "source_ref": "report--2e8bcf5f-22bc-55b1-9a2a-8b3387055e72",
       "target_ref": "indicator--4aa9e225-6f65-525f-8a5d-4051f7d0cd28"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--3a091e86-8ba8-5cdc-8363-199a4f5c1c6a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--62e7de6b-8849-517b-a2fa-8b930c0489a9",
-      "target_ref": "vulnerability--bfc97155-70d6-5241-80ab-8d6444463cd8"
     },
     {
       "type": "relationship",
@@ -2921,17 +2829,6 @@
       "relationship_type": "has",
       "source_ref": "software--6fce20a8-03ca-56d9-bf06-df9daea2af24",
       "target_ref": "vulnerability--fe3a37a7-c310-55cd-a841-cc4cf4053e8f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--606d3fa1-e07f-5ffc-9d27-d56d7f08d78a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T14:28:32.000Z",
-      "modified": "2026-11-19T18:13:06.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c20fff9c-3341-582c-a47f-5ed42e10db3c",
-      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -3651,17 +3548,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--7d21b6b8-c5f3-5c36-b20e-8971c3494687",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--6798c0f1-c56c-5c2d-9589-7c70f02e0d20",
-      "target_ref": "vulnerability--473420a9-1b1b-5a3f-9771-b6509d32fe6e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--7dcfc6b3-9e3c-5835-a08b-bf1a8e3b02cc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T11:17:52.000Z",
@@ -4146,17 +4032,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--9871e0ca-9db4-5fdb-9c41-6db4dcd5f306",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--6798c0f1-c56c-5c2d-9589-7c70f02e0d20",
-      "target_ref": "vulnerability--bfc97155-70d6-5241-80ab-8d6444463cd8"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9ade9538-653f-53dd-b3fe-29c94ad7bff7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T21:18:21.000Z",
@@ -4307,17 +4182,6 @@
       "relationship_type": "has",
       "source_ref": "software--7a4e142d-6fe0-5b3b-9b88-ce11800b6c90",
       "target_ref": "vulnerability--b4307c3b-b33c-5c1a-9712-1b1a50d36a5e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a0a2520a-50ea-5b70-8e71-07dfb2682841",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--62e7de6b-8849-517b-a2fa-8b930c0489a9",
-      "target_ref": "vulnerability--473420a9-1b1b-5a3f-9771-b6509d32fe6e"
     },
     {
       "type": "relationship",
@@ -4681,17 +4545,6 @@
       "relationship_type": "has",
       "source_ref": "software--ed462f2c-24e6-5d5e-ab0a-87eb31fee8b9",
       "target_ref": "vulnerability--ecfa1e73-b920-530a-bdb7-5c184d40fe1a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--b84eb4f0-1814-57ba-aa4a-b8642f023958",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T14:28:32.000Z",
-      "modified": "2026-11-19T18:13:06.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c20fff9c-3341-582c-a47f-5ed42e10db3c",
-      "target_ref": "indicator--eb430418-9631-57a0-8194-775b35aae13a"
     },
     {
       "type": "relationship",
@@ -5352,17 +5205,6 @@
       "relationship_type": "uses",
       "source_ref": "report--45be3a9b-2e1a-56b5-8e38-8868b943a749",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d5b5a2d6-4db0-53b3-8db1-4785d9e958b0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--9ee41004-103b-55c6-99f5-3502ae122799",
-      "target_ref": "vulnerability--bfc97155-70d6-5241-80ab-8d6444463cd8"
     },
     {
       "type": "relationship",
@@ -11668,102 +11510,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--c20fff9c-3341-582c-a47f-5ed42e10db3c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T14:28:32.000Z",
-      "modified": "2026-11-19T18:13:06.000Z",
-      "name": "Active Exploitation of PaperCut MF and NG",
-      "description": "## Overview\n\nThe Netherlands National Cyber Security Centre (NCSC-NL) has issued an urgent alert regarding the active exploitation of two critical vulnerabilities within PaperCut MF and PaperCut NG print management software. Identified as CVE-2026-82078 and CVE-2026-81578, these flaws enable unauthenticated remote attackers to compromise the print management environment. By bypassing authentication mechanisms, adversaries can gain full control over the application, leading to arbitrary code execution. This level of access provides a significant foothold within an organization's network, increasing the risk of lateral movement, data theft, and operational disruption. Given that exploitation is currently observed in the wild, the NCSC strongly advises organizations to verify their version status against the vendor's security bulletin and apply the provided patches immediately.\n\n## Impact\n\nSuccessful exploitation of these vulnerabilities allows attackers to seize control of the PaperCut environment without valid credentials. This results in the potential for complete system compromise, enabling further unauthorized access to sensitive internal systems and data. The risk of lateral movement from the compromised print server to other network segments represents a high-impact threat to organizational security and business continuity.\n\n## Recommendation\n\n- Identify all instances of PaperCut MF and PaperCut NG within the network and verify if they are running vulnerable versions.\n- Apply the vendor-provided security updates for CVE-2026-82078 and CVE-2026-81578 as a matter of urgency.\n- Perform log analysis on the PaperCut server for anomalous activity, such as unexpected process spawning or unauthorized access attempts, as documented in the official PaperCut security bulletin.\n- If the environment status is unknown, contact IT service providers immediately to facilitate an audit and patching effort.\n",
-      "published": "2026-08-28T14:28:32.000Z",
-      "object_refs": [
-        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--5c5f7b70-f0cc-5ae6-ad71-e583da4ecb7e",
-        "indicator--eb430418-9631-57a0-8194-775b35aae13a",
-        "software--62e7de6b-8849-517b-a2fa-8b930c0489a9",
-        "software--6798c0f1-c56c-5c2d-9589-7c70f02e0d20",
-        "software--9ee41004-103b-55c6-99f5-3502ae122799",
-        "software--aa63b621-3e72-5793-8e3f-3767a926feea",
-        "vulnerability--473420a9-1b1b-5a3f-9771-b6509d32fe6e",
-        "vulnerability--bfc97155-70d6-5241-80ab-8d6444463cd8"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-papercut-vulnerabilities",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-papercut-vulnerabilities/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://cyber.gc.ca/en/alerts-advisories/papercut-security-advisory-av26-858"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/windows/initial_access_papercut_suspicious_child_process.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://socprime.com/blog/cve-2026-81578-analysis/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://thehackernews.com/2026/09/attackers-exploit-papercut-flaws-to.html"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://thehackernews.com/2026/09/papercut-attacker-uses-hundreds-of-ai.html"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://therecord.media/papercut-warns-of-hackers-using-printer-management-vulnerabilities"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1095/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/08/31/cisa-adds-two-known-exploited-vulnerabilities-catalog"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2026-81578"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.ncsc.nl/alerts/kwetsbaarheden-in-papercut-mf-en-ng-met-actief-misbruik-update-onmiddellijk"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.reddit.com/r/blueteamsec/comments/1w1w0jb/urgent_security_advisory_papercut_ngmf_security/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.securityweek.com/papercut-exploitation-escalates-to-active-intrusions/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-papercut-vulnerabilities",
-      "x_craftedsignal_event_id": "brief-2026-08-papercut-vulnerabilities",
-      "x_craftedsignal_revision": 2,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-papercut-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-11-19T18:13:06.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "confirmed_active",
-        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-        "observed_at": "2026-08-31T00:00:00.000Z",
-        "confidence": "high"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.04186,
-      "x_craftedsignal_kev_status": "true"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--c21871ca-b395-585c-bbd0-810ed40c88de",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T03:13:32.000Z",
@@ -14519,13 +14265,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--62e7de6b-8849-517b-a2fa-8b930c0489a9",
-      "name": "PaperCut Hive",
-      "vendor": "PaperCut"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--6305a776-30a1-541c-a787-074a03fd91c9",
       "name": "RouterOS (\u003c 6.42.1)",
       "vendor": "MikroTik"
@@ -14571,13 +14310,6 @@
       "id": "software--6635e5cb-7eb2-575c-851f-34369013847a",
       "name": "Omnivore API (\u003c abf53d6)",
       "vendor": "Omnivore"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--6798c0f1-c56c-5c2d-9589-7c70f02e0d20",
-      "name": "NG/MF",
-      "vendor": "PaperCut"
     },
     {
       "type": "software",
@@ -14943,13 +14675,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--9ee41004-103b-55c6-99f5-3502ae122799",
-      "name": "PaperCut NG",
-      "vendor": "PaperCut"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--9f0fc496-da3d-5a80-a51e-d61847f0163b",
       "name": "JBoss EAP",
       "vendor": "Red Hat"
@@ -14988,13 +14713,6 @@
       "id": "software--a92e6d0a-6bbf-5075-955f-f78108c6bc25",
       "name": "Skyvern (\u003c 1.0.45)",
       "vendor": "Skyvern"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--aa63b621-3e72-5793-8e3f-3767a926feea",
-      "name": "PaperCut MF",
-      "vendor": "PaperCut"
     },
     {
       "type": "software",
@@ -15964,22 +15682,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-55516",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55516"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--473420a9-1b1b-5a3f-9771-b6509d32fe6e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-81578",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-81578",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81578"
         }
       ]
     },
@@ -17020,22 +16722,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-82628",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82628"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--bfc97155-70d6-5241-80ab-8d6444463cd8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-82078",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-82078",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82078"
         }
       ]
     },
