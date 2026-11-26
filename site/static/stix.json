@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d9a46a71-5b60-5fef-9798-345da9c9a101",
+  "id": "bundle--fbf9e35d-8e6c-510c-94ee-c21a285daeae",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20154,6 +20154,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0ee9fc5e-9b61-5c3a-bee6-a6f9a6423a70",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--86dd596c-9ba0-53e3-9444-6596b972698c",
+      "target_ref": "vulnerability--97bb6a66-cafa-5450-b476-525ff2c9aaab"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0eeaf988-141c-5fb6-bf16-4adf017c7db7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -40302,6 +40313,17 @@
       "relationship_type": "has",
       "source_ref": "software--9ec60428-390c-5093-b2df-615fc1e80a2a",
       "target_ref": "vulnerability--f7bdb595-7601-5262-a974-49cab08744c5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2aa06c0c-7e9c-594b-853e-6ed5d7b1640c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5d9624c7-c896-5986-8b59-b9983788591f",
+      "target_ref": "vulnerability--5a0727ea-1665-50f5-aacb-4822bcc4c438"
     },
     {
       "type": "relationship",
@@ -103952,6 +103974,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8081b53b-e3b3-568f-a816-e153f914039e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--64d3a603-fddc-52ff-88b0-1fd226977d7b",
+      "target_ref": "vulnerability--97bb6a66-cafa-5450-b476-525ff2c9aaab"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8082622c-09bc-545b-af48-0f026a8e01f5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -157683,6 +157716,17 @@
       "relationship_type": "has",
       "source_ref": "software--30823a76-eb8a-51c9-9c25-0ccc1aaec5cb",
       "target_ref": "vulnerability--92f50888-b1f9-564c-8e61-f4f134869072"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--caaa3459-6d47-5251-ad4b-5287bc706741",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T21:13:15.000Z",
+      "modified": "2026-11-26T21:13:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c62863a7-5d63-5ba6-9d4c-1a0c3df66242",
+      "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
     },
     {
       "type": "relationship",
@@ -351534,6 +351578,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c62863a7-5d63-5ba6-9d4c-1a0c3df66242",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T21:13:15.000Z",
+      "modified": "2026-11-26T21:13:15.000Z",
+      "name": "Bookly Plugin: Stored Cross-Site Scripting (CVE-2026-5513)",
+      "description": "## Overview\nThe Bookly WordPress plugin, specifically versions up to and including 27.2, contains a stored Cross-Site Scripting (XSS) vulnerability (CVE-2026-5513). The flaw occurs when the 'Remember personal information in cookies' setting is enabled in the plugin configuration. The plugin fails to sanitize the 'bookly-customer-full-name' cookie before outputting it directly into the HTML of the booking form, enabling unauthenticated attackers to inject malicious JavaScript payloads.\n\n## Attack Chain\n1. Attacker identifies a target running the vulnerable Bookly plugin.\n2. Attacker crafts a malicious JavaScript payload formatted for the 'bookly-customer-full-name' cookie.\n3. Attacker sets the malicious cookie on the target application.\n4. Victim (e.g., administrator) visits a page containing the Bookly booking form.\n5. The plugin reads the cookie value and injects it into the page without escaping.\n6. The browser executes the injected script in the context of the user's session.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to execute arbitrary JavaScript in the victim's browser. This could lead to session hijacking, unauthorized actions performed on behalf of the victim, or the exfiltration of sensitive information if the victim has elevated privileges such as administrative access.\n\n## Recommendation\n- Upgrade the Bookly plugin to version 27.3 or later immediately to patch the sanitization logic.\n- If patching is not immediately possible, disable the 'Remember personal information in cookies' setting within the Bookly General settings.\n- Deploy WAF rules to detect and block abnormal characters (e.g., script tags, brackets, event handlers) within the 'bookly-customer-full-name' cookie.\n- Implement Content-Security-Policy (CSP) headers to restrict the execution of unauthorized scripts on pages containing the booking form.",
+      "published": "2026-11-26T21:13:15.000Z",
+      "labels": [
+        "vulnerability",
+        "web-application",
+        "wordpress",
+        "xss"
+      ],
+      "object_refs": [
+        "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5d9624c7-c896-5986-8b59-b9983788591f",
+        "vulnerability--5a0727ea-1665-50f5-aacb-4822bcc4c438"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-bookly-xss-cve-2026-5513",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-bookly-xss-cve-2026-5513/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-87ACHRAFG-STACK-CVE-2026-5513"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-87ACHRAFG-STACK-CVE-2026-5513\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-bookly-xss-cve-2026-5513",
+      "x_craftedsignal_event_id": "brief-2026-11-26-bookly-xss-cve-2026-5513",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-bookly-xss-cve-2026-5513/",
+      "x_craftedsignal_activity_at": "2026-11-26T21:13:15.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.00318,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c6308c3a-cc96-533c-b05e-b2372ef75880",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T19:57:09.000Z",
@@ -383112,6 +383208,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ee3203c0-bf62-5b57-9cb7-885bbc1b0817",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T21:13:25.000Z",
+      "modified": "2026-11-26T21:13:25.000Z",
+      "name": "Visforms for Joomla: SQL authorization bypass in Maxsubmissions plugin (CVE-2026-133341)",
+      "description": "## Overview\nThe Visforms extension for Joomla, specifically the Maxsubmissions plugin, contains an authorization bypass vulnerability (CWE-863). The vulnerability arises because SQL statement permissions are not enforced when saving, importing, or batch copying forms with Maxsubmissions plugin settings.\n\n## Attack Chain\nThe vulnerability is triggered when a backend user lacking the required SQL statement permission attempts to save, import, or batch copy forms with Maxsubmissions settings, allowing the storage of arbitrary SQL statements.\n\n## Impact\nThis vulnerability allows backend users without the necessary permissions to store arbitrary SQL statements within the system.\n\n## Recommendation\nUpgrade to Visforms version 6.2.3 or 5.6.6.",
+      "published": "2026-11-26T21:13:25.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--64d3a603-fddc-52ff-88b0-1fd226977d7b",
+        "software--86dd596c-9ba0-53e3-9444-6596b972698c",
+        "vulnerability--97bb6a66-cafa-5450-b476-525ff2c9aaab"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-visforms-sql-bypass-cve-2026-133341",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-visforms-sql-bypass-cve-2026-133341/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-133341"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=1C959075-CC31-5110-8D3C-A27D51ECACD4"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=1C959075-CC31-5110-8D3C-A27D51ECACD4\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-visforms-sql-bypass-cve-2026-133341",
+      "x_craftedsignal_event_id": "brief-2026-11-26-visforms-sql-bypass-cve-2026-133341",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-visforms-sql-bypass-cve-2026-133341/",
+      "x_craftedsignal_activity_at": "2026-11-26T21:13:25.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.0059,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ee4756df-fd4f-5844-b5f5-80d34b3dd74e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-26T13:44:15.000Z",
@@ -409206,6 +409351,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5d9624c7-c896-5986-8b59-b9983788591f",
+      "name": "Online Scheduling and Appointment Booking System – Bookly (\u003c= 27.2)",
+      "vendor": "ladela"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5daab08d-6e94-5c10-b263-07927aae16f9",
       "name": "Binance Wallet"
     },
@@ -410090,6 +410242,13 @@
       "id": "software--64b5a8bf-5cd3-5063-8882-e2174a8692e4",
       "name": "openexr",
       "vendor": "Academy Software Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--64d3a603-fddc-52ff-88b0-1fd226977d7b",
+      "name": "Visforms extension for Joomla (= 1.0.0-5.6.5)",
+      "vendor": "vi-solutions"
     },
     {
       "type": "software",
@@ -414295,6 +414454,13 @@
       "id": "software--86ce2f2e-591c-5679-9076-4313018520cc",
       "name": "WooPayments",
       "vendor": "Automattic"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--86dd596c-9ba0-53e3-9444-6596b972698c",
+      "name": "Visforms extension for Joomla (= 6.0.0-6.2.2)",
+      "vendor": "vi-solutions"
     },
     {
       "type": "software",
@@ -460097,6 +460263,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--5a0727ea-1665-50f5-aacb-4822bcc4c438",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-5513",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-5513",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5513"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--5a12f115-545f-507a-a1d7-becb13054902",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -481915,6 +482097,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96146",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96146"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--97bb6a66-cafa-5450-b476-525ff2c9aaab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-133341",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-133341",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133341"
         }
       ]
     },

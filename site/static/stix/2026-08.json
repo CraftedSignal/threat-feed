@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d5cba629-c763-52a0-aad3-4eda1a25217a",
+  "id": "bundle--4f5a35cf-4459-5d2e-a222-f64c3a8b9dba",
   "objects": [
     {
       "type": "attack-pattern",
@@ -79,22 +79,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1070",
           "url": "https://attack.mitre.org/techniques/T1070"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Credentials from Password Stores",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1555",
-          "url": "https://attack.mitre.org/techniques/T1555"
         }
       ]
     },
@@ -431,22 +415,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1048",
           "url": "https://attack.mitre.org/techniques/T1048"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Disable or Modify Tools",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1562.001",
-          "url": "https://attack.mitre.org/techniques/T1562/001"
         }
       ]
     },
@@ -1180,17 +1148,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--051ebcea-1f67-5084-b8ff-ad7e6ba86ef5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:14:12.000Z",
-      "modified": "2026-08-28T21:14:12.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c86f8e82-df65-5380-ab6c-13fb5ca0ae1f",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--0583b739-6444-53d6-a66f-a9ddb507492c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T20:48:38.000Z",
@@ -1675,17 +1632,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--24a4f8a3-21da-534c-b2af-01e6f6c0ab29",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--3996d31d-7354-5281-9721-7a1112b3bb12",
-      "target_ref": "vulnerability--4e75a089-5e28-5ae3-9ba3-08c1fbde11ae"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--24f635d1-6c57-5c29-b38c-1ad498db307e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T21:15:37.000Z",
@@ -1704,17 +1650,6 @@
       "relationship_type": "has",
       "source_ref": "software--5a9b7467-ac21-51f3-b9b8-e65c6a820f95",
       "target_ref": "vulnerability--2a00c28a-587c-5774-9728-9353511b133e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--25d8f222-be86-54e6-8aae-a3e4c1d1ad4e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:13:20.000Z",
-      "modified": "2026-08-28T21:13:20.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3ddb1336-11b9-5ebe-9474-f96bca03b6c0",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -1759,17 +1694,6 @@
       "relationship_type": "has",
       "source_ref": "software--c286a43b-0eab-502f-bd88-7f1d3c0d8dfb",
       "target_ref": "vulnerability--d6eb889f-081b-5dbc-b668-c236bdfa37e9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--28e7c9c3-73db-5b4e-8569-ca561d7fa7ab",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:13:51.000Z",
-      "modified": "2026-08-28T21:13:51.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--69f207f6-094c-5bc1-a693-391997d9dcda",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -2122,28 +2046,6 @@
       "relationship_type": "has",
       "source_ref": "software--8db83080-9b0a-51b1-9544-daa6601790bc",
       "target_ref": "vulnerability--eb28c90d-699e-5ae1-a635-e9dc9089b5c0"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--3ef08511-c05a-5847-a427-ed5fbca40ac2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--b7fbb331-ce76-5998-8099-8103631077e2",
-      "target_ref": "vulnerability--ecfa1e73-b920-530a-bdb7-5c184d40fe1a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--40624ccf-7323-51ac-8cdc-ded689e9b46d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:13:13.000Z",
-      "modified": "2026-08-28T21:13:13.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ee43bdd6-c80e-5ee6-83c9-0d6c572e9ba3",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -2533,17 +2435,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--5e2ea2f6-1783-5327-a619-d208b5ea26ca",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--97966cb1-9649-506f-93ba-41601b04fcec",
-      "target_ref": "vulnerability--ecfa1e73-b920-530a-bdb7-5c184d40fe1a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--5e7f2f2a-e927-53d5-9575-a6b7af6ee143",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2551,17 +2442,6 @@
       "relationship_type": "has",
       "source_ref": "software--c8bab904-1909-5595-98b2-733de5a73937",
       "target_ref": "vulnerability--fe3a37a7-c310-55cd-a841-cc4cf4053e8f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5e8a9294-297b-50fe-bc28-64f76dc37999",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:14:03.000Z",
-      "modified": "2026-08-28T21:14:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--90dc3ad2-4a3f-5840-8e23-57d46b300b98",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -2786,17 +2666,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--663e02ae-a900-5c60-a42d-8073fb5671a4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--caf25249-14ca-518a-9ded-ae074b61b2b8",
-      "target_ref": "vulnerability--4e75a089-5e28-5ae3-9ba3-08c1fbde11ae"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--666dee8f-4e28-5eb8-85f3-b9702a2dcdaf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T15:39:36.000Z",
@@ -2804,17 +2673,6 @@
       "relationship_type": "uses",
       "source_ref": "report--b3da5b93-1624-5eb7-b54a-45d00c9f579e",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--66899085-d456-5b8b-9747-9b865eeca588",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:14:03.000Z",
-      "modified": "2026-08-28T21:14:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--90dc3ad2-4a3f-5840-8e23-57d46b300b98",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -2947,17 +2805,6 @@
       "relationship_type": "uses",
       "source_ref": "report--69c1f5a9-5807-5616-8eb5-67c0735b3f5f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--6c0ea2e1-6b1f-52ca-9eaa-9fdf0a58382a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--e296288d-f09f-53e5-a388-e704ae27c3be",
-      "target_ref": "vulnerability--9d84b3b5-3c91-5220-b227-c241ffb4c593"
     },
     {
       "type": "relationship",
@@ -4106,17 +3953,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b1211983-686e-5a0c-bf48-d32d35ec1b2e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:13:43.000Z",
-      "modified": "2026-08-28T21:13:43.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a79795dc-2a72-57c0-aa04-6c9b1c829284",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b264bd52-b394-5d6b-ba35-f0112e1a892b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -4223,17 +4059,6 @@
       "relationship_type": "has",
       "source_ref": "software--662ad770-b6db-5fbf-9b4c-66c171edcf8a",
       "target_ref": "vulnerability--822d95f4-e968-5ecd-8486-8faf33307cf6"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--b73fde75-ce37-529b-8cdd-f90d14123373",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--ed462f2c-24e6-5d5e-ab0a-87eb31fee8b9",
-      "target_ref": "vulnerability--ecfa1e73-b920-530a-bdb7-5c184d40fe1a"
     },
     {
       "type": "relationship",
@@ -4656,17 +4481,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ca37a720-24e6-5364-b68c-933666a28656",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--55aa2138-96e5-58bf-a28f-e35e9b3c36bd",
-      "target_ref": "vulnerability--7fd51e31-589f-5f97-971f-54bacce40555"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ca63f06f-716c-5559-a816-90ac0eee41ff",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T17:47:04.000Z",
@@ -4696,17 +4510,6 @@
       "relationship_type": "uses",
       "source_ref": "report--87ccc8c3-88ce-5688-813f-ea22bee1b6a2",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--cc2e8ca2-f59a-5baf-9a7d-34b9d2206945",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:13:43.000Z",
-      "modified": "2026-08-28T21:13:43.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a79795dc-2a72-57c0-aa04-6c9b1c829284",
-      "target_ref": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3"
     },
     {
       "type": "relationship",
@@ -4828,17 +4631,6 @@
       "relationship_type": "uses",
       "source_ref": "report--edc5ad21-128c-588d-9d16-c1261000c3ac",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d78fe55a-11e0-5023-ad9a-a16497f9cad0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--a6ac2b39-4831-5ae9-9339-5d8015d4b571",
-      "target_ref": "vulnerability--9809ac0d-6d27-5330-b6a6-2f3d1f3b6a2c"
     },
     {
       "type": "relationship",
@@ -5246,17 +5038,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ab4c95e9-4a1d-5deb-86d6-62b185a960fd",
       "target_ref": "attack-pattern--aa4a3022-19bc-57a4-b7ca-78b6316d10ac"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f0aad185-7b0b-544d-8980-45a94dd8c911",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:14:03.000Z",
-      "modified": "2026-08-28T21:14:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--90dc3ad2-4a3f-5840-8e23-57d46b300b98",
-      "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
     },
     {
       "type": "relationship",
@@ -6983,48 +6764,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--3ddb1336-11b9-5ebe-9474-f96bca03b6c0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:13:20.000Z",
-      "modified": "2026-08-28T21:13:20.000Z",
-      "name": "Critical Vulnerabilities in plone.app.event",
-      "description": "## Overview\n\nThe plone.app.event package, a component used within the Plone content management system, is affected by a series of vulnerabilities (CVE-2026-55247) originating in its iCalendar import functionality. The flaws allow a logged-in editor to conduct a denial-of-service attack, perform Server-Side Request Forgery (SSRF) to read internal network resources or local server files, and execute stored Cross-Site Scripting (XSS) via the event URL field. These vulnerabilities were responsibly reported and patched in versions 5.2.4 and 6.0.1. Due to the nature of the SSRF and DoS vectors, environments where untrusted users possess the 'Editor' role are at high risk of internal reconnaissance and service disruption. There is currently no known workaround for the stored XSS vulnerability.\n\n## Impact\n\nSuccessful exploitation could result in total site unavailability, exfiltration of internal network or local file system data via SSRF, and persistent XSS injection. These vulnerabilities target the administrative and content creation workflows of Plone installations, putting any organization relying on Plone for public or internal content hosting at risk of data breach or operational outages.\n\n## Recommendation\n\n* Prioritize upgrading plone.app.event to the patched versions: 6.0.1 for Plone 6.2 users, or 5.2.4 for Plone 6.0 and 6.1 users.\n* Until patching is complete, restrict the \"plone.app.event: Import Ical\" permission exclusively to the \"Manager\" role within the Zope Management Interface (manage_access) to limit the attack surface to trusted administrators.\n* Monitor webserver access logs for anomalous POST requests to calendar import endpoints or requests targeting internal network or local file paths.\n",
-      "published": "2026-08-28T21:13:20.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--3996d31d-7354-5281-9721-7a1112b3bb12",
-        "software--caf25249-14ca-518a-9ded-ae074b61b2b8",
-        "vulnerability--4e75a089-5e28-5ae3-9ba3-08c1fbde11ae"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-28-plone-event-vulnerability",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-plone-event-vulnerability/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-r82h-mqw3-fc56"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-28-plone-event-vulnerability",
-      "x_craftedsignal_event_id": "brief-2026-08-28-plone-event-vulnerability",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-plone-event-vulnerability/",
-      "x_craftedsignal_activity_at": "2026-08-28T21:13:20.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--3fc51001-9d68-5ee2-8ec0-863f8c67e289",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T17:46:48.000Z",
@@ -7959,46 +7698,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--69f207f6-094c-5bc1-a693-391997d9dcda",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:13:51.000Z",
-      "modified": "2026-08-28T21:13:51.000Z",
-      "name": "Integer Overflow in Klever Split-Royalty Validation Enables Unbounded Token Minting",
-      "description": "## Overview\n\nThe Klever blockchain node (klever-go) contains a critical integer overflow vulnerability in its split-royalty validation logic. The system decodes per-entry royalty percentages as `uint32` values without individual upper bounds and aggregates them into a `uint32` accumulator. By providing two split royalty entries that sum to a value exceeding 2^32, the accumulator wraps around to zero, successfully passing the 100% (10000) validation check.\n\nDuring royalty payout, the system calculates payments using these massive overflowed values, crediting recipients with KLV far exceeding the original royalty pool. The negative remainder is silently discarded rather than returning an error, allowing the attacker to mint KLV or other assets out of thin air. This vulnerability is not gated by existing guards such as `FixMarketBuyOverflow` and remains exploitable on current mainnet deployments. Because the minted tokens are credited directly via balance modification rather than tracked mint events, the inflation remains invisible in official supply dashboards, posing a significant risk to the economic integrity of the ecosystem.\n\n## Attack Chain\n\n1. Attacker crafts a malicious KDA asset creation transaction using the `kloperator` tool.\n2. The transaction includes two split-royalty recipients, each assigned a percentage value of 21474836.48.\n3. The node processes these as raw `uint32` values (`2147483648`), causing the sum to wrap around to `0` in the `uint32` accumulator.\n4. The `CheckValid100Params` function incorrectly validates the wrapped sum of `0` as permissible.\n5. The attacker initiates a standard asset transfer or market buy, triggering the royalty payout logic.\n6. The payout logic retrieves the overflowed `2147483648` percentage, calculating a massive credit for the recipient.\n7. The `AddToBalance` function executes, crediting the recipient's wallet with inflated KLV or asset balances.\n8. The system silently ignores the resulting negative remainder, finalizing the unauthorized mint.\n\n## Impact\n\nSuccessful exploitation results in the unbounded inflation of KLV and other assets. Because the inflation is handled via direct balance updates rather than tracked minting processes, the supply metrics appear accurate while the token value is eroded. This can lead to a total loss of economic integrity, affecting all holders within the Klever ecosystem. Any user with sufficient funds for transaction fees can exploit this without requiring administrative privileges.\n\n## Recommendation\n\n1. Implement per-entry bounds checking in `decodeSplitInfo` within `core/kapp/builtInFunctions/utils.go` to reject any individual percentage exceeding `HundredPercent` (10000).\n2. Modify the validation logic in `core/kapp/kda/create.go` and `core/kapp/kda/trigger.go` to use `uint64` accumulators to prevent integer wrapping during the summation of royalty percentages.\n3. Enforce these changes via a new activation-epoch fork flag to ensure historical blocks remain consistent while preventing future exploitation.\n",
-      "published": "2026-08-28T21:13:51.000Z",
-      "labels": [
-        "blockchain",
-        "financial-integrity",
-        "integer-overflow"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--71cca64e-15d5-515a-bd9b-d21650f5ea86"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-klever-integer-overflow",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-klever-integer-overflow/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-klever-integer-overflow",
-      "x_craftedsignal_event_id": "brief-2026-08-klever-integer-overflow",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-klever-integer-overflow/",
-      "x_craftedsignal_activity_at": "2026-08-28T21:13:51.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--6a3024d2-1878-599f-8b77-f928a01df441",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T17:58:33.000Z",
@@ -8681,52 +8380,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--7ff9f2af-2280-51d4-a612-3c278dadaed8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:13:28.000Z",
-      "modified": "2026-08-28T21:13:28.000Z",
-      "name": "Critical Vulnerabilities in plone.app.portlets RSS Feed Portlet",
-      "description": "## Overview\n\nThe Plone Security Team has identified critical security vulnerabilities (CVE-2026-55248) in the `plone.app.portlets` package. The vulnerabilities stem from the RSS feed portlet implementation. A user with permissions to manage portlets can provide an RSS feed URL pointing to a large file, causing significant memory consumption and leading to a denial of service (DoS). Furthermore, the lack of validation on the RSS URL allows an attacker to conduct server-side request forgery (SSRF) to probe internal network services and discover open ports. Additionally, the RSS feed parser is vulnerable to stored cross-site scripting (XSS) if a feed item contains a URL using the 'javascript:' protocol. These vulnerabilities impact Plone 6.2, 6.1, and 6.0 versions. Organizations should prioritize patching or implementing the recommended access restrictions for the portlet management feature.\n\n## Impact\n\nSuccessful exploitation could result in service instability due to memory exhaustion, unauthorized exposure of internal network topology via SSRF, and potential account takeover or unauthorized actions through stored XSS. These issues affect any organization utilizing the RSS portlet feature within Plone environments.\n\n## Recommendation\n\n- Upgrade `plone.app.portlets` immediately to the patched versions: 7.0.2 for Plone 6.2, 6.0.4 for Plone 6.1, and 5.0.8 for Plone 6.0.\n- Revoke the `plone.app.portlets.ManageOwnPortlets` permission from untrusted roles to limit the attack surface.\n- Audit existing portlets to ensure no unauthorized RSS feeds are configured.\n- If the RSS portlet is not required, unregister it via `portlets.xml` configuration to mitigate the risk entirely.\n",
-      "published": "2026-08-28T21:13:28.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--97966cb1-9649-506f-93ba-41601b04fcec",
-        "software--b7fbb331-ce76-5998-8099-8103631077e2",
-        "software--ed462f2c-24e6-5d5e-ab0a-87eb31fee8b9",
-        "vulnerability--ecfa1e73-b920-530a-bdb7-5c184d40fe1a"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-28-plone-rss-vulnerability",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-plone-rss-vulnerability/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-55248"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-x5g3-w747-2h8q"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-28-plone-rss-vulnerability",
-      "x_craftedsignal_event_id": "brief-2026-08-28-plone-rss-vulnerability",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-plone-rss-vulnerability/",
-      "x_craftedsignal_activity_at": "2026-08-28T21:13:28.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--847bf8a9-52c4-5042-ade5-21a38ba0b2af",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T15:58:20.000Z",
@@ -9117,56 +8770,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--90dc3ad2-4a3f-5840-8e23-57d46b300b98",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:14:03.000Z",
-      "modified": "2026-08-28T21:14:03.000Z",
-      "name": "Unauthenticated Admin Takeover in Portainer Initialization",
-      "description": "## Overview\n\nPortainer is vulnerable to an authentication bypass during the five-minute initialization window that occurs when a new instance starts without an administrator account. The endpoints `/api/restore` and `/api/users/admin/init` were designed to be public to facilitate initial setup; however, they lack proper authentication, allowing any network-reachable attacker to either restore a malicious database containing pre-configured attacker credentials or directly create a new administrative user. This vulnerability, tracked as CVE-2026-55761, affects Portainer CE versions in the 2.39.x branch prior to 2.39.4 and 2.43.x branch prior to 2.43.0. Versions prior to 2.39.0 are end-of-life and remain vulnerable. Successful exploitation results in full administrative control over the Portainer instance, which typically grants root-level access to the underlying Docker host or Kubernetes environment, along with access to all stored secrets and registered edge agents.\n\n## Attack Chain\n\n1. Attacker performs network scanning to identify uninitialized Portainer instances reachable over the network.\n2. Attacker restarts the identified Portainer instance or waits for a restart to trigger the five-minute initialization window.\n3. Attacker sends a POST request to the `/api/users/admin/init` endpoint to create a new, attacker-controlled administrative account.\n4. Alternatively, attacker sends a POST request to the `/api/restore` endpoint to overwrite the database with a crafted archive containing malicious administrative credentials.\n5. Attacker authenticates to the Portainer web interface using the newly created credentials.\n6. Attacker leverages Portainer's administrative permissions to deploy a container with host filesystem mounting capabilities.\n7. Attacker executes commands within the container to escape to the host OS with root privileges.\n8. Attacker exfiltrates stored registry credentials, API keys, and environment variables from the Portainer instance.\n\n## Impact\n\nSuccessful exploitation grants an attacker full administrative access to a Portainer instance, enabling them to compromise every registered Docker host, Kubernetes cluster, or edge agent. Because Portainer typically manages the Docker socket (`/var/run/docker.sock`), an attacker can easily execute arbitrary code on the underlying host, leading to full system compromise. Furthermore, the attacker gains access to all managed credentials, environment variables, and stored secrets within the environment, providing significant opportunities for lateral movement and long-term persistence.\n\n## Recommendation\n\nPrioritized actions for security and infrastructure teams:\n\n- Upgrade all Portainer instances to the fixed versions (2.39.4 for the 2.39.x branch or 2.43.0 for the 2.43.x branch) to implement the required X-Setup-Token header authentication for initialization endpoints.\n- For new deployments, use the `--admin-password` or `--admin-password-file` configuration flags to provision the administrator account during initial startup, which prevents the instance from entering the vulnerable uninitialized state.\n- Implement network-layer restrictions (e.g., firewall rules, VPC security groups) to isolate Portainer instances from untrusted networks until the initial setup process is complete and an admin account is established.\n- Audit existing Portainer deployments for the presence of unauthorized administrative accounts or anomalous activity originating from local account creation events.\n",
-      "published": "2026-08-28T21:14:03.000Z",
-      "labels": [
-        "authentication-bypass",
-        "container-security",
-        "cve-2026-55761",
-        "portainer"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--e296288d-f09f-53e5-a388-e704ae27c3be",
-        "vulnerability--9d84b3b5-3c91-5220-b227-c241ffb4c593"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-portainer-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-portainer-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-x626-fcwx-f5pc"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-portainer-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-08-portainer-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-portainer-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-08-28T21:14:03.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 5.9,
-      "x_craftedsignal_epss_max": 0.00493,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -9807,54 +9410,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--a79795dc-2a72-57c0-aa04-6c9b1c829284",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:13:43.000Z",
-      "modified": "2026-08-28T21:13:43.000Z",
-      "name": "free5GC NRF NF Registration Poisoning via Input Validation Failure",
-      "description": "## Overview\n\nThe free5GC Network Repository Function (NRF) exhibits a critical security vulnerability (CVE-2026-55068) in the `RegisterNFInstance` handler, which processes PUT requests at `/nnrf-nfm/v1/nf-instances/{nfInstanceID}`. The NRF accepts NF registration requests without performing input validation against mandatory 3GPP TS 29.510 constraints, including UUID formats, enum values, numeric ranges, and field requirements. \n\nThis lack of validation permits unauthenticated attackers to register arbitrary NF profiles, including those with attacker-controlled IP addresses and ports within the `ipEndPoints` parameter. Once registered, these malicious profiles are stored in the backend MongoDB and distributed to other network functions via the `NFDiscover` service. This leads to service mesh poisoning, where legitimate network functions like the SMF, AMF, or PCF are tricked into routing control-plane signaling to attacker-controlled endpoints. This vulnerability enables man-in-the-middle interception of sensitive 5G control-plane traffic, OAuth2 credential harvesting, and widespread denial-of-service conditions across the 5G core infrastructure.\n\n## Attack Chain\n\n1. An attacker gains access to the Service-Based Architecture (SBI) network.\n2. The attacker crafts a malicious JSON payload mimicking an NF registration request that violates multiple 3GPP constraints.\n3. The attacker sends a PUT request to the NRF endpoint `/nnrf-nfm/v1/nf-instances/` containing the forged `nfInstanceId`.\n4. The NRF server accepts the invalid request and returns HTTP 201 without validating field integrity.\n5. The NRF stores the fraudulent NF profile in its backend MongoDB collection.\n6. A legitimate network function (e.g., SMF) queries the NRF for available NF instances using the `NFDiscover` API.\n7. The NRF returns the malicious profile to the requester in the discovery response.\n8. The legitimate NF selects the attacker-controlled endpoint and attempts to route control-plane signaling to the attacker's server.\n\n## Impact\n\nSuccessful exploitation allows attackers to compromise the integrity of the entire 5G core service mesh. By redirecting control-plane signaling, an attacker can intercept subscriber traffic, harvest OAuth2 security credentials used for inter-service authentication, and cause systemic denial-of-service for connected subscribers. This vulnerability affects all components of the free5GC suite that rely on the NRF for service discovery, including AMF, SMF, AUSF, UDM, PCF, and NSSF. All versions of free5GC prior to 4.2.2 are vulnerable.\n\n## Recommendation\n\nPrioritized actions for security and infrastructure teams:\n\n- Upgrade all instances of free5GC to version 4.2.2 or later immediately to apply the patch for CVE-2026-55068.\n- Implement a JSON schema validator for the MongoDB `NfProfile` collection to prevent the storage of malformed NF instances.\n- Enable NRF auditing and logging; although logging does not prevent the attack, it provides the necessary telemetry to detect anomalous NF registration attempts.\n- Implement strict ingress filtering and mTLS for the SBI interface to ensure that only authorized Network Functions can interact with the NRF registration endpoint.\n- Deploy the provided Sigma rule to detect anomalous HTTP PUT registration requests at the NRF interface.\n",
-      "published": "2026-08-28T21:13:43.000Z",
-      "labels": [
-        "5g-core",
-        "cve-2026-55068",
-        "free5gc",
-        "input-validation",
-        "nrf"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--55aa2138-96e5-58bf-a28f-e35e9b3c36bd",
-        "vulnerability--7fd51e31-589f-5f97-971f-54bacce40555"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-free5gc-nrf-poisoning",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-free5gc-nrf-poisoning/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-x8mj-6p3q-g5pp"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-free5gc-nrf-poisoning",
-      "x_craftedsignal_event_id": "brief-2026-08-free5gc-nrf-poisoning",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-free5gc-nrf-poisoning/",
-      "x_craftedsignal_activity_at": "2026-08-28T21:13:43.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -10907,56 +10462,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--c86f8e82-df65-5380-ab6c-13fb5ca0ae1f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:14:12.000Z",
-      "modified": "2026-08-28T21:14:12.000Z",
-      "name": "Unauthenticated Remote Denial of Service in alos-http",
-      "description": "## Overview\n\nThe alos-http web framework is susceptible to a remote denial-of-service vulnerability (CVE-2026-55484) due to improper input validation in the 'sanitizeRequestPath' function. When the framework receives an HTTP request with a path starting with the '?' character (e.g., 'GET ? HTTP/1.1'), the internal request parser passes the path to 'sanitizeRequestPath'. This function attempts to index the first byte of the path after query string stripping without verifying that the resulting string is non-empty. This results in an out-of-bounds panic. Because this parsing occurs in the connection-worker goroutine before any user-defined middleware or recovery handlers are executed, the panic is unrecoverable, leading to an immediate process crash. This affects HTTP/1.1, HTTP/2, and HTTP/3 protocols, potentially rendering services unavailable until restarted.\n\n## Attack Chain\n\n1. Attacker crafts a malicious HTTP request with a malformed path starting with a '?' character.\n2. Attacker transmits the request via TCP (HTTP/1.1 or HTTP/2) or UDP (HTTP/3) to the target alos-http server.\n3. The server's connection-worker goroutine receives the request head.\n4. The request parser invokes 'sanitizeRequestPath' with the malicious path.\n5. The 'sanitizeRequestPath' function strips the query string, resulting in an empty string.\n6. The function attempts to access the first index of the empty string.\n7. A runtime panic triggers due to an out-of-bounds index access.\n8. The entire server process crashes, resulting in total service denial.\n\n## Impact\n\nSuccessful exploitation results in an immediate and total denial of service for the target application. Because the crash occurs during the request parsing phase before any request logging or middleware execution, the impact is consistent across all deployments using the vulnerable framework versions. The vulnerability has been confirmed in alos-http versions prior to 0.0.0-20260617230736-314b6783e196.\n\n## Recommendation\n\nPrioritized, concrete actions for detection engineering teams:\n\n* Upgrade the alos-http framework to version 0.0.0-20260617230736-314b6783e196 or later immediately to patch CVE-2026-55484.\n* Deploy the provided Sigma rule to web application firewalls or reverse proxies to block requests where the URI path begins with a '?' character.\n* Monitor webserver access logs for anomalous 400-series status codes or service-level process restarts that lack associated handler logs, which may indicate crash attempts.\n",
-      "published": "2026-08-28T21:14:12.000Z",
-      "labels": [
-        "dos",
-        "vulnerability",
-        "webserver"
-      ],
-      "object_refs": [
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--a6ac2b39-4831-5ae9-9339-5d8015d4b571",
-        "vulnerability--9809ac0d-6d27-5330-b6a6-2f3d1f3b6a2c"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-alos-http-dos",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-alos-http-dos/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-hr6j-w4mw-g9mj"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55484"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-08-alos-http-dos",
-      "x_craftedsignal_event_id": "brief-2026-08-alos-http-dos",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-alos-http-dos/",
-      "x_craftedsignal_activity_at": "2026-08-28T21:14:12.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -12052,51 +11557,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--ee43bdd6-c80e-5ee6-83c9-0d6c572e9ba3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:13:13.000Z",
-      "modified": "2026-08-28T21:13:13.000Z",
-      "name": "Pimcore Unrestricted Deserialization via Object-Store Columns",
-      "description": "## Overview\n\nPimcore is vulnerable to PHP Object Injection (CWE-502) due to insecure deserialization practices within its data object model. Specifically, the `getDataFromResource()` method in `Pimcore\\Model\\DataObject\\ClassDefinition\\Data\\Hotspotimage` and sibling marshallers (`ImageGallery`, `Block`, and `Video`) perform an unrestricted `unserialize()` call on data read from object-store database columns. \n\nThe vulnerability exists because these components use `Pimcore\\Tool\\Serialize::unserialize()` as a fallback for JSON decoding. The `unserialize()` wrapper defaults to an unrestricted class allowlist, allowing any PHP class present in the application scope to be instantiated. Attackers who can influence the content of the `*__hotspots` object-store columns - for instance, via a separate storage-write or SQL injection primitive - can inject crafted serialized PHP payloads. Upon the next retrieval and loading of the DataObject, the application instantiates these objects and triggers their magic methods (such as `__wakeup` or `__destruct`), enabling Remote Code Execution (RCE) via gadget chains, such as those found in the bundled `guzzlehttp/guzzle` library.\n\n## Attack Chain\n\n1. Attacker gains a write primitive to the Pimcore database, specifically targeting the `*__hotspots` columns in object-store tables.\n2. Attacker selects a gadget chain present in the application's dependencies (e.g., `GuzzleHttp\\Cookie\\FileCookieJar` in `guzzlehttp/guzzle`).\n3. Attacker crafts a malicious serialized PHP payload using a tool like `phpggc` to target the chosen gadget.\n4. Attacker executes an SQL `UPDATE` statement to overwrite the target object's column with the malicious serialized bytes.\n5. The application retrieves the affected DataObject from the database through the standard model loading layer.\n6. The `Hotspotimage::getDataFromResource()` method is invoked during object hydration, attempting to JSON decode the payload, which fails.\n7. The application falls back to `Serialize::unserialize()`, which deserializes the malicious bytes without an allowlist.\n8. Magic methods trigger, executing the gadget chain and achieving the attacker's final objective (e.g., arbitrary file write or RCE).\n\n## Impact\n\nSuccessful exploitation results in arbitrary code execution on the Pimcore server. This vulnerability affects all currently maintained versions, including `v2026.1.4` and `v12.3.8`. Because these components are heavily used in DataObject management, an attacker with low-level write access to the database can achieve full system compromise.\n\n## Recommendation\n\n1. Immediately audit all custom code and database access layers that interact with object-store columns to prevent unauthorized write access to the metadata columns.\n2. Apply upcoming patches from the Pimcore vendor that implement a strictly constrained class allowlist in `Pimcore\\Tool\\Serialize::unserialize()`.\n3. As a temporary mitigation, implement a WAF or database firewall rule to inspect and block serialized PHP strings (e.g., `O:\\d+:\"`) within SQL queries directed at the application database.\n4. Perform periodic integrity checks on `*__hotspots` columns in object-store tables to identify unexpected serialized payloads that deviate from standard JSON formatting.\n",
-      "published": "2026-08-28T21:13:13.000Z",
-      "labels": [
-        "deserialization",
-        "php-injection",
-        "pimcore",
-        "rce"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--be887787-0d8b-516a-b9ce-21c99d5d18e6"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-pimcore-deserialization",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-pimcore-deserialization/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-w23p-wrp7-ch38"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-pimcore-deserialization",
-      "x_craftedsignal_event_id": "brief-2026-08-pimcore-deserialization",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-pimcore-deserialization/",
-      "x_craftedsignal_activity_at": "2026-08-28T21:13:13.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--ee6e6cd4-446e-5c9c-8a07-62e9100bd224",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T21:19:10.000Z",
@@ -12840,13 +12300,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--3996d31d-7354-5281-9721-7a1112b3bb12",
-      "name": "plone.app.event (vulnerable: \u003e= 6.0.0a1, \u003c 6.0.1)",
-      "vendor": "Plone"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--3a5f0b53-f693-5bef-9f02-94f131a207c2",
       "name": "DSM-G600 (1.01)",
       "vendor": "D-Link"
@@ -12997,13 +12450,6 @@
       "id": "software--54b15b01-ead4-5add-9bc1-5f8ff3782263",
       "name": "print-lib (3.0.0-3.28.29, 3.29.0-3.30.31, 3.32.0-3.33.15, 3.34.0-4.0.4)",
       "vendor": "MapFish"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--55aa2138-96e5-58bf-a28f-e35e9b3c36bd",
-      "name": "free5GC (\u003c 4.2.2)",
-      "vendor": "free5GC"
     },
     {
       "type": "software",
@@ -13214,13 +12660,6 @@
       "id": "software--70630bf1-c7cb-5f1c-aa1b-df5df2dbc425",
       "name": "Concert (1.0.0 through 2.3.1)",
       "vendor": "IBM"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--71cca64e-15d5-515a-bd9b-d21650f5ea86",
-      "name": "klever-go",
-      "vendor": "Klever"
     },
     {
       "type": "software",
@@ -13439,13 +12878,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--97966cb1-9649-506f-93ba-41601b04fcec",
-      "name": "plone.app.portlets (\u003c 5.0.8)",
-      "vendor": "Plone"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--983cec93-06e9-5008-b213-5a85eba48772",
       "name": "Flycms (1.0)",
       "vendor": "Sunkaifei"
@@ -13491,13 +12923,6 @@
       "id": "software--a44daabc-9131-5832-8c3e-a160ef63eace",
       "name": "vCenter Server (7.0, 8.0)",
       "vendor": "VMware"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--a6ac2b39-4831-5ae9-9339-5d8015d4b571",
-      "name": "alos-http (\u003c 0.0.0-20260617230736-314b6783e196)",
-      "vendor": "guno1928"
     },
     {
       "type": "software",
@@ -13558,13 +12983,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--b7fbb331-ce76-5998-8099-8103631077e2",
-      "name": "plone.app.portlets (\u003e= 7.0.0, \u003c= 7.0.1)",
-      "vendor": "Plone"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--ba7a2a2b-0ada-51aa-8c36-8191d3d54d6a",
       "name": "PS3111-S11 (\u003c= SBFQT1.3)",
       "vendor": "Phison"
@@ -13595,13 +13013,6 @@
       "id": "software--bcde2333-185c-5ae1-b2c0-dbbce69192a8",
       "name": "Customer Support System (1.0)",
       "vendor": "oretnom23"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--be887787-0d8b-516a-b9ce-21c99d5d18e6",
-      "name": "Pimcore (\u003c= v2026.1.4, \u003c= v12.3.8)",
-      "vendor": "Pimcore"
     },
     {
       "type": "software",
@@ -13658,13 +13069,6 @@
       "id": "software--ca5c6b05-d581-50e8-ab6f-ffa5a784c681",
       "name": "WildFly",
       "vendor": "Red Hat"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--caf25249-14ca-518a-9ded-ae074b61b2b8",
-      "name": "plone.app.event (vulnerable: \u003c 5.2.4)",
-      "vendor": "Plone"
     },
     {
       "type": "software",
@@ -13801,13 +13205,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--e296288d-f09f-53e5-a388-e704ae27c3be",
-      "name": "Portainer CE (2.39.0 \u003c= v \u003c 2.39.4, \u003c 2.43.0)",
-      "vendor": "Portainer"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--e7ce18c4-f224-525a-8acd-9b50004a1a0c",
       "name": "iCUE (v5.9.105)",
       "vendor": "Corsair"
@@ -13831,13 +13228,6 @@
       "id": "software--eaa8cda6-81fb-56e9-a44f-e8fcceb9b92d",
       "name": "Teachers Record Management System (1.0)",
       "vendor": "Phpgurukul"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--ed462f2c-24e6-5d5e-ab0a-87eb31fee8b9",
-      "name": "plone.app.portlets (\u003e= 6.0.0, \u003c 6.0.4)",
-      "vendor": "Plone"
     },
     {
       "type": "software",
@@ -14470,22 +13860,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--4e75a089-5e28-5ae3-9ba3-08c1fbde11ae",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-55247",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-55247",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55247"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--4ec7b072-cf7f-5082-bda0-ebb4c5f54ea0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -14806,22 +14180,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--7fd51e31-589f-5f97-971f-54bacce40555",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-55068",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-55068",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55068"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--80312503-41db-50bd-9cf6-4aa16d72aa67",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -15062,22 +14420,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--9809ac0d-6d27-5330-b6a6-2f3d1f3b6a2c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-55484",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-55484",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55484"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--98672df8-d760-5cf1-878d-b9578cfb6209",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -15104,22 +14446,6 @@
           "source_name": "cve",
           "external_id": "CVE-2024-5223",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-5223"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--9d84b3b5-3c91-5220-b227-c241ffb4c593",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-55761",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-55761",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55761"
         }
       ]
     },
@@ -15728,22 +15054,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-82815",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82815"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--ecfa1e73-b920-530a-bdb7-5c184d40fe1a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-55248",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-55248",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55248"
         }
       ]
     },
