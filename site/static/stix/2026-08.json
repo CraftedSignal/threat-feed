@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c480c2e6-2b5e-5847-a6df-9007fbff2c43",
+  "id": "bundle--b75fc795-e199-5511-83c4-43a488f71475",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1280,17 +1280,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--01c1462b-9793-5d92-af92-1b73c7733f35",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--07af9320-e125-5b11-987c-d0cae5c6910f",
-      "target_ref": "vulnerability--546eb787-4e6a-508f-8bb9-2bec961e5e15"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--02fed78a-ab27-55e1-96af-49ef6607d009",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1672,17 +1661,6 @@
       "relationship_type": "has",
       "source_ref": "software--97631bf3-3bf2-5bd9-8f14-8636ee28650e",
       "target_ref": "vulnerability--f6f319c6-86fc-5730-8975-b29d9b5cc830"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--11c3d1dc-af47-5937-a058-d844b070d7a5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T00:20:26.000Z",
-      "modified": "2026-08-28T00:20:26.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--72d0f615-56fb-5ed4-89a2-790e482cfe87",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -4558,17 +4536,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--9a2885ce-6381-570d-a880-7b7483112b1f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--07af9320-e125-5b11-987c-d0cae5c6910f",
-      "target_ref": "vulnerability--2b9af3b9-1e11-59cb-8d12-f1813942ab1a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9ade9538-653f-53dd-b3fe-29c94ad7bff7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T21:18:21.000Z",
@@ -5064,17 +5031,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b2a52e1f-5e01-5443-a8a0-0a1ad128267b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--720341bc-8898-5f3d-84c6-4bbe2a67ff3d",
-      "target_ref": "vulnerability--078f69e9-88dd-5a9e-b6b7-10631bb32f13"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b2bef9d4-8e3c-5520-8745-bf1829f61610",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -5434,17 +5390,6 @@
       "relationship_type": "has",
       "source_ref": "software--ee84ea98-a826-5b45-89ae-cb9c25c0d9ca",
       "target_ref": "vulnerability--5c593566-da93-5ce7-8cd2-6d912f89eeb8"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c176ba3f-fabc-58d3-bcb6-ad927c8fdd6d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T00:20:53.000Z",
-      "modified": "2026-08-28T00:20:53.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--1980c8f0-6cbb-5ebc-b007-b8b17a992fa0",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -7490,59 +7435,6 @@
       },
       "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--1980c8f0-6cbb-5ebc-b007-b8b17a992fa0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T00:20:53.000Z",
-      "modified": "2026-08-28T00:20:53.000Z",
-      "name": "Local Privilege Escalation in Ubuntu Kernel via OverlayFS",
-      "description": "## Overview\n\nResearchers have released multiple proof-of-concept (PoC) exploits targeting two linked local privilege escalation vulnerabilities in the Ubuntu kernel, identified as CVE-2023-2640 and CVE-2023-32629. These vulnerabilities stem from improper permission handling within the overlayfs (Overlay File System) implementation. Specifically, the kernel fails to perform adequate security checks when setting extended attributes (xattrs) on files using 'trusted.overlayfs.*'. \n\nAn unprivileged local user can exploit these flaws by mounting a manipulated overlay file system, allowing them to set privileged extended attributes. This action bypasses standard kernel security mechanisms and enables the escalation of privileges to root. The vulnerabilities affect various Ubuntu releases, including 23.04, 22.10, 22.04 LTS, and 18.04 LTS, depending on the specific kernel version in use (notably 5.4.0, 5.19.0, and 6.2.0). Given the availability of weaponized PoC code on public platforms, the likelihood of exploitation by local attackers is high.\n\n## Impact\n\nSuccessful exploitation of these vulnerabilities allows an attacker with low-privilege local access to gain full administrative (root) control over the host system. This facilitates arbitrary code execution, complete system compromise, data exfiltration, and persistent access. All Ubuntu environments running vulnerable kernel versions are at risk if local access to the system is possible.\n\n## Recommendation\n\n* Prioritize patching the kernel on all affected Ubuntu systems. Consult official Canonical security bulletins for the specific kernel packages addressing these CVEs.\n* Monitor for the execution of unauthorized shell scripts or binaries from temporary directories, which is the observed delivery mechanism for the published PoC.\n* Restrict local access and enforce the principle of least privilege to minimize the potential for exploitation by unauthenticated or low-privilege users.\n",
-      "published": "2026-08-28T00:20:53.000Z",
-      "labels": [
-        "kernel",
-        "linux",
-        "overlayfs",
-        "privilege-escalation"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--07af9320-e125-5b11-987c-d0cae5c6910f",
-        "vulnerability--2b9af3b9-1e11-59cb-8d12-f1813942ab1a",
-        "vulnerability--546eb787-4e6a-508f-8bb9-2bec961e5e15"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-ubuntu-overlayfs-lpe",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-ubuntu-overlayfs-lpe/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-2640"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-32629"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-ubuntu-overlayfs-lpe",
-      "x_craftedsignal_event_id": "brief-2026-08-ubuntu-overlayfs-lpe",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-ubuntu-overlayfs-lpe/",
-      "x_craftedsignal_activity_at": "2026-08-28T00:20:53.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.8,
-      "x_craftedsignal_epss_max": 0.18717,
-      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -10461,52 +10353,6 @@
       },
       "x_craftedsignal_cvss_max": 7.7,
       "x_craftedsignal_epss_max": 0.00376,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--72d0f615-56fb-5ed4-89a2-790e482cfe87",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T00:20:26.000Z",
-      "modified": "2026-08-28T00:20:26.000Z",
-      "name": "Incorrect Access Control in Changeweb Unifiedtransform",
-      "description": "## Overview\n\nChangeweb Unifiedtransform version 2.0 is susceptible to an incorrect access control vulnerability tracked as CVE-2025-46203. The issue resides within the UserController's editStudents() method, which fails to properly validate user permissions when accessing the /students/edit/{id} endpoint. This flaw permits non-administrative users, including teachers and students, to submit unauthorized modifications to student records that should be restricted to administrative roles. The vulnerability is exploitable over the network without requiring prior authentication beyond a valid (low-privilege) user session, leading to potential data integrity compromise and privilege escalation within the school management system.\n\n## Attack Chain\n\n1. Attacker authenticates to the Unifiedtransform application using standard student or teacher credentials.\n2. Attacker enumerates existing student IDs through the application UI or by observing URL patterns.\n3. Attacker constructs a malicious HTTP GET or POST request targeting the /students/edit/{id} endpoint.\n4. The application processes the request in the UserController.editStudents() method without verifying if the user has administrative privileges.\n5. The backend executes the database update operation using the attacker-supplied data.\n6. The application returns a successful response, confirming the unauthorized modification of the target student record.\n7. Attacker successfully escalates privileges or corrupts student record data.\n\n## Impact\n\nSuccessful exploitation allows unauthorized users to modify sensitive student information, leading to data integrity issues. This privilege escalation vector undermines the administrative access control model of the Unifiedtransform platform, potentially allowing malicious actors to manipulate grades, personal identifiers, or academic records.\n\n## Recommendation\n\n* Monitor web server logs for HTTP requests to the /students/edit/ pattern originating from accounts not associated with administrative roles.\n* Audit access controls within the UserController logic to ensure that editStudents() enforces authorization checks.\n* Implement strict session-based role validation for all administrative endpoints.\n* Patch or update the Unifiedtransform instance to a secure version if available.\n",
-      "published": "2026-08-28T00:20:26.000Z",
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--720341bc-8898-5f3d-84c6-4bbe2a67ff3d",
-        "vulnerability--078f69e9-88dd-5a9e-b6b7-10631bb32f13"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-cve-2025-46203",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2025-46203/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/changeweb/Unifiedtransform"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SPBAVARVA-CVE-2025-46203"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-cve-2025-46203",
-      "x_craftedsignal_event_id": "brief-2026-08-cve-2025-46203",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2025-46203/",
-      "x_craftedsignal_activity_at": "2026-08-28T00:20:26.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 6.5,
-      "x_craftedsignal_epss_max": 0.0034,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -15749,13 +15595,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--07af9320-e125-5b11-987c-d0cae5c6910f",
-      "name": "Ubuntu",
-      "vendor": "Canonical"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--080096c7-db0f-56c6-8a22-2677bd253034",
       "name": "DNS-340L (1.01B04)",
       "vendor": "D-Link"
@@ -16473,13 +16312,6 @@
       "id": "software--71cca64e-15d5-515a-bd9b-d21650f5ea86",
       "name": "klever-go",
       "vendor": "Klever"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--720341bc-8898-5f3d-84c6-4bbe2a67ff3d",
-      "name": "Unifiedtransform (2.0)",
-      "vendor": "Changeweb"
     },
     {
       "type": "software",
@@ -17470,22 +17302,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--078f69e9-88dd-5a9e-b6b7-10631bb32f13",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2025-46203",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2025-46203",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-46203"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--09d284e1-5d92-5b42-b2bc-f42eefe76111",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -17838,22 +17654,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--2b9af3b9-1e11-59cb-8d12-f1813942ab1a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2023-32629",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2023-32629",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-32629"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--2bd1c492-70b4-53ff-9521-f5f183a271bb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18168,22 +17968,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-82648",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82648"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--546eb787-4e6a-508f-8bb9-2bec961e5e15",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2023-2640",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2023-2640",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-2640"
         }
       ]
     },

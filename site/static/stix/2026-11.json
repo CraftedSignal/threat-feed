@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--cfedff41-2495-5f47-9631-7dd90a6326e3",
+  "id": "bundle--21f72672-5f1c-582f-92f4-b05366bd2cfe",
   "objects": [
     {
       "type": "attack-pattern",
@@ -18745,6 +18745,17 @@
       "relationship_type": "has",
       "source_ref": "software--afe29d0e-901e-576e-ae1f-75e61bec6940",
       "target_ref": "vulnerability--93a83d9a-e3df-5e1d-bc24-0f286ad8ecd8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--109eddc8-b0c4-5156-a61f-3966d7962358",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T00:30:52.000Z",
+      "modified": "2026-11-26T00:30:52.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d236e900-650b-5bf8-8fa8-de697ea1b16e",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -117749,6 +117760,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b1d5576b-f7ce-50d6-a6b6-bcc929f5a2b8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--60828187-31f9-57c6-a75f-41134e323ba7",
+      "target_ref": "vulnerability--b70b6885-5bfc-5355-9e93-137477e97bb5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b1e8a81e-8acd-54b6-83a6-00bf851d4d0f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -118460,6 +118482,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--934a9ccd-02bc-555b-9caa-68d130c829fb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b30e02b2-2b1b-59d4-a20d-057afb472618",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a7b7b2ca-91be-5c3a-be1b-ed2e83143936",
+      "target_ref": "vulnerability--b70b6885-5bfc-5355-9e93-137477e97bb5"
     },
     {
       "type": "relationship",
@@ -298984,6 +299017,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d236e900-650b-5bf8-8fa8-de697ea1b16e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T00:30:52.000Z",
+      "modified": "2026-11-26T00:30:52.000Z",
+      "name": "Cisco Ironport Email Security Appliance: Remote code execution via Lexmark Perceptive Filters (CVE-2023-31488)",
+      "description": "## Overview\nCVE-2023-31488 is a vulnerability in Lexmark Perceptive Filters (e.g., versions prior to 2023-12-08, such as 11.4.0.2647) that affects Cisco Ironport Email Security Appliance Software and various non-Cisco products. The vulnerability, which resides in the `libISYSpdf6.so` library, is triggered during the parsing of malformed PDF documents. An attacker can use a crafted PDF to trigger a segmentation fault, enabling remote code execution.\n\n## Attack Chain\nAccording to technical research, the vulnerability is triggered when the Lexmark Perceptive Filters engine parses a crafted PDF file, such as one with modified PDF object identifiers. An attacker can control registers (such as `rdi` and `rax`) and memory addresses to manipulate the application's execution flow, potentially leading to arbitrary code execution with root privileges.\n\n## Impact\nSuccessful exploitation allows an attacker to execute arbitrary code as root on an affected device via a crafted document.\n\n## Recommendation\nAdministrators should verify the installed firmware versions of their Cisco Ironport Email Security Appliance systems and consult official vendor guidance regarding remediation and fixed software versions. The primary source did not contain specific version-based remediation details.",
+      "published": "2026-11-26T00:30:52.000Z",
+      "labels": [
+        "cisco",
+        "cve-2023-31488",
+        "lexmark",
+        "remote-code-execution"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--60828187-31f9-57c6-a75f-41134e323ba7",
+        "software--a7b7b2ca-91be-5c3a-be1b-ed2e83143936",
+        "vulnerability--b70b6885-5bfc-5355-9e93-137477e97bb5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-cisco-esa-rce-cve-2023-31488",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cisco-esa-rce-cve-2023-31488/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2023-31488"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LY1G3-CISCO-CVE-2023-31488\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-cisco-esa-rce-cve-2023-31488",
+      "x_craftedsignal_event_id": "brief-2026-11-26-cisco-esa-rce-cve-2023-31488",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cisco-esa-rce-cve-2023-31488/",
+      "x_craftedsignal_activity_at": "2026-11-26T00:30:52.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00715,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d23c4a10-39b8-56dc-bfb0-78592d8d0a7c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-23T23:45:23.000Z",
@@ -337417,6 +337503,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--60828187-31f9-57c6-a75f-41134e323ba7",
+      "name": "Lexmark Perceptive Filters"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--608fe51d-adcf-52c0-84cb-cca2a3c525a6",
       "name": "nanobot (\u003c 0.4.1)",
       "vendor": "HKUDS"
@@ -344088,6 +344180,12 @@
       "spec_version": "2.1",
       "id": "software--a798184d-31a2-527a-a29e-bdf6819647df",
       "name": "Microsoft Teams"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a7b7b2ca-91be-5c3a-be1b-ed2e83143936",
+      "name": "Cisco Ironport Email Security Appliance Software"
     },
     {
       "type": "software",
@@ -405767,6 +405865,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114835",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114835"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b70b6885-5bfc-5355-9e93-137477e97bb5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2023-31488",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2023-31488",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-31488"
         }
       ]
     },
