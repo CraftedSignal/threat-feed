@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0d082c4c-2951-5945-9856-417750795560",
+  "id": "bundle--5ac8007c-8eee-5d79-a8cd-60fd68f60860",
   "objects": [
     {
       "type": "attack-pattern",
@@ -41609,6 +41609,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2c6da569-c06c-5086-952b-0408476d5b1a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T15:47:21.000Z",
+      "modified": "2026-11-26T15:47:21.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--82ece4db-9aa5-5db9-972c-0b476616a052",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2c707732-a321-574f-8620-8fba2143f38f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -51054,6 +51065,17 @@
       "relationship_type": "has",
       "source_ref": "software--797a5c8e-0616-5efd-ad24-1be08a9fa0c1",
       "target_ref": "vulnerability--da2cd101-9306-5585-a8b0-fe1d16824618"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3a1f0d90-6eaf-506c-be43-90795781648e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T15:47:07.000Z",
+      "modified": "2026-11-26T15:47:07.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--388fabcd-0a3c-557d-a6d4-c8492a45bdc9",
+      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
     },
     {
       "type": "relationship",
@@ -64672,6 +64694,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e9ea8297-56cf-5a06-83d6-b30704ccbc1b",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4ccb4ee8-e223-55bc-ab7f-e35deff50175",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e92831ad-f794-5716-9320-ead9bdf59fc9",
+      "target_ref": "vulnerability--866cec05-6274-57ab-aa55-0ed562bc7cdf"
     },
     {
       "type": "relationship",
@@ -97848,6 +97881,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--588d4345-3b07-5c9b-a44a-27ffcc54c944"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--791c1061-d8cb-5145-96e2-d3bbee7d5506",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4e9b9a47-9f2d-5799-baf2-39a024069e6b",
+      "target_ref": "vulnerability--c721a285-5438-5b5a-bdad-7497cd30f547"
     },
     {
       "type": "relationship",
@@ -239042,6 +239086,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--388fabcd-0a3c-557d-a6d4-c8492a45bdc9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T15:47:07.000Z",
+      "modified": "2026-11-26T15:47:07.000Z",
+      "name": "PHPGurukul Employee Leaves Management System authentication bypass (CVE-2026-128661)",
+      "description": "## Overview\nPHPGurukul Employee Leaves Management System v2.1 contains an insufficient verification vulnerability in the password recovery functionality within 'forgot-password.php'.\n\n## Attack Chain\nAn unauthenticated user can access the password-change workflow by providing a valid employee ID and corresponding email address. The application fails to require an additional out-of-band verification mechanism to authenticate this request.\n\n## Impact\nThis flaw allows unauthenticated access to the password-change workflow.\n\n## Recommendation\nRemediation for this vulnerability is currently unknown as the vendor has not provided a fixed release.",
+      "published": "2026-11-26T15:47:07.000Z",
+      "object_refs": [
+        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4e9b9a47-9f2d-5799-baf2-39a024069e6b",
+        "vulnerability--c721a285-5438-5b5a-bdad-7497cd30f547"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-phpgurukul-elms-auth-bypass-cve-2026-128661",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-phpgurukul-elms-auth-bypass-cve-2026-128661/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-128661"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128661"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-phpgurukul-elms-auth-bypass-cve-2026-128661",
+      "x_craftedsignal_event_id": "brief-2026-11-26-phpgurukul-elms-auth-bypass-cve-2026-128661",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-phpgurukul-elms-auth-bypass-cve-2026-128661/",
+      "x_craftedsignal_activity_at": "2026-11-26T15:47:07.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00433,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--3894a51d-6bf9-5ba7-a490-d94a0783f7ed",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T13:12:25.000Z",
@@ -295870,6 +295960,52 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.01599,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--82ece4db-9aa5-5db9-972c-0b476616a052",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T15:47:21.000Z",
+      "modified": "2026-11-26T15:47:21.000Z",
+      "name": "PHPGurukul News Portal Project: Cross-site request forgery (CVE-2026-128667)",
+      "description": "## Overview\nPHPGurukul News Portal Project version V4.1 is vulnerable to a cross-site request forgery (CSRF) in its administrative panel. The application fails to implement anti-CSRF tokens for critical functions and allows state-changing operations to be performed via HTTP GET requests. This allows a remote attacker to hijack an authenticated administrator session to execute unauthorized actions including modifying or deleting posts, managing sub-admins, or changing administrative passwords.\n\n## Impact\nSuccessful exploitation allows an attacker to gain unauthorized control over the administrative panel of the target application. This can lead to full compromise of the content management system, privilege escalation via sub-admin account creation, or account takeover of existing administrators.\n\n## Recommendation\nThere is no currently known vendor-provided fix for this vulnerability. Security teams should identify instances of PHPGurukul News Portal Project V4.1 within their environment and restrict access to the administrative panel to trusted IP addresses or require additional authentication mechanisms such as VPN or multi-factor authentication (MFA) to mitigate the risk of CSRF exploitation.",
+      "published": "2026-11-26T15:47:21.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e92831ad-f794-5716-9320-ead9bdf59fc9",
+        "vulnerability--866cec05-6274-57ab-aa55-0ed562bc7cdf"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-phpgurukul-csrf-cve-2026-128667",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-phpgurukul-csrf-cve-2026-128667/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-128667"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128667"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-phpgurukul-csrf-cve-2026-128667",
+      "x_craftedsignal_event_id": "brief-2026-11-26-phpgurukul-csrf-cve-2026-128667",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-phpgurukul-csrf-cve-2026-128667/",
+      "x_craftedsignal_activity_at": "2026-11-26T15:47:21.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_epss_max": 0.00199,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -399839,6 +399975,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4e9b9a47-9f2d-5799-baf2-39a024069e6b",
+      "name": "Employee Leaves Management System (v2.1)",
+      "vendor": "PHPGurukul"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4ea84a17-1578-5946-aab3-f5c893258b00",
       "name": "JTL-Shop (\u003e= 5.7.0, \u003c 5.7.6)",
       "vendor": "JTL-Software GmbH"
@@ -465998,6 +466141,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--866cec05-6274-57ab-aa55-0ed562bc7cdf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-128667",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-128667",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128667"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--86795de8-e6f5-5313-91ef-d79c12badc6c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -488680,6 +488839,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-131590",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131590"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c721a285-5438-5b5a-bdad-7497cd30f547",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-128661",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-128661",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128661"
         }
       ]
     },
