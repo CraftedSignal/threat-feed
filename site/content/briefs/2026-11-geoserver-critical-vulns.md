@@ -1,12 +1,26 @@
 ---
 brief_id: brief-2026-11-25-geoserver-critical-vulns
 event_id: brief-2026-11-25-geoserver-critical-vulns
-revision: 1
-activity_at: "2026-11-25T23:21:19Z"
+revision: 2
+activity_at: "2026-11-26T12:53:17Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-26T12:53:17Z"
+    checksum: sha256:5558724af93cd2f3e1a3eca32e0ef292bc826f3293b5a9f390e1edeac0afce80
+    summary: new vendor
+    changed_fields:
+      - affected_vendors
+      - cve_verification
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://www.securityweek.com/two-newly-disclosed-geoserver-vulnerabilities-under-attack/
 title: GeoServer Security Advisory (AV26-1207)
 slug: 2026-11-geoserver-critical-vulns
 description: GeoServer versions prior to 2.27.7, 2.28.6, and 3.0.2 are affected by vulnerabilities (CVE-2026-120705 and CVE-2026-129243) currently being exploited in the wild.
 date: "2026-11-25T23:21:19Z"
+lastmod: "2026-11-26T12:52:32Z"
 type: threat
 types:
   - threat
@@ -23,8 +37,19 @@ source_assessment:
   credibility: "2"
   rating: B2
   likelihood: likely
+vendors:
+  - GeoServer
 products:
   - GeoServer
+cve_verification:
+  CVE-2026-120705:
+    status: not_found
+    source: cve_program
+    checked_at: 2026-11-26T12:52:32.11778464Z
+  CVE-2026-129243:
+    status: not_found
+    source: cve_program
+    checked_at: 2026-11-26T12:52:32.365553535Z
 cves:
   - id: CVE-2026-120705
     kev_status: "false"
@@ -33,6 +58,15 @@ cves:
 references:
   - https://cyber.gc.ca/en/alerts-advisories/geoserver-security-advisory-av26-1207
   - https://geoserver.org/vulnerability/2026/11/23/cve-update.html
+  - https://www.securityweek.com/two-newly-disclosed-geoserver-vulnerabilities-under-attack/
+updates:
+  - at: "2026-11-26T12:52:32Z"
+    level: L1
+    summary: new vendor
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/two-newly-disclosed-geoserver-vulnerabilities-under-attack/
 ---
 
 ## Overview
