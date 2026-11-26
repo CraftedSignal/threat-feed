@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8c280625-f03f-51f1-aa9a-a6c174703c67",
+  "id": "bundle--907625e7-0a0b-5522-aeee-60b30b164670",
   "objects": [
     {
       "type": "attack-pattern",
@@ -25537,6 +25537,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--19d0d8d1-f2ce-50e0-8f4a-df7e6dfbb292",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d6cd3226-c36b-52c5-9ab8-1d4ff892de60",
+      "target_ref": "vulnerability--acf03410-2634-5d8a-8f6e-faccaef50d59"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--19d64142-e3f1-5ddd-ac47-1b2308f82f05",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -46444,6 +46455,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--7081cad9-2446-5d15-a8a7-d113212b3b71"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3b071d35-2098-5064-a85a-e4dca32b1c02",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T21:16:08.000Z",
+      "modified": "2026-11-26T21:16:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bb3aa9ac-1bc2-5e45-97d0-59ffc9f57cd4",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -114791,6 +114813,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a43b7972-e7b6-5048-957c-6090ec208fb1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a90dc186-a7b3-5d45-8227-e3f53ce82cfb",
+      "target_ref": "vulnerability--f0174208-4af1-5f75-b2b9-f72b7e7f786e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a43ee36f-29ad-5be6-aafa-343de1d247e6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -166828,6 +166861,17 @@
       "relationship_type": "has",
       "source_ref": "software--81dd7cb5-2ff5-590b-baec-0e44ef4ca279",
       "target_ref": "vulnerability--e419ce0c-363f-5be8-8772-b8aeb65f10ac"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f5a0bf6a-4d0c-56b6-a210-ff0eb00c5549",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T21:15:53.000Z",
+      "modified": "2026-11-26T21:15:53.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--59d06ce9-34b1-5770-acb4-12216b0f5f5b",
+      "target_ref": "attack-pattern--123affda-6f11-58dc-8db2-3ea6a4c43493"
     },
     {
       "type": "relationship",
@@ -238467,6 +238511,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--59d06ce9-34b1-5770-acb4-12216b0f5f5b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T21:15:53.000Z",
+      "modified": "2026-11-26T21:15:53.000Z",
+      "name": "Drupal Authenticator Login Plus: Authentication Bypass (CVE-2026-126729)",
+      "description": "## Overview\n\nDrupal Authenticator Login Plus (2FA) contains an Authentication Bypass Using an Alternate Path or Channel vulnerability (CVE-2026-126729), allowing an attacker to circumvent authentication via a crafted request.\n\n## Attack Chain\n\nAn attacker can supply a crafted HTTP request to the affected component to bypass required two-factor authentication steps.\n\n## Impact\n\nSuccessful exploitation allows an attacker to bypass authentication, potentially gaining unauthorized access to the affected Drupal site.\n\n## Recommendation\n\nUpgrade to version 1.0.3 or later of the Authenticator Login Plus (2FA) module.",
+      "published": "2026-11-26T21:15:53.000Z",
+      "object_refs": [
+        "attack-pattern--123affda-6f11-58dc-8db2-3ea6a4c43493",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d6cd3226-c36b-52c5-9ab8-1d4ff892de60",
+        "vulnerability--acf03410-2634-5d8a-8f6e-faccaef50d59"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-cve-2026-126729",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-126729/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126729"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=831E9CB3-D89C-51A1-9341-75C3FF7FB1E7"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=831E9CB3-D89C-51A1-9341-75C3FF7FB1E7\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-cve-2026-126729",
+      "x_craftedsignal_event_id": "brief-2026-11-26-cve-2026-126729",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-126729/",
+      "x_craftedsignal_activity_at": "2026-11-26T21:15:53.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00339,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--59d23aa2-408b-5566-998a-35ab627741c7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T13:58:20.000Z",
@@ -267390,6 +267483,50 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--83fd4495-eb2f-5f4e-8bd5-f6fc7edd9212",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T21:18:16.000Z",
+      "modified": "2026-11-26T21:18:16.000Z",
+      "name": "VMware Virtualization Suite: Multiple vulnerabilities",
+      "description": "## Overview\nMultiple vulnerabilities have been identified across the VMware virtualization portfolio, including Cloud Foundation, vSphere, vCenter Server, ESXi, Workstation, Fusion, and VMware Tools. According to the BSI security advisory, an unauthenticated remote attacker can exploit these flaws to achieve arbitrary code execution, escalate privileges to root, bypass security controls, manipulate or disclose data, perform unauthorized file writes as root, or cause a denial-of-service condition.\n\n## Recommendation\n- Inventory all instances of the affected VMware products listed above to determine exposure.\n- Monitor the VMware Security Advisory portal for specific patch releases and technical details for each affected product.\n- Prioritize patching for internet-facing or high-privilege infrastructure components, specifically vCenter Server and ESXi, once updates are available.",
+      "published": "2026-11-26T21:18:16.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--288e734d-58bc-5431-9406-0202c0662d64",
+        "software--516045a0-571b-52e6-b061-34b2bb26f8af",
+        "software--7bb99ef9-2da0-5b2a-a064-6bc1ad6f89f5",
+        "software--9f70267f-57a2-58aa-8ab4-79624fdf0d86",
+        "software--bd77d989-1cff-5877-833b-3cae9ef81f4e",
+        "software--cdd4e221-9f65-5e30-8343-e0c06fe1d2fb",
+        "software--ee51302b-f686-5e3f-b5d4-843d02c5585d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-vmware-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-vmware-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4769"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-vmware-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-26-vmware-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-vmware-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-26T21:18:16.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -305038,6 +305175,59 @@
       },
       "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_epss_max": 0.01348,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--bb3aa9ac-1bc2-5e45-97d0-59ffc9f57cd4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T21:16:08.000Z",
+      "modified": "2026-11-26T21:16:08.000Z",
+      "name": "Drupal Mime Mail: Information disclosure vulnerability (CVE-2026-122082)",
+      "description": "## Overview\n\nCVE-2026-122082 is an information disclosure vulnerability in the Drupal Mime Mail module. The issue arises from the insertion of sensitive information into sent data, potentially allowing unauthorized access through forceful browsing. The vulnerability affects Mime Mail versions 0.0.0 up to, but not including, 2.0.4.\n\n## Impact\n\nSuccessful exploitation allows an attacker to gain unauthorized access to sensitive information by sending crafted HTTP requests to the affected module. A publicly available proof-of-concept (PoC) exploit confirms the exploitability of the flaw.\n\n## Recommendation\n\n- Update the Drupal Mime Mail module to version 2.0.4 or later immediately.\n- Review the upstream security advisory SA-CONTRIB-2026-312 for comprehensive remediation guidance.\n- Monitor web server access logs for anomalous POST requests directed at endpoints associated with the Mime Mail module that result in successful responses or unexpected data leakage.",
+      "published": "2026-11-26T21:16:08.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a90dc186-a7b3-5d45-8227-e3f53ce82cfb",
+        "vulnerability--f0174208-4af1-5f75-b2b9-f72b7e7f786e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-cve-2026-122082",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-122082/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-122082"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=90DADD32-DD45-5D0E-8CC0-1BFD905337F7"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=90DADD32-DD45-5D0E-8CC0-1BFD905337F7\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.drupal.org/sa-contrib-2026-312"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-cve-2026-122082",
+      "x_craftedsignal_event_id": "brief-2026-11-26-cve-2026-122082",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-122082/",
+      "x_craftedsignal_activity_at": "2026-11-26T21:16:08.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00264,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -356800,6 +356990,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--288e734d-58bc-5431-9406-0202c0662d64",
+      "name": "VMware Tools",
+      "vendor": "VMware"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--289adfb9-bd49-53d4-a366-8ec7b184b71b",
       "name": "GPAC (\u003c 26.07.0)",
       "vendor": "GPAC"
@@ -361246,6 +361443,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--516045a0-571b-52e6-b061-34b2bb26f8af",
+      "name": "VMware Fusion",
+      "vendor": "VMware"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--51631950-4efb-5d2c-8df4-10802a7bc310",
       "name": "Linux Kernel (\u003e= 2.6.25, \u003c 7.4-rc1)",
       "vendor": "Linux"
@@ -365505,6 +365709,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7bb99ef9-2da0-5b2a-a064-6bc1ad6f89f5",
+      "name": "VMware Cloud Foundation",
+      "vendor": "VMware"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7be30709-b292-5d85-a2d0-7663ab1b8776",
       "name": "Apache OpenNLP (org.apache.opennlp:opennlp-runtime) 3.0.0-M1 (before 3.0.0)",
       "vendor": "Apache"
@@ -369329,6 +369540,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9f70267f-57a2-58aa-8ab4-79624fdf0d86",
+      "name": "VMware Workstation",
+      "vendor": "VMware"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9f7e7cdd-b862-564d-ac17-a394958c7dec",
       "name": "Git (= 2.52.0)",
       "vendor": "Git"
@@ -370409,6 +370627,13 @@
       "id": "software--a90ad8d8-b549-53f7-a97a-04ceafcb4b1a",
       "name": "Chrome (\u003c 158.0.8127.88)",
       "vendor": "Google"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a90dc186-a7b3-5d45-8227-e3f53ce82cfb",
+      "name": "Mime Mail (0.0.0 to 2.0.4)",
+      "vendor": "Drupal"
     },
     {
       "type": "software",
@@ -372649,6 +372874,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--bd77d989-1cff-5877-833b-3cae9ef81f4e",
+      "name": "VMware vCenter Server",
+      "vendor": "VMware"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--bd9f2255-aaed-5c04-976a-2468bb34aaa9",
       "name": "OpenCTI (\u003c 7.260513.0)",
       "vendor": "OpenCTI"
@@ -374378,6 +374610,13 @@
       "id": "software--cdbf239f-13d2-5840-a04e-d2db7404512a",
       "name": "ManageEngine Log360 (\u003c= 13071)",
       "vendor": "Zohocorp"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--cdd4e221-9f65-5e30-8343-e0c06fe1d2fb",
+      "name": "VMware vSphere",
+      "vendor": "VMware"
     },
     {
       "type": "software",
@@ -377744,6 +377983,13 @@
       "id": "software--ee480ab1-4a0b-5803-ab95-1ecdc0645400",
       "name": "Extension for Leaflet Map (\u003c= 6.1.3)",
       "vendor": "hupe13"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ee51302b-f686-5e3f-b5d4-843d02c5585d",
+      "name": "VMware ESXi",
+      "vendor": "VMware"
     },
     {
       "type": "software",
@@ -433713,6 +433959,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--acf03410-2634-5d8a-8f6e-faccaef50d59",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126729",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126729",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126729"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--ad0f3aef-1743-5e25-9572-91327c215ce6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -455531,6 +455793,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-82492",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82492"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f0174208-4af1-5f75-b2b9-f72b7e7f786e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-122082",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-122082",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122082"
         }
       ]
     },
