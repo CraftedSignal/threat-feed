@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1acd3489-c911-55ff-9e04-49eb12416557",
+  "id": "bundle--3748bb34-5bbc-5ee6-a3d6-8f0297a23900",
   "objects": [
     {
       "type": "attack-pattern",
@@ -97115,6 +97115,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7905de0a-26a9-5e92-97b7-bca982b5970f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--79e54f42-b73d-5ded-9f72-e49f4988818e",
+      "target_ref": "vulnerability--322c5282-242b-58fc-ad7e-6258cd23a751"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7906896a-b7fe-5408-9c5c-06feecf09402",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -101082,6 +101093,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--9a9b588f-99ac-52d9-b92f-385707cc01cd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7e67d7e2-4991-5708-bd76-9dbf2a6b2911",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b7e860e8-4896-515e-98f2-babf832b19ba",
+      "target_ref": "vulnerability--322c5282-242b-58fc-ad7e-6258cd23a751"
     },
     {
       "type": "relationship",
@@ -234145,14 +234167,15 @@
       "id": "report--35dd3619-3800-5ea7-ac25-a79db63c2c4a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-23T10:42:28.000Z",
-      "modified": "2026-11-23T10:42:28.000Z",
+      "modified": "2026-11-26T11:15:01.000Z",
       "name": "ClamAV and Cisco Secure Endpoint Connector: Multiple vulnerabilities",
       "description": "## Overview\n\nThe BSI has reported multiple vulnerabilities affecting ClamAV and the Cisco Secure Endpoint Connector. These flaws allow a remote, anonymous attacker to bypass existing security controls, perform data manipulation, and cause a denial-of-service condition within the affected software. Specific CVE identifiers and technical details for these vulnerabilities are currently undisclosed in the primary advisory. Administrators are advised to monitor the vendor security portals for upcoming patches and remediation steps.\n\n## Impact\n\nSuccessful exploitation could result in the compromise of security control integrity, unauthorized data manipulation, and system instability leading to a denial-of-service (DoS) state.\n\n## Recommendation\n\n1. Inventory all instances of ClamAV and Cisco Secure Endpoint Connector within the environment.\n2. Monitor vendor security advisories from Cisco for specific version releases and patch guidance to remediate these vulnerabilities.\n3. Implement network segmentation and access controls to limit remote exposure of instances running affected software until security updates are applied.",
       "published": "2026-11-23T10:42:28.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--79e54f42-b73d-5ded-9f72-e49f4988818e",
-        "software--b7e860e8-4896-515e-98f2-babf832b19ba"
+        "software--b7e860e8-4896-515e-98f2-babf832b19ba",
+        "vulnerability--322c5282-242b-58fc-ad7e-6258cd23a751"
       ],
       "external_references": [
         {
@@ -234162,21 +234185,27 @@
         },
         {
           "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76411"
+        },
+        {
+          "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4662"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-11-23-clamav-cisco-vulnerabilities",
       "x_craftedsignal_event_id": "brief-2026-11-23-clamav-cisco-vulnerabilities",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-clamav-cisco-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-11-23T10:42:28.000Z",
+      "x_craftedsignal_activity_at": "2026-11-26T11:15:01.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00603,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -432607,6 +432636,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-97699",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97699"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--322c5282-242b-58fc-ad7e-6258cd23a751",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-76411",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-76411",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76411"
         }
       ]
     },

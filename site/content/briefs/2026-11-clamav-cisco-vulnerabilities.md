@@ -1,12 +1,26 @@
 ---
 brief_id: brief-2026-11-23-clamav-cisco-vulnerabilities
 event_id: brief-2026-11-23-clamav-cisco-vulnerabilities
-revision: 1
-activity_at: "2026-11-23T10:42:28Z"
+revision: 2
+activity_at: "2026-11-26T11:15:01Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-26T11:15:01Z"
+    checksum: sha256:4d43d8bce26d234c76da76471d712b75656af66edc29383ef3d55bf60c73e660
+    summary: added CVE-2026-76411
+    changed_fields:
+      - cve_verification
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-76411
 title: 'ClamAV and Cisco Secure Endpoint Connector: Multiple vulnerabilities'
 slug: 2026-11-clamav-cisco-vulnerabilities
 description: Multiple vulnerabilities in ClamAV and the Cisco Secure Endpoint Connector allow remote anonymous attackers to bypass security measures, manipulate data, and induce a denial-of-service state.
 date: "2026-11-23T10:42:28Z"
+lastmod: "2026-11-26T11:14:41Z"
 type: advisory
 types:
   - advisory
@@ -27,8 +41,19 @@ vendors:
 products:
   - ClamAV
   - Secure Endpoint Connector
+cve_verification:
+  CVE-2026-76411:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-26T11:14:41.194770471Z
+cves:
+  - id: CVE-2026-76411
+    cvss: 7.5
+    epss: 0.00603
+    kev_status: "false"
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4662
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76411
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +71,14 @@ action_plan:
       evidence: BSI advisory currently lacks specific technical identifiers
   gaps:
     - Missing specific version identifiers and technical exploit path details
+updates:
+  - at: "2026-11-26T11:14:41Z"
+    level: L2
+    summary: added CVE-2026-76411
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-76411
 ---
 
 ## Overview
