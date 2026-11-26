@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--aae72110-5fc1-5760-b4e8-ce4db6141aee",
+  "id": "bundle--4028fb69-9223-5e2d-92d7-ed3ca1b8a3f2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -27644,6 +27644,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1ebdabbb-b1df-5913-a268-ef77d2bf811c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3ba728d8-e668-51ea-b569-d729b4284ceb",
+      "target_ref": "vulnerability--d9a3cc3c-5360-5176-b1f8-95752cba1e20"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1ed42c8c-810b-5162-866e-0fb29a6ed873",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -37067,6 +37078,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--b2dbb33e-e6fb-51c1-931a-6c09051fc374"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2e6167fa-6ec0-534b-8f30-d9e662f71550",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b00b01db-cb08-58c2-9980-b17e68252f1a",
+      "target_ref": "vulnerability--d0e1dc04-8d1a-52cf-82ff-b06207fdad80"
     },
     {
       "type": "relationship",
@@ -65194,6 +65216,17 @@
       "relationship_type": "uses",
       "source_ref": "report--53c07ce4-de90-5cce-b240-c664d1d66a2a",
       "target_ref": "attack-pattern--035e9816-6a2b-52e8-88bc-0b132afd2b91"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5cb8d98d-dabc-5b3a-866f-f621e98da657",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d36c9145-1787-5eeb-a56e-598cd5a331d1",
+      "target_ref": "vulnerability--d0e1dc04-8d1a-52cf-82ff-b06207fdad80"
     },
     {
       "type": "relationship",
@@ -119252,6 +119285,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b3aeb6f8-aa10-57ff-b201-1ce04f18e208",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T10:55:12.000Z",
+      "modified": "2026-11-26T10:55:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3ac8ca37-fe0f-5da5-a6e8-a37800972e6e",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b3b25248-d71c-5753-bed8-dc9f3e18c45e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -134109,6 +134153,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--e28403c9-ba58-5c8c-b493-1e08e85dc8e2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cbc9034f-4ce7-5d60-9448-b637d2c1a72f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d36c9145-1787-5eeb-a56e-598cd5a331d1",
+      "target_ref": "vulnerability--d9a3cc3c-5360-5176-b1f8-95752cba1e20"
     },
     {
       "type": "relationship",
@@ -203973,6 +204028,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--3ac8ca37-fe0f-5da5-a6e8-a37800972e6e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T10:55:12.000Z",
+      "modified": "2026-11-26T10:55:12.000Z",
+      "name": "Splunk Enterprise Security: Privilege escalation via threat intelligence lookups (CVE-2026-131200)",
+      "description": "## Overview\nIn Splunk Enterprise Security versions below 8.7.0, a vulnerability allows users with the 'ess_analyst' role to elevate their privileges. The system fails to correctly restrict threat intelligence lookup generation to intended saved searches. An attacker holding the 'ess_analyst' role can create a saved search that is later executed by the system during threat intelligence lookup generation with higher permissions. This flaw permits the execution of arbitrary Search Processing Language (SPL) commands.\n\n## Impact\nSuccessful exploitation allows an authenticated attacker to execute arbitrary SPL commands with elevated system privileges, potentially leading to unauthorized data access, system configuration changes, or further compromise within the Splunk environment.\n\n## Recommendation\nUpgrade both Splunk Enterprise Security and the Splunk App for PCI Compliance to version 8.7.0 or higher immediately. Review existing saved searches created by accounts with the 'ess_analyst' role until the patch is applied.",
+      "published": "2026-11-26T10:55:12.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b00b01db-cb08-58c2-9980-b17e68252f1a",
+        "software--d36c9145-1787-5eeb-a56e-598cd5a331d1",
+        "vulnerability--d0e1dc04-8d1a-52cf-82ff-b06207fdad80"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-splunk-es-privilege-escalation-cve-2026-131200",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-splunk-es-privilege-escalation-cve-2026-131200/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-131200"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/administer/8.0/threat-intelligence/turn-on-threat-matching-searches-in-splunk-enterprise-security"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://help.splunk.com/en/splunk-enterprise-security-8/install/8.7/installation/users-and-roles-for-splunk-enterprise-security"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131200"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-splunk-es-privilege-escalation-cve-2026-131200",
+      "x_craftedsignal_event_id": "brief-2026-11-26-splunk-es-privilege-escalation-cve-2026-131200",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-splunk-es-privilege-escalation-cve-2026-131200/",
+      "x_craftedsignal_activity_at": "2026-11-26T10:55:12.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--3ae5c151-9bbb-514a-8ba7-4ecbace10190",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:59:48.000Z",
@@ -240475,6 +240583,60 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--7393f617-0090-5eb2-9d60-6aa6da725a79",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T10:55:22.000Z",
+      "modified": "2026-11-26T10:55:22.000Z",
+      "name": "Splunk Enterprise Security: Search Processing Language Injection (CVE-2026-131218)",
+      "description": "## Overview\nIn Splunk Enterprise Security versions below 8.7.0, the Mission Control feature fails to validate reserved search filters before adding them to dashboard search requests. This allows a user holding a role with the mc_investigation_read capability to inject arbitrary Search Processing Language (SPL) into these requests.\n\n## Attack Chain\nAn attacker with the mc_investigation_read capability injects malicious SPL into a Mission Control dashboard search. Mission Control executes the injected SPL with elevated permissions, allowing the user to read stored credentials and write data to indexes and lookups.\n\n## Impact\nSuccessful exploitation allows the user to read stored credentials and write data to indexes and lookups within the Splunk environment.\n\n## Recommendation\n- Upgrade Splunk Enterprise Security and Splunk App for PCI Compliance to version 8.7.0 or higher.\n- As a workaround, turn off or remove the Splunk Enterprise Security app.",
+      "published": "2026-11-26T10:55:22.000Z",
+      "labels": [
+        "cve-2026-131218",
+        "spl-injection"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3ba728d8-e668-51ea-b569-d729b4284ceb",
+        "software--d36c9145-1787-5eeb-a56e-598cd5a331d1",
+        "vulnerability--d9a3cc3c-5360-5176-b1f8-95752cba1e20"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-splunk-es-cve-cve-2026-131218",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-splunk-es-cve-cve-2026-131218/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-131218"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.2/meet-splunk-apps/manage-app-and-add-on-objects"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131218"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-splunk-es-cve-cve-2026-131218",
+      "x_craftedsignal_event_id": "brief-2026-11-26-splunk-es-cve-cve-2026-131218",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-splunk-es-cve-cve-2026-131218/",
+      "x_craftedsignal_activity_at": "2026-11-26T10:55:22.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.3,
+      "x_craftedsignal_epss_max": 0.00434,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -415299,6 +415461,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--d0e1dc04-8d1a-52cf-82ff-b06207fdad80",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-131200",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-131200",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131200"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--d0ea62b9-ac4f-5fd9-a506-b9683fc67652",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -418077,6 +418255,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126720",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126720"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d9a3cc3c-5360-5176-b1f8-95752cba1e20",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-131218",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-131218",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131218"
         }
       ]
     },
