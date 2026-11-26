@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3748bb34-5bbc-5ee6-a3d6-8f0297a23900",
+  "id": "bundle--46026218-7c12-5c8e-871b-117fa83ef427",
   "objects": [
     {
       "type": "attack-pattern",
@@ -157072,6 +157072,17 @@
       "relationship_type": "uses",
       "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
       "target_ref": "indicator--12e471f5-cddf-5c9e-9220-60d4bbfe2df4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cbcbe5b7-2bb4-5d30-8af1-86b89f6dec76",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--afade55e-43b7-5bb8-be16-d251b774c2f9",
+      "target_ref": "vulnerability--1d70ec56-d198-514c-986a-25e85726a81e"
     },
     {
       "type": "relationship",
@@ -345812,6 +345823,69 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--cbc7ffbe-bba3-5b96-b4a6-dd7ed9d2422a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T11:22:45.000Z",
+      "modified": "2026-11-26T11:22:45.000Z",
+      "name": "LibRaw: Out-of-bounds read in HuffTable::len (CVE-2026-135167)",
+      "description": "## Overview\nLibRaw versions 0.22.0 through 0.22.3 are vulnerable to a heap out-of-bounds read in the HuffTable::len() function located in internal/losslessjpeg.h. The vulnerability exists because the parse_dht() function fails to validate Huffman DC symbols as difference categories. An attacker can provide a crafted TIFF or ARW file containing a Sony YCbCr lossless JPEG stream that triggers an invalid index lookup, leading to an application crash.\n\n## Impact\nExploitation results in a denial-of-service (DoS) via application crash. The vulnerability is triggered when an application attempts to decode a malicious TIFF or ARW image.\n\n## Recommendation\nUpgrade LibRaw to a version incorporating the fix from commit d270dbf. Users should monitor for application crashes involving LibRaw processing of image files, particularly those originating from untrusted sources.",
+      "published": "2026-11-26T11:22:45.000Z",
+      "labels": [
+        "cve",
+        "denial-of-service",
+        "image-processing",
+        "library-vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--afade55e-43b7-5bb8-be16-d251b774c2f9",
+        "vulnerability--1d70ec56-d198-514c-986a-25e85726a81e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-libraw-oob-read-cve-2026-135167",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-libraw-oob-read-cve-2026-135167/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-135167"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/LibRaw/LibRaw/commit/d270dbf557ff1f68757e1b93a84b91c3c1a13ce7"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/LibRaw/LibRaw/issues/892"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=08D608DF-3CED-5841-981C-2AFBC79C1995"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=08D608DF-3CED-5841-981C-2AFBC79C1995\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-libraw-oob-read-cve-2026-135167",
+      "x_craftedsignal_event_id": "brief-2026-11-26-libraw-oob-read-cve-2026-135167",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-libraw-oob-read-cve-2026-135167/",
+      "x_craftedsignal_activity_at": "2026-11-26T11:22:45.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.5,
+      "x_craftedsignal_epss_max": 0.00172,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--cbd254ad-e07a-511a-9f76-bc993f4f2c6e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T23:03:24.000Z",
@@ -406225,6 +406299,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--afade55e-43b7-5bb8-be16-d251b774c2f9",
+      "name": "LibRaw (0.22.0 through 0.22.3)",
+      "vendor": "LibRaw"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--afaf6a85-ffb3-54a4-be1b-560321863b4f",
       "name": "PHP (8.5.0-8.5.12)"
     },
@@ -425884,6 +425965,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-113579",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113579"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--1d70ec56-d198-514c-986a-25e85726a81e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-135167",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-135167",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135167"
         }
       ]
     },
