@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0bf9f006-fd58-54b8-a694-5a434714f602",
+  "id": "bundle--1acd3489-c911-55ff-9e04-49eb12416557",
   "objects": [
     {
       "type": "attack-pattern",
@@ -179538,6 +179538,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ec1d91e1-b1f0-5a3c-a004-0b34a7741c66",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T11:12:16.000Z",
+      "modified": "2026-11-26T11:12:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--57d0aef1-7274-5b5a-af3d-35e1781f58c7",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ec21df5d-ffdb-561e-9885-32875f7fee7b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -261428,6 +261439,55 @@
       "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_epss_max": 0.00175,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--57d0aef1-7274-5b5a-af3d-35e1781f58c7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T11:12:16.000Z",
+      "modified": "2026-11-26T11:12:16.000Z",
+      "name": "Laravel: Remote denial of service vulnerability",
+      "description": "## Overview\n\nA denial of service vulnerability has been identified in the Laravel framework. This flaw allows a remote attacker to cause a service disruption. The vulnerability is documented in the vendor security advisory GHSA-c25c-x5r7-2v5m. Impact is limited to potential service unavailability. No technical details on the exploitation mechanism are currently provided by the source.\n\n## Impact\n\nSuccessful exploitation of this vulnerability results in a remote denial of service, impacting the availability of applications running on the affected versions of the Laravel framework.\n\n## Recommendation\n\nUpgrade Laravel to the patched versions as specified by the vendor advisory GHSA-c25c-x5r7-2v5m. Specifically, ensure instances are running at least version 12.74.0 for the 12.x branch or version 13.44.1 for the 13.x branch.",
+      "published": "2026-11-26T11:12:16.000Z",
+      "labels": [
+        "denial-of-service",
+        "vulnerability",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9af4b7d7-9580-5cdb-a600-afc897178b88",
+        "software--d8b02732-b818-5f39-9377-af91f79c486d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-laravel-dos-15ef6481",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-laravel-dos-15ef6481/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/laravel/framework/security/advisories/GHSA-c25c-x5r7-2v5m"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1617/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-laravel-dos-15ef6481",
+      "x_craftedsignal_event_id": "brief-2026-11-26-laravel-dos-15ef6481",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-laravel-dos-15ef6481/",
+      "x_craftedsignal_activity_at": "2026-11-26T11:12:16.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -403700,6 +403760,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9af4b7d7-9580-5cdb-a600-afc897178b88",
+      "name": "Laravel (13.x \u003c 13.44.1)",
+      "vendor": "Laravel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9af9ff86-9415-5783-9aac-5e5bc9379d90",
       "name": "GPU Display Driver",
       "vendor": "Nvidia"
@@ -410879,6 +410946,13 @@
       "id": "software--d89e8c2a-9bf7-5581-8d98-b9660c035606",
       "name": "SAP NetWeaver AS ABAP",
       "vendor": "SAP"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d8b02732-b818-5f39-9377-af91f79c486d",
+      "name": "Laravel (12.x \u003c 12.74.0)",
+      "vendor": "Laravel"
     },
     {
       "type": "software",
