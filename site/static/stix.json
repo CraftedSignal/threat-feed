@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--21207288-fe19-5dba-bd90-cbfb89b3b264",
+  "id": "bundle--0bf9f006-fd58-54b8-a694-5a434714f602",
   "objects": [
     {
       "type": "attack-pattern",
@@ -25989,6 +25989,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1737259d-dc91-5503-94a4-4d4734b20372",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--98a32631-585e-53b1-8a1f-72709bc5ce27",
+      "target_ref": "vulnerability--4dc8fcfd-b7a2-5d8f-a809-3c2d13045437"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1739fc8c-3d81-5b3f-accc-20f44371cf45",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T11:57:41.000Z",
@@ -37641,7 +37652,7 @@
       "id": "relationship--27695a56-4a75-503d-9ab0-299fe8f0e641",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-25T04:48:20.000Z",
-      "modified": "2026-11-25T04:48:20.000Z",
+      "modified": "2026-11-26T11:07:02.000Z",
       "relationship_type": "uses",
       "source_ref": "report--afddee6b-2ad0-5b99-8d0b-8cfa52c522c6",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
@@ -57104,6 +57115,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--18c24493-c236-5021-98bf-c67f91c83d4a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--43517719-fbf7-5c6b-9682-0429a956dba0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e5de0f7e-13dc-5fc9-91e3-e65d4f6abb23",
+      "target_ref": "vulnerability--4dc8fcfd-b7a2-5d8f-a809-3c2d13045437"
     },
     {
       "type": "relationship",
@@ -161666,7 +161688,7 @@
       "id": "relationship--d2685bb8-e846-5dd9-971d-87c1c710a10a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-25T04:48:20.000Z",
-      "modified": "2026-11-25T04:48:20.000Z",
+      "modified": "2026-11-26T11:07:02.000Z",
       "relationship_type": "uses",
       "source_ref": "report--afddee6b-2ad0-5b99-8d0b-8cfa52c522c6",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -326295,7 +326317,7 @@
       "id": "report--afddee6b-2ad0-5b99-8d0b-8cfa52c522c6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-25T04:48:20.000Z",
-      "modified": "2026-11-25T04:48:20.000Z",
+      "modified": "2026-11-26T11:07:02.000Z",
       "name": "NGINX HTTP/2 Use-After-Free (CVE-2026-123633)",
       "description": "## Overview\n\nCVE-2026-123633 is a use-after-free vulnerability in NGINX Open Source and NGINX Plus caused by improper connection state management. When NGINX is configured to use HTTP/2, the server may incorrectly mark an active HTTP/2 connection as reusable. Under low memory or worker_connection exhaustion conditions, NGINX may prematurely close the connection and free memory still required by active requests, such as those performing DNS lookups. While primarily resulting in denial-of-service, attackers may achieve remote code execution in specific scenarios, particularly if Address Space Layout Randomization (ASLR) can be bypassed.\n\n## Attack Chain\n\n1. Attacker sends a fragmented HTTP/2 HEADERS frame to the target NGINX server.\n2. NGINX processes the partial frame and incorrectly sets the connection state to reusable.\n3. The server builds a stream for the request while maintaining the erroneous reusable mark.\n4. The attacker forces connection pressure, triggering NGINX's connection-drain logic.\n5. NGINX selects the active connection for reclamation and closes the socket.\n6. The active request performs an asynchronous operation, such as a DNS lookup, which continues to reference the freed connection or request state memory.\n7. The worker process accesses the freed memory during subsequent resolver operations, leading to a crash or exploitable memory corruption.\n\n## Impact\n\nSuccessful exploitation can cause denial-of-service by crashing the NGINX worker process. In specific configurations, or when chained with other memory disclosure vulnerabilities, an unauthenticated attacker may achieve remote code execution under the NGINX worker process privileges.\n\n## Recommendation\n\n- Upgrade NGINX Open Source to version 1.30.7 (stable) or 1.31.9 (mainline) or later.\n- Upgrade NGINX Plus to the latest patched releases as specified in F5 security advisories.\n- Audit and monitor NGINX error logs for connection-drain warnings indicating exhausted worker connections.",
       "published": "2026-11-25T04:48:20.000Z",
@@ -326312,9 +326334,11 @@
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--30380255-8820-54b4-bde8-c9a7d0c534e3",
         "software--7178b81e-331f-5b6f-896c-f563ede44fcf",
+        "software--98a32631-585e-53b1-8a1f-72709bc5ce27",
         "software--9bebc959-7967-51f9-820f-1f1913d0c2dd",
         "software--9bf6da8a-afe1-5770-b78c-beb1d38a2e97",
         "software--b5b8f042-1843-5bec-8094-5fc0d058f2b6",
+        "software--e5de0f7e-13dc-5fc9-91e3-e65d4f6abb23",
         "vulnerability--4dc8fcfd-b7a2-5d8f-a809-3c2d13045437"
       ],
       "external_references": [
@@ -326326,14 +326350,18 @@
         {
           "source_name": "reference",
           "url": "https://unit42.paloaltonetworks.com/cve-2026-123633-nginx-http2-vulnerability/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4750"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-25-nginx-http2-uaf-cve-2026-123633",
       "x_craftedsignal_event_id": "brief-2026-11-25-nginx-http2-uaf-cve-2026-123633",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nginx-http2-uaf-cve-2026-123633/",
-      "x_craftedsignal_activity_at": "2026-11-25T04:48:20.000Z",
+      "x_craftedsignal_activity_at": "2026-11-26T11:07:02.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -403473,6 +403501,13 @@
       "id": "software--988dc692-5fd7-560b-8ead-f68690753796",
       "name": "xorg-server",
       "vendor": "X.org"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--98a32631-585e-53b1-8a1f-72709bc5ce27",
+      "name": "NGINX",
+      "vendor": "F5"
     },
     {
       "type": "software",
