@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0bd4302b-2b17-575a-b1e7-a82b38b881a9",
+  "id": "bundle--a8806a83-aeac-584f-b24c-6e8760f2d3c2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -41802,6 +41802,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2c7bccef-7df3-5db8-bcc1-1211e8e9a6a1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--892a8464-abfb-5f42-89c8-4edda70e00a5",
+      "target_ref": "vulnerability--66d1541b-a932-566e-be9a-6ee312f5cc48"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2c7d5635-a289-5393-8fc2-fcf89a62d7dd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -45582,6 +45593,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9f452352-8ab5-5827-9469-0849dfc30705",
       "target_ref": "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--31c59db9-c468-5b01-b79b-5eaa70035327",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8bf231c6-22a2-5310-b01f-723e0c2d9260",
+      "target_ref": "vulnerability--66d1541b-a932-566e-be9a-6ee312f5cc48"
     },
     {
       "type": "relationship",
@@ -147149,6 +147171,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bb68f454-0bf9-568e-8d13-7de9d3b138e1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--999c9487-7735-558e-981c-184d17b55470",
+      "target_ref": "vulnerability--66d1541b-a932-566e-be9a-6ee312f5cc48"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bb6f5a17-9e1d-5257-85ca-9fb55949508d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -150148,6 +150181,17 @@
       "relationship_type": "has",
       "source_ref": "software--c9bf10be-24a6-5e5b-a9ce-e4011fbb904e",
       "target_ref": "vulnerability--d4790ae3-84c6-5b4f-8f38-cfeaed92c9fa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bf890d56-2642-5ed4-912f-2f26984aeba2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--22a4e666-2c21-5a59-adde-d31fd699baa4",
+      "target_ref": "vulnerability--66d1541b-a932-566e-be9a-6ee312f5cc48"
     },
     {
       "type": "relationship",
@@ -183137,6 +183181,17 @@
       "relationship_type": "has",
       "source_ref": "software--85475315-041c-542e-bcae-560f82ce7f95",
       "target_ref": "vulnerability--184ab647-12d0-5b92-a748-6ad514327486"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--edc9f4da-110d-542e-9a2f-5a9e2e5f7a18",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9cb0fec9-c344-5f22-8ba7-b630071a5241",
+      "target_ref": "vulnerability--66d1541b-a932-566e-be9a-6ee312f5cc48"
     },
     {
       "type": "relationship",
@@ -333869,6 +333924,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b26849db-a4d3-5b91-92f5-61b61667ab25",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T17:14:35.000Z",
+      "modified": "2026-11-26T17:14:35.000Z",
+      "name": "SmallRye Fault Tolerance: Denial of service via memory leak (CVE-2026-94449)",
+      "description": "## Overview\nA memory leak vulnerability has been identified in the SmallRye Fault Tolerance library, a component used by Quarkus to implement fault tolerance patterns such as retries and circuit breakers. When applications utilize the ApplyGuard or ApplyFaultTolerance annotations, the library fails to properly release internal tracking objects following request completion. Continued interaction with affected endpoints leads to linear memory accumulation, ultimately resulting in application degradation and denial-of-service due to memory exhaustion.\n\n## Impact\nSuccessful exploitation allows an unauthenticated, remote attacker to trigger a denial-of-service condition by repeatedly sending requests to endpoints protected by the affected annotations. This results in service instability and application crashes.\n\n## Recommendation\nInventory all applications using SmallRye Fault Tolerance or dependent Red Hat products to identify usage of ApplyGuard or ApplyFaultTolerance annotations. As specific fixed versions are currently undergoing vendor triage, monitor Red Hat security advisories for patches corresponding to the listed products. Until patches are available, implement rate-limiting on exposed endpoints to slow the rate of memory consumption, and configure aggressive liveness and readiness probes in container orchestration environments to manage affected instances.",
+      "published": "2026-11-26T17:14:35.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--22a4e666-2c21-5a59-adde-d31fd699baa4",
+        "software--892a8464-abfb-5f42-89c8-4edda70e00a5",
+        "software--8bf231c6-22a2-5310-b01f-723e0c2d9260",
+        "software--999c9487-7735-558e-981c-184d17b55470",
+        "software--9cb0fec9-c344-5f22-8ba7-b630071a5241",
+        "vulnerability--66d1541b-a932-566e-be9a-6ee312f5cc48"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-smallrye-memory-leak-cve-2026-94449",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-smallrye-memory-leak-cve-2026-94449/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-94449"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94449"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-smallrye-memory-leak-cve-2026-94449",
+      "x_craftedsignal_event_id": "brief-2026-11-26-smallrye-memory-leak-cve-2026-94449",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-smallrye-memory-leak-cve-2026-94449/",
+      "x_craftedsignal_activity_at": "2026-11-26T17:14:35.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.01053,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b27c757d-a3ff-5b87-a5e0-453bea99811f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T15:51:19.000Z",
@@ -397496,6 +397600,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--22a4e666-2c21-5a59-adde-d31fd699baa4",
+      "name": "Red Hat build of Quarkus (3.27.6.redhat)",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--22a519bb-ccd7-51a2-80a1-a3a7cb824fea",
       "name": "Linux kernel \u003e= 6.7, \u003c 6.12.93",
       "vendor": "Linux"
@@ -409624,6 +409735,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--892a8464-abfb-5f42-89c8-4edda70e00a5",
+      "name": "Exploit Intelligence",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--89498e00-c3c7-571c-bf41-1ca0629b1de6",
       "name": "Paragon Disk Wiper (\u003c= 16)",
       "vendor": "Paragon Software"
@@ -410016,6 +410134,13 @@
       "spec_version": "2.1",
       "id": "software--8be9edfc-d56e-50f9-9fdc-28051d9775d4",
       "name": "WildFly Core",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8bf231c6-22a2-5310-b01f-723e0c2d9260",
+      "name": "Red Hat build of Apicurio Registry 3",
       "vendor": "Red Hat"
     },
     {
@@ -411603,6 +411728,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--999c9487-7735-558e-981c-184d17b55470",
+      "name": "Red Hat build of Quarkus (3.33.4.redhat)",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--99ab325b-6a9c-5f9a-ae1e-bd787f8cd9ec",
       "name": "DiskStation Manager (\u003c 7.2.1-69057-13, \u003c 7.2.2-72806-10, \u003c 7.3.2-86009-5, \u003c 7.4.1-90080-1)",
       "vendor": "Synology"
@@ -411925,6 +412057,13 @@
       "id": "software--9cb09ffe-e19a-5ce4-b347-c8d002d218da",
       "name": "N-central (\u003c 2026.4.1.26)",
       "vendor": "N-able"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--9cb0fec9-c344-5f22-8ba7-b630071a5241",
+      "name": "Red Hat Build of Apache Camel (3.33.4.redhat)",
+      "vendor": "Red Hat"
     },
     {
       "type": "software",
@@ -458569,6 +458708,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-104799",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104799"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--66d1541b-a932-566e-be9a-6ee312f5cc48",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-94449",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-94449",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94449"
         }
       ]
     },
