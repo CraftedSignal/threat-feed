@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9bfbcd8f-a373-5936-80a9-64f7490b4244",
+  "id": "bundle--2cd39a52-9974-5d6a-96d0-ca4c381d8738",
   "objects": [
     {
       "type": "attack-pattern",
@@ -79,22 +79,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1499",
           "url": "https://attack.mitre.org/techniques/T1499"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--19dfae38-8eb6-5945-a348-04b8ce043122",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "System Information Discovery",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1082",
-          "url": "https://attack.mitre.org/techniques/T1082"
         }
       ]
     },
@@ -1314,17 +1298,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--0f97e0a1-ed7e-53c6-9a4b-a22116288c08",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--c9815935-7bf2-5e41-af33-b2f1b6c462df",
-      "target_ref": "vulnerability--fe9925d7-1e14-55b4-aa65-e0cbe2bfb178"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--10cea141-3324-5de4-b3d1-368105551d0c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T23:34:49.000Z",
@@ -1556,17 +1529,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--26a5825d-c976-5601-ab75-6f30a8e30b4a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--6d84ed98-9ba8-5bce-83f9-6866e7a20052",
-      "target_ref": "vulnerability--ffb06a9d-23b5-576b-b248-f767c81017f2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--28918804-7096-5648-8d71-54b269528c4f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1794,17 +1756,6 @@
       "relationship_type": "uses",
       "source_ref": "report--28930ae2-17d9-58e1-8fc5-8fa8d48109d1",
       "target_ref": "attack-pattern--2098c5cd-2795-5507-a772-e90b2af13da7"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--380fcf34-2c18-5fed-9553-e8f54a9d29d8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:41:01.000Z",
-      "modified": "2026-08-28T21:41:01.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--75fa4b9b-1c69-54f4-888c-44ec20fa5f36",
-      "target_ref": "attack-pattern--19dfae38-8eb6-5945-a348-04b8ce043122"
     },
     {
       "type": "relationship",
@@ -2656,28 +2607,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--731be93d-7fe9-5fde-a413-ab1e59815dae",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--40c28385-1d40-5458-af37-6253cf75e3c6",
-      "target_ref": "vulnerability--ffb06a9d-23b5-576b-b248-f767c81017f2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--73879a0e-1e86-511a-8f73-a9db5c521832",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:41:01.000Z",
-      "modified": "2026-08-28T21:41:01.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--75fa4b9b-1c69-54f4-888c-44ec20fa5f36",
-      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--73b18a99-d198-5d5e-9fc1-b63d16c13593",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3151,17 +3080,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--9282c8a5-4cf3-579d-9a39-0143b019da91",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:39:26.000Z",
-      "modified": "2026-08-29T02:36:27.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d0edc676-46e1-58d2-a3ab-92a6fd8d2380",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--928a2a2e-249f-58f4-8d8e-57f04108840a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T17:58:33.000Z",
@@ -3180,17 +3098,6 @@
       "relationship_type": "uses",
       "source_ref": "report--85bb817d-b5de-5e7c-95a1-1f9563116f26",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--9494e235-158a-5c9a-834a-c6e9411677e6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:41:08.000Z",
-      "modified": "2026-08-28T21:41:08.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b35ebcc8-fe9d-5dda-89c1-8a294403cf4a",
-      "target_ref": "attack-pattern--6ef3c5ca-94f5-57f2-924a-8c2f91b71d40"
     },
     {
       "type": "relationship",
@@ -3268,17 +3175,6 @@
       "relationship_type": "has",
       "source_ref": "software--f4df6aab-ee63-5409-b4dc-a801ac463078",
       "target_ref": "vulnerability--fd58dbf1-9913-5337-b88c-d36f05c92b58"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--9d7fba11-7c76-5588-ace6-63956b40f6ff",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--7e57f23f-d855-51a5-bcf4-59a575814af0",
-      "target_ref": "vulnerability--e820d6bc-e6d7-521b-a410-0088e5b1a476"
     },
     {
       "type": "relationship",
@@ -3994,17 +3890,6 @@
       "relationship_type": "uses",
       "source_ref": "report--36eb64f8-7a15-59f7-8e6b-de63b67f1c1b",
       "target_ref": "attack-pattern--6ef3c5ca-94f5-57f2-924a-8c2f91b71d40"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--cd69b665-db18-54eb-81b5-af4eae0bf01f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:41:08.000Z",
-      "modified": "2026-08-28T21:41:08.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b35ebcc8-fe9d-5dda-89c1-8a294403cf4a",
-      "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
     },
     {
       "type": "relationship",
@@ -7085,53 +6970,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--75fa4b9b-1c69-54f4-888c-44ec20fa5f36",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:41:01.000Z",
-      "modified": "2026-08-28T21:41:01.000Z",
-      "name": "Credential Disclosure in Stable Diffusion WebUI via /sdapi/v1/cmd-flags",
-      "description": "## Overview\n\nStable Diffusion WebUI versions through 1.10.1 contain a significant credential disclosure vulnerability located within the /sdapi/v1/cmd-flags endpoint. This endpoint, intended for administrative visibility, improperly exposes parsed command-line arguments to any unauthenticated user who sends a request to the API. Specifically, the response includes the gradio_auth and api_auth configuration parameters, which frequently contain usernames and passwords defined at startup to secure the application. An attacker with network access to the Stable Diffusion instance can exploit this flaw to bypass authentication controls, potentially gaining full control over the AI image generation interface. This represents a critical risk for deployments exposed to the internet or untrusted internal networks, as it allows for trivial credential harvesting without requiring prior access or interaction.\n\n## Impact\n\nSuccessful exploitation results in the exposure of administrative or user credentials, enabling unauthorized access to the application interface. This can lead to the unauthorized execution of compute-intensive image generation tasks, modification of system configurations, or exfiltration of sensitive generated content. Organizations hosting Stable Diffusion WebUI instances that rely on these authentication flags for basic access control are at risk of complete account takeover.\n\n## Recommendation\n\n1. Upgrade Stable Diffusion WebUI to a version post-1.10.1 that remediates this information disclosure.\n2. Implement strict network-level access controls to ensure the web application and its API endpoints are not reachable from the public internet.\n3. Deploy the webserver-level detection rule provided below to identify unauthorized scanning or direct requests to the vulnerable API path.\n4. Rotate any credentials identified in the command-line arguments (gradio_auth and api_auth) if the system has been accessible to untrusted parties.\n",
-      "published": "2026-08-28T21:41:01.000Z",
-      "labels": [
-        "credential-disclosure",
-        "vulnerability",
-        "web-api"
-      ],
-      "object_refs": [
-        "attack-pattern--19dfae38-8eb6-5945-a348-04b8ce043122",
-        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--7e57f23f-d855-51a5-bcf4-59a575814af0",
-        "vulnerability--e820d6bc-e6d7-521b-a410-0088e5b1a476"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-stable-diffusion-credential-disclosure",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-stable-diffusion-credential-disclosure/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82288"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-stable-diffusion-credential-disclosure",
-      "x_craftedsignal_event_id": "brief-2026-08-stable-diffusion-credential-disclosure",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-stable-diffusion-credential-disclosure/",
-      "x_craftedsignal_activity_at": "2026-08-28T21:41:01.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--769e79c7-af6e-55d9-8a71-3a56dab01c85",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T17:58:47.000Z",
@@ -8584,53 +8422,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--b35ebcc8-fe9d-5dda-89c1-8a294403cf4a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:41:08.000Z",
-      "modified": "2026-08-28T21:41:08.000Z",
-      "name": "Improper Hostname Validation in Gitingest",
-      "description": "## Overview\n\nGitingest versions 0.3.1 and earlier contain a security vulnerability in the _validate_host function. The implementation improperly validates hostnames by only checking for the presence of 'git.', 'gitlab.', or 'github.' prefixes. This flaw allows an attacker to bypass intended restrictions against a known-hosts list, enabling the application to make outbound HTTP requests to attacker-controlled infrastructure. By directing the application to a malicious host, an attacker can capture GitHub personal access tokens (PATs) that are inadvertently transmitted as HTTP basic credentials during the outbound request process. This vulnerability poses a significant risk to organizations using Gitingest to process repository data, as it leads to the compromise of credentials and potential unauthorized access to protected GitHub resources.\n\n## Impact\n\nSuccessful exploitation allows attackers to steal GitHub personal access tokens, potentially leading to unauthorized access, repository cloning, or code manipulation within the victim's GitHub organization. The vulnerability affects all users running Gitingest version 0.3.1 or earlier, with no specific OS constraints.\n\n## Recommendation\n\n- Upgrade Gitingest to a version later than 0.3.1 as soon as a patch is made available by the maintainers.\n- Audit egress traffic logs for unexpected connections originating from servers hosting Gitingest to unauthorized or unknown external domains.\n- Rotate any GitHub personal access tokens that may have been configured within, or accessed by, vulnerable Gitingest instances.\n- Implement egress filtering at the network level to restrict the Gitingest application host to only communicate with legitimate and required GitHub API endpoints.\n",
-      "published": "2026-08-28T21:41:08.000Z",
-      "labels": [
-        "credential-theft",
-        "data-exfiltration",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c",
-        "attack-pattern--6ef3c5ca-94f5-57f2-924a-8c2f91b71d40",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--c9815935-7bf2-5e41-af33-b2f1b6c462df",
-        "vulnerability--fe9925d7-1e14-55b4-aa65-e0cbe2bfb178"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-28-gitingest-cve-2026-82289",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-gitingest-cve-2026-82289/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82289"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-28-gitingest-cve-2026-82289",
-      "x_craftedsignal_event_id": "brief-2026-08-28-gitingest-cve-2026-82289",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-gitingest-cve-2026-82289/",
-      "x_craftedsignal_activity_at": "2026-08-28T21:41:08.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.4,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--b3da5b93-1624-5eb7-b54a-45d00c9f579e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T15:39:36.000Z",
@@ -9398,57 +9189,6 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.01208,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--d0edc676-46e1-58d2-a3ab-92a6fd8d2380",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:39:26.000Z",
-      "modified": "2026-08-29T02:36:27.000Z",
-      "name": "Path Traversal Vulnerability in gpt-crawler via outputFileName Parameter",
-      "description": "## Overview\n\nCVE-2026-82286 is an arbitrary file write vulnerability affecting gpt-crawler versions up to and including 1.5.1. The flaw exists within the POST /crawl endpoint, which fails to adequately sanitize the 'outputFileName' parameter. An unauthenticated attacker can exploit this lack of validation by supplying crafted input containing path traversal sequences (e.g., ../) or absolute filesystem paths. \n\nBy manipulating this parameter, an attacker can influence where the crawler writes its output, enabling the overwriting of critical system files or configuration files with content fetched from attacker-controlled URLs. If successfully exploited, this can lead to remote code execution or system compromise depending on the overwritten target. Defenders should prioritize patching gpt-crawler to a fixed version or restricting access to the /crawl endpoint to authorized users only.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows an unauthenticated attacker to achieve arbitrary file writes on the host system. This can lead to system-level configuration changes, the overwriting of binaries, or the placement of malicious web shells. The scope of impact includes any environment where gpt-crawler is deployed with external-facing access.\n\n## Recommendation\n\n- Upgrade gpt-crawler to a version beyond 1.5.1 immediately.\n- Implement access control mechanisms to prevent unauthenticated access to the /crawl API endpoint.\n- Audit existing deployments for logs showing unexpected POST requests to /crawl where the 'outputFileName' parameter contains directory traversal characters.\n",
-      "published": "2026-08-28T21:39:26.000Z",
-      "labels": [
-        "cve",
-        "path-traversal",
-        "web-application"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--40c28385-1d40-5458-af37-6253cf75e3c6",
-        "software--6d84ed98-9ba8-5bce-83f9-6866e7a20052",
-        "vulnerability--ffb06a9d-23b5-576b-b248-f767c81017f2"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-28-gpt-crawler-traversal",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-gpt-crawler-traversal/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82286"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=DC54923F-50AC-5F34-830F-42BEF1989C4E\u0026utm_source=rss\u0026utm_medium=rss"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-28-gpt-crawler-traversal",
-      "x_craftedsignal_event_id": "brief-2026-08-28-gpt-crawler-traversal",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-gpt-crawler-traversal/",
-      "x_craftedsignal_activity_at": "2026-08-29T02:36:27.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.6,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -10905,13 +10645,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--40c28385-1d40-5458-af37-6253cf75e3c6",
-      "name": "gpt-crawler",
-      "vendor": "Builder.io"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--412aa867-2dfd-5cdc-9bf1-567fe2046700",
       "name": "Jira Server (\u003c 7.6.14, 7.13.5, 8.0.3, 8.1.2, 8.2.3)",
       "vendor": "Atlassian"
@@ -11157,13 +10890,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--6d84ed98-9ba8-5bce-83f9-6866e7a20052",
-      "name": "gpt-crawler (\u003c= 1.5.1)",
-      "vendor": "Builder.io"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--6d85caed-cdef-5189-b309-cbb99b6c42a2",
       "name": "Cloud Commander (\u003c 19.20.2)",
       "vendor": "Cloud Commander"
@@ -11229,13 +10955,6 @@
       "id": "software--7cf938e7-cd60-55f1-9b9a-c08a5d3ed6d0",
       "name": "Winbox",
       "vendor": "MikroTik"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--7e57f23f-d855-51a5-bcf4-59a575814af0",
-      "name": "Stable Diffusion WebUI (\u003c= 1.10.1)",
-      "vendor": "Automatic1111"
     },
     {
       "type": "software",
@@ -11506,13 +11225,6 @@
       "id": "software--c882536f-7b2a-5e14-8b63-614676b3c783",
       "name": "Ultra RAMDisk Pro (1.82)",
       "vendor": "ieungSoft"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--c9815935-7bf2-5e41-af33-b2f1b6c462df",
-      "name": "Gitingest (\u003c= 0.3.1)",
-      "vendor": "Gitingest"
     },
     {
       "type": "software",
@@ -13259,22 +12971,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--e820d6bc-e6d7-521b-a410-0088e5b1a476",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-82288",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-82288",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82288"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--ea1d6853-a49e-5f77-9ae7-409448403ef1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13483,22 +13179,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--fe9925d7-1e14-55b4-aa65-e0cbe2bfb178",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-82289",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-82289",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82289"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--ff3057c3-5acf-5be7-93bf-5d37141bab16",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13509,22 +13189,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17203",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17203"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--ffb06a9d-23b5-576b-b248-f767c81017f2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-82286",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-82286",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82286"
         }
       ]
     },
