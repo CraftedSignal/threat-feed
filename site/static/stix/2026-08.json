@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--95dd215c-1318-5902-89ac-17172ce71b2b",
+  "id": "bundle--d5cba629-c763-52a0-aad3-4eda1a25217a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -389,22 +389,6 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
-      "id": "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "OS Credential Dumping",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1003",
-          "url": "https://attack.mitre.org/techniques/T1003"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
       "id": "attack-pattern--6438e094-8736-5051-84c8-690743a1ce5e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -415,22 +399,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1199",
           "url": "https://attack.mitre.org/techniques/T1199"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--6587be55-e832-5b06-9b3b-4af4604cd32b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Create or Modify System Process",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1543",
-          "url": "https://attack.mitre.org/techniques/T1543"
         }
       ]
     },
@@ -693,22 +661,6 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
-      "id": "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "External Remote Services",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1133",
-          "url": "https://attack.mitre.org/techniques/T1133"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
       "id": "attack-pattern--c2e6b7a7-4d3e-5088-b103-b0a679e94ab5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -847,22 +799,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1552",
           "url": "https://attack.mitre.org/techniques/T1552"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--dd4c673f-8b7d-5c2f-a73c-2d5af6931568",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Archive Collected Data",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1560",
-          "url": "https://attack.mitre.org/techniques/T1560"
         }
       ]
     },
@@ -1673,17 +1609,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--210bdff1-a0e5-5c8b-8ef6-ab4a05aaec48",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:07:02.000Z",
-      "modified": "2026-08-28T21:07:02.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6157b734-7ba7-5880-99a1-5ff87c266a63",
-      "target_ref": "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--21130078-9efc-5059-8b39-7407c697c3c1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-30T17:11:37.000Z",
@@ -1691,17 +1616,6 @@
       "relationship_type": "uses",
       "source_ref": "report--99313860-e6ab-5f11-a791-10ac23dc2155",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--211dec78-c55e-5bf0-979d-a1e65a1dd94f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:06:42.000Z",
-      "modified": "2026-08-28T21:06:42.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--2d1e2635-9905-514b-a4cb-84355958c9f7",
-      "target_ref": "attack-pattern--dd4c673f-8b7d-5c2f-a73c-2d5af6931568"
     },
     {
       "type": "relationship",
@@ -1889,17 +1803,6 @@
       "relationship_type": "uses",
       "source_ref": "report--c27f62dc-7c11-5132-985d-a7b1e195246a",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--2ba3d0f7-ecbb-5797-8165-5d94a0a14f5d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:07:12.000Z",
-      "modified": "2026-08-28T21:07:12.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--2ca42b39-48f3-51e9-b9c8-5759ff847d17",
-      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
     },
     {
       "type": "relationship",
@@ -2230,17 +2133,6 @@
       "relationship_type": "has",
       "source_ref": "software--b7fbb331-ce76-5998-8099-8103631077e2",
       "target_ref": "vulnerability--ecfa1e73-b920-530a-bdb7-5c184d40fe1a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--3f7fccfa-f580-50a0-9eca-6d4fabdcf25e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:07:20.000Z",
-      "modified": "2026-08-28T21:07:20.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b6e5b952-2224-51c2-bbd7-a07dcf8f9ef0",
-      "target_ref": "attack-pattern--e26451c2-381a-5681-88b3-9fe88c4d5e5a"
     },
     {
       "type": "relationship",
@@ -4016,17 +3908,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--a277f3df-9850-5c30-937b-23a690d98b60",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:07:12.000Z",
-      "modified": "2026-08-28T21:07:12.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--2ca42b39-48f3-51e9-b9c8-5759ff847d17",
-      "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--a30dbca4-c19f-5d3d-8472-066cc6df013d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -5226,17 +5107,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e82637db-aafc-5ef2-b6cc-81114ab64d0a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:07:20.000Z",
-      "modified": "2026-08-28T21:07:20.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b6e5b952-2224-51c2-bbd7-a07dcf8f9ef0",
-      "target_ref": "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e85b49a6-dec8-57a2-8a61-708f23ef6030",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-30T17:11:37.000Z",
@@ -5288,17 +5158,6 @@
       "relationship_type": "uses",
       "source_ref": "report--23b60593-2024-5db8-b23f-29325223062f",
       "target_ref": "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ea305ed9-e060-549f-bc5b-46ea12f4542e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:06:42.000Z",
-      "modified": "2026-08-28T21:06:42.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--2d1e2635-9905-514b-a4cb-84355958c9f7",
-      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
     },
     {
       "type": "relationship",
@@ -5629,17 +5488,6 @@
       "relationship_type": "uses",
       "source_ref": "report--e4546148-207e-579c-b5bc-a80275820322",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--fd0e84a6-dba4-5df1-869d-6a6c81e1f779",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:07:28.000Z",
-      "modified": "2026-08-28T21:07:28.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e4268806-d459-5243-9f4e-c4f4a7e27ed8",
-      "target_ref": "attack-pattern--6587be55-e832-5b06-9b3b-4af4604cd32b"
     },
     {
       "type": "relationship",
@@ -6605,54 +6453,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--2ca42b39-48f3-51e9-b9c8-5759ff847d17",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:07:12.000Z",
-      "modified": "2026-08-28T21:07:12.000Z",
-      "name": "Detection of Unauthorized Access to macOS Web Browser Sensitive Files",
-      "description": "## Overview\n\nAdversaries targeting macOS systems frequently attempt to exfiltrate stored credentials and session tokens to maintain persistence or conduct further unauthorized activities. By accessing files such as `cookies.sqlite`, `logins.json`, and various key databases located within browser-specific directories, attackers can bypass multi-factor authentication or directly access protected online services.\n\nThis threat brief focuses on detecting unauthorized processes - specifically those that are unsigned, untrusted, or leveraging the `osascript` utility - that attempt to interact with these sensitive files. Such behavior is a common indicator of modular malware or credential-stealing scripts. Defenders should monitor for these file-access patterns to identify potential information-stealing activity, as these files are rarely accessed by legitimate, non-browser-related background processes.\n\n## Attack Chain\n\n1. An attacker gains initial execution on a macOS system via phishing or an exploited application.\n2. The attacker identifies the presence of target web browsers (e.g., Chrome, Safari, Brave) by inspecting the file system.\n3. The attacker locates sensitive browser storage files, such as `Login Data` or `Cookies.binarycookies`, in the user's Library directory.\n4. The attacker launches an unsigned binary or a malicious `osascript` payload to interact with these files.\n5. The malicious process opens the sensitive files to read the contents into memory.\n6. The exfiltrated data (cookies or passwords) is bundled and encrypted by the attacker's script.\n7. The stolen data is exfiltrated to an attacker-controlled command-and-control server.\n\n## Impact\n\nSuccessful access to browser storage files results in the compromise of stored user credentials and active session tokens. This can lead to account takeover, unauthorized access to sensitive corporate or personal SaaS applications, and potential lateral movement within the network. In targeted attacks, this enables persistent access that persists even after browser restarts.\n\n## Recommendation\n\n1. Enable file-monitoring telemetry via Elastic Defend or equivalent EDR on all macOS endpoints.\n2. Deploy the provided detection rule to identify unsigned or suspicious processes accessing browser-specific files.\n3. Investigate any alerts generated by the rule to determine if the process is a legitimate backup tool, security agent, or a malicious credential stealer.\n4. If malicious activity is confirmed, isolate the host and initiate a credential rotation for accounts associated with the compromised browser profiles.\n",
-      "published": "2026-08-28T21:07:12.000Z",
-      "labels": [
-        "credential-access",
-        "infostealer",
-        "macos"
-      ],
-      "object_refs": [
-        "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a",
-        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-macos-browser-access",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-macos-browser-access/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/macos/credential_access_suspicious_web_browser_sensitive_file_access.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://securelist.com/calisto-trojan-for-macos/86543/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-macos-browser-access",
-      "x_craftedsignal_event_id": "brief-2026-08-macos-browser-access",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-macos-browser-access/",
-      "x_craftedsignal_activity_at": "2026-08-28T21:07:12.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--2d00ea0a-8f97-5653-a381-a868f87becf1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T03:13:38.000Z",
@@ -6706,55 +6506,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--2d1e2635-9905-514b-a4cb-84355958c9f7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:06:42.000Z",
-      "modified": "2026-08-28T21:06:42.000Z",
-      "name": "Detection of Sensitive Data Aggregation via Compression Utilities",
-      "description": "## Overview\n\nAdversaries targeting Linux environments often leverage native compression and archiving utilities to facilitate the collection and exfiltration of sensitive information. By executing tools such as tar, zip, gzip, or 7z against high-value file paths, attackers can bundle multiple sensitive assets into a single archive, minimizing the number of operations required for data theft and potentially avoiding certain network-based alerts by creating a single, contiguous stream of data. \n\nThis activity typically targets files containing credentials, configuration data, and system identity information, including SSH keys (/root/.ssh/id_rsa), cloud provider credentials (/root/.aws/credentials), and sensitive system files (/etc/shadow). The use of these utilities for these specific paths, especially when initiated by non-administrative user accounts or outside of standard maintenance windows, is a strong indicator of unauthorized data collection and credential harvesting. Defenders should monitor for process executions of common compression utilities where the command-line arguments explicitly reference these sensitive file locations.\n\n## Attack Chain\n\n1. Attacker gains initial access or escalates privileges to the target Linux host.\n2. Attacker performs local reconnaissance to identify stored credentials, configuration files, or identity data.\n3. Attacker identifies high-value targets such as /etc/shadow, ~/.ssh/authorized_keys, or cloud configuration files.\n4. Attacker executes a compression utility (e.g., tar -czf backup.tar.gz /home/user/.ssh/).\n5. Attacker archives the collected sensitive files into a single compressed file within a temporary directory.\n6. Attacker moves the archive to a staging location or prepares for immediate exfiltration.\n7. Attacker exfiltrates the compressed archive via protocols like SCP, HTTP, or DNS tunneling.\n\n## Impact\n\nSuccessful exploitation allows an adversary to obtain plaintext credentials, SSH private keys, and cloud access tokens. This level of access typically leads to lateral movement within the environment, persistent access to cloud infrastructure, and full compromise of the target system. In enterprise environments, the exposure of such credentials can facilitate a broad range of malicious activities, including ransomware deployment or long-term persistence in the victim network.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to monitor for suspicious process execution targeting sensitive paths.\n- Implement process-level monitoring on all Linux endpoints using Auditbeat or Elastic Defend to capture command-line arguments for compression utilities.\n- Review and establish an allowlist for known administrative backup jobs to reduce false positives triggered by legitimate maintenance tasks.\n- Monitor for unusual outbound network traffic from sensitive hosts following the execution of archiving commands.\n- Rotate credentials stored in files identified as frequently targeted by attackers if unauthorized access is suspected.\n",
-      "published": "2026-08-28T21:06:42.000Z",
-      "labels": [
-        "collection",
-        "credential-access",
-        "endpoint",
-        "linux"
-      ],
-      "object_refs": [
-        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
-        "attack-pattern--dd4c673f-8b7d-5c2f-a73c-2d5af6931568",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-sensitive-files-compression",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-sensitive-files-compression/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/linux/credential_access_collection_sensitive_files.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.trendmicro.com/en_ca/research/20/l/teamtnt-now-deploying-ddos-capable-irc-bot-tntbotinger.html"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-sensitive-files-compression",
-      "x_craftedsignal_event_id": "brief-2026-08-sensitive-files-compression",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-sensitive-files-compression/",
-      "x_craftedsignal_activity_at": "2026-08-28T21:06:42.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -7915,57 +7666,6 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-vikunja-auth-bypass/",
       "x_craftedsignal_activity_at": "2026-08-28T21:18:53.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--6157b734-7ba7-5880-99a1-5ff87c266a63",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:07:02.000Z",
-      "modified": "2026-08-28T21:07:02.000Z",
-      "name": "Detection of Credential Dumping via macOS Built-In Utilities",
-      "description": "## Overview\n\nAdversaries targeting macOS environments often attempt to escalate privileges or move laterally by extracting user account hashes. This activity leverages built-in system utilities that possess the necessary permissions to access sensitive authentication artifacts. Specifically, tools such as `defaults`, `mkpassdb`, and `dscl` are utilized to query the `ShadowHashData` attribute, or common file-processing binaries like `cat`, `strings`, or `plutil` are used to read user-specific configuration files located in `/var/db/dslocal/nodes/Default/users/`. Once these hashes are retrieved, attackers can perform offline brute-force attacks to recover cleartext passwords. Given that these utilities are standard components of the macOS operating system, defenders must monitor for anomalous execution patterns, particularly when these tools are used to access files containing sensitive authentication material. This detection approach is essential for identifying credential access early in the attack lifecycle.\n\n## Impact\n\nSuccessful extraction of local user hashes on macOS allows attackers to perform offline password cracking, potentially compromising user accounts. In enterprise environments, if these accounts share credentials with other systems or services, the breach can lead to unauthorized access to sensitive data, privilege escalation, and lateral movement across the internal network.\n\n## Recommendation\n\n- Deploy the provided detection rules to your EDR or SIEM solution to identify unauthorized access to ShadowHashData and user plist files.\n- Review and baseline administrative scripts and maintenance tools that legitimately access these system files to reduce false positive alerts.\n- Enforce strong, unique password policies and implement multi-factor authentication to mitigate the impact of cracked user hashes.\n- Isolate systems showing evidence of unauthorized hash dumping and initiate an incident response process to audit account access and check for lateral movement.\n",
-      "published": "2026-08-28T21:07:02.000Z",
-      "labels": [
-        "credential-access",
-        "edr",
-        "macos"
-      ],
-      "object_refs": [
-        "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-macos-credential-dumping",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-macos-credential-dumping/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://apple.stackexchange.com/questions/186893/os-x-10-9-where-are-password-hashes-stored"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/macos/credential_access_dumping_hashes_bi_cmds.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.unix.com/man-page/osx/8/mkpassdb/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-macos-credential-dumping",
-      "x_craftedsignal_event_id": "brief-2026-08-macos-credential-dumping",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-macos-credential-dumping/",
-      "x_craftedsignal_activity_at": "2026-08-28T21:07:02.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -10582,47 +10282,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--b6e5b952-2224-51c2-bbd7-a07dcf8f9ef0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:07:20.000Z",
-      "modified": "2026-08-28T21:07:20.000Z",
-      "name": "Detection of Unauthorized Remote SSH Service Enablement on macOS",
-      "description": "## Overview\n\nAdversaries targeting macOS systems may attempt to establish remote access for persistence or lateral movement by enabling the built-in Secure Shell (SSH) service. The standard method for this is the `systemsetup` utility, specifically the `-setremotelogin` argument, or by interacting directly with the `launchctl` service manager to load the SSH daemon (`sshd`). While legitimate administrative tasks (such as those performed by Jamf) frequently require this capability, unauthorized execution of these commands - particularly by non-administrative user accounts - is a high-signal indicator of adversary activity. Defenders should monitor for these process execution patterns to identify configuration changes that deviate from standard deployment baselines.\n\n## Attack Chain\n\n1. The attacker gains initial access to the target macOS host via an exploit or user-executed malware.\n2. The attacker identifies that remote management is disabled, limiting their ability to maintain access or move laterally.\n3. The attacker executes `systemsetup -setremotelogin on` to enable the SSH service.\n4. Alternatively, the attacker uses `launchctl load` to bootstrap `com.openssh.sshd` if `systemsetup` is restricted.\n5. The attacker potentially adds an authorized SSH key to the target user's `~/.ssh/authorized_keys` file.\n6. The attacker establishes a persistent remote connection to the host using the newly enabled SSH service for command-and-control.\n7. The attacker uses the established SSH session to perform internal network reconnaissance and lateral movement.\n\n## Impact\n\nSuccessful exploitation allows attackers to bypass security controls, maintain long-term persistence on the compromised host, and utilize the host as a jump box to pivot into the internal network. This compromises the confidentiality and integrity of the affected workstation and its associated user accounts.\n\n## Recommendation\n\n1. Deploy the provided Sigma rule to monitor for unauthorized execution of `systemsetup` and `launchctl` for SSH-related configuration changes.\n2. Baseline your organization's use of automated administrative tools (e.g., Jamf, Kandji, or custom management scripts) and create specific exclusion filters for these known-good parent processes.\n3. Restrict administrative privileges on macOS endpoints to reduce the likelihood of unauthorized users executing system-level configuration changes.\n4. Monitor process execution logs for suspicious parent-child relationships, specifically looking for `systemsetup` or `launchctl` spawned by shells or unknown binaries.\n",
-      "published": "2026-08-28T21:07:20.000Z",
-      "labels": [
-        "lateral-movement",
-        "macos",
-        "persistence"
-      ],
-      "object_refs": [
-        "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839",
-        "attack-pattern--e26451c2-381a-5681-88b3-9fe88c4d5e5a",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--59c49836-00fd-56f2-9c15-b89b0bd33920"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-macos-ssh-enablement",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-macos-ssh-enablement/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-macos-ssh-enablement",
-      "x_craftedsignal_event_id": "brief-2026-08-macos-ssh-enablement",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-macos-ssh-enablement/",
-      "x_craftedsignal_activity_at": "2026-08-28T21:07:20.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--baa9e51b-b54d-5d17-b0ad-919df45d52ed",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T20:06:17.000Z",
@@ -12006,53 +11665,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--e4268806-d459-5243-9f4e-c4f4a7e27ed8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-28T21:07:28.000Z",
-      "modified": "2026-08-28T21:07:28.000Z",
-      "name": "Abuse of macOS Finder Sync Plugins for Persistence",
-      "description": "## Overview\n\nAdversaries targeting macOS environments may abuse the Finder Sync plugin feature to achieve persistence. Finder Sync plugins are legitimate components designed to extend the Finder's functionality and modify the user interface. By registering a rogue plugin, an attacker can ensure their malicious code is executed repeatedly by the system. This activity is typically performed via the 'pluginkit' command-line utility, which is used to manage system extensions. Monitoring the invocation of 'pluginkit' with specific arguments, especially when triggered by unauthorized parent processes or processes lacking valid code signatures, is a key detection strategy for security teams. This technique allows attackers to persist across reboots and user logons by masquerading as legitimate UI extensions.\n\n## Impact\n\nSuccessful exploitation allows for long-term persistence on macOS endpoints, facilitating ongoing command and control, data exfiltration, or the deployment of secondary malicious payloads. The impact is limited to the local system unless the plugin facilitates further lateral movement or privilege escalation.\n\n## Recommendation\n\n1. Deploy EDR-based detection to monitor the execution of the 'pluginkit' binary.\n2. Baseline authorized Finder Sync plugins in your environment to distinguish them from rogue registrations.\n3. Investigate parent process lineage for all 'pluginkit' executions, prioritizing alerts triggered by script interpreters like 'python', 'node', or 'osascript'.\n4. Perform periodic audits of registered plugins using the 'pluginkit -m' command to identify unauthorized or unexpected extensions.\n5. Enforce code signing policies for applications deployed to enterprise macOS endpoints.\n",
-      "published": "2026-08-28T21:07:28.000Z",
-      "labels": [
-        "macos",
-        "persistence",
-        "persistence-mechanism"
-      ],
-      "object_refs": [
-        "attack-pattern--6587be55-e832-5b06-9b3b-4af4604cd32b",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-macos-finder-sync-persistence",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-macos-finder-sync-persistence/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/macos/persistence_finder_sync_plugin_pluginkit.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/specterops/presentations/raw/master/Leo%20Pitt/Hey_Im_Still_in_Here_Modern_macOS_Persistence_SO-CON2020.pdf"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-macos-finder-sync-persistence",
-      "x_craftedsignal_event_id": "brief-2026-08-macos-finder-sync-persistence",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-macos-finder-sync-persistence/",
-      "x_craftedsignal_activity_at": "2026-08-28T21:07:28.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--e4546148-207e-579c-b5bc-a80275820322",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-28T23:34:49.000Z",
@@ -13420,13 +13032,6 @@
       "id": "software--5920e99d-11e9-538e-8434-994fd6e3c916",
       "name": "Simple Email Service",
       "vendor": "Amazon"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--59c49836-00fd-56f2-9c15-b89b0bd33920",
-      "name": "macOS",
-      "vendor": "Apple"
     },
     {
       "type": "software",

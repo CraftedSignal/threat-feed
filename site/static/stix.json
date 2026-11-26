@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d0ab2e5c-8e4e-5d09-aeb2-2dd99380de57",
+  "id": "bundle--0f484ed6-3e6a-5f79-b677-ee5215d1fa81",
   "objects": [
     {
       "type": "attack-pattern",
@@ -28378,6 +28378,17 @@
       "relationship_type": "has",
       "source_ref": "software--0348d461-b37b-5fce-96b5-8f70f37f96b2",
       "target_ref": "vulnerability--51cc114e-3536-57b5-9a7d-4f9cf02a7044"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--19f9f1af-2db7-5d54-85d1-9b4da0f39226",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--cdf6a362-1cec-5b7b-924b-5ae65a17bc77",
+      "target_ref": "vulnerability--48331c40-f9a8-5f55-b77a-2634b3f6c48c"
     },
     {
       "type": "relationship",
@@ -179822,7 +179833,7 @@
       "id": "relationship--ea144a62-5eac-588c-ae0b-92cd1eb87733",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T15:20:59.000Z",
-      "modified": "2026-11-24T22:47:55.000Z",
+      "modified": "2026-11-26T21:07:54.000Z",
       "relationship_type": "uses",
       "source_ref": "report--b17fbc94-17cd-5009-8e2c-0e0e9fa10dec",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -336702,7 +336713,7 @@
       "id": "report--b17fbc94-17cd-5009-8e2c-0e0e9fa10dec",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T15:20:59.000Z",
-      "modified": "2026-11-24T22:47:55.000Z",
+      "modified": "2026-11-26T21:07:54.000Z",
       "name": "Drupal Core: Unauthenticated site takeover (CVE-2026-132165)",
       "description": "## Overview\nCVE-2026-132165 is a critical site takeover vulnerability in Drupal core (SA-CORE-2026-017). An attacker can gain control of a site by sending an unauthenticated POST request to /core/install.php if the site has completed installation but failed to record the installer task state as 'done'. This allows the attacker to reach the site configuration form, overwrite the administrative user (user 1), and effectively gain full control. The vulnerability is confirmed to affect Drupal versions prior to 10.6.22, 11.0.0 through 11.3.21, and 11.4.0 through 11.4.12.\n\n## Impact\nExploitation results in a total site takeover, including the ability to replace the site administrator's credentials and account information. Existing content, database entries, and files remain intact. Administrative access can facilitate further malicious activity, such as arbitrary file uploads or remote code execution, depending on the site's configuration.\n\n## Recommendation\n- Upgrade Drupal core to version 10.6.22, 11.3.22, or 11.4.13 immediately.\n- If patching is not immediately possible, restrict access to /core/install.php at the web server level.\n- Verify the integrity of the administrative account (user 1) on all public-facing Drupal instances.",
       "published": "2026-11-20T15:20:59.000Z",
@@ -336716,6 +336727,7 @@
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--5544cead-63c8-5b76-99b2-fba9eb76745f",
         "software--67aafb65-7dd5-58ca-8770-b76a91c962b2",
+        "software--cdf6a362-1cec-5b7b-924b-5ae65a17bc77",
         "software--dbe0d575-212c-5e3e-8514-8488718a33b3",
         "software--e5dd59e7-6f14-5950-92ee-dfb7a5bbbec8",
         "vulnerability--48331c40-f9a8-5f55-b77a-2634b3f6c48c"
@@ -336736,19 +336748,31 @@
         },
         {
           "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4812"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.cve.org/CVERecord?id=CVE-2026-132165"
         },
         {
           "source_name": "reference",
           "url": "https://www.drupal.org/sa-core-2026-017"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.ncsc.nl/alerts/actief-misbruik-van-kwetsbaarheid-in-drupal-core-update-direct"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/drupal-flaw-found-by-anthropic-scanner-exploited-in-attacks/"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-20-drupal-takeover-cve-2026-132165",
       "x_craftedsignal_event_id": "brief-2026-11-20-drupal-takeover-cve-2026-132165",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-drupal-takeover-cve-2026-132165/",
-      "x_craftedsignal_activity_at": "2026-11-24T22:47:55.000Z",
+      "x_craftedsignal_activity_at": "2026-11-26T21:07:54.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -355889,6 +355913,44 @@
       "x_craftedsignal_cvss_max": 5.5,
       "x_craftedsignal_epss_max": 0.00172,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--cbc97c05-e91d-5e99-aeb3-3e110c02296f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T21:07:00.000Z",
+      "modified": "2026-11-26T21:07:00.000Z",
+      "name": "wpa_supplicant: Security bypass vulnerability",
+      "description": "## Overview\n\nA security vulnerability has been identified in wpa_supplicant that may allow an attacker located in an adjacent network to bypass security restrictions. The BSI advisory (WID-SEC-2026-4813) provides limited technical detail on the exploit vector or the specific components affected.\n\n## Recommendation\n\n- Identify all systems utilizing wpa_supplicant within the network.\n- Monitor vendor and distribution security channels for updates to wpa_supplicant packages.\n- Evaluate exposure by identifying network segments where unauthorized entities may establish local adjacency to critical wireless infrastructure.",
+      "published": "2026-11-26T21:07:00.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1ba70feb-7157-5e82-9300-c4da50366208"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-wpa-supplicant-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wpa-supplicant-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4813"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-wpa-supplicant-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-26-wpa-supplicant-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wpa-supplicant-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-26T21:07:00.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -401236,6 +401298,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1ba70feb-7157-5e82-9300-c4da50366208",
+      "name": "wpa_supplicant"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1baac6fe-dea0-51dd-9087-05fd6b862663",
       "name": "pjproject (\u003c= 2.16)",
       "vendor": "Pjsip"
@@ -423057,6 +423125,13 @@
       "id": "software--cdf2b9a8-133a-55b0-9964-0b5fd756d909",
       "name": "API Connect (12.1.0.0 - 12.1.1.2)",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--cdf6a362-1cec-5b7b-924b-5ae65a17bc77",
+      "name": "Drupal",
+      "vendor": "Drupal"
     },
     {
       "type": "software",
