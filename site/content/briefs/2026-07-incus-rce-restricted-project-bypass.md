@@ -1,13 +1,25 @@
 ---
+brief_id: brief-2026-07-incus-rce-restricted-project-bypass
+event_id: brief-2026-07-incus-rce-restricted-project-bypass
+revision: 1
+activity_at: "2026-07-03T10:38:26Z"
 title: Incus Restricted Project Bypass Leading to Arbitrary Command Execution (CVE-2026-48751)
 slug: 2026-07-incus-rce-restricted-project-bypass
 description: A critical vulnerability, CVE-2026-48751, in Incus versions prior to 7.2.0, allows an attacker to bypass restricted project settings via malicious instance snapshots, enabling arbitrary command execution with root privileges on the Incus server by abusing low-level hooks.
 date: "2026-07-03T10:38:26Z"
+lastmod: "2026-11-26T11:02:53Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
+cpes:
+  - cpe:2.3:a:lxc:incus:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=A4D65F50-FAC1-524B-933A-7F6944DD10E2&utm_source=rss&utm_medium=rss
 tags:
   - container-security
   - linux
@@ -17,7 +29,10 @@ tags:
 vendors:
   - LXC
 products:
-  - Incus (< 7.2.0)
+  - Incus
+product_versions:
+  - product: Incus
+    range: < 7.2.0
 affected_os:
   - Linux
 mitre_ttps:
@@ -33,8 +48,19 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: In practice, this allows a malicious actor to execute arbitrary commands on the host with root privileges.
     confidence_band: high
+cve_verification:
+  CVE-2026-48751:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-26T11:02:53.224416101Z
+cves:
+  - id: CVE-2026-48751
+    cvss: 9.9
+    epss: 0.00682
+    kev_status: "false"
 references:
   - https://github.com/advisories/GHSA-48q5-w887-33wv
+  - https://sploitus.com/exploit?id=A4D65F50-FAC1-524B-933A-7F6944DD10E2&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect CVE-2026-48751 Exploitation — Incus Low-Level Hook Configuration
     description: Detects CVE-2026-48751 exploitation - Attempts to configure low-level Incus container hooks (raw.lxc or raw.qemu) via the 'incus config set' command, indicating a potential bypass attempt for restricted projects or malicious configuration.
@@ -50,7 +76,17 @@ rules:
       - process_creation
       - linux
 rules_count: 1
+updates:
+  - at: "2026-11-26T11:02:53Z"
+    level: L2
+    summary: poc_available; added CVE-2026-48751
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=A4D65F50-FAC1-524B-933A-7F6944DD10E2&utm_source=rss&utm_medium=rss
 ---
+
+## Overview
 
 A critical vulnerability (CVE-2026-48751) has been identified in Incus, affecting all versions prior to 7.2.0. This flaw allows a malicious actor to achieve arbitrary command execution with root privileges on the Incus server. The vulnerability stems from instance snapshots ignoring the `restricted.containers.lowlevel=block` setting. Attackers can craft a malicious Incus instance locally, integrate a snapshot configured to abuse low-level hooks like `raw.lxc` or `raw.qemu`, and then transfer this instance to a restricted project. When the malicious snapshot is restored within the restricted environment, the embedded commands are executed on the host, bypassing intended security controls. This allows for complete compromise of the Incus host, enabling persistent access, data exfiltration, or further lateral movement within the network.
 
