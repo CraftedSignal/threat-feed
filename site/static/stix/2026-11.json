@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2e20dcbc-11df-5abb-9b0f-f20cdd552a2d",
+  "id": "bundle--a09b4eba-9ddc-553a-8843-ee68120533c4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -85212,6 +85212,17 @@
       "relationship_type": "has",
       "source_ref": "software--8389f116-e548-590d-ac9f-10bfbf4b79d4",
       "target_ref": "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7c8a4af3-557c-512d-8eb8-48859560eef3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+      "target_ref": "vulnerability--c43f1f6c-b2bd-5ca6-9ab8-4fe9b1414330"
     },
     {
       "type": "relationship",
@@ -263574,6 +263585,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--987d8bc6-5772-5435-ac95-5575ba72d7a9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T08:39:02.000Z",
+      "modified": "2026-11-26T08:39:02.000Z",
+      "name": "Linux Kernel: NFSv4.1 Out-of-bounds Write (CVE-2026-99362)",
+      "description": "## Overview\nCVE-2026-99362, also known as NFS2ROOT, is an out-of-bounds write vulnerability in the Linux kernel's nfsd service. When processing NFSv4.1 SEQUENCE replies, the server may accept a client-negotiated buffer size of NFSD_MIN_HDR_SEQ_SZ, which leaves insufficient room for the reply. The server then copies protocol headers and reply data past the end of the undersized slab, corrupting adjacent kernel memory.\n\n## Attack Chain\n1. A remote client establishes a TCP connection to the NFS service and sends EXCHANGE_ID and CREATE_SESSION requests.\n2. The client negotiates the ca_maxresponsesize_cached down to NFSD_MIN_HDR_SEQ_SZ.\n3. The client sends a COMPOUND request with a SEQUENCE opcode. \n4. The server's nfsd4_sequence_done function performs an 80-byte copy into an undersized sl_data buffer, triggering a slab-out-of-bounds write.\n\n## Impact\nSuccessful exploitation can result in kernel memory corruption and a potential kernel panic. The vulnerability allows an attacker to receive back written data, which can be leveraged to map the kernel layout address space.\n\n## Recommendation\nUpdate the Linux kernel to a version containing the official fixes for the respective kernel series (e.g., 5.10.275, 5.15.226, 6.1.193, 6.6.163, 6.12.117, 6.18.61, 7.3.2, 7.4-rc1). If immediate patching is not possible, restrict access to port 2049 or disable NFSv4.1 and 4.2 in the NFS configuration.",
+      "published": "2026-11-26T08:39:02.000Z",
+      "labels": [
+        "cve",
+        "kernel",
+        "linux",
+        "memory-corruption",
+        "nfs"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+        "vulnerability--c43f1f6c-b2bd-5ca6-9ab8-4fe9b1414330"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-nfs2root-cve-2026-99362",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nfs2root-cve-2026-99362/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-99362"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://watchtowr.com/intelligence/nfs2root-linux-nfs-cve-2026-99362-faq/"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-nfs2root-cve-2026-99362",
+      "x_craftedsignal_event_id": "brief-2026-11-26-nfs2root-cve-2026-99362",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nfs2root-cve-2026-99362/",
+      "x_craftedsignal_activity_at": "2026-11-26T08:39:02.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00755,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--988a4bcd-6880-5f9c-8b7b-066de94d149f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T14:18:47.000Z",
@@ -410630,6 +410693,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126197",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126197"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c43f1f6c-b2bd-5ca6-9ab8-4fe9b1414330",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99362",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99362",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99362"
         }
       ]
     },
