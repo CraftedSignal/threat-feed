@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--937f64f6-add7-58f0-a956-7d1115bf7719",
+  "id": "bundle--487d1f85-aae7-52aa-9986-26022325dcac",
   "objects": [
     {
       "type": "attack-pattern",
@@ -105070,6 +105070,17 @@
       "relationship_type": "has",
       "source_ref": "software--b75f3eca-5732-5007-8ff8-558725fe8b69",
       "target_ref": "vulnerability--1bccf26b-bc1f-53ed-ae5b-02ad462a1d0c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8316fec7-41ff-579d-b7fb-596f1b37ac91",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8b42237c-3633-5d9b-8414-e27a6c9858d8",
+      "target_ref": "vulnerability--f1dd2e43-6af0-54fd-a9df-db17efc01914"
     },
     {
       "type": "relationship",
@@ -264833,6 +264844,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--583d5161-1c0a-5b63-ad88-54b66067c1f8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T19:46:37.000Z",
+      "modified": "2026-11-26T19:46:37.000Z",
+      "name": "John-Michael L'Allier Create WordPress Plugin: Cross-Site Request Forgery (CVE-2026-135985)",
+      "description": "## Overview\n\nThe Create plugin (mediavine-create) for WordPress contains a Cross-Site Request Forgery (CSRF) vulnerability that enables an attacker to execute unauthorized actions. This vulnerability impacts all versions up to and including 3.1.4.\n\n## Impact\n\nSuccessful exploitation requires a user with an active, authenticated session in the WordPress administrative interface to be coerced into interacting with a malicious website. This could allow an attacker to perform administrative or site-level actions on the user's behalf without the user's consent.\n\n## Recommendation\n\nUpgrade the Create (mediavine-create) WordPress plugin to version 3.1.5 or later to remediate this vulnerability.",
+      "published": "2026-11-26T19:46:37.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8b42237c-3633-5d9b-8414-e27a6c9858d8",
+        "vulnerability--f1dd2e43-6af0-54fd-a9df-db17efc01914"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-cve-2026-135985",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-135985/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-135985"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135985"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-cve-2026-135985",
+      "x_craftedsignal_event_id": "brief-2026-11-26-cve-2026-135985",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-135985/",
+      "x_craftedsignal_activity_at": "2026-11-26T19:46:37.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--585b955b-c318-509b-9dad-94e9d97b3d22",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T21:53:31.000Z",
@@ -410729,6 +410783,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8b42237c-3633-5d9b-8414-e27a6c9858d8",
+      "name": "Create (\u003c= 3.1.4)",
+      "vendor": "John-Michael L'Allier"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8b439537-0e36-5693-9113-a66e37611bd1",
       "name": "Traefik (3.8.0-rc.1)",
       "vendor": "Traefik"
@@ -509538,6 +509599,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-129037",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129037"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f1dd2e43-6af0-54fd-a9df-db17efc01914",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-135985",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-135985",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135985"
         }
       ]
     },
