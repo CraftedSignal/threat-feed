@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--539f26cc-522a-523c-867c-6faa301ac236",
+  "id": "bundle--b9f7e145-6794-5d14-b5a1-5a6e82fab4b1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -174796,6 +174796,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--fef93db5-b393-5182-88e9-30576451108d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+      "target_ref": "vulnerability--0e90d5db-cd6b-5959-90bb-6fa5f902e5f5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ff07a55a-e365-5baf-b261-597b15264e31",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -304360,6 +304371,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b409f93c-b751-52b8-8fb5-54a439d713bb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T22:40:21.000Z",
+      "modified": "2026-11-26T22:40:21.000Z",
+      "name": "Linux Kernel ksmbd: Use-after-free in session channel handling (CVE-2026-99277)",
+      "description": "## Overview\n\nThe Linux kernel ksmbd module contains a use-after-free vulnerability (CVE-2026-99277) involving improper reference counting for session channels. When `ksmbd_session_unregister()` removes a session, the channel list may remain active due to concurrent reference holders. If the connection object is freed while a channel still maintains a pointer to it, subsequent access by the kernel leads to a use-after-free condition. This can occur during SMB3.1.1 binding operations or procfs read operations.\n\n## Impact\n\nSuccessful exploitation can trigger a kernel oops, resulting in a denial of service (system crash). Because the use-after-free involves a raw pointer to a freed `ksmbd_conn` object, there is potential for information disclosure or unauthorized memory access within the kernel's security authority.\n\n## Recommendation\n\nTechnical teams should review their Linux distribution security advisories for patches addressing this ksmbd vulnerability. Because fixed releases are not explicitly defined in the provided source, prioritize kernel updates provided by your distribution vendor as they become available. Infrastructure teams should monitor for kernel instability or crashes on SMB-enabled Linux servers.",
+      "published": "2026-11-26T22:40:21.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
+        "vulnerability--0e90d5db-cd6b-5959-90bb-6fa5f902e5f5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-linux-ksmbd-use-after-free-cve-2026-99277",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-ksmbd-use-after-free-cve-2026-99277/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-99277"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99277"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-linux-ksmbd-use-after-free-cve-2026-99277",
+      "x_craftedsignal_event_id": "brief-2026-11-26-linux-ksmbd-use-after-free-cve-2026-99277",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-ksmbd-use-after-free-cve-2026-99277/",
+      "x_craftedsignal_activity_at": "2026-11-26T22:40:21.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00492,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b422e655-826f-587d-9938-65331f1cc290",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T22:11:25.000Z",
@@ -390301,6 +390357,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-135641",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135641"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0e90d5db-cd6b-5959-90bb-6fa5f902e5f5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99277",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99277",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99277"
         }
       ]
     },
