@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--63beeb18-5e40-5f37-b8a2-593bc33606d8",
+  "id": "bundle--6271dd67-ccd3-5864-bf93-814b7236f437",
   "objects": [
     {
       "type": "attack-pattern",
@@ -58884,6 +58884,17 @@
       "relationship_type": "has",
       "source_ref": "software--b54cf0c5-1499-5bce-a7b7-22f245e98fc5",
       "target_ref": "vulnerability--7107e74c-038e-5abe-9c75-d6cc0d911bcc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--52f9cac9-e53a-5b2f-aa02-4a619a898c63",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T02:03:29.000Z",
+      "modified": "2026-11-26T02:03:29.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4333484a-06f9-5ce4-b813-60e4319567b4",
+      "target_ref": "attack-pattern--7fbd6d58-7528-54d9-a63e-ba73ac098f89"
     },
     {
       "type": "relationship",
@@ -123564,6 +123575,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--495b5e16-12a7-5d76-917b-178e75f64ac3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bb37cd80-6df6-54aa-a199-2d54fe2ac0f2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--fdc9490a-04d2-52cc-a5dd-0ffbedad2a95",
+      "target_ref": "vulnerability--7a00d04e-db90-5df3-b5ed-2c46a7bbffda"
     },
     {
       "type": "relationship",
@@ -208957,6 +208979,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--4333484a-06f9-5ce4-b813-60e4319567b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T02:03:29.000Z",
+      "modified": "2026-11-26T02:03:29.000Z",
+      "name": "Apache SkyWalking BanyanDB: PropertyService.Query resource exhaustion (CVE-2026-86470)",
+      "description": "## Overview\n\nApache SkyWalking BanyanDB is affected by an uncontrolled resource consumption vulnerability (CVE-2026-86470) within the PropertyService.Query API. An unauthenticated attacker can specify a high result limit in a query request, forcing the server to allocate excessive memory, which can lead to service termination.\n\n## Impact\n\nA successful attack results in server-side resource exhaustion, causing the BanyanDB service to crash or become unresponsive to legitimate requests.\n\n## Recommendation\n\nUpgrade Apache SkyWalking BanyanDB to version 0.11.1 or later to implement proper input validation on the result limit field.",
+      "published": "2026-11-26T02:03:29.000Z",
+      "object_refs": [
+        "attack-pattern--7fbd6d58-7528-54d9-a63e-ba73ac098f89",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--fdc9490a-04d2-52cc-a5dd-0ffbedad2a95",
+        "vulnerability--7a00d04e-db90-5df3-b5ed-2c46a7bbffda"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-skywalking-banyandb-resource-exhaustion-cve-2026-86470",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-skywalking-banyandb-resource-exhaustion-cve-2026-86470/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/895"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-skywalking-banyandb-resource-exhaustion-cve-2026-86470",
+      "x_craftedsignal_event_id": "brief-2026-11-26-skywalking-banyandb-resource-exhaustion-cve-2026-86470",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-skywalking-banyandb-resource-exhaustion-cve-2026-86470/",
+      "x_craftedsignal_activity_at": "2026-11-26T02:03:29.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -352324,6 +352386,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--fdc9490a-04d2-52cc-a5dd-0ffbedad2a95",
+      "name": "SkyWalking BanyanDB (\u003c 0.11.1)",
+      "vendor": "Apache Software Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--fdd987e0-16dd-52c1-8986-7d7f69e13ed3",
       "name": "HtmlSanitizer (\u003c 9.0.967, 9.1.878-beta to \u003c 9.1.968-beta)",
       "vendor": "mganss"
@@ -387410,6 +387479,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-123966",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123966"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7a00d04e-db90-5df3-b5ed-2c46a7bbffda",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-86470",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-86470",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86470"
         }
       ]
     },
