@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--abe7d00b-d6eb-5f1d-a5f8-fe313b66f5d9",
+  "id": "bundle--2bffa782-7773-56ab-8f6a-789b4e45adec",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1663,6 +1663,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1048",
           "url": "https://attack.mitre.org/techniques/T1048"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--6f6fe815-ba16-5d53-8c2a-ffcaa6eb282b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "System Firmware",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1542.001",
+          "url": "https://attack.mitre.org/techniques/T1542/001"
         }
       ]
     },
@@ -26599,6 +26615,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1cfa0a94-b1ae-5d5a-8247-69fdc9f3325c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--819c08fd-92ef-5b77-a063-9d5f51c07c0c",
+      "target_ref": "vulnerability--5713549f-bfca-5beb-a7ef-de76b79f0673"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1cfbab3c-c049-55bc-a1ea-7a7562e16ad2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -34640,6 +34667,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2a271058-be53-53b3-a40f-185ba5beddb4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--37fcf24b-76bf-5c12-8a36-3575da253cba",
+      "target_ref": "vulnerability--a57ae6a8-5c4d-5470-b1ed-95ff74d8f8f0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2a33ef18-eca1-5539-b447-9223ce3f2b23",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -36873,6 +36911,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2dad08cd-f869-5aa5-9fbb-2fa3c5cfc0b5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--987993fc-4501-5a48-b19a-06e686356231",
+      "target_ref": "vulnerability--5713549f-bfca-5beb-a7ef-de76b79f0673"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2dadac5b-3b3f-5330-8c7c-52473911d899",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-21T11:20:44.000Z",
@@ -37089,6 +37138,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--a0e2eebe-7084-514c-b95f-0ae5e8b629f2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2e04ed34-7aee-570b-b97d-73223e1b7386",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8889b8d6-5eae-5bc2-b60d-bdcdc6abdef8",
+      "target_ref": "vulnerability--5713549f-bfca-5beb-a7ef-de76b79f0673"
     },
     {
       "type": "relationship",
@@ -43638,6 +43698,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--393a6f8e-4e97-5abe-89b6-032086443ebf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--987993fc-4501-5a48-b19a-06e686356231",
+      "target_ref": "vulnerability--c25292d2-6938-5005-a496-919998f13f4c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3941a16b-e07e-5fc7-ae60-b7179184b8d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -45856,6 +45927,17 @@
       "relationship_type": "has",
       "source_ref": "software--6d91fd62-04f6-53f8-9b33-e58dfcf06fea",
       "target_ref": "vulnerability--5ba555c9-7b5d-5b34-9d43-28b973878f2b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3ce10471-97e6-50b9-8927-4c71fa662076",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c0b68ee3-428d-51bd-ab81-fcb1edd6f15d",
+      "target_ref": "vulnerability--c25292d2-6938-5005-a496-919998f13f4c"
     },
     {
       "type": "relationship",
@@ -52445,6 +52527,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--99cd680c-315f-5a18-8225-66cb3ff398d8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--47fd83cf-9ca0-5561-8ff6-28c99890ef3d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8a8d34a4-f97e-59e5-abc9-1681679652e3",
+      "target_ref": "vulnerability--c25292d2-6938-5005-a496-919998f13f4c"
     },
     {
       "type": "relationship",
@@ -74658,6 +74751,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6aec1f10-2d28-5d50-bb45-afaf41b51d02",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--37fcf24b-76bf-5c12-8a36-3575da253cba",
+      "target_ref": "vulnerability--c25292d2-6938-5005-a496-919998f13f4c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6aecff60-a906-58f5-a855-7189c5af5340",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:33:09.000Z",
@@ -89541,6 +89645,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--81cfefa2-b03d-54cf-95db-f3981d589e89",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--91e4f579-d449-57dd-a962-be1624a27249",
+      "target_ref": "vulnerability--a57ae6a8-5c4d-5470-b1ed-95ff74d8f8f0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--81d050fe-e751-5b08-81e9-afe0a4bd5601",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-12T20:47:19.000Z",
@@ -100200,6 +100315,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--93966192-1b12-5695-86d2-c65eed2ee977",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--17ef0528-7d04-558f-8707-58d095d0da99",
+      "target_ref": "vulnerability--5713549f-bfca-5beb-a7ef-de76b79f0673"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--939cb450-9f51-5626-ba21-29cef0eac4f1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -105905,6 +106031,17 @@
       "relationship_type": "has",
       "source_ref": "software--550df08e-1de0-5c45-8330-1d012129a36c",
       "target_ref": "vulnerability--c319d9c5-3bfc-541b-8738-ed20caacea23"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9d5ac98b-c151-5adb-a6ed-2d2c8fe172f6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8a8d34a4-f97e-59e5-abc9-1681679652e3",
+      "target_ref": "vulnerability--a57ae6a8-5c4d-5470-b1ed-95ff74d8f8f0"
     },
     {
       "type": "relationship",
@@ -111988,6 +112125,17 @@
       "relationship_type": "has",
       "source_ref": "software--dca4de2c-c0d9-53c5-8c6d-0e13fde3cc4a",
       "target_ref": "vulnerability--fa31b0b2-4575-5bba-a0c2-b35519929fc3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a7070fe8-7ae1-5fad-b48a-58ec157cecf4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--91e4f579-d449-57dd-a962-be1624a27249",
+      "target_ref": "vulnerability--c25292d2-6938-5005-a496-919998f13f4c"
     },
     {
       "type": "relationship",
@@ -118735,6 +118883,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b166c613-453b-56a7-a8a4-ae9ef2593808",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--775ab914-57de-57bf-b0cc-9ddd3d18c499",
+      "target_ref": "vulnerability--5713549f-bfca-5beb-a7ef-de76b79f0673"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b16a2ba8-a55b-5bdf-9b0b-331433eaf430",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T14:57:06.000Z",
@@ -124422,6 +124581,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ba390da3-0557-575e-a3f1-573854aaf54c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--987993fc-4501-5a48-b19a-06e686356231",
+      "target_ref": "vulnerability--a57ae6a8-5c4d-5470-b1ed-95ff74d8f8f0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ba3cac2c-c303-5b61-b103-7a6838838573",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -127355,6 +127525,17 @@
       "relationship_type": "has",
       "source_ref": "software--e8e55ed6-394f-52b9-9f73-c4c1a2b5db70",
       "target_ref": "vulnerability--76ef8e9f-6094-5242-99ba-aeaceb371bca"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bf171741-5c3c-5673-8eed-7f0576cdc28d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c0b68ee3-428d-51bd-ab81-fcb1edd6f15d",
+      "target_ref": "vulnerability--a57ae6a8-5c4d-5470-b1ed-95ff74d8f8f0"
     },
     {
       "type": "relationship",
@@ -134597,6 +134778,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--caece1b4-7287-5bd0-b44a-47df3b1f8847",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f31220a9-ed3e-519a-a6c7-06356e3d68d7",
+      "target_ref": "vulnerability--c25292d2-6938-5005-a496-919998f13f4c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--caf9655f-1fb5-5282-a340-0165d21aff48",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -135275,6 +135467,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--139de854-1991-56a0-a8a4-c1c996bab83e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cbcaa451-59ad-58dd-ab33-fb62bd4f39c1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T14:01:49.000Z",
+      "modified": "2026-11-26T14:01:49.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0329ff8c-3353-5c74-9097-3c69c4e42e06",
+      "target_ref": "attack-pattern--6f6fe815-ba16-5d53-8c2a-ffcaa6eb282b"
     },
     {
       "type": "relationship",
@@ -140841,6 +141044,17 @@
       "relationship_type": "uses",
       "source_ref": "report--372f29e0-37ee-5c00-9c74-32d3202ca858",
       "target_ref": "attack-pattern--ed297fb1-fb56-59cb-bbe0-dabc9e9cea06"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d53d77db-51db-512e-8f3a-86aeb7b14bd2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f31220a9-ed3e-519a-a6c7-06356e3d68d7",
+      "target_ref": "vulnerability--a57ae6a8-5c4d-5470-b1ed-95ff74d8f8f0"
     },
     {
       "type": "relationship",
@@ -168329,6 +168543,63 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--0329ff8c-3353-5c74-9097-3c69c4e42e06",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T14:01:49.000Z",
+      "modified": "2026-11-26T14:01:49.000Z",
+      "name": "GNU GRUB2: Heap-based out-of-bounds write in squash4 module (CVE-2025-0678)",
+      "description": "## Overview\nA flaw exists in the GRUB2 squash4 filesystem module where improper handling of integer overflows during buffer size calculation can lead to a heap-based out-of-bounds write. A local attacker can supply a maliciously crafted squash4 filesystem that causes the squash4 fs module to perform an inadequate grub_malloc() operation. This flaw allows an attacker to corrupt critical internal data, potentially achieving arbitrary code execution and bypassing Secure Boot. Red Hat has indicated that there is currently no available workaround that meets their security criteria for ease of use and stability.\n\n## Impact\nSuccessful exploitation of this vulnerability by a local attacker with low privileges could result in arbitrary code execution and the bypass of Secure Boot protections, significantly compromising the integrity of the boot process.\n\n## Recommendation\n- Inventory all systems utilizing GRUB2, specifically those with access to or handling of squash4 filesystem images.\n- Monitor Red Hat security advisories for official patches addressing CVE-2025-0678 across affected RHEL and OpenShift releases.\n- Restrict access to mounting or reading arbitrary squash4 filesystem images on sensitive systems until patches are applied.",
+      "published": "2026-11-26T14:01:49.000Z",
+      "labels": [
+        "attack.execution",
+        "attack.persistence",
+        "attack.privilege-escalation",
+        "attack.t1542.001"
+      ],
+      "object_refs": [
+        "attack-pattern--6f6fe815-ba16-5d53-8c2a-ffcaa6eb282b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--37fcf24b-76bf-5c12-8a36-3575da253cba",
+        "software--8a8d34a4-f97e-59e5-abc9-1681679652e3",
+        "software--91e4f579-d449-57dd-a962-be1624a27249",
+        "software--987993fc-4501-5a48-b19a-06e686356231",
+        "software--c0b68ee3-428d-51bd-ab81-fcb1edd6f15d",
+        "software--f31220a9-ed3e-519a-a6c7-06356e3d68d7",
+        "vulnerability--a57ae6a8-5c4d-5470-b1ed-95ff74d8f8f0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-grub2-squash4-overflow-cve-2025-0678",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-grub2-squash4-overflow-cve-2025-0678/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-0678"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-0678"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-grub2-squash4-overflow-cve-2025-0678",
+      "x_craftedsignal_event_id": "brief-2026-11-26-grub2-squash4-overflow-cve-2025-0678",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-grub2-squash4-overflow-cve-2025-0678/",
+      "x_craftedsignal_activity_at": "2026-11-26T14:01:49.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00344,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--032f1872-ddd0-537a-91cb-58888281e377",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T02:18:48.000Z",
@@ -193232,6 +193503,62 @@
       },
       "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_epss_max": 0.01479,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2b6830a0-c75f-5a58-a9ff-3b348fa2bd8e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T14:01:08.000Z",
+      "modified": "2026-11-26T14:01:08.000Z",
+      "name": "GNU GRUB2: UDF filesystem heap-based buffer overflow (CVE-2025-0689)",
+      "description": "## Overview\n\nThe GRUB2 UDF filesystem module contains a heap-based buffer overflow vulnerability (CVE-2025-0689). When reading data from disk, the module uses user-controlled data length metadata to allocate internal buffers. During iteration through disk sectors, it incorrectly assumes that the read size is always smaller than the allocated buffer size. A crafted UDF filesystem image can trigger this overflow, potentially leading to arbitrary code execution and a bypass of Secure Boot protections.\n\n## Attack Chain\n\n- The vulnerability is triggered during the GRUB2 boot process when the UDF filesystem module parses a specially crafted UDF filesystem image.\n- The flaw stems from an incorrect assumption regarding disk read sizes versus buffer sizes, leading to a heap-based buffer overflow.\n\n## Impact\n\nSuccessful exploitation can lead to memory corruption, potential arbitrary code execution, and the bypass of Secure Boot protections. This affects the integrity of the boot process.\n\n## Recommendation\n\n- Avoid running GRUB2 in untrusted environments, specifically when loading UDF filesystem images.\n- Monitor vendor security advisories for updates regarding affected products.",
+      "published": "2026-11-26T14:01:08.000Z",
+      "labels": [
+        "CVE-2025-0689",
+        "bootloader",
+        "buffer-overflow",
+        "secure-boot-bypass"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--37fcf24b-76bf-5c12-8a36-3575da253cba",
+        "software--8a8d34a4-f97e-59e5-abc9-1681679652e3",
+        "software--91e4f579-d449-57dd-a962-be1624a27249",
+        "software--987993fc-4501-5a48-b19a-06e686356231",
+        "software--c0b68ee3-428d-51bd-ab81-fcb1edd6f15d",
+        "software--f31220a9-ed3e-519a-a6c7-06356e3d68d7",
+        "vulnerability--c25292d2-6938-5005-a496-919998f13f4c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-grub2-udf-overflow-cve-2025-0689",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-grub2-udf-overflow-cve-2025-0689/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-0689"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-0689"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-grub2-udf-overflow-cve-2025-0689",
+      "x_craftedsignal_event_id": "brief-2026-11-26-grub2-udf-overflow-cve-2025-0689",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-grub2-udf-overflow-cve-2025-0689/",
+      "x_craftedsignal_activity_at": "2026-11-26T14:01:08.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00441,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -324860,6 +325187,60 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f29518de-c512-5781-bd82-7cbd9d50e3ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T14:01:35.000Z",
+      "modified": "2026-11-26T14:01:35.000Z",
+      "name": "GNU GRUB2: HFS filesystem driver heap-based out-of-bounds write (CVE-2024-45782)",
+      "description": "## Overview\nA flaw was found in the HFS filesystem driver within the GRUB2 bootloader (CVE-2024-45782). When the grub_fs_mount() function reads an HFS volume's name, it performs a strcpy() using the user-provided volume name without properly validating the length. This leads to a heap-based out-of-bounds write.\n\n## Impact\nThis vulnerability impacts the integrity of sensitive data within GRUB and can potentially lead to a bypass of secure boot protections. The issue is rated with a CVSS 3.1 base score of 7.8, requiring low local privileges and no user interaction.\n\n## Recommendation\nUsers should monitor vendor security advisories from Red Hat for updates regarding the specific impacted Enterprise Linux and OpenShift products. Remediation status and version availability for these products should be verified against current vendor guidance.",
+      "published": "2026-11-26T14:01:35.000Z",
+      "labels": [
+        "CVE-2024-45782",
+        "bootloader",
+        "memory-corruption"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--17ef0528-7d04-558f-8707-58d095d0da99",
+        "software--775ab914-57de-57bf-b0cc-9ddd3d18c499",
+        "software--819c08fd-92ef-5b77-a063-9d5f51c07c0c",
+        "software--8889b8d6-5eae-5bc2-b60d-bdcdc6abdef8",
+        "software--987993fc-4501-5a48-b19a-06e686356231",
+        "vulnerability--5713549f-bfca-5beb-a7ef-de76b79f0673"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-grub2-hfs-heap-overflow-cve-2024-45782",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-grub2-hfs-heap-overflow-cve-2024-45782/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2024-45782"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-45782"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-grub2-hfs-heap-overflow-cve-2024-45782",
+      "x_craftedsignal_event_id": "brief-2026-11-26-grub2-hfs-heap-overflow-cve-2024-45782",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-grub2-hfs-heap-overflow-cve-2024-45782/",
+      "x_craftedsignal_activity_at": "2026-11-26T14:01:35.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00303,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f2ac64ca-a451-50f4-a55f-83ef00ae7de8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T05:54:40.000Z",
@@ -336236,6 +336617,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--17ef0528-7d04-558f-8707-58d095d0da99",
+      "name": "redhat openshift container platform 4"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--17f4fe64-95f1-5eb1-aaa0-087c2cee2827",
       "name": "YouTrack",
       "vendor": "JetBrains"
@@ -345385,6 +345772,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--775ab914-57de-57bf-b0cc-9ddd3d18c499",
+      "name": "redhat enterprise linux 7"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7762fe7d-e246-5293-b472-2336f8d84f04",
       "name": "@fastify/middie",
       "vendor": "@fastify/middie"
@@ -346353,6 +346746,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--819c08fd-92ef-5b77-a063-9d5f51c07c0c",
+      "name": "redhat enterprise linux 9"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--81ac2779-08db-53b1-a43a-0d705de0ee1b",
       "name": "PHP 8.5 (\u003e= 8.5.0, \u003c 8.5.13)"
     },
@@ -347007,6 +347406,12 @@
       "id": "software--886e25e9-c3a0-51c9-8190-e817e955bb28",
       "name": "RUGGEDCOM ROX RX1524 (\u003c V2.16.0)",
       "vendor": "Siemens"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8889b8d6-5eae-5bc2-b60d-bdcdc6abdef8",
+      "name": "redhat enterprise linux 8"
     },
     {
       "type": "software",
@@ -348583,6 +348988,12 @@
       "id": "software--986543e4-c535-50cd-b83c-7e69a2e8b653",
       "name": "PostgreSQL ODBC driver",
       "vendor": "PostgreSQL"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--987993fc-4501-5a48-b19a-06e686356231",
+      "name": "grub2 (\u003c= 2.12)"
     },
     {
       "type": "software",
@@ -383782,6 +384193,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--5713549f-bfca-5beb-a7ef-de76b79f0673",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-45782",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-45782",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-45782"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--572a134a-f21a-596a-a825-e1171eee3fef",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -407494,6 +407921,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--a57ae6a8-5c4d-5470-b1ed-95ff74d8f8f0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-0678",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-0678",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-0678"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--a581ca98-2e85-55fa-b708-da0156c31c58",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -416128,6 +416571,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-125829",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125829"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c25292d2-6938-5005-a496-919998f13f4c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-0689",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-0689",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-0689"
         }
       ]
     },
