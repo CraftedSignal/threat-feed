@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--98d05599-96a8-50b1-80b4-f458bc9b9297",
+  "id": "bundle--4577f9b9-cd46-5c7c-8289-a0d49c4c8f5e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -19269,7 +19269,7 @@
       "id": "relationship--0d951f81-455f-5787-84e6-b389c97b5881",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T22:33:30.000Z",
-      "modified": "2026-11-19T22:33:30.000Z",
+      "modified": "2026-11-26T02:05:25.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d4f34537-8003-5c38-9018-687c33e4081b",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -94883,7 +94883,7 @@
       "id": "relationship--76071f2d-56a6-50a6-a2c6-ffc3bbc1421d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-21T17:55:23.000Z",
-      "modified": "2026-11-21T17:55:23.000Z",
+      "modified": "2026-11-26T02:05:25.000Z",
       "relationship_type": "uses",
       "source_ref": "report--4c43e8ee-21b0-5fd1-8bf1-96638348dcbb",
       "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
@@ -253237,7 +253237,7 @@
       "id": "report--4c43e8ee-21b0-5fd1-8bf1-96638348dcbb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-21T17:55:23.000Z",
-      "modified": "2026-11-21T17:55:23.000Z",
+      "modified": "2026-11-26T02:05:25.000Z",
       "name": "SurrealDB: Capability check bypass in embedded JavaScript engine (CVE-2026-134292)",
       "description": "## Overview\nSurrealDB versions from 1.0.0 up to, but not including, 4.0.0 contain a critical security vulnerability in the embedded JavaScript scripting engine. The 'surrealdb.functions' bridge incorrectly calls internal 'fnc::synchronous()' and 'fnc::asynchronous()' dispatchers without enforcing necessary function capability checks. \n\n## Impact\nAuthenticated users who are otherwise restricted from accessing specific built-in functions in SurrealQL can bypass these security constraints. By invoking restricted functions through the 'surrealdb.functions' bridge within the embedded JavaScript environment, an attacker can escalate their privileges to perform unauthorized actions within the database.\n\n## Recommendation\n- Audit all database configurations to identify users with access to the embedded JavaScript execution environment.\n- Review access control lists for sensitive built-in SurrealQL functions to ensure they are restricted as intended.\n- Upgrade to SurrealDB 4.0.0 or later to resolve the capability check bypass.",
       "published": "2026-11-21T17:55:23.000Z",
@@ -253260,20 +253260,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134292"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=6E17413B-8DC2-50C8-B38C-6543D9A99E10\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-21-surrealdb-javascript-bypass-cve-2026-134292",
       "x_craftedsignal_event_id": "brief-2026-11-21-surrealdb-javascript-bypass-cve-2026-134292",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-surrealdb-javascript-bypass-cve-2026-134292/",
-      "x_craftedsignal_activity_at": "2026-11-21T17:55:23.000Z",
+      "x_craftedsignal_activity_at": "2026-11-26T02:05:25.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00543,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -352804,7 +352809,7 @@
       "id": "report--d4f34537-8003-5c38-9018-687c33e4081b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T22:33:30.000Z",
-      "modified": "2026-11-19T22:33:30.000Z",
+      "modified": "2026-11-26T02:05:25.000Z",
       "name": "IBM Guardium Data Protection: SQL injection in edge-controller (CVE-2026-87977)",
       "description": "## Overview\n\nIBM Guardium Data Protection version 12.2 is affected by a SQL injection vulnerability within its edge-controller component. This vulnerability is rated as critical (CVSS 9.8) and allows an unauthenticated remote attacker to execute arbitrary SQL queries, leading to potential unauthorized access to or modification of sensitive data within the protected databases.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to bypass security controls to read, modify, or delete sensitive data managed by the Guardium Data Protection system.\n\n## Recommendation\n\n- Update IBM Guardium Data Protection to version 12.2.4 or later immediately. The patch can be retrieved via the IBM Fix Central portal using the provided fix ID: SqlGuard_12.0p7240_GPU_Oct_2026_V12.2.4_FC.",
       "published": "2026-11-19T22:33:30.000Z",
@@ -352830,20 +352835,26 @@
         },
         {
           "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=5AF7DB88-28D5-5850-8780-D3F3AD9BFB98\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.ibm.com/support/fixcentral/swg/quickorder?parent=IBM%20Security\u0026product=ibm/Information+Management/InfoSphere+Guardium\u0026release=All\u0026platform=All\u0026function=fixId\u0026fixids=SqlGuard_12.0p7240_GPU_Oct_2026_V12.2.4_FC\u0026includeSupersedes=0\u0026source=fc"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-19-ibm-guardium-sqli-cve-2026-87977",
       "x_craftedsignal_event_id": "brief-2026-11-19-ibm-guardium-sqli-cve-2026-87977",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ibm-guardium-sqli-cve-2026-87977/",
-      "x_craftedsignal_activity_at": "2026-11-19T22:33:30.000Z",
+      "x_craftedsignal_activity_at": "2026-11-26T02:05:25.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00608,
       "x_craftedsignal_kev_status": "false"
     },
     {
