@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6ebd4b4c-cc99-57d3-80dd-7d3336ce7d5c",
+  "id": "bundle--92b7f2c2-cb9c-5cd2-b88d-1db46345120f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -233097,6 +233097,48 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6505b669-0c64-5cfd-9a70-373dd13ad5e1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-26T12:38:36.000Z",
+      "modified": "2026-11-26T12:38:36.000Z",
+      "name": "Adobe Creative Cloud (InDesign): Denial of Service vulnerability",
+      "description": "## Overview\n\nA vulnerability exists in Adobe Creative Cloud (InDesign) that can be exploited by a remote, unauthenticated attacker to trigger a denial of service (DoS) condition. The specific technical details of the exploitation mechanism, affected version ranges, and remediation steps are not provided in the security advisory (WID-SEC-2026-4799).\n\n## Recommendation\n\nMonitor official Adobe security advisories for updates and guidance regarding WID-SEC-2026-4799.",
+      "published": "2026-11-26T12:38:36.000Z",
+      "labels": [
+        "adobe",
+        "denial-of-service"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7c882859-8691-5be3-9727-27ccccf41369"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-26-adobe-indesign-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-adobe-indesign-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4799"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-26-adobe-indesign-dos",
+      "x_craftedsignal_event_id": "brief-2026-11-26-adobe-indesign-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-adobe-indesign-dos/",
+      "x_craftedsignal_activity_at": "2026-11-26T12:38:36.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--651f107e-fb60-5a31-b752-f3a7d326a858",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T20:14:26.000Z",
@@ -342772,6 +342814,13 @@
       "id": "software--7c56fa6a-c4d7-5f64-b84b-c982cda54be0",
       "name": "SAP Cloud SDK for Python",
       "vendor": "SAP"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--7c882859-8691-5be3-9727-27ccccf41369",
+      "name": "Adobe Creative Cloud (InDesign)",
+      "vendor": "Adobe"
     },
     {
       "type": "software",
