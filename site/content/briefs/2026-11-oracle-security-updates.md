@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-oracle-security-updates
 event_id: brief-2026-11-oracle-security-updates
-revision: 65
-activity_at: "2026-11-26T23:56:56Z"
+revision: 66
+activity_at: "2026-11-27T00:04:36Z"
 revision_history:
   - revision: 2
     at: "2026-11-17T23:49:55Z"
@@ -826,11 +826,24 @@ revision_history:
       - content
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101687
+  - revision: 66
+    at: "2026-11-27T00:04:36Z"
+    checksum: sha256:aca76e97801844a3497ae4f6e556f61d95fdb3631f19b3523e8eaeb6e3c851a2
+    summary: added CVE-2026-83483
+    changed_fields:
+      - cpes
+      - cve_verification
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-83483
 title: Oracle Security Updates - November 2026
 slug: 2026-11-oracle-security-updates
 description: Roundup of Oracle security advisories published in November 2026.
 date: "2026-11-16T21:54:15Z"
-lastmod: "2026-11-26T23:53:47Z"
+lastmod: "2026-11-27T00:04:06Z"
 type: threat
 types:
   - threat
@@ -839,6 +852,7 @@ severities:
 exploitation_evidence:
   status: unknown
 cpes:
+  - cpe:2.3:a:oracle:advanced_benefits:*:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:application_object_library:*:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:applications_dba:*:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:common_applications:*:*:*:*:*:*:*:*
@@ -893,6 +907,10 @@ cve_verification:
     status: verified
     source: cve_program
     checked_at: 2026-11-26T21:04:05.280477466Z
+  CVE-2026-83483:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-27T00:04:06.294759112Z
   CVE-2026-83484:
     status: verified
     source: cve_program
@@ -3010,16 +3028,13 @@ cves:
     cvss: 7.5
     epss: 0.00334
     kev_status: "false"
+  - id: CVE-2026-83483
+    cvss: 8
+    epss: 0.00375
+    kev_status: "false"
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-101687
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-83483
 updates:
-  - at: "2026-11-26T21:33:06Z"
-    level: L2
-    summary: added CVE-2026-101665
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-101665
   - at: "2026-11-26T22:38:23Z"
     level: L2
     summary: added CVE-2026-101681, CVE-2026-101692, CVE-2026-101700
@@ -3036,6 +3051,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101687
+  - at: "2026-11-27T00:04:06Z"
+    level: L2
+    summary: added CVE-2026-83483
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-83483
 ---
 
 ## Overview
