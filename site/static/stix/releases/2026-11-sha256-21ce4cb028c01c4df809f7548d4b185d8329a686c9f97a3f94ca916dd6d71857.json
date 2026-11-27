@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7b141035-df6a-5950-b2af-781279c5b8e0",
+  "id": "bundle--a2662c0a-cc94-5e68-80a4-21901b8951c9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -44977,7 +44977,7 @@
       "id": "relationship--37582d63-3abe-5e7d-b033-bb788a95e553",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-26T20:51:07.000Z",
-      "modified": "2026-11-26T20:51:07.000Z",
+      "modified": "2026-11-27T14:56:12.000Z",
       "relationship_type": "uses",
       "source_ref": "report--323c12a3-2c92-5103-bdd2-ddc9e8b730d7",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -140028,7 +140028,7 @@
       "id": "relationship--c5832f50-22af-5d1b-974b-9f17cd5c5865",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-27T03:04:47.000Z",
-      "modified": "2026-11-27T03:04:47.000Z",
+      "modified": "2026-11-27T14:56:12.000Z",
       "relationship_type": "uses",
       "source_ref": "report--be984648-54d8-5ce4-aac3-ec5a51fd51da",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -140160,7 +140160,7 @@
       "id": "relationship--c5c2d7cc-19ea-579a-a45e-95e3ebb41d9a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-26T20:51:07.000Z",
-      "modified": "2026-11-26T20:51:07.000Z",
+      "modified": "2026-11-27T14:56:12.000Z",
       "relationship_type": "uses",
       "source_ref": "report--323c12a3-2c92-5103-bdd2-ddc9e8b730d7",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -214719,7 +214719,7 @@
       "id": "report--323c12a3-2c92-5103-bdd2-ddc9e8b730d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-26T20:51:07.000Z",
-      "modified": "2026-11-26T20:51:07.000Z",
+      "modified": "2026-11-27T14:56:12.000Z",
       "name": "Cacti: Unauthenticated remote code execution (4HTTP2ROOT)",
       "description": "## Overview\nCacti Core version 1.2.31 is vulnerable to an unauthenticated remote code execution (RCE) flaw, dubbed 4HTTP2ROOT. The vulnerability allows an unauthenticated guest user to execute arbitrary operating system commands on the Cacti server by injecting malicious values into per-user display settings. These settings are subsequently inserted into a database query, enabling command injection that modifies the poller configuration to include shell commands. The Cacti web server and poller process then execute these commands.\n\n## Attack Chain\n1. An attacker initiates an unauthenticated guest session on the Cacti server.\n2. The attacker writes an unvalidated value into a user display setting.\n3. The application incorporates this value into a database query that is treated as multiple commands.\n4. The database query manipulation allows for the modification of the poller configuration.\n5. The poller configuration is updated to include a malicious shell command.\n6. A separate, guest-accessible page triggers the execution of the poller setting, running the shell command on the server.\n\n## Impact\nSuccessful exploitation results in command execution on the Cacti server with the privileges of the web user or poller process. As Cacti centralizes credentials and configuration for network infrastructure, this access may facilitate further lateral movement within the environment.\n\n## Recommendation\n1. Disable the guest account in Cacti user administration settings immediately to remove the primary entry point.\n2. Restrict access to the Cacti web interface to trusted internal networks only.\n3. Monitor application logs for warning messages regarding non-numeric values in display settings.\n4. Audit poller configuration settings for unexpected entries that do not align with authorized monitoring configurations.\n5. Monitor for unexpected file creation by the poller process.\n6. Prepare to apply a patch as soon as one is provided by the vendor.",
       "published": "2026-11-26T20:51:07.000Z",
@@ -214727,6 +214727,7 @@
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--04b73f78-9c26-596a-b6b4-6cd8cb098eed",
         "software--38d63790-f2a3-524f-8834-2682202d0f6d"
       ],
       "external_references": [
@@ -214737,16 +214738,24 @@
         },
         {
           "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/unpatched-cacti-zero-day-enables-rce-in.html"
+        },
+        {
+          "source_name": "reference",
           "url": "https://watchtowr.com/intelligence/4http2root-cacti-zero-day-faq/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4845"
         }
       ],
-      "confidence": 80,
+      "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-26-cacti-rce",
       "x_craftedsignal_event_id": "brief-2026-11-26-cacti-rce",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cacti-rce/",
-      "x_craftedsignal_activity_at": "2026-11-26T20:51:07.000Z",
-      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_activity_at": "2026-11-27T14:56:12.000Z",
+      "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -252476,6 +252485,44 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--63471322-4b7f-59bc-95b6-41533b49fbd1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T14:53:42.000Z",
+      "modified": "2026-11-27T14:53:42.000Z",
+      "name": "Xen Project: Multiple vulnerabilities",
+      "description": "## Overview\n\nThe BSI has published an advisory detailing multiple vulnerabilities within the Xen hypervisor. A local attacker can leverage these flaws to escalate privileges, disclose confidential information, or cause a Denial-of-Service (DoS) state.\n\n## Recommendation\n\n- Monitor official Xen Project security advisories for specific patch releases addressing these vulnerabilities.\n- Apply hypervisor updates to all affected Xen instances as soon as vendor patches are available.\n- Review access controls for virtual machine management to ensure only authorized local users can interact with the hypervisor interface.",
+      "published": "2026-11-27T14:53:42.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--434dff92-c287-5d9f-8590-0aa013fdf75e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-27-xen-vulnerabilities-e2aded9c",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-xen-vulnerabilities-e2aded9c/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4844"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-27-xen-vulnerabilities-e2aded9c",
+      "x_craftedsignal_event_id": "brief-2026-11-27-xen-vulnerabilities-e2aded9c",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-xen-vulnerabilities-e2aded9c/",
+      "x_craftedsignal_activity_at": "2026-11-27T14:53:42.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -317412,7 +317459,7 @@
       "id": "report--be984648-54d8-5ce4-aac3-ec5a51fd51da",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-27T03:04:47.000Z",
-      "modified": "2026-11-27T03:04:47.000Z",
+      "modified": "2026-11-27T14:56:12.000Z",
       "name": "Exim: Heap out-of-bounds write in SMTP expansion code (CVE-2026-137702)",
       "description": "## Overview\n\nExim versions prior to 4.100.2 contain a heap out-of-bounds write vulnerability. This vulnerability is triggered by sending specially crafted SMTP traffic that is processed by the application's expansion code, which operates with root privileges.\n\n## Impact\n\nSuccessful exploitation triggers a heap out-of-bounds write within the context of root-level process expansion code. The precise technical impact beyond this memory corruption is not defined by the source.\n\n## Recommendation\n\nUpgrade to Exim 4.100.2 or later to address this vulnerability.",
       "published": "2026-11-27T03:04:47.000Z",
@@ -317431,14 +317478,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137702"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4830"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-27-exim-heap-write-cve-2026-137702",
       "x_craftedsignal_event_id": "brief-2026-11-27-exim-heap-write-cve-2026-137702",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-exim-heap-write-cve-2026-137702/",
-      "x_craftedsignal_activity_at": "2026-11-27T03:04:47.000Z",
+      "x_craftedsignal_activity_at": "2026-11-27T14:56:12.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -317446,6 +317497,44 @@
       },
       "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--bea3dd93-fe94-5e40-9164-527e576879ca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T14:53:10.000Z",
+      "modified": "2026-11-27T14:53:10.000Z",
+      "name": "Oracle MySQL: Multiple Vulnerabilities",
+      "description": "## Overview\n\nThe BSI has issued an advisory regarding multiple vulnerabilities in Oracle MySQL. These flaws may allow a remote, anonymous, or authenticated attacker to impact the confidentiality, integrity, and availability of affected systems. The source notice does not currently provide specific CVE identifiers, affected version ranges, or remediation steps.\n\n## Recommendation\n\n- Monitor the official Oracle Critical Patch Update (CPU) portal for detailed security advisories regarding these vulnerabilities.\n- Inventory all Oracle MySQL instances within the environment to prepare for potential patching once Oracle releases specific version information.\n- Review current access control lists and network segmentation for all MySQL deployments to ensure that only authorized hosts can access the database services.",
+      "published": "2026-11-27T14:53:10.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e14a2dd2-20cb-58da-ade9-9259e9b9fcd4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-27-oracle-mysql",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-oracle-mysql/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4623"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-27-oracle-mysql",
+      "x_craftedsignal_event_id": "brief-2026-11-27-oracle-mysql",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-oracle-mysql/",
+      "x_craftedsignal_activity_at": "2026-11-27T14:53:10.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -333921,6 +334010,44 @@
       },
       "x_craftedsignal_cvss_max": 7,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--d663c325-75db-5bf5-a49a-b7d5fffea11e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T14:54:44.000Z",
+      "modified": "2026-11-27T14:54:44.000Z",
+      "name": "SEPPmail Secure E-Mail Gateway: Multiple vulnerabilities",
+      "description": "## Overview\n\nThe BSI has published a security advisory regarding multiple vulnerabilities in the SEPPmail Secure E-Mail Gateway. Exploitation of these flaws allows an attacker to bypass security controls, perform denial of service, disclose sensitive information, manipulate data, and execute arbitrary code. Specific CVE identifiers and technical details for these vulnerabilities remain undisclosed in the current advisory.\n\n## Recommendation\n\n- Monitor the vendor's official security advisory portal for updates and patch availability.\n- Inventory all instances of SEPPmail Secure E-Mail Gateway within the enterprise environment.\n- Prepare for emergency maintenance windows once the vendor releases fixed firmware or software versions.",
+      "published": "2026-11-27T14:54:44.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ecf3cf86-e50f-5198-8685-744558352426"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-27-seppmail-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-seppmail-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4832"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-27-seppmail-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-27-seppmail-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-seppmail-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-27T14:54:44.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -364817,6 +364944,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--04b73f78-9c26-596a-b6b4-6cd8cb098eed",
+      "name": "Cacti (unpatched)",
+      "vendor": "Cacti"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--04c49008-4767-5b6c-a700-48f8740f660c",
       "name": "SGLang (\u003c= 0.5.23)",
       "vendor": "sglang"
@@ -371679,6 +371813,13 @@
       "id": "software--433631a3-5e22-555d-8855-4b566d52f081",
       "name": "WN553X1-B (260403_2.0.0)",
       "vendor": "WAVLINK"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--434dff92-c287-5d9f-8590-0aa013fdf75e",
+      "name": "Xen",
+      "vendor": "Xen"
     },
     {
       "type": "software",
@@ -389355,6 +389496,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e14a2dd2-20cb-58da-ade9-9259e9b9fcd4",
+      "name": "MySQL",
+      "vendor": "Oracle"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e15d24d7-9a7f-507d-98dd-dd3d1623a5f8",
       "name": "E5600",
       "vendor": "Linksys"
@@ -390701,6 +390849,13 @@
       "id": "software--ecd2e8ec-f472-580f-9b7e-50c47a371378",
       "name": "Bazarr (\u003c 1.6.3-beta.11)",
       "vendor": "morpheus65535"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ecf3cf86-e50f-5198-8685-744558352426",
+      "name": "Secure E-Mail Gateway",
+      "vendor": "SEPPmail"
     },
     {
       "type": "software",

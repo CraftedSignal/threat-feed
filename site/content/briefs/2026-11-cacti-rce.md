@@ -1,17 +1,32 @@
 ---
 brief_id: brief-2026-11-26-cacti-rce
 event_id: brief-2026-11-26-cacti-rce
-revision: 1
-activity_at: "2026-11-26T20:51:07Z"
+revision: 2
+activity_at: "2026-11-27T14:56:12Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-27T14:56:12Z"
+    checksum: sha256:c0f958b26b3fdbeba153233ee368640c97e496610ab2cc0f9e3daf258d4694d1
+    summary: severity → critical
+    changed_fields:
+      - action_plan
+      - affected_products
+      - lastmod
+      - references
+      - severity
+      - updates
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4845
 title: 'Cacti: Unauthenticated remote code execution (4HTTP2ROOT)'
 slug: 2026-11-cacti-rce
 description: Cacti Core 1.2.31 contains an unauthenticated remote code execution vulnerability that allows attackers to execute arbitrary shell commands via database query manipulation.
 date: "2026-11-26T20:51:07Z"
+lastmod: "2026-11-27T14:53:38Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - critical
 exploitation_evidence:
   status: unknown
 source_assessment:
@@ -25,6 +40,7 @@ qa_status:
 vendors:
   - Cacti
 products:
+  - Cacti (unpatched)
   - Cacti Core
 product_versions:
   - product: Cacti Core
@@ -44,6 +60,8 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://watchtowr.com/intelligence/4http2root-cacti-zero-day-faq/
+  - https://thehackernews.com/2026/11/unpatched-cacti-zero-day-enables-rce-in.html
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4845
 rules:
   - title: Detect Cacti 4HTTP2ROOT Exploitation Attempt
     description: Detects potential exploitation of 4HTTP2ROOT by monitoring Cacti logs for application-level warning messages regarding non-numeric values being written to display settings.
@@ -68,6 +86,10 @@ action_plan:
       owner: IT Operations
       due: 24h
       evidence: Restrict network access to the Cacti web interface to trusted internal networks only.
+    - action: Inventory all Cacti installations and verify they are not exposed to the internet.
+      owner: IT Operations
+      due: 24h
+      evidence: Cacti vulnerability allows unauthenticated remote code execution.
   hunt_leads:
     - lead: Review Cacti poller configuration for unexpected command entries.
       technique_id: T1059
@@ -78,6 +100,28 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Unexpected commands configured in poller settings, or new files created by the poller process, are further signs that the chain has run.
+    - lead: Hunt for anomalous SQL query syntax or common SQL injection payloads in web server logs targeting Cacti endpoints.
+      technique_id: T1190
+      data_needed:
+        - web server access logs (cs-uri-query, cs-method)
+      priority: high
+      confidence: medium
+      disposition: hunt_now
+      evidence: The flaw allows remote SQL injection leading to code execution.
+  mitigation_plan:
+    - priority: immediate
+      action: Restrict Cacti access to authorized internal users via VPN or network segmentation.
+      owner: IT Operations
+      addresses: Cacti unpatched vulnerability
+      evidence: The vulnerability is remote and unauthenticated.
+updates:
+  - at: "2026-11-27T14:53:38Z"
+    level: L3
+    summary: severity → critical
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4845
 ---
 
 ## Overview
