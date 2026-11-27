@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7881c7f9-1927-50c8-9fcf-132ffcfeddc5",
+  "id": "bundle--a85aeaa7-d4bc-585a-acad-3ea7681185e1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5592,19 +5592,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--65a2597b-99ba-53d0-ab46-5a120d8e1570",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-28T11:38:20.000Z",
-      "modified": "2026-10-28T11:38:20.000Z",
-      "name": "domain: 3r-dataware.com",
-      "description": "Infrastructure identified within malicious software strings",
-      "pattern": "[domain-name:value = '3r-dataware.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-28T11:38:20.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--6685a7f3-dcfc-57fc-831a-71578f3772b0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-05T13:29:56.000Z",
@@ -6198,19 +6185,6 @@
       "pattern": "[ipv4-addr:value = '193.143.1.21']",
       "pattern_type": "stix",
       "valid_from": "2026-11-05T13:38:48.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--8617e223-5cc5-5978-b582-acc421736c06",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-28T11:38:20.000Z",
-      "modified": "2026-10-28T11:38:20.000Z",
-      "name": "url: http://cloudapi.3r-dataware.com/sso/",
-      "description": "C2/Infrastructure communication endpoint",
-      "pattern": "[url:value = 'http://cloudapi.3r-dataware.com/sso/']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-28T11:38:20.000Z"
     },
     {
       "type": "indicator",
@@ -7052,19 +7026,6 @@
       "pattern": "[file:hashes.MD5 = '284d536dab5865150873e927a29cb0ae']",
       "pattern_type": "stix",
       "valid_from": "2026-10-29T08:37:22.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--b25f5d33-2457-5687-8911-732ac377dd50",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-28T11:38:20.000Z",
-      "modified": "2026-10-28T11:38:20.000Z",
-      "name": "ip: 144.172.116.37",
-      "description": "C2 server beaconing",
-      "pattern": "[ipv4-addr:value = '144.172.116.37']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-28T11:38:20.000Z"
     },
     {
       "type": "indicator",
@@ -33446,17 +33407,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--20a069c8-fe1c-5bc7-8175-ef234a5aecd0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-28T11:38:20.000Z",
-      "modified": "2026-10-28T11:38:20.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5b1be7c8-adad-5e4d-8e5a-0c9c89baf25c",
-      "target_ref": "attack-pattern--a03365ac-fb7d-5f47-ba26-05523ae6a75a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--20a142f6-6417-5a70-928a-88f77b8b6adf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:32:38.000Z",
@@ -39668,17 +39618,6 @@
       "relationship_type": "has",
       "source_ref": "software--85475315-041c-542e-bcae-560f82ce7f95",
       "target_ref": "vulnerability--793675ee-f7ff-5c37-8730-57413017634d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--2907b373-0110-5a6b-89c8-cc4539a6f203",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-28T11:38:28.000Z",
-      "modified": "2026-10-28T11:38:28.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7c7bee48-c357-5fd9-928d-be95bbfec4c2",
-      "target_ref": "attack-pattern--7fbd6d58-7528-54d9-a63e-ba73ac098f89"
     },
     {
       "type": "relationship",
@@ -143369,17 +143308,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b3ac0f01-58f5-5390-b48b-9e259f51638f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-28T11:38:20.000Z",
-      "modified": "2026-10-28T11:38:20.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5b1be7c8-adad-5e4d-8e5a-0c9c89baf25c",
-      "target_ref": "attack-pattern--5e3a72eb-f0e9-5488-ab37-c8d5de0a07a0"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b3acf993-88ee-5a81-bdbd-bb1c283a75db",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T07:07:48.000Z",
@@ -153412,17 +153340,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--c12b86a0-5bcb-5dcd-a30e-40f76ea319ad",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-28T11:38:20.000Z",
-      "modified": "2026-10-28T11:38:20.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5b1be7c8-adad-5e4d-8e5a-0c9c89baf25c",
-      "target_ref": "indicator--65a2597b-99ba-53d0-ab46-5a120d8e1570"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--c12d870e-2e22-553c-9203-bd7c5ac4d980",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -157258,17 +157175,6 @@
       "relationship_type": "uses",
       "source_ref": "report--3e8e51ee-1fc5-5046-9d69-76cecdda00a5",
       "target_ref": "indicator--28da4fb6-2dfb-5f15-9b1b-027a6842f77f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c693cf75-da47-56b7-8bae-249146eb3dc4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-28T11:38:20.000Z",
-      "modified": "2026-10-28T11:38:20.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5b1be7c8-adad-5e4d-8e5a-0c9c89baf25c",
-      "target_ref": "indicator--b25f5d33-2457-5687-8911-732ac377dd50"
     },
     {
       "type": "relationship",
@@ -172889,17 +172795,6 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--a7fa5459-12a0-52c0-9651-c803bb62fdd3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--dc65e735-3f46-531f-be20-1728837d1ac7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-28T11:38:20.000Z",
-      "modified": "2026-10-28T11:38:20.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5b1be7c8-adad-5e4d-8e5a-0c9c89baf25c",
-      "target_ref": "indicator--8617e223-5cc5-5978-b582-acc421736c06"
     },
     {
       "type": "relationship",
@@ -274192,56 +274087,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--5b1be7c8-adad-5e4d-8e5a-0c9c89baf25c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-28T11:38:20.000Z",
-      "modified": "2026-10-28T11:38:20.000Z",
-      "name": "Camera Management Software Compromised for Malware Deployment",
-      "description": "## Overview\nHuntress identified a campaign involving the compromise of camera management software (CMS.exe) to facilitate unauthorized access to enterprise environments. Following initial access, the attackers deployed a malicious binary (rs.win32.exe), performed DLL sideloading using the legitimate Windows Parental Controls Monitor (WpcMon.exe), established persistence via registry Run keys, and beaconed to a C2 server. \n\n## Attack Chain\n1. Initial access via exploitation of camera management software (CMS.exe).\n2. Deployment of malicious binary 'rs.win32.exe' to the endpoint.\n3. Execution of 'WpcMon.exe' to perform DLL sideloading in the user's AppData directory.\n4. Establishment of persistence through Windows registry Run keys.\n5. Establishment of outbound C2 communication to '144.172.116.37'.\n\n## Recommendation\n- Inventory and restrict access to camera management software; treat these applications as part of the enterprise attack surface.\n- Implement monitoring for unauthorized process executions originating from 'CMS.exe'.\n- Restrict execution of binaries and DLLs from user-writable paths such as '%AppData%'.\n- Monitor for registry modifications targeting 'HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run' or 'HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run'.\n- Block the identified C2 IP address '144.172.116.37' at the network perimeter.\n",
-      "published": "2026-10-28T11:38:20.000Z",
-      "labels": [
-        "c2",
-        "defense-evasion",
-        "initial-access",
-        "malware",
-        "persistence"
-      ],
-      "object_refs": [
-        "attack-pattern--5e3a72eb-f0e9-5488-ab37-c8d5de0a07a0",
-        "attack-pattern--a03365ac-fb7d-5f47-ba26-05523ae6a75a",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--65a2597b-99ba-53d0-ab46-5a120d8e1570",
-        "indicator--8617e223-5cc5-5978-b582-acc421736c06",
-        "indicator--b25f5d33-2457-5687-8911-732ac377dd50",
-        "software--ae8813c3-9347-58c7-af52-f7a2f969286c"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-28-camera-management-software-compromise",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-camera-management-software-compromise/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.huntress.com/blog/camera-management-software-compromise-malware"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-28-camera-management-software-compromise",
-      "x_craftedsignal_event_id": "brief-2026-10-28-camera-management-software-compromise",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-camera-management-software-compromise/",
-      "x_craftedsignal_activity_at": "2026-10-28T11:38:20.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--5b2cc85a-e03c-5361-9847-ca6cf23b00cc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-08T21:28:07.000Z",
@@ -299194,63 +299039,6 @@
       },
       "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--7c7bee48-c357-5fd9-928d-be95bbfec4c2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-28T11:38:28.000Z",
-      "modified": "2026-10-28T11:38:28.000Z",
-      "name": "Intelbras IP Camera Denial-of-Service Vulnerability",
-      "description": "## Overview\n\nResearchers discovered a denial-of-service vulnerability affecting several Intelbras IP camera models. The vulnerability exists in the firmware upgrade service endpoint, which lacks authentication and input validation. An attacker with access to the local Wi-Fi network can send requests to this endpoint to force the camera into a reboot cycle. Periodic requests can keep the affected device offline indefinitely. Intelbras has released a firmware update (R.260804) to remediate the vulnerability. MITRE has assigned the candidate ID CAN-2026-2035970 to this issue.\n\n## Attack Chain\n\n1. Attacker gains access to the local Wi-Fi network where the target camera is connected.\n2. Attacker identifies the camera IP address on the local network.\n3. Attacker targets the unauthenticated endpoint '/firmwareUpgrade_service/Demo'.\n4. Attacker sends a specially crafted request to the firmware upgrade service.\n5. The camera initiates a firmware upgrade process without validating the request or firmware integrity.\n6. The camera enters a reboot state, causing it to lose connection to the user and the mobile application.\n7. Attacker repeats the request periodically to prevent the camera from staying online, resulting in indefinite denial of service.\n\n## Impact\n\nThe vulnerability allows any unauthorized user on the local Wi-Fi network to perform a denial-of-service attack, rendering the security camera offline and ineffective.\n\n## Recommendation\n\n1. Update all affected Intelbras cameras to the latest firmware version (R.260804) immediately.\n2. Isolate security cameras on a dedicated, non-broadcast VLAN to prevent unauthorized local network access.\n3. Implement network-level monitoring to detect unusual traffic directed at device management ports.\n",
-      "published": "2026-10-28T11:38:28.000Z",
-      "labels": [
-        "denial-of-service",
-        "iot",
-        "network"
-      ],
-      "object_refs": [
-        "attack-pattern--7fbd6d58-7528-54d9-a63e-ba73ac098f89",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--2e587c1c-81bd-5b97-bc26-0a8b54556c5b",
-        "software--326687ed-130c-5227-878d-90173ad2127e",
-        "software--7804f8e6-643f-5265-95df-54805a096be3",
-        "software--940aba6c-4d86-5974-a83b-7f48d484c3da",
-        "software--9c74c7d8-08d7-5791-9fff-5366632b1135",
-        "software--bedcf0d1-6526-5971-8de5-fbaddd55e250"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-28-intelbras-dos",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-intelbras-dos/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://api-cronos.intelbras.com.br/download/MIBO-CAM-SD/CAMERASIM/prod/CAMERASIM-2.800.260804-2bff9ef9d4fddd76f271ff846a5c7dad.260804.zip"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://backend.intelbras.com/sites/default/files/2026-10/Atualizacao_firmware_Cameras_im_C_cartao_sd.pdf"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://securelist.com/intelbras-camera-vulnerability/121131/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-10-28-intelbras-dos",
-      "x_craftedsignal_event_id": "brief-2026-10-28-intelbras-dos",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-intelbras-dos/",
-      "x_craftedsignal_activity_at": "2026-10-28T11:38:28.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -411084,13 +410872,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--2e587c1c-81bd-5b97-bc26-0a8b54556c5b",
-      "name": "iMX C",
-      "vendor": "Intelbras"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--2e799c44-ca20-5157-b35c-6425ebcc6380",
       "name": "mTower",
       "vendor": "Samsung"
@@ -411625,13 +411406,6 @@
       "spec_version": "2.1",
       "id": "software--325d61be-a2c4-5655-8b12-c0e449cc6214",
       "name": "OpenAuth.Net (\u003c= 8.3.4)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--326687ed-130c-5227-878d-90173ad2127e",
-      "name": "iM7+ FC",
-      "vendor": "Intelbras"
     },
     {
       "type": "software",
@@ -420429,13 +420203,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--7804f8e6-643f-5265-95df-54805a096be3",
-      "name": "iM5 SC",
-      "vendor": "Intelbras"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--78086259-36bc-5116-81eb-6e18f290d01e",
       "name": "Power Apps",
       "vendor": "Microsoft"
@@ -424096,13 +423863,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--940aba6c-4d86-5974-a83b-7f48d484c3da",
-      "name": "iM3B-C",
-      "vendor": "Intelbras"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--94160b1c-8dc5-5136-ac1e-dbeb607841d2",
       "name": "NLTK (\u003c 3.10.4)",
       "vendor": "NLTK Project"
@@ -425096,13 +424856,6 @@
       "id": "software--9c51c996-04b6-51f4-b1b8-2f0e57207f29",
       "name": "Linux Kernel (\u003e= 5.11, \u003c 5.15.222)",
       "vendor": "Linux"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--9c74c7d8-08d7-5791-9fff-5366632b1135",
-      "name": "iME 360 C",
-      "vendor": "Intelbras"
     },
     {
       "type": "software",
@@ -427464,12 +427217,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--ae8813c3-9347-58c7-af52-f7a2f969286c",
-      "name": "CMS (Camera Management Software)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--aeb1faea-5bae-59b3-893d-9780fdbaaffd",
       "name": "vtenext (\u003c 25.02.1)",
       "vendor": "vtenext"
@@ -429618,13 +429365,6 @@
       "id": "software--beda3cf2-fb58-5224-9512-d3a5e62d6689",
       "name": "xwiki-platform-rest-server (\u003e= 4.3-milestone-1, \u003c 16.10.18)",
       "vendor": "XWiki"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--bedcf0d1-6526-5971-8de5-fbaddd55e250",
-      "name": "iM4 C",
-      "vendor": "Intelbras"
     },
     {
       "type": "software",
