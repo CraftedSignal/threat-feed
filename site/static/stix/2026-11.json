@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--05b2721f-4bf8-5f1b-8f5c-e66f721fe325",
+  "id": "bundle--e7bfce35-b60d-5bde-9bc3-f773c763194e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -21940,6 +21940,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--140b6bea-54ea-5948-8b5c-9380375fcd16",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6be1fc81-1251-5684-bbc4-6d9e1d6fae82",
+      "target_ref": "vulnerability--10a0cf2d-c4de-507c-b79e-e1bf0368e43e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--14123b3d-2d0c-5977-a93f-80041007451d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29438,6 +29449,17 @@
       "relationship_type": "has",
       "source_ref": "software--3ea73ea4-0ca5-5e6a-a0fd-9440f8985fbb",
       "target_ref": "vulnerability--45ff7d94-0dc6-58b8-9982-3f1549d63a7c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1f436d01-ec30-545e-a44b-53951ff3fe8d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--503293cb-11d6-5e9b-9f92-0b49950e8b54",
+      "target_ref": "vulnerability--45370063-4624-533c-a2e2-94298dc94878"
     },
     {
       "type": "relationship",
@@ -119433,6 +119455,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a7835c79-46c6-53e9-8a03-e9eba8f13c35",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T06:01:43.000Z",
+      "modified": "2026-11-27T06:01:43.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--1519ea26-4379-54df-9721-89e4f96a2bd3",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a788dc06-498b-5c7b-8c59-9e0f75ac76e0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -160815,6 +160848,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e6fd1954-b747-58a2-b4a4-4bf5cf8d4455",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T06:02:16.000Z",
+      "modified": "2026-11-27T06:02:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--cae2fe6f-1c73-5948-855c-1f5050865524",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e6fe4f05-040f-5fb9-baf5-e2ffff3812a6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -192208,6 +192252,58 @@
       },
       "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_epss_max": 0.01405,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1519ea26-4379-54df-9721-89e4f96a2bd3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T06:01:43.000Z",
+      "modified": "2026-11-27T06:01:43.000Z",
+      "name": "MasterSAM Star Gate: Unauthenticated directory traversal (CVE-2024-55457)",
+      "description": "## Overview\nMasterSAM Star Gate version 11 is affected by an unauthenticated directory traversal vulnerability in the /adama/adama/downloadService endpoint. The vulnerability is triggered by manipulating the 'file' parameter, which fails to perform proper path validation. This flaw allows unauthenticated attackers to access arbitrary files on the server, potentially leading to sensitive information disclosure.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to read arbitrary files from the filesystem of the hosting server, potentially exposing sensitive configuration or system data.\n\n## Recommendation\n- Audit external access to the /adama/adama/downloadService endpoint.\n- Review server logs for anomalous GET requests targeting this endpoint with file path manipulation patterns (e.g., ../, ..\\).\n- Contact the vendor, MasterSAM, to determine if a patch or mitigation is available for Star Gate version 11, as formal remediation details were not provided in the primary advisory.",
+      "published": "2026-11-27T06:01:43.000Z",
+      "labels": [
+        "cve",
+        "directory-traversal"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6be1fc81-1251-5684-bbc4-6d9e1d6fae82",
+        "vulnerability--10a0cf2d-c4de-507c-b79e-e1bf0368e43e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-27-mastersam-star-gate-traversal-cve-2024-55457",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-mastersam-star-gate-traversal-cve-2024-55457/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2024-55457"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-H13NH04NG-CVE-2024-55457-POC"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-H13NH04NG-CVE-2024-55457-POC\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-27-mastersam-star-gate-traversal-cve-2024-55457",
+      "x_craftedsignal_event_id": "brief-2026-11-27-mastersam-star-gate-traversal-cve-2024-55457",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mastersam-star-gate-traversal-cve-2024-55457/",
+      "x_craftedsignal_activity_at": "2026-11-27T06:01:43.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -323827,6 +323923,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--cae2fe6f-1c73-5948-855c-1f5050865524",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T06:02:16.000Z",
+      "modified": "2026-11-27T06:02:16.000Z",
+      "name": "Telesquare TLR-2005KSH: Remote code execution via OS command injection (CVE-2024-29269)",
+      "description": "## Overview\nTelesquare TLR-2005KSH routers running firmware versions 1.0.0 and 1.1.4 contain a command injection vulnerability. An unauthenticated attacker can leverage the Cmd parameter to execute arbitrary system commands on the device. Publicly available exploit scripts confirm that the vulnerability is exploitable via unauthenticated requests to the web interface. \n\n## Impact\nThe vulnerability is rated as high severity (CVSS 8.8) with an adjacent network attack vector. Successful exploitation allows an attacker to gain full system control, compromising confidentiality, integrity, and availability.\n\n## Recommendation\nInventory all Telesquare TLR-2005KSH routers within the network. Since official remediation details from the vendor are not currently provided in the primary evidence, ensure that these devices are isolated from untrusted network segments and that access to the web management interface is restricted to authorized administrative workstations.",
+      "published": "2026-11-27T06:02:16.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--503293cb-11d6-5e9b-9f92-0b49950e8b54",
+        "vulnerability--45370063-4624-533c-a2e2-94298dc94878"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-27-cve-2024-29269",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-29269/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2024-29269"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-HACK-WITH-ROHIT-CVE-2024-29269-RCE"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-HACK-WITH-ROHIT-CVE-2024-29269-RCE\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-27-cve-2024-29269",
+      "x_craftedsignal_event_id": "brief-2026-11-27-cve-2024-29269",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-29269/",
+      "x_craftedsignal_activity_at": "2026-11-27T06:02:16.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--caeecb80-64f4-5e0e-a3f0-c1c45f386cf8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-22T19:49:05.000Z",
@@ -371217,6 +371361,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--503293cb-11d6-5e9b-9f92-0b49950e8b54",
+      "name": "TLR-2005KSH (1.0.0, 1.1.4)",
+      "vendor": "Telesquare"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5033fae8-cebc-5e7b-8c78-641263d67faa",
       "name": "Windows 11 (Version 23H2, 24H2, 25H2, 26H1)",
       "vendor": "Microsoft"
@@ -374239,6 +374390,13 @@
       "id": "software--6bcf7142-980a-59e5-8c2c-253ec03e0c8b",
       "name": "Splunk App for Stream (\u003c 8.1.7)",
       "vendor": "Splunk"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6be1fc81-1251-5684-bbc4-6d9e1d6fae82",
+      "name": "Star Gate (v11)",
+      "vendor": "MasterSAM"
     },
     {
       "type": "software",
@@ -396712,6 +396870,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--10a0cf2d-c4de-507c-b79e-e1bf0368e43e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-55457",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-55457",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-55457"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--10d2627f-6a42-5d46-b299-f4e4b3518e2c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -412978,6 +413152,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109478",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109478"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--45370063-4624-533c-a2e2-94298dc94878",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-29269",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-29269",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-29269"
         }
       ]
     },
