@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e104ed22-dc03-5b5f-a419-4d297297dd78",
+  "id": "bundle--9e3c46cb-7813-50b5-9fb4-dcf4b1fe1880",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1256,17 +1256,6 @@
       "relationship_type": "has",
       "source_ref": "software--13d7e71f-4703-5a84-a6c0-df72c5274e1f",
       "target_ref": "vulnerability--bc269d5a-7b0a-5d1b-a85a-027e4c76c822"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--110f1a49-43c8-5c13-8c97-e4fa5d01e091",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--97631bf3-3bf2-5bd9-8f14-8636ee28650e",
-      "target_ref": "vulnerability--f6f319c6-86fc-5730-8975-b29d9b5cc830"
     },
     {
       "type": "relationship",
@@ -3207,17 +3196,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ac67440d-80e5-53c2-a30a-0ae9bea73525",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-29T01:35:40.000Z",
-      "modified": "2026-08-29T01:35:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a3e6e9b9-1cd3-5620-af41-036ffc02aa98",
-      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ad9ed5b0-fe96-508b-8d7f-4736bdf59702",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3401,17 +3379,6 @@
       "relationship_type": "uses",
       "source_ref": "report--66e2551b-7a46-5c2c-84a8-585e5f26b392",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c0958d5c-fead-56f5-b322-b7fc3e1466f6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--5d7cf1de-688a-59d5-b62a-499eea020da7",
-      "target_ref": "vulnerability--a40506d2-05d2-552e-9e86-fd35ad9a569e"
     },
     {
       "type": "relationship",
@@ -4697,46 +4664,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--0e20d152-bcf3-5d54-b0d2-98703acd8aeb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-29T01:35:33.000Z",
-      "modified": "2026-08-29T01:35:33.000Z",
-      "name": "Privilege Escalation in IBM Application Runtime Expert for i",
-      "description": "## Overview\n\nIBM Application Runtime Expert (ARE) for i version 1R1M0 contains a critical security vulnerability, tracked as CVE-2026-18527, within its Graphical User Interface (GUI) component. This flaw enables an unauthenticated remote attacker to bypass standard authentication mechanisms and execute actions under the security context of an already authenticated user profile. Successful exploitation results in unauthorized privilege escalation on the target IBM i system. The vulnerability is characterized by a CVSS v3.1 base score of 9.9, reflecting its severity and the significant risk of unauthorized access to administrative functions. Defenders should prioritize identifying instances of ARE for i in their environments to apply necessary security updates or implement compensatory network-level access controls.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to operate with the elevated permissions of an authenticated user. On an IBM i system, this could lead to full system compromise, unauthorized data access, modification of system configurations, and the execution of arbitrary commands under the compromised user profile. This vulnerability poses a severe risk to organizations relying on the ARE framework for system administration and runtime monitoring.\n\n## Recommendation\n\nPrioritize the identification and patching of all IBM Application Runtime Expert for i 1R1M0 instances. Verify against IBM security bulletins for available updates or mitigation patches. Restrict access to the ARE GUI component via firewall rules to known-safe IP addresses to prevent unauthenticated remote access.\n",
-      "published": "2026-08-29T01:35:33.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--5d7cf1de-688a-59d5-b62a-499eea020da7",
-        "vulnerability--a40506d2-05d2-552e-9e86-fd35ad9a569e"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-28-cve-2026-18527",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2026-18527/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18527"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-28-cve-2026-18527",
-      "x_craftedsignal_event_id": "brief-2026-08-28-cve-2026-18527",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2026-18527/",
-      "x_craftedsignal_activity_at": "2026-08-29T01:35:33.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -7636,47 +7563,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--a3e6e9b9-1cd3-5620-af41-036ffc02aa98",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-29T01:35:40.000Z",
-      "modified": "2026-08-29T01:35:40.000Z",
-      "name": "Authorization Bypass in Kotaemon Conversation Management",
-      "description": "## Overview\n\nKotaemon through version 0.12.0 is susceptible to an authorization bypass vulnerability located in the conversation management functions of control.py. The affected functions include select_conv, delete_conv, rename_conv, and on_set_public_conversation. The application fails to perform adequate validation of conversation ownership when these functions are called, allowing an unauthenticated or low-privileged attacker to supply arbitrary conversation identifiers. By manipulating these identifiers, an attacker can read sensitive chat histories, rename existing conversations, or perform unauthorized deletions of historical data. This vulnerability poses a significant risk to data privacy and integrity within the application, as it circumvents intended access controls over user communications.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows unauthorized access to private user chat histories and the ability to perform destructive actions such as deleting or renaming conversations. This impact is significant in multi-user environments where conversation isolation is a security requirement. Organizations utilizing Kotaemon for internal AI-powered document analysis and chat should treat this as a high-risk issue until patches are applied.\n\n## Recommendation\n\n- Upgrade to a version of Kotaemon beyond 0.12.0 as soon as a patch is made available by the maintainers.\n- Audit access logs for unexpected sequences of calls to control.py functions (select_conv, delete_conv, rename_conv) originating from a single user session that access multiple distinct conversation IDs.\n- Implement network-level restrictions to ensure that instances of Kotaemon are not exposed to untrusted users or the public internet.\n",
-      "published": "2026-08-29T01:35:40.000Z",
-      "object_refs": [
-        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--97631bf3-3bf2-5bd9-8f14-8636ee28650e",
-        "vulnerability--f6f319c6-86fc-5730-8975-b29d9b5cc830"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-28-kotaemon-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-kotaemon-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82281"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-28-kotaemon-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-08-28-kotaemon-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-kotaemon-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-08-29T01:35:40.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.4,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--a62fc0f9-3cf1-5ee0-baad-27e6f2da3c81",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T12:00:31.000Z",
@@ -10173,13 +10059,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--5d7cf1de-688a-59d5-b62a-499eea020da7",
-      "name": "IBM Application Runtime Expert for i (1R1M0)",
-      "vendor": "IBM"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--5ded517b-3b52-5166-9360-289e65d09cfb",
       "name": "Admidio (\u003c 5.0.12)",
       "vendor": "Admidio"
@@ -10432,13 +10311,6 @@
       "spec_version": "2.1",
       "id": "software--96cde80a-194b-5442-95e1-c507daa043f3",
       "name": "su-exec (\u003c= 0.3)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--97631bf3-3bf2-5bd9-8f14-8636ee28650e",
-      "name": "Kotaemon (\u003c= 0.12.0)",
-      "vendor": "Kotaemon"
     },
     {
       "type": "software",
@@ -11793,22 +11665,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--a40506d2-05d2-552e-9e86-fd35ad9a569e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-18527",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-18527",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18527"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--a7e6330c-9a29-58ba-865a-d5c01562bde6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -12315,22 +12171,6 @@
           "source_name": "cve",
           "external_id": "CVE-2024-22274",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-22274"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--f6f319c6-86fc-5730-8975-b29d9b5cc830",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-82281",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-82281",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82281"
         }
       ]
     },
