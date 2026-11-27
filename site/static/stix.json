@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a85aeaa7-d4bc-585a-acad-3ea7681185e1",
+  "id": "bundle--b1467b85-b006-57a3-bf58-37990beb8d90",
   "objects": [
     {
       "type": "attack-pattern",
@@ -27155,6 +27155,17 @@
       "relationship_type": "uses",
       "source_ref": "report--334b1cd1-9570-5b3b-915a-937535f42e66",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--184e4bd1-fb62-5cd3-8f2d-4fdae3f81e63",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T12:08:36.000Z",
+      "modified": "2026-11-27T12:08:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--95729fa3-7dc8-555d-be43-0016d799d557",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -141801,6 +141812,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b1c11fc3-6637-53f6-8055-b8464a7a1388",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--cdbab947-6acc-5740-8d51-6c00bb42e697",
+      "target_ref": "vulnerability--b972476c-e7ed-588a-8394-b19aaf1790f3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b1c14b1a-187d-57d3-bee5-14c6f83f24cf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -170837,6 +170859,17 @@
       "relationship_type": "has",
       "source_ref": "software--85475315-041c-542e-bcae-560f82ce7f95",
       "target_ref": "vulnerability--67cff9ae-af52-5bdc-9615-c841f66f1f19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d96e39d1-62c2-53dd-ac72-bf2e939926ed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T12:08:36.000Z",
+      "modified": "2026-11-27T12:08:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--95729fa3-7dc8-555d-be43-0016d799d557",
+      "target_ref": "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694"
     },
     {
       "type": "relationship",
@@ -318859,6 +318892,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--95729fa3-7dc8-555d-be43-0016d799d557",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T12:08:36.000Z",
+      "modified": "2026-11-27T12:08:36.000Z",
+      "name": "TP-Link Archer AX50: Stack-based buffer overflow (CVE-2025-40634)",
+      "description": "## Overview\n\nThe TP-Link Archer AX50 router is vulnerable to a stack-based buffer overflow in the 'conn-indicator' binary, which is responsible for periodic connectivity checks. The flaw exists in the 'DNS_answer_parser' function, which fails to validate the size of domain names copied from incoming DNS responses into a 256-byte stack-allocated buffer. This vulnerability can be exploited by an unauthenticated attacker to execute arbitrary code with root privileges over LAN or WAN networks.\n\n## Impact\n\nSuccessful exploitation results in remote code execution with root privileges. Due to the read-only file system, exploitation requires serving a payload from an external web server and issuing a command to the target device to download and execute it.\n\n## Recommendation\n\nUpgrade to firmware version 1.0.15 build 241203 rel61480 or later to patch CVE-2025-40634. In the absence of an immediate patch, restrict management access and monitor for unusual outbound DNS activity or unexpected file downloads originating from the router.",
+      "published": "2026-11-27T12:08:36.000Z",
+      "labels": [
+        "buffer-overflow",
+        "cve",
+        "networking",
+        "rce"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--cdbab947-6acc-5740-8d51-6c00bb42e697",
+        "vulnerability--b972476c-e7ed-588a-8394-b19aaf1790f3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-27-cve-2025-40634",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-40634/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-40634"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-HACEFRESKO-CVE-2025-40634"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-HACEFRESKO-CVE-2025-40634\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-27-cve-2025-40634",
+      "x_craftedsignal_event_id": "brief-2026-11-27-cve-2025-40634",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-40634/",
+      "x_craftedsignal_activity_at": "2026-11-27T12:08:36.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--958ce01d-ce2d-5eef-8efb-3fbb525af9fc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T16:33:09.000Z",
@@ -431231,6 +431319,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--cdbab947-6acc-5740-8d51-6c00bb42e697",
+      "name": "Link Archer AX50 (\u003c 1.0.15 build 241203 rel61480)",
+      "vendor": "TP-Link"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--cdbf239f-13d2-5840-a04e-d2db7404512a",
       "name": "ManageEngine Log360 (\u003c= 13071)",
       "vendor": "Zohocorp"
@@ -503517,6 +503612,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-124027",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124027"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b972476c-e7ed-588a-8394-b19aaf1790f3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-40634",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-40634",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-40634"
         }
       ]
     },
