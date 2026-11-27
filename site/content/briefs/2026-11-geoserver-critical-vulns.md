@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-25-geoserver-critical-vulns
 event_id: brief-2026-11-25-geoserver-critical-vulns
-revision: 2
-activity_at: "2026-11-26T12:53:17Z"
+revision: 3
+activity_at: "2026-11-27T21:12:10Z"
 revision_history:
   - revision: 2
     at: "2026-11-26T12:53:17Z"
@@ -16,11 +16,21 @@ revision_history:
       - updates
     source_urls:
       - https://www.securityweek.com/two-newly-disclosed-geoserver-vulnerabilities-under-attack/
+  - revision: 3
+    at: "2026-11-27T21:12:10Z"
+    checksum: sha256:a65de230ce0b967b2ade828c3ce4ecc8046228f469cdc45984c52face47bd527
+    summary: KEV CVE-2026-120705; KEV CVE-2026-129243
+    changed_fields:
+      - cves
+      - lastmod
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: GeoServer Security Advisory (AV26-1207)
 slug: 2026-11-geoserver-critical-vulns
 description: GeoServer versions prior to 2.27.7, 2.28.6, and 3.0.2 are affected by vulnerabilities (CVE-2026-120705 and CVE-2026-129243) currently being exploited in the wild.
 date: "2026-11-25T23:21:19Z"
-lastmod: "2026-11-26T12:52:32Z"
+lastmod: "2026-11-27T21:11:35Z"
 type: threat
 types:
   - threat
@@ -52,9 +62,11 @@ cve_verification:
     checked_at: 2026-11-26T12:52:32.365553535Z
 cves:
   - id: CVE-2026-120705
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
   - id: CVE-2026-129243
-    kev_status: "false"
+    kev: true
+    kev_status: "true"
 references:
   - https://cyber.gc.ca/en/alerts-advisories/geoserver-security-advisory-av26-1207
   - https://geoserver.org/vulnerability/2026/11/23/cve-update.html
@@ -67,6 +79,13 @@ updates:
       - securityweek
     source_urls:
       - https://www.securityweek.com/two-newly-disclosed-geoserver-vulnerabilities-under-attack/
+  - at: "2026-11-27T21:11:35Z"
+    level: L3
+    summary: KEV CVE-2026-120705; KEV CVE-2026-129243
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
 
 ## Overview

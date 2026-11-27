@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--97422696-e6ef-5f41-a597-a153b3e15c3c",
+  "id": "bundle--c872fa96-f0ad-58ec-810f-a789a450d252",
   "objects": [
     {
       "type": "attack-pattern",
@@ -290643,7 +290643,7 @@
       "id": "report--79637a85-f605-51a2-a373-f02d53779aa7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-25T23:21:03.000Z",
-      "modified": "2026-11-26T10:08:38.000Z",
+      "modified": "2026-11-27T21:12:10.000Z",
       "name": "Drupal Core: Access bypass vulnerability (CVE-2026-136716)",
       "description": "## Overview\n\nDrupal has released security advisory SA-CORE-2026-019 regarding a highly critical access bypass vulnerability identified as CVE-2026-136716. The vulnerability affects multiple versions of Drupal core. According to the advisory, exploitation of this flaw has been observed in the wild. \n\n## Recommendation\n\nAdministrators should immediately upgrade to the patched versions of Drupal core to mitigate the risk of exploitation. \n- Upgrade Drupal core to 10.6.23, 11.3.23, or 11.4.14 or later as appropriate for the current deployment.\n- Review the official Drupal advisory SA-CORE-2026-019 for specific environment mitigation steps.",
       "published": "2026-11-25T23:21:03.000Z",
@@ -290689,9 +290689,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-25-drupal-core-access-bypass-cve-2026-136716",
       "x_craftedsignal_event_id": "brief-2026-11-25-drupal-core-access-bypass-cve-2026-136716",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-drupal-core-access-bypass-cve-2026-136716/",
-      "x_craftedsignal_activity_at": "2026-11-26T10:08:38.000Z",
+      "x_craftedsignal_activity_at": "2026-11-27T21:12:10.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -290700,7 +290700,6 @@
         "observed_at": "2026-11-26T09:12:26.000Z",
         "confidence": "medium"
       },
-      "x_craftedsignal_epss_max": 0.01212,
       "x_craftedsignal_kev_status": "true"
     },
     {
@@ -321206,7 +321205,7 @@
       "id": "report--9ec683b8-cdea-51ea-846d-242f10a43a42",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-25T23:21:19.000Z",
-      "modified": "2026-11-26T12:53:17.000Z",
+      "modified": "2026-11-27T21:12:10.000Z",
       "name": "GeoServer Security Advisory (AV26-1207)",
       "description": "## Overview\nOn November 25, 2026, the Cyber Centre issued an advisory regarding vulnerabilities in GeoServer. Open source reporting indicates that CVE-2026-120705 and CVE-2026-129243 are being exploited in the wild.\n\n## Attack Chain\nThe provided source does not specify the mechanisms of exploitation, attack stages, or impact.\n\n## Impact\nThe provided source confirms active exploitation in the wild, but does not explicitly define the security impact.\n\n## Recommendation\nAdministrators should review the vendor documentation at https://geoserver.org/vulnerability/2026/11/23/cve-update.html and apply updates for affected GeoServer versions prior to 2.27.7, 2.28.6, and 3.0.2.",
       "published": "2026-11-25T23:21:19.000Z",
@@ -321238,9 +321237,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-25-geoserver-critical-vulns",
       "x_craftedsignal_event_id": "brief-2026-11-25-geoserver-critical-vulns",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-geoserver-critical-vulns/",
-      "x_craftedsignal_activity_at": "2026-11-26T12:53:17.000Z",
+      "x_craftedsignal_activity_at": "2026-11-27T21:12:10.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -321249,7 +321248,7 @@
         "observed_at": "2026-11-25T23:21:19.000Z",
         "confidence": "high"
       },
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
