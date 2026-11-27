@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bdfc0a32-8ba8-5957-b09d-b9a581b9f3a2",
+  "id": "bundle--65fe8060-461e-57de-85ba-0c57b7d1352c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -275162,6 +275162,44 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5cba1a83-5b74-5708-8663-bb2ad4866a72",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T14:45:39.000Z",
+      "modified": "2026-11-27T14:45:39.000Z",
+      "name": "Samba: Remote authenticated denial of service vulnerability",
+      "description": "## Overview\n\nA vulnerability exists in the Samba suite that allows a remote, authenticated attacker to cause a denial-of-service condition. The BSI advisory notes that the issue is currently unpatched.\n\n## Impact\n\nSuccessful exploitation results in a denial-of-service, rendering the affected Samba service unavailable.\n\n## Recommendation\n\n- Monitor security bulletins from the Samba project for patch availability.\n- Implement strict access controls for services utilizing Samba to limit the set of potentially authenticated attackers.",
+      "published": "2026-11-27T14:45:39.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4cbc7b3a-041b-51d2-a0cc-fe1c595d23df"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-27-samba-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-samba-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4833"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-27-samba-dos",
+      "x_craftedsignal_event_id": "brief-2026-11-27-samba-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-samba-dos/",
+      "x_craftedsignal_activity_at": "2026-11-27T14:45:39.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5cc159ae-e9ef-5287-87b4-04d3f84f5b1b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T02:00:29.000Z",
@@ -415223,6 +415261,13 @@
       "id": "software--4cb22590-5dfa-5387-9ea0-29f3428a4c57",
       "name": "AutoGPT (\u003e= 0.11.1, \u003c 0.11.3)",
       "vendor": "Significant-Gravitas"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4cbc7b3a-041b-51d2-a0cc-fe1c595d23df",
+      "name": "Samba",
+      "vendor": "Samba"
     },
     {
       "type": "software",
