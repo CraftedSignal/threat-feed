@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-oracle-security-updates
 event_id: brief-2026-11-oracle-security-updates
-revision: 69
-activity_at: "2026-11-27T00:11:36Z"
+revision: 70
+activity_at: "2026-11-27T00:16:01Z"
 revision_history:
   - revision: 2
     at: "2026-11-17T23:49:55Z"
@@ -869,11 +869,24 @@ revision_history:
       - cves
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101636
+  - revision: 70
+    at: "2026-11-27T00:16:01Z"
+    checksum: sha256:a7b329e7f3a96e9c63dde5f2cff7c2fab0a87437b36f10ec97493422722ffda4
+    summary: added CVE-2026-101676
+    changed_fields:
+      - cpes
+      - cve_verification
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101676
 title: Oracle Security Updates - November 2026
 slug: 2026-11-oracle-security-updates
 description: Roundup of Oracle security advisories published in November 2026.
 date: "2026-11-16T21:54:15Z"
-lastmod: "2026-11-27T00:08:32Z"
+lastmod: "2026-11-27T00:15:42Z"
 type: threat
 types:
   - threat
@@ -896,6 +909,7 @@ cpes:
   - cpe:2.3:a:oracle:communications_unified_inventory_management:7.7.0:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:communications_unified_inventory_management:7.8.0:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:communications_unified_inventory_management:8.0.1:*:*:*:*:*:*:*
+  - cpe:2.3:a:oracle:concurrent_processing:*:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:e-business_suite:*:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:jd_edwards_enterpriseone_tools:*:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:marketing:*:*:*:*:*:*:*:*
@@ -1153,6 +1167,10 @@ cve_verification:
     status: verified
     source: nvd
     checked_at: 2026-11-26T21:33:06.226321215Z
+  CVE-2026-101676:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-27T00:15:41.865529265Z
   CVE-2026-101679:
     status: verified
     source: cve_program
@@ -3072,16 +3090,19 @@ cves:
     cvss: 7.4
     epss: 0.0034
     kev_status: "false"
+  - id: CVE-2026-101676
+    cvss: 7.8
+    epss: 0.00161
+    kev_status: "false"
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-101636
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-101676
 updates:
-  - at: "2026-11-26T22:38:27Z"
+  - at: "2026-11-26T22:38:32Z"
     level: L2
-    summary: added CVE-2026-101692, CVE-2026-101700
+    summary: added CVE-2026-101700
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-101692
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101700
   - at: "2026-11-26T23:53:47Z"
     level: L2
@@ -3104,6 +3125,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101636
+  - at: "2026-11-27T00:15:42Z"
+    level: L2
+    summary: added CVE-2026-101676
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101676
 ---
 
 ## Overview
