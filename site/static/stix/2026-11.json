@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--48c8b372-bf1f-55f0-aae4-35d5ae82b55b",
+  "id": "bundle--dfb0177b-e6b9-5f51-8515-fa28d538c10c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -14588,6 +14588,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e1578fe2-cfc8-574b-ba3f-ed77a96540bf",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--091fd601-f4db-5ede-b8c0-3f222c5332ad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d2518a98-945c-52f1-960a-08a1907fa3df",
+      "target_ref": "vulnerability--e36cf47b-19b6-5752-ac1d-c470ec82d091"
     },
     {
       "type": "relationship",
@@ -38726,6 +38737,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2ca15e13-a927-5f34-954c-65fd42896e48",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--db9fa4ec-f0aa-5e30-94c3-14967ace7070",
+      "target_ref": "vulnerability--848d266d-3af6-5aec-8967-90b89f5fdbc1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2ca4a8da-0215-538e-bf30-4fbdd2aaaa28",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-21T17:47:15.000Z",
@@ -42660,6 +42682,17 @@
       "relationship_type": "uses",
       "source_ref": "report--0a650698-cc30-5622-a20b-3a7f9320cdf3",
       "target_ref": "attack-pattern--67193ec2-dec7-586e-a385-cc0f1baa8526"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--32ee901b-0ec6-51fa-8fb5-337f6fed029a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--68d17419-1c97-5a48-9f47-31acaba789f1",
+      "target_ref": "vulnerability--f3117d81-c495-5f02-886c-2577f9605937"
     },
     {
       "type": "relationship",
@@ -72320,6 +72353,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5f62029a-5013-53ac-950d-c64be09f43b5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T23:15:46.000Z",
+      "modified": "2026-11-27T23:15:46.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c860f9e5-689e-50fb-a583-f3aea12b7b58",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5f62ea24-8a8b-50c5-ae29-7807bc7a094a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -90708,6 +90752,17 @@
       "relationship_type": "has",
       "source_ref": "software--51f63454-3c49-566c-9d86-eb53978de71b",
       "target_ref": "vulnerability--e57095b4-cfe9-5a8d-80ca-6e2ff4e67724"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7a4b109c-f46d-5f76-973b-7ea327a52b7f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--68d17419-1c97-5a48-9f47-31acaba789f1",
+      "target_ref": "vulnerability--2225bc92-b7c3-5d40-b107-32edab0f599b"
     },
     {
       "type": "relationship",
@@ -189704,6 +189759,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--0e442d99-36dd-5792-af74-223267e043fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T23:16:24.000Z",
+      "modified": "2026-11-27T23:16:24.000Z",
+      "name": "Shinetheme Traveler: SQL injection (CVE-2025-26898)",
+      "description": "## Overview\n\nThe Shinetheme Traveler theme for WordPress is vulnerable to an SQL injection attack due to improper neutralization of special elements used in SQL commands. This issue impacts all versions of the Traveler theme prior to 3.2.1.\n\n## Impact\n\nSuccessful exploitation may allow an unauthenticated attacker to execute arbitrary SQL queries, leading to unauthorized access to sensitive database information.\n\n## Recommendation\n\nUpgrade the Shinetheme Traveler theme to version 3.2.1 or later to remediate this vulnerability.",
+      "published": "2026-11-27T23:16:24.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--68d17419-1c97-5a48-9f47-31acaba789f1",
+        "vulnerability--f3117d81-c495-5f02-886c-2577f9605937"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-27-traveler-sql-injection-cve-2025-26898",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-traveler-sql-injection-cve-2025-26898/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-26898"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-26898"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-27-traveler-sql-injection-cve-2025-26898",
+      "x_craftedsignal_event_id": "brief-2026-11-27-traveler-sql-injection-cve-2025-26898",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-traveler-sql-injection-cve-2025-26898/",
+      "x_craftedsignal_activity_at": "2026-11-27T23:16:24.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.3,
+      "x_craftedsignal_epss_max": 0.00674,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--0e46e1da-9da7-5608-9c08-bd479f21f032",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T02:26:50.000Z",
@@ -263113,6 +263213,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6eabcc23-e57e-534f-9af7-7932f8045d63",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T23:16:16.000Z",
+      "modified": "2026-11-27T23:16:16.000Z",
+      "name": "Shinetheme Traveler: Missing authorization vulnerability (CVE-2025-26733)",
+      "description": "## Overview\nShinetheme Traveler for WordPress is affected by a missing authorization vulnerability. This flaw allows unauthenticated users to invoke sensitive functionality within the plugin due to insufficient access control checks. The vulnerability affects all versions prior to 3.2.1.\n\n## Impact\nThis vulnerability carries a CVSS v3.1 base score of 8.2 (High). Successful exploitation allows unauthorized users to perform sensitive actions without requiring prior authentication, potentially compromising the integrity of the plugin's data or configuration.\n\n## Recommendation\n- Upgrade the Shinetheme Traveler WordPress theme to version 3.2.1 or later immediately.\n- Review plugin access logs for suspicious administrative actions or unauthorized modifications to theme settings that could indicate active exploitation of this authorization flaw.",
+      "published": "2026-11-27T23:16:16.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--68d17419-1c97-5a48-9f47-31acaba789f1",
+        "vulnerability--2225bc92-b7c3-5d40-b107-32edab0f599b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-27-traveler-missing-authorization-cve-2025-26733",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-traveler-missing-authorization-cve-2025-26733/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-26733"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-26733"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-27-traveler-missing-authorization-cve-2025-26733",
+      "x_craftedsignal_event_id": "brief-2026-11-27-traveler-missing-authorization-cve-2025-26733",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-traveler-missing-authorization-cve-2025-26733/",
+      "x_craftedsignal_activity_at": "2026-11-27T23:16:16.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_epss_max": 0.0066,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--6ebb1bab-e653-56d6-9c71-26d78da157ed",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-26T23:09:34.000Z",
@@ -312500,6 +312645,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b12af76e-c3e9-54b8-9b47-652ca3bb8f92",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T23:16:33.000Z",
+      "modified": "2026-11-27T23:16:33.000Z",
+      "name": "Missing Authorization Vulnerability in Shinetheme Traveler",
+      "description": "## Overview\nA missing authorization vulnerability in the Shinetheme Traveler WordPress theme allows unauthenticated remote attackers to exploit incorrectly configured access control security levels. This issue affects versions before 3.2.3.\n\n## Impact\nSuccessful exploitation results in high impact on availability, classified as a denial of service. The vulnerability has a CVSS v3.1 base score of 7.5.\n\n## Recommendation\nUpgrade the WordPress Traveler theme to version 3.2.3 or later to remediate this vulnerability.",
+      "published": "2026-11-27T23:16:33.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--db9fa4ec-f0aa-5e30-94c3-14967ace7070",
+        "vulnerability--848d266d-3af6-5aec-8967-90b89f5fdbc1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-27-cve-2025-59011",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-59011/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-59011"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-59011"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-27-cve-2025-59011",
+      "x_craftedsignal_event_id": "brief-2026-11-27-cve-2025-59011",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-59011/",
+      "x_craftedsignal_activity_at": "2026-11-27T23:16:33.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00565,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b132642e-61bf-5760-a30d-a59d3bdc2fb2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T00:39:22.000Z",
@@ -328927,6 +329117,52 @@
         "status": "not_observed"
       },
       "x_craftedsignal_epss_max": 0.00583,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--c860f9e5-689e-50fb-a583-f3aea12b7b58",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T23:15:46.000Z",
+      "modified": "2026-11-27T23:15:46.000Z",
+      "name": "TRENDnet TEW-751DR stack-based buffer overflow (CVE-2026-138003)",
+      "description": "## Overview\n\nA stack-based buffer overflow vulnerability exists in the TRENDnet TEW-751DR router, firmware version 1.03B01. The flaw is located in the function FUN_0040ed90 within the wfadev.cgi file, which is part of the device's UPnP/WFA component. An attacker can trigger this condition by manipulating the SOAPAction argument in a network request.\n\n## Impact\n\nThe vulnerability allows for remote exploitation, although it is characterized as having a high degree of complexity. Publicly available exploit code exists, increasing the risk of potential misuse.\n\n## Recommendation\n\nAs of the current date, no vendor-provided firmware update is explicitly identified in the available advisory. Organizations should inventory all affected TEW-751DR devices and consider restricting access to the web management interface or disabling UPnP functionality where possible as a defensive measure. Monitor vendor portals for forthcoming security updates.",
+      "published": "2026-11-27T23:15:46.000Z",
+      "labels": [
+        "critical",
+        "cve",
+        "rce"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d2518a98-945c-52f1-960a-08a1907fa3df",
+        "vulnerability--e36cf47b-19b6-5752-ac1d-c470ec82d091"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-27-trendnet-tew-751dr-buffer-overflow-cve-2026-138003",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-trendnet-tew-751dr-buffer-overflow-cve-2026-138003/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-138003"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-27-trendnet-tew-751dr-buffer-overflow-cve-2026-138003",
+      "x_craftedsignal_event_id": "brief-2026-11-27-trendnet-tew-751dr-buffer-overflow-cve-2026-138003",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-trendnet-tew-751dr-buffer-overflow-cve-2026-138003/",
+      "x_craftedsignal_activity_at": "2026-11-27T23:15:46.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -382119,6 +382355,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--68d17419-1c97-5a48-9f47-31acaba789f1",
+      "name": "Traveler (\u003c 3.2.1)",
+      "vendor": "Shinetheme"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--68d83dcc-8a31-516a-9652-7c6676621c2b",
       "name": "hexpm/hexpm: from 931ee0ed46fa89218e0400a4f6e6d15f96406050 (before 5d2ccd2f14f45a63225a73fb5b1c937baf36fdc0)",
       "vendor": "hexpm"
@@ -394330,6 +394573,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d2518a98-945c-52f1-960a-08a1907fa3df",
+      "name": "TEW-751DR (1.03B01)",
+      "vendor": "TRENDnet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d2604649-d3df-5727-987a-969c6fe5224a",
       "name": "Print Spooler",
       "vendor": "Microsoft"
@@ -395241,6 +395491,13 @@
       "spec_version": "2.1",
       "id": "software--db8cee40-b817-516c-828f-0f16f287addd",
       "name": "PapaParse (\u003c 5.7.1)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--db9fa4ec-f0aa-5e30-94c3-14967ace7070",
+      "name": "Traveler (\u003c 3.2.3)",
+      "vendor": "Shinetheme"
     },
     {
       "type": "software",
@@ -411141,6 +411398,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-136117",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-136117"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2225bc92-b7c3-5d40-b107-32edab0f599b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-26733",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-26733",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-26733"
         }
       ]
     },
@@ -442293,6 +442566,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-126286",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126286"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--848d266d-3af6-5aec-8967-90b89f5fdbc1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-59011",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-59011",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-59011"
         }
       ]
     },
@@ -474555,6 +474844,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--e36cf47b-19b6-5752-ac1d-c470ec82d091",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-138003",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-138003",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-138003"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--e36da806-7bc6-5bf8-bf58-18dde8b6fe5b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -479989,6 +480294,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115166",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115166"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f3117d81-c495-5f02-886c-2577f9605937",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-26898",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-26898",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-26898"
         }
       ]
     },
