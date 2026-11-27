@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a0e623e9-9bb8-5144-b518-257a3e56c348",
+  "id": "bundle--6d8d2419-e74f-5341-9efb-f5803e348e1f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -17646,6 +17646,17 @@
       "relationship_type": "has",
       "source_ref": "software--a56ff10a-99b8-503a-85e9-a863a524d261",
       "target_ref": "vulnerability--cfa4753b-dba5-58bd-abbb-1a7fa7502c5f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0dc4eb25-253a-5f9a-b230-fe9a70b58a5b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ff3ea2b7-f199-5d8b-8e6b-00e930017d63",
+      "target_ref": "vulnerability--54089451-9ce5-5a98-8456-b1182a097ac9"
     },
     {
       "type": "relationship",
@@ -80339,6 +80350,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6c9ac0f7-57d1-5b8a-940a-90a832dd7812",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T10:11:24.000Z",
+      "modified": "2026-11-27T10:11:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d79816f8-0e97-551f-8436-3f475b4c2d7c",
+      "target_ref": "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6c9c14fe-d0ce-5517-ac21-68c148447337",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -84966,6 +84988,17 @@
       "relationship_type": "has",
       "source_ref": "software--0f8e85f1-7a81-5201-86df-71431e7df8fa",
       "target_ref": "vulnerability--2ac507fb-090c-5100-87a9-a43833c7b47c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--73195103-9c11-5fef-9c09-edb443f88e5e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--deb38001-b7d3-53ba-8d32-79393b3cbdbb",
+      "target_ref": "vulnerability--54089451-9ce5-5a98-8456-b1182a097ac9"
     },
     {
       "type": "relationship",
@@ -135973,6 +136006,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a8f3753d-8c54-5bbe-94b7-af867c3dbea4",
       "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bfb22719-8530-57bb-8b20-682dd09b7d53",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--616c984b-865e-5e76-a52a-172516c21c7c",
+      "target_ref": "vulnerability--54089451-9ce5-5a98-8456-b1182a097ac9"
     },
     {
       "type": "relationship",
@@ -333477,6 +333521,64 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d79816f8-0e97-551f-8436-3f475b4c2d7c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T10:11:24.000Z",
+      "modified": "2026-11-27T10:11:24.000Z",
+      "name": "Microsoft Windows: Remote code execution in windowscodecs.dll (CVE-2025-50165)",
+      "description": "## Overview\nCVE-2025-50165 is a critical remote code execution vulnerability residing in the Windows Codecs Library (windowscodecs.dll). The vulnerability is triggered when an affected system processes a maliciously crafted JPEG image, leading to an untrusted pointer dereference. The flaw allows for full code execution without user interaction or elevated privileges. A proof-of-concept generator is publicly available, enabling the creation of weaponized JPEGs that utilize heap spraying and Return Oriented Programming (ROP) chains hidden within EXIF/APP1 metadata headers.\n\n## Attack Chain\n1. Attacker generates a malicious JPEG file containing embedded ROP chains and shellcode via a generator script.\n2. The weaponized file is delivered to the target system (e.g., via email, web download, or network share).\n3. An application (such as Photos, Edge, or Office) parses the image metadata using the vulnerable windowscodecs.dll.\n4. The vulnerable library performs an untrusted pointer dereference, triggering the exploit logic.\n5. The ROP chain executes, bypassing basic heap mitigations.\n6. The payload, such as the demonstrated calc.exe, executes on the host.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to achieve arbitrary code execution in the context of the application processing the malicious image. The flaw carries a CVSS base score of 9.8, indicating high confidentiality, integrity, and availability impact.\n\n## Recommendation\n- Identify all systems running Windows 11 Version 24H2 and Windows Server 2025.\n- Apply the patch provided in KB5040442 by updating to version 10.0.26100.4946 or later immediately.\n- Ensure EDR solutions are configured to monitor for unexpected process spawns from image-viewing or document-parsing applications.",
+      "published": "2026-11-27T10:11:24.000Z",
+      "labels": [
+        "cve",
+        "rce",
+        "vulnerability",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--616c984b-865e-5e76-a52a-172516c21c7c",
+        "software--deb38001-b7d3-53ba-8d32-79393b3cbdbb",
+        "software--ff3ea2b7-f199-5d8b-8e6b-00e930017d63",
+        "vulnerability--54089451-9ce5-5a98-8456-b1182a097ac9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-27-cve-2025-50165",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-50165/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-50165"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ENCRYPTER15-CVE-2025-50165-X64-EXPLOIT"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ENCRYPTER15-CVE-2025-50165-X64-EXPLOIT\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-27-cve-2025-50165",
+      "x_craftedsignal_event_id": "brief-2026-11-27-cve-2025-50165",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-50165/",
+      "x_craftedsignal_activity_at": "2026-11-27T10:11:24.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.01534,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d7a18f61-6b49-5591-9a36-53ea8207830f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-24T18:29:52.000Z",
@@ -373599,6 +373701,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--616c984b-865e-5e76-a52a-172516c21c7c",
+      "name": "Windows Server 2025 (\u003c 10.0.26100.4946)",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--617869ee-f8b5-5e11-aadb-8269a5bfd2f2",
       "name": "ESP-IDF (\u003e= 5.2.0, \u003c 5.2.8)",
       "vendor": "Espressif"
@@ -387593,6 +387702,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--deb38001-b7d3-53ba-8d32-79393b3cbdbb",
+      "name": "Windows 11 Version 24H2 (\u003c 10.0.26100.4946)",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--dec7419b-b68a-5e54-b6e0-73f7120d595b",
       "name": "Splunk Enterprise (\u003c 10.4.5)",
       "vendor": "Splunk"
@@ -391296,6 +391412,13 @@
       "spec_version": "2.1",
       "id": "software--ff3e6231-0ba4-53a1-a52b-ed24b0d6d913",
       "name": "Modem (Patch ID: MOLY01876662)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ff3ea2b7-f199-5d8b-8e6b-00e930017d63",
+      "name": "Windows Server 2025 (Server Core installation) (\u003c 10.0.26100.4946)",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -417928,6 +418051,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-133168",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133168"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--54089451-9ce5-5a98-8456-b1182a097ac9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-50165",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-50165",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-50165"
         }
       ]
     },
