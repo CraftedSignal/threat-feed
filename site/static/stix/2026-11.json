@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--06cadefc-ec33-5c21-bf3b-9199e43e6114",
+  "id": "bundle--a0e623e9-9bb8-5144-b518-257a3e56c348",
   "objects": [
     {
       "type": "attack-pattern",
@@ -217806,6 +217806,48 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--36e9b6c5-a6ad-57ea-ba37-0d2733231899",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T08:54:53.000Z",
+      "modified": "2026-11-27T08:55:10.000Z",
+      "name": "GNU binutils: Denial of Service vulnerability",
+      "description": "## Overview\n\nA local vulnerability exists within the GNU binutils software package that permits an attacker with local access to trigger a denial of service condition on the affected system.\n\n## Impact\n\nSuccessful exploitation results in a denial of service, rendering the affected system or specific binutils functionality unavailable to legitimate users.\n\n## Recommendation\n\nSystems administrators should monitor for official updates from their respective Linux distribution maintainers and apply them as soon as they become available. Given the local access prerequisite, ensure that only authorized users have access to run binutils utilities on critical systems.",
+      "published": "2026-11-27T08:54:53.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7bce6770-f692-57ab-a868-a0b370205694"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-27-binutils-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-binutils-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-0304"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-2241"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-27-binutils-dos",
+      "x_craftedsignal_event_id": "brief-2026-11-27-binutils-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-binutils-dos/",
+      "x_craftedsignal_activity_at": "2026-11-27T08:55:10.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--36f8c9b0-91bf-5383-a119-86f3175e8cb2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-19T22:35:59.000Z",
@@ -376542,6 +376584,13 @@
       "id": "software--7bc1a727-16a2-597f-9126-8f267405a539",
       "name": "borg-ui (\u003c 2.4.1)",
       "vendor": "karanhudia"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--7bce6770-f692-57ab-a868-a0b370205694",
+      "name": "binutils",
+      "vendor": "GNU"
     },
     {
       "type": "software",
