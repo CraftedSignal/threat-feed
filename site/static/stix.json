@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b5e55fa7-54ad-5e71-a39a-a82d7990e9e1",
+  "id": "bundle--cbd89aa7-182c-5570-8481-e08f1d8136c6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -37316,6 +37316,17 @@
       "relationship_type": "uses",
       "source_ref": "report--643d3dd4-4102-54b6-a1ba-607cddebc4b0",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--25f55ae6-142c-5e3b-91d5-2015adcf0fef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T00:55:22.000Z",
+      "modified": "2026-11-27T00:55:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b5414bc7-8aa4-5c85-9e03-bae6bd5725ae",
+      "target_ref": "attack-pattern--f0d59d2a-1a46-508a-afde-4e90b0f822b3"
     },
     {
       "type": "relationship",
@@ -91183,6 +91194,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--a9d43ec1-fe17-5b3b-9ab4-07e21fd09383"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6e45ff48-1279-5bf2-993b-a82997e23d0c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--538a169b-1c97-5d58-9a5e-3a113855dd39",
+      "target_ref": "vulnerability--2151d4df-74f7-5586-9c61-ecb42047af98"
     },
     {
       "type": "relationship",
@@ -345472,6 +345494,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b5414bc7-8aa4-5c85-9e03-bae6bd5725ae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T00:55:22.000Z",
+      "modified": "2026-11-27T00:55:22.000Z",
+      "name": "stylefeng Guns: Hard-coded cryptographic key (CVE-2026-137660)",
+      "description": "## Overview\nA vulnerability has been identified in stylefeng Guns (up to and including version 2.2) involving the use of a hard-coded cryptographic key. The flaw resides in the TokenAndPermissionInterceptor.preHandle function within the TokenAndPermissionInterceptor.java file of the JWT Signing component. Successful exploitation allows a remote attacker to potentially manipulate JWTs or bypass authentication mechanisms. The vendor has been notified but has not provided a response or a fix at this time.\n\n## Impact\nSuccessful exploitation may allow remote attackers to compromise the integrity of JWT-based authentication tokens. As the key is hard-coded, any installation using a vulnerable version of Guns is susceptible to token forgery or unauthorized access.\n\n## Recommendation\n- Inventory all instances of stylefeng Guns in your environment.\n- Monitor for updates from the stylefeng project regarding a potential fix for CVE-2026-137660.\n- As no patch is currently available, evaluate if the JWT Signing component can be disabled or if compensating controls, such as restricting network access to the application, can be implemented until an official remediation is released.",
+      "published": "2026-11-27T00:55:22.000Z",
+      "object_refs": [
+        "attack-pattern--f0d59d2a-1a46-508a-afde-4e90b0f822b3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--538a169b-1c97-5d58-9a5e-3a113855dd39",
+        "vulnerability--2151d4df-74f7-5586-9c61-ecb42047af98"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-27-stylefeng-guns-hardcoded-key-cve-2026-137660",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-stylefeng-guns-hardcoded-key-cve-2026-137660/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-137660"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137660"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-27-stylefeng-guns-hardcoded-key-cve-2026-137660",
+      "x_craftedsignal_event_id": "brief-2026-11-27-stylefeng-guns-hardcoded-key-cve-2026-137660",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-stylefeng-guns-hardcoded-key-cve-2026-137660/",
+      "x_craftedsignal_activity_at": "2026-11-27T00:55:22.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b58cdf07-a4b1-5917-bf35-372097e6daa1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-18T21:51:55.000Z",
@@ -416056,6 +416123,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--538a169b-1c97-5d58-9a5e-3a113855dd39",
+      "name": "Guns (\u003c= 2.2)",
+      "vendor": "stylefeng"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5392d4f4-a923-5698-acca-f42be802a656",
       "name": "Filmora 13.0.51",
       "vendor": "Wondershare"
@@ -450320,6 +450394,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121683",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121683"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2151d4df-74f7-5586-9c61-ecb42047af98",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-137660",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-137660",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137660"
         }
       ]
     },
