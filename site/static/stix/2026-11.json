@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b647becc-e2bd-5c07-a876-9d4a39e466cc",
+  "id": "bundle--1ae72cae-5e5a-530a-aaf7-168a4c2e244d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -24521,6 +24521,17 @@
       "relationship_type": "has",
       "source_ref": "software--559668e4-0b2c-5229-86fa-13417b0f511f",
       "target_ref": "vulnerability--699de1b7-0d8f-5c28-9ac2-5e28ca5cc314"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--181aa699-72bf-578f-ab7d-5628abdf5298",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--15d86ab9-c3b3-51ee-845b-8b4cdb9e8010",
+      "target_ref": "vulnerability--a8c3557e-26a4-5ebc-81dc-ff9ddbeb2a21"
     },
     {
       "type": "relationship",
@@ -101301,6 +101312,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--eb49d092-655e-5bb5-841d-a7db647dca22"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8b7697a9-38c5-535e-ad24-42c57359fe5b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T04:56:52.000Z",
+      "modified": "2026-11-27T04:56:52.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c24057bd-d86b-5e26-b048-f0beebf3732b",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -317119,6 +317141,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c24057bd-d86b-5e26-b048-f0beebf3732b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T04:56:52.000Z",
+      "modified": "2026-11-27T04:56:52.000Z",
+      "name": "Directus: WebSocket authorization bypass (CVE-2026-126539)",
+      "description": "## Overview\nDirectus versions prior to 12.1.0 are vulnerable to an unauthenticated authorization bypass via the WebSocket interface. When the platform is configured with `WEBSOCKETS_ENABLED=true` and `WEBSOCKETS_REST_AUTH=public`, a failed authentication request (such as an invalid token or expired session) causes the system to set the client's internal accountability object to `null`. This state is incorrectly treated as a trusted internal caller, causing the `ItemsService` to skip permission evaluation. This allows unauthenticated attackers to perform full CRUD (Create, Read, Update, Delete) operations on any user-defined collection.\n\n## Impact\nSuccessful exploitation grants unauthenticated attackers the ability to read, create, update, or delete records in any user-defined collection. The vulnerability is reachable in specific configurations where public-mode WebSockets are enabled.\n\n## Recommendation\nUpgrade Directus to 12.1.0 or later. If upgrading is not immediately possible, disable WebSocket public-mode authentication or verify that the WebSocket interface is not exposed to untrusted networks. Ensure that `WEBSOCKETS_REST_AUTH` is not set to `public` unless strictly required by the architecture.",
+      "published": "2026-11-27T04:56:52.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--15d86ab9-c3b3-51ee-845b-8b4cdb9e8010",
+        "vulnerability--a8c3557e-26a4-5ebc-81dc-ff9ddbeb2a21"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-27-directus-auth-bypass-cve-2026-126539",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-directus-auth-bypass-cve-2026-126539/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-126539"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/directus/directus/security/advisories/GHSA-97xr-jchp-xm3c"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-FIXEDBYREBOOT-CVE-2026-126539-POC\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-27-directus-auth-bypass-cve-2026-126539",
+      "x_craftedsignal_event_id": "brief-2026-11-27-directus-auth-bypass-cve-2026-126539",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-directus-auth-bypass-cve-2026-126539/",
+      "x_craftedsignal_activity_at": "2026-11-27T04:56:52.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.0062,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c254cacd-2105-5f9c-92c1-d339f5bc69be",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T12:48:17.000Z",
@@ -364211,6 +364283,13 @@
       "id": "software--15d2212f-ecfb-5d11-b739-5d784f60d642",
       "name": "RUGGEDCOM ROX RX1501 (\u003c V2.16.0)",
       "vendor": "Siemens"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--15d86ab9-c3b3-51ee-845b-8b4cdb9e8010",
+      "name": "Directus (\u003c 12.1.0)",
+      "vendor": "Directus"
     },
     {
       "type": "software",
@@ -444208,6 +444287,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114713",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114713"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a8c3557e-26a4-5ebc-81dc-ff9ddbeb2a21",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-126539",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-126539",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126539"
         }
       ]
     },
