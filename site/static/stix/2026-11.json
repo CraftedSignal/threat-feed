@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7800ef89-5c76-5184-9dc7-da4e7d15eeaf",
+  "id": "bundle--48c8b372-bf1f-55f0-aae4-35d5ae82b55b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -69702,6 +69702,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5b8dd877-b940-5978-8e82-5b67f98115f5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ef9a9e21-3d2e-53d2-a9a4-1a57daf530f4",
+      "target_ref": "vulnerability--faa64974-7bbb-520d-b46f-9f02e674b152"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5b8e90e9-da38-5bdb-8ec3-05e5d3208b89",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-04T02:48:41.000Z",
@@ -86583,6 +86594,17 @@
       "relationship_type": "uses",
       "source_ref": "report--79eebc33-6750-5cff-b862-644b91d75b26",
       "target_ref": "attack-pattern--2a0eb82d-9673-5f53-b588-4a05cef9a7de"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--743ec40e-4f1b-566c-b599-32360250182d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7d2c9aaf-94ec-5e99-ab76-8039f0596fc3",
+      "target_ref": "vulnerability--faa64974-7bbb-520d-b46f-9f02e674b152"
     },
     {
       "type": "relationship",
@@ -334560,6 +334582,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d04c0c58-8b56-598a-a735-92b02afec208",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T22:24:37.000Z",
+      "modified": "2026-11-27T22:24:37.000Z",
+      "name": "Joomla CMS: Improper Access Control in com_config (CVE-2026-35223)",
+      "description": "## Overview\nCVE-2026-35223 is an improper access control vulnerability in the Joomla CMS com_config Web Services API. The vulnerability stems from the displayList() method failing to properly validate user permissions before returning configuration data. An authenticated attacker with a low-privileged API token can exploit this flaw to access sensitive configuration details.\n\n## Attack Chain\n1. Attacker obtains a valid API token for a low-privileged Registered user account.\n2. Attacker sends a GET request to the vulnerable API endpoint (e.g., /api/index.php/v1/config/com_content).\n3. The application processes the request in the com_config controller.\n4. The displayList() method fails to perform an authorization check (allowEdit()) on the user's permissions.\n5. The application returns the configuration data in an HTTP 200 OK response.\n\n## Impact\nSuccessful exploitation allows unauthorized retrieval of component configuration data, which may expose sensitive system settings to low-privileged users.\n\n## Recommendation\n- Upgrade Joomla 5.x installations to version 5.4.6 or later.\n- Upgrade Joomla 6.x installations to version 6.1.1 or later.\n- Review and rotate API tokens that have been exposed or are no longer in use.\n- Restrict access to administrative Web Services APIs and enforce the principle of least privilege for all user accounts.",
+      "published": "2026-11-27T22:24:37.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7d2c9aaf-94ec-5e99-ab76-8039f0596fc3",
+        "software--ef9a9e21-3d2e-53d2-a9a4-1a57daf530f4",
+        "vulnerability--faa64974-7bbb-520d-b46f-9f02e674b152"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-27-joomla-access-control-cve-2026-35223",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-joomla-access-control-cve-2026-35223/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-35223"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LAREMONTADA12-CVE-2026-35223-JOOMLA-ACCESS-CONTROL"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LAREMONTADA12-CVE-2026-35223-JOOMLA-ACCESS-CONTROL\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-27-joomla-access-control-cve-2026-35223",
+      "x_craftedsignal_event_id": "brief-2026-11-27-joomla-access-control-cve-2026-35223",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-joomla-access-control-cve-2026-35223/",
+      "x_craftedsignal_activity_at": "2026-11-27T22:24:37.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00507,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d0557b88-ff03-540f-bd60-932c9fab43ff",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-26T17:10:49.000Z",
@@ -384322,6 +384394,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7d2c9aaf-94ec-5e99-ab76-8039f0596fc3",
+      "name": "Joomla CMS (\u003c 5.4.6)",
+      "vendor": "Joomla"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7d3216d4-7ebf-5408-bddf-50a06a0ff5b2",
       "name": "Ruby"
     },
@@ -397473,6 +397552,13 @@
       "id": "software--ef784a2d-e311-51c4-aa23-21af5bf4b726",
       "name": "Commander (1-2)",
       "vendor": "ICRTouch"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ef9a9e21-3d2e-53d2-a9a4-1a57daf530f4",
+      "name": "Joomla CMS (\u003c 6.1.1)",
+      "vendor": "Joomla"
     },
     {
       "type": "software",
@@ -482271,6 +482357,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109494",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109494"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--faa64974-7bbb-520d-b46f-9f02e674b152",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-35223",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-35223",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35223"
         }
       ]
     },

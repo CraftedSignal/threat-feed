@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--38a166dd-a9f8-5742-abfe-e88956caa1a5",
+  "id": "bundle--7861770d-5fa5-518b-8cab-f726d4b06ae0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1264,17 +1264,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--2d637f6e-c8a6-5fa4-b25a-81a561913a7e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-29T21:41:54.000Z",
-      "modified": "2026-08-29T21:41:54.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--acb300c6-e57a-5e2b-a91a-66b4d7dceaa3",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--2d852e0f-fee5-5fe4-a9fa-045baedc5b26",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T19:58:39.000Z",
@@ -2503,17 +2492,6 @@
       "relationship_type": "uses",
       "source_ref": "report--b10ed790-5142-52f9-83a2-cbe79f4aec05",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--b5992c83-c78a-5fb1-a503-cc59d08447a7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--c5a78735-971a-5b2e-b20f-2bcbe9fd9ab1",
-      "target_ref": "vulnerability--600f2448-a0ea-58b8-84cc-da12c000a491"
     },
     {
       "type": "relationship",
@@ -5885,53 +5863,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--acb300c6-e57a-5e2b-a91a-66b4d7dceaa3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-29T21:41:54.000Z",
-      "modified": "2026-08-29T21:41:54.000Z",
-      "name": "Privilege Escalation in Custom User Registration Fields for WooCommerce Plugin",
-      "description": "## Overview\n\nThe Custom User Registration Fields for WooCommerce plugin for WordPress is vulnerable to a critical privilege escalation flaw identified as CVE-2026-15369. The vulnerability affects versions up to and including 2.2.3. It stems from improper input validation within the WooCommerce Store API. Specifically, the af_reg_checkout_data_to_order_meta_data_block function accepts a user-controlled parameter, afreg_select_user_role, via the /wc/store/v1/checkout endpoint. \n\nWhen the \"User Role Selection\" feature is enabled in the plugin settings, this input is persisted into order metadata. The af_reg_custom_order_processing_function, which executes during the woocommerce_thankyou hook, retrieves this unvalidated value and passes it directly to the WP_User::add_role() function. Because there is no check against an allowlist of permitted roles, an unauthenticated attacker can manipulate the checkout request to elevate their account permissions to Administrator or other sensitive roles. This flaw poses a significant risk to the integrity and confidentiality of affected WordPress installations.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to gain administrative access to a compromised WordPress site. This leads to full administrative control, enabling the attacker to execute arbitrary code via plugin/theme installation, modify site content, exfiltrate user databases, or deploy persistent backdoors. Given the ubiquity of WooCommerce, this vulnerability impacts any e-commerce site running the affected plugin version with the specific feature enabled.\n\n## Recommendation\n\nPrioritized actions for detection engineering and security operations teams:\n- Update the \"Custom User Registration Fields for WooCommerce\" plugin to a patched version beyond 2.2.3 immediately.\n- If an update is not immediately available, disable the \"User Role Selection\" feature in the plugin settings to mitigate the primary vector of this vulnerability.\n- Review web server access logs for anomalous POST requests to the /wc/store/v1/checkout endpoint, particularly those containing suspicious strings or unexpected JSON parameters in the request body.\n",
-      "published": "2026-08-29T21:41:54.000Z",
-      "labels": [
-        "privilege-escalation",
-        "web",
-        "woocommerce",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--c5a78735-971a-5b2e-b20f-2bcbe9fd9ab1",
-        "vulnerability--600f2448-a0ea-58b8-84cc-da12c000a491"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-woocommerce-privilege-escalation",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-woocommerce-privilege-escalation/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15369"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-woocommerce-privilege-escalation",
-      "x_craftedsignal_event_id": "brief-2026-08-woocommerce-privilege-escalation",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-woocommerce-privilege-escalation/",
-      "x_craftedsignal_activity_at": "2026-08-29T21:41:54.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--af7289b3-ecd3-500c-9710-4feb1aecd3e5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-30T13:10:23.000Z",
@@ -7668,13 +7599,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--c5a78735-971a-5b2e-b20f-2bcbe9fd9ab1",
-      "name": "Custom User Registration Fields for WooCommerce (\u003c= 2.2.3)",
-      "vendor": "WordPress"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--c882536f-7b2a-5e14-8b63-614676b3c783",
       "name": "Ultra RAMDisk Pro (1.82)",
       "vendor": "ieungSoft"
@@ -8161,22 +8085,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-82610",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82610"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--600f2448-a0ea-58b8-84cc-da12c000a491",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-15369",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-15369",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15369"
         }
       ]
     },
