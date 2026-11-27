@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--69658c9d-04fa-59a9-963c-43397b91c114",
+  "id": "bundle--037fe380-65fe-5042-b8c7-2993c3fabb84",
   "objects": [
     {
       "type": "attack-pattern",
@@ -22167,6 +22167,17 @@
       "relationship_type": "uses",
       "source_ref": "report--809aafbd-382c-5b4b-b22a-0e221c9684b0",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--146f5736-7562-59b6-9968-5d8cdf58fe32",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7d280540-18f3-5c71-ac0f-e6edbc274b97",
+      "target_ref": "vulnerability--50617fbe-c819-57c0-af09-4e054665505a"
     },
     {
       "type": "relationship",
@@ -82502,6 +82513,17 @@
       "relationship_type": "uses",
       "source_ref": "report--39bee109-feb5-5686-ab7e-72314ee62815",
       "target_ref": "attack-pattern--003dd11e-6b72-5943-8a73-a2bc6954b663"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6f46c85f-a049-5e9b-8a7d-d27db64245d7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T13:04:18.000Z",
+      "modified": "2026-11-27T13:04:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--feab0701-7a28-5925-bd7a-3e02e921698a",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -175595,6 +175617,17 @@
       "relationship_type": "has",
       "source_ref": "software--85475315-041c-542e-bcae-560f82ce7f95",
       "target_ref": "vulnerability--fe815eec-5682-5f49-adae-fd0c508ebd7e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fc4b5a21-16d8-5c39-8bd3-d3131a8f730a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T13:04:18.000Z",
+      "modified": "2026-11-27T13:04:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--feab0701-7a28-5925-bd7a-3e02e921698a",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -289093,7 +289126,7 @@
       "id": "report--987d8bc6-5772-5435-ac95-5575ba72d7a9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-26T08:39:02.000Z",
-      "modified": "2026-11-26T08:39:02.000Z",
+      "modified": "2026-11-27T13:04:42.000Z",
       "name": "Linux Kernel: NFSv4.1 Out-of-bounds Write (CVE-2026-99362)",
       "description": "## Overview\nCVE-2026-99362, also known as NFS2ROOT, is an out-of-bounds write vulnerability in the Linux kernel's nfsd service. When processing NFSv4.1 SEQUENCE replies, the server may accept a client-negotiated buffer size of NFSD_MIN_HDR_SEQ_SZ, which leaves insufficient room for the reply. The server then copies protocol headers and reply data past the end of the undersized slab, corrupting adjacent kernel memory.\n\n## Attack Chain\n1. A remote client establishes a TCP connection to the NFS service and sends EXCHANGE_ID and CREATE_SESSION requests.\n2. The client negotiates the ca_maxresponsesize_cached down to NFSD_MIN_HDR_SEQ_SZ.\n3. The client sends a COMPOUND request with a SEQUENCE opcode. \n4. The server's nfsd4_sequence_done function performs an 80-byte copy into an undersized sl_data buffer, triggering a slab-out-of-bounds write.\n\n## Impact\nSuccessful exploitation can result in kernel memory corruption and a potential kernel panic. The vulnerability allows an attacker to receive back written data, which can be leveraged to map the kernel layout address space.\n\n## Recommendation\nUpdate the Linux kernel to a version containing the official fixes for the respective kernel series (e.g., 5.10.275, 5.15.226, 6.1.193, 6.6.163, 6.12.117, 6.18.61, 7.3.2, 7.4-rc1). If immediate patching is not possible, restrict access to port 2049 or disable NFSv4.1 and 4.2 in the NFS configuration.",
       "published": "2026-11-26T08:39:02.000Z",
@@ -289121,15 +289154,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=59C472E3-08BE-57C6-929E-46F7721C4901\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
           "url": "https://watchtowr.com/intelligence/nfs2root-linux-nfs-cve-2026-99362-faq/"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-26-nfs2root-cve-2026-99362",
       "x_craftedsignal_event_id": "brief-2026-11-26-nfs2root-cve-2026-99362",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nfs2root-cve-2026-99362/",
-      "x_craftedsignal_activity_at": "2026-11-26T08:39:02.000Z",
+      "x_craftedsignal_activity_at": "2026-11-27T13:04:42.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -362665,6 +362702,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--feab0701-7a28-5925-bd7a-3e02e921698a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-27T13:04:18.000Z",
+      "modified": "2026-11-27T13:04:18.000Z",
+      "name": "Moodle: Path Traversal and Remote Code Execution in repository_googledocs (CVE-2026-7275)",
+      "description": "## Overview\n\nMoodle is affected by a path traversal vulnerability in the `repository_googledocs` plugin that can lead to remote code execution (RCE). The flaw exists within the `download_file()` function, which incorrectly handles remote-controlled filenames. This vulnerability is present in versions 4.5.7 - 4.5.10, 5.0.3 - 5.0.6, and 5.1.0 - 5.1.3. Older versions are not vulnerable as they utilize a different, server-side copy mechanism.\n\n## Impact\n\nSuccessful exploitation allows an authenticated user to achieve remote code execution on the target server. The vulnerability is conditional; it requires an active `repository_googledocs` instance and a connected Google system OAuth account. Field research indicates that while the vulnerability exists in a subset of Moodle installations, the requirement for specific plugin configuration significantly limits the attack surface.\n\n## Recommendation\n\n1. Patch Moodle to versions 4.5.11, 5.0.7, 5.1.4, or later.\n2. Inventory Moodle instances to identify those with the `repository_googledocs` plugin enabled and configured with a Google system OAuth account.\n3. Monitor for unusual file creation or modification activity in the Moodle web directory, particularly from the `repository/googledocs` component.",
+      "published": "2026-11-27T13:04:18.000Z",
+      "labels": [
+        "moodle",
+        "path-traversal",
+        "rce",
+        "webserver"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7d280540-18f3-5c71-ac0f-e6edbc274b97",
+        "vulnerability--50617fbe-c819-57c0-af09-4e054665505a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-27-moodle-googledocs-rce-cve-2026-7275",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-moodle-googledocs-rce-cve-2026-7275/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=45DC95D8-F31A-5EEE-8B05-C55A8367BEF7"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=45DC95D8-F31A-5EEE-8B05-C55A8367BEF7\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://tracker.moodle.org/browse/MDL-88423"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-27-moodle-googledocs-rce-cve-2026-7275",
+      "x_craftedsignal_event_id": "brief-2026-11-27-moodle-googledocs-rce-cve-2026-7275",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-moodle-googledocs-rce-cve-2026-7275/",
+      "x_craftedsignal_activity_at": "2026-11-27T13:04:18.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--feadaa13-d407-5fea-9ec4-f66e7d62ad39",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-14T11:02:12.000Z",
@@ -377634,6 +377726,13 @@
       "id": "software--7d27497e-1136-5201-9eca-a2a9f3ac3c1f",
       "name": "bazarr (\u003e= 1.4.4, \u003c 1.6.1-beta.29)",
       "vendor": "morpheus65535"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--7d280540-18f3-5c71-ac0f-e6edbc274b97",
+      "name": "Moodle (4.5.7–4.5.10, 5.0.3–5.0.6, 5.1.0–5.1.3)",
+      "vendor": "Moodle"
     },
     {
       "type": "software",
@@ -417747,6 +417846,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-88236",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88236"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--50617fbe-c819-57c0-af09-4e054665505a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-7275",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-7275",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7275"
         }
       ]
     },
