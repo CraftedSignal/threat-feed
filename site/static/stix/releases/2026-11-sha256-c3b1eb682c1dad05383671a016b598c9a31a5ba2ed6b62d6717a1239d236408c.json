@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2bb5efde-d676-5ff8-b155-e30f19719309",
+  "id": "bundle--5053effa-c9bd-5b90-a590-ef36647c1a6c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -50239,6 +50239,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--1b0b901a-cef0-571e-8050-0966c2c97904"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3ead9c69-17f4-59a2-9d52-f15c8c88eb5a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T11:22:49.000Z",
+      "modified": "2026-11-28T11:22:49.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a49ea60a-dae4-50c1-ac5f-0e9c072265fb",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -156235,6 +156246,17 @@
       "relationship_type": "has",
       "source_ref": "software--04f64188-b241-5bf1-a422-89460e327249",
       "target_ref": "vulnerability--a892aa8f-c170-53e8-88ed-0cced2efd038"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--dc0fb6fd-c348-5306-b15e-0e89686b4877",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--05cefd2a-d2e2-5593-9b61-2364b7fc3c77",
+      "target_ref": "vulnerability--517ea0fc-c74f-58a6-9a55-2dd750278b85"
     },
     {
       "type": "relationship",
@@ -304213,6 +304235,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a49ea60a-dae4-50c1-ac5f-0e9c072265fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T11:22:49.000Z",
+      "modified": "2026-11-28T11:22:49.000Z",
+      "name": "TRENDnet TEW-751DR OS Command Injection (CVE-2026-138005)",
+      "description": "## Overview\nA remote OS command injection vulnerability exists in the TRENDnet TEW-751DR router, version 1.03B01. The vulnerability is located in the function `gena.php::GENA_notify_init` within the file `htdocs/upnpinc/gena.php` of the UPnP Event Handler. An attacker can perform a manipulation of the `uri` argument to achieve OS command injection. The vulnerability can be exploited remotely, and public exploit code exists.\n\n## Impact\nSuccessful exploitation allows for remote OS command injection. The vulnerability is rated with a CVSS base score of 10.0.\n\n## Recommendation\nNo specific fixed release or vendor remediation is documented in the provided source materials. Users should monitor for official advisories from the vendor.",
+      "published": "2026-11-28T11:22:49.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--05cefd2a-d2e2-5593-9b61-2364b7fc3c77",
+        "vulnerability--517ea0fc-c74f-58a6-9a55-2dd750278b85"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-28-trendnet-tew-751dr-rce-cve-2026-138005",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-trendnet-tew-751dr-rce-cve-2026-138005/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-138005"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-138005"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-28-trendnet-tew-751dr-rce-cve-2026-138005",
+      "x_craftedsignal_event_id": "brief-2026-11-28-trendnet-tew-751dr-rce-cve-2026-138005",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-trendnet-tew-751dr-rce-cve-2026-138005/",
+      "x_craftedsignal_activity_at": "2026-11-28T11:22:49.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a4abf020-c39b-54d1-933c-1566d938aaad",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-26T20:56:46.000Z",
@@ -371489,6 +371556,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--05cefd2a-d2e2-5593-9b61-2364b7fc3c77",
+      "name": "TEW-751DR (= 1.03B01)",
+      "vendor": "TRENDnet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--05dbc0a8-5947-5b3f-8d39-b700389d80e5",
       "name": "Cloud hosting environments"
     },
@@ -426466,6 +426540,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-130740",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130740"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--517ea0fc-c74f-58a6-9a55-2dd750278b85",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-138005",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-138005",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-138005"
         }
       ]
     },
