@@ -1,13 +1,32 @@
 ---
 brief_id: brief-2024-06-19-magicinfo-path-traversal
 event_id: brief-2024-06-19-magicinfo-path-traversal
-revision: 1
-activity_at: "2024-06-19T12:00:00Z"
+revision: 2
+activity_at: "2026-11-28T09:37:50Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-28T09:37:50Z"
+    checksum: sha256:7c916f973c6f40941dad955308c9004cbcdf6ed631da45f4bc7a43c0627d98ab
+    summary: poc_available; magicinfo 9 server version < 21.1050
+    changed_fields:
+      - affected_products
+      - cpes
+      - cve_verification
+      - cves
+      - exploitation_evidence
+      - has_poc
+      - lastmod
+      - poc_references
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DAVIDXBORS-CVE-2024-7399-POC&utm_source=rss&utm_medium=rss
 title: Samsung MagicINFO 9 Server Path Traversal Vulnerability (CVE-2024-7399)
 slug: 2024-06-magicinfo-path-traversal
 description: A path traversal vulnerability in Samsung MagicINFO 9 Server could allow an attacker to write arbitrary files with system privileges, potentially leading to code execution or system compromise.
 date: "2024-06-19T12:00:00Z"
-lastmod: "2026-11-20T01:36:50Z"
+lastmod: "2026-11-28T09:37:35Z"
 type: threat
 types:
   - threat
@@ -17,8 +36,13 @@ exploited: true
 exploitation_evidence:
   status: confirmed_active
   source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
-  observed_at: "2026-04-24T00:00:00Z"
+  observed_at: "2024-06-19T12:00:00Z"
   confidence: high
+cpes:
+  - cpe:2.3:a:samsung:magicinfo_9_server:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DAVIDXBORS-CVE-2024-7399-POC&utm_source=rss&utm_medium=rss
 tags:
   - path-traversal
   - cve-2024-7399
@@ -27,6 +51,9 @@ vendors:
   - Samsung
 products:
   - MagicINFO 9 Server
+product_versions:
+  - product: MagicINFO 9 Server
+    range: < 21.1050
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
@@ -34,16 +61,22 @@ mitre_ttps:
     technique_name: Server Software Component
     subtechnique_id: T1505.003
     subtechnique_name: Web Shell
+cve_verification:
+  CVE-2024-7399:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-28T09:37:34.670510015Z
 cves:
   - id: CVE-2024-7399
     cvss: 8.8
-    epss: 0.82263
+    epss: 0.22653
     kev: true
     kev_status: "true"
 references:
   - https://www.cve.org/CVERecord?id=CVE-2024-7399
   - https://security.samsungtv.com/securityUpdates
   - https://nvd.nist.gov/vuln/detail/CVE-2024-7399
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DAVIDXBORS-CVE-2024-7399-POC&utm_source=rss&utm_medium=rss
 rules:
   - title: MagicINFO Path Traversal Attempt
     description: Detects potential path traversal attempts targeting Samsung MagicINFO Server in web server logs.
@@ -76,6 +109,13 @@ updates:
       - cisa-kev
     source_urls:
       - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  - at: "2026-11-28T09:37:35Z"
+    level: L2
+    summary: poc_available; magicinfo 9 server version < 21.1050
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DAVIDXBORS-CVE-2024-7399-POC&utm_source=rss&utm_medium=rss
 ---
 
 ## Overview
