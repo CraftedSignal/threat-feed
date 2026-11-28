@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e002367c-c701-52e7-a2c2-f198cb09ad0e",
+  "id": "bundle--2bb5efde-d676-5ff8-b155-e30f19719309",
   "objects": [
     {
       "type": "attack-pattern",
@@ -201150,7 +201150,7 @@
       "id": "report--1d1404e4-4993-547e-b96a-c9eb0d702b0d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-21T21:26:17.000Z",
-      "modified": "2026-11-21T21:26:17.000Z",
+      "modified": "2026-11-28T07:31:43.000Z",
       "name": "Fastify @fastify/middie path-routing security bypass (CVE-2026-133250)",
       "description": "## Overview\n@fastify/middie is the middleware engine for the Fastify web framework. In versions up to and including 9.3.7, middie matches path-scoped middleware against its own reading of the request path, which can differ from the path Fastify's router uses to dispatch the request. When the two disagree, the router can route a request to a handler covered by a middleware mount while middie skips that middleware.\n\n## Attack Chain\nThe mismatch is triggered by empty parameter or wildcard values, request targets that do not begin with a slash, and literal percent characters in a mount path. This occurs without requiring special configuration.\n\n## Impact\nAn unauthenticated client can reach a handler that an authentication, authorization, or rate-limiting middleware was meant to protect, resulting in a bypass of security controls.\n\n## Recommendation\nThe issue is fixed in @fastify/middie 9.3.8, and users should upgrade to 9.3.8 or later.",
       "published": "2026-11-21T21:26:17.000Z",
@@ -201177,20 +201177,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133250"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=395C9A3D-5514-5038-9A27-AF4EFE6CF346\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-21-fastify-middie-bypass-cve-2026-133250",
       "x_craftedsignal_event_id": "brief-2026-11-21-fastify-middie-bypass-cve-2026-133250",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fastify-middie-bypass-cve-2026-133250/",
-      "x_craftedsignal_activity_at": "2026-11-21T21:26:17.000Z",
+      "x_craftedsignal_activity_at": "2026-11-28T07:31:43.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.0052,
       "x_craftedsignal_kev_status": "false"
     },
     {
