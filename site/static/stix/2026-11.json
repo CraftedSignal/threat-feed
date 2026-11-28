@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3cae05f6-2856-53b2-ab16-4ff28b76bccc",
+  "id": "bundle--d1035600-4db5-5201-be67-14444b19f23c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1807,6 +1807,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1202",
           "url": "https://attack.mitre.org/techniques/T1202"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--7ad3da72-13f0-5f8b-9a16-e184c5f969a0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Malicious Image",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1204.003",
+          "url": "https://attack.mitre.org/techniques/T1204/003"
         }
       ]
     },
@@ -35899,6 +35915,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--07c964b8-4de8-5bd4-a91f-eb2b972d6a3f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--28500ba0-082e-5d7d-b1fb-f3b2fa2d20d0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:45:41.000Z",
+      "modified": "2026-11-28T20:45:41.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--346f61a7-1a91-5047-a0a4-fbcfe241fbbe",
+      "target_ref": "attack-pattern--465a38e0-65ed-5b24-b51b-228c2afdc195"
     },
     {
       "type": "relationship",
@@ -90195,6 +90222,17 @@
       "relationship_type": "has",
       "source_ref": "software--021c6a1b-783a-57fe-a9f8-01d6a07459a0",
       "target_ref": "vulnerability--8ec816a0-d16a-5ebd-bb15-519f25d0ecf5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--78f2faa1-8019-50a7-8349-d72b31d0612f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:48:18.000Z",
+      "modified": "2026-11-28T20:48:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--49803163-384b-59c0-b944-5bcc87a75355",
+      "target_ref": "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88"
     },
     {
       "type": "relationship",
@@ -157035,6 +157073,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--dccf44f3-bd03-5eb7-971a-9c8a2e6e03ed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:47:26.000Z",
+      "modified": "2026-11-28T20:47:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b7ce18bc-246f-5a15-9696-477603112f5d",
+      "target_ref": "attack-pattern--7ad3da72-13f0-5f8b-9a16-e184c5f969a0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--dcd7d2e3-281a-55d5-a450-cd6678e4b8c7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-24T13:20:30.000Z",
@@ -175687,6 +175736,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--9563bf38-e2b7-5dd8-b821-48e133704927"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f92a5fe0-2dfc-5b1e-8382-c994c382ab67",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:47:45.000Z",
+      "modified": "2026-11-28T20:47:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a862480c-d1e0-5f0c-8d3f-094832b69dfc",
+      "target_ref": "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238"
     },
     {
       "type": "relationship",
@@ -219343,6 +219403,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--346f61a7-1a91-5047-a0a4-fbcfe241fbbe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:45:41.000Z",
+      "modified": "2026-11-28T20:45:41.000Z",
+      "name": "High volume outbound web traffic detection",
+      "description": "## Overview\nThis detection identifies a high volume of outbound web traffic, specifically defined as more than 1GB of data sent to a URL within a 2-minute window. This behavior is considered an anomaly that may indicate unauthorized data exfiltration by malware or malicious insiders. The analytic utilizes the Web data model to monitor for these significant uploads.\n\n## Impact\nConfirmed malicious activity involving this volume of data transfer can lead to data breaches and the loss of sensitive organizational information.\n\n## Recommendation\n- Implement the monitoring analytic using the Web data model to track outbound byte sums per URL and source.\n- Tune the 1GB/2-minute threshold to align with known organizational baselines and expected user behavior.\n- Investigate triggers of this detection to determine if the transfer is legitimate or anomalous.\n- Use the provided drilldown search to view associated risk events for the source IP over the last 7 days.",
+      "published": "2026-11-28T20:45:41.000Z",
+      "labels": [
+        "data-exfiltration",
+        "hellcat-ransomware",
+        "network-anomaly"
+      ],
+      "object_refs": [
+        "attack-pattern--465a38e0-65ed-5b24-b51b-228c2afdc195",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-28-high-volume-outbound-web-traffic",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-high-volume-outbound-web-traffic/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1567/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/web/high_volume_of_bytes_out_to_url.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-28-high-volume-outbound-web-traffic",
+      "x_craftedsignal_event_id": "brief-2026-11-28-high-volume-outbound-web-traffic",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-high-volume-outbound-web-traffic/",
+      "x_craftedsignal_activity_at": "2026-11-28T20:45:41.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--34732e3e-91c7-5b7f-9325-82db95940486",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-13T12:11:45.000Z",
@@ -237586,6 +237693,59 @@
       },
       "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--49803163-384b-59c0-b944-5bcc87a75355",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:48:18.000Z",
+      "modified": "2026-11-28T20:48:18.000Z",
+      "name": "AWS Lambda: UpdateFunctionCode activity monitoring",
+      "description": "## Overview\n\nThe `UpdateFunctionCode` API call in AWS Lambda allows for the modification of function code. This analytic monitors CloudTrail logs for successful `UpdateFunctionCode` events initiated by IAM users. While this action is necessary for legitimate development and administration, unauthorized or unexpected updates may indicate an attempt to gain persistence or plant backdoors within a serverless environment.\n\n## Impact\n\nIf the activity is confirmed malicious, an attacker could upload and execute arbitrary code that triggers automatically whenever the Lambda function is invoked, leading to potential compromise of the integrity and security of the AWS infrastructure.\n\n## Recommendation\n\nDetection teams should monitor CloudTrail logs for `UpdateFunctionCode` events. Legitimate administrative activity should be baselined to reduce false positives. Install the Splunk AWS Add-on to ingest required CloudTrail telemetry. Review successful code updates against expected CI/CD deployment windows and authorized IAM user roles.",
+      "published": "2026-11-28T20:48:18.000Z",
+      "labels": [
+        "aws",
+        "cloud",
+        "lambda",
+        "persistence"
+      ],
+      "object_refs": [
+        "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--95a8b3fe-5aef-5412-967b-cd0aabc2d854"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-28-aws-lambda-update-code",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-aws-lambda-update-code/"
+        },
+        {
+          "source_name": "reference",
+          "url": "http://detectioninthe.cloud/execution/modify_lambda_function_code/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/cloud/aws_lambda_updatefunctioncode.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sysdig.com/blog/exploit-mitigate-aws-lambdas-mitre/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-28-aws-lambda-update-code",
+      "x_craftedsignal_event_id": "brief-2026-11-28-aws-lambda-update-code",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-aws-lambda-update-code/",
+      "x_craftedsignal_activity_at": "2026-11-28T20:48:18.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -307738,6 +307898,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a862480c-d1e0-5f0c-8d3f-094832b69dfc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:47:45.000Z",
+      "modified": "2026-11-28T20:47:45.000Z",
+      "name": "AWS IAM Delete Policy Monitoring",
+      "description": "## Overview\n\nThe following analytic detects the deletion of an IAM policy in AWS by leveraging AWS CloudTrail logs to identify 'DeletePolicy' events, excluding those from AWS internal services. Monitoring this behavior ensures that only authorized changes are made to IAM policies.\n\n## Attack Chain\n\nUnauthorized policy deletions can disrupt access controls and weaken security postures. If confirmed malicious, an attacker could remove critical security policies, potentially leading to privilege escalation, unauthorized access, or data exfiltration.\n\n## Impact\n\nUnauthorized policy deletion can lead to the removal of critical security policies, privilege escalation, unauthorized access, or data exfiltration.\n\n## Recommendation\n\nThis detection requires tuning to provide high fidelity. It should be tuned based on source addresses (corporate offices, VPN terminations) or by groups of users, as not every user with AWS access should have permission to delete policies. Implementation requires the Splunk AWS Add-on and Splunk App for AWS to process AWS CloudTrail logs.",
+      "published": "2026-11-28T20:47:45.000Z",
+      "labels": [
+        "aws",
+        "cloud",
+        "iam"
+      ],
+      "object_refs": [
+        "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d0f82a22-9f10-5693-a772-70cfa40bc4a4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-28-aws-iam-delete-policy",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-aws-iam-delete-policy/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeletePolicy.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.aws.amazon.com/cli/latest/reference/iam/delete-policy.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/cloud/aws_iam_delete_policy.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-28-aws-iam-delete-policy",
+      "x_craftedsignal_event_id": "brief-2026-11-28-aws-iam-delete-policy",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-aws-iam-delete-policy/",
+      "x_craftedsignal_activity_at": "2026-11-28T20:47:45.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a87c190c-5339-58ef-a14b-dcdbac077f0a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T02:46:05.000Z",
@@ -318795,6 +319007,54 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b7ce18bc-246f-5a15-9696-477603112f5d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:47:26.000Z",
+      "modified": "2026-11-28T20:47:26.000Z",
+      "name": "Amazon ECR: Container image uploads outside business hours",
+      "description": "## Overview\n\nThis analytic identifies potential unauthorized container image uploads to Amazon Elastic Container Registry (ECR) by monitoring AWS CloudTrail 'PutImage' events that occur outside standard business hours (8 PM to 8 AM) or on weekends. This behavior may indicate an insider threat or compromised account being used to deploy malicious container images.\n\n## Impact\n\nIf confirmed malicious, unauthorized container uploads can lead to the deployment of malicious workloads, resulting in potential data breaches or service disruptions within the AWS environment.\n\n## Recommendation\n\n- Deploy the monitoring logic for 'PutImage' events in AWS CloudTrail to identify off-hours container management activity.\n- Review identified events for legitimacy, particularly in environments with distributed teams spanning multiple time zones, where this detection may generate false positives.\n- Investigate the source IP and user context associated with off-hours uploads using the provided drilldown search capability.",
+      "published": "2026-11-28T20:47:26.000Z",
+      "labels": [
+        "aws",
+        "cloud",
+        "devsecops"
+      ],
+      "object_refs": [
+        "attack-pattern--7ad3da72-13f0-5f8b-9a16-e184c5f969a0",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4fbae139-b36c-5503-b1ea-6efee36a2ca7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-28-aws-ecr-off-hours",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-aws-ecr-off-hours/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1204/003/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/cloud/aws_ecr_container_upload_outside_business_hours.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-28-aws-ecr-off-hours",
+      "x_craftedsignal_event_id": "brief-2026-11-28-aws-ecr-off-hours",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-aws-ecr-off-hours/",
+      "x_craftedsignal_activity_at": "2026-11-28T20:47:26.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -381196,6 +381456,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4fbae139-b36c-5503-b1ea-6efee36a2ca7",
+      "name": "Elastic Container Registry",
+      "vendor": "Amazon"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4fca4548-2bfc-50c6-8bcd-6d151b57f94d",
       "name": "LessPass self-hosted sync server (\u003c 9469b0cb90b5a79e2ab4f7f07bb67318dd312b99)",
       "vendor": "LessPass"
@@ -389197,6 +389464,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--95a8b3fe-5aef-5412-967b-cd0aabc2d854",
+      "name": "AWS Lambda",
+      "vendor": "Amazon"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--95caa731-9afc-503a-a20e-a7c1ca347dc6",
       "name": "JeecgBoot 3.9.5"
     },
@@ -396123,6 +396397,13 @@
       "id": "software--d0daa964-b4fc-53c9-a426-c50dc0c8384a",
       "name": "Apache JSPWiki (\u003e= 1.6.1, \u003c= 3.0.0)",
       "vendor": "Apache Software Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d0f82a22-9f10-5693-a772-70cfa40bc4a4",
+      "name": "AWS Identity and Access Management",
+      "vendor": "Amazon"
     },
     {
       "type": "software",
