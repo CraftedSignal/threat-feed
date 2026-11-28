@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--21287505-6640-5cd7-a2e1-3ee6f69c7a84",
+  "id": "bundle--e54d6252-88f7-510e-ac5a-40a97a5577c0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1759,17 +1759,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--653412bd-0f53-5f4e-a10c-e8f1cb5e045c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--a44daabc-9131-5832-8c3e-a160ef63eace",
-      "target_ref": "vulnerability--ef91fff8-affd-5721-b41a-f5ababc07f6e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--65bf442d-5ea6-593d-8390-67b33ab5b37b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1799,17 +1788,6 @@
       "relationship_type": "uses",
       "source_ref": "report--69c1f5a9-5807-5616-8eb5-67c0735b3f5f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--6d85371f-e175-5b45-8779-dcb725d40914",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--8ae64fd0-2d15-593a-9dca-c9cec93a508c",
-      "target_ref": "vulnerability--ef91fff8-affd-5721-b41a-f5ababc07f6e"
     },
     {
       "type": "relationship",
@@ -3112,17 +3090,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--f405c5d0-d940-542b-b590-5166afd0423c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-30T04:10:59.000Z",
-      "modified": "2026-08-30T04:10:59.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--be0e9a1e-a8b3-5762-88a6-818b3e3d97aa",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--f44bb7f0-35d5-5d98-9f01-926af2e508e9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T23:58:45.000Z",
@@ -3174,17 +3141,6 @@
       "relationship_type": "uses",
       "source_ref": "report--6740340d-330d-5e73-8067-5a3a1c502cb8",
       "target_ref": "indicator--ac9f3cf3-6ee0-56ac-981c-d997690627a4"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--fb6550af-6e3c-589d-a424-e013a9332c84",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-30T04:10:59.000Z",
-      "modified": "2026-08-30T04:10:59.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--be0e9a1e-a8b3-5762-88a6-818b3e3d97aa",
-      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
     },
     {
       "type": "relationship",
@@ -5925,60 +5881,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--be0e9a1e-a8b3-5762-88a6-818b3e3d97aa",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-30T04:10:59.000Z",
-      "modified": "2026-08-30T04:10:59.000Z",
-      "name": "VMware vCenter Server Backup API Flag Injection Vulnerability (CVE-2024-22274)",
-      "description": "## Overview\n\nCVE-2024-22274 is a high-severity vulnerability affecting VMware vCenter Server and VMware Cloud Foundation. The vulnerability stems from improper handling of inputs within the backup API components, specifically 'com.vmware.appliance.recovery.backup.job.create' and 'com.vmware.appliance.recovery.backup.validate'. An attacker who has already obtained valid administrative credentials can leverage this flaw to perform flag injection, which facilitates arbitrary command execution with root privileges on the underlying appliance.\n\nThe public availability of a functional PoC exploit as of August 2026 significantly increases the risk to unpatched infrastructure. Because vCenter Server is a critical component for managing virtualized environments, successful exploitation grants an attacker full control over the virtual infrastructure and the ability to exfiltrate sensitive data. Organizations running affected versions of VMware vCenter Server or VMware Cloud Foundation should prioritize patching to the versions that remediate these specific backup API security flaws.\n\n## Attack Chain\n\n1. Attacker gains valid administrative credentials for the target VMware vCenter Server instance through prior compromise or credential theft.\n2. Attacker establishes an authenticated SSH session to the vCenter Server appliance.\n3. Attacker clones the public PoC repository and prepares a payload file (`payload.txt`) containing the malicious commands to be executed.\n4. Attacker utilizes the PoC Python script to interface with the vulnerable backup API components (`com.vmware.appliance.recovery.backup.job.create` or `com.vmware.appliance.recovery.backup.validate`).\n5. The API component fails to properly sanitize the input, allowing the attacker to inject flags that modify the command execution context.\n6. The injected commands execute on the appliance operating system with root (UID 0) privileges.\n7. Attacker achieves the final objective of full system control, allowing for lateral movement, data exfiltration, or further persistence within the virtualized environment.\n\n## Impact\n\nSuccessful exploitation of CVE-2024-22274 allows an authenticated attacker to execute arbitrary commands as root. This provides full control over the vCenter Server, enabling attackers to compromise the entire virtualized infrastructure, manipulate virtual machines, exfiltrate sensitive enterprise data, and maintain persistent access within the management network.\n\n## Recommendation\n\nPrioritize patching VMware vCenter Server and VMware Cloud Foundation to versions identified by the vendor as no longer vulnerable. Audit administrative access to vCenter Server instances and implement multi-factor authentication (MFA) to prevent unauthorized use of credentials. Monitor SSH logs for connections from unrecognized or suspicious source IPs that interact with the vCenter backup API scripts.\n",
-      "published": "2026-08-30T04:10:59.000Z",
-      "labels": [
-        "cve-2024-22274",
-        "rce",
-        "vmware",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--8ae64fd0-2d15-593a-9dca-c9cec93a508c",
-        "software--a44daabc-9131-5832-8c3e-a160ef63eace",
-        "vulnerability--ef91fff8-affd-5721-b41a-f5ababc07f6e"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-cve-2024-22274",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2024-22274/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-xm44-79f8-q8r7"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-22274"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-cve-2024-22274",
-      "x_craftedsignal_event_id": "brief-2026-08-cve-2024-22274",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2024-22274/",
-      "x_craftedsignal_activity_at": "2026-08-30T04:10:59.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_epss_max": 0.02509,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--be4134d0-ea42-506d-9ba4-e99ccf93717e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T14:04:31.000Z",
@@ -7377,13 +7279,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--8ae64fd0-2d15-593a-9dca-c9cec93a508c",
-      "name": "VMware Cloud Foundation (\u003c 5.1.1)",
-      "vendor": "VMware"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--8af71884-2c31-5ef1-9ae3-a38b61ea0ee4",
       "name": "HG10 (300001138)",
       "vendor": "Tenda"
@@ -7464,13 +7359,6 @@
       "id": "software--9f0fc496-da3d-5a80-a51e-d61847f0163b",
       "name": "JBoss EAP",
       "vendor": "Red Hat"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--a44daabc-9131-5832-8c3e-a160ef63eace",
-      "name": "vCenter Server (7.0, 8.0)",
-      "vendor": "VMware"
     },
     {
       "type": "software",
@@ -8635,22 +8523,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-82693",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82693"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--ef91fff8-affd-5721-b41a-f5ababc07f6e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2024-22274",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2024-22274",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-22274"
         }
       ]
     },

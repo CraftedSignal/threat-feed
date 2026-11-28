@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2024-01-03-fortinet-auth-bypass
 event_id: brief-2024-01-03-fortinet-auth-bypass
-revision: 2
-activity_at: "2026-11-20T03:11:01Z"
+revision: 3
+activity_at: "2026-11-28T04:33:20Z"
 revision_history:
   - revision: 2
     at: "2026-11-20T03:11:01Z"
@@ -20,11 +20,29 @@ revision_history:
       - updates
     source_urls:
       - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  - revision: 3
+    at: "2026-11-28T04:33:20Z"
+    checksum: sha256:9b186eb2303850e15c17c410681c4e35fa5235a2f400347d691888e61eeff445
+    summary: poc_available
+    changed_fields:
+      - cve_verification
+      - cves
+      - exploitation_evidence
+      - has_poc
+      - lastmod
+      - poc_references
+      - priority
+      - priority_score
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-KLJUNOWSKY-CVE-2022-40684-POC&utm_source=rss&utm_medium=rss
 title: Fortinet Appliance Authentication Bypass Vulnerability (CVE-2022-40684) Exploitation
 slug: 2024-01-03-fortinet-auth-bypass
 description: Exploitation of CVE-2022-40684, a Fortinet appliance authentication bypass vulnerability, allows unauthorized REST API access to modify system configurations, potentially leading to complete system compromise.
 date: "2024-01-03T10:00:00Z"
-lastmod: "2026-11-20T03:10:25Z"
+lastmod: "2026-11-28T04:33:03Z"
 type: threat
 types:
   - threat
@@ -34,7 +52,7 @@ exploited: true
 exploitation_evidence:
   status: confirmed_active
   source_url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
-  observed_at: "2022-10-11T00:00:00Z"
+  observed_at: "2024-01-03T10:00:00Z"
   confidence: high
 cpes:
   - cpe:2.3:a:fortinet:fortiproxy:*:*:*:*:*:*:*:*
@@ -42,6 +60,9 @@ cpes:
   - cpe:2.3:a:fortinet:fortiswitchmanager:7.0.0:*:*:*:*:*:*:*
   - cpe:2.3:a:fortinet:fortiswitchmanager:7.2.0:*:*:*:*:*:*:*
   - cpe:2.3:o:fortinet:fortios:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-KLJUNOWSKY-CVE-2022-40684-POC&utm_source=rss&utm_medium=rss
 tags:
   - cve-2022-40684
   - fortinet
@@ -62,10 +83,15 @@ mitre_ttps:
     tactic_name: Privilege Escalation
     technique_id: T1133
     technique_name: External Remote Services
+cve_verification:
+  CVE-2022-40684:
+    status: verified
+    source: nvd
+    checked_at: 2026-11-28T04:33:02.610715171Z
 cves:
   - id: CVE-2022-40684
     cvss: 9.8
-    epss: 0.94427
+    epss: 0.98893
     kev: true
     kev_status: "true"
 references:
@@ -76,6 +102,7 @@ references:
   - https://attackerkb.com/topics/QWOxGIKkGx/cve-2022-40684/rapid7-analysis
   - https://github.com/rapid7/metasploit-framework/pull/17143
   - https://hackread.com/fbi-chief-kash-patel-store-hacked-infostealer-clickfix/
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-KLJUNOWSKY-CVE-2022-40684-POC&utm_source=rss&utm_medium=rss
 iocs:
   - type: domain
     value: BasedApparel.com
@@ -120,6 +147,13 @@ updates:
       - cisa-kev
     source_urls:
       - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+  - at: "2026-11-28T04:33:03Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-KLJUNOWSKY-CVE-2022-40684-POC&utm_source=rss&utm_medium=rss
 ---
 
 ## Overview
