@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--afc46798-d19e-56d9-b1ec-2b996fe2c78e",
+  "id": "bundle--d80112f3-006f-5f2a-9c33-d55563045a0f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -25346,6 +25346,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--fcd0454f-9e63-58b3-b196-4a5bac8f588b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--18b1c3c4-048c-58d1-8d50-6675375a9190",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T17:53:45.000Z",
+      "modified": "2026-11-28T17:53:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--28008eaa-2ca5-5d81-8d06-d3c72841805c",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -66391,6 +66402,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--564041bc-e1f2-5c34-9499-3318e38745de",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--460a2632-2af8-52a9-b166-b6fe7a495232",
+      "target_ref": "vulnerability--79c9f89f-6fce-549b-aa6a-810a89950fad"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5643e99c-6e59-535e-917d-9493a27bdfb5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -83327,6 +83349,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c9055c39-f0a8-55ef-8dee-8d0e502da320",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6f24beea-867c-59c8-8928-ea335f11f068",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T17:53:59.000Z",
+      "modified": "2026-11-28T17:53:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a3389a07-3306-5b89-a833-719ac178f396",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -159968,6 +160001,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e1c0ec7b-4503-5288-b0d7-b953f2e25d68",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ae112747-f010-5994-a541-cbb605041f39",
+      "target_ref": "vulnerability--671233a3-e280-5d2e-bd3f-d3572103bb9f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e1c2a62b-e8cf-5f6c-bec4-dc96ac59d45e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -209349,6 +209393,52 @@
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.04292,
       "x_craftedsignal_kev_status": "true"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--28008eaa-2ca5-5d81-8d06-d3c72841805c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T17:53:45.000Z",
+      "modified": "2026-11-28T17:53:45.000Z",
+      "name": "Orval: Arbitrary code execution via malicious OpenAPI specifications (CVE-2026-23947)",
+      "description": "## Overview\nCVE-2026-23947 is a critical vulnerability in the Orval OpenAPI client generator. The software fails to sanitize input provided via the `x-enumDescriptions` and `x-enumNames` fields in an OpenAPI specification file. An attacker can provide a malicious specification that, when processed by Orval, injects arbitrary Node.js code directly into the generated TypeScript output files.\n\n## Impact\nSuccessful exploitation results in arbitrary code execution on systems that process the malicious OpenAPI specification with Orval.\n\n## Recommendation\nUpgrade to Orval version 8.0.2 or later to apply fixes for string escaping.",
+      "published": "2026-11-28T17:53:45.000Z",
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ae112747-f010-5994-a541-cbb605041f39",
+        "vulnerability--671233a3-e280-5d2e-bd3f-d3572103bb9f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-28-orval-rce-cve-2026-23947",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-orval-rce-cve-2026-23947/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-23947"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BOROEURNPRACH-CVE-2026-23947-POC\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-28-orval-rce-cve-2026-23947",
+      "x_craftedsignal_event_id": "brief-2026-11-28-orval-rce-cve-2026-23947",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-orval-rce-cve-2026-23947/",
+      "x_craftedsignal_activity_at": "2026-11-28T17:53:45.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00898,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -303478,6 +303568,60 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a3389a07-3306-5b89-a833-719ac178f396",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T17:53:59.000Z",
+      "modified": "2026-11-28T17:53:59.000Z",
+      "name": "Halo CMS: Persistent Denial of Service (CVE-2025-70886)",
+      "description": "## Overview\nHalo CMS versions 2.22.4 and earlier are vulnerable to a persistent Denial of Service (DoS) vulnerability (CVE-2025-70886). A remote, unauthenticated attacker can submit a crafted comment payload, such as one missing required fields like 'subjectRef.version', to the public comment submission endpoint. This malformed data is stored and subsequently causes an unhandled exception when the administrator attempts to render or view the comment management interface, resulting in an HTTP 500 error.\n\n## Attack Chain\n1. An attacker sends a specifically crafted JSON payload to the public comment submission endpoint.\n2. The application saves the malformed entry.\n3. When an administrator accesses the comment management console, the interface attempts to process the entry, triggers an unhandled exception, and returns an HTTP 500 error, rendering the page inaccessible.\n\n## Impact\nSuccessful exploitation results in a persistent Denial of Service for the administrative comment interface. Restoration of access typically requires manual intervention to remove the offending comment entry from the database or via the API.\n\n## Recommendation\nNo fixed version is currently specified in the source. Users are advised to monitor official vendor guidance from Halo and implement restricted access to comment submission endpoints if necessary until a patch is available.",
+      "published": "2026-11-28T17:53:59.000Z",
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--460a2632-2af8-52a9-b166-b6fe7a495232",
+        "vulnerability--79c9f89f-6fce-549b-aa6a-810a89950fad"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-28-halo-cms-dos-cve-2025-70886",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-halo-cms-dos-cve-2025-70886/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2025-70886"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/halo-dev/halo/issues/7890"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-HOWIEHZ-CVE-2025-70886"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-HOWIEHZ-CVE-2025-70886\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-28-halo-cms-dos-cve-2025-70886",
+      "x_craftedsignal_event_id": "brief-2026-11-28-halo-cms-dos-cve-2025-70886",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-halo-cms-dos-cve-2025-70886/",
+      "x_craftedsignal_activity_at": "2026-11-28T17:53:59.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00936,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a342fded-2dc6-5b22-9952-ebca44f6c148",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-17T15:18:05.000Z",
@@ -379341,6 +379485,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--460a2632-2af8-52a9-b166-b6fe7a495232",
+      "name": "Halo CMS",
+      "vendor": "凌霞软件"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4618df6a-8545-50ab-b49f-18b6c905839f",
       "name": "Linux kernel (\u003e= 4.12, \u003c 5.15.212)",
       "vendor": "Linux"
@@ -391340,6 +391491,13 @@
       "spec_version": "2.1",
       "id": "software--ae10a826-821e-554b-845f-38570e0824fd",
       "name": "MiniMax"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ae112747-f010-5994-a541-cbb605041f39",
+      "name": "orval",
+      "vendor": "orval-labs"
     },
     {
       "type": "software",
@@ -434282,6 +434440,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--671233a3-e280-5d2e-bd3f-d3572103bb9f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-23947",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-23947",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23947"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--671a730b-c5e2-5a62-b7a1-b369c16b05bb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -440036,6 +440210,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-95997",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95997"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--79c9f89f-6fce-549b-aa6a-810a89950fad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-70886",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-70886",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-70886"
         }
       ]
     },
