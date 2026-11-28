@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8bbf72b8-e6a5-5639-8aa1-ddd24fff1eef",
+  "id": "bundle--3cae05f6-2856-53b2-ab16-4ff28b76bccc",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2085,6 +2085,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--9ab89b0b-e512-54ab-b724-618bee6caa38",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Network Share Discovery",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1135",
+          "url": "https://attack.mitre.org/techniques/T1135"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--9d1aa18c-fa35-5708-93ba-b33db0ac525f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3093,6 +3109,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--e9ea7c19-ec08-550c-9d25-526acf94f699",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "DCSync",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1003.006",
+          "url": "https://attack.mitre.org/techniques/T1003/006"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--ea264289-24cb-50b5-a74d-33566cf8cb8a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3247,6 +3279,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1555.005",
           "url": "https://attack.mitre.org/techniques/T1555/005"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--f7886161-e8ac-5770-9e23-8097c3994da6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Rogue Domain Controller",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1207",
+          "url": "https://attack.mitre.org/techniques/T1207"
         }
       ]
     },
@@ -36130,6 +36178,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--28cb8f3b-1a84-541f-9e0f-ef1b0c52209f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:43:39.000Z",
+      "modified": "2026-11-28T20:43:39.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2a6d41a4-109e-5784-8e2e-d288ac078c81",
+      "target_ref": "attack-pattern--4c3e7380-a536-599a-8a1e-e402b95df8d6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--28d09ccd-673a-55ab-af8a-88be14b66c60",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -67612,6 +67671,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--57e88aad-53d2-584a-9509-ef26a1d9a884",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2460058b-d2ae-55ae-8758-94e567a3bdd1",
+      "target_ref": "vulnerability--d0859958-206d-537e-8fbc-d5e3728ce22c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--57ec5582-d114-5701-8a76-23573e9a50a8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -89865,6 +89935,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--78a59d8e-e32a-59ed-8270-70b6c3c5a8fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:41:47.000Z",
+      "modified": "2026-11-28T20:41:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8c0686d2-e391-5436-96d5-a0d8dbb752c2",
+      "target_ref": "attack-pattern--e9ea7c19-ec08-550c-9d25-526acf94f699"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--78ae69c6-30b9-5b5b-9f64-2a1bb7514644",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -99662,6 +99743,17 @@
       "relationship_type": "uses",
       "source_ref": "report--7815ed85-fbf5-5f6b-8251-3bb8fb8ca868",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--867ae2ef-517b-5ab8-b200-6ef2b11313a7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:42:47.000Z",
+      "modified": "2026-11-28T20:42:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2691aac6-889f-51db-a986-528d77d7dd16",
+      "target_ref": "attack-pattern--2b9dc711-e202-51c6-9b7d-de4286c4d846"
     },
     {
       "type": "relationship",
@@ -120280,6 +120372,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a606c530-031b-5b63-affe-80af843f352d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:42:55.000Z",
+      "modified": "2026-11-28T20:42:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a7986f40-f1fa-5949-975f-93513a6c11d3",
+      "target_ref": "attack-pattern--9ab89b0b-e512-54ab-b724-618bee6caa38"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a606fd0c-d52f-5d2d-89fd-46a01278de81",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -122421,6 +122524,17 @@
       "relationship_type": "has",
       "source_ref": "software--a20e77d9-97b0-5205-b93b-7f85e4ce1884",
       "target_ref": "vulnerability--df4a16ab-d87d-5928-b1ae-939afffcd85e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a970301d-90cc-50b3-aa06-92905cc394c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:41:47.000Z",
+      "modified": "2026-11-28T20:41:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8c0686d2-e391-5436-96d5-a0d8dbb752c2",
+      "target_ref": "attack-pattern--f7886161-e8ac-5770-9e23-8097c3994da6"
     },
     {
       "type": "relationship",
@@ -136930,6 +137044,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--d0005126-b4d3-5c9d-aa41-921cc6f4349f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--be27b0e4-c236-5d93-84c4-a9ea53b21c69",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:43:20.000Z",
+      "modified": "2026-11-28T20:43:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2fc1a992-9800-5817-b0f3-3d6830593d4e",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -208480,6 +208605,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--2691aac6-889f-51db-a986-528d77d7dd16",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:42:47.000Z",
+      "modified": "2026-11-28T20:42:47.000Z",
+      "name": "Linux persistence and privilege escalation risk correlation",
+      "description": "## Overview\nThis detection analytic, provided by Splunk ES Content Update (ESCU), aggregates and correlates Linux-specific risk events to identify potential malicious activity. It triggers when a single Linux host generates four or more distinct risk-generating detections associated with the MITRE ATT\u0026CK tactics of persistence or privilege escalation. This approach helps reduce noise while highlighting systems that may be experiencing sustained attacker activity or multi-stage compromise.\n\n## Recommendation\n- Enable the underlying Linux anomaly and TTP-based detection rules in your environment to provide the necessary data for this correlation.\n- Monitor for triggers of this correlation rule, using the provided drill-down searches to investigate the specific risk events associated with the flagged system.\n- Tune the detection threshold (currently set to 4 unique source detections) based on the volume of activity and established baselines in your specific environment.",
+      "published": "2026-11-28T20:42:47.000Z",
+      "labels": [
+        "correlation",
+        "linux",
+        "persistence",
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "attack-pattern--2b9dc711-e202-51c6-9b7d-de4286c4d846",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-28-linux-persistence-escalation-correlation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-persistence-escalation-correlation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/tactics/TA0004/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/linux_persistence_and_privilege_escalation_risk_behavior.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-28-linux-persistence-escalation-correlation",
+      "x_craftedsignal_event_id": "brief-2026-11-28-linux-persistence-escalation-correlation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-persistence-escalation-correlation/",
+      "x_craftedsignal_activity_at": "2026-11-28T20:42:47.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--26937ea8-a34b-5949-88ff-fe4eb324bd4b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T16:15:24.000Z",
@@ -210299,6 +210472,44 @@
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.01412,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2a6d41a4-109e-5784-8e2e-d288ac078c81",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:43:39.000Z",
+      "modified": "2026-11-28T20:43:39.000Z",
+      "name": "Ryuk Ransomware: Detection of test file indicators",
+      "description": "## Overview\n\nThe detection identifies files containing the keyword \"Ryuk\" within the C drive, which is associated with the presence or testing of Ryuk ransomware. Ryuk is a destructive ransomware family that encrypts critical files and demands ransom. Detection leverages filesystem monitoring to identify the creation or existence of these files, which may serve as a precursor to or evidence of malicious activity.\n\n## Impact\n\nConfirmed malicious activity involving Ryuk can lead to significant data loss, operational disruption, and financial damage due to ransom payments and recovery efforts.\n\n## Recommendation\n\n- Deploy filesystem monitoring via Sysmon Event ID 11 to identify files containing the string \"Ryuk\" on the C drive.\n- Use the provided search to investigate the identified file paths and associated processes on affected hosts.\n- Evaluate alerts for potential false positives where legitimate files might contain the string \"Ryuk\" in their filenames.",
+      "published": "2026-11-28T20:43:39.000Z",
+      "object_refs": [
+        "attack-pattern--4c3e7380-a536-599a-8a1e-e402b95df8d6",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-28-ryuk-files",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ryuk-files/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/ryuk_test_files_detected.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-28-ryuk-files",
+      "x_craftedsignal_event_id": "brief-2026-11-28-ryuk-files",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ryuk-files/",
+      "x_craftedsignal_activity_at": "2026-11-28T20:43:39.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -215382,6 +215593,56 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2fc1a992-9800-5817-b0f3-3d6830593d4e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:43:20.000Z",
+      "modified": "2026-11-28T20:43:20.000Z",
+      "name": "Progress MOVEit Transfer: Authentication bypass (CVE-2024-5806)",
+      "description": "## Overview\n\nProgress MOVEit Transfer is affected by an improper authentication vulnerability (CVE-2024-5806) within its SFTP module. This flaw allows for authentication bypass when the application processes specific SFTP requests. Exploitation attempts may manifest as errors in the application logs related to certificate store access.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated, remote attacker to bypass authentication mechanisms and impersonate valid users, potentially leading to unauthorized access to the environment.\n\n## Recommendation\n\nUpgrade to the patched versions of MOVEit Transfer to remediate this vulnerability:\n- For the 2023.0.x branch, upgrade to 2023.0.11 or later.\n- For the 2023.1.x branch, upgrade to 2023.1.6 or later.\n- For the 2024.0.x branch, upgrade to 2024.0.2 or later.\n\nMonitor SFTP logs for recurring instances of \"IpWorksKeyService: Caught exception of type IPWorksSSHException: The certificate store could not be opened\" to identify potential exploitation attempts.",
+      "published": "2026-11-28T20:43:20.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2460058b-d2ae-55ae-8758-94e567a3bdd1",
+        "vulnerability--d0859958-206d-537e-8fbc-d5e3728ce22c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-28-moveit-auth-bypass-cve-2024-5806",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-moveit-auth-bypass-cve-2024-5806/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2024-5806"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/moveit_certificate_store_access_failure.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://labs.watchtowr.com/auth-bypass-in-un-limited-scenarios-progress-moveit-transfer-cve-2024-5806/"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-28-moveit-auth-bypass-cve-2024-5806",
+      "x_craftedsignal_event_id": "brief-2026-11-28-moveit-auth-bypass-cve-2024-5806",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-moveit-auth-bypass-cve-2024-5806/",
+      "x_craftedsignal_activity_at": "2026-11-28T20:43:20.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.4048,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -285727,6 +285988,64 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8c0686d2-e391-5436-96d5-a0d8dbb752c2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:41:47.000Z",
+      "modified": "2026-11-28T20:41:47.000Z",
+      "name": "Microsoft Active Directory: Unauthorized replication traffic detection",
+      "description": "## Overview\n\nActive Directory replication traffic, facilitated by the Directory Replication Service Remote (DRSR) protocol, is strictly intended for communication between domain controllers. The appearance of this traffic originating from endpoints other than known domain controllers is anomalous. Such activity is associated with adversarial techniques used to exfiltrate sensitive credentials or manipulate domain objects, specifically targeting the Active Directory infrastructure.\n\n## Impact\n\nIf unauthorized replication is confirmed, it may indicate that an attacker has achieved sufficient privilege to perform credential harvesting via DCSync or domain persistence via DCShadow. This could lead to full domain compromise and unauthorized access to protected resources.\n\n## Recommendation\n\nSecurity teams should identify and document all legitimate domain controller IP addresses to reduce false positives. Implement monitoring for network traffic using application-aware firewalls or proxies to identify the 'ms-dc-replication', 'drsr', or 'ad drs' applications. Any traffic matching these signatures originating from an unauthorized source should be investigated immediately as a potential security incident.",
+      "published": "2026-11-28T20:41:47.000Z",
+      "labels": [
+        "active-directory",
+        "credential-access",
+        "network",
+        "persistence"
+      ],
+      "object_refs": [
+        "attack-pattern--e9ea7c19-ec08-550c-9d25-526acf94f699",
+        "attack-pattern--f7886161-e8ac-5770-9e23-8097c3994da6",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--43af094f-5a8d-5bc4-a0bd-e9a098874723"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-28-ad-replication-traffic",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ad-replication-traffic/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://adsecurity.org/?p=1729"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1003/006/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1207/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/network/windows_ad_replication_service_traffic.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-28-ad-replication-traffic",
+      "x_craftedsignal_event_id": "brief-2026-11-28-ad-replication-traffic",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ad-replication-traffic/",
+      "x_craftedsignal_activity_at": "2026-11-28T20:41:47.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--8c0a7f26-8323-5b6c-866a-15f7031ea563",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-10T10:17:33.000Z",
@@ -306952,6 +307271,61 @@
       },
       "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a7986f40-f1fa-5949-975f-93513a6c11d3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:42:55.000Z",
+      "modified": "2026-11-28T20:42:55.000Z",
+      "name": "MacOS Network Share Discovery via Administrative Utilities",
+      "description": "## Overview\n\nAdversaries targeting macOS systems may perform internal reconnaissance by enumerating accessible network resources. The utilities smbutil and showmount are native macOS tools that can be leveraged to discover SMB and NFS shares respectively. Monitoring the execution of these processes can help detect potential pre-exploitation reconnaissance or lateral movement attempts within an environment.\n\n## Recommendation\n\n- Deploy the TA-OSquery application to your indexers and universal forwarders to collect process data from endpoint security logs.\n- Enable process auditing on macOS endpoints to capture process creation events for smbutil and showmount.\n- Baseline administrative activity within your environment to tune out false positives associated with legitimate troubleshooting workflows.\n- Review the listed references for detailed configuration steps on setting up process auditing with osquery on macOS.",
+      "published": "2026-11-28T20:42:55.000Z",
+      "labels": [
+        "discovery",
+        "endpoint",
+        "macos"
+      ],
+      "object_refs": [
+        "attack-pattern--9ab89b0b-e512-54ab-b724-618bee6caa38",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-28-macos-network-share-discovery",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-macos-network-share-discovery/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/macos_network_share_discovery.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://leopard-adc.pepas.com/documentation/Darwin/Reference/ManPages/man8/showmount.8.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://osquery.readthedocs.io/en/stable/deployment/process-auditing/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.unix.com/man_page/osx/1/smbutil/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-28-macos-network-share-discovery",
+      "x_craftedsignal_event_id": "brief-2026-11-28-macos-network-share-discovery",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-macos-network-share-discovery/",
+      "x_craftedsignal_activity_at": "2026-11-28T20:42:55.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -375703,6 +376077,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2460058b-d2ae-55ae-8758-94e567a3bdd1",
+      "name": "MOVEit Transfer (2023.0.0-2023.0.10, 2023.1.0-2023.1.5, 2024.0.0-2024.0.1)",
+      "vendor": "Progress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--24747cb8-7126-5da0-bf2b-17209e9ba1ff",
       "name": "Zen 4 CPUs"
     },
@@ -379263,6 +379644,13 @@
       "spec_version": "2.1",
       "id": "software--43844409-0d1c-585c-a302-0e99a92edb42",
       "name": "Red Hat Enterprise Linux 9.0"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--43af094f-5a8d-5bc4-a0bd-e9a098874723",
+      "name": "Active Directory",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -469795,6 +470183,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-133730",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133730"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d0859958-206d-537e-8fbc-d5e3728ce22c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-5806",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-5806",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-5806"
         }
       ]
     },
