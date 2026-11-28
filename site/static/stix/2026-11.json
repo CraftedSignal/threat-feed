@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d1035600-4db5-5201-be67-14444b19f23c",
+  "id": "bundle--7c8d248d-39ff-5e91-84ae-c91192bb9fed",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1813,6 +1813,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--7ad22003-515e-5a37-9b82-4566493c555d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Software Deployment Tools",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1072",
+          "url": "https://attack.mitre.org/techniques/T1072"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--7ad3da72-13f0-5f8b-9a16-e184c5f969a0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3151,6 +3167,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1546.015",
           "url": "https://attack.mitre.org/techniques/T1546/015"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--ea8bc42b-b880-5e53-83de-b5fd4288e6b6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Disk Content Wipe",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1561.001",
+          "url": "https://attack.mitre.org/techniques/T1561/001"
         }
       ]
     },
@@ -42574,6 +42606,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--32666ce8-1989-5c9e-a5fb-840adadd4c81",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:50:22.000Z",
+      "modified": "2026-11-28T20:50:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--95065ea1-e14b-5829-bcda-abd2b8edfca1",
+      "target_ref": "attack-pattern--3866e24b-251c-5409-b390-26f7184d1897"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3266af62-e55d-568d-adb8-f0d9dbf0d8d0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -43087,6 +43130,17 @@
       "relationship_type": "has",
       "source_ref": "software--27f975f4-3c2f-52cb-aa88-bc045f10ad49",
       "target_ref": "vulnerability--81f421e6-84a6-52ce-9c3e-b76b8abe6cf5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--33447a4f-d751-5445-b85a-c9d93792fd8a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:50:02.000Z",
+      "modified": "2026-11-28T20:50:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d334484a-4b27-5da9-ac27-3b805117a4dd",
+      "target_ref": "attack-pattern--e051365d-4c28-5c94-afb1-0ddd8a074fea"
     },
     {
       "type": "relationship",
@@ -56071,6 +56125,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--474dafa4-54ee-56b5-99af-643bf9a9490a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:52:22.000Z",
+      "modified": "2026-11-28T20:52:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--134a04ac-d087-51e0-824c-a960a1c537bc",
+      "target_ref": "attack-pattern--34bdac9c-9765-5c06-9482-d6dc2db4d84d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--47516796-5da5-516a-b127-e68923b039ab",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -62385,6 +62450,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--50608fcc-1e3c-55cf-b7ab-002ecb26c94a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:51:29.000Z",
+      "modified": "2026-11-28T20:51:29.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--dff51c78-8594-5637-99d9-6e6817bc74b2",
+      "target_ref": "attack-pattern--ea8bc42b-b880-5e53-83de-b5fd4288e6b6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--506ca043-dec1-5fb7-a210-e49bb1881b14",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -65076,6 +65152,17 @@
       "relationship_type": "has",
       "source_ref": "software--7d80d01c-06b9-5959-9c89-a20f90c56aab",
       "target_ref": "vulnerability--a1efa1fa-442f-55b7-99b2-4495b282b8bd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--545e4913-b03e-57d9-9e16-3baac6f46d0e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:52:34.000Z",
+      "modified": "2026-11-28T20:52:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c392132c-c254-51ad-ac50-f649b294113e",
+      "target_ref": "attack-pattern--34bdac9c-9765-5c06-9482-d6dc2db4d84d"
     },
     {
       "type": "relationship",
@@ -87366,6 +87453,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--74e5815f-d344-59d1-b10c-67e1ca9a052d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:50:02.000Z",
+      "modified": "2026-11-28T20:50:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d334484a-4b27-5da9-ac27-3b805117a4dd",
+      "target_ref": "attack-pattern--be941290-3e81-5166-aa79-9dcd4c15e5f0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--74e72b6c-d1d9-5a98-ae6c-f5d49cc316b4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -94809,6 +94907,17 @@
       "relationship_type": "has",
       "source_ref": "software--cc677704-8777-5002-a692-7770ab74dfbc",
       "target_ref": "vulnerability--1a5d8772-87da-5f55-ae3a-7165b1e20004"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7f266f23-3c40-5f6f-a475-8e472d770b84",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:51:53.000Z",
+      "modified": "2026-11-28T20:51:53.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--fbb6f119-b960-5ead-9b03-28026e429b9c",
+      "target_ref": "attack-pattern--7ad22003-515e-5a37-9b82-4566493c555d"
     },
     {
       "type": "relationship",
@@ -104449,6 +104558,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8dc057a1-2ea5-5c6b-91d5-471587622c7e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:53:13.000Z",
+      "modified": "2026-11-28T20:53:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0259d74d-d850-588d-80cc-eb1ac0ab9424",
+      "target_ref": "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8dc3eda6-4f7e-5fe2-9747-b45d2d51a969",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -110407,6 +110527,17 @@
       "relationship_type": "has",
       "source_ref": "software--1b3b697d-6e54-5530-a48c-5c018a40bd75",
       "target_ref": "vulnerability--f5980759-7aba-58f2-bdd8-49be910d62b5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9758bb5a-9a0d-5bdc-861b-5f10fb4325d7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:50:02.000Z",
+      "modified": "2026-11-28T20:50:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d334484a-4b27-5da9-ac27-3b805117a4dd",
+      "target_ref": "attack-pattern--7db75a2f-c85d-5f91-89a5-49d8c79eef0e"
     },
     {
       "type": "relationship",
@@ -144115,6 +144246,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c86b71f2-5bda-573c-bad5-45c735257538",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:52:34.000Z",
+      "modified": "2026-11-28T20:52:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c392132c-c254-51ad-ac50-f649b294113e",
+      "target_ref": "attack-pattern--465a38e0-65ed-5b24-b51b-228c2afdc195"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c86c28e2-1ebd-5ba6-a633-e62d9af264b4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -160688,6 +160830,17 @@
       "relationship_type": "has",
       "source_ref": "software--a9309f1f-bb30-5efa-b522-c52383a1bbb9",
       "target_ref": "vulnerability--c96d63aa-6a8f-536e-9874-91ef461e0ae4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e253fd81-ddc4-5371-836a-b70f8caaa673",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:51:53.000Z",
+      "modified": "2026-11-28T20:51:53.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--fbb6f119-b960-5ead-9b03-28026e429b9c",
+      "target_ref": "attack-pattern--118409a1-50c6-53b4-8358-4e00d9675cac"
     },
     {
       "type": "relationship",
@@ -182063,6 +182216,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--0259d74d-d850-588d-80cc-eb1ac0ab9424",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:53:13.000Z",
+      "modified": "2026-11-28T20:53:13.000Z",
+      "name": "Windows AD DSRM Password Reset",
+      "description": "## Overview\nThis analytic detects attempts to reset the Directory Services Restore Mode (DSRM) administrator password on a Domain Controller using Windows Security Event Log code 4794. The DSRM account can function like a local administrator account, providing a mechanism for an attacker to maintain administrative access to the Domain Controller.\n\n## Attack Chain\nAn attacker may attempt to reset the DSRM password to establish long-term persistence on a Domain Controller, effectively bypassing domain-level security policies.\n\n## Impact\nSuccessful exploitation allows an attacker to maintain administrative access to the Domain Controller, posing a severe risk to the security of the Active Directory domain.\n\n## Recommendation\nTo implement this detection, ensure ingestion of Event ID 4794 and verify that the Advanced Security Audit policy 'Audit User Account Management' within 'Account Management' is enabled on Domain Controllers. Investigate identified password resets to distinguish authorized administrative actions from malicious activity.",
+      "published": "2026-11-28T20:53:13.000Z",
+      "labels": [
+        "active-directory",
+        "endpoint",
+        "persistence"
+      ],
+      "object_refs": [
+        "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-28-windows-dsrm-password-reset",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-windows-dsrm-password-reset/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://adsecurity.org/?p=1714"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/388942adbd9641f4dfdcf079d7efe9a75ec0ac43/atomics/T1098/T1098.yaml#L533"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_ad_dsrm_password_reset.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-28-windows-dsrm-password-reset",
+      "x_craftedsignal_event_id": "brief-2026-11-28-windows-dsrm-password-reset",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-windows-dsrm-password-reset/",
+      "x_craftedsignal_activity_at": "2026-11-28T20:53:13.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--0271648f-1f19-5d64-8277-85c26a48ee32",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-20T19:12:02.000Z",
@@ -193831,6 +194035,61 @@
       "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_epss_max": 0.00204,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--134a04ac-d087-51e0-824c-a960a1c537bc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:52:22.000Z",
+      "modified": "2026-11-28T20:52:22.000Z",
+      "name": "O365 Compliance Content Search Exported",
+      "description": "## Overview\n\nThe O365 Compliance Content Search Exported analytic identifies when the results of a content search within the Office 365 Security and Compliance Center are exported. This detection uses the SearchExported operation from the SecurityComplianceCenter workload in the o365_management_activity data source.\n\n## Attack Chain\n\n- The attacker initiates an export of search results from the Office 365 Security and Compliance Center.\n- The operation is recorded as 'SearchExported' in the o365_management_activity logs.\n\n## Impact\n\nIf confirmed malicious, an attacker could gain access to and exfiltrate sensitive information, posing a severe risk to the organization's data security and compliance posture.\n\n## Recommendation\n\nInstall the Splunk Microsoft Office 365 Add-on and ingest Office 365 management activity events. Note that compliance content search exports may be executed for legitimate purposes; filter as needed.",
+      "published": "2026-11-28T20:52:22.000Z",
+      "object_refs": [
+        "attack-pattern--34bdac9c-9765-5c06-9482-d6dc2db4d84d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--908d683e-3f13-544f-8368-9ac4a227f653"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-28-o365-compliance-search-export",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-o365-compliance-search-export/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1114/002/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/cloud/o365_compliance_content_search_exported.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/purview/ediscovery-content-search-overview"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/purview/ediscovery-keyword-queries-and-search-conditions"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/purview/ediscovery-search-for-activities-in-the-audit-log"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-28-o365-compliance-search-export",
+      "x_craftedsignal_event_id": "brief-2026-11-28-o365-compliance-search-export",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-o365-compliance-search-export/",
+      "x_craftedsignal_activity_at": "2026-11-28T20:52:22.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -292639,6 +292898,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--95065ea1-e14b-5829-bcda-abd2b8edfca1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:50:22.000Z",
+      "modified": "2026-11-28T20:50:22.000Z",
+      "name": "Google Cloud Platform: Detecting GCP Storage bucket access from new IP addresses",
+      "description": "## Overview\nThe detection identifies access to GCP Storage buckets from new or previously unseen remote IP addresses. The analytic utilizes GCP Storage bucket-access logs ingested via Cloud Pub/Sub and compares current access events against a lookup table of previously seen IP addresses to detect new connections. This activity may indicate unauthorized access or reconnaissance.\n\n## Attack Chain\nThe detection relies on the collection of storage bucket access logs, which are processed through GCP Cloud Pub/Sub and subsequently analyzed within the Splunk environment to identify new IP sources. This fits within the Data from Cloud Storage (T1530) technique.\n\n## Impact\nIf confirmed malicious, this activity could lead to data exfiltration, unauthorized data manipulation, or further compromise of the GCP environment.\n\n## Recommendation\nTo implement this detection, configure the Splunk Add-on for Google Cloud Platform to ingest GCP Pub/Sub logs and enable storage bucket logging. It is recommended to run the associated correlation search on an hourly basis, 30 minutes past the hour. Tuning is required to mitigate false positives, as GCP Storage buckets can be accessed by any IP if ACLs are configured to allow it.",
+      "published": "2026-11-28T20:50:22.000Z",
+      "object_refs": [
+        "attack-pattern--3866e24b-251c-5409-b390-26f7184d1897",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1ce5f213-2596-5cad-9995-4b445f721b50"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-28-gcp-storage-new-ip",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-gcp-storage-new-ip/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/cloud/detect_gcp_storage_access_from_a_new_ip.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-28-gcp-storage-new-ip",
+      "x_craftedsignal_event_id": "brief-2026-11-28-gcp-storage-new-ip",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gcp-storage-new-ip/",
+      "x_craftedsignal_activity_at": "2026-11-28T20:50:22.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--954569e2-2af8-5d11-8eae-ed5864f33892",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-26T19:50:33.000Z",
@@ -327031,6 +327329,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c392132c-c254-51ad-ac50-f649b294113e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:52:34.000Z",
+      "modified": "2026-11-28T20:52:34.000Z",
+      "name": "Microsoft 365: Detection of privileged email access via security features",
+      "description": "## Overview\n\nThe detection identifies when a user with sufficient access to the Microsoft 365 Security \u0026 Compliance portal uses premium investigation features, specifically Threat Explorer, to directly view email content. Adversaries may exploit privileged access with this feature to enumerate or exfiltrate sensitive data.\n\n## Attack Chain\n\nAdversaries with compromised or unauthorized high-privilege access utilize the \"AdminMailAccess\" operation within the Security \u0026 Compliance Center. This action allows direct visibility into user mailboxes.\n\n## Impact\n\nDirect access to email content can lead to the unauthorized collection and potential exfiltration of sensitive information.\n\n## Recommendation\n\nInstall the Splunk Microsoft Office 365 Add-on and ingest Office 365 management activity events. Note that Threat Explorer is a premium feature, and logging availability depends on your license.",
+      "published": "2026-11-28T20:52:34.000Z",
+      "object_refs": [
+        "attack-pattern--34bdac9c-9765-5c06-9482-d6dc2db4d84d",
+        "attack-pattern--465a38e0-65ed-5b24-b51b-228c2afdc195",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c93f6b03-bd5c-53b2-bfd8-e36e4b1f97f8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-28-o365-admin-mail-access",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-o365-admin-mail-access/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/cloud/o365_email_access_by_security_administrator.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/threat-explorer-investigate-delivered-malicious-email?view=o365-worldwide"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-28-o365-admin-mail-access",
+      "x_craftedsignal_event_id": "brief-2026-11-28-o365-admin-mail-access",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-o365-admin-mail-access/",
+      "x_craftedsignal_activity_at": "2026-11-28T20:52:34.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c3935470-78b1-5d37-aa59-7447d9b5a559",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-25T22:50:55.000Z",
@@ -338842,6 +339184,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d334484a-4b27-5da9-ac27-3b805117a4dd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:50:02.000Z",
+      "modified": "2026-11-28T20:50:02.000Z",
+      "name": "AWS CloudTrail: Detecting password spraying via console authentication failures",
+      "description": "## Overview\n\nThe Splunk ES Content Update analytic (v16) detects password spraying against the AWS Console by using CloudTrail logs to identify anomalies. The detection logic calculates the standard deviation of failed authentication attempts per source IP address over a 10-minute window, triggering an alert when the count exceeds a 3-sigma threshold (defined as greater than 10 attempts and exceeding the calculated upper bound).\n\n## Impact\n\nConfirmed malicious activity of this type indicates an adversary attempting to gain unauthorized access to an AWS environment. Successful exploitation can lead to account takeover, privilege escalation, and subsequent data exposure or infrastructure manipulation.\n\n## Recommendation\n\n- Deploy the Splunk ES analytic provided in the source to detect anomalies in ConsoleLogin failures.\n- Configure the detection bucket span and upper bound threshold to align with the baseline noise levels of your specific AWS environment.\n- Review identified source IPs for suspicious patterns across multiple accounts.\n- Ensure the Splunk Add-on for AWS is correctly configured to ingest CloudTrail logs.",
+      "published": "2026-11-28T20:50:02.000Z",
+      "labels": [
+        "aws",
+        "cloud",
+        "credential-access",
+        "threat-detection"
+      ],
+      "object_refs": [
+        "attack-pattern--7db75a2f-c85d-5f91-89a5-49d8c79eef0e",
+        "attack-pattern--be941290-3e81-5166-aa79-9dcd4c15e5f0",
+        "attack-pattern--e051365d-4c28-5c94-afb1-0ddd8a074fea",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--533ba9ad-4f34-58e7-b701-30a23e8dbf5a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-28-aws-unusual-failed-auth",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-aws-unusual-failed-auth/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1110/003/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/cloud/aws_unusual_number_of_failed_authentications_from_ip.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-28-aws-unusual-failed-auth",
+      "x_craftedsignal_event_id": "brief-2026-11-28-aws-unusual-failed-auth",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-aws-unusual-failed-auth/",
+      "x_craftedsignal_activity_at": "2026-11-28T20:50:02.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d345bdc2-f812-5f80-946b-1f050bf7287b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-11T22:09:28.000Z",
@@ -349050,6 +349443,63 @@
       "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_epss_max": 0.00737,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--dff51c78-8594-5637-99d9-6e6817bc74b2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:51:29.000Z",
+      "modified": "2026-11-28T20:51:29.000Z",
+      "name": "Microsoft Intune: Bulk device wipe detection",
+      "description": "## Overview\nThe Microsoft Intune Bulk Wipe detection analytic identifies a high volume of 'wipe ManagedDevice' events originating from the Intune admin portal. By default, the detection triggers when a user initiates five or more wipe requests within a one-hour period using Azure Monitor Activity logs.\n\n## Attack Chain\nThe 'wipe ManagedDevice' action initiates a factory reset on Intune-enrolled endpoints. An attacker with sufficient permissions can abuse this function to perform a large-scale data wiping attack against managed assets.\n\n## Impact\nSuccessful abuse of this action results in the remote factory reset of endpoints, leading to significant data loss and operational disruption.\n\n## Recommendation\nTo implement this detection, ensure the Splunk Add-on for Microsoft Cloud Services is configured to ingest Intune audit logs via Azure EventHub. Configuration requires navigating to Intune \u003e Tenant administration \u003e Diagnostic settings \u003e Add diagnostic settings, and directing events to the activity audit event hub. The threshold should be adjusted based on the organization's baseline for legitimate administrative activity, such as device offboarding or theft response.",
+      "published": "2026-11-28T20:51:29.000Z",
+      "labels": [
+        "azure",
+        "cloud",
+        "data-wiping",
+        "intune"
+      ],
+      "object_refs": [
+        "attack-pattern--ea8bc42b-b880-5e53-83de-b5fd4288e6b6",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0399dd77-d36c-5aa0-aa71-7aabee402535"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-28-microsoft-intune-bulk-wipe",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-microsoft-intune-bulk-wipe/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/cloud/microsoft_intune_bulk_wipe.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.covertswarm.com/post/swarm-intelligence-strykers-intune-wipe-proves-your-bcdr-plan-has-a-single-point-of-failure"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.lumos.com/blog/stryker-hack"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.wwt.com/blog/how-the-stryker-intune-wipe-incident-highlights-a-critical-gap-in-endpoint-control"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-28-microsoft-intune-bulk-wipe",
+      "x_craftedsignal_event_id": "brief-2026-11-28-microsoft-intune-bulk-wipe",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-microsoft-intune-bulk-wipe/",
+      "x_craftedsignal_activity_at": "2026-11-28T20:51:29.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -368863,6 +369313,64 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--fbb6f119-b960-5ead-9b03-28026e429b9c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T20:51:53.000Z",
+      "modified": "2026-11-28T20:51:53.000Z",
+      "name": "Microsoft Intune: Device management configuration policy abuse",
+      "description": "## Overview\n\nMicrosoft Intune device management configuration policies allow administrators to remotely manage settings on enrolled devices. Security research identifies this functionality as a potential vector for threat actors to manipulate device security configurations, disable defensive controls, and move laterally within a target's cloud environment. Attackers may create, patch, delete, or assign policies to reduce an organization's security posture.\n\n## Impact\n\nAdversaries can gain unauthorized control over managed devices by modifying policy settings, leading to the potential for credential harvesting, persistence, and defense evasion. The impact includes the weakening of security controls on enterprise endpoints through administrative configuration interfaces.\n\n## Recommendation\n\nOrganizations should monitor Azure Monitor Activity logs for any changes to DeviceManagementConfigurationPolicy objects. The Splunk Add-on for Microsoft Cloud Services is required to ingest In-Tune audit logs via Azure EventHub. Configuration requires sending logs from the Intune Tenant administration diagnostic settings to an Azure activity audit event hub.",
+      "published": "2026-11-28T20:51:53.000Z",
+      "labels": [
+        "audit",
+        "cloud",
+        "intune",
+        "lateral-movement"
+      ],
+      "object_refs": [
+        "attack-pattern--118409a1-50c6-53b4-8358-4e00d9675cac",
+        "attack-pattern--7ad22003-515e-5a37-9b82-4566493c555d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--af616907-e2f4-5efe-93b6-66d83dd921cf"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-28-microsoft-intune-policy-abuse",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-microsoft-intune-policy-abuse/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/cloud/microsoft_intune_devicemanagementconfigurationpolicies.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://posts.specterops.io/death-from-above-lateral-movement-from-azure-to-on-prem-ad-d18cb3959d4d"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://posts.specterops.io/maestro-9ed71d38d546"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://securityintelligence.com/x-force/detecting-intune-lateral-movement/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-28-microsoft-intune-policy-abuse",
+      "x_craftedsignal_event_id": "brief-2026-11-28-microsoft-intune-policy-abuse",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-microsoft-intune-policy-abuse/",
+      "x_craftedsignal_activity_at": "2026-11-28T20:51:53.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fbbc236f-b71c-5432-a445-19afeb27bf42",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-16T18:34:49.000Z",
@@ -372674,6 +373182,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0399dd77-d36c-5aa0-aa71-7aabee402535",
+      "name": "Intune",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--039a86dc-b63c-5498-ab3c-93072c4178e4",
       "name": "Red Hat Update Infrastructure 5"
     },
@@ -375560,6 +376075,13 @@
       "id": "software--1cdab5c0-9bb5-5042-916b-276319d62a18",
       "name": "ChatCLI (\u003c 1.215.2)",
       "vendor": "ChatCLI"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--1ce5f213-2596-5cad-9995-4b445f721b50",
+      "name": "GCP Storage",
+      "vendor": "Google"
     },
     {
       "type": "software",
@@ -381823,6 +382345,13 @@
       "id": "software--5322db92-277b-54cc-a989-016a998ad32c",
       "name": "Orphans (\u003c= 3.4.5)",
       "vendor": "iworks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--533ba9ad-4f34-58e7-b701-30a23e8dbf5a",
+      "name": "AWS",
+      "vendor": "Amazon"
     },
     {
       "type": "software",
@@ -388932,6 +389461,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--908d683e-3f13-544f-8368-9ac4a227f653",
+      "name": "Office 365"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--90a05f0f-2959-50f7-a808-17d0a38f4631",
       "name": "BuddyForms (\u003c= 2.10.5)",
       "vendor": "BuddyForms"
@@ -392370,6 +392905,13 @@
       "id": "software--af60a677-f464-50ce-971c-466cb9943ff8",
       "name": "Erlang/OTP (\u003e= 29.0, \u003c 29.0.4)",
       "vendor": "Erlang"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--af616907-e2f4-5efe-93b6-66d83dd921cf",
+      "name": "Microsoft Intune",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
