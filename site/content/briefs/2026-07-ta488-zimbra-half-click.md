@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-07-ta488-zimbra-half-click
 event_id: brief-2026-07-ta488-zimbra-half-click
-revision: 2
-activity_at: "2026-11-28T11:38:08Z"
+revision: 3
+activity_at: "2026-11-28T12:37:06Z"
 revision_history:
   - revision: 2
     at: "2026-11-28T11:38:08Z"
@@ -28,11 +28,21 @@ revision_history:
       - updates
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-AC8999-CVE-2025-49113&utm_source=rss&utm_medium=rss
+  - revision: 3
+    at: "2026-11-28T12:37:06Z"
+    checksum: sha256:a3ea3a8cf0ba283c881ff8035aadbd969a74a7d5d367eef1c85974a10ecfb534
+    summary: KEV CVE-2025-66376
+    changed_fields:
+      - cves
+      - lastmod
+      - updates
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 title: 'Roundcube Webmail: Remote code execution via PHP object deserialization (CVE-2025-49113)'
 slug: 2026-07-ta488-zimbra-half-click
 description: Roundcube Webmail versions prior to 1.5.10 and 1.6.11 contain a deserialization vulnerability in upload.php that enables remote code execution by authenticated users.
 date: "2026-07-23T14:04:47Z"
-lastmod: "2026-11-28T11:37:41Z"
+lastmod: "2026-11-28T12:36:32Z"
 type: threat
 types:
   - threat
@@ -173,7 +183,8 @@ cves:
   - id: CVE-2025-66376
     cvss: 7.2
     epss: 0.12009
-    kev_status: unknown
+    kev: true
+    kev_status: "true"
   - id: CVE-2026-8496
     cvss: 6.1
     epss: 0.00283
@@ -250,6 +261,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-AC8999-CVE-2025-49113&utm_source=rss&utm_medium=rss
+  - at: "2026-11-28T12:36:32Z"
+    level: L3
+    summary: KEV CVE-2025-66376
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ---
 
 ## Overview
