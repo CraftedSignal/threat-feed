@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5053effa-c9bd-5b90-a590-ef36647c1a6c",
+  "id": "bundle--93180315-d69c-5aed-b7d0-5e859b9c2eda",
   "objects": [
     {
       "type": "attack-pattern",
@@ -57048,6 +57048,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d5fe65-0fe6-5da5-8b9e-f86e108b3bb1",
       "target_ref": "vulnerability--f24d2807-ec3b-51e4-ab7e-d602aeac35e0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--49009115-37ab-5e6f-b567-64663636434e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c066d42c-39ed-5610-9f38-fc4979d65e92",
+      "target_ref": "vulnerability--8dede23c-126e-5bd2-b014-4b2f9d21d95a"
     },
     {
       "type": "relationship",
@@ -127679,6 +127690,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--b8e48ea7-7dab-590e-b904-aaea9eca6cce"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b0d3f817-c513-5e2c-99b1-afdd93c01b1c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T11:37:49.000Z",
+      "modified": "2026-11-28T11:37:49.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8d0d7bd4-78d2-5b91-8ef7-4c7074487ca1",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -285893,6 +285915,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8d0d7bd4-78d2-5b91-8ef7-4c7074487ca1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T11:37:49.000Z",
+      "modified": "2026-11-28T11:37:49.000Z",
+      "name": "Elementor Website Builder: Authenticated Remote Code Execution (CVE-2022-1329)",
+      "description": "## Overview\nElementor Website Builder versions 3.6.0 through 3.6.2 are vulnerable to remote code execution (RCE) due to a missing capability check in the onboarding module (located in ~/core/app/modules/onboarding/module.php). This vulnerability allows any authenticated user, including those with subscriber-level access, to upload and execute arbitrary PHP files by triggering the 'elementor_upload_and_install_pro' AJAX action. \n\n## Attack Chain\n1. Attacker obtains a valid user session on the target WordPress site.\n2. Attacker retrieves the required AJAX nonce by inspecting the /wp-admin page.\n3. Attacker crafts a ZIP archive containing a nested 'elementor-pro' directory with a 'elementor-pro.php' file containing the malicious PHP payload.\n4. Attacker submits an HTTP POST request to /wp-admin/admin-ajax.php using the 'elementor_upload_and_install_pro' action, including the crafted ZIP file and the valid nonce.\n5. The plugin extracts and activates the malicious payload, which the server then executes.\n\n## Impact\nSuccessful exploitation results in full remote code execution on the underlying server, enabling an attacker to modify site data or potentially execute further malicious activity.\n\n## Recommendation\nUpgrade the Elementor Website Builder plugin to version 3.6.3 or newer immediately. Organizations should restrict administrative access and audit user accounts to ensure only authorized users have access to the WordPress dashboard.",
+      "published": "2026-11-28T11:37:49.000Z",
+      "labels": [
+        "remote-code-execution",
+        "vulnerability",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c066d42c-39ed-5610-9f38-fc4979d65e92",
+        "vulnerability--8dede23c-126e-5bd2-b014-4b2f9d21d95a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-28-elementor-rce-cve-2022-1329",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-elementor-rce-cve-2022-1329/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2022-1329"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-PHANTHIBICHTRAM12-CVE-2022-1329"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-PHANTHIBICHTRAM12-CVE-2022-1329\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-28-elementor-rce-cve-2022-1329",
+      "x_craftedsignal_event_id": "brief-2026-11-28-elementor-rce-cve-2022-1329",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-elementor-rce-cve-2022-1329/",
+      "x_craftedsignal_activity_at": "2026-11-28T11:37:49.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.72897,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--8d1af68d-1fb8-5341-a92e-eeb6682f171d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-15T13:27:25.000Z",
@@ -392940,6 +393017,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c066d42c-39ed-5610-9f38-fc4979d65e92",
+      "name": "Elementor Website Builder (3.6.0-3.6.2)",
+      "vendor": "Elementor"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c074a122-2079-5d9c-bb5b-9dcc29ad96f3",
       "name": "Forminator Forms – Contact Form, Payment Form \u0026 Custom Form Builder (\u003c= 1.58.4)",
       "vendor": "WPMU DEV"
@@ -446268,6 +446352,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96984",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96984"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8dede23c-126e-5bd2-b014-4b2f9d21d95a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2022-1329",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2022-1329",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-1329"
         }
       ]
     },
