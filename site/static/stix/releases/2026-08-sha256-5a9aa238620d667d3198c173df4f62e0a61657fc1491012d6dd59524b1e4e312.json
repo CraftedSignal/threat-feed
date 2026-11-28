@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7861770d-5fa5-518b-8cab-f726d4b06ae0",
+  "id": "bundle--21287505-6640-5cd7-a2e1-3ee6f69c7a84",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1671,17 +1671,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--5f5df657-a240-5cd7-bd07-020afa80c5e9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-29T23:50:09.000Z",
-      "modified": "2026-08-29T23:50:09.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--2d5eb1df-84a2-5252-96fd-a911b9fa8341",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--5f7009c6-d686-53a7-9896-e121836cd01b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-30T17:11:37.000Z",
@@ -3242,17 +3231,6 @@
       "target_ref": "indicator--d1ef82a7-585e-5de8-b98b-6fbed6e4b7fc"
     },
     {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ffa374c0-db6c-5ed8-9e90-a97294c6e9b7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--d4b5de17-8026-5b56-849a-06c5d96309b2",
-      "target_ref": "vulnerability--4f277378-78ff-54c6-ac16-42adc4c5b980"
-    },
-    {
       "type": "report",
       "spec_version": "2.1",
       "id": "report--03d6d979-56fb-547d-ac98-26ddd3e084e7",
@@ -3854,52 +3832,6 @@
       },
       "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--2d5eb1df-84a2-5252-96fd-a911b9fa8341",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-29T23:50:09.000Z",
-      "modified": "2026-08-29T23:50:09.000Z",
-      "name": "Local Privilege Escalation in Linux Kernel via CVE-2019-13272",
-      "description": "## Overview\n\nCVE-2019-13272 is a local privilege escalation vulnerability affecting Linux kernel versions prior to 5.1.17. The flaw resides in the ptrace_link function within kernel/ptrace.c, where the kernel mishandles the recording of credentials during the establishment of a ptrace relationship. An unprivileged local user can exploit this behavior by creating a specific parent-child process relationship where the parent drops privileges and calls execve, allowing an attacker to exert control. The exploit leverages privileged tracing through mechanisms such as the PTRACE_TRACEME request, often targeting setuid binaries like pkexec to obtain root-level execution. The recent publication of functional proof-of-concept code on Sploitus has significantly increased the risk of exploitation for legacy and unpatched systems.\n\n## Attack Chain\n\n1. The attacker gains initial access to the target system as a low-privileged user.\n2. The attacker identifies or executes a vulnerable target binary (e.g., /usr/bin/pkexec or similar suid-privileged helpers).\n3. The attacker initiates a ptrace relationship using the PTRACE_TRACEME request targeting the chosen helper.\n4. The parent process drops privileges while keeping the ptrace relationship active.\n5. The parent process calls execve, triggering the ptrace_link credential mishandling in the kernel.\n6. The kernel incorrectly records the credentials, allowing the child process to retain or gain elevated root privileges.\n7. The attacker interacts with the now-privileged process to spawn a root shell.\n\n## Impact\n\nSuccessful exploitation of CVE-2019-13272 results in full local privilege escalation, granting an attacker complete control over the affected system. This vulnerability is highly dangerous in multi-user environments, shared hosting, or containers where local users could compromise the host or other tenants.\n\n## Recommendation\n\nPrioritize patching Linux kernels to version 5.1.17 or later on all exposed systems. In environments where immediate kernel updates are not feasible, consider implementing the SELinux 'deny_ptrace' policy to restrict the ability of processes to trace one another, which can mitigate the exploitation vector of this vulnerability.\n",
-      "published": "2026-08-29T23:50:09.000Z",
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--d4b5de17-8026-5b56-849a-06c5d96309b2",
-        "vulnerability--4f277378-78ff-54c6-ac16-42adc4c5b980"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-cve-2019-13272",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2019-13272/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://bugs.chromium.org/p/project-zero/issues/detail?id=1903"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JAS502N-CVE-2019-13272"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-cve-2019-13272",
-      "x_craftedsignal_event_id": "brief-2026-08-cve-2019-13272",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2019-13272/",
-      "x_craftedsignal_activity_at": "2026-08-29T23:50:09.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.8,
-      "x_craftedsignal_epss_max": 0.52199,
-      "x_craftedsignal_kev_status": "true"
     },
     {
       "type": "report",
@@ -7627,12 +7559,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--d4b5de17-8026-5b56-849a-06c5d96309b2",
-      "name": "Linux Kernel (\u003c 5.1.17)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--d64b41e9-2d05-55a7-8e36-eefa47405624",
       "name": "E1200 (\u003c= 2.0.04)",
       "vendor": "Linksys"
@@ -7989,22 +7915,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-82659",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82659"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--4f277378-78ff-54c6-ac16-42adc4c5b980",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2019-13272",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2019-13272",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-13272"
         }
       ]
     },

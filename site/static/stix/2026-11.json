@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--dfb0177b-e6b9-5f51-8515-fa28d538c10c",
+  "id": "bundle--04a5bffa-9d5d-5b80-993a-9e718bb4c987",
   "objects": [
     {
       "type": "attack-pattern",
@@ -54313,6 +54313,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--44f6e028-f852-57cf-bdc4-191de53f77dc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d2518a98-945c-52f1-960a-08a1907fa3df",
+      "target_ref": "vulnerability--a65c3dab-a0be-50d3-96ad-f5cfb0d1e06b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--450205a8-6acc-5deb-aeec-afc987b87c19",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -89777,6 +89788,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--78d3711b-3d89-5070-9e42-796a58b5c82e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T01:17:42.000Z",
+      "modified": "2026-11-28T01:17:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6b917446-59bd-55c9-8f14-169cd2e2402f",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--78d5565a-c7ae-5a09-a8be-9eef02531aad",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -108627,6 +108649,17 @@
       "relationship_type": "has",
       "source_ref": "software--d880a60d-258f-5b61-adfe-4035c4740237",
       "target_ref": "vulnerability--fcdc0735-3288-5124-93d1-bed320f894e3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9505a610-8686-5bcd-8e18-260cd38907b0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3e89dff7-91aa-5d3a-b50a-805ff671a090",
+      "target_ref": "vulnerability--a65c3dab-a0be-50d3-96ad-f5cfb0d1e06b"
     },
     {
       "type": "relationship",
@@ -178631,6 +178664,17 @@
       "relationship_type": "has",
       "source_ref": "software--d5afe796-a0f6-5615-8be2-774b4409c7cc",
       "target_ref": "vulnerability--24dc0af3-c3e6-5310-a135-1458ec291000"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fe23a566-749e-5d48-82cd-cd6d41eed473",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T01:17:42.000Z",
+      "modified": "2026-11-28T01:17:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6b917446-59bd-55c9-8f14-169cd2e2402f",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -260730,6 +260774,53 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--6b917446-59bd-55c9-8f14-169cd2e2402f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T01:17:42.000Z",
+      "modified": "2026-11-28T01:17:42.000Z",
+      "name": "TRENDnet TEW series: Remote OS command injection (CVE-2026-138004)",
+      "description": "## Overview\nA remote command injection vulnerability exists in the soapcgi_main function within /soap.cgi on TRENDnet TEW-751DR and TEW-733GR routers (version 1.03B01). Attackers can manipulate the service argument in the UPnP IGD Control Endpoint to execute arbitrary OS commands. The vulnerability is publicly documented with a proof-of-concept exploit.\n\n## Impact\nThis vulnerability allows unauthenticated, remote attackers to achieve full system control over the affected network devices, resulting in critical impact to confidentiality, integrity, and availability.\n\n## Recommendation\n- Immediately restrict access to the UPnP IGD Control Endpoint and the /soap.cgi interface on all internet-facing TRENDnet TEW-751DR and TEW-733GR devices.\n- Monitor network traffic for unusual HTTP requests targeting /soap.cgi, specifically monitoring for command injection payloads within the service argument.\n- No manufacturer-provided security patch for this vulnerability is currently listed in primary advisory sources; monitor vendor support channels for available updates.",
+      "published": "2026-11-28T01:17:42.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3e89dff7-91aa-5d3a-b50a-805ff671a090",
+        "software--d2518a98-945c-52f1-960a-08a1907fa3df",
+        "vulnerability--a65c3dab-a0be-50d3-96ad-f5cfb0d1e06b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-28-trendnet-tew-command-injection-cve-2026-138004",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-trendnet-tew-command-injection-cve-2026-138004/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-138004"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-138004"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-28-trendnet-tew-command-injection-cve-2026-138004",
+      "x_craftedsignal_event_id": "brief-2026-11-28-trendnet-tew-command-injection-cve-2026-138004",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-trendnet-tew-command-injection-cve-2026-138004/",
+      "x_craftedsignal_activity_at": "2026-11-28T01:17:42.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -377439,6 +377530,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3e89dff7-91aa-5d3a-b50a-805ff671a090",
+      "name": "TEW-733GR (1.03B01)",
+      "vendor": "TRENDnet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3e9683a2-d5f7-533d-91e5-465aaac9f42b",
       "name": "AgentScope (\u003c= 2.0.8)",
       "vendor": "agentscope-ai"
@@ -454278,6 +454376,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-130697",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130697"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a65c3dab-a0be-50d3-96ad-f5cfb0d1e06b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-138004",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-138004",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-138004"
         }
       ]
     },
