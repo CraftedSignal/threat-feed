@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--04a5bffa-9d5d-5b80-993a-9e718bb4c987",
+  "id": "bundle--888dd564-4f11-5a92-b9e5-7a204dbf5c04",
   "objects": [
     {
       "type": "attack-pattern",
@@ -352587,6 +352587,46 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-com-object-hijacking/",
       "x_craftedsignal_activity_at": "2026-11-10T08:46:59.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--e7fc4544-6b11-5f1b-bc66-d53788a11b22",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T01:41:35.000Z",
+      "modified": "2026-11-28T01:41:35.000Z",
+      "name": "AppX Located in Known Staging Directory Added to Deployment Pipeline",
+      "description": "## Overview\nThis rule identifies when an AppX package is added to the \"to be processed\" pipeline of the Windows AppX deployment server (Event ID 854) from folders frequently used as staging directories.\n\n## Attack Chain\nAttackers may use staging directories to host payloads before deployment to evade detection or facilitate malicious execution via the Windows AppX mechanism.\n\n## Impact\nSuccessful identification of these events indicates a potential attempt to deploy unauthorized or malicious AppX packages.\n\n## Recommendation\nMonitor Event ID 854 for packages originating from identified staging directories. Investigate the provenance and purpose of any packages flagged by this rule.",
+      "published": "2026-11-28T01:41:35.000Z",
+      "labels": [
+        "attack.stealth"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-28-appx-deployment-staging",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-appx-deployment-staging/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/appxdeployment_server/win_appxdeployment_server_appx_package_in_staging_directory.yml"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-28-appx-deployment-staging",
+      "x_craftedsignal_event_id": "brief-2026-11-28-appx-deployment-staging",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-appx-deployment-staging/",
+      "x_craftedsignal_activity_at": "2026-11-28T01:41:35.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
