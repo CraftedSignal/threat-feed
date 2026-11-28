@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d80112f3-006f-5f2a-9c33-d55563045a0f",
+  "id": "bundle--8bbf72b8-e6a5-5639-8aa1-ddd24fff1eef",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9781,6 +9781,17 @@
       "relationship_type": "uses",
       "source_ref": "report--66ddd339-4fdf-53e5-a679-da38535a8ab5",
       "target_ref": "indicator--f6020d08-1042-5a5a-af37-c4b1371c128f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0311182b-37c7-5a8c-8ba9-e113f98a521a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7c777edf-4847-518a-aaab-6c16dd10c2d2",
+      "target_ref": "vulnerability--b6731be5-2ac0-5f08-85d2-d43434ab222e"
     },
     {
       "type": "relationship",
@@ -102038,6 +102049,17 @@
       "relationship_type": "has",
       "source_ref": "software--02091b8b-3d48-54f2-b361-0d74a2675a99",
       "target_ref": "vulnerability--5056c6a9-e48e-5217-ac32-2c56217b5084"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8a0a06b6-731d-52a9-a05d-5abd739ebd19",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--785cafb0-1aed-5d18-b6f7-5bea90c27ad1",
+      "target_ref": "vulnerability--b6731be5-2ac0-5f08-85d2-d43434ab222e"
     },
     {
       "type": "relationship",
@@ -209521,6 +209543,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--28527ad6-b109-59f9-a23d-fdce9df51a05",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-28T19:25:47.000Z",
+      "modified": "2026-11-28T19:25:47.000Z",
+      "name": "uvwt agentdock: Authentication bypass in Runtime Management API (CVE-2026-138077)",
+      "description": "## Overview\nA security flaw exists in the uvwt agentdock Runtime Management API component, specifically within the runtimeAPIHandler function in the file internal/httpx/runtime_api.go. The vulnerability allows for remote authentication bypass through manipulation of the API endpoint. This issue affects agentdock versions up to and including 1.1.1.\n\n## Impact\nSuccessful exploitation allows an unauthenticated remote attacker to bypass authentication requirements. The vulnerability carries a CVSS v3.1 base score of 7.3.\n\n## Recommendation\n- Apply the patch identified by commit hash 69cc02fabbd35f980d471d67306a035f9a5c9a9e.",
+      "published": "2026-11-28T19:25:47.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--785cafb0-1aed-5d18-b6f7-5bea90c27ad1",
+        "software--7c777edf-4847-518a-aaab-6c16dd10c2d2",
+        "vulnerability--b6731be5-2ac0-5f08-85d2-d43434ab222e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-28-agentdock-auth-bypass-cve-2026-138077",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-agentdock-auth-bypass-cve-2026-138077/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cveawg.mitre.org/api/cve/CVE-2026-138077"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-138077"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-28-agentdock-auth-bypass-cve-2026-138077",
+      "x_craftedsignal_event_id": "brief-2026-11-28-agentdock-auth-bypass-cve-2026-138077",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-agentdock-auth-bypass-cve-2026-138077/",
+      "x_craftedsignal_activity_at": "2026-11-28T19:25:47.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -385338,6 +385405,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--785cafb0-1aed-5d18-b6f7-5bea90c27ad1",
+      "name": "agentdock (= 1.1.0)",
+      "vendor": "uvwt"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--78878f68-d2da-5654-b2fa-3608a2d385ad",
       "name": "Event Tickets",
       "vendor": "Liquid Web / StellarWP"
@@ -385720,6 +385794,13 @@
       "id": "software--7c56fa6a-c4d7-5f64-b84b-c982cda54be0",
       "name": "SAP Cloud SDK for Python",
       "vendor": "SAP"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--7c777edf-4847-518a-aaab-6c16dd10c2d2",
+      "name": "agentdock (= 1.1.1)",
+      "vendor": "uvwt"
     },
     {
       "type": "software",
@@ -460962,6 +461043,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114425",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114425"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b6731be5-2ac0-5f08-85d2-d43434ab222e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-138077",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-138077",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-138077"
         }
       ]
     },
